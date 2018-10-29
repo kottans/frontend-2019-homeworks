@@ -6,7 +6,7 @@ This repo was created for students to submit their homeworks for review.
 - in your fork, add folder with your github name under  `submissions` (if you haven't yet)
 - in your fork, under your name folder, add a folder with task name and put your code in the folder
 
-  See example file structure you expected to have below:
+  See example file structure you are expected to have below:
 
   ![File structure example](img/file-structure.png)
 
