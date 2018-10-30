@@ -1,13 +1,3 @@
-window.onload = () => {
-    router();
-    controller();
-}
-
-const main_body = document.querySelector('body');
-const main_html = document.querySelector('html');
-const main_page = document.getElementById('main-page');
-const kottans = document.getElementById('kottans');
-
 let pages = {
     kottans: {
         text: '<div class="content"><article class="markdown-body entry-content" itemprop="text"><p><a href="https://github.com/Kottans/web/blob/master/LICENSE.md"><img src="https://camo.githubusercontent.com/890acbdcb87868b382af9a4b1fac507b9659d9bf/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d626c75652e737667" alt="MIT Licensed" data-canonical-src="https://img.shields.io/badge/license-MIT-blue.svg" style="max-width:100%;"></a> <a href="https://docs.google.com/spreadsheets/d/1bZJhYjK3VHOS2HmQb2Fs4aHfEBt8mp1F09j9nEEDaqE/edit#gid=818017811" rel="nofollow"><img src="https://camo.githubusercontent.com/b64021a324b1d3852cda3386efe0c970fd93d72b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f676f6f676c652d2d646f632d69646561732d6666363962342e737667" alt="Ideas and useful links" data-canonical-src="https://img.shields.io/badge/google--doc-ideas-ff69b4.svg" style="max-width:100%;"></a> <a href="https://github.com/sindresorhus/awesome#front-end-development"><img src="https://camo.githubusercontent.com/13c4e50d88df7178ae1882a203ed57b641674f94/68747470733a2f2f63646e2e7261776769742e636f6d2f73696e647265736f726875732f617765736f6d652f643733303566333864323966656437386661383536353265336136336531353464643865383832392f6d656469612f62616467652e737667" alt="Awesome" data-canonical-src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" style="max-width:100%;"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <h1><a id="user-content-front-end-course" class="anchor" aria-hidden="true" href="#front-end-course"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Front-End Course</h1> <p>The course contains basics of front-end development: HTML, CSS, JS, and front-end frameworks.</p> <p>We plan to decrease the amount of lectures in favor of collective discussions, team projects &amp; collective work. And give all power &amp; responsibility to students.</p> <p>You can use these materials for self-education as well.</p> <h3><a id="user-content-admission" class="anchor" aria-hidden="true" href="#admission"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Admission</h3> <p>Admission for the course is open until enough applicants have successfully completed the tasks (approximately 30 students). Which means, that completing the tasks faster increases your chances to get into the course.</p> <p>If you have any questions you can ask us in one of our chats.</p> <h3><a id="user-content-what-you-will-learn" class="anchor" aria-hidden="true" href="#what-you-will-learn"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What you will learn</h3> <ol> <li>Git, github basics, writing good commit messages</li> <li>Linux, command line basics, network basics</li> <li>HTML, CSS</li> <li>JS basics</li> <li>Build a bunch of test projects</li> <li>Have fun together</li> </ol> <h3><a id="user-content-general-requirements" class="anchor" aria-hidden="true" href="#general-requirements"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>General Requirements</h3> <ol> <li> <p><strong>English knowledge:</strong> a lot of the materials will be in English. If you do not feel confident enough in your technical English, take a look at <a href="https://github.com/web-standards-ru/dictionary"><g-emoji class="g-emoji" alias="books" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4da.png">📚</g-emoji> Словари по фронтенду</a></p> </li> <li> <p><strong>Repository on GitHub</strong> to save your progress. More about repositories in <em>Task 0</em>.</p> </li> <li> <p><strong>Formatting:</strong> it is up to you but remember to make it readable. Using <a href="https://help.github.com/categories/writing-on-github/">markdown</a> is a good idea.</p> </li> <li> <p><strong>Reading:</strong> for each article you are required to read please post the answers to the following questions in your respective repo. Do not worry, your answers will not be graded. It is just a way to reflect on what you have learned.</p> <ul> <li>name (at least) one thing that was new to you</li> <li>name (at least) one thing that surprised you</li> <li>name (at least) one thing you intend to use in the future</li> </ul> </li> <li> <p><strong>Online courses:</strong> finish all tasks, add some reflection about them into <em>README</em>.</p> </li> <li> <p><strong>Videos:</strong> same as for the reading; watch the video — answer three questions.</p> </li> </ol> <h3><a id="user-content-chats" class="anchor" aria-hidden="true" href="#chats"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Chats</h3> <p>For your comfort we have created several chats in the telegram:</p> <ol> <li><a href="https://t.me/joinchat/DmX0JBHVkEhV1us2HdMmpA" rel="nofollow">FE Students | Kottans</a> - chat for students, where you can discuss anything related to the current course</li> <li><a href="https://t.me/joinchat/DmX0JAl-mh5W0jrWli8Ycw" rel="nofollow">FE Questionarium | Kottans</a> - if you need a help of one of the mentors, or maybe from all of them simultaneously, you can ask it there</li> <li><a href="https://t.me/kottans" rel="nofollow">Kottans</a> - and our main chat</li> </ol> <h3><a id="user-content-ready" class="anchor" aria-hidden="true" href="#ready"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ready?</h3> <p><g-emoji class="g-emoji" alias="arrow_right" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/27a1.png">➡️</g-emoji> <strong>Lets begin!</strong> Go forward to <a href="/kottans/frontend/blob/master/tasks/git-intro.md">Git and GitHub Intro</a></p> <p><g-emoji class="g-emoji" alias="arrow_right" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/27a1.png">➡️</g-emoji> Read course plan in <a href="/kottans/frontend/blob/master/contents.md">Contents</a></p> <hr> <h3><a id="user-content-ps-you-should-know" class="anchor" aria-hidden="true" href="#ps-you-should-know"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>P.S. You should know</h3> <p>If you are willing to participate in the course, you need to understand that you’ll spend a lot of time building something big together — a new way of learning and collaborating. You’ll become part of a small family and should prepare yourself to find new friends and to invest a lot in this friendship (as you should in any friendship).</p> <p>Final task of this course will be to split into groups and create new courses like that (and we’ll never stop).</p> <h4><a id="user-content-our-basic-rules" class="anchor" aria-hidden="true" href="#our-basic-rules"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Our basic rules</h4> <ul> <li>Respect each other.</li> <li><a href="https://en.wikipedia.org/wiki/No_such_thing_as_a_stupid_question" rel="nofollow">There is no such thing as a stupid question</a>.</li> <li>Each person learns with their own speed, has different background and personality, please respect this.</li> <li>Communicating and understanding people that are different from you can be beneficial to both parties, provided mutual respect.</li> <li>We are against any discriminations by gender, age, the color of skin, disabilities or any other.</li> <li>We respect intellectual property - there is hard work of an author or a group of authors behind all materials that we use.</li> </ul> </article></div>',
@@ -21,64 +11,4 @@ let pages = {
     about: {
         text: '<div class="content"><h2>Crafted to inspire.<br/> Knowledge must be shared.</h2><h3>Who we are.</h3><p>We are community of developers that love to code and help each other.We are looking for smart, friendly, self-directed and intellectually curious people who enjoy programming and want to get significantly better.</p><p>We are community of developers that love to code and help each other. We are looking for smart, friendly, self-directed and intellectually curious people who enjoy programming and want to get significantly better.We are passionate about programming and think that everybody can pick it up or switch to the different field at any time they want, given some amount of motivation, dedication and hard work. Nevertheless, doing that on ones own can be challenging when it comes to continuing without support from surrounding people, such situation really beats the motivation, especially when encountering either boring or impossible to do (at first glance) task or illogical aspect of programming language you can not just grasp. That is the reason behind us getting together and sharing knowledge. Our initiative is community driven, making it super-flexible in terms of adapting to what students want while keeping in mind the main idea - learn something new and do it in the fun way, creating something meaningful along the way.</p></div>',
     },
-}
-
-let controller = () => {
-    window.addEventListener('hashchange', e => {
-        router();
-    });
-}
-
-let router = () => {
-    switch (getHash()) {
-        case 'kottans': 
-            routerAnimation('kottans');
-            break;
-        case 'contents': 
-            routerAnimation('contents');
-            break;
-        case 'faq': 
-            routerAnimation('faq');
-            break;
-        case 'about': 
-            routerAnimation('about');
-            break;
-        case '': 
-            main_page.innerHTML = '<p><img src="http://kottans.org/public/images/logo.png"></p>';
-            break;
-        default: main_page.innerHTML = '<h1>404<br><img src="http://kottans.org/public/images/logo.png"></h1>';
-            break;
-    }
-}
-
-let getHash = () => {
-    return location.hash.substr(1);
-}
-
-let routerAnimation = (page) => {
-    const content = document.getElementsByClassName('content')[0];
-    if (content == undefined) {
-        main_page.innerHTML = pages[page].text;
-        /*main_body.className = `${page}-bg`;
-        main_html.className = `${page}-bg`;*/
-    }
-    else {
-        content.classList.add('content-hide');
-        setTimeout(() => {
-            content.classList.remove('content-hide');
-            main_page.innerHTML = pages[page].text;
-            /*main_body.className = `${page}-bg`;
-            main_html.className = `${page}-bg`;*/
-        },500);
-    }
-}
-
-let mobileMenu = () => {
-    console.log('click');
-    const x = document.getElementById('menu');
-    if (x.className === '') {
-        x.classList.add('mobile-active');
-    } else {
-        x.classList.remove('mobile-active');
-    }
 }
