@@ -1,0 +1,207 @@
+@font-face {
+    font-family: 'capture-it';
+    src: url('fonts/capture-it.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, html {
+    font-family: 'Times New Roman', Times, serif;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to left bottom, #ffc8e9, #f3c3ef, #e3c0f5, #cebdfb, #b5bcff);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.kottans-bg {
+    background-image: linear-gradient(to left bottom, #ffc8e9, #f3c3ef, #e3c0f5, #cebdfb, #b5bcff);
+}
+
+.contents-bg {
+    background-image: linear-gradient(to left bottom, #ffc8e9, #f3c3ef, #e3c0f5, #cebdfb, #b5bcff);
+}
+
+.faq-bg {
+    background-image: linear-gradient(to left bottom, #ffc8e9, #f3c3ef, #e3c0f5, #cebdfb, #b5bcff);
+}
+
+.about-bg {
+    background-image: linear-gradient(to left bottom, #ffc8e9, #f3c3ef, #e3c0f5, #cebdfb, #b5bcff);
+}
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 21%;
+    top: 5%;
+    left: 5%;
+}
+
+#menu :first-child {
+    font-family: "capture-it", cursive, sans-serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    background: rgba(99, 99, 99, .5);
+    color: #E2E2E2;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding: 8px 15px;
+    cursor: pointer;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+#menu a {
+    font-family: sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    list-style-type: none;
+    margin-top: 4px;
+    padding: 5px 15px;
+    color: #505050;
+    background: rgba(255, 255, 255, .3);
+    cursor: pointer;
+    text-decoration: none;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+#menu a:hover:first-child {
+    font-size: 26px;
+    background: rgba(83, 83, 83, .8);
+    color: #F7F7F7;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding: 8px 15px;
+}
+
+#menu a:hover{
+    font-size: 22px;
+    color: #191919;
+    background: rgba(244, 244, 244, .8);
+}
+
+#menu a:last-child {
+    display: none;
+}
+
+#main-page {
+    right: 0;
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    margin: 0px 100px 0 50px;
+    color: #565969;
+}
+
+.content {
+    width: 600px;
+    transition: all .4s ease;
+    animation: content-show .3s, linear 0s 1;
+}
+
+@keyframes content-show {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+}
+
+.content-hide{
+    transform: scale(4);
+    opacity: 0;
+}
+
+.content a {
+    pointer-events: none !important;
+    color: #565969;
+    text-decoration: none;
+}
+
+.content .anchor {
+    display: none;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 18px;
+}
+
+ul {
+    font-size: 20px;
+    letter-spacing: 0px;
+}
+
+ul li {
+    padding-bottom: 10px;
+}
+
+ol {
+    font-size: 20px;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    #menu {
+        position: relative;
+        width: 100%;
+        top: 0;
+        left: 0;
+        margin-top: -10px;
+    }
+    #main-page {
+        position: relative;
+        width: 100%;
+        margin: 0;
+        
+    }
+    .content {
+        width: 100%;
+        padding: 0;
+    }
+    .mobile-menu{
+        position: absolute;
+        right: 0;
+        top: 0;
+        float: right;
+        display: block;
+    }
+    #menu a:not(:first-child) {
+        display: none;
+    }
+    #menu a:last-child {
+        display: block;
+        background: rgba(255, 255, 255, .0);
+    }
+    .mobile-active a:not(:first-child){
+        display: block !important;
+    }
+}
+  
