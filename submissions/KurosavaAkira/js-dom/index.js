@@ -1,5 +1,6 @@
 window.onload = () => {
-	menu();
+    router();
+    controller();
 }
 
 const main_body = document.querySelector('body');
@@ -22,12 +23,10 @@ let pages = {
     },
 }
 
-let menu = () => {
+let controller = () => {
     window.addEventListener('hashchange', e => {
         router();
     });
-    //updating main_page if URL is already changed
-    router();
 }
 
 let router = () => {
@@ -60,16 +59,26 @@ let routerAnimation = (page) => {
     const content = document.getElementsByClassName('content')[0];
     if (content == undefined) {
         main_page.innerHTML = pages[page].text;
-        main_body.className = `${page}-bg`;
-        main_html.className = `${page}-bg`;
+        /*main_body.className = `${page}-bg`;
+        main_html.className = `${page}-bg`;*/
     }
     else {
         content.classList.add('content-hide');
         setTimeout(() => {
             content.classList.remove('content-hide');
             main_page.innerHTML = pages[page].text;
-            main_body.className = `${page}-bg`;
-            main_html.className = `${page}-bg`;
+            /*main_body.className = `${page}-bg`;
+            main_html.className = `${page}-bg`;*/
         },500);
+    }
+}
+
+let mobileMenu = () => {
+    console.log('click');
+    const x = document.getElementById('menu');
+    if (x.className === '') {
+        x.classList.add('mobile-active');
+    } else {
+        x.classList.remove('mobile-active');
     }
 }
