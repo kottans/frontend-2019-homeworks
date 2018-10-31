@@ -15,7 +15,7 @@ This repo was created for students to submit their homeworks for review.
   ![File structure example](img/file-structure.png)
 
 - make pull-request to this repository following these steps:
-  - create new branch, name it according to task performed (aka feature branch): `git checkout -b dom-api-task`. In this example feature branch is called `dom-api-task`
+  - `git checkout master` and then create new branch, name it according to task performed (aka feature branch): `git checkout -b dom-api-task`. In this example feature branch is called `dom-api-task`
   - commit your changes to newly created feature branch
   - checkout `master` branch: `git checkout master`
   - pull latest changes from upstream `master` branch: `git pull upstream master`
