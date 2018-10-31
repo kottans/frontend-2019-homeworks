@@ -5,6 +5,8 @@ This repo was created for students to submit their homeworks for review.
 
 ### How to submit
 - fork this repo
+- clone the your fork to your local machine
+- add this repository as an upstream
 - in your fork, add folder with your github name under  `submissions` (if you haven't yet)
 - in your fork, under your name folder, add a folder with task name and put your code in the folder
 
@@ -12,8 +14,15 @@ This repo was created for students to submit their homeworks for review.
 
   ![File structure example](img/file-structure.png)
 
-- make a pull-request to this repository to add your changes
-- assign course mentors to review your pull-request
+- make a pull-request to this repository to add your changes following these steps:
+  - create a new branch, name it according to task performed (aka feature branch)
+  - commit your changes to newly created feature branch
+  - checkout 'master' branch
+  - pull latest changes from upstream 'master' branch
+  - merge 'master' branch into your feature branch
+  - push feature branch to your remote repository
+  - make pull-request from your repository to this repository
+- wait for review from course mentors
 - if necessary, make changes, until your code will be approved and merged
 
 [icon-mit]: https://img.shields.io/badge/license-MIT-blue.svg
