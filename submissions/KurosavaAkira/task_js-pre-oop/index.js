@@ -2,7 +2,7 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
-class Species {
+class Inhabitants {
     constructor(species, name, phrase, gender, legs = 0, hands = 0) {
       this.species = species;
       this.name = name;
@@ -14,10 +14,10 @@ class Species {
     
 }
 
-const dog = new Species('dog', 'Rvach', 'woof-woof', 'male', '4');
-const cat = new Species('cat', 'Markiz', 'NONONONONONONO', 'male', '4');
-const man = new Species('man', 'Sebastian', 'This us Kottaaans!', 'male', '2', '2');
-const woman = new Species('woman', 'Eve', 'I like Earth', 'female', '2', '2');
+const dog = new Inhabitants('dog', 'Rvach', 'woof-woof', 'male', '4');
+const cat = new Inhabitants('cat', 'Markiz', 'NONONONONONONO', 'male', '4');
+const man = new Inhabitants('man', 'Sebastian', 'This us Kottaaans!', 'male', '2', '2');
+const woman = new Inhabitants('woman', 'Eve', 'I like Earth', 'female', '2', '2');
 
 let message = (obj) => {
     let string = '';
