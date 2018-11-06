@@ -1,9 +1,23 @@
-class Enemy {
-    constructor(x = 0, y, speed = 200) {
+const img = {
+    enemy: 'images/enemy-bug.png',
+    player: 'images/char-cat.png',
+}
+
+class Character {
+    constructor(x = 0, y, sprite) {
         this.x = x;
         this.y = y;
+        this.sprite = sprite;
+    }
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+}
+
+class Enemy extends Character {
+    constructor(x = 0, y, speed = 200, sprite = img.enemy) {
+        super(x, y, sprite)
         this.speed = speed;
-        this.sprite = 'images/enemy-bug.png';
     }
     update(dt) {
         this.x += this.speed * dt;
@@ -20,22 +34,14 @@ class Enemy {
             player.y = 405;
         }
     }
-    render() {
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
 }
 
-class Player {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.player = 'images/char-cat.png';
+class Player extends Character {
+    constructor(x, y, sprite = img.player) {
+        super(x, y, sprite)
     }
     update(dt) {
         
-    }
-    render() {
-        ctx.drawImage(Resources.get(this.player), this.x, this.y);
     }
     handleInput(key) {
         if (key == 'left' && this.x > 0)  this.x -= 102;
