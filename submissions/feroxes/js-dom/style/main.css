@@ -188,20 +188,20 @@ li {
     right: 20px;
 }
 
-#content{
+#hero{
     height: 298px;
     width: 600px;
     border: 1px solid black;
 }
 
-#content h2 {
+#hero__name {
     font-family: Helvetica;
     font-size: 24px;
     font-weight: bold;
     padding: 20px 24px;
 }
 
-#content p{
+#hero__discription{
     font-family: Helvetica;
     font-size: 14px;
     width: 400px;
@@ -209,7 +209,7 @@ li {
     padding: 1px 20px 0 20px ;
 
 }
-#content img {
+#hero__img {
     display: block;
     width: 150px;
 

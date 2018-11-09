@@ -3,9 +3,9 @@ function SuperHero(name, disc, img) {
     this.disc = disc;
     this.img = img;
     this.addParametersToHero = function(){
-        content.children[0].innerHTML = this.name;
-        content.children[1].innerHTML = this.disc;
-        content.children[2].outerHTML = `<img src=`+ this.img +`>`;
+        document.getElementById('hero__name').innerHTML = this.name;
+        document.getElementById('hero__discription').innerHTML = this.disc;
+        document.getElementById('hero__img').outerHTML = `<img id = 'hero__img' src=`+ this.img +`>`;
     }
 }
 
@@ -39,9 +39,7 @@ let vision = new SuperHero('Vision', `The Vision is a fictional superhero appear
     (October 1968). `, 'style/img/vision.jpg');
 
 let menu = document.getElementById('menu');
-let content = document.getElementById('content');
-
-menu.addEventListener('click', changeMenu);
+    menu.addEventListener('click', changeMenu);
 
 function changeMenu(e) {
     let childrenList = e.target.parentElement.children;
