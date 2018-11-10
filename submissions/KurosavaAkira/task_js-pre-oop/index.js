@@ -3,50 +3,49 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 class Inhabitant {
-    constructor(species, name, phrase, gender, legs = 0, hands = 0) {
+    constructor(name, gender, phrase, species, legs, hands, string = Inhabitant.message(name, gender, phrase, species, legs, hands)) {
       this.species = species;
       this.name = name;
       this.phrase = phrase;
       this.gender = gender;
       this.legs = legs;
       this.hands = hands;
+      this.string = string;
     }
-    phraseStyle() {
-        return `<em>${this.phrase}</em>; `
-    }
-    nameStyle() {
-        return `<strong>${this.name}</strong>; `
+    static message(name, gender, phrase, species, legs, hands) {
+        let legs_string = legs === null ? '' : `${legs}; `;
+        let hands_string = hands === null ? '' : `${hands}; `;
+        return `${species}; ` + `<strong>${name}</strong>; ` + `<em>${phrase}</em>; ` + `${gender}; ` + legs_string + hands_string;
     }
 }
 
-const dog = new Inhabitant('dog', 'Rvach', 'woof-woof', 'male', '4');
-const cat = new Inhabitant('cat', 'Markiz', 'NONONONONONONO', 'male', '4');
-const man = new Inhabitant('human', 'Igor', 'This is Kottaaans!', 'male', '2', '2');
-const woman = new Inhabitant('human', 'Eve', 'I like Earth', 'female', '2', '2');
-
-let message = (obj) => {
-    let string = '';
-    for (var key in obj) {
-        if (obj[key] != 0) {
-            switch (key) {
-                case 'phrase':
-                    string += obj.phraseStyle();
-                    break;
-                case 'name':
-                    string += obj.nameStyle();
-                    break;
-                default: string += `${obj[key]}; `;
-                    break;
-            }
-        }
+class Human extends Inhabitant {
+    constructor(name, gender, phrase, species = 'human', legs = 2, hands = 2, string = Inhabitant.message(name, gender, phrase, species, legs, hands)) {
+        super(name, gender, phrase, species, legs, hands, string);
     }
-    return string;
 }
 
-print(message(dog), 'h3');
-print(message(cat), 'h3');
-print(message(man), 'h3');
-print(message(woman), 'h3');
+class Dog extends Inhabitant {
+    constructor(name, gender, phrase = 'woof-woof', species = 'dog' , legs = 4, hands = null, string = Inhabitant.message(name, gender, phrase, species, legs, hands)) {
+        super(name, gender, phrase, species, legs, hands, string);
+    }
+}
+
+class Cat extends Inhabitant {
+    constructor(name, gender, phrase = 'Meow!', species = 'cat' , legs = 4, hands = null, string = Inhabitant.message(name, gender, phrase, species, legs, hands)) {
+        super(name, gender, phrase, species, legs, hands, string);
+    }
+}
+
+const inhabitant_id_1= new Dog('Rvach', 'male');
+const inhabitant_id_2 = new Cat('Tora', 'male');
+const inhabitant_id_3 = new Human('Igor', 'male', 'This is Kottaaans!');
+const inhabitant_id_4 = new Human('Eve', 'female', 'I like Earth');
+
+print(inhabitant_id_1.string, 'h3');
+print(inhabitant_id_2.string, 'h3');
+print(inhabitant_id_3.string, 'h3');
+print(inhabitant_id_4.string, 'h3');
 
 // ======== OUTPUT ========
 // Use print(message) for output.
