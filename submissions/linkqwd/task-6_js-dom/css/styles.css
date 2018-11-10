@@ -1,0 +1,263 @@
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600");
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.25;
+  background-color: #cc5577;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 100 60'%3E%3Cg fill-opacity='0.97'%3E%3Crect fill='%23cc5577' width='11' height='11'/%3E%3Crect fill='%23cd5777' x='10' width='11' height='11'/%3E%3Crect fill='%23cf5a76' y='10' width='11' height='11'/%3E%3Crect fill='%23d05c76' x='20' width='11' height='11'/%3E%3Crect fill='%23d15f76' x='10' y='10' width='11' height='11'/%3E%3Crect fill='%23d26175' y='20' width='11' height='11'/%3E%3Crect fill='%23d36475' x='30' width='11' height='11'/%3E%3Crect fill='%23d46675' x='20' y='10' width='11' height='11'/%3E%3Crect fill='%23d56975' x='10' y='20' width='11' height='11'/%3E%3Crect fill='%23d66c75' y='30' width='11' height='11'/%3E%3Crect fill='%23d76e75' x='40' width='11' height='11'/%3E%3Crect fill='%23d87175' x='30' y='10' width='11' height='11'/%3E%3Crect fill='%23d97376' x='20' y='20' width='11' height='11'/%3E%3Crect fill='%23da7676' x='10' y='30' width='11' height='11'/%3E%3Crect fill='%23da7876' y='40' width='11' height='11'/%3E%3Crect fill='%23db7b77' x='50' width='11' height='11'/%3E%3Crect fill='%23dc7d77' x='40' y='10' width='11' height='11'/%3E%3Crect fill='%23dd8078' x='30' y='20' width='11' height='11'/%3E%3Crect fill='%23dd8278' x='20' y='30' width='11' height='11'/%3E%3Crect fill='%23de8579' x='10' y='40' width='11' height='11'/%3E%3Crect fill='%23de877a' y='50' width='11' height='11'/%3E%3Crect fill='%23df8a7a' x='60' width='11' height='11'/%3E%3Crect fill='%23df8c7b' x='50' y='10' width='11' height='11'/%3E%3Crect fill='%23e08f7c' x='40' y='20' width='11' height='11'/%3E%3Crect fill='%23e0917d' x='30' y='30' width='11' height='11'/%3E%3Crect fill='%23e1947e' x='20' y='40' width='11' height='11'/%3E%3Crect fill='%23e1967f' x='10' y='50' width='11' height='11'/%3E%3Crect fill='%23e29880' x='70' width='11' height='11'/%3E%3Crect fill='%23e29b82' x='60' y='10' width='11' height='11'/%3E%3Crect fill='%23e29d83' x='50' y='20' width='11' height='11'/%3E%3Crect fill='%23e3a084' x='40' y='30' width='11' height='11'/%3E%3Crect fill='%23e3a286' x='30' y='40' width='11' height='11'/%3E%3Crect fill='%23e3a587' x='20' y='50' width='11' height='11'/%3E%3Crect fill='%23e4a789' x='80' width='11' height='11'/%3E%3Crect fill='%23e4a98b' x='70' y='10' width='11' height='11'/%3E%3Crect fill='%23e4ac8c' x='60' y='20' width='11' height='11'/%3E%3Crect fill='%23e5ae8e' x='50' y='30' width='11' height='11'/%3E%3Crect fill='%23e5b090' x='40' y='40' width='11' height='11'/%3E%3Crect fill='%23e5b392' x='30' y='50' width='11' height='11'/%3E%3Crect fill='%23e5b594' x='90' width='11' height='11'/%3E%3Crect fill='%23e6b796' x='80' y='10' width='11' height='11'/%3E%3Crect fill='%23e6ba98' x='70' y='20' width='11' height='11'/%3E%3Crect fill='%23e6bc9a' x='60' y='30' width='11' height='11'/%3E%3Crect fill='%23e7be9c' x='50' y='40' width='11' height='11'/%3E%3Crect fill='%23e7c19f' x='40' y='50' width='11' height='11'/%3E%3Crect fill='%23e7c3a1' x='90' y='10' width='11' height='11'/%3E%3Crect fill='%23e8c5a3' x='80' y='20' width='11' height='11'/%3E%3Crect fill='%23e8c7a6' x='70' y='30' width='11' height='11'/%3E%3Crect fill='%23e8caa8' x='60' y='40' width='11' height='11'/%3E%3Crect fill='%23e9ccab' x='50' y='50' width='11' height='11'/%3E%3Crect fill='%23e9cead' x='90' y='20' width='11' height='11'/%3E%3Crect fill='%23ead0b0' x='80' y='30' width='11' height='11'/%3E%3Crect fill='%23ead2b3' x='70' y='40' width='11' height='11'/%3E%3Crect fill='%23ead4b5' x='60' y='50' width='11' height='11'/%3E%3Crect fill='%23ebd7b8' x='90' y='30' width='11' height='11'/%3E%3Crect fill='%23ecd9bb' x='80' y='40' width='11' height='11'/%3E%3Crect fill='%23ecdbbd' x='70' y='50' width='11' height='11'/%3E%3Crect fill='%23edddc0' x='90' y='40' width='11' height='11'/%3E%3Crect fill='%23eddfc3' x='80' y='50' width='11' height='11'/%3E%3Crect fill='%23eee1c6' x='90' y='50' width='11' height='11'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.layout {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 25px;
+}
+
+.action-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background: #f1f1f1;
+  padding: 20px;
+  border-radius: 3px;
+  -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.action-menu__header {
+  font-size: 24px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.action-menu__list {
+  width: 30%;
+}
+
+@media screen and (max-width: 600px) {
+  .action-menu__list {
+    width: 100%;
+  }
+}
+
+.action-menu__list-item {
+  padding: 15px;
+  border-top: 1px solid #999;
+  border-left: 1px solid #999;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #f7f7f7;
+  -webkit-transition: background 225ms;
+  transition: background 225ms;
+  cursor: pointer;
+}
+
+.action-menu__list-item:last-child {
+  border-bottom: 1px solid #999;
+}
+
+.action-menu__list-item:hover {
+  background: #fff;
+}
+
+@media screen and (max-width: 600px) {
+  .action-menu__list-item {
+    width: 100%;
+    border-right: 1px solid #999;
+  }
+  .action-menu__list-item:last-child {
+    border-bottom: 0;
+  }
+}
+
+.action-menu__list-item_state_active {
+  position: relative;
+  background: #fff;
+}
+
+.action-menu__list-item_state_active:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -1px;
+  width: 1px;
+  background: #fff;
+  z-index: 15;
+}
+
+@media screen and (max-width: 600px) {
+  .action-menu__list-item_state_active:after {
+    display: none;
+  }
+}
+
+.action-menu__content {
+  width: 70%;
+  padding: 20px;
+  position: relative;
+  border: 1px solid #999;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #fff;
+  z-index: 5;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  .action-menu__content {
+    width: 100%;
+  }
+}
+
+.action-menu__content-item {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  top: 20px;
+  -webkit-transition: opacity 250ms, visibility 250ms, top 0s, -webkit-transform 250ms;
+  transition: opacity 250ms, visibility 250ms, top 0s, -webkit-transform 250ms;
+  transition: transform 250ms, opacity 250ms, visibility 250ms, top 0s;
+  transition: transform 250ms, opacity 250ms, visibility 250ms, top 0s, -webkit-transform 250ms;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  -webkit-transform-origin: 0 50% 0;
+          transform-origin: 0 50% 0;
+  list-style-type: none;
+}
+
+@media screen and (max-width: 600px) {
+  .action-menu__content-item {
+    -webkit-transform-origin: 50% 0 0;
+            transform-origin: 50% 0 0;
+  }
+}
+
+.action-menu__content-item_state_active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition-delay: 125ms;
+          transition-delay: 125ms;
+  top: 0;
+}
+
+.action-menu__item-img {
+  float: right;
+  padding: 10px 10px 20px 20px;
+  max-width: 180px;
+}
+/*# sourceMappingURL=styles.css.map */
