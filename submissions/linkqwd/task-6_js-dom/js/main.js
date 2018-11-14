@@ -1,64 +1,97 @@
-// Haven't found any other way to load local JSON file
-// https://codepen.io/KryptoniteDove/post/load-json-file-locally-using-pure-javascript
-var data = function loadJSON() {
-    var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'js/data.json', false);
-    return xobj.onreadystatechange = function () {
-        xobj.send(null);
-        if (xobj.readyState == 4 && xobj.status == "200") {
-            return JSON.parse(xobj.responseText)
-        }
-    }();
-}();
-
-var headingsHolder = document.querySelector('.action-menu__list'),
-    contentHolder = document.querySelector('.action-menu__content');
-
-for (var key in data) {
-    createFragments(key, data[key]);
-}
-
-function createFragments(key, array) {
-    var fragment = document.createDocumentFragment();
-    var elements = document.createElement('ul');
-    elements.classList.add(key);
-
-    array.forEach(function (el) {
-        elements.insertAdjacentHTML('beforeend', el);
-    });
-
-    fragment.appendChild(elements);
-
-    if (key === 'action-menu__list-items') {
-        headingsHolder.appendChild(fragment);
-    } else if (key === 'action-menu__content-items') {
-        contentHolder.appendChild(fragment);
+function appInit() {
+    const cssClasses = {
+        cakeTitle: "action-menu__list-item",
+        cakeDescription: 'action-menu__content-item',
+        cakeImage: 'action-menu__item-img',
+        cakeTitleActive: 'action-menu__list-item_state_active',
+        cakeDescriptionActive: 'action-menu__content-item_state_active'
     }
-};
 
-/////// handling events
+    let selectors = {};
+    const setupSelectors = () => {
+        selectors = {
+            navListHolder: document.querySelector('.action-menu__list'),
+            contentHolder: document.querySelector('.action-menu__content'),
+            navListNodes: document.querySelectorAll(`.${cssClasses.cakeTitle}`),
+            contentNodes: document.querySelectorAll(`.${cssClasses.cakeDescription}`)
+        }
+    }
 
-var listItems = document.querySelectorAll('.action-menu__list-item'),
-    contentItems = document.querySelectorAll('.action-menu__content-item');
-    activeListItem = '.action-menu__list-item_state_active';
-    activeContentItem = '.action-menu__content-item_state_active';
+    const getData = (() => {
+        var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+        xobj.open('GET', 'js/data.json', false);
+        return xobj.onreadystatechange = function () {
+            xobj.send(null);
+            if (xobj.readyState == 4 && xobj.status == "200") {
+                return JSON.parse(xobj.responseText)
+            }
+        }();
+    })();
 
-listItems.forEach(function (el, index) {
-    el.addEventListener('click', function () {
-        deactivePrevItem(activeListItem);
-        deactivePrevItem(activeContentItem);
-        activateItem(this, index);
-    });
-});
+    const buildHTMLfromData = ((getData) => {
 
-function deactivePrevItem(item) {
-    var itemToRemove = document.querySelector(item);
-    itemToRemove.classList.remove(item.slice(1));
+        const titlefragment = document.createDocumentFragment();
+        const descriptionfragment = document.createDocumentFragment();
+
+        getData.data.forEach(dataItem => {
+            // Build titles
+            let titleItem = document.createElement('li');
+            titleItem.classList.add(cssClasses.cakeTitle);
+
+            let titleHeader = document.createElement('h2');
+            titleHeader.innerText = dataItem.cakeTitle;
+
+            titleItem.appendChild(titleHeader);
+            titlefragment.appendChild(titleItem);
+
+            // Build Descriptions
+            let contentItem = document.createElement('li');
+            contentItem.classList.add(cssClasses.cakeDescription);
+
+            let paragrap = document.createElement('p');
+            paragrap.innerText = dataItem.cakeDescription;
+
+            let img = document.createElement('img');
+            img.classList.add(cssClasses.cakeImage);
+            img.setAttribute('src', dataItem.cakeImageSrc);
+
+            contentItem.appendChild(img);
+            contentItem.appendChild(paragrap);
+            descriptionfragment.appendChild(contentItem);
+        });
+
+        return { titles: titlefragment, content: descriptionfragment }
+
+    })(getData);
+
+    const displayDataOnPage = function (nodes) {
+        setupSelectors();
+        selectors.navListHolder.appendChild(nodes.titles);
+        selectors.contentHolder.appendChild(nodes.content);
+    }(buildHTMLfromData);
+
+    const switchActiveItems = ((initialItem = 0) => {
+        setupSelectors(); // adding new selectors into global sapce
+        selectors.navListNodes[initialItem].classList.add(cssClasses.cakeTitleActive);
+        selectors.contentNodes[initialItem].classList.add(cssClasses.cakeDescriptionActive);
+
+        selectors.navListNodes.forEach((navListNode, index) => {
+            navListNode.addEventListener('click', function () {
+                switchActive(this, index);
+            });
+        });
+
+        function switchActive(node, index) {
+            let currentActiveTitle = document.querySelector(`.${cssClasses.cakeTitleActive}`);
+            let currentActiveContent = document.querySelector(`.${cssClasses.cakeDescriptionActive}`);
+            currentActiveTitle.classList.remove(cssClasses.cakeTitleActive);
+            currentActiveContent.classList.remove(cssClasses.cakeDescriptionActive);
+
+            node.classList.add(cssClasses.cakeTitleActive);
+            selectors.contentNodes[index].classList.add(cssClasses.cakeDescriptionActive);
+        }
+    })(2);
 }
 
-function activateItem(listItem, index) {
-    listItem.classList.add(activeListItem.slice(1));
-    contentItems[index].classList.add(activeContentItem.slice(1));
-}
-
+appInit();

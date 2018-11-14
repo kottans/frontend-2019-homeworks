@@ -128,7 +128,7 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  background: #f1f1f1;
+  background: #fbfaf6;
   padding: 20px;
   border-radius: 3px;
   -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
@@ -160,6 +160,7 @@ body {
   background: #f7f7f7;
   -webkit-transition: background 225ms;
   transition: background 225ms;
+  list-style: none;
   cursor: pointer;
 }
 
@@ -192,7 +193,7 @@ body {
   top: 0;
   bottom: 0;
   right: -1px;
-  width: 1px;
+  width: 3px;
   background: #fff;
   z-index: 15;
 }
@@ -260,4 +261,10 @@ body {
   padding: 10px 10px 20px 20px;
   max-width: 180px;
 }
-/*# sourceMappingURL=styles.css.map */
+
+@media screen and (max-width: 600px) {
+  .action-menu__item-img {
+    max-width: 120px;
+    padding: 5px;
+  }
+}
