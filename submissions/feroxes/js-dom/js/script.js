@@ -5,7 +5,7 @@ function SuperHero(name, disc, img) {
     this.addParametersToHero = function(){
         document.getElementById('hero__name').innerHTML = this.name;
         document.getElementById('hero__discription').innerHTML = this.disc;
-        document.getElementById('hero__img').outerHTML = `<img id = 'hero__img' src=`+ this.img +`>`;
+        document.getElementById('hero__img').outerHTML = `<img id = 'hero__img' src=${this.img}>`;
     }
 }
 
