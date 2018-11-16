@@ -1,20 +1,17 @@
 
-* {
-	margin: 0;
-	padding: 0;	
-}
-
 body {
 	background-image: linear-gradient(to right top,  #00da84, #a8eb12);
 	font-size: 18px;
 	text-align: center;
 }
 
-ul {
+.nav_list {
     list-style-type: none;
+    margin: 0;
+	padding: 0;	
 }
 
-li a {
+.nav_list li a {
     display: block;
     color: #000;
     padding:  1rem;
@@ -23,67 +20,68 @@ li a {
     border: 1px solid #00B287;  
 }
 
-li a:hover {
+.nav_list li a:hover {
     background-color: #2CD261;
     color: white;
 }
 
-.flex-container {
-  	display: flex;
-  	flex-direction: column;
-  	margin: 0.7rem;
-}
-
-.nav {
-	margin-bottom: 2rem;
-}
-
-h1 {
-	margin-top:1rem;
-}
-p {
+.replaceP1, .replaceP2 {
  	font-size: 1.1rem;
  	line-height: 1.7rem;
  	text-align: justify;
  	margin-bottom: 1rem;
 }
 
-img {
+.replaceImg {
  	width: 100%;
 }
+.replaceH2 {
+	margin: 2.5rem 0 0.8rem 0 ;
+}
+
 @media screen and (min-width: 500px){
-.flex-container {
-	flex-direction: row;		
+
+main {
+	display: flex;
+	flex-wrap: wrap;		
+}
+
+header {
+	width: 100%;
 }
 
 .nav {	
 	width:30%;
-	margin-right: 0.5rem;
+	margin-right:2%;
+
 }
 
-.content {
-	width:70%;
+.main_content{
+	width:68%;	
 }
 
-img {
+.replaceImg {
 	width:65%;
 	float: right;
 	margin: 7px 0px 2px 10px;
 }
 	
-h2 {
-	margin-bottom: 1rem;
+.replaceH2 {
+	margin: 0 0 1rem 0;
 }
+
 }
+
 @media screen and (min-width: 800px){
 
-.flex-container {
+main {
 	width: 800px;	
 	margin-left: auto;
     margin-right: auto;
 }
-p{
-	font-size: 1.3rem;
+.replaceP1, .replaceP2 {
+	font-size: 1.2rem;
 }
 
 }
+

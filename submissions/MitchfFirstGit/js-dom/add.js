@@ -24,19 +24,23 @@ let newContent = [ {
 }
  ];
  
-let ul = document.getElementById("navList");
- ul.addEventListener( 'click', event  =>{
- 	let newDiv = document.createElement('div');
-	let removeDiv = document.querySelector('div.content');
+let ul = document.querySelector(".nav_list");
+let h2 = document.querySelector('.replaceH2');
+let p1 = document.querySelector('.replaceP1');
+let p2 =  document.querySelector('.replaceP2');
+let img = document.querySelector('.replaceImg');
+let nameProgrammer;
+ ul.addEventListener( 'click', event  => {
  	for(let i=0; i < newContent.length; i++){
- 		if(event.target.textContent === newContent[i].name){
- 			 newDiv.innerHTML = `<h2>${newContent[i].name}</h2><img src="${newContent[i].image}"><p>${newContent[i].firstP}</p>
- 			 <p>${newContent[i].secondP}<p>`;
+ 		nameProgrammer =event.target.textContent;
+ 		if(nameProgrammer === newContent[i].name){
+ 			 h2.textContent = newContent[i].name;
+ 			 p1.textContent = newContent[i].firstP;
+ 			 p2.textContent = newContent[i].secondP;
+ 			 img.src = newContent[i].image;
  			 break;
+
  		}
- 		
  	}
- 	newDiv.className = 'content';
- 	removeDiv.remove();
- 	document.querySelector(".flex-container").appendChild(newDiv);	
+
  } );
