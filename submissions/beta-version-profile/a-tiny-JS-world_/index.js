@@ -6,6 +6,7 @@
    */
 
 // ======== OBJECTS DEFINITIONS ========
+const options = ['species', 'name', 'gender', 'legs', 'hands', 'saying']
 class Alfa {
   constructor(species, name, gender, legs, hands, saying) {
     this.species = species
@@ -16,8 +17,8 @@ class Alfa {
     this.saying = saying
   }
   say(){ 
-    print(`species: <strong>${this.species}</strong>; name: <strong>${this.name}</strong>; gender: <strong>${this.gender}</strong>; legs: <strong>${this.legs}</strong>; hands: <strong>${this.hands}</strong>; saying: <strong>${this.saying}</strong>;`
-    )
+    print(options.map(value => ( `${value}: <strong>${this[value]}</strong>`
+    )).join('; '))
   }
 }
 class Cat extends Alfa {
@@ -27,7 +28,7 @@ class Cat extends Alfa {
     }
 }
 
-const catwoman = new Cat('human', 'Jenny', 'woman', 2, 2, 'Hello, world!!!')
+const catwoman = new Cat('human', 'Jenny', 'woman', 2, 2)
 const woman = new Alfa('human', 'Lana', 'woman', 2, 2, 'Hello, world!!!') 
 const cat = new Cat('cat', 'Anna', 'woman', 4, 0, 'meow - meow')
 const man = new Alfa('human', 'Tom', 'man', 2, 2, 'my code works i don\'t know why')
