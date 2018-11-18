@@ -1,4 +1,4 @@
-function Inhabitnat(props) {
+function Inhabitant(props) {
     this.species = props.species;
     this.name = props.name;
     this.sex = props.sex;
@@ -6,18 +6,18 @@ function Inhabitnat(props) {
     this.legs = props.legs;
     this.sound = props.sound;
     this.friends = props.friends;
-    this.inhabitnatInfo = function() {
-        return JSON.stringify(this)
-        .split('')
-        .map(function (el) {
-            return el === '"' || el === '[' || el === ']' ? '' : el === ',' ? '; ' : el
-        })
-        .join('')
-        .slice(1, -1);
+    this.getInhabitantInfo = function () {
+        return this.species + '; '
+            + this.name + '; '
+            + this.sex + '; '
+            + this.arms + '; '
+            + this.legs + '; '
+            + this.sound + '; '
+            + this.friends
     }
 }
 
-const man = new Inhabitnat({
+const man = new Inhabitant({
     species: 'human',
     name: 'Jhon',
     sex: 'male',
@@ -26,7 +26,7 @@ const man = new Inhabitnat({
     sound: 'Hello girls'
 });
 
-const woman = new Inhabitnat({
+const woman = new Inhabitant({
     species: 'human',
     name: 'Whitney',
     sex: 'female',
@@ -36,7 +36,7 @@ const woman = new Inhabitnat({
     friends: ['Houston']
 });
 
-const cat = new Inhabitnat({
+const cat = new Inhabitant({
     species: 'cat',
     name: 'Houston',
     sex: 'male',
@@ -45,7 +45,7 @@ const cat = new Inhabitnat({
     friends: ['Whitney']
 });
 
-const dog = new Inhabitnat({
+const dog = new Inhabitant({
     species: 'dog',
     name: 'Rex',
     sex: 'male',
@@ -53,18 +53,18 @@ const dog = new Inhabitnat({
     sound: 'Barking'
 });
 
-const catWoman = new Inhabitnat({
+const catWoman = new Inhabitant({
     species: 'human',
     name: 'Selina',
     sex: 'female',
     arms: 2,
     legs: 2,
-    sound: (typeof cat === 'undefined') ? 'Hello kitties' : cat.sound, 
+    sound: (typeof cat === 'undefined') ? 'Hello kitties' : cat.sound,
     friends: ['Whitney', 'Houston']
 });
 
-print(man.inhabitnatInfo());
-print(woman.inhabitnatInfo());
-print(cat.inhabitnatInfo());
-print(dog.inhabitnatInfo());
-print(catWoman.inhabitnatInfo());
+print(man.getInhabitantInfo());
+print(woman.getInhabitantInfo());
+print(cat.getInhabitantInfo());
+print(dog.getInhabitantInfo());
+print(catWoman.getInhabitantInfo());
