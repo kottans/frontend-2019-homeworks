@@ -8,7 +8,7 @@
 #header{
   background-color: #FF8C00;
   width: 100%;
-  display: none; 
+  display: none;
 }
 
 #menu_container{
@@ -19,7 +19,7 @@
 
 #menu_container img{
   width: 200px;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 #menu_container li{
@@ -28,7 +28,7 @@
   margin: 10px;
   height: 23px;
 	text-align: center;
-  vertical-align: center; 
+  vertical-align: center;
   font-size: 20px;
 }
 
@@ -36,7 +36,6 @@
   width: 75%;
   order: 3;
 }
-
 
 p{
   padding: 15px;
@@ -77,14 +76,23 @@ p{
   margin: 10px;
 }
 
+.visible{
+  display: flex;
+}
+
+.disable{
+  display: none;
+}
+
 @media screen and (max-width: 799px) {
   #header {
     display: flex;
     height: 45px;
   }
 
-  #menu_container{
+  ul{
     display: none;
+    flex-direction: row;
     width: 100%;
   }
 
@@ -103,8 +111,8 @@ p{
 }
 
 @media screen and (min-width: 800px) {
-  #menu_container{
-    display: flex !important;
-    width: 25%;
+  #menu_container ul{
+    display: flex ;
+    flex-direction: column;
   }
-} 
+}
