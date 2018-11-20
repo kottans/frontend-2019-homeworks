@@ -3,8 +3,8 @@ handleMenuClick = event => {
   if (event.target.id === "mobile") {
     const navPanel = document.querySelector("nav");
     navPanel.classList.toggle("open");
-  } else {
-    /*check if click was on desktop panel*/
+  } else if (event.target.tagName === "LI") {
+    /*check if click was on li element*/
     const navPanel = document.querySelector("nav");
     navPanel.classList.remove("open");
     let activeNav = document.getElementsByClassName("active")[0];
@@ -16,9 +16,9 @@ handleMenuClick = event => {
     });
 
     const content = document.querySelector("main");
-    if (content.firstChild) {
-      content.removeChild(content.firstChild);
-    }
+    /*delete contentadd content to main */
+
+    content.removeChild(content.firstChild);
     content.insertAdjacentHTML("afterBegin", page[namePage]);
   }
 };
