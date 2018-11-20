@@ -9,8 +9,9 @@ const handleMenuClick = event => {
     const navPanel = document.querySelector("nav");
     navPanel.classList.remove("open");
     const activeNav = document.getElementsByClassName("active")[0];
-    activeNav.className = "inactive";
-    event.target.className = "active";
+    activeNav.classList.add("inactive");
+    activeNav.classList.remove("active");
+    event.target.classList.add("active");
     const namePage = event.target.id;
     const page = pages.find(page => {
       return page[namePage];
