@@ -13,9 +13,10 @@ window.onload = function() {
   menuContainer.appendChild(ul)
 
   ul.addEventListener("click", (evt) => {
-    if (evt.target.tagName != "LI") return
-    let element = сharacters.filter(el => {return el.id === evt.target.textContent})
-    pageContent.innerHTML = `<img src="${element[0].img}" class="pic">` + element[0].content
+    if (evt.target.tagName != "LI")
+      return
+    const activeCharacter = сharacters.find(character => character.id === evt.target.textContent)
+    pageContent.innerHTML = `<img src="${activeCharacter.img}" class="pic">` + activeCharacter.content
   })
 
   menuButton.addEventListener("click", () => {
