@@ -20,7 +20,7 @@ window.onload = function() {
   })
 
   menuButton.addEventListener("click", () => {
-    ul.className === "visible" ? ul.className = "disable" : ul.className = "visible"
+    ul.classList.toggle('visible');
   })
 
   pageContent.innerHTML = `<img src="${сharacters[0].img}" class="pic">` + сharacters[0].content
