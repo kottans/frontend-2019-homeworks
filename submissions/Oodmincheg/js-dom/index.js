@@ -25,9 +25,10 @@ const handleMenuClick = event => {
 };
 /*add listneres to navs panel(mobile and desktop)*/
 const navs = document.getElementsByTagName("nav");
-for (let i = 0; i < navs.length; i++) {
-  navs[i].addEventListener("click", handleMenuClick);
-}
+Array.prototype.forEach.call(navs, nav => {
+  nav.addEventListener('click', handleMenuClick)
+})
+
 /* add content if load first time*/
 const main = document.querySelector("main");
 if (main.innerHTML === "") {
