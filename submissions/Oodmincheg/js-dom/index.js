@@ -13,17 +13,17 @@ const handleMenuClick = event => {
     activeNav.classList.remove("active");
     event.target.classList.add("active");
     const namePage = event.target.id;
-    const page = pages.find(page => {
-      if (namePage === page.title) {
-        return page;
-      }
-    });
-
     const content = document.querySelector("main");
-    /*delete contentadd content to main */
-
-    content.removeChild(content.firstChild);
-    content.insertAdjacentHTML("afterBegin", page.content);
+    
+    const visibleNow = content.querySelector("div:not(.hidden)")
+    const clicked = content.getElementsByClassName(namePage)[0]
+    if (visibleNow !== clicked){
+      
+      visibleNow.classList.toggle('hidden')
+      clicked.classList.toggle('hidden')
+      
+    }
+    
   }
 };
 /*add listneres to navs panel(mobile and desktop)*/
@@ -32,8 +32,14 @@ Array.prototype.forEach.call(navs, nav => {
   nav.addEventListener("click", handleMenuClick);
 });
 
-/* add content if load first time*/
+/* add all content 'about' page is visible one */
 const main = document.querySelector("main");
-if (main.innerHTML === "") {
-  main.insertAdjacentHTML("afterBegin", pages[0].content);
-}
+pages.forEach(page => {
+  main.insertAdjacentHTML("afterBegin", page.content)
+  if(page.title === "about"){
+    const navAbout = document.getElementById("about")
+    navAbout.classList.add("active")
+  }else {
+    main.firstChild.classList.add(page.title, "hidden")
+  } 
+})
