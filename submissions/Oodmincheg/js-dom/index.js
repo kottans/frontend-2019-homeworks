@@ -1,4 +1,5 @@
-handleMenuClick = event => {
+"use strict"
+const handleMenuClick = event => {
   /*check if click was on mobile nav panel*/
   if (event.target.id === "mobile") {
     const navPanel = document.querySelector("nav");
@@ -7,12 +8,12 @@ handleMenuClick = event => {
     /*check if click was on li element*/
     const navPanel = document.querySelector("nav");
     navPanel.classList.remove("open");
-    let activeNav = document.getElementsByClassName("active")[0];
+    const activeNav = document.getElementsByClassName("active")[0];
     activeNav.className = "inactive";
     event.target.className = "active";
     const namePage = event.target.id;
-    const page = pages.find(el => {
-      return el[namePage];
+    const page = pages.find(page => {
+      return page[namePage];
     });
 
     const content = document.querySelector("main");
