@@ -28,7 +28,7 @@ const handleMenuClick = event => {
 };
 /*add listneres to navs panel(mobile and desktop)*/
 const navs = document.getElementsByTagName("nav");
-Array.prototype.forEach.call(navs, nav => {
+[...navs].forEach( nav => {
   nav.addEventListener("click", handleMenuClick);
 });
 
