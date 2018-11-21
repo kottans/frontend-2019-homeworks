@@ -49,11 +49,11 @@ let renderPage = () => {
 
     /* method for changing content of some cat */
 
-    let assignData = (dataItem) => {
+    let renderCat = (cat) => {
 
-        catImage.src = dataItem.catSrc;
-        catTitle.textContent = dataItem.catName;
-        catTextInfo.textContent = dataItem.catDescription;
+        catImage.src = cat.catSrc;
+        catTitle.textContent = cat.catName;
+        catTextInfo.textContent = cat.catDescription;
 
     };
 
@@ -62,12 +62,6 @@ let renderPage = () => {
     for (let i = 0, len = cats.length; i < len; i++) {
 
         let item = cats[i];
-
-        /* setting information for the first cat */
-
-        if (i === 0) {
-            assignData(cats[0]);
-        }
 
         /* creating and adding new nodes to menu wrap */
 
@@ -84,6 +78,9 @@ let renderPage = () => {
 
     }
 
+    /* setting information for the first cat */
+    renderCat(cats[0]);
+
     /* setup click event listener for handling menu items clicks */
 
     let clickHandler = (event) => {
@@ -94,16 +91,15 @@ let renderPage = () => {
             let currentTarget = event.target;
             let currentTargetDataId = currentTarget.dataset.id;
 
-            for (let i = 0, len = cats.length; i < len; i++) {
+            /* finding match of cat with the same id as in clicked link */
 
-                let catItem = cats[i];
-                let catItemDataId = catItem.id;
-                if (currentTargetDataId === catItemDataId) {
-                    assignData(catItem);
+            cats.find((cat) => {
+
+                if (cat.id === currentTargetDataId) {
+                    return renderCat(cat);
                 }
 
-            }
-
+            });
         }
 
     };
