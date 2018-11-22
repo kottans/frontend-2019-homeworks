@@ -14,32 +14,27 @@ const handleMenuClick = event => {
     event.target.classList.add("active");
     const namePage = event.target.id;
     const content = document.querySelector("main");
-    
-    const visibleNow = content.querySelector("div:not(.hidden)")
-    const clicked = content.getElementsByClassName(namePage)[0]
-    if (visibleNow !== clicked){
-      
-      visibleNow.classList.toggle('hidden')
-      clicked.classList.toggle('hidden')
-      
+    const visibleNow = content.querySelector("div:not(.hidden)");
+    const clicked = content.getElementsByClassName(namePage)[0];
+    if (visibleNow !== clicked) {
+      visibleNow.classList.toggle("hidden");
+      clicked.classList.toggle("hidden");
     }
-    
   }
 };
 /*add listneres to navs panel(mobile and desktop)*/
 const navs = document.getElementsByTagName("nav");
-[...navs].forEach( nav => {
+[...navs].forEach(nav => {
   nav.addEventListener("click", handleMenuClick);
 });
-
 /* add all content 'about' page is visible one */
 const main = document.querySelector("main");
 pages.forEach(page => {
-  main.insertAdjacentHTML("afterBegin", page.content)
-  if(page.title === "about"){
-    const navAbout = document.getElementById("about")
-    navAbout.classList.add("active")
-  }else {
-    main.firstChild.classList.add(page.title, "hidden")
-  } 
-})
+  main.insertAdjacentHTML("afterBegin", page.content);
+  if (page.title === "about") {
+    const navAbout = document.getElementById("about");
+    navAbout.classList.add("active");
+  } else {
+    main.firstChild.classList.add(page.title, "hidden");
+  }
+});
