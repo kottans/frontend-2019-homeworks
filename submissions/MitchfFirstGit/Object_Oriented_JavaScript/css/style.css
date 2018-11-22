@@ -1,0 +1,12 @@
+body {
+    text-align: center;
+    background-image: linear-gradient(to right top, #3ac909, #00cb99, #00c2e3, #37b0ee, #9f9fcb);
+}
+.score, .helth{
+	margin:0;
+	font-size: 32px;
+}
+canvas{
+	width: 50%;
+
+}
