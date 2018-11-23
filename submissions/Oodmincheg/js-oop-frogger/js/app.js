@@ -9,15 +9,17 @@ var Enemy = function(y, player) {
   this.x = 1;
   this.y = y;
   this.player = player;
-  this.speed = 100 * (Math.random() * (4 - 1) + 1); //random initial speed for bugs
+  this.setSpeed(); //random initial speed for bugs
 };
-
+Enemy.prototype.setSpeed = function() {
+  this.speed = 100 * (Math.random() * 3 + 1);
+};
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
   this.x += this.speed * dt;
   if (this.x > 500) {
-    this.speed = 100 * (Math.random() * (4 - 1) + 1); //random  new speed
+    this.setSpeed; //random  new speed
     this.x = 0;
   }
   this.checkCollision();
@@ -26,13 +28,6 @@ Enemy.prototype.update = function(dt) {
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-var Hero = function() {
-  this.sprite = "images/char-boy.png";
-  this.x = 203;
-  this.y = 398;
-  this.score = 0;
-  this.health = 2;
 };
 //check collision bugs with hero
 Enemy.prototype.checkCollision = function() {
@@ -43,16 +38,33 @@ Enemy.prototype.checkCollision = function() {
     this.x < this.player.x + 50
   ) {
     this.player.health--;
-    this.player.x = 203;
-    this.player.y = 398;
+    this.player.fromStart();
   }
 };
+
 // Player class
 // Update(), render() and
 // a handleInput() method.
+var Hero = function() {
+  this.sprite = "images/char-boy.png";
+  this.fromStart();
+  this.score = 0;
+  this.health = 2;
+};
+
+Hero.prototype.fromStart = function() {
+  const START_HERO_COORDINATS = {
+    x: 203,
+    y: 398
+  };
+  this.x = START_HERO_COORDINATS.x;
+  this.y = START_HERO_COORDINATS.y;
+};
+
 Hero.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
 Hero.prototype.update = function(dt) {
   this.x;
   this.y;
@@ -62,6 +74,7 @@ Hero.prototype.update = function(dt) {
     this.y = 398;
   }
 };
+
 Hero.prototype.handleInput = function(key) {
   switch (key) {
     case "left":
