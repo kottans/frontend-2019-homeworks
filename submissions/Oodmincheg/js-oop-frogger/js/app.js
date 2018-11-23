@@ -19,7 +19,7 @@ Enemy.prototype.setSpeed = function() {
 Enemy.prototype.update = function(dt) {
   this.x += this.speed * dt;
   if (this.x > 500) {
-    this.setSpeed; //random  new speed
+    this.setSpeed(); //random  new speed
     this.x = 0;
   }
   this.checkCollision();
@@ -70,8 +70,7 @@ Hero.prototype.update = function(dt) {
   this.y;
   if (this.y < 40) {
     this.score++;
-    this.x = 203;
-    this.y = 398;
+    this.fromStart();
   }
 };
 
@@ -96,10 +95,10 @@ Hero.prototype.handleInput = function(key) {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 const player = new Hero();
-const enemy1 = new Enemy(50, player);
-const enemy2 = new Enemy(130, player);
-const enemy3 = new Enemy(225, player);
-let allEnemies = [enemy1, enemy2, enemy3];
+const ROW_HEIGHT = 80;
+const ROW_0_OFFSET = -30;
+const FIELD_ROWS_Y = [1, 2, 3].map(row => ROW_0_OFFSET + row * ROW_HEIGHT);
+let allEnemies = FIELD_ROWS_Y.map(rowY => new Enemy(rowY, player));
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
