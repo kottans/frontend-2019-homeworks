@@ -13,7 +13,7 @@ const Inhabition = function(specie, name, gender, legs, hands, saying) {
   this.gender = gender;
   this.legs = legs;
   this.saying = saying;
-  hands === 0 ? (this.handsString = "no") : (this.handsString = this.hands);
+  this.handsString = hands === 0 ? "no" : this.hands;
   this.hiString = `"${this.saying}"\n Hi. I'm ${this.name}. I'm a ${
     this.specie
   }. I have ${this.handsString} hands. I have ${this.legs} legs. And I'm a ${
