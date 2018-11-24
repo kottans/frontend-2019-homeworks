@@ -43,7 +43,7 @@ Enemy.prototype.checkCollision = function() {
 };
 
 // Player class
-// Update(), render() and
+// render() and
 // a handleInput() method.
 var Hero = function() {
   this.sprite = "images/char-boy.png";
@@ -64,8 +64,6 @@ Hero.prototype.fromStart = function() {
 Hero.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-
-//Hero.prototype.update = function(dt) {};
 
 Hero.prototype.handleInput = function(key) {
   switch (key) {
