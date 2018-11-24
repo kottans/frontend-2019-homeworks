@@ -1,0 +1,170 @@
+body {
+  margin: 0;
+}
+.main {
+  margin: 50px 20px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    margin: 25px auto 0;
+  }
+}
+.menu {
+  width: 25%;
+  border: 1px solid #56a0cc87;
+  max-height: 275px;
+}
+@media (max-width: 768px) {
+  .menu {
+    width: 100%;
+    position: relative;
+  }
+}
+.menu__item {
+  cursor: pointer;
+  box-sizing: border-box;
+  background-image: url("img/arrowRN.png");
+  background-repeat: no-repeat;
+  background-position: 93% 50%;
+  background-size: 25px;
+  height: 20%;
+  max-height: 55px;
+  line-height: 55px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .menu__item {
+    background: none;
+    height: 55px;
+  }
+}
+@media (min-width: 769px) and (max-width: 991px) {
+  .menu__item {
+    text-align: left;
+    font-size: 15px;
+    padding-left: 5px;
+  }
+}
+.menu__item:hover {
+  background-color: #ecebf3;
+  background-image: url("img/arrowAR.png");
+  animation-name: arrow;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+}
+@media (max-width: 768px) {
+  .menu__item:hover {
+    background: none;
+  }
+}
+.menu__item:not(:last-child) {
+  border-bottom: 1px solid #56a0cc87;
+}
+.content {
+  font-size: 16px;
+  font-family: arial;
+  width: 75%;
+  padding: 0 30px;
+  display: flex;
+}
+@media (max-width: 768px) {
+  .content {
+    width: 100%;
+    font-size: 14px;
+    box-sizing: border-box;
+    padding: 0 12px;
+    margin-top: 15px;
+  }
+}
+.content .films {
+  border: 15px solid transparent;
+  border-image: url(img/films.png) 22% round;
+}
+.content .tv-series {
+  border: 15px solid transparent;
+  border-image: url(img/series.png) 14% round;
+}
+.content .talk-show {
+  border: 15px solid transparent;
+  border-image: url(img/talk-show.jpeg) 45% round;
+}
+.content .news {
+  border: 15px solid transparent;
+  border-image: url(img/news.jpeg) 21% round;
+}
+.content .cartoon {
+  border: 15px solid transparent;
+  border-image: url(img/cartoon.png) 21% round;
+}
+.content__item {
+  line-height: 30px;
+  padding: 10px;
+  box-sizing: border-box;
+  height: 100%;
+}
+@media (max-width: 768px) {
+  .content__item {
+    text-align: center;
+  }
+}
+.content__item:nth-of-type(n+2) {
+  display: none;
+}
+@keyframes arrow {
+  0% {
+    background-position: 70% 50%;
+  }
+  10% {
+    background-position: 73% 50%;
+  }
+  20% {
+    background-position: 75.5% 50%;
+  }
+  30% {
+    background-position: 77.5% 50%;
+  }
+  40% {
+    background-position: 80.5% 50%;
+  }
+  50% {
+    background-position: 82.5% 50%;
+  }
+  60% {
+    background-position: 85.5% 50%;
+  }
+  70% {
+    background-position: 87.5% 50%;
+  }
+  80% {
+    background-position: 90% 50%;
+  }
+  90% {
+    background-position: 91.5% 50%;
+  }
+  100% {
+    background-position: 93% 50%;
+  }
+}
+.leftArrow,
+.rightArrow {
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  top: 0;
+  width: 30%;
+  height: 100%;
+}
+.rightArrow {
+  background-image: url(img/arrowRN.png);
+  right: 0;
+}
+.leftArrow {
+  background-image: url(img/arrowLN.png);
+  left: 0;
+}
