@@ -65,14 +65,7 @@ Hero.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Hero.prototype.update = function(dt) {
-  this.x;
-  this.y;
-  if (this.y < 40) {
-    this.score++;
-    this.fromStart();
-  }
-};
+//Hero.prototype.update = function(dt) {};
 
 Hero.prototype.handleInput = function(key) {
   switch (key) {
@@ -87,6 +80,10 @@ Hero.prototype.handleInput = function(key) {
       break;
     case "up":
       this.y -= 50;
+      if (this.y < 40) {
+        this.score++;
+        this.fromStart();
+      }
       break;
   }
 };
