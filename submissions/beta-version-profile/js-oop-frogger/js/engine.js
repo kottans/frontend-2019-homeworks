@@ -34,15 +34,11 @@ const update = dt => {
 }
 
 const updateEntities = dt => {
-  allEnemies.forEach(function(enemy) {
-    enemy.update(dt)
-  })
+  allEnemies.forEach(enemy => enemy.update(dt))
 
   if (Math.round(player.y / 80) === 0) {
     player.update()
   }
-
-  document.getElementById('score').innerHTML = player.score
 }
 
 const checkCollisions = () => {
@@ -63,7 +59,7 @@ function render() {
       'images/stone-block.png', // Row 2 of 3 of stone
       'images/stone-block.png', // Row 3 of 3 of stone
       'images/grass-block.png', // Row 1 of 2 of grass
-      'images/grass-block.png', // Row 2 of 2 of grass
+      'images/grass-block.png' // Row 2 of 2 of grass
     ],
     numRows = 6,
     numCols = 5,
@@ -93,8 +89,8 @@ Resources.load([
   'images/stone-block.png',
   'images/water-block.png',
   'images/grass-block.png',
-  'images/enemy-bug.png',
-  'images/char-boy.png',
+  'images/char-cat-girl.png',
+  'images/char-boy.png'
 ])
 
 Resources.onReady(init)

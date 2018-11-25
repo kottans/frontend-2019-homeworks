@@ -1,22 +1,23 @@
 import Resources from './resources.js'
 import { ctx } from './engine.js'
 
-let score = 0
-let gameLevel = 1
 const allEnemies = []
 const scoreLevelDiv = document.createElement('div')
+
 class Player {
   constructor(x, y, speed) {
     this.x = x
     this.y = y
     this.speed = speed
     this.sprite = 'images/char-boy.png'
+    this.score = 0
+    this.gameLevel = 1
   }
   update() {}
 
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y)
-    displayScoreLevel(score, gameLevel)
+    displayScoreLevel(this.score, this.gameLevel)
   }
 
   handleInput(keyPress) {
@@ -41,7 +42,7 @@ class Enemy {
     this.x = x
     this.y = y
     this.speed = speed
-    this.sprite = 'images/enemy-bug.png'
+    this.sprite = 'images/char-cat-girl.png'
   }
   update(dt) {
     this.x += this.speed * dt
@@ -56,15 +57,14 @@ class Enemy {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y)
   }
 }
-const player = new Player(202.5, 383, 50)
+const player = new Player(202.5, 383, 100)
 const enemy = new Enemy(0, Math.random() * 184 + 50, Math.random() * 256)
 
 const displayScoreLevel = (aScore, aLevel) => {
-  const canvas = document.getElementsByTagName('canvas')
-  const firstCanvasTag = canvas[0]
+  const score = document.querySelector('#score')
 
-  scoreLevelDiv.innerHTML = `Score:  ${aScore} / Level: '${aLevel}`
-  document.body.insertBefore(scoreLevelDiv, firstCanvasTag[0])
+  scoreLevelDiv.innerHTML = `Score:  ${aScore} / Level: ${aLevel}`.toUpperCase()
+  score.append(scoreLevelDiv)
 }
 
 const checkCollision = function(anEnemy) {
@@ -77,8 +77,8 @@ const checkCollision = function(anEnemy) {
     player.x = 202.5
     player.y = 383
   }
-
-  if (player.y + 63 <= 0) {
+  console.log(player.y)
+  if (player.y <= 0) {
     player.x = 202.5
     player.y = 383
     console.log('you made it!')
@@ -86,10 +86,12 @@ const checkCollision = function(anEnemy) {
     ctx.fillStyle = 'white'
     ctx.fillRect(0, 0, 505, 171)
 
-    score += 1
-    gameLevel += 1
-    console.log('current score: ' + score + ', current level: ' + gameLevel)
-    increaseDifficulty(score)
+    player.score += 1
+    player.gameLevel += 1
+    console.log(
+      'current score: ' + player.score + ', current level: ' + player.gameLevel
+    )
+    increaseDifficulty(player.score)
   }
 
   if (player.y > 383) {
@@ -102,6 +104,7 @@ const checkCollision = function(anEnemy) {
     player.x = 2.5
   }
 }
+console.log(player)
 
 const increaseDifficulty = function(numEnemies) {
   // remove all previous enemies on canvas
@@ -122,7 +125,7 @@ document.addEventListener('keydown', function(e) {
     37: 'left',
     38: 'up',
     39: 'right',
-    40: 'down',
+    40: 'down'
   }
 
   player.handleInput(allowedKeys[e.keyCode])
