@@ -93,13 +93,17 @@ let renderPage = () => {
 
             /* finding match of cat with the same id as in clicked link */
 
-            cats.find((cat) => {
-
+            let currentCat = cats.find((cat) => {
                 if (cat.id === currentTargetDataId) {
-                    return renderCat(cat);
+					return true;
                 }
 
             });
+			
+			if (currentCat) {
+				renderCat(currentCat);
+			}
+			
         }
 
     };
