@@ -13,7 +13,7 @@ const Inhabition = function(specie, name, gender, legs, hands, saying) {
   this.gender = gender;
   this.legs = legs;
   this.saying = saying;
-  this.handsString = hands === 0 ? "no" : this.hands;
+  this.handsString = hands === 0 ? "no" : hands;
   this.hiString = `"${this.saying}"\n Hi. I'm ${this.name}. I'm a ${
     this.specie
   }. I have ${this.handsString} hands. I have ${this.legs} legs. And I'm a ${
@@ -53,19 +53,19 @@ print(woman.hiString);
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
-   Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
-
-   Message can contain HTML markup. You may also tweak index.html and/or styles.css.
-   However, please, REFRAIN from improving visuals at least until your code is reviewed
-   so code reviewers might focus on a single file that is index.js.
-   */
+     Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
+  
+     Message can contain HTML markup. You may also tweak index.html and/or styles.css.
+     However, please, REFRAIN from improving visuals at least until your code is reviewed
+     so code reviewers might focus on a single file that is index.js.
+     */
 
 /* Print examples:
-   print('ABC');
-   print('<strong>ABC</strong>');
-   print('<strong>ABC</strong>', 'div');
-
-   print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
-   */
+     print('ABC');
+     print('<strong>ABC</strong>');
+     print('<strong>ABC</strong>', 'div');
+  
+     print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
+     print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
+     print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
+     */
