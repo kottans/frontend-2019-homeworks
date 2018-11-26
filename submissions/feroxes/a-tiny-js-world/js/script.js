@@ -15,7 +15,8 @@ class Creature {
         for(let key in this){
            info.push(this[key]);
         }
-        console.log(info);
+        let str = info.join('; ');
+        console.log(str);
     }
 }
 class Person extends Creature{
