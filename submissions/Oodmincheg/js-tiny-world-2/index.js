@@ -1,71 +1,54 @@
-/* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
-   Complete the below for code reviewers' convenience:
+class Creature {
+  constructor(name, gender) {
+    this.name = name;
+    this.gender = gender;
+    this.saiyng = "Hello, I'm " + this.name;
+  }
+}
 
-   Code repository: _put repo URL here_
-   Web app: _put project's github pages URL here_
-   */
+class Animal extends Creature {
+  constructor(name, gender) {
+    super(name, gender);
+    this.hands = 0;
+    this.legs = 4;
+  }
+}
 
-// ======== OBJECTS DEFINITIONS ========
-// Define your objects here
-const Inhabition = function(specie, name, gender, legs, hands, saying) {
-  this.specie = specie;
-  this.name = name;
-  this.gender = gender;
-  this.legs = legs;
-  this.saying = saying;
-  this.handsString = +hands === 0 ? "no" : hands;
-  this.hiString = `"${this.saying}"\n Hi. I'm ${this.name}. I'm a ${
-    this.specie
-  }. I have ${this.handsString} hands. I have ${this.legs} legs. And I'm a ${
-    this.gender
-  }\n `;
-};
+class Human extends Creature {
+  constructor(name, gender) {
+    super(name, gender);
+    this.spiece = "Human";
+    this.hands = 2;
+    this.legs = 2;
+  }
+}
 
-const dog = new Inhabition(
-  "dog",
-  "Mr. Pickles",
-  "male",
-  4,
-  0,
-  "MRRRR. PIIICLEEESSSS GOOOOD BOOOOOYYYY"
-);
-const cat = new Inhabition(
-  "cat",
-  "Felix",
-  "male",
-  4,
-  0,
-  "Felix the cat. The wonderful, wonderful cat!"
-);
-const man = new Inhabition("human", "Luntik", "male", 2, 2, "Ya rodilsya");
-const woman = new Inhabition(
-  "human",
-  "Eva",
-  "female",
-  2,
-  2,
-  "Ya sozdana iz rebra"
-);
-print(cat.hiString);
-print(dog.hiString);
-print(man.hiString);
-print(woman.hiString);
+class Dog extends Animal {
+  constructor(name, gender) {
+    super(name, gender);
+    this.spiece = "Dog";
+  }
+}
 
-// ======== OUTPUT ========
-/* Use print(message) for output.
-     Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
-  
-     Message can contain HTML markup. You may also tweak index.html and/or styles.css.
-     However, please, REFRAIN from improving visuals at least until your code is reviewed
-     so code reviewers might focus on a single file that is index.js.
-     */
+class Cat extends Animal {
+  constructor(name, gender) {
+    super(name, gender);
+    this.spiece = "Cat";
+  }
+}
+const cat = new Cat("Felix", "male");
+const dog = new Dog("Mr. Pickles", "male");
+const man = new Human("Luntik", "male");
+const woman = new Human("Eva", "female");
 
-/* Print examples:
-     print('ABC');
-     print('<strong>ABC</strong>');
-     print('<strong>ABC</strong>', 'div');
-  
-     print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-     print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
-     print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
-     */
+//prettier-ignore
+print(cat.spiece + "; " + cat.gender + "; " + cat.name + "; " + cat.legs  + " legs; " + cat.hands + " hands;" + cat.saiyng)
+
+//prettier-ignore
+print(dog.spiece + "; " + dog.gender + "; " + dog.name + "; " + dog.legs + " legs; " + dog.hands + " hands;" + dog.saiyng)
+
+//prettier-ignore
+print(man.spiece + "; " + man.gender + "; " + man.name + "; " + man.legs + " legs; " + man.hands + " hands;" + man.saiyng)
+
+//prettier-ignore
+print(woman.spiece + "; " + woman.gender + "; " + woman.name + "; " + woman.legs + " legs; " + woman.hands + " hands;" + woman.saiyng)
