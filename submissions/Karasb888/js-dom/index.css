@@ -112,9 +112,6 @@ body {
     text-align: center;
   }
 }
-.content__item:nth-of-type(n+2) {
-  display: none;
-}
 @keyframes arrow {
   0% {
     background-position: 70% 50%;
@@ -167,4 +164,7 @@ body {
 .leftArrow {
   background-image: url(img/arrowLN.png);
   left: 0;
+}
+.hidden {
+  display: none;
 }
