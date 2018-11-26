@@ -1,5 +1,6 @@
 #hellopreloader > p {
-  display: none; }
+  display: none;
+}
 
 #hellopreloader_preload {
   display: block;
@@ -11,16 +12,18 @@
   height: 100%;
   min-width: 1000px;
   background: #334447 url(http://hello-site.ru//main/images/preloads/rings.svg) center center no-repeat;
-  background-size: 41px; }
+  background-size: 41px;
+}
 
 body {
-  background: #ece8e8 url(../img/logo.png) no-repeat center;
+  background: #ece8e8 url(img/logo.png) no-repeat center;
   overflow: hidden;
   margin: 0;
   padding: 0;
   height: 100vh;
-  font-family: 'Ranga', cursive;
-  transition: 1s ease-out .2s; }
+  font-family: "Ranga", cursive;
+  transition: 1s ease-out 0.2s;
+}
 
 #menu {
   width: 100%;
@@ -28,9 +31,10 @@ body {
   background: #8b9188;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-around; }
+  justify-content: space-around;
+}
 
-.newItem {
+.new-item {
   display: flex;
   justify-content: center;
   height: 100%;
@@ -38,54 +42,68 @@ body {
   color: #2a3137;
   font-size: 24px;
   border-right: 1px solid #524f4f;
-  border-bottom: 1px solid #524f4f; }
-  .newItem span {
-    align-self: center; }
+  border-bottom: 1px solid #524f4f;
+}
+.new-item span {
+  align-self: center;
+}
 
-.itemsMouseover {
+.items-mouseover {
   background: #a83e3e;
   color: #fff;
-  transition: .7s ease;
-  opacity: .8;
-  cursor: pointer; }
+  transition: 0.7s ease;
+  opacity: 0.8;
+  cursor: pointer;
+}
 
 .children0 {
-  background: #2A3132 url(../img/logo2.png) no-repeat center; }
+  background: #2A3132 url(img/logo2.png) no-repeat center;
+}
 
 .children1 {
-  background: #404e58 url(../img/logo.png) no-repeat center; }
+  background: #404e58 url(img/logo.png) no-repeat center;
+}
 
 .children2 {
-  background: #445239 url(../img/logo2.png) no-repeat center; }
+  background: #445239 url(img/logo2.png) no-repeat center;
+}
 
 #content {
   height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: center; }
+  align-items: center;
+}
 
-.mainContent {
+.main-content {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   height: 80%;
   width: 80%;
   margin-bottom: 5%;
-  opacity: .9;
+  opacity: 0.9;
   border-radius: 10px;
-  background: #f0ebeb; }
-  .mainContent h1 {
-    text-align: center;
-    padding-top: 30px;
-    font-size: 40px;
-    color: #a83e3e; }
-  .mainContent ol {
-    padding: 30px 0 0 6%; }
-    .mainContent ol li {
-      font-size: 26px;
-      color: #2a3137; }
-      .mainContent ol li:hover {
-        color: #a83e3e;
-        text-decoration: underline;
-        cursor: pointer; }
+  background: #f0ebeb;
+}
+.main-content h1 {
+  text-align: center;
+  padding-top: 30px;
+  font-size: 40px;
+  color: #a83e3e;
+}
+.main-content ol {
+  padding: 30px 0 0 6%;
+}
+.main-content ol li {
+  font-size: 26px;
+  color: #2a3137;
+}
+.main-content ol li:hover {
+  color: #a83e3e;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */

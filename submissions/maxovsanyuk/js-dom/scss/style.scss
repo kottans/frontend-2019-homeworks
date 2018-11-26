@@ -20,7 +20,7 @@ body{
     justify-content: space-around;
 }
 
-.newItem{  
+.new-item{  
     display: flex;
     justify-content: center;
     height: 100%;
@@ -36,7 +36,7 @@ body{
 }
 
 
-.itemsMouseover{
+.items-mouseover{
     background: rgb(168, 62, 62);
     color: #fff;
     transition: .7s ease;
@@ -65,7 +65,7 @@ body{
     justify-content: flex-end;
     align-items: center;
 }
-.mainContent{
+.main-content{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
