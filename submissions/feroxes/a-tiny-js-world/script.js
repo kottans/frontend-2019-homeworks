@@ -30,10 +30,7 @@ class Person extends Creature{
 
 
 let nick = new Person('human', 'male', 'Nick','Hellooooo...',2 ,2, ['Kate', 'Jane']);
-
-nick.print();
-nick.toSay();
+let helen = new Person('human', 'female', 'Helen', 'Hi!', 2,2)
 
 let bars = new Creature('cat', 'female', 'Bars', 'Meuuuu', 4, 0);
-
-bars.print();
+let skot = new Creature('dog', 'male', 'Skot', 'Auuuuu!', 4,0);
