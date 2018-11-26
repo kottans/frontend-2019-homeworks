@@ -37,4 +37,3 @@ nick.toSay();
 let bars = new Creature('cat', 'female', 'Bars', 'Meuuuu', 4, 0);
 
 bars.print();
-bars.toSay();
