@@ -10,54 +10,50 @@ const generateMenu = data => {
     data.forEach(el => {
         let li = document.createElement("li");
         if (el.default && !defaultFlag) {
-            defaultFlag = !defaultFlag;
             li.classList.add("menu_item", "active");
             contentElement.innerHTML = el.content;
             window.location.hash = el.link;
         } else {
             li.classList.add("menu_item");
         }
-        let a = document.createElement("a");
-        a.addEventListener("click", menuHandlerClick);
-        a.href = el.link;
-        a.innerHTML += `${el.title}${el.icon}`;
-        li.appendChild(a);
+        li.setAttribute("data-link", el.link);
+        li.innerHTML = `${el.title}${el.icon}`;
         menu.appendChild(li);
     })
+    menu.addEventListener("click", menuHandlerClick);
     return menu;
 }
 
 const menuHandlerClick = e => {
-    e.preventDefault();
     let current = e.target;
+    let href = current.dataset.link;
     document.querySelector(".menu_item.active").classList.remove("active");
-    getParentNode(current, "LI").classList.add("active");
-    if (current.tagName !== "A") {
-        current = getParentNode(current, "A");
+    current.classList.add("active");
+    contentElement.innerHTML = getContent(href);
+    window.location.hash = href;
+    if (mobileIconElement.classList.contains("change")) {
+        navigationElement.classList.toggle("active");
+        mobileIconElement.classList.toggle("change");
     }
-    contentElement.innerHTML = getContent(current.getAttribute("href"));
-    window.location.hash = current.getAttribute("href");
-    let btnGetData = document.querySelector(".btn_get_data");
-    btnGetData ? btnGetData.addEventListener("click", btnHandlerClick) : null;
-    navigationElement.classList.toggle("active");
-    mobileIconElement.classList.toggle("change");
 }
 
-const btnHandlerClick = e => {
-    e.preventDefault();
-    let type = e.target.dataset.type;
-    clearContainers();
-    switch (type) {
-        case "random_user":
-            fetchData("https://randomuser.me/api/?results=5")
-                .then(data => makeRandomUserContent(data));
-            break;
-        case "currency":
-            fetchData("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json")
-                .then(data => makeCurrencyContent(data));
-            break;
-        default:
-            break;
+const contantHandleClick = e => {
+    let current = e.target;
+    if (current.matches("[data-type=random_user]") || current.matches("[data-type=currency]")) {
+        let type = e.target.dataset.type;
+        clearContainers();
+        switch (type) {
+            case "random_user":
+                fetchData("https://randomuser.me/api/?results=5")
+                    .then(data => makeRandomUserContent(data));
+                break;
+            case "currency":
+                fetchData("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json")
+                    .then(data => makeCurrencyContent(data));
+                break;
+            default:
+                break;
+        }
     }
 }
 
@@ -141,14 +137,6 @@ const makeCurrencyContent = currencies => {
 
 const getContent = link => { return data.filter(el => el.link === link)[0].content }
 
-const getParentNode = (node, parentTag) => {
-    if (node.parentNode.tagName === parentTag) {
-        return node.parentNode;
-    } else {
-        return getParentNode(node.parentNode, parentTag);
-    }
-}
-
 const init = () => {
     const isValidData = data.every(menuItem => Object.values(menuItem).every(value => value));
     if (isValidData) {
@@ -157,6 +145,7 @@ const init = () => {
             this.classList.toggle("change");
             navigationElement.classList.toggle("active");
         })
+        contentElement.addEventListener("click", contantHandleClick);
     }
 }
 

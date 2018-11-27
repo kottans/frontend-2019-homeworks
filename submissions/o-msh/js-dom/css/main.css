@@ -48,17 +48,22 @@ body {
     position: absolute;
     right: 0%;
     fill: #8995b6;
+    pointer-events: none;
 }
 
 .menu_item.active .menu_item_icon {
     fill: #3d6def;
 }
 
-.menu_item a:hover .menu_item_icon {
+.menu_item:hover {
+    color: #3d6def;
+}
+
+.menu_item:hover .menu_item_icon {
     fill: #3d6def;
 }
 
-.menu_item a {
+.menu_item {
     padding: 15px 0px 15px 0px;
     text-decoration: none;
     color: #909dc2;
@@ -67,15 +72,11 @@ body {
     display: block;
 }
 
-.menu_item.active a {
+.menu_item.active {
     color: #3d6def;
 }
 
-.menu_item a:hover {
-    color: #3d6def;
-}
-
-.menu_item.active a::before {
+.menu_item.active::before {
     content: "";
     position: absolute;
     width: 3px;
