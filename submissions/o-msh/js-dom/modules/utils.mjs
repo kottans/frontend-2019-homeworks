@@ -37,7 +37,7 @@ const menuHandlerClick = e => {
     }
 }
 
-const contantHandleClick = e => {
+const contentHandleClick = e => {
     let current = e.target;
     if (current.matches("[data-type=random_user]") || current.matches("[data-type=currency]")) {
         let type = e.target.dataset.type;
@@ -145,7 +145,7 @@ const init = () => {
             this.classList.toggle("change");
             navigationElement.classList.toggle("active");
         })
-        contentElement.addEventListener("click", contantHandleClick);
+        contentElement.addEventListener("click", contentHandleClick);
     }
 }
 
