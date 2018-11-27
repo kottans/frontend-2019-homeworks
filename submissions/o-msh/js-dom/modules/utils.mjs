@@ -1,29 +1,26 @@
 import data from './data.mjs';
 
-const generateMenu = (data) => {
-    if (data.length > 0 && (data.every(menuItem => { return menuItem.title && menuItem.link && menuItem.content && menuItem.icon }))) {
-        let defaultFlag = false;
-        let menu = document.createElement("ul");
-        data.forEach(el => {
-            let li = document.createElement("li");
-            if (el.default && !defaultFlag) {
-                defaultFlag = !defaultFlag;
-                li.classList.add("menu_item", "active");
-                document.querySelector(".content").innerHTML = el.content;
-                window.location.hash = el.link;
-            } else {
-                li.classList.add("menu_item");
-            }
-            let a = document.createElement("a");
-            a.addEventListener("click", e => menuHandlerClick(e));
-            a.href = el.link;
-            a.innerHTML += `${el.title}${el.icon}`;
-            li.appendChild(a);
-            menu.appendChild(li);
-        })
-        return menu;
-    }
-    return false;
+const generateMenu = (data, contentElement) => {
+    let defaultFlag = false,
+        menu = document.createElement("ul");
+    data.forEach(el => {
+        let li = document.createElement("li");
+        if (el.default && !defaultFlag) {
+            defaultFlag = !defaultFlag;
+            li.classList.add("menu_item", "active");
+            contentElement.innerHTML = el.content;
+            window.location.hash = el.link;
+        } else {
+            li.classList.add("menu_item");
+        }
+        let a = document.createElement("a");
+        a.addEventListener("click", menuHandlerClick);
+        a.href = el.link;
+        a.innerHTML += `${el.title}${el.icon}`;
+        li.appendChild(a);
+        menu.appendChild(li);
+    })
+    return menu;
 }
 
 const menuHandlerClick = (e) => {
@@ -141,12 +138,17 @@ const getParentNode = (node, parentTag) => {
 }
 
 const init = () => {
-    let menu = generateMenu(data);
-    menu ? document.querySelector(".navigation").appendChild(menu) : alert("Error menu generation");
-    document.querySelector(".mobile_icon").addEventListener("click", function(e) {
-        this.classList.toggle("change");
-        document.querySelector(".navigation").classList.toggle("active");
-    })
+    const navigationElement = document.querySelector(".navigation");
+    const mobileIconElement = document.querySelector(".mobile_icon");
+    const contentElement = document.querySelector(".content");
+    const isValidData = data.every(menuItem => Object.values(menuItem).every(value => value));
+    if (isValidData) {
+        navigationElement.appendChild(generateMenu(data, contentElement));
+        mobileIconElement.addEventListener("click", function() {
+            this.classList.toggle("change");
+            navigationElement.classList.toggle("active");
+        })
+    }
 }
 
 export default {
