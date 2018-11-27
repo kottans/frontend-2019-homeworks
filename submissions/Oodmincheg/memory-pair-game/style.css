@@ -17,10 +17,9 @@ content {
   margin: 0.2% 0.2%;
   height: 70px;
   text-align: center;
-}
-.back,
-.front {
-  height: 70px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
 }
 img {
   width: 100%;
@@ -33,18 +32,11 @@ h1 {
   font-size: 20px;
   margin: auto;
 }
-.flipper {
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-
-  position: relative;
-}
-
 /* hide back of pane during swap */
 .front,
 .back {
   backface-visibility: hidden;
-
+  height: 70px;
   position: absolute;
   top: 0;
   left: 0;

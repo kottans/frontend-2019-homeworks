@@ -17,21 +17,25 @@ const GAME_BOARD = document.getElementById("content");
 const WINNER_STRING = "OK, dude. You are the winner. ";
 const TIME_OF_BACK_FLIP = 1200;
 const TIME_OF_HIDDING = 800;
-let keepPlaying, secondClick, nextMoveFlag, previousFlipper, previousImage;
+let remainingCards,
+  secondClick,
+  performNextMoveFlag,
+  previousFlipper,
+  previousImage;
 
 //funtcion to flip one or more fliper containers
-const flip = function() {
-  [...arguments].forEach(flipper => {
+const flip = (...args) => {
+  args.forEach(flipper => {
     flipper.classList.toggle("flip");
   });
 };
 
 //function that starts next move and handle game over situation
-const nextMove = () => {
-  if (keepPlaying) {
+const performNextMove = () => {
+  if (remainingCards) {
     secondClick = false;
     previousFlipper = null;
-    nextMoveFlag = true;
+    performNextMoveFlag = true;
   } else {
     GAME_BOARD.textContent = WINNER_STRING;
     let newGameButton = document.createElement("button");
@@ -42,36 +46,35 @@ const nextMove = () => {
 };
 
 // hide matches from page, and count how many cards are left in the game
-function removeMatches(currentFlipper) {
-  currentFlipper.classList.add("hidden");
-  previousFlipper.classList.add("hidden");
-  keepPlaying -= 2;
-  nextMove();
-}
+const removeMatches = (...args) => {
+  args.forEach(card => card.classList.add("hidden"));
+  remainingCards -= 2;
+  performNextMove();
+};
 
 //function that handle moves(clicks on the cards)
 const move = event => {
+  event.preventDefault();
   const currentFlipper = event.currentTarget;
   // prettier-ignore
-  const currentImage = event.currentTarget.querySelector("img").getAttribute("src");
-
+  const currentImage = currentFlipper.querySelector("img").getAttribute("src");
   //check the click on the same card, click on not hidden element and possibility of opening cards
   if (
     currentFlipper != previousFlipper &&
     !currentFlipper.classList.contains("hidden") &&
-    nextMoveFlag
+    performNextMoveFlag
   ) {
     flip(currentFlipper);
     if (secondClick) {
-      nextMoveFlag = false;
+      performNextMoveFlag = false;
       if (currentImage != previousImage) {
         setTimeout(() => {
           flip(previousFlipper, currentFlipper);
-          nextMove();
+          performNextMove();
         }, TIME_OF_BACK_FLIP);
       } else {
         setTimeout(() => {
-          removeMatches(currentFlipper);
+          removeMatches(currentFlipper, previousFlipper);
         }, TIME_OF_HIDDING);
       }
     } else {
@@ -82,44 +85,34 @@ const move = event => {
   }
 };
 
+const createCard = img => {
+  let card = document.createElement("div");
+  card.classList.add("flipper");
+  card.addEventListener("mousedown", move);
+  let blankSide = document.createElement("div");
+  blankSide.classList.add("front");
+  let imageSide = document.createElement("img");
+  imageSide.setAttribute("src", img);
+  imageSide.classList.add("back");
+  card.append(imageSide, blankSide);
+  return card;
+};
+
 const newGame = () => {
   //shuffle array of cards
-  list.sort(function() {
+  list.sort(() => {
     return 0.5 - Math.random();
   });
 
   //set game's variables to the start values
   GAME_BOARD.textContent = "";
-  keepPlaying = list.length;
+  remainingCards = list.length;
   secondClick = false;
-  nextMoveFlag = true;
+  performNextMoveFlag = true;
 
   //render our cards on the page(back sides)
   list.forEach(img => {
-    //create blank side of the card
-    const blank = document.createElement("div");
-    blank.classList.add("front");
-
-    //create our flipper container
-    let flipper = document.createElement("div");
-    flipper.classList.add("flipper");
-
-    //add event listnee to our flipper container
-    flipper.addEventListener("mousedown", event => {
-      move(event);
-    });
-
-    //create image on back side of our card
-    let image = document.createElement("img");
-    image.setAttribute("src", img);
-    image.classList.add("back");
-
-    //add back and front of our card to the flipper
-    flipper.appendChild(image);
-    flipper.appendChild(blank);
-
-    //add aour flipper to the page
-    GAME_BOARD.appendChild(flipper);
+    GAME_BOARD.appendChild(createCard(img));
   });
 };
 
