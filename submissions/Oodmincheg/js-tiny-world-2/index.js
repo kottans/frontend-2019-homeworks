@@ -2,7 +2,7 @@ class Creature {
   constructor(name, gender) {
     this.name = name;
     this.gender = gender;
-    this.saiyng = "Hello, I'm " + this.name;
+    this.saiyng = `Hello, I'm ${this.name}`;
   }
 }
 
@@ -36,19 +36,19 @@ class Cat extends Animal {
     this.spiece = "Cat";
   }
 }
-const cat = new Cat("Felix", "male");
-const dog = new Dog("Mr. Pickles", "male");
-const man = new Human("Luntik", "male");
-const woman = new Human("Eva", "female");
 
-//prettier-ignore
-print(cat.spiece + "; " + cat.gender + "; " + cat.name + "; " + cat.legs  + " legs; " + cat.hands + " hands;" + cat.saiyng)
+const introduce = creature => {
+  //prettier-ignore
+  print(`${creature.spiece}; ${creature.gender}; ${creature.name}; ${creature.legs} legs; ${creature.hands ? creature.hands : "no"} hands; ${creature.saiyng}`)
+};
 
-//prettier-ignore
-print(dog.spiece + "; " + dog.gender + "; " + dog.name + "; " + dog.legs + " legs; " + dog.hands + " hands;" + dog.saiyng)
+const creaturesArray = [
+  new Cat("Felix", "male"),
+  new Dog("Mr. Pickles", "male"),
+  new Human("Luntik", "male"),
+  new Human("Eva", "female")
+];
 
-//prettier-ignore
-print(man.spiece + "; " + man.gender + "; " + man.name + "; " + man.legs + " legs; " + man.hands + " hands;" + man.saiyng)
-
-//prettier-ignore
-print(woman.spiece + "; " + woman.gender + "; " + woman.name + "; " + woman.legs + " legs; " + woman.hands + " hands;" + woman.saiyng)
+creaturesArray.forEach(creature => {
+  introduce(creature);
+});
