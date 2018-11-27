@@ -2,7 +2,7 @@
 @import 'preloader' ;
 
 body{
-    background:  rgb(236, 232, 232) url(img/logo.png)no-repeat center ;
+    background:  rgb(236, 232, 232) url(/img/logo.png)no-repeat center ;
     overflow: hidden;
     margin: 0;
     padding: 0;
@@ -33,28 +33,26 @@ body{
     span{
         align-self: center;
     }
+    &:hover{
+        background: rgb(168, 62, 62);
+        color: #fff;
+        transition: .7s ease;
+        opacity: .8;
+        cursor: pointer;
+    }
 }
 
 
-.items-mouseover{
-    background: rgb(168, 62, 62);
-    color: #fff;
-    transition: .7s ease;
-    opacity: .8;
-    cursor: pointer;
-    } 
-
-
-.children0{
-    background: #2A3132  url(img/logo2.png)no-repeat center;
+.children-first{
+    background: #2A3132  url(/img/logo2.png)no-repeat center;
 }
 
-.children1{
-    background: rgb(64, 78, 88) url(img/logo.png)no-repeat center;
+.children-second{
+    background: rgb(64, 78, 88) url(/img/logo.png)no-repeat center;
 }
 
-.children2{
-    background: #445239 url(img/logo2.png)no-repeat center;
+.children-third{
+    background: #445239 url(/img/logo2.png)no-repeat center;
 }
    
 
@@ -96,6 +94,8 @@ body{
     }
 }
   
-
+.generalBasics, .frontendBasics, .advancedTopics{
+    @extend .new-item ;
+}
 
 
