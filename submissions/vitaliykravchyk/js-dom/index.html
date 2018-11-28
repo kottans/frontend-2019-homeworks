@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="content">
+            <p id="heading">Лунтик и его друзья</p>
+        </div>
+    </header>
+    <nav>
+        <div class="content">
+            <ul id="friend-list">
+                <li data-item="0">Лунтик</li>
+                <li data-item="1">Кузя</li>
+                <li data-item="2">Мила</li>
+                <li data-item="3">Пчелёнок</li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class="content"></div>
+    </main>
+    <script src="js/main.js"></script>
+    <script>
+        window.onload = function(){
+            Luntik.init();
+        }
+    </script>
+</body>
+</html>
