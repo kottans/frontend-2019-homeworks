@@ -1,0 +1,101 @@
+
+@import 'preloader' ;
+
+body{
+    background:  rgb(236, 232, 232) url(/img/logo.png)no-repeat center ;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Ranga', cursive;
+    transition: 1s ease-out .2s;
+}
+
+#menu{
+    width: 100%;
+    height: 10%;
+    background: rgb(139, 145, 136);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.new-item{  
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: inherit;
+    color: rgb(42, 49, 55); 
+    font-size: 24px;
+    border-right: 1px solid rgb(82, 79, 79);
+    border-bottom: 1px solid rgb(82, 79, 79);
+
+    span{
+        align-self: center;
+    }
+    &:hover{
+        background: rgb(168, 62, 62);
+        color: #fff;
+        transition: .7s ease;
+        opacity: .8;
+        cursor: pointer;
+    }
+}
+
+
+.children-first{
+    background: #2A3132  url(/img/logo2.png)no-repeat center;
+}
+
+.children-second{
+    background: rgb(64, 78, 88) url(/img/logo.png)no-repeat center;
+}
+
+.children-third{
+    background: #445239 url(/img/logo2.png)no-repeat center;
+}
+   
+
+#content{
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+.main-content{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 80%;
+    width: 80%;
+    margin-bottom: 5%;
+    opacity: .9;
+    border-radius: 10px;
+    background: rgb(240, 235, 235);
+
+    h1{
+        text-align: center;
+        padding-top: 30px;
+        font-size: 40px;   
+        color: rgb(168, 62, 62); 
+    }
+    ol{
+        padding: 30px 0 0 6%;
+        li{
+            font-size: 26px;
+            color: rgb(42, 49, 55); 
+            &:hover{
+                color: rgb(168, 62, 62);
+                text-decoration: underline;
+                cursor: pointer; 
+            }
+        }
+    }
+}
+  
+.generalBasics, .frontendBasics, .advancedTopics{
+    @extend .new-item ;
+}
+
+
