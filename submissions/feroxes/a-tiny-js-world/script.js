@@ -34,3 +34,5 @@ let helen = new Person('human', 'female', 'Helen', 'Hi!', 2,2)
 
 let bars = new Creature('cat', 'female', 'Bars', 'Meuuuu', 4, 0);
 let skot = new Creature('dog', 'male', 'Skot', 'Auuuuu!', 4,0);
+
+// I think it`s nothing to change:)
