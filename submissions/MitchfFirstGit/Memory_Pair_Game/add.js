@@ -34,27 +34,29 @@ function match(){
   if(firstGuessCard.firstElementChild.src === secondGuessCard.firstElementChild.src){
       firstGuessCard.removeEventListener('click', flip);
       secondGuessCard.removeEventListener('click', flip);
+      gameResult++;
     
       setTimeout(()=>{
         firstGuessCard.classList.add('hidden');
         secondGuessCard.classList.add('hidden');
+        if(gameResult === gamePairs){
+          endTime = new Date().getTime();
+          gameTime = ( ( endTime - startTime )/1000).toFixed(1);
+          if(gameTime > 11){
+            alert(` Your result is ${gameTime} seconds. It was close but I know you can do more, just keep going! `);
+          }
+          else{
+            alert(`Congratulation!!! Your result is ${gameTime} seconds. That was hard but you've made it. You can name yourself one of kottans`);
+          }
+        
+          location.reload();
+        } 
         resetVariables();
       }, 500);
 
-      gameResult++;
+      
 
-      if(gameResult === gamePairs){
-        endTime = new Date().getTime();
-        gameTime = ( ( endTime - startTime )/1000).toFixed(1);
-        if(gameTime > 10){
-          alert(` Your result is ${gameTime} seconds. It was close but I know you can do more, just keep going! `);
-        }
-        else{
-          alert(`Congratulation!!! Your result is ${gameTime} seconds. That was hard but you've made it. You made the first step to become Kottan`);
-        }
-        
-        location.reload();
-      } 
+      
   }
 
   else{
@@ -76,7 +78,7 @@ function resetVariables() {
 }
 
 function shuffleCards(){
-  alert('If you think you are Kottan  then you have 10 seconds to complete this game');
+  alert('If you think you are Kottan  then you have 11 seconds to complete this game');
 
 	for(let i = 0; i<cards.length;i++){
      let ramdomPos = Math.floor(Math.random() * 12);
