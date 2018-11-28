@@ -36,44 +36,56 @@ body {
 
 .menu_item {
     text-align: center;
+    text-decoration: none;
     color: #909dc2;
     cursor: pointer;
     border-bottom: 1px solid #e0e2e9;
     position: relative;
+    padding: 15px 0px 15px 0px;
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
-.menu_item .menu_item_icon {
+.menu_item .icon {
+    background-color:#8995b6;
     width: 20px;
     height: 20px;
     position: absolute;
+    top: 30%;
     right: 0%;
-    fill: #8995b6;
     pointer-events: none;
 }
 
-.menu_item.active .menu_item_icon {
-    fill: #3d6def;
+.icon-home {
+    -webkit-mask-image: url("../img/home-icon.svg");
+    mask-image: url("../img/home-icon.svg");
+}
+
+.icon-users {
+    -webkit-mask-image: url("../img/users-icon.svg");
+    mask-image: url("../img/users-icon.svg");
+}
+
+.icon-currency {
+    -webkit-mask-image: url("../img/currency-icon.svg");
+    mask-image: url("../img/currency-icon.svg");
+}
+
+.menu_item.active {
+    color: #3d6def;
+}
+
+.menu_item.active .icon {
+    background-color: #3d6def;
 }
 
 .menu_item:hover {
     color: #3d6def;
 }
 
-.menu_item:hover .menu_item_icon {
-    fill: #3d6def;
-}
-
-.menu_item {
-    padding: 15px 0px 15px 0px;
-    text-decoration: none;
-    color: #909dc2;
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.menu_item.active {
-    color: #3d6def;
+.menu_item:hover .icon {
+    background-color: #3d6def;
 }
 
 .menu_item.active::before {
@@ -106,7 +118,7 @@ body {
     border-radius: 15px;
 }
 
-.content .user_div {
+.users {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -114,23 +126,27 @@ body {
     padding: 25px 25px 0px 25px;
 }
 
-.content .user_div img {
+.users img {
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0,0,0,0.5)
 }
 
-.content .user_div .user_card .user_info {
+.users .user_card .user_info {
     margin-top: 10px;
     word-wrap: break-word;
 }
 
-.content .user_div .user_card .user_info ul {
+.users .user_card .user_info ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
 }
 
-.content .currency_div {
+.users .user_card .user_info ul li:first-child {
+    text-transform: capitalize;
+}
+
+.content .currencies {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -138,7 +154,7 @@ body {
     padding: 25px 25px 0px 25px;
 }
 
-.content .currency_div .currency_card {
+.currencies .currency_card {
     background-color: #C9D8FF;
     padding: 10px;
     margin: 10px;
@@ -146,17 +162,17 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-.content .currency_div .currency_card ul {
+.currencies .currency_card ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
 }
 
-.content .loading_div {
+.content .loader {
     display: none;
 }
 
-.content .loading_div.show {
+.content .loader.show {
     display: block;
 }
 
@@ -221,12 +237,12 @@ body {
 }
 
 @media only screen and (max-width: 450px) {
-    .content .user_div {
+    .content .users {
         flex-direction: column;
         flex-wrap: wrap;
     }
 
-    .content .user_div .user_card {
+    .content .users .user_card {
         width: 100%;
         margin-top: 25px;
     }
@@ -237,7 +253,7 @@ body {
         font-size: 12px;
     }
 
-    .content .user_div img {
+    .content .users img {
         width: 50%;
         height: 50%;
     }
@@ -247,13 +263,13 @@ body {
         font-size: 12px;
     }
 
-    .content .currency_div .currency_card {
+    .content .currencies .currency_card {
         padding: 0px;
         margin: 5px;
         border-radius: 5px;
     }
 
-    .content .loading_div img{
+    .content .loader img {
         width: 50%;
         height: 50%;
     }
