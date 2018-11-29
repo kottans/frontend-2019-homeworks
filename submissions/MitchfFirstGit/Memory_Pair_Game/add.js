@@ -1,67 +1,53 @@
-var cards = document.querySelectorAll('.card');
-
-let firstGuessCard, secondGuessCard, startTime, endTime, gameTime;
+const CARDS = document.querySelectorAll('.card');
+const TIME_SHOW_MATCH_CARDS = 500;
+const TIME_KOTTANS = 11;
+let firstGuessCard, secondGuessCard, startTime, endTime, gameTime, clickCard;
 let activeCard = false;
 let lockAttempt = false;
 let gameResult = 0;
 let gamePairs = 6;
-
-function flip() {
-
-  this.firstElementChild.style.transform = 'rotateY(180deg)';
-  if (this === firstGuessCard) return;
+function flip(){
+  clickCard = this;
+  clickCard.firstElementChild.classList.add('frontCard');
+  if (clickCard === firstGuessCard) return;
   if (lockAttempt) return;
-  this.classList.add('flip');
-
-
+  clickCard.classList.add('flip');
   if (!activeCard) {
     activeCard = true;
-    firstGuessCard = this;
- 
+    firstGuessCard = clickCard;
   }
   else{
     lockAttempt = true;
     activeCard = false;
-    secondGuessCard = this;
-    match();
-    
+    secondGuessCard = clickCard;
+    match(); 
   }
-
 }
-
 function match(){
-
   if(firstGuessCard.firstElementChild.src === secondGuessCard.firstElementChild.src){
       firstGuessCard.removeEventListener('click', flip);
       secondGuessCard.removeEventListener('click', flip);
       gameResult++;
-    
       setTimeout(()=>{
         firstGuessCard.classList.add('hidden');
         secondGuessCard.classList.add('hidden');
         if(gameResult === gamePairs){
           endTime = new Date().getTime();
-          gameTime = ( ( endTime - startTime )/1000).toFixed(1);
-          if(gameTime > 11){
+          const convertToSeconds = ms => (ms / 1000).toFixed(1);
+          gameTime = convertToSeconds(endTime - startTime);
+          if(gameTime > TIME_KOTTANS){
             alert(` Your result is ${gameTime} seconds. It was close but I know you can do more, just keep going! `);
           }
           else{
             alert(`Congratulation!!! Your result is ${gameTime} seconds. That was hard but you've made it. You can name yourself one of kottans`);
           }
-        
           location.reload();
         } 
         resetVariables();
-      }, 500);
-
-      
-
-      
+      }, TIME_SHOW_MATCH_CARDS);
   }
-
   else{
-
-    setTimeout( ()=>{
+    setTimeout(()=>{
       lockAttempt = false;
       firstGuessCard.classList.remove('flip');
       secondGuessCard.classList.remove('flip');
@@ -69,36 +55,25 @@ function match(){
     }, 1000);
   }
 }
-
-function resetVariables() {
+function resetVariables(){
   activeCard = false;
   lockAttempt = false;
   firstGuessCard = null;
   secondGuessCard = null; 
 }
-
 function shuffleCards(){
-  alert('If you think you are Kottan  then you have 11 seconds to complete this game');
-
-	for(let i = 0; i<cards.length;i++){
-     let ramdomPos = Math.floor(Math.random() * 12);
-     cards[i].style.order = ramdomPos;
-     cards[i].lastElementChild.style.opacity = '0';
-
+  alert(`If you think you are Kottan then you have ${TIME_KOTTANS} seconds to complete this game`);
+  for(let i = 0; i<CARDS.length;i++){
+    let ramdomPos = Math.floor(Math.random() * 12);
+    CARDS[i].style.order = ramdomPos;
+    CARDS[i].lastElementChild.classList.add('hidden');
   }
-
-  setTimeout( function(){
-    for(let i = 0; i < cards.length; i++){
-      cards[i].lastElementChild.style.opacity = null;
-      cards[i].addEventListener('click', flip);
+  setTimeout(function(){
+    for(let i = 0; i < CARDS.length; i++){
+    CARDS[i].lastElementChild.classList.remove('hidden');
+    CARDS[i].addEventListener('click', flip);
     }
-    
-  startTime = new Date().getTime();
-   
-  }, 3000 )
-
+    startTime = new Date().getTime();
+  }, 3000)
 } 
-
- window.onload = shuffleCards;
-
-
+window.onload = shuffleCards;
