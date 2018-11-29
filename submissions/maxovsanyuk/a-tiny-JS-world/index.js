@@ -15,7 +15,7 @@ class Inhabitant{
         this.name = `${name.charAt(0).toUpperCase() + name.slice(1)}`;
         this.gender = gender;
         this.legs = legs;
-        this.hands = +hands === null ? '0': hands;
+        this.hands = hands === 0 ? '0': undefined;
         this.introduce = introduce;
         this.expression = `<b>General information</b> ( ${specie}, ${gender} ). Hello my name is: <b>${this.name}</b>.  I'm a ,and I have: <b>${this.legs}</b> legs and <b>${this.hands}</b> hands. About myself: <b>${this.introduce}</b>`;
     }
