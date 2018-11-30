@@ -1,31 +1,29 @@
-var data;
-var index = 0;
-var prevIndex = 0;
-var animationTo = "";
-var animationFrom = "";
+let data;
+
+let index = 0;
+let prevIndex = 0;
+
+let animationTo = "";
+let animationFrom = "";
+let timeForHiddenAnimation = 20;
 
 //Request for JSON
-var request = new XMLHttpRequest();
-request.open("GET", "data.json", true);
-request.onload = function() {
-  if (request.status >= 200 && request.status < 400) {
-    data = JSON.parse(request.responseText);
+fetch("/data.json")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(json) {
+    data = json;
     makeMenu(data);
     fillInMain(0);
-  } else {
-    console.log(" We reached our target server, but it returned an error");
-  }
-};
-request.onerror = function() {
-  console.log(" There was a connection error of some sort");
-};
-request.send();
+  })
+  .catch(alert);
 
 //Forming menu from JSON
 function makeMenu(data) {
-  var menuEl = document.querySelector("#menu");
-  for (var i in data) {
-    var link = document.createElement("a");
+  let menuEl = document.querySelector("#menu");
+  for (let i in data) {
+    let link = document.createElement("a");
     link.href = i;
     link.text = data[i].header;
     menuEl.appendChild(link);
@@ -36,8 +34,8 @@ function makeMenu(data) {
 //Event handler for menu click
 function reactOnClick(event) {
   event.preventDefault();
-  var indexes = event.target.href.split("/");
-  var index = indexes[indexes.length - 1];
+  let indexes = event.target.href.split("/");
+  let index = indexes[indexes.length - 1];
   if (index != prevIndex) {
     fillInMain(index);
   }
@@ -45,7 +43,7 @@ function reactOnClick(event) {
 
 //Filling main with content and its partials...
 function fillInMain(index) {
-  var main = document.querySelector("#main");
+  let main = document.querySelector("#main");
 
   defineAnimationClasses(prevIndex, index);
   main.classList.add(animationTo);
@@ -55,8 +53,8 @@ function fillInMain(index) {
 
 function changeContent(main, index) {
   main.innerHTML = "";
-  var h1 = document.createElement("h1");
-  var content = document.createElement("div");
+  let h1 = document.createElement("h1");
+  let content = document.createElement("div");
   h1.innerText = data[index].header;
   content.innerHTML = data[index].content;
   content.className = "content";
@@ -67,7 +65,7 @@ function changeContent(main, index) {
 
   prevIndex = index;
 
-  setTimeout(showContent, 1, main);
+  setTimeout(showContent, timeForHiddenAnimation, main);
 }
 
 function showContent(main) {
@@ -75,13 +73,10 @@ function showContent(main) {
 }
 
 function setMenuCurrent(index) {
-  var arr = document.querySelectorAll("nav > a");
-  for (var i in arr) {
-    if (arr[i].classList) {
-      arr[i].classList.remove("current");
-    }
-  }
-  arr[index].classList.add("current");
+  Array.from(document.querySelectorAll("nav > a.current")).forEach(elem =>
+    elem.classList.remove("current")
+  );
+  document.querySelectorAll("nav > a")[index].classList.add("current");
 }
 
 function defineAnimationClasses(prevIndex, index) {

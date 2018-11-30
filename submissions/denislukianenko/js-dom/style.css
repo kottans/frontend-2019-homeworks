@@ -80,6 +80,7 @@ main.hide-down-from {
     flex-direction: row;
     margin-top: 0;
     transform: none;
+    align-items: center;
   }
   main.hide-up-from {
     transform: scaleX(1.05) translateX(-30px);
