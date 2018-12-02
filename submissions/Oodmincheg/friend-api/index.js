@@ -7,7 +7,7 @@ const createCardOfFreind = friend => {
   image.setAttribute("src", friend.picture.large);
   const caption = document.createElement("figcaption");
   //prettier-ignore
-  caption.textContent = `${upFirstconstter(friend.name.first)} ${upFirstconstter(friend.name.last)}, age ${friend.dob.age}`;
+  caption.textContent = `${upFirstLetter(friend.name.first)} ${upFirstLetter(friend.name.last)}, age ${friend.dob.age}`;
   let email = document.createElement("a");
   let br = document.createElement("br");
   email.textContent = `${friend.email}`;
@@ -40,7 +40,7 @@ const asc = (a, b) => {
   }
 };
 
-const upFirstconstter = string => {
+const upFirstLetter = string => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
