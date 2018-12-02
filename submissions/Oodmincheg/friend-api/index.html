@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Lonely souls</title>
+  </head>
+  <body>
+    <header>
+      <h1>Lonely souls.</h1>
+      <h2>We're so lonely that wanna get better with random partner. Really.</h2>
+    </header>
+    <main>
+      <aside>
+          
+        <form class="search">
+          <input type="text" placeholder="Search..." name="search" id="searchByName" size="18">
+          <i class="fa fa-search"></i>
+        </form>
+        <div class="sort"><span>Gender</span>
+          <input type="radio" name="sortBySex" id="sortByMale">M</input>
+          <input type="radio" name="sortBySex" id="sortByFemale">F</input>
+          <input type="radio" name="sortBySex" id="bothSexes" checked="checked">Both</input>
+        </div>
+        <div class="sort"><span>Name:</span> 
+          <input type="radio" name="sortBy" id="sortByNameAsc">↑</input>
+          <input type="radio" name="sortBy" id="sortByNameDesc">↓</input>
+        </div>
+        <div class="sort"><span></span>Age:</span>
+          <input type="radio" name="sortBy" id="sortByAgeAsc">↑</input>
+          <input type="radio" name="sortBy" id="sortByAgeDesc">↓</input>
+        </div>
+       
+        <div class="reset">
+          <button id="reset">Reset All</button>
+        </div>
+      </aside>
+      <content id="content"> </content>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
