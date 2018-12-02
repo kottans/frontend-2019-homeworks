@@ -1,12 +1,37 @@
+*{
+    margin:0;
+    padding: 0;	
+}
 body {
     text-align: center;
     background-image: linear-gradient(to right top, #3ac909, #00cb99, #00c2e3, #37b0ee, #9f9fcb);
+    height: 100vh;
 }
-.score, .helth{
-	margin:0;
-	font-size: 32px;
+
+.score, .helth, .level{
+	font-size: 200%;
 }
 canvas{
-	width: 50%;
+	width: 100%;
+}
 
+@media only screen and (orientation: landscape) {
+      canvas{
+  	width: 60%;
+	height: 80%;
+}
+
+.score, .helth, .level{
+	font-size: 100%;
+}
+}
+
+@media screen and (min-width: 1000px) {
+  canvas{
+  	width: 600px;
+
+}
+.score, .helth, .level{
+	font-size: 4vh;
+}
 }
