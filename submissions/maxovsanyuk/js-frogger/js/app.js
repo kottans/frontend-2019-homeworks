@@ -103,7 +103,7 @@ Player.prototype.handleInput = function(key){
             setTimeout(() => {
                 this.x = 200;
                 this.y = 360;
-                player.health++
+                player.score++
             }, 300);
         }
     }else if(key === 'down' && this.y <= 300){
