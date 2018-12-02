@@ -103,6 +103,8 @@ var Engine = (function(global) {
      * they are just drawing the entire screen over and over.
      */
     function render() {
+        
+        
         /* This array holds the relative URL to the image used
          * for that particular row of the game level.
          */
@@ -135,6 +137,10 @@ var Engine = (function(global) {
                  * we're using them over and over.
                  */
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
+                // ctx.drawImage(Resources.get('images/Heart.png'), 50, 360);
+                ctx.fillText(`Score: ${player.score}`, 10, 30);
+                ctx.fillText(`Health: ${player.health}`, 380, 30);
+                ctx.font = "30px serif";
             }
         }
 
@@ -176,7 +182,7 @@ var Engine = (function(global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/char-boy.png',
-
+        'images/Heart.png'
     ]);
     Resources.onReady(init);
 

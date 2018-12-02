@@ -23,6 +23,11 @@ Enemy.prototype.handlCollision = function(player){
         player.y + 40 > this.y){
         player.x = 200;
         player.y = 360;
+        player.health--
+        if(player.health === 0){
+            alert('Game Over')
+            player.health = 2
+        }
     }
 };
 
@@ -66,6 +71,8 @@ var Player = function(x,y) {
     this.x = x ;
     this.y = y ;
     this.sprite = 'images/char-boy.png';
+    this.score = 0;
+    this.health = 2;
 };
 
 
@@ -96,6 +103,7 @@ Player.prototype.handleInput = function(key){
             setTimeout(() => {
                 this.x = 200;
                 this.y = 360;
+                player.health++
             }, 300);
         }
     }else if(key === 'down' && this.y <= 300){
@@ -113,7 +121,6 @@ const enemy1 = new Enemy(0,40);
 const enemy2 = new Enemy(0,120);
 const enemy3 = new Enemy(0,200);
 const enemy4 = new Enemy(-200,120);
-
 
 
 const player = new Player(200,360);
