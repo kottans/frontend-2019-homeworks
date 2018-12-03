@@ -1,9 +1,11 @@
 class Inhabitant{
-    constructor(name, gender, hands = 0, lags = 0, friends = []){
+    constructor(species, name, gender, hands = 0, lags = 0, speak, friends = []){
+        this.species = species,
         this.name = name,
         this.gender = gender,
         this.hands = hands,
         this.lags = lags,
+        this.speak = speak,
         this.friends = friends
     }
     getInfo(){
@@ -13,25 +15,19 @@ class Inhabitant{
 
 class Human extends Inhabitant{
     constructor(name, gender, hands = 2, lags = 2, speak, friends){
-        super(name, gender, hands, lags, friends)
-        this.species = "human"
-        this.speak = speak
+        super("human", name, gender, hands, lags, speak, friends)
     }
 }
 
 class Dog extends Inhabitant{
     constructor(name, gender, hands, lags = 4, friends){
-        super(name, gender, hands , lags, friends)
-        this.species = "dog"
-        this.speak = "Woof-woof!"
+        super("dog", name, gender, hands , lags, "Woof-woof!", friends)
     }
 }
 
 class Cat extends Inhabitant{
     constructor(name, gender, lags = 4, friends, hands){
-        super(name, gender, hands, lags, friends)
-        this.species = "cat"
-        this.speak = "Meeeeooow!"
+        super("cat", name, gender, hands, lags, "Meeeeooow!", friends)
     }
 }
 
