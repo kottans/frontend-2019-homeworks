@@ -48,9 +48,13 @@ content figure {
   width: 20%;
   text-align: center;
 }
-figcaption {
-  padding: 0 20px 20px 20px;
+figcaption p {
+  margin: 0;
 }
+figcaption p:first-child {
+  text-transform: capitalize;
+}
+
 img {
   border-radius: 30%;
   margin: 20px auto;
@@ -63,6 +67,7 @@ img {
   text-align: center;
 }
 a {
+  margin: 0;
   font-size: 14px;
   font-family: "Courier New", Courier, monospace;
 }
