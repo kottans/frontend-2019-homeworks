@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Friend App</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style/reset.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="filter">
+        <h2>Filter them all!</h2>
+        <div class="by-age-filter">
+            <p>by Age</p>
+            <div class="filter-btn" id="by-age-up"></div>
+            <div class="filter-btn" id="by-age-down"></div>
+        </div>
+        <div class="by-name-filter">
+            <p>by Name</p>
+            <div class="filter-btn" id="by-name-a-z">A-Z</div>
+            <div class="filter-btn" id="by-name-z-a">Z-A</div>
+        </div>
+        <div class="by-gender-filter">
+            <p>Male</p>
+            <div class="filter-btn" id="male-btn"></div>
+            <p>Female</p>
+            <div class="filter-btn" id="female-btn"></div>
+        </div>
+        <div id="reset-btn">Reset</div>
+    </div>
+    <div id="dashboard" class="dashboard">
+        <h1>Your friends list</h1>
+        <!--<div id="card-list">-->
+            <!--<div class="card">-->
+            <!--<div class="card-photo">-->
+            <!--<img src="style/img/test.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="card-myInfo">-->
+            <!--<p> Hi, my name is</p>-->
+            <!--<h3>Yaroslav Harmash</h3></div>-->
+            <!--<div class="card-icons">-->
+            <!--<div class="icon lady"></div>-->
+            <!--<div class="icon letter"></div>-->
+            <!--<div class="icon calendar"><p>3</p></div>-->
+            <!--<div class="icon marker"></div>-->
+            <!--<div class="icon phone"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="card">-->
+            <!--<div class="card-photo">-->
+            <!--<img src="style/img/test.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="card-myInfo">-->
+            <!--<p>my name is</p>-->
+            <!--<h3>Yaroslav Harmash</h3></div>-->
+            <!--<div class="card-icons">-->
+            <!--<div class="icon lady"></div>-->
+            <!--<div class="icon letter"></div>-->
+            <!--<div class="icon calendar"><p>3</p></div>-->
+            <!--<div class="icon marker"></div>-->
+            <!--<div class="icon phone"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="card">-->
+            <!--<div class="card-photo">-->
+            <!--<img src="style/img/test.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="card-myInfo">-->
+            <!--<p>my name is</p>-->
+            <!--<h3>Yaroslav Harmash</h3></div>-->
+            <!--<div class="card-icons">-->
+            <!--<div class="icon lady"></div>-->
+            <!--<div class="icon letter"></div>-->
+            <!--<div class="icon calendar"><p>3</p></div>-->
+            <!--<div class="icon marker"></div>-->
+            <!--<div class="icon phone"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="card">-->
+            <!--<div class="card-photo">-->
+            <!--<img src="style/img/test.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="card-myInfo">-->
+            <!--<p>my name is</p>-->
+            <!--<h3>Yaroslav Harmash</h3></div>-->
+            <!--<div class="card-icons">-->
+            <!--<div class="icon lady"></div>-->
+            <!--<div class="icon letter"></div>-->
+            <!--<div class="icon calendar"><p>3</p></div>-->
+            <!--<div class="icon marker"></div>-->
+            <!--<div class="icon phone"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="card">-->
+            <!--<div class="card-photo">-->
+            <!--<img src="style/img/test.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="card-myInfo">-->
+            <!--<p>my name is</p>-->
+            <!--<h3>Yaroslav Harmash</h3></div>-->
+            <!--<div class="card-icons">-->
+            <!--<div class="icon lady"></div>-->
+            <!--<div class="icon letter"></div>-->
+            <!--<div class="icon calendar"><p>3</p></div>-->
+            <!--<div class="icon marker"></div>-->
+            <!--<div class="icon phone"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="card">-->
+            <!--<div class="card-photo">-->
+            <!--<img src="style/img/test.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="card-myInfo">-->
+            <!--<p>my name is</p>-->
+            <!--<h3>Yaroslav Harmash</h3></div>-->
+            <!--<div class="card-icons">-->
+            <!--<div class="icon lady"></div>-->
+            <!--<div class="icon letter"></div>-->
+            <!--<div class="icon calendar"><p>3</p></div>-->
+            <!--<div class="icon marker"></div>-->
+            <!--<div class="icon phone"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="card">-->
+            <!--<div class="card-photo">-->
+            <!--<img src="style/img/test.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="card-myInfo">-->
+            <!--<p>my name is</p>-->
+            <!--<h3>Yaroslav Harmash</h3></div>-->
+            <!--<div class="card-icons">-->
+            <!--<div class="icon lady"></div>-->
+            <!--<div class="icon letter"></div>-->
+            <!--<div class="icon calendar"><p>3</p></div>-->
+            <!--<div class="icon marker"></div>-->
+            <!--<div class="icon phone"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="card">-->
+            <!--<div class="card-photo">-->
+            <!--<img src="style/img/test.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="card-myInfo">-->
+            <!--<p>my name is</p>-->
+            <!--<h3>Yaroslav Harmash</h3></div>-->
+            <!--<div class="card-icons">-->
+            <!--<div class="icon lady"></div>-->
+            <!--<div class="icon letter"></div>-->
+            <!--<div class="icon calendar"><p>3</p></div>-->
+            <!--<div class="icon marker"></div>-->
+            <!--<div class="icon phone"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="card">-->
+            <!--<div class="card-photo">-->
+            <!--<img src="style/img/test.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="card-myInfo">-->
+            <!--<p>my name is</p>-->
+            <!--<h3>Yaroslav Harmash</h3></div>-->
+            <!--<div class="card-icons">-->
+            <!--<div class="icon lady"></div>-->
+            <!--<div class="icon letter"></div>-->
+            <!--<div class="icon calendar"><p>3</p></div>-->
+            <!--<div class="icon marker"></div>-->
+            <!--<div class="icon phone"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="card">-->
+            <!--<div class="card-photo">-->
+            <!--<img src="style/img/test.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="card-myInfo">-->
+            <!--<p>my name is</p>-->
+            <!--<h3>Yaroslav Harmash</h3></div>-->
+            <!--<div class="card-icons">-->
+            <!--<div class="icon lady"></div>-->
+            <!--<div class="icon letter"></div>-->
+            <!--<div class="icon calendar"><p>3</p></div>-->
+            <!--<div class="icon marker"></div>-->
+            <!--<div class="icon phone"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="card">-->
+            <!--<div class="card-photo">-->
+            <!--<img src="style/img/test.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="card-myInfo">-->
+            <!--<p>my name is</p>-->
+            <!--<h3>Yaroslav Harmash</h3></div>-->
+            <!--<div class="card-icons">-->
+            <!--<div class="icon lady"></div>-->
+            <!--<div class="icon letter"></div>-->
+            <!--<div class="icon calendar"><p>3</p></div>-->
+            <!--<div class="icon marker"></div>-->
+            <!--<div class="icon phone"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="card">-->
+            <!--<div class="card-photo">-->
+            <!--<img src="style/img/test.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="card-myInfo">-->
+            <!--<p>my name is</p>-->
+            <!--<h3>Yaroslav Harmash</h3></div>-->
+            <!--<div class="card-icons">-->
+            <!--<div class="icon lady"></div>-->
+            <!--<div class="icon letter"></div>-->
+            <!--<div class="icon calendar"><p>3</p></div>-->
+            <!--<div class="icon marker"></div>-->
+            <!--<div class="icon phone"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>
+
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
