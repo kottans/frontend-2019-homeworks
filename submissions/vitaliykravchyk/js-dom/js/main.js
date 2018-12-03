@@ -7,9 +7,11 @@ let Luntik = {
     ],
     init: function(){
         let changeItemFunction = this.changeItem.bind(this);
-        document.querySelector('#friend-list').addEventListener('click', changeItemFunction); 
+        document.querySelector('#friend-list').addEventListener('click', function(event){
+            changeItemFunction(event)
+        }); 
     },
-    changeItem: function(){
+    changeItem: function(event){
         if(event.target.hasAttribute('data-item')){
             this.removeContent();
             this.removeStyles();
