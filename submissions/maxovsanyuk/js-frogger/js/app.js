@@ -25,8 +25,10 @@ Enemy.prototype.handlCollision = function(player){
         player.y = 360;
         player.health--
         if(player.health === 0){
-            alert('Game Over')
-            player.health = 2
+            alert(` Game Over
+            \n You score : ${player.score}`);
+            player.score = 0;
+            player.health = 2;
         }
     }
 };
