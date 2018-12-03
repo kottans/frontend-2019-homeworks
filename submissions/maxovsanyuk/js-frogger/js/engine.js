@@ -141,6 +141,7 @@ var Engine = (function(global) {
                 ctx.fillText(`Score: ${player.score}`, 10, 30);
                 ctx.fillText(`Health: ${player.health}`, 380, 30);
                 ctx.font = "30px serif";
+                ctx.fillStyle = "#178A00";
             }
         }
 
