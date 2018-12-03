@@ -1,0 +1,9 @@
+body {
+    text-align: center;
+}
+#score {
+    position: absolute;
+    font-size: 25px;
+    left: 180px;
+    bottom: 530px;
+}
