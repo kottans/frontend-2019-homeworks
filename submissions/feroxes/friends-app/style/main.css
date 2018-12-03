@@ -1,18 +1,23 @@
+
 body{
     font-family: GothaPro;
     color: #666666;
 }
 .container{
     max-width: 1200px;
+    min-width: 400px;
     margin: 0 auto;
 }
 
 .filter {
-    width: 16%;
+    width: 180px;
     height: 400px;
     background: #fafafa;
     float: left;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    margin-top: 10px;
+    padding: 2px;
 }
 .filter h2 {
     font-size: 28px;
@@ -21,10 +26,14 @@ body{
     font-weight: 600;
     color: #585858;
 }
+.filter p {
+    font-size: 14px;
+}
 .by-age-filter{
+    width: 180px;
     display: flex;
     margin-top: 20px;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
 }
 .filter-btn{
@@ -33,6 +42,7 @@ body{
     cursor: pointer;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     border-radius: 50%;
+    margin: 5px;
 }
 #by-age-up{
     background: url("img/slide-up-gray.png");
@@ -54,9 +64,10 @@ body{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 .by-name-filter{
+    width: 180px;
     display: flex;
     margin-top: 20px;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
 }
 #by-name-a-z, #by-name-z-a{
@@ -73,9 +84,10 @@ body{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 .by-gender-filter{
+    width: 180px;
     display: flex;
     margin-top: 20px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 #male-btn{
@@ -98,6 +110,17 @@ body{
     background-size: 30px;
 }
 #female-btn:active{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+#search {
+    width: 90%;
+    height: 25px;
+    margin: 15px 7px 5px;
+    outline: none;
+    border: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+#search:focus{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 #reset-btn{
@@ -151,7 +174,7 @@ body{
     border-radius: 5px;
     margin: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
+
 }
 .card:hover {
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
@@ -195,10 +218,12 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
+
 }
 .icon{
     width: 25px;
     height: 25px;
+    cursor: pointer;
 }
 
 .lady{
@@ -262,3 +287,43 @@ body{
     background-size: 25px;
 }
 
+@media screen and (max-width: 1100px){
+    .dashboard{
+        width: 80%;
+    }
+}
+@media screen and (max-width: 940px){
+    .dashboard{
+        width: 75%;
+    }
+    .dashboard h1{
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 760px){
+    .dashboard{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 660px){
+    .dashboard{
+        margin-top: 200px;
+        width: 100%;
+    }
+    .filter{
+        height: 190px;
+        width: 100%;
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+    }
+    .filter-container{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+}

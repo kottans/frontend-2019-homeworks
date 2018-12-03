@@ -1,10 +1,8 @@
 const url = 'https://randomuser.me/api/';
 const config = '?results=';
-const howManyFriend = prompt('How many friends do you want to have?:)', 12);
-
+const howManyFriend = 100 //prompt('How many friends do you want to have?:)', 12);
 
 const endPoint = url + config + howManyFriend;
-
 let data;
 
 fetch(endPoint).then(response => {
@@ -21,7 +19,6 @@ fetch(endPoint).then(response => {
 });
 
 let runApp = function (data) {
-    console.log(data);
     let GLOBAL_INFORMATION = data;
 
     const dashboard = document.getElementById('dashboard');
@@ -32,6 +29,7 @@ let runApp = function (data) {
     const resetBtn = document.getElementById('reset-btn');
     const azBtn = document.getElementById('by-name-a-z');
     const zaBtn = document.getElementById('by-name-z-a');
+    const searchInput = document.getElementById('search');
 
     function render(userInformation) {
         let cardList = createDomElement('div', {id: 'card-list'}, dashboard);
@@ -83,23 +81,28 @@ let runApp = function (data) {
                     myInfoCard.children[0].innerHTML = 'My phone number is  ';
                     myInfoCard.children[1].innerHTML = userInformation[i].cell;
                 }
-
             };
             cardIcons.addEventListener('click', updateFriendInfo)
         };
-        function createDomElement(tagName, config, tagToAdd) {
-            let tag = document.createElement(tagName);
-            Object.assign(tag, config)
-            tagToAdd.appendChild(tag);
-            return tag;
-        }; // for loop ends
-    }; // render function ends
-
+    };
     render(data);
+
+    function createDomElement(tagName, config, tagToAdd) {
+        let tag = document.createElement(tagName);
+        Object.assign(tag, config)
+        tagToAdd.appendChild(tag);
+        return tag;
+    };
 
     function cleanDashboard() {
         let cards = document.getElementById('card-list');
-        cards.remove();
+        if (cards === null) {
+            return;
+        } else {
+            cards.remove();
+
+        }
+
     };
 
     function sortFormSmallToBiggerAge() {
@@ -134,7 +137,7 @@ let runApp = function (data) {
         render(infoToSorts);
     };
 
-    function showFameOrFemale(e){
+    function showMaleOrFemale(e) {
         let justMan = [];
         let justGirls = [];
         if(e.target.id == 'male-btn'){
@@ -156,9 +159,9 @@ let runApp = function (data) {
             cleanDashboard();
             render(justGirls);
         }
-
     };
-    function  sortFromAtoZ(){
+
+    function sortFromAtoZ() {
         let infoToSorts;
         infoToSorts = GLOBAL_INFORMATION.slice().sort((a, b) => {
             let c = a.name.first;
@@ -173,7 +176,8 @@ let runApp = function (data) {
         cleanDashboard();
         render(infoToSorts);
     };
-    function sortFromZtoA(){
+
+    function sortFromZtoA() {
         let infoToSorts;
         infoToSorts = GLOBAL_INFORMATION.slice().sort((a, b) => {
             let c = a.name.first;
@@ -189,17 +193,41 @@ let runApp = function (data) {
         render(infoToSorts);
     };
 
-    function reset(){
+    function searchFriend(e) {
+        let searchResult = [];
+        let value = e.srcElement.value;
+
+        for (let i = 0; i < GLOBAL_INFORMATION.length; i++) {
+            let name = GLOBAL_INFORMATION[i].name.first;
+            for (j = value.length-1; j < value.length; j++) {
+                console.log();
+                if (value == name.slice(0, value.length)) {
+                    searchResult.push(GLOBAL_INFORMATION[i]);
+                }else {
+                    cleanDashboard();
+                }
+            }
+        }
+
+        if (searchResult.length > 0) {
+            cleanDashboard();
+            render(searchResult);
+        }
+    };
+
+    function reset(e) {
+        searchInput.value = '';
+        GLOBAL_INFORMATION=data;
         cleanDashboard();
         render(data);
     };
 
-
     byAgeUpBtn.addEventListener('click', sortFormSmallToBiggerAge);
     byAgeDownBtn.addEventListener('click', sortFormBiggerToSmallAge);
-    maleBtn.addEventListener('click', showFameOrFemale);
-    femaleBtn.addEventListener('click', showFameOrFemale)
+    maleBtn.addEventListener('click', showMaleOrFemale);
+    femaleBtn.addEventListener('click', showMaleOrFemale)
     azBtn.addEventListener('click', sortFromAtoZ);
     zaBtn.addEventListener('click', sortFromZtoA);
+    searchInput.addEventListener('keyup', searchFriend);
     resetBtn.addEventListener('click', reset);
-}; //runApp function ends
+};
