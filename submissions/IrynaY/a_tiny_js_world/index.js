@@ -1,10 +1,9 @@
 class Inhabitant{
-    constructor(species, name, gender, speak, friends = [], legs = 2){
-        this.species = species
-        this.name = name
-        this.gender = gender
-        this.legs = legs
-        this.speak = speak
+    constructor(name, gender, hands = 0, lags = 0, friends = []){
+        this.name = name,
+        this.gender = gender,
+        this.hands = hands,
+        this.lags = lags,
         this.friends = friends
     }
     getInfo(){
@@ -13,19 +12,44 @@ class Inhabitant{
 }
 
 class Human extends Inhabitant{
-    constructor(name, gender, speak, friends, legs,  hands = 2){
-        super("human", name, gender, speak, friends, legs)
-        this.hands = hands
+    constructor(name, gender, hands = 2, lags = 2, speak, friends){
+        super(name, gender, hands, lags, friends)
+        this.species = "human"
+        this.speak = speak
     }
 }
-const dog = new Inhabitant("dog", "Good Boy", "male", "woof-woof!", ["Jim", "Tim", "Bob"],  4)
-const woman = new Human("Helga", "female", "Hello!", ["Kittie"], 2, 2)
-const man = new Human("Jack", "male", "AAAAaaaargh!!!", ["Good Boy", "Helga"],  1, 2)
-const cat = new Inhabitant("cat", "Fluffie", "female", "meeeoooOOOoooow!!!", 4)
-const catWoman = new Human("Kittie", "female", cat.speak, null , 2, 2)
 
-print(dog.getInfo())
-print(woman.getInfo())
-print(man.getInfo())
-print(cat.getInfo())
-print(catWoman.getInfo())
+class Dog extends Inhabitant{
+    constructor(name, gender, hands, lags = 4, friends){
+        super(name, gender, hands , lags, friends)
+        this.species = "dog"
+        this.speak = "Woof-woof!"
+    }
+}
+
+class Cat extends Inhabitant{
+    constructor(name, gender, lags = 4, friends, hands){
+        super(name, gender, hands, lags, friends)
+        this.species = "cat"
+        this.speak = "Meeeeooow!"
+    }
+}
+
+class CatWoman extends Cat{
+    constructor(name, gender, hands = 2, lags = 2, friends){
+        super(name, gender, hands, lags, friends)
+        this.species = "Cat-woman"
+    }
+}
+
+const man = new Human("Jack", "male", 2, 2,  "AAAAaaaargh!!!", ["Tom", "Bob"])
+const woman = new Human("Lucy", "female", 2, 2,  "Holla!", ["Kittie", "Bob"])
+const cat = new Cat("Fluffie", "female", 4, ["Lucy"])
+const dog = new Dog("Tim", "male", 0, 4, ["Jack"])
+const cat_woman = new CatWoman("Kittie", "female", 2, 2, ["Kittie", "Fluffie"])
+
+man.getInfo()
+woman.getInfo()
+dog.getInfo()
+cat.getInfo()
+cat_woman.getInfo()
