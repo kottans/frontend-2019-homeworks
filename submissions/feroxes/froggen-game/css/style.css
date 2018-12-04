@@ -154,37 +154,3 @@ body {
     text-align: center;
 }
 
-.chooseCharacter{
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.7);
-    position: absolute;
-}
-
-.chooseMenu{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 950px;
-    background: rgba(0, 0, 0, 0.7);
-    margin: 200px  auto;
-    padding: 20px;
-}
-.chooseMenu h2 {
-    color: #fff;
-    font-size: 48px;
-
-}
-.menu {
-    display: flex;
-    justify-content: center;
-}
-
-.character{
-    width: 150px;
-    height: 150px;
-
-}
-.character img:hover{
-    cursor: pointer;
-}

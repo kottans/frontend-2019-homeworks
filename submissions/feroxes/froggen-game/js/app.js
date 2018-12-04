@@ -13,24 +13,45 @@
 
 
 //===============Enemy================//
-var Enemy = function (x, y, player) {
+const startPoint = {
+    x: 200,
+    y: 420
+};
+const startSpeed = 400;
+const gameArea = {
+    start: 0,
+    end: 400,
+    outside: 500
+};
+const playerStep = {
+    horizontal: 100,
+    vertical: 90
+};
+const playerWidth = 80;
+
+
+const Enemy = function (x, y, player) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x * Math.random();
     this.y = y;
     this.player = player;
-    this.speed = 400 * Math.random();
+    this.speed = startSpeed * Math.random();
     this.update = function (dt) {
         this.x += this.speed * dt;
-        if (this.x > 495) {
-            this.speed = 400 * Math.random();
-            this.x = 0;
+        if (this.x > gameArea.outside) {
+            this.speed = startSpeed * Math.random();
+            this.x = gameArea.start;
         }
-        this.isCollision();
-    };
-    this.isCollision = function () {
-        if (this.y > this.player.y - 80 && this.y < this.player.y + 80 &&
-            this.x > this.player.x - 80 && this.x < this.player.x + 80) {
+        if (this.checkCollision()) {
             this.player.toStartPoint();
+        }
+        ;
+
+    };
+    this.checkCollision = function () {
+        if (this.y > this.player.y - playerWidth && this.y < this.player.y + playerWidth &&
+            this.x > this.player.x - playerWidth && this.x < this.player.x + playerWidth) {
+            return true;
         }
     };
     this.render = function () {
@@ -40,9 +61,7 @@ var Enemy = function (x, y, player) {
 
 //==============PLAYER===============//
 
-let Player = function () {
-    this.x = 200;
-    this.y = 420;
+const Player = function () {
     this.sprite = 'images/char-boy.png';
     this.update = function () {
     };
@@ -50,33 +69,32 @@ let Player = function () {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
     this.toStartPoint = function () {
-        this.x = 200;
-        this.y = 420;
+        this.x = startPoint.x;
+        this.y = startPoint.y;
     };
     this.handleInput = function (key) {
         switch (key) {
             case 'left':
-                this.x -= 100;
-                if (this.x == -100) {
-                    this.x = 400;
+                this.x -= playerStep.horizontal;
+                if (this.x == -playerStep.horizontal) {
+                    this.x = gameArea.end;
                 }
                 break;
             case 'up':
-                this.y -= 90;
+                this.y -= playerStep.vertical;
                 if (this.y == -30) {
-
                     this.toStartPoint()
                 }
                 break;
             case 'right':
-                this.x += 100;
-                if (this.x == 500) {
-                    this.x = 0;
+                this.x += playerStep.horizontal;
+                if (this.x == gameArea.outside) {
+                    this.x = gameArea.start;
                 }
                 break;
             case 'down':
                 if (this.y < 420) {
-                    this.y += 90;
+                    this.y += playerStep.vertical;
                 }
                 break;
         }
@@ -85,6 +103,7 @@ let Player = function () {
 };
 
 let player = new Player();
+player.toStartPoint();
 
 let bug1 = new Enemy(100, 50, player);
 let bug2 = new Enemy(200, 130, player);
