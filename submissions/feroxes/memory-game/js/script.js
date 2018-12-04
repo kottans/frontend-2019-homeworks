@@ -1,61 +1,73 @@
-let game = document.getElementById('game');
-let points = game.childElementCount;
+const game = document.getElementById('game');
+let memoryCard;
+let arr = ['1','2','3','4','5','6','7','8'];
+function compareRandom(a, b) {
+    return Math.random() - 0.5;
+}
+function renderGame() {
 
-let memoryCard = document.getElementsByClassName('memory-card');
+    for (let i = 0; i < 2; i++) {
+        arr.sort(compareRandom);
+        for(let j = 0; j <= 7; j++) {
+            memoryCard = createDomElement('div', {className: 'memory-card'}, game);
+            createDomElement('img', {className: 'hidden', src: `style/img/${arr[j]}.jpg`}, memoryCard);
+        }
+    }
+    function createDomElement(tagName, config, tagToAdd) {
+        let tag = document.createElement(tagName);
+        Object.assign(tag, config)
+        tagToAdd.appendChild(tag);
+        return tag;
+    };
+};
+renderGame();
+
+let points = game.childElementCount;
 let firstCard, secondCard;
 
 let flippedCardList = [];
 let removedCardsList = [];
 
-for (let i = 0; i < points; i++) {
-    memoryCard[i].addEventListener('click', letsPlay);
-}
+game.addEventListener('click', handleCardClick);
 
-function letsPlay(e) {
-    if (flippedCardList.length < 1) {
+function handleCardClick(e) {
+    if (flippedCardList.length === 0) {
         showFlag(e);
     } else {
-        hideFlag(e);
+        hideOrRemoveFlag(e);
     }
-}
+};
 
-// Show clicked card
 function showFlag(e) {
     firstCard = e.target;
-    firstCard.className = 'show';
+    firstCard.classList.add('shown');
     flippedCardList.push(firstCard);
 };
 
-//Hide or remove
-function hideFlag(e) {
+function hideOrRemoveFlag(e) {
     secondCard = e.target;
-    secondCard.className = 'show';
+    secondCard.classList.add('shown');
     flippedCardList.push(secondCard);
 
-// Check for double click on the same card
     if (firstCard === secondCard) {
-        alert('You have allready clicked on it.')
         flippedCardList.splice(1, 1);
     }
-    ;
 
-//Check if clicked thrice
     if (flippedCardList.length == 3) {
         alert("Do not rush!");
         for (let i = 0; i < flippedCardList.length; i++) {
-            flippedCardList[i].className = 'hidden';
+            flippedCardList[i].classList.remove('shown');
         }
         flippedCardList = [];
         return;
     }
 
-//Check for correct pair of cards and remove it.
     if (flippedCardList[0].currentSrc === flippedCardList[1].currentSrc) {
         setTimeout(function () {
-            flippedCardList[0].parentElement.className = 'removed';
-            flippedCardList[1].parentElement.className = 'removed';
-            --points;
-            --points;
+            flippedCardList.forEach((elem) => {
+                elem.parentElement.classList.add('removed')
+            })
+            points -= 2;
             flippedCardList = [];
             removedCardsList.push(firstCard, secondCard);
             if (!points) {
@@ -65,23 +77,17 @@ function hideFlag(e) {
                 }, 10)
             }
         }, 500);
-// If not correct - hide it!
     } else {
         setTimeout(function () {
-            flippedCardList[0].className = 'hidden';
-            flippedCardList[1].className = 'hidden';
+            flippedCardList[0].classList.remove('shown');
+            flippedCardList[1].classList.remove('shown');
             flippedCardList = [];
         }, 500)
     }
-
 };
 
-// Restart game
-function restart(){
+function restart() {
+    game.innerHTML = '';
+    renderGame();
     points = game.childElementCount;
-    for (let i = 0; i < removedCardsList.length; i++){
-        removedCardsList[i].className = 'hidden';
-        removedCardsList[i].parentElement.className = 'memory-card';
-    }
-    removedCardsList = [];
 };

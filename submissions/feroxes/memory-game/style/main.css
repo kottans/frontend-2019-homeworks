@@ -10,6 +10,10 @@ h1 {
     flex-wrap: wrap;
     padding: 0;
 }
+#game-area{
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .memory-card {
     border: 1px solid black;
@@ -19,14 +23,16 @@ h1 {
     margin: 1px;
     border-radius: 5px;
 }
-
+.memory-card img {
+    border-radius: 5px;
+}
 .hidden {
     opacity: 0;
     cursor: pointer;
     width: 120px;
 }
 
-.show {
+.shown {
     opacity: 1;
     width: 120px;
 }
