@@ -61,7 +61,7 @@ Game.prototype.setGameToNewLevel = function() {
   this.edgeYField += 83;
   this.addNewRow();
   this.addField = true;
-  this.enemyAmount.push(this.enemyAmount.length + 1);
+  this.enemyAmount.push(this.enemyAmount.length + 1);  //this.enemyAmount.length++ doesn't work
   this.updateLevel();
   this.whenAddLevel += 10;
   this.aboutLevel();
@@ -128,7 +128,7 @@ Enemy.prototype.update = function(dt) {
     this.player.y < this.y + this.player.playerSizeY &&
     this.player.playerSizeY + this.player.y > this.y
   ) {
-    this.player.x = 606;
+    this.player.x = this.game.edgeXField - 101;
     this.player.y = this.game.edgeYField;
     this.player.updateHelth(-1);
   }
@@ -147,7 +147,7 @@ function Player(score, helth, game) {
   this.score = score;
   this.helth = helth;
   // Setting the Player initial location
-  this.x = 606;
+  this.x = game.edgeXField-101;
   this.y = game.edgeYField;
   //Loading the image for changing Player
   this.changePlayer = [
@@ -242,7 +242,7 @@ Player.prototype.handleInput = function(keyPress) {
   if (this.y <= 0) {
     setTimeout(() => {
       this.updateScore();
-      this.x = 606;
+      this.x = this.game.edgeXField-101;
       this.y = this.game.edgeYField;
     }, 100);
   }
