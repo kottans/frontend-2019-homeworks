@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     };
 
     function appendContent(link, cb) {
-        // initModal();
-        showModal();
         var xhr = new XMLHttpRequest();
 
         xhr.open('GET', link);
@@ -21,17 +19,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
             if (xhr.status != 200) {
                 console.error(xhr.status + ': ' + xhr.statusText);
             } else {
-                console.dir(JSON.parse(xhr.responseText, 2));
-                cb(xhr.responseText);
+                var res = JSON.parse(xhr.responseText);
+                cb(res);
             }
         }
     }
 
 
+
     // TODO: write preloader
 
     function buildContent(data) {
-        var data = JSON.parse(data, 2).results;
+        var data = data.results;
         var container = document.getElementsByClassName('js-results')[0];
         container.innerHTML = '';
 
@@ -81,8 +80,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     function buildNav(data) {
-        var data = JSON.parse(data, 2).genres;
+        var data = data.genres;
+        var menuLimit = 8;
         var container = document.getElementsByClassName('js-list')[0];
+        var showLess = showLessButton();
+
         data.forEach(function (el, index) {
             var item = document.createElement('li');
             var link = document.createElement('a');
@@ -93,33 +95,40 @@ document.addEventListener("DOMContentLoaded", function (event) {
             item.append(link);
             container.append(item);
             item.classList.add('item');
-            if (index === 8) {
-                var showMore = document.createElement('li');
-                var tempLink = document.createElement('a');
-                showMore.classList.add('item');
-                tempLink.classList.add('item__link', 'item__link--showMore', 'js-item__link--showMore');
-                tempLink.append(document.createTextNode("смотреть другие жанры"));
-                showMore.append(tempLink);
+            if (index === menuLimit) {
+                var showMore = showMoreButton();
                 container.append(showMore);
             }
-            if (index > 8) {
+            if (index > menuLimit) {
                 item.classList.add('isHide');
             }
-            if (index == data.length - 1) {
-                var showLess = document.createElement('li');
-                showLess.classList.add('isHide');
-                var tempLink = document.createElement('a');
-                showLess.classList.add('item');
-                tempLink.classList.add('item__link', 'item__link--showLess', 'js-item__link--showLess');
-                tempLink.append(document.createTextNode("скрыть"));
-                showLess.append(tempLink);
-                container.append(showLess);
-            }
         });
-        console.log('FINISH buildNav SCRIPT')
+
+        container.append(showLess);
         initBurger();
         initNavButton();
         initNavLinks();
+    }
+
+    function  showMoreButton () {
+        var showMore = document.createElement('li');
+        var tempLink = document.createElement('a');
+        showMore.classList.add('item');
+        tempLink.classList.add('item__link', 'item__link--showMore', 'js-item__link--showMore');
+        tempLink.append(document.createTextNode("смотреть другие жанры"));
+        showMore.append(tempLink);
+        return showMore;
+    }
+
+    function showLessButton () {
+        var showLess = document.createElement('li');
+        showLess.classList.add('isHide');
+        var tempLink = document.createElement('a');
+        showLess.classList.add('item');
+        tempLink.classList.add('item__link', 'item__link--showLess', 'js-item__link--showLess');
+        tempLink.append(document.createTextNode("скрыть"));
+        showLess.append(tempLink);
+        return showLess;
     }
 
     function changeImgs(cb) {
@@ -215,6 +224,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         modalWindow.getElementsByClassName('js-modal__preloader')[0].style.display = 'none';
     }
 
+    showModal();
     initModal();
     appendContent(links.genre, buildNav);
     appendContent(links.popular, buildContent);
@@ -226,6 +236,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 e.preventDefault();
                 var link = links.forGenre + this.getAttribute('data-menu-id');
                 appendContent(link, buildContent);
+                showModal();
             })
         })
     }
