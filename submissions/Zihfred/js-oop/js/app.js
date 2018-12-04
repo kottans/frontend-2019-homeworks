@@ -1,3 +1,4 @@
+let allEnemies = [];
 function randomInteger(min, max) {
     var rand = min - 0.5 + Math.random() * (max - min + 1)
     rand = Math.round(rand);
@@ -5,24 +6,38 @@ function randomInteger(min, max) {
 }
 
 // Enemies our player must avoid
-var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    this.x = 0;
-    this.y = this.enemyStartY();
-    this.speed = randomInteger(50,150);
-    this.sprite = 'images/enemy-bug.png';
+class Creature {
+    constructor(x,y,sprite){
+        this.x = x;
+        this.y = y;
+        this.sprite = sprite;
+    }
+}
+
+
+class Enemy extends Creature {
+    constructor(y,sprite = 'images/enemy-bug.png',x = 0){
+        super(x ,y,sprite);
+        this.speed = randomInteger(50,150);
+        this.y = this.enemyStartY();
+    }
+}
+
+
+Creature.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-
 Enemy.prototype.enemyStartY =  function(){
-    let variables = [50,150,250];
+    let EnemyStartPos = [50,150,250];
 
-    return variables[randomInteger(0,2)];
+    return EnemyStartPos[randomInteger(0,2)];
 }
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    if(this.x >= 600){
+    let maximalXPos = 600;
+    if(this.x >= maximalXPos){
         this.x = 0;
     }else
     this.x += dt*this.speed;
@@ -34,37 +49,34 @@ Enemy.prototype.update = function(dt) {
 };
 
 // Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
+
 
 // Now write your own player class
 
-var Player = function(){
-    this.x = 200;
-    this.y = 400;
-    this.sprite =  'images/char-boy.png';
+class Player extends Creature{
+    constructor(x = 200,y = 400, sprite ='images/char-boy.png' ){
+        super(x,y,sprite);
+        this.round = 1;
+    }
+
 };
 Player.prototype.update = function () {
     if (this.y < 0) {
         this.nextRound();
     };
-    roundView = round;
-    console.log(roundView)
+
 
 };
-Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
+
 Player.prototype.nextRound = function(){
-    round++;
+    this.round++;
     allEnemies.push (new Enemy());
     this.x = 200;
     this.y = 400;
 }
 
 function loseGame(){
-    round = 0;
+    player.round = 0;
     allEnemies = [];
     player.nextRound();
 }
@@ -88,10 +100,9 @@ Player.prototype.handleInput = function (key) {
 
 }
 
-let round = 1;
-let allEnemies = [];
 
-    allEnemies.push (new Enemy());
+
+allEnemies.push (new Enemy(0));
 
 
 player = new Player();
