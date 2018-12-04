@@ -71,32 +71,16 @@ const renderPageWithListeners = originList => {
     searchFilter: null
   };
 
-  document.getElementById("sortPanel").addEventListener("change", event => {
-    switch (event.target.id) {
-      case "sort-by-name-asc":
-        dataState.sortBy = "nameAsc";
-        break;
-      case "sort-by-name-desc":
-        dataState.sortBy = "nameDesc";
-        break;
-      case "sort-by-age-asc":
-        dataState.sortBy = "ageAsc";
-        break;
-      case "sort-by-age-desc":
-        dataState.sortBy = "ageDesc";
-        break;
-      case "sort-by-male":
-        dataState.sexFilter = "male";
-        break;
-      case "sort-by-female":
-        dataState.sexFilter = "female";
-        break;
-      case "both-sexes":
-        dataState.sexFilter = null;
-        break;
-    }
-    renderListOfFriends(prepareDataToRender(originList, dataState));
-  });
+  //prettier-ignore
+  document.getElementById("sortPanel").addEventListener("change", ({ target }) => {
+      if (target.dataset.sexFilter || target.dataset.sexFilter === "") {
+        dataState.sexFilter = target.dataset.sexFilter;
+      }
+      if (target.dataset.sortBy) {
+        dataState.sortBy = target.dataset.sortBy;
+      }
+      renderListOfFriends(prepareDataToRender(originList, dataState));
+    });
 
   const inputSearchByName = document.getElementById("search-by-name");
   inputSearchByName.addEventListener("input", event => {

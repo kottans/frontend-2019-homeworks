@@ -21,17 +21,17 @@
           <i class="fa fa-search"></i>
         </form>
         <div class="sort"><span>Gender</span>
-          <input type="radio" name="sort-by-sex" id="sort-by-male">M</input>
-          <input type="radio" name="sort-by-sex" id="sort-by-female">F</input>
-          <input type="radio" name="sort-by-sex" id="both-sexes" checked="checked">Both</input>
+          <input type="radio" name="sort-by-sex" id="sort-by-male" data-sex-filter="male">M</input>
+          <input type="radio" name="sort-by-sex" id="sort-by-female" data-sex-filter="female">F</input>
+          <input type="radio" name="sort-by-sex" id="both-sexes" checked="checked" data-sex-filter=''>Both</input>
         </div>
         <div class="sort"><span>Name:</span> 
-          <input type="radio" name="sort-by" id="sort-by-name-asc">↑</input>
-          <input type="radio" name="sort-by" id="sort-by-name-desc">↓</input>
+          <input type="radio" name="sort-by" id="sort-by-name-asc" data-sort-by="nameAsc">↑</input>
+          <input type="radio" name="sort-by" id="sort-by-name-desc" data-sort-by="nameDesc">↓</input>
         </div>
         <div class="sort"><span></span>Age:</span>
-          <input type="radio" name="sort-by" id="sort-by-age-asc">↑</input>
-          <input type="radio" name="sort-by" id="sort-by-age-desc">↓</input>
+          <input type="radio" name="sort-by" id="sort-by-age-asc" data-sort-by="ageAsc">↑</input>
+          <input type="radio" name="sort-by" id="sort-by-age-desc" data-sort-by="ageDesc">↓</input>
         </div>
        
         <div class="reset">
