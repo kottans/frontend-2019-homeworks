@@ -8,64 +8,64 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 
-function Inhabited (species, sayAbout) {
-    this.species = species;
+function Inhabited () {
     this.sayAbout = function () {
-        return 'My name is ' + this.name + '. And now, as any ' + this.species + ' and subspecies - ' + this.subspecies +  ', I say "' + this.phrase + '!"';
+        return 'My name is ' + this.name + '. And now, as any ' + this.species +  ', I say "' + this.phrase + '!"';
     }
 }
 
+function Animal (species, legs) {
+    this.species = species;
+    this.legs = legs;
+}
+
+Animal.prototype = new Inhabited();
+
 function Human (name, gender, phrase, friends) {
-    this.subspecies = 'human';
     this.name = name;
     this.gender = gender;
     this.phrase = phrase;
     this.friends = friends;
-    this.legs = 2;
-    this.hands = 2;
     this.sayAbout = function () {
         return 'My name is ' + this.name + '.' + ' I am a ' + this.gender + ' gender and I have ' + this.friends.length + ' friends.' + ' And now, I say "' + this.phrase + '!"';
     }
 }
 
-Human.prototype = new Inhabited('human');
+Human.prototype = new Animal('human', 2);
 
-function Animal (subspecies, name, gender, phrase) {
-    this.subspecies = subspecies;
+function Cat(name, gender) {
     this.name = name;
-    this.legs = 4;
-    this.phrase = phrase;
+    this.gender = gender;
+    this.phrase = 'Meo, meo, meo';
 }
 
-Animal.prototype = new Inhabited('animal');
+Cat.prototype = new Animal('cat', 4);
 
-var man = new Human('Man', 'male', 'I am a man', ['cat - Star', 'woman']);
-var woman = new Human('Woman', 'female', 'I am a female', ['man', 'dog Bark']);
-var Test = new Human('Bot', 'computer', 'Hello from computer', ['assembler']);
-var dog = new Animal('dog', 'Bark', 'male', 'Rrrrrr..');
-var cat = new Animal('cat', 'Cat', 'female', 'Meo, meo, meo...');
 
-var catWoman = {
-    subspecies: 'human',
-    name: 'catWoman',
-    gender: 'female',
-    friends: ['cats', 'kottans'],
-    legs: 2,
-    hands: 2,
-    sayAbout: function () {
-        return 'My name is ' + this.name + '.' + ' I am a ' + this.gender + ' gender and I have ' + this.friends.length + ' friends.' + ' And now, I say "' + this.phrase + '!"';
-    },
-    get phrase() {
-        return cat.phrase;
-    }
+function Dog(name, gender) {
+    this.name = name;
+    this.gender = gender;
+    this.phrase = 'Rrrrrrrr...';
 }
 
-print('<div>' + man.sayAbout() + '</div><hr>');
-print('<div>' + woman.sayAbout() + '</div><hr>');
-print('<div>' + Test.sayAbout() + '</div><hr>');
-print('<div>' + dog.sayAbout() + '</div><hr>');
-print('<div>' + cat.sayAbout() + '</div><hr>');
-print('<div>' + man.sayAbout() + '</div><hr>');
+Dog.prototype = new Animal('dog', 4);
+
+var Robot1 = new Human('Robot1', 'male', 'I am a man', ['cat - Star', 'woman']);
+var Robot2 = new Human('Robot2', 'female', 'I am a female', ['man', 'dog Bark']);
+var Robot3 = new Human('Bot', 'computer', 'Hello from computer', ['assembler']);
+var Bark = new Dog('Bark', 'male');
+var Star = new Cat('Star', 'female');
+
+var catWoman = new Cat('CatWoman', 'female');
+catWoman.friends = ['cats', 'kottans'];
+catWoman.legs = 2;
+
+
+print('<div>' + Robot1.sayAbout() + '</div><hr>');
+print('<div>' + Robot2.sayAbout() + '</div><hr>');
+print('<div>' + Robot3.sayAbout() + '</div><hr>');
+print('<div>' + Bark.sayAbout() + '</div><hr>');
+print('<div>' + Star.sayAbout() + '</div><hr>');
 print('<div>' + catWoman.sayAbout() + '</div><hr>');
 
 // ======== OUTPUT ========
