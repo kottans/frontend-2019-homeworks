@@ -49,7 +49,10 @@ const asc = (a, b) => {
   );
 };*/
 
-const resetSortButtons = () => {
+const resetSortButtons = dataState => {
+  for (k in dataState) {
+    dataState[k] = null;
+  }
   document
     .querySelectorAll("input[type=radio]")
     .forEach(radio => (radio.checked = false));
@@ -103,10 +106,7 @@ const renderPageWithListeners = originList => {
   const resetButton = document.getElementById("reset");
   resetButton.addEventListener("click", () => {
     resetSearchInput();
-    resetSortButtons();
-    for (k in dataState) {
-      dataState[k] = null;
-    }
+    resetSortButtons(dataState);
     renderListOfFriends(originList);
   });
 };
