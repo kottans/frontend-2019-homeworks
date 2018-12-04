@@ -1,5 +1,5 @@
 class Inhabitant{
-    constructor(species, name, gender, hands = 0, lags = 0, speak, friends = []){
+    constructor(species, name, gender, speak, friends = [], lags = 0, hands = 0){
         this.species = species,
         this.name = name,
         this.gender = gender,
@@ -9,43 +9,48 @@ class Inhabitant{
         this.friends = friends
     }
     getInfo(){
-        return Object.values(this).join("; ")
+        return `${this.species}; ${this.name}; ${this.gender}; ${this.speak}; ${this.hands}; ${this.lags}; ${this.friends.map(friend => friend.name).join(", ")};`
     }
 }
 
 class Human extends Inhabitant{
-    constructor(name, gender, hands = 2, lags = 2, speak, friends){
-        super("human", name, gender, hands, lags, speak, friends)
+    constructor(name, gender, speak, friends, lags = 2, hands = 2){
+        super("human", name, gender, speak, friends, lags, hands)
     }
 }
 
 class Dog extends Inhabitant{
-    constructor(name, gender, hands, lags = 4, friends){
-        super("dog", name, gender, hands , lags, "Woof-woof!", friends)
+    constructor(name, gender, friends, lags = 4){
+        super("dog", name, gender, "Woof-woof!", friends, lags)
     }
 }
 
 class Cat extends Inhabitant{
-    constructor(name, gender, lags = 4, friends, hands){
-        super("cat", name, gender, hands, lags, "Meeeeooow!", friends)
+    constructor(name, gender, friends, lags = 4){
+        super("cat", name, gender, "Meeeeooow!", friends, lags)
     }
 }
 
 class CatWoman extends Cat{
-    constructor(name, gender, hands = 2, lags = 2, friends){
-        super(name, gender, hands, lags, friends)
-        this.species = "Cat-woman"
+    constructor(name, gender, friends, lags = 2, hands = 2){
+        super(name, gender, friends, lags, hands)
+        this.species = "cat-woman"
+        this.hands = hands
     }
 }
 
-const man = new Human("Jack", "male", 2, 2,  "AAAAaaaargh!!!", ["Tom", "Bob"])
-const woman = new Human("Lucy", "female", 2, 2,  "Holla!", ["Kittie", "Bob"])
-const cat = new Cat("Fluffie", "female", 4, ["Lucy"])
-const dog = new Dog("Tim", "male", 0, 4, ["Jack"])
-const cat_woman = new CatWoman("Kittie", "female", 2, 2, ["Kittie", "Fluffie"])
+const inhabitants = [
+    new Human("Jack", "male", "AAAAaaaargh!!!"),
+    new Human("Lucy", "female", "Holla!"),
+    new Cat("Fluffie", "female"),
+    new Dog("Tim", "male"),
+    new CatWoman("Kittie", "female")
+];
 
-print(man.getInfo())
-print(woman.getInfo())
-print(dog.getInfo())
-print(cat.getInfo())
-print(cat_woman.getInfo())
+inhabitants[0].friends = [inhabitants[1]]
+inhabitants[1].friends = [inhabitants[0], inhabitants[2]]
+inhabitants[2].friends = [inhabitants[1], inhabitants[4]]
+inhabitants[3].friends = [inhabitants[4]]
+inhabitants[4].friends = [inhabitants[3]]
+
+inhabitants.forEach(inhabitant => print(inhabitant.getInfo()))
