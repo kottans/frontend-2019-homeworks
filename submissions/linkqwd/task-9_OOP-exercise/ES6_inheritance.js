@@ -1,12 +1,13 @@
 class Inhabitant {
     constructor(props) {
+        this.species = this.constructor.name;
         this.name = props.name;
         this.sex = props.sex;
         this.sound = props.sound;
     }
 
-    static getInhabitantInfo(instance) {
-        return Object.entries(instance)
+    toString() {
+        return Object.entries(this)
         .map(value => `<strong>${value[0]}:</strong> ${value[1]}`)
         .join('; ')
     }
@@ -15,7 +16,6 @@ class Inhabitant {
 class Human extends Inhabitant {
     constructor(props) {
         super(props)
-        this.species = 'human'
         this.legs = 2;
         this.arms = 2;
     }
@@ -24,7 +24,6 @@ class Human extends Inhabitant {
 class Cat extends Inhabitant {
     constructor(props) {
         super(props)
-        this.species = 'cat'
         this.paws = 4;
     }
 }
@@ -32,36 +31,19 @@ class Cat extends Inhabitant {
 class Dog extends Inhabitant {
     constructor(props) {
         super(props)
-        this.species = 'dog'
         this.paws = 4;
     }
 }
 
-const jhon = new Human({
-    name: 'Jhon',
-    sex: 'male',
-    sound: 'How your doin\''
-});
+let inhabitants = [];
 
-const whitney = new Human({
-    name: 'Whitney',
-    sex: 'female',
-    sound: 'Hi guys'
-});
+spawnInhabitant(Human, {name: 'jhon', sex: 'male', sound: 'How your doin\''});
+spawnInhabitant(Human, {name: 'whitney', sex: 'female', sound: 'Hi guys'});
+spawnInhabitant(Cat, {name: 'houston', sex: 'male', sound: 'Mmmrrrrr'});
+spawnInhabitant(Dog, {name: 'rex', sex: 'male', sound: 'Ggrrrrr'});
 
-const houston = new Cat({
-    name: 'Houston',
-    sex: 'male',
-    sound: 'Mmmrrrrr'
-});
+function spawnInhabitant(cls, props) {
+    inhabitants.push(new cls(props));
+}
 
-const rex = new Dog({
-    name: 'Rex',
-    sex: 'male',
-    sound: 'Ggrrrrr'
-});
-
-print(Inhabitant.getInhabitantInfo(jhon));
-print(Inhabitant.getInhabitantInfo(whitney));
-print(Inhabitant.getInhabitantInfo(houston));
-print(Inhabitant.getInhabitantInfo(rex));
+inhabitants.forEach(el => print(el));

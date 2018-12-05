@@ -4,7 +4,7 @@ function Inhabitant(props) {
     this.sound = props.sound;
 }
 
-Inhabitant.prototype.getInhabitantInfo = function () {
+Inhabitant.prototype.toString  = function () {
     return Object.values(this).join('; ')
 }
 
@@ -55,7 +55,7 @@ var rex = new Dog({
     sex: 'male'
 });
 
-print(jhon.getInhabitantInfo());
-print(whitney.getInhabitantInfo());
-print(houston.getInhabitantInfo());
-print(rex.getInhabitantInfo());
+print(jhon);
+print(whitney);
+print(houston);
+print(rex);
