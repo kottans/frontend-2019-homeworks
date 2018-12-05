@@ -66,6 +66,14 @@ body {
     font-weight: 500;
 }
 
+.list .item:nth-child(n+13) {
+    display: none;
+}
+
+.list.showItems .item:nth-child(n+13) {
+    display: block;
+}
+
 .item:last-child {
     border-bottom: 2px solid rgba(112, 113, 125, 0.3);
 }
