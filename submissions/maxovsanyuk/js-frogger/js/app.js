@@ -1,86 +1,110 @@
 // Enemies our player must avoid
-var Enemy = function(x,y) {
+var Enemy = function(y,player) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    
-    this.x = x ;
-    this.y = y ;
+    this.y = y;
+    this.x = 0;
+    this.player = player;
     this.sprite = 'images/enemy-bug.png';
-    this.setSpeed();
+    this.randomSpeed();
 };
 
-Enemy.prototype.setSpeed = function(){
+Enemy.prototype.randomSpeed = function(){
     this.speed = ( Math.random() + 1 ) * 120 ;
   };
 
 Enemy.prototype.handlCollision = function(player){
-    if( player.x < this.x + 80 &&
-        player.x + 70 > this.x &&
-        player.y < this.y + 40 &&
-        player.y + 40 > this.y){
-        player.x = 200;
-        player.y = 360;
-        player.health--
-        if(player.health === 0){
-            alert(` Game Over
-            \n You score : ${player.score}`);
-            player.score = 0;
-            player.health = 2;
-        }
-    }
+    if( this.x < player.x + 80 &&
+        this.x + 70 > player.x &&
+        this.y < player.y + 40 &&
+        this.y + 40 > player.y)
+        {
+            this.player.initialPosition();
+            --this.player.health;
+            Player.prototype.gameOver();            
+         }
 };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
     this.x += this.speed * dt;
-    this.y
 
     this.handlCollision(player);
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
 };
-
-
+Enemy.prototype.finishPach = function(){
+    const END_ROW = 505;
+    const ENEMY_SIZE = 50;
+    const START_ROW = Math.random() * (-90) - ENEMY_SIZE;
+        if(this.x >= END_ROW){
+            return this.x = START_ROW;
+        }
+}
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    if(this.x >= 505){
-        return this.x = -50;
-    }
+    this.finishPach();
 };
-
-
 
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
 
-
-var Player = function(x,y) {
+var Player = function() {
 
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-
-    this.x = x ;
-    this.y = y ;
-    this.sprite = 'images/char-boy.png';
-    this.score = 0;
-    this.health = 2;
+    this.sprite = "images/char-boy.png";
+    this.initialPosition();
+    this.initialData();
 };
 
+Player.prototype.initialPosition = function() {
+    const INITIAL_PLAYER_POSITION ={
+      x: 200,
+      y: 360  
+    }
+      this.x = INITIAL_PLAYER_POSITION.x,
+      this.y = INITIAL_PLAYER_POSITION.y
+};
+
+Player.prototype.initialData = function() {
+    const INITIAL_PLAYER_DATA ={
+     score: 0,
+     health: 2  
+    }
+     this.score = INITIAL_PLAYER_DATA.score,
+     this.health = INITIAL_PLAYER_DATA.health
+};
+
+Player.prototype.reachFinish = function(){
+    if (this.y < 0) {
+        setTimeout(() => {
+            this.initialPosition();
+            player.score++
+        }, 300);
+    }
+}
+
+Player.prototype.gameOver = function(){
+    if(player.health === 0){
+        alert(` Game Over
+        \n You score : ${player.score}`);
+        player.initialData();
+        }
+};
 
 Player.prototype.update = function(dt) {
-
-
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -91,8 +115,6 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-
-
 Player.prototype.handleInput = function(key){
     if (key === 'left' && this.x >= 50){
         this.x -= 101;
@@ -100,36 +122,26 @@ Player.prototype.handleInput = function(key){
         this.x += 101;
     }else if(key === 'up' && this.y >= 0){
         this.y -= 80;
-
-        if (this.y < 0) {
-            setTimeout(() => {
-                this.x = 200;
-                this.y = 360;
-                player.score++
-            }, 300);
-        }
+        this.reachFinish();
     }else if(key === 'down' && this.y <= 300){
         this.y += 80;
     }
 };
 
-
-
-
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const enemy1 = new Enemy(0,40);
-const enemy2 = new Enemy(0,120);
-const enemy3 = new Enemy(0,200);
-const enemy4 = new Enemy(-200,120);
 
+const player = new Player();
+const ROW_HEIGHT = 80;
+const ROW_DIFF = 40;
+const POSITION_DIRECTION_Y =[1,1,2,2,3,].map(function(heightY){
+    return (heightY * ROW_HEIGHT) - ROW_DIFF ;
+});
 
-const player = new Player(200,360);
-
-
-const allEnemies = [enemy1,enemy2,enemy3,enemy4];
-
+const allEnemies = POSITION_DIRECTION_Y.map(function(instance){
+    return new Enemy(instance,player);
+})
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
