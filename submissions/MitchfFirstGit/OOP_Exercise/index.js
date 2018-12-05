@@ -1,44 +1,46 @@
 class Inhabitant {
-  constructor(name, gender) {
+  constructor(name, gender, specie, saying) {
     this.name = name;
     this.gender = gender;
-    this.saying = `Hi, my name is ${this.name}. What about you?`;
+    this.specie = specie;
+    this.saying = saying;
+  }
+  say(){
+    print(`specie: ${this.specie}; name: ${this.name}; gender: ${this.gender}; hands: ${this.hands? this.hands: "Oh my God, I don't feel my hands, but wait a minute, I don't have them and it's okey for me hah"}; legs: ${this.legs}; saying: ${this.saying}`, 'div') 
   }
 }
 class Dog extends Inhabitant {
-  constructor(name, gender) {
-    super(name, gender);
-    this.specie = "Dog"; 
+  constructor(name, gender,specie) {
+    super(name, gender, specie);
     this.legs = 4;
+    this.saying = 'woof-woof';
   }
 }
 class Cat extends Inhabitant {
-  constructor(name, gender) {
-    super(name, gender);
-    this.specie = "Cat";
+  constructor(name, gender, specie) {
+    super(name, gender, specie);
     this.legs = 4;
+    this.saying = 'meow-meow';
   }
 }
 class Man extends Inhabitant {
-  constructor(name, gender) {
-    super(name, gender);
-    this.specie = "Man";
+  constructor(name, gender, specie, saying) {
+    super(name, gender, specie, saying);
     this.hands = 2;
     this.legs = 2;
   }
 }
 class Woman extends Inhabitant {
-  constructor(name, gender) {
-    super(name, gender);
-    this.specie = "Woman";
+  constructor(name, gender, specie, saying) {
+    super(name, gender, specie, saying);
     this.hands = 2;
     this.legs = 2;
   }
 }
 const inhabitantsArray = [ 
-  new Dog('Toby', 'male'),
-  new Cat('Milka', 'female'),
-  new Man('Alex', 'male'),
-  new Woman('Emma','female')
+  new Dog('Toby', 'male','Dog'),
+  new Cat('Milka', 'female', 'Cat'),
+  new Man('Alex', 'male', 'Man', 'Hello there!'),
+  new Woman('Emma','female', 'Woman', 'How was your day?')
  ];
-inhabitantsArray.forEach( inhabitant => print(`specie: ${inhabitant.specie}; name: ${inhabitant.name}; gender: ${inhabitant.gender}; hands: ${inhabitant.hands? inhabitant.hands: "Oh my God, I don't feel my hands, but wait a minute, I don't have them and it's okey for me hah"}; legs: ${inhabitant.legs}; saying: ${inhabitant.saying}`, 'div') );
+inhabitantsArray.forEach( inhabitant => inhabitant.say());
