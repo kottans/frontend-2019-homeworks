@@ -10,37 +10,37 @@ class Inhabitant {
   }
 }
 class Dog extends Inhabitant {
-  constructor(name, gender,specie) {
-    super(name, gender, specie);
+  constructor(name, gender) {
+    super(name, gender, 'Dog');
     this.legs = 4;
     this.saying = 'woof-woof';
   }
 }
 class Cat extends Inhabitant {
-  constructor(name, gender, specie) {
-    super(name, gender, specie);
+  constructor(name, gender) {
+    super(name, gender, 'Cat');
     this.legs = 4;
     this.saying = 'meow-meow';
   }
 }
 class Man extends Inhabitant {
-  constructor(name, gender, specie, saying) {
-    super(name, gender, specie, saying);
+  constructor(name, gender, saying) {
+    super(name, gender, 'Man', saying);
     this.hands = 2;
     this.legs = 2;
   }
 }
 class Woman extends Inhabitant {
-  constructor(name, gender, specie, saying) {
-    super(name, gender, specie, saying);
+  constructor(name, gender, saying) {
+    super(name, gender, 'Woman', saying);
     this.hands = 2;
     this.legs = 2;
   }
 }
 const inhabitantsArray = [ 
-  new Dog('Toby', 'male','Dog'),
-  new Cat('Milka', 'female', 'Cat'),
-  new Man('Alex', 'male', 'Man', 'Hello there!'),
-  new Woman('Emma','female', 'Woman', 'How was your day?')
+  new Dog('Toby', 'male'),
+  new Cat('Milka', 'female'),
+  new Man('Alex', 'male', 'Hello there!'),
+  new Woman('Emma','female', 'How was your day?')
  ];
 inhabitantsArray.forEach( inhabitant => inhabitant.say());
