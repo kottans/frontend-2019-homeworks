@@ -22,9 +22,9 @@ Enemy.prototype.handlCollision = function(player){
         this.y < player.y + 40 &&
         this.y + 40 > player.y)
         {
-            this.player.initialPosition();
+            this.player.goToInitialPosition();
             --this.player.health;
-            Player.prototype.gameOver();            
+            this.player.gameOver();            
          }
 };
 
@@ -64,12 +64,13 @@ var Player = function() {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
+    
     this.sprite = "images/char-boy.png";
-    this.initialPosition();
-    this.initialData();
+    this.goToInitialPosition();
+    this.resetState();
 };
 
-Player.prototype.initialPosition = function() {
+Player.prototype.goToInitialPosition = function() {
     const INITIAL_PLAYER_POSITION ={
       x: 200,
       y: 360  
@@ -78,7 +79,7 @@ Player.prototype.initialPosition = function() {
       this.y = INITIAL_PLAYER_POSITION.y
 };
 
-Player.prototype.initialData = function() {
+Player.prototype.resetState = function() {
     const INITIAL_PLAYER_DATA ={
      score: 0,
      health: 2  
@@ -90,17 +91,18 @@ Player.prototype.initialData = function() {
 Player.prototype.reachFinish = function(){
     if (this.y < 0) {
         setTimeout(() => {
-            this.initialPosition();
+            this.goToInitialPosition();
             player.score++
         }, 300);
     }
+
 }
 
 Player.prototype.gameOver = function(){
     if(player.health === 0){
         alert(` Game Over
         \n You score : ${player.score}`);
-        player.initialData();
+        player.resetState();
         }
 };
 
