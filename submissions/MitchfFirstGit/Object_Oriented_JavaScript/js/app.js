@@ -57,8 +57,8 @@ Game.prototype.addNewEnemy = function() {
 Game.prototype.setGameToNewLevel = function() {
   rowField++;
   colField++;
-  this.edgeXField += 101;
-  this.edgeYField += 83;
+  this.edgeXField += this.colWidth ;
+  this.edgeYField += this.rowHeight;
   this.addNewRow();
   this.addField = true;
   this.enemyAmount.push(this.enemyAmount.length + 1);  //this.enemyAmount.length++ doesn't work
@@ -128,7 +128,7 @@ Enemy.prototype.update = function(dt) {
     this.player.y < this.y + this.player.playerSizeY &&
     this.player.playerSizeY + this.player.y > this.y
   ) {
-    this.player.x = this.game.edgeXField - 101;
+    this.player.x = this.game.edgeXField - this.game.colWidth ;
     this.player.y = this.game.edgeYField;
     this.player.updateHelth(-1);
   }
@@ -147,7 +147,7 @@ function Player(score, helth, game) {
   this.score = score;
   this.helth = helth;
   // Setting the Player initial location
-  this.x = game.edgeXField-101;
+  this.x = game.edgeXField-game.colWidth ;
   this.y = game.edgeYField;
   //Loading the image for changing Player
   this.changePlayer = [
@@ -184,7 +184,7 @@ Player.prototype.updateScore = function() {
 
 //update Player's helth
 Player.prototype.updateHelth = function(decrement) {
-  decrement === -1 ? this.helth-- : this.helth++;
+  this.helth += decrement;
   if (this.helth === 0) {
     if (
       confirm(
@@ -242,14 +242,14 @@ Player.prototype.handleInput = function(keyPress) {
   if (this.y <= 0) {
     setTimeout(() => {
       this.updateScore();
-      this.x = this.game.edgeXField-101;
+      this.x = this.game.edgeXField-this.game.colWidth ;
       this.y = this.game.edgeYField;
     }, 100);
   }
 };
 
 // Creating a new Collectables object
-var collectables = new Collectables(303, 0, player);
+var collectables = new Collectables(303, 0, player, game);
 //add gems(heart) to the game
 function Collectables(randomX, randomY, player) {
   this.heart = "images/Heart.png";
@@ -257,12 +257,13 @@ function Collectables(randomX, randomY, player) {
   this.randomX = randomX;
   this.randomY = randomY;
   this.player = player;
+  this.game = game;
 }
 
 //add random location for heart image
 Collectables.prototype.addLocation = function() {
-  this.randomX = Math.floor(Math.random() * colField) * 101;
-  this.randomY = Math.floor(Math.random() * rowField) * 83;
+  this.randomX = Math.floor(Math.random() * colField) * this.game.colWidth ;
+  this.randomY = Math.floor(Math.random() * rowField) * this.game.rowHeight;
 };
 
 //add  heart image on the screen
@@ -276,7 +277,7 @@ Collectables.prototype.render = function() {
 // remove heart image off the  screen if player touch the heart image
 Collectables.prototype.removeHeart = function() {
   if (this.player.x === this.randomX && this.player.y === this.randomY) {
-    this.player.updateHelth();
+    this.player.updateHelth(1);
     this.switch = false;
     this.addLocation();
     this.changeSwitch();
