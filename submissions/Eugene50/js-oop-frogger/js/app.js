@@ -38,7 +38,6 @@ var Enemy = function() {
         this.y = 380;
         this.width = 101;
         this.height = 171;
-
    };
 
   Player.prototype.update = function () {
@@ -77,8 +76,6 @@ var Enemy = function() {
   var enemy_4 = new Enemy();
       enemy_4.y = 145;   
     
-        
-
   var allEnemies = [];
     allEnemies.push( enemy,enemy_1,enemy_2,enemy_3,enemy_4);
 
