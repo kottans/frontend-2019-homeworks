@@ -1,3 +1,4 @@
+
 # place this file @ ~/
 
 ## IDE specific
@@ -19,3 +20,5 @@ Desktop.ini
 Thumbs.db
 ._*
 tmp/
+
+.DS_Store
