@@ -6,11 +6,12 @@ var Engine = (function(global) {
         gameInfo = doc.getElementById('info_line'), 
         lives = doc.getElementById('live'),
         score = doc.getElementById('score'),
+        level = doc.getElementById('level'),
         p = doc.createElement('p'),
         lastTime
 
-    canvas.width = 505;
-    canvas.height = 606;
+    canvas.width = CANVAS_WIDTH;
+    canvas.height = CANVAS_HEIGTH;
     doc.body.appendChild(canvas);
     p.innerText ='Press space to change sprite'
     doc.body.appendChild(p)
@@ -32,7 +33,7 @@ var Engine = (function(global) {
     }
 
     function init() {
-        // reset();
+        reset()
         lastTime = Date.now();
         main();
     }
@@ -44,7 +45,7 @@ var Engine = (function(global) {
 
     function checkCollisions(){
         allEnemies.forEach(enemy => {
-            if(Math.ceil(enemy.x) + 83 >= player.x && Math.ceil(enemy.x) - 83 <= player.x
+            if(Math.ceil(enemy.x) + CELL_HEIGHT >= player.x && Math.ceil(enemy.x) - CELL_HEIGHT <= player.x
                 && Math.ceil(enemy.y) + 15 >= player.y && Math.ceil(enemy.y) - 15<= player.y)
             {
                 player.lives--
@@ -105,6 +106,7 @@ var Engine = (function(global) {
         renderEntities();
         lives.innerText = player.lives
         score.innerText = player.score
+        level.innerText = game_lavel
     }
 
     function renderEntities() {
@@ -115,7 +117,7 @@ var Engine = (function(global) {
     }
 
     function reset() {
-        // noop
+        game_lavel = 1;
     }
 
     Resources.load([
