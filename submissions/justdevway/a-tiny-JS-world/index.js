@@ -8,58 +8,75 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 
-function Inhabited () {
-    this.sayAbout = function () {
-        return 'My name is ' + this.name + '. And now, as any ' + this.species +  ', I say "' + this.phrase + '!"';
+class Inhabited {
+    constructor(species, legs, gender, name, phrase) {
+        this.species = species;
+        this.legs = legs;
+        this.gender = gender;
+        this.name = name;
+        this.phrase = phrase;
+    }
+
+    sayAbout() {
+        return 'My name is ' + this.name + '. And now, as any ' + this.species + ', I say "' + this.phrase + '!"';
+    }
+
+    // get phrase() {
+    //     return this.phrase;
+    // }
+    //
+    // set phrase(phrase) {
+    //     this.phrase = phrase;
+    // }
+}
+
+// TODO: How we can use it with Object.create ?
+
+class Human extends Inhabited {
+    constructor(gender, name, friends, phrase) {
+        super('human', 2, '', '', 'Human, human');
+        this.hands = 2;
+        this.gender = gender;
+        this.name = name;
+        this.friends = friends;
+        this.phrase = phrase;
+    }
+
+    // TODO: How to set this result to setPhrase funciton ?
+    sayAbout() {
+        return `Hello! My name is ${this.name}. I am a ${this.gender} and I have ${this.friends.length} friends.`
     }
 }
 
-function Animal (species, legs) {
-    this.species = species;
-    this.legs = legs;
-}
-
-Animal.prototype = new Inhabited();
-
-function Human (name, gender, phrase, friends) {
-    this.name = name;
-    this.gender = gender;
-    this.phrase = phrase;
-    this.friends = friends;
-    this.sayAbout = function () {
-        return 'My name is ' + this.name + '.' + ' I am a ' + this.gender + ' gender and I have ' + this.friends.length + ' friends.' + ' And now, I say "' + this.phrase + '!"';
+class Cat extends Inhabited {
+    constructor(gender, name) {
+        // TODO: Can I use phrase not on main class arguments order ?
+        super('cat', 4, '', '', 'Meo, meo, meo');
+        this.gender = gender;
+        this.name = name;
     }
 }
 
-Human.prototype = new Animal('human', 2);
-
-function Cat(name, gender) {
-    this.name = name;
-    this.gender = gender;
-    this.phrase = 'Meo, meo, meo';
+class Dog extends Inhabited {
+    constructor(gender, name) {
+        super('dog', 4, '', '', 'Rrrrrrr');
+        this.gender = gender;
+        this.name = name;
+    }
 }
 
-Cat.prototype = new Animal('cat', 4);
+
+const Robot1 = new Human('male', 'Robot1', ['cat - Star', 'woman'], 'I am a man');
+const Robot2 = new Human('female', 'Robot2', ['dog - Bark', 'man'], 'I am a female');
+const Robot3 = new Human('Bot', 'computer', 'Hello from computer', ['assembler']);
+const Bark = new Dog('male', 'Bark');
+const Star = new Cat('female', 'Star');
 
 
-function Dog(name, gender) {
-    this.name = name;
-    this.gender = gender;
-    this.phrase = 'Rrrrrrrr...';
-}
-
-Dog.prototype = new Animal('dog', 4);
-
-var Robot1 = new Human('Robot1', 'male', 'I am a man', ['cat - Star', 'woman']);
-var Robot2 = new Human('Robot2', 'female', 'I am a female', ['man', 'dog Bark']);
-var Robot3 = new Human('Bot', 'computer', 'Hello from computer', ['assembler']);
-var Bark = new Dog('Bark', 'male');
-var Star = new Cat('Star', 'female');
-
-var catWoman = new Cat('CatWoman', 'female');
+const catWoman = new Cat('female', 'CatWoman');
 catWoman.friends = ['cats', 'kottans'];
 catWoman.legs = 2;
-
+catWoman.hands = 2;
 
 print('<div>' + Robot1.sayAbout() + '</div><hr>');
 print('<div>' + Robot2.sayAbout() + '</div><hr>');
