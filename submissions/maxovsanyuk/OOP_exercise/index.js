@@ -8,6 +8,7 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 
+
 class Inhabitant{
     constructor(name,gender){ 
         this.name = `${name.charAt(0).toUpperCase() + name.slice(1)}`;
