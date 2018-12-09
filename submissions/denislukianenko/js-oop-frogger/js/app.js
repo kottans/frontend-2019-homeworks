@@ -27,7 +27,7 @@ function checkCollision(enemy) {
 }
 
 // Enemy Class --------------------------------------------------------------------------------
-var Enemy = function(x, y, speed) {
+let Enemy = function(x, y, speed) {
   this.sprite = "images/enemy-bug.png";
 
   this.x = x;
@@ -55,7 +55,7 @@ Enemy.prototype.render = function() {
 };
 
 //Player Class --------------------------------------------------------------------------------
-var Player = function(x, y) {
+let Player = function(x, y) {
   this.player = "images/char-boy.png";
   this.x = x;
   this.y = y;
@@ -90,8 +90,8 @@ Player.prototype.handleInput = function(keyPress) {
 };
 
 //--------------------------------------------------------------------------------------------
-var player = new Player(initialX, initialY);
-var allEnemies = [];
+let player = new Player(initialX, initialY);
+let allEnemies = [];
 
 [blockY - 20, blockY * 2 - 20, blockY * 3 - 20].forEach(function(locationY) {
   enemy = new Enemy(-blockX, locationY, generateRandomSpeed());
@@ -99,7 +99,7 @@ var allEnemies = [];
 });
 
 document.addEventListener("keyup", function(e) {
-  var allowedKeys = {
+  let allowedKeys = {
     37: "left",
     38: "up",
     39: "right",
