@@ -1,17 +1,16 @@
 (function(){
     const data = ['img/sticker1.png', 'img/sticker2.png', 'img/sticker3.png', 'img/sticker4.png', 'img/sticker5.png', 'img/sticker6.png',
                 'img/sticker1.png', 'img/sticker2.png', 'img/sticker3.png', 'img/sticker4.png', 'img/sticker5.png', 'img/sticker6.png'];
-    const dataLength = data.length;
+    const itemsCount = data.length;
     function startingGame(){//create board and fill it items
         data.sort(function() {return 0.5 - Math.random()});
         const fragment = document.createDocumentFragment();
         const board = document.createElement('div');
         board.classList.add('board');
 
-        for(let i = 0; i < dataLength; i++){
+        for(let i = 0; i < itemsCount; i++){
             const item = document.createElement('div');
-            item.classList.add('item');
-            item.classList.add('animation');
+            item.classList.add('item', 'animation');
             item.dataset.item = i;
             fragment.appendChild(item);
         }
@@ -26,13 +25,13 @@
             //this checkings are blocking click on 3rd card
             if(document.querySelectorAll('img').length <= 1){
                 createImg(event);
-                    const images = document.querySelectorAll('img');
-                    if(images.length === 2){
-                        checkItems(images);
-                    }
+                const images = document.querySelectorAll('img');
+                if(images.length === 2){
+                    checkItems(images);
+                }
             }
         setTimeout(function(){//when all items have class 'matchedItem' game is over
-            if(document.querySelectorAll('.matchedItem').length === dataLength){
+            if(document.querySelectorAll('.matchedItem').length === itemsCount){
                 setEndGameScreen();
             }
         }, 1000);
@@ -44,7 +43,7 @@
         const img = document.createElement('img');
         img.src = data[event.target.dataset.item];
         setTimeout(function(){
-            img.style.opacity = 1;
+            img.classList.add('imgVisible');
         }, 200)
         event.target.appendChild(img);
         
@@ -86,7 +85,7 @@
             itemsContainer.appendChild(winnerString);
             itemsContainer.appendChild(restartButton);
 
-            document.querySelector('button').addEventListener('click', function(){
+            restartButton.addEventListener('click', function(){
                 startingGame();
                 event.target.parentNode.removeChild(winnerString);
                 event.target.parentNode.removeChild(restartButton);

@@ -35,6 +35,9 @@ img {
     height: 150px;
     opacity: 0;
 }
+.imgVisible {
+    opacity: 1;
+}
 .visible {
     opacity: 1;
 }
