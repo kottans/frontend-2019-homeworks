@@ -1,0 +1,14 @@
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.left-menu {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  height: calc(100vh - 10px);
+  width: 200px;
+  color: aquamarine;
+}
