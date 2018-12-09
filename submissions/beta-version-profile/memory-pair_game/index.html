@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Memory Game</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <h2>Merry Christmas. Ho! Ho! Ho!</h2>
+        <section class="score-panel">
+          <span class="left-span">
+            <ul class="stars">
+              <li><i class="fas fa-star"></i></li>
+              <li><i class="fas fa-star"></i></li>
+              <li><i class="fas fa-star"></i></li>
+            </ul>
+
+            <span class="moves">0</span> moves <span class="timer"></span>
+          </span>
+          <span class="right-span">
+            <span class="restart"> <i class="fas fa-redo"></i> </span>
+          </span>
+        </section>
+
+        <ul class="card-deck">
+          <li class="card" type="angel">
+            <img
+              src="https://cdn1.iconfinder.com/data/icons/christmas-2298/48/christmas_pixel_perfect_color_line_icons_22-angel-512.png"
+            />
+          </li>
+          <li class="card" type="wreath"><img
+            src="https://cdn1.iconfinder.com/data/icons/christmas-2298/48/christmas_pixel_perfect_color_line_icons_12-wreath-512.png"
+          /></i></li>
+          <li class="card" type="reindeer"><img
+            src="https://cdn1.iconfinder.com/data/icons/christmas-2298/48/christmas_pixel_perfect_color_line_icons_2-reindeer-512.png"
+          /></li>
+          <li class="card" type="santa"><img
+            src="https://cdn1.iconfinder.com/data/icons/christmas-2298/48/christmas_pixel_perfect_color_line_icons_1-santa_claus-512.png"
+          /></li>
+          <li class="card" type="snowman"><img
+            src="https://cdn1.iconfinder.com/data/icons/christmas-2298/48/christmas_pixel_perfect_color_line_icons_14-snowman-512.png"
+          /></li>
+          <li class="card" type="gingerbread"><img
+            src="https://cdn1.iconfinder.com/data/icons/christmas-2298/48/christmas_pixel_perfect_color_line_icons_17-gingerbread-512.png"
+          /></li>
+          <li class="card" type="elf"><img
+            src="https://cdn1.iconfinder.com/data/icons/christmas-2298/48/christmas_pixel_perfect_color_line_icons_25-elf-512.png"
+          /></li>
+          <li class="card" type="sock"><img
+            src="https://cdn1.iconfinder.com/data/icons/christmas-2298/48/christmas_pixel_perfect_color_line_icons_4-sock-512.png"
+          /></li>
+          <li class="card" type="gingerbread"><img
+            src="https://cdn1.iconfinder.com/data/icons/christmas-2298/48/christmas_pixel_perfect_color_line_icons_17-gingerbread-512.png"
+          /></li>
+          <li class="card" type="snowman"><img
+            src="https://cdn1.iconfinder.com/data/icons/christmas-2298/48/christmas_pixel_perfect_color_line_icons_14-snowman-512.png"
+          /></li>
+          <li class="card" type="angel"><img
+            src="https://cdn1.iconfinder.com/data/icons/christmas-2298/48/christmas_pixel_perfect_color_line_icons_22-angel-512.png"
+          /></li>
+          <li class="card" type="wreath"><img
+            src="https://cdn1.iconfinder.com/data/icons/christmas-2298/48/christmas_pixel_perfect_color_line_icons_12-wreath-512.png"
+          /></li>
+          <li class="card" type="reindeer"><img
+            src="https://cdn1.iconfinder.com/data/icons/christmas-2298/48/christmas_pixel_perfect_color_line_icons_2-reindeer-512.png"
+          /></li>
+          <li class="card" type="santa"><img
+            src="https://cdn1.iconfinder.com/data/icons/christmas-2298/48/christmas_pixel_perfect_color_line_icons_1-santa_claus-512.png"
+          /></li>
+          <li class="card" type="elf"><img
+            src="https://cdn1.iconfinder.com/data/icons/christmas-2298/48/christmas_pixel_perfect_color_line_icons_25-elf-512.png"
+          /></li>
+          <li class="card" type="sock"><img
+            src="https://cdn1.iconfinder.com/data/icons/christmas-2298/48/christmas_pixel_perfect_color_line_icons_4-sock-512.png"
+          /></li>
+        </ul>
+
+        <div class="modal">
+          <div class="modal-content">
+            <h2>VICTORY!</h2>
+            <a class="close" href="#">×</a>
+            <div class="congrats-message">You rock.</div>
+            <div class="info-message">
+              <p>
+                You made <span class="final-moves"></span> moves in
+                <span class="total-time"></span>
+              </p>
+              <p>Rating: <span class="star-rating"></span></p>
+            </div>
+            <button class="play-again">Play again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
