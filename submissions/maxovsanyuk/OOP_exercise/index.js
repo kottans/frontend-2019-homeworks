@@ -32,7 +32,6 @@ class Man extends Human{
     }
 }
 
-
 class Woman extends Human{
     constructor(name){
         super(name);
