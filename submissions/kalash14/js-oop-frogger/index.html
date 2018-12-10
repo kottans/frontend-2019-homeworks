@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Effective JavaScript: Frogger</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <section class="start-game-modal">
+
+        <h2>Hey! Welcome to Frogger game!</h2>
+
+        <div class="start-game-username">
+            <label>User name: </label>
+            <input type="text" class="start-game-input" placeholder="Username">
+        </div>
+
+        <div class="start-game-players">
+            <h3>Choose player:</h3>
+            <div class="players-row">
+                <div class="player-item" data-src="images/char-boy.png">
+                    <img src="images/char-boy.png" class="player-item__image" alt="char-boy">
+                </div>
+                <div class="player-item" data-src="images/char-cat-girl.png">
+                    <img src="images/char-cat-girl.png" class="player-item__image" alt="char-cat-girl">
+                </div>
+                <div class="player-item" data-src="images/char-horn-girl.png">
+                    <img src="images/char-horn-girl.png" class="player-item__image" alt="char-horn-girl">
+                </div>
+                <div class="player-item" data-src="images/char-pink-girl.png">
+                    <img src="images/char-pink-girl.png" class="player-item__image" alt="char-pink-girl">
+                </div>
+                <div class="player-item" data-src="images/char-princess-girl.png">
+                    <img src="images/char-princess-girl.png" class="player-item__image" alt="char-princess-girl">
+                </div>
+            </div>
+        </div>
+
+        <button class="start-game-button" disabled>go!</button>
+
+    </section>
+
+    <section class="game-session closed">
+        <div>User: <span class="game-session__user"></span></div>
+        <div>Score: <span class="game-session__score">0</span></div>
+        <div>High score: <span class="game-session__maxscore">0</span></div>
+        <div><button class="sound-switcher"></button></div>
+    </section>
+
+    <section class="copyright-section">
+        <p>Developed by <a href="https://github.com/kalash14" target="_blank" rel="nofollow">Maksym Kalashnyk</a></p>
+    </section>
+
+    <audio src="sound/sound.mp3" class="audio-track"></audio>
+
+    <script src="js/resources.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/engine.js"></script>
+</body>
+</html>
