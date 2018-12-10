@@ -18,6 +18,7 @@ body{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
+	width:100%;
 }
 .allFriends img{
 	border-radius: 50%;
