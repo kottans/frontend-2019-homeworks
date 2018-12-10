@@ -37,7 +37,7 @@ var man = {
     say: "Hi there!!!"
 }
 
-/* function showObject(params) {
+function showObject(params) {
      var output = '';
      for(var key in params){
          output  += key + ":" + params[key] + ";" + " ";
@@ -49,23 +49,9 @@ var man = {
 print(showObject(man));
 print(showObject(cat));
 print(showObject(dog));
-print(showObject(woman)); */
+print(showObject(woman));
 
-function keys(elm) {
-    return Object.keys(elm);
-}
 
-var x = keys(man);
-print(<strong>x[0]</strong> +':' + man.name+';'+' '+ x[1] +':'+ man.gender+';'+' '+ x[2]+':'+man.hands+';'+' '+x[3]+':'+man.legs+';'+' '+x[4]+':'+man.say);
-var a = keys(cat);
-print(a[0] +':' + cat.name+';'+' '+ a[1] +':'+ cat.gender+';'+' '+ a[2]+':'+cat.hands+';'+' '+a[3]+':'+cat.legs+';'+' '+a[4]+':'+cat.say);
-var b = keys(dog);
-print(b[0] +':' + dog.name+';'+' '+ b[1] +':'+ dog.gender+';'+' '+ b[2]+':'+dog.hands+';'+' '+b[3]+':'+dog.legs+';'+' '+b[4]+':'+dog.say)
-
-// print(man.say);
-// print(woman.name);
-// print()
-// print()
 
 
 // ======== OUTPUT ========
