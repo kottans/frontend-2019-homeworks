@@ -1,0 +1,65 @@
+* {
+	box-sizing: border-box;
+}
+body{
+	background-image: linear-gradient(to left top, #159957, #008e7e, #00809b, #006da5, #155799);
+	color: white;
+	font-size: 18px;
+	text-align: center;
+}
+.search{
+	width: 100%;
+}
+.flex-conteiner{
+	display: flex;
+	flex-wrap: wrap;
+}
+.allFriends{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.allFriends img{
+	border-radius: 50%;
+}
+.search input{
+	margin-bottom: 15px;
+}
+.allFriends figure{
+	border: 1px solid white;
+	width: 250px;
+	margin: 8px 10px 20px 0;
+	border-radius: 5px;
+}
+.allFriends h2{
+	margin: 0;
+	padding: 10px;
+	border-radius: 5px;
+}
+.man{
+	background-color: #47B4AF;
+}
+.woman{
+	background-color: #bf7aaa;
+}
+.search input[type=text]{
+ 	padding: 5px;
+ 	margin-top: 8px;
+ 	font-size: 16px;  
+}
+.search button{
+	padding: 5px;
+	font-size: 16px;
+	color: grey;
+}
+@media screen and (min-width: 530px) {
+	.search{
+		width: 250px;
+	}
+	.allFriends{
+		width: calc(100% - 250px);
+	}
+	.search input[type=text]{
+		width: 85%;
+	}
+}

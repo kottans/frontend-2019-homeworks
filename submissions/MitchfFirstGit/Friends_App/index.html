@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Find new friends</title>
+    <link rel="stylesheet" type="text/css" href="add.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <header class="header">
+      <h1>Find your love in USA</h1>
+    </header>
+    <main class="flex-conteiner">
+      <section class="search">
+        <form >
+          <input type="text" class="searchName" placeholder="Search...">
+          <i class="fa fa-search"></i><br>
+          <strong>Gender:</strong>
+          <input type="radio" name="gender" value="genderMale" >M
+          <input type="radio" name="gender" value="genderFemale">F
+          <input type="radio" name="gender" value="genderAll" checked>All <br>
+          <strong>Name:</strong>
+          <input type="radio" name="sort" value="nameAsc" >A-Z
+          <input type="radio" name="sort" value="nameDesc">Z-A  <br>
+          <strong>Age:</strong>
+          <input type="radio" name="sort" value="ageAsc" >&#8593;
+          <input type="radio" name="sort" value="ageDesc">&#8595; <br>
+          <button type="reset">Reset changes</button>
+        </form>
+      </section>
+      <section class="allFriends">
+      </section>
+    </main>
+    <script type="text/javascript" src="add.js"></script>
+  </body>
+</html>
