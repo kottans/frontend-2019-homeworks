@@ -1,13 +1,15 @@
-let card = document.querySelectorAll('.card')
-let modal = document.querySelector('.modal')
-let container = document.querySelector('.card-deck')
-let counter = document.querySelector('.moves')
-let stars = document.querySelectorAll('.fa-star')
-let starsList = document.querySelectorAll('.stars li')
-let closeIcon = document.querySelector('.close')
-let timer = document.querySelector('.timer')
+const card = document.querySelectorAll('.card')
+const modal = document.querySelector('.modal')
+const container = document.querySelector('.card-deck')
+const counter = document.querySelector('.moves')
+const stars = document.querySelectorAll('.fa-star')
+const starsList = document.querySelectorAll('.stars li')
+const closeIcon = document.querySelector('.close')
+const timer = document.querySelector('.timer')
 const restartButton = document.querySelector('.restart')
 const modalPlayAgainButton = document.querySelector('.play-again')
+
+const DELAY = 500
 
 let cards = [...card]
 let moves = 0
@@ -46,19 +48,19 @@ modalPlayAgainButton.addEventListener('click', reset)
 function startGame() {
   cards = shuffle(cards)
 
-  for (let i = 0; i < cards.length; i++) {
-    cards[i].classList.remove('show', 'open', 'matching', 'disabled')
-    container.appendChild(cards[i])
-  }
+  cards.forEach(card => {
+    card.classList.remove('show', 'open', 'matching', 'disabled')
+    container.appendChild(card)
+  })
+
   openedCards = []
 
   moves = 0
   counter.innerHTML = moves
 
-  for (let i = 0; i < stars.length; i++) {
-    stars[i].style.color = '#ffd700'
-    stars[i].style.display = 'inline'
-  }
+  stars.forEach(star => {
+    star.classList.add('active')
+  })
 
   timer.innerHTML = '0 mins 0 secs'
 
@@ -70,6 +72,7 @@ const matching = () => {
   openedCards[1].classList.add('matching', 'disabled')
   openedCards[0].classList.remove('show', 'open')
   openedCards[1].classList.remove('show', 'open')
+
   openedCards = []
 }
 
@@ -82,7 +85,7 @@ const notMatching = () => {
     openedCards[1].classList.remove('show', 'open', 'not-matching')
     enable()
     openedCards = []
-  }, 500)
+  }, DELAY)
 }
 
 const disable = () => {
@@ -91,12 +94,11 @@ const disable = () => {
 
 const enable = () => {
   let matchingCard = document.querySelectorAll('.matching')
-  Array.prototype.filter.call(cards, card => {
-    card.classList.remove('disabled')
+  Array.from(cards)
 
-    for (let i = 0; i < matchingCard.length; i++) {
-      matchingCard[i].classList.add('disabled')
-    }
+  cards.filter(card => {
+    card.classList.remove('disabled')
+    matchingCard.forEach(item => item.classList.add('disabled'))
   })
 }
 
@@ -104,24 +106,20 @@ const moveCounter = () => {
   moves++
   counter.innerHTML = moves
 
+  const [firstStar, secondStar] = stars
+
   if (moves > 8 && moves < 12) {
-    for (i = 0; i < 3; i++) {
-      if (i > 1) {
-        stars[i].style.display = 'none'
-      }
-    }
-  } else if (moves > 13) {
-    for (i = 0; i < 3; i++) {
-      if (i > 0) {
-        stars[i].style.display = 'none'
-      }
-    }
+    firstStar.classList.add('hidden')
+  }
+
+  if (moves > 13) {
+    secondStar.classList.add('hidden')
   }
 }
 
 const startTimer = () => {
   interval = setInterval(() => {
-    timer.innerHTML = minute + ' mins ' + second + ' secs'
+    timer.innerHTML = `${minute} mins ${second} secs`
     second++
     if (second == 60) {
       minute++
@@ -176,7 +174,7 @@ function cardOpen() {
     startTimer()
   } else if (len === 2) {
     moveCounter()
-    if (openedCards[0].type === openedCards[1].type) {
+    if (openedCards[0].dataset.type === openedCards[1].dataset.type) {
       matching()
     } else {
       notMatching()
@@ -184,8 +182,8 @@ function cardOpen() {
   }
 }
 
-for (let i = 0; i < cards.length; i++) {
-  cards[i].addEventListener('click', displayCard)
-  cards[i].addEventListener('click', cardOpen)
-  cards[i].addEventListener('click', congratulations)
-}
+cards.forEach(card => {
+  card.addEventListener('click', displayCard)
+  card.addEventListener('click', cardOpen)
+  card.addEventListener('click', congratulations)
+})

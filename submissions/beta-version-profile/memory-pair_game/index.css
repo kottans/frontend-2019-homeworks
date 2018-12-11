@@ -69,7 +69,6 @@ h2 {
 
 .card.open {
   background: #1db9f2;
-  cursor: default;
   animation-name: flipInY;
   animation-duration: 0.5s;
 }
@@ -78,13 +77,7 @@ h2 {
   visibility: visible;
 }
 
-.show {
-  visibility: visible !important;
-  opacity: 100 !important;
-}
-
 .card.matching {
-  cursor: default;
   background: #2eb82e;
   font-size: 33px;
   animation-name: rubberBand;
@@ -132,7 +125,19 @@ h2 {
 .timer {
   margin: 0 0.5em;
 }
+.fa-star.active {
+  display: inline;
+  color: #ffd700;
+}
 
+.fa-star.hidden {
+  display: none;
+}
+.modal.show,
+.cart.show {
+  visibility: visible;
+  opacity: 100;
+}
 .modal {
   position: fixed;
   top: 0;
