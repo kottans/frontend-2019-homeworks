@@ -50,9 +50,9 @@ const renderFriends = arrayFriends => {
   });
 
   document.querySelector(".search").addEventListener("change", event => {
-    if (event.target.name == "gender") data.gender = event.target.value;
+    if (event.target.name === "gender") data.gender = event.target.value;
 
-    if (event.target.name == "sort") data.ageOrName = event.target.value;
+    if (event.target.name === "sort") data.ageOrName = event.target.value;
 
     sortFriends(data, arrayFriends);
   });
@@ -63,11 +63,11 @@ const sortFriends = (data, arrayFriends) => {
 
   section.innerHTML = "";
 
-  if (data.gender == "genderMale")
+  if (data.gender === "genderMale")
     arraySortFriends = arraySortFriends.filter(
       friend => friend.gender === "male"
     );
-  else if (data.gender == "genderFemale")
+  else if (data.gender === "genderFemale")
     arraySortFriends = arraySortFriends.filter(
       friend => friend.gender === "female"
     );
@@ -102,7 +102,7 @@ fetch(RANDOM_FRIENDS_API_URL)
 const firstLetterToUpperCase = word => {
   let newWord = "";
   for (let i = 0; i < word.length; i++) {
-    newWord += word[i - 1] == " " || i === 0 ? word[i].toUpperCase() : word[i];
+    newWord += word[i - 1] === " " || i === 0 ? word[i].toUpperCase() : word[i];
   }
   return newWord;
 };
