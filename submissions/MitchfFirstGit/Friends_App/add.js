@@ -25,7 +25,6 @@ const createFriend = friend => {
 
 const renderFriends = arrayFriends => {
   arrayFriends.forEach(createFriend);
-  //arrayFriends.forEach(friend => createFriend(friend));
   let data = {
     gender: "",
     ageOrName: "",
@@ -92,7 +91,7 @@ const sortFriends = (data, arrayFriends) => {
         friend.location.city.includes(data.searchField)
     );
 
-  arraySortFriends.forEach(friend => createFriend(friend));
+  arraySortFriends.forEach(createFriend);
 };
 
 fetch(RANDOM_FRIENDS_API_URL)
