@@ -29,14 +29,6 @@ img {
   left: 0;
 }
 
-/* .left-menu:hover {
-  left: 0;
-}
-
-.left-menu:hover .menu-icon {
-  display: none;
-} */
-
 .menu-icon {
   display: block;
   position: absolute;
