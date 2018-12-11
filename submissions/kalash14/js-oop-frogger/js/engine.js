@@ -72,14 +72,14 @@ var Engine = (function(global) {
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
-            let collisionResult = checkCollision(enemy, player);
+            let collisionResult = enemy.checkCollision(player);
             if (collisionResult) {
                 player.y = startY;
                 player.x = startX;
                 player.score = 0;
             }
         });
-        playerScoreElement.innerHTML = player.score;
+        UI_ELEMENTS.playerScoreElement.innerHTML = player.score;
         player.update();
     }
 
@@ -154,7 +154,12 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/char-cat-girl.png',
+        'images/char-horn-girl.png',
+        'images/char-pink-girl.png',
+        'images/char-princess-girl.png',
+
     ]);
     Resources.onReady(init);
 

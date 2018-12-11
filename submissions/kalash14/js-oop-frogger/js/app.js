@@ -4,26 +4,30 @@ const blockWidth = 101,
       blockHeight = 83,
       startX = blockWidth * 2,
       startY = blockWidth * 4,
-      boundaryRight = 505;
+      boundaryRight = 505,
+      fieldTopOffsetPx = 20;
 
-let playerImageSrc = "",
+let playerImageSrc = 'images/char-boy.png',
     notEmptyInputField = false;
 
 /* Necessary DOM nodes */
 
-const userNameInput = document.querySelector('.start-game-input'),
-    startGameButton = document.querySelector('.start-game-button'),
-    userNameBlock = document.querySelector('.game-session__user'),
-    startModal = document.querySelector('.start-game-modal'),
-    copyRightSection = document.querySelector('.copyright-section'),
-    audioTrack = document.querySelector('.audio-track'),
-    soundSwitcher = document.querySelector('.sound-switcher'),
-    gameSession = document.querySelector('.game-session'),
-    playersGrid = document.querySelector('.players-row'),
-    playerScoreElement = document.querySelector('.game-session__score'),
-    highScoreElement = document.querySelector('.game-session__maxscore');
+const UI_ELEMENTS = {
+    userNameInput: document.querySelector('.start-game-input'),
+    startGameButton: document.querySelector('.start-game-button'),
+    userNameBlock: document.querySelector('.game-session__user'),
+    startModal: document.querySelector('.start-game-modal'),
+    copyRightSection: document.querySelector('.copyright-section'),
+    audioTrack: document.querySelector('.audio-track'),
+    soundSwitcher: document.querySelector('.sound-switcher'),
+    gameSession: document.querySelector('.game-session'),
+    playersGrid: document.querySelector('.players-row'),
+    playerScoreElement: document.querySelector('.game-session__score'),
+    highScoreElement: document.querySelector('.game-session__maxscore')
+};
 
 // Enemies our player must avoid
+
 let Enemy = function(xCord, yCord) {
     this.sprite = 'images/enemy-bug.png';
     this.x = xCord;
@@ -32,53 +36,20 @@ let Enemy = function(xCord, yCord) {
 };
 
 Enemy.prototype.update = function(dt) {
-
-    if (this.x < boundaryRight) {
-        this.x += this.speed * dt;
-    }
-    else {
-        this.x = -blockWidth;
-    }
-
+    this.x < boundaryRight ? this.x += this.speed * dt : this.x = -blockWidth;
 };
 
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-let Player = function(xCord, yCord) {
-    this.score = 0;
-    this.highScore = 0;
-    this.x = xCord;
-    this.y = yCord;
-};
-
-Player.prototype.update = function() {
-
-    if(this.y > startY){
-        this.y  = startY;
-    }
-    if(this.y < 0){
-        this.score++;
-        this.y = startY;
-    }
-    if(this.x > (boundaryRight - blockWidth)){
-        this.x -= boundaryRight;
-    }
-    if(this.x < 0){
-        this.x = (boundaryRight - blockWidth);
-    }
-
-};
-
 /* detecting collision between enemies and player */
-
-let checkCollision = function(enemy, player) {
-    if (!(enemy.y + blockHeight < player.y ||
-        enemy.y > player.y + blockHeight ||
-        enemy.x + blockWidth < player.x ||
-        enemy.x > player.x + blockWidth)) {
-        checkHighScore(player.score, player.highScore);
+Enemy.prototype.checkCollision = function() {
+    if (!(this.y + blockHeight < player.y ||
+        this.y > player.y + blockHeight ||
+        this.x + blockWidth < player.x ||
+        this.x > player.x + blockWidth)) {
+        player.checkHighScore();
         return true;
     }
     else {
@@ -86,19 +57,42 @@ let checkCollision = function(enemy, player) {
     }
 };
 
-let checkHighScore = (score, highScore) => {
+let Player = function(xCord, yCord) {
+    this.score = 0;
+    this.highScore = 0;
+    this.x = xCord;
+    this.y = yCord;
+    this.sprite = 'images/char-boy.png'
+};
 
-    if (score > highScore) {
-        highScore = score;
-        highScoreElement.innerHTML = highScore;
+Player.prototype.update = function() {
+
+    if(this.x > (boundaryRight - blockWidth)){
+        this.x -= boundaryRight;
+    }
+    if(this.x < 0){
+        this.x = (boundaryRight - blockWidth);
+    }
+    if(this.y > startY){
+        this.y  = startY;
+    }
+    if(this.y < 0){
+        this.score++;
+        this.y = startY;
     }
 
 };
 
+Player.prototype.checkHighScore = function() {
+    if (this.score > this.highScore) {
+        this.highScore = this.score;
+        UI_ELEMENTS.highScoreElement.innerHTML = this.highScore;
+    }
+};
+
 Player.prototype.render = function() {
-    let imageElement = document.createElement('img');
-    imageElement.src = playerImageSrc;
-    ctx.drawImage(imageElement, this.x, this.y);
+    this.sprite = playerImageSrc;
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 Player.prototype.handleInput = function(keyCode) {
@@ -118,22 +112,14 @@ Player.prototype.handleInput = function(keyCode) {
 
 /* defining enemies and player */
 
-let firstEnemy = new Enemy(-blockWidth, 60),
-    secondEnemy = new Enemy(-blockWidth, 145),
-    thirdEnemy = new Enemy(-blockWidth, 220),
-    allEnemies = [firstEnemy, secondEnemy, thirdEnemy],
+let allEnemies = [1, 2, 3].map(fieldRow => new Enemy(-blockWidth, fieldRow * blockHeight - fieldTopOffsetPx)),
     player = new Player(startX,startY);
 
 /* changing disable state of START button */
 
 let checkStartButton = () => {
 
-    if (notEmptyInputField && playerImageSrc !== "") {
-        startGameButton.disabled = false;
-    }
-    else {
-        startGameButton.disabled = true;
-    }
+    UI_ELEMENTS.startGameButton.disabled = !(notEmptyInputField && playerImageSrc !== "");
 
 };
 
@@ -152,18 +138,18 @@ let checkActiveClass = (target) => {
 /* removing start window and start playing game */
 
 function startGame() {
-    let userName = userNameInput.value;
-    userNameBlock.textContent = userName;
-    startModal.classList.add('closed');
-    copyRightSection.classList.add('closed');
-    gameSession.classList.remove('closed');
+    let userName = UI_ELEMENTS.userNameInput.value;
+    UI_ELEMENTS.userNameBlock.textContent = userName;
+    UI_ELEMENTS.startModal.classList.add('closed');
+    UI_ELEMENTS.copyRightSection.classList.add('closed');
+    UI_ELEMENTS.gameSession.classList.remove('closed');
 
     /* looping audio track playing */
-    audioTrack.addEventListener('ended', function() {
+    UI_ELEMENTS.audioTrack.addEventListener('ended', function() {
         this.currentTime = 0;
         this.play();
     }, false);
-    audioTrack.play();
+    UI_ELEMENTS.audioTrack.play();
 
 };
 
@@ -171,9 +157,9 @@ let setupEventListeners = () => {
 
     /* listening key codes */
 
-    document.addEventListener('keyup', function(e) {
+    document.addEventListener('keyup', function(event) {
 
-        if (e.keyCode === 13 && e.which === 13 && !startGameButton.disabled) {
+        if (event.keyCode === 13 && event.which === 13 && !UI_ELEMENTS.startGameButton.disabled) {
             startGame();
         }
 
@@ -184,57 +170,46 @@ let setupEventListeners = () => {
             40: 'down'
         };
 
-        player.handleInput(allowedKeys[e.keyCode]);
+        player.handleInput(allowedKeys[event.keyCode]);
     });
 
     /* listening value from user name input */
 
-    userNameInput.addEventListener('input', (event) => {
+    UI_ELEMENTS.userNameInput.addEventListener('input', (event) => {
 
-        if (event.target.value.length > 0) {
-            notEmptyInputField = true;
-        }
-        else {
-            notEmptyInputField = false;
-        }
-
+        notEmptyInputField = event.target.value.length > 0 ? true : false;
         checkStartButton();
 
     });
 
-    startGameButton.addEventListener('click', () => {
+    UI_ELEMENTS.startGameButton.addEventListener('click', () => {
         startGame();
     });
 
     /* turning on/off sound control */
 
-    soundSwitcher.addEventListener('click', (event) => {
+    UI_ELEMENTS.soundSwitcher.addEventListener('click', (event) => {
 
         let currentTarget = event.target;
         currentTarget.classList.toggle('off');
-
-        if (currentTarget.classList.contains('off')) {
-            audioTrack.pause();
-        }
-        else {
-            audioTrack.play();
-        }
-
+        currentTarget.classList.contains('off') ? UI_ELEMENTS.audioTrack.pause() : UI_ELEMENTS.audioTrack.play();
 
     });
 
     /* choosing player thumb */
 
-    playersGrid.addEventListener('click', (event) => {
+    UI_ELEMENTS.playersGrid.addEventListener('click', (event) => {
 
-        if (event.target.classList.contains('player-item')) {
-            playerImageSrc = event.target.dataset.src;
-            checkActiveClass(event.target);
+        let currentTarget = event.target;
+
+        if (currentTarget.classList.contains('player-item')) {
+            playerImageSrc = currentTarget.dataset.src;
+            checkActiveClass(currentTarget);
             checkStartButton();
         }
-        else if (event.target.classList.contains('player-item__image')) {
-            playerImageSrc = event.target.parentNode.dataset.src;
-            checkActiveClass(event.target.parentNode);
+        else if (currentTarget.classList.contains('player-item__image')) {
+            playerImageSrc = currentTarget.parentNode.dataset.src;
+            checkActiveClass(currentTarget.parentNode);
             checkStartButton();
         }
 
