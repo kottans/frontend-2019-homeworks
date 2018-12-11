@@ -10,32 +10,57 @@ body{
 .search{
 	width: 100%;
 }
+.fieldset{
+ 	border-radius:5px;	
+  	box-shadow:-2px 3px 10px #47B4AF;
+  	padding:16px;	
+}
+.fieldset legend{
+	font-size: 22px;
+}
+.search input{
+	margin-bottom: 15px;
+}
+.search input[type=text]{
+ 	padding: 5px;
+ 	font-size: 16px;  
+}
+.search button{
+	padding: 5px;
+	font-size: 16px;
+	color: grey;
+	margin:10px 0 20px 0;
+}
 .flex-conteiner{
 	display: flex;
 	flex-wrap: wrap;
 }
-.allFriends{
+.all-friends{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	width:100%;
 }
-.allFriends img{
+.all-friends img{
 	border-radius: 50%;
 }
-.search input{
-	margin-bottom: 15px;
-}
-.allFriends figure{
+.all-friends figure{
 	border: 1px solid white;
 	width: 250px;
 	margin: 8px 10px 20px 0;
 	border-radius: 5px;
 }
-.allFriends h2{
+.all-friends h2{
 	margin: 0;
 	padding: 10px;
 	border-radius: 5px;
+	text-transform: capitalize;
+}
+.all-friends span{
+	text-transform: capitalize;
+}
+.all-friends h3{
+	text-transform: uppercase;
 }
 .man{
 	background-color: #47B4AF;
@@ -43,21 +68,12 @@ body{
 .woman{
 	background-color: #bf7aaa;
 }
-.search input[type=text]{
- 	padding: 5px;
- 	margin-top: 8px;
- 	font-size: 16px;  
-}
-.search button{
-	padding: 5px;
-	font-size: 16px;
-	color: grey;
-}
+
 @media screen and (min-width: 530px) {
 	.search{
 		width: 250px;
 	}
-	.allFriends{
+	.all-friends{
 		width: calc(100% - 250px);
 	}
 	.search input[type=text]{

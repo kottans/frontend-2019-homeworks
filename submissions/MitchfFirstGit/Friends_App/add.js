@@ -1,5 +1,5 @@
 const RANDOM_FRIENDS_API_URL = "https://randomuser.me/api/?results=60&nat=us";
-const section = document.querySelector(".allFriends");
+const section = document.querySelector(".all-friends");
 const createFriend = friend => {
   let friendInfo = document.createElement("figure");
   let caption = document.createElement("figcaption");
@@ -7,46 +7,43 @@ const createFriend = friend => {
   let name = document.createElement("h2");
   let ageEmailPhoneStateCity = document.createElement("p");
   let gender = document.createElement("h3");
-  name.textContent = `${firstLetterToUpperCase(
-    friend.name.first
-  )} ${firstLetterToUpperCase(friend.name.last)}`;
+  name.textContent = `${friend.name.first} ${friend.name.last}`;
   ageEmailPhoneStateCity.innerHTML = `I have ${friend.dob.age} years old <br> ${
     friend.email
-  } <br> ${friend.phone} <br> State: ${firstLetterToUpperCase(
+  } <br> ${friend.phone} <br> State: <span>${
     friend.location.state
-  )}<br> City: ${firstLetterToUpperCase(friend.location.city)}<hr>`;
-  gender.textContent = friend.gender.toUpperCase();
+  } </span><br> City: <span>${friend.location.city}</span><hr>`;
+  gender.textContent = friend.gender;
   friend.gender === "male"
     ? name.classList.add("man")
     : name.classList.add("woman");
   image.src = friend.picture.large;
-  caption.appendChild(ageEmailPhoneStateCity);
-  caption.appendChild(gender);
-  friendInfo.appendChild(name);
-  friendInfo.appendChild(image);
-  friendInfo.appendChild(caption);
+  caption.append(ageEmailPhoneStateCity, gender);
+  friendInfo.append(name, image, caption);
   section.appendChild(friendInfo);
 };
 
 const renderFriends = arrayFriends => {
-  arrayFriends.forEach(friend => createFriend(friend));
+  arrayFriends.forEach(createFriend);
+  //arrayFriends.forEach(friend => createFriend(friend));
   let data = {
     gender: "",
     ageOrName: "",
     searchField: ""
   };
-  document.querySelector(".searchName").addEventListener("input", event => {
-    data.searchField = event.target.value;
-    sortFriends(data, arrayFriends);
-  });
+  document
+    .querySelector(".search-by-input")
+    .addEventListener("input", event => {
+      data.searchField = event.target.value;
+      sortFriends(data, arrayFriends);
+    });
   document.querySelector("[type=reset]").addEventListener("click", event => {
-    section.innerHTML = "";
     data = {
       gender: "",
       ageOrName: "",
       searchField: ""
     };
-    arrayFriends.forEach(friend => createFriend(friend));
+    sortFriends(data, arrayFriends);
   });
 
   document.querySelector(".search").addEventListener("change", event => {
@@ -63,23 +60,28 @@ const sortFriends = (data, arrayFriends) => {
 
   section.innerHTML = "";
 
-  if (data.gender === "genderMale")
+  if (data.gender === "male")
     arraySortFriends = arraySortFriends.filter(
       friend => friend.gender === "male"
     );
-  else if (data.gender === "genderFemale")
+  else if (data.gender === "female")
     arraySortFriends = arraySortFriends.filter(
       friend => friend.gender === "female"
     );
 
-  if (data.ageOrName === "ageAsc")
-    arraySortFriends.sort((b, a) => (b.dob.age < a.dob.age ? -1 : 1));
-  else if (data.ageOrName === "ageDesc")
-    arraySortFriends.sort((a, b) => (b.dob.age < a.dob.age ? -1 : 1));
-  else if (data.ageOrName === "nameAsc")
-    arraySortFriends.sort((b, a) => (b.name.first < a.name.first ? -1 : 1));
-  else if (data.ageOrName === "nameDesc")
-    arraySortFriends.sort((a, b) => (b.name.first < a.name.first ? -1 : 1));
+  switch (data.ageOrName) {
+    case "ageAsc":
+      arraySortFriends.sort((b, a) => (b.dob.age < a.dob.age ? -1 : 1));
+      break;
+    case "ageDesc":
+      arraySortFriends.sort((a, b) => (b.dob.age < a.dob.age ? -1 : 1));
+      break;
+    case "nameAsc":
+      arraySortFriends.sort((b, a) => (b.name.first < a.name.first ? -1 : 1));
+      break;
+    case "nameDesc":
+      arraySortFriends.sort((a, b) => (b.name.first < a.name.first ? -1 : 1));
+  }
 
   if (data.searchField)
     arraySortFriends = arraySortFriends.filter(
@@ -98,11 +100,3 @@ fetch(RANDOM_FRIENDS_API_URL)
   .then(data => {
     renderFriends(data.results);
   });
-
-const firstLetterToUpperCase = word => {
-  let newWord = "";
-  for (let i = 0; i < word.length; i++) {
-    newWord += word[i - 1] === " " || i === 0 ? word[i].toUpperCase() : word[i];
-  }
-  return newWord;
-};
