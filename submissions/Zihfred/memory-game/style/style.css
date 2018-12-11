@@ -35,7 +35,7 @@ body {
 .flip{
     transform: rotateY(180deg);
 }
-flip img{
+.flip img{
     visibility: visible;
 }
 .nonflip{

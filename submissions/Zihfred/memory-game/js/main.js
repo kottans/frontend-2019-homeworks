@@ -6,31 +6,20 @@ let images = [
     'img/Zapp.jpg',
     'img/Zoidberg.png',
 ];
-
 function randomArr(arr) {
-    arr.sort(function () {
-        return 0.5 - Math.random();
-    });
-    return arr;
+    return arr.sort(function() { return 0.5 - Math.random() });
 }
-
 class Game {
-
     constructor(images) {
         this.form = document.querySelector('#Game');
         this.cardItems = document.getElementsByClassName('cardItem');
         this.cardsNumber = 6;
         this.imageArr = images;
         this.cards = [];
-
         this.canRotate = 2;  //count of possible clicks in this moment
-
         this.collisionToWin = 6;  //count of collision to win game
-
         this.initGame();  //initial game
-
         this.moves = []; //array of player clicked cards
-
         this.checkCollision = this.checkCollision.bind(this);
         this.rotateCard = this.rotateCard.bind(this);
         this.addEventListeners();
@@ -51,15 +40,19 @@ class Game {
         this.imageArr = this.imageArr.concat(this.imageArr);
         randomArr(this.imageArr);
         for (let i = 0; i < this.cardsNumber * 2; i++) {
-            this.cards.push(new Card(this.imageArr[i]));
-            let cardItem = document.createElement('div');
-            cardItem.classList.add('cardItem');
-            let cardImage = document.createElement('img');
-            cardImage.classList.add('hidden');
-            cardImage.setAttribute('src', this.cards[i].img);
-            cardItem.appendChild(cardImage);
-            this.form.appendChild(cardItem);
+           this.createCardDiv(i);
         }
+    }
+
+    createCardDiv(index){
+        this.cards.push(new Card(this.imageArr[index]));
+        let cardItem = document.createElement('div');
+        cardItem.classList.add('cardItem');
+        let cardImage = document.createElement('img');
+        cardImage.classList.add('hidden');
+        cardImage.setAttribute('src', this.cards[index].img);
+        cardItem.appendChild(cardImage);
+        this.form.appendChild(cardItem);
     }
 
     rotateCard(e) {
@@ -69,10 +62,7 @@ class Game {
             this.moves.push(clickedItem);
             this.canRotate--;
             this.checkCollision();
-
             clickedItem.classList.add('flip');
-
-
             setTimeout(() => {
                 clickedItem.querySelector('img').classList.remove('hidden');
                 this.rotateCardFront(clickedItem);
@@ -83,7 +73,6 @@ class Game {
     }
 
     rotateCardFront(clickedItem) {
-
         setTimeout(() => {
             this.rotateCardBack(clickedItem);
         }, this.showTimer);
@@ -91,9 +80,7 @@ class Game {
 
     rotateCardBack(clickedItem) {
         clickedItem.classList.remove('flip');
-
         clickedItem.querySelector('img').classList.add('hidden');
-
         setTimeout(() => {
 
             this.canRotate++;
@@ -131,9 +118,7 @@ class Game {
     }
 
     addEventListeners() {
-        for (let i = 0; i < this.cardItems.length; i++) {
-            this.cardItems[i].addEventListener('click', this.rotateCard);
-        }
+        this.form.addEventListener('click',this.rotateCard);
     }
 }
 
@@ -142,7 +127,6 @@ class Card {
         this.img = img;
     }
 }
-
 
 new Game(images);
 
