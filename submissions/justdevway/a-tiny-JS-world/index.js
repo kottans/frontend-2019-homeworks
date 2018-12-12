@@ -34,15 +34,11 @@ class Inhabited {
 
 class Human extends Inhabited {
     constructor(gender, name, friends, phrase) {
-        super('human', 2, '', '', 'Human, human');
+        super('human', 2, gender, name, 'Human, human');
         this.hands = 2;
-        this.gender = gender;
-        this.name = name;
         this.friends = friends;
         this.phrase = phrase;
     }
-
-    // TODO: How to set this result to setPhrase funciton ?
     sayAbout() {
         return `Hello! My name is ${this.name}. I am a ${this.gender} and I have ${this.friends.length} friends.`
     }
@@ -50,33 +46,45 @@ class Human extends Inhabited {
 
 class Cat extends Inhabited {
     constructor(gender, name) {
-        // TODO: Can I use phrase not on main class arguments order ?
-        super('cat', 4, '', '', 'Meo, meo, meo');
-        this.gender = gender;
-        this.name = name;
+        super('cat', 4, gender, name, 'Meo, meo, meo');
     }
 }
 
 class Dog extends Inhabited {
     constructor(gender, name) {
-        super('dog', 4, '', '', 'Rrrrrrr');
-        this.gender = gender;
-        this.name = name;
+        super('dog', 4, gender, name, 'Rrrrrrr');
     }
 }
 
 
-const Robot1 = new Human('male', 'Robot1', ['cat - Star', 'woman'], 'I am a man');
-const Robot2 = new Human('female', 'Robot2', ['dog - Bark', 'man'], 'I am a female');
-const Robot3 = new Human('Bot', 'computer', 'Hello from computer', ['assembler']);
+const Robot1 = new Human('male', 'Robot1', [new Cat('male', 'Sun'), new Human('female', 'Ann', 'Hello from Ann')], 'I am a man');
+const Robot2 = new Human('female', 'Robot2', [new Dog('male', 'Dark'), new Human('male', 'Jack', 'Hello from Jack')], 'I am a female');
+const Robot3 = new Human('Bot', 'Computer', [Robot1], 'assembler');
 const Bark = new Dog('male', 'Bark');
 const Star = new Cat('female', 'Star');
 
+const makeCatWoman = (name, friends) => {
+    const tempObj = new Inhabited('human', 2, 'female', name);
+    const phrase = new Cat().phrase;
+    const sayAbout = new Inhabited().sayAbout;
 
-const catWoman = new Cat('female', 'CatWoman');
-catWoman.friends = ['cats', 'kottans'];
-catWoman.legs = 2;
-catWoman.hands = 2;
+    return Object.assign(
+        {},
+        tempObj,
+        {
+            hands: 2,
+            phrase,
+            friends,
+            sayAbout
+        }
+    )
+};
+
+
+
+
+
+const catWoman = makeCatWoman('Cat Woman', [Robot1, Robot1]);
 
 print('<div>' + Robot1.sayAbout() + '</div><hr>');
 print('<div>' + Robot2.sayAbout() + '</div><hr>');
