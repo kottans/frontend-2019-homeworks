@@ -32,11 +32,11 @@ const renderFriends = arrayFriends => {
   };
   document
     .querySelector(".search-by-input")
-    .addEventListener("input", event => {
-      data.searchField = event.target.value;
+    .addEventListener("input", ({target}) => {
+      data.searchField = target.value;
       sortFriends(data, arrayFriends);
     });
-  document.querySelector("[type=reset]").addEventListener("click", event => {
+  document.querySelector("[type=reset]").addEventListener("click", () => {
     data = {
       gender: "",
       ageOrName: "",
@@ -45,10 +45,10 @@ const renderFriends = arrayFriends => {
     sortFriends(data, arrayFriends);
   });
 
-  document.querySelector(".search").addEventListener("change", event => {
-    if (event.target.name === "gender") data.gender = event.target.value;
+  document.querySelector(".search").addEventListener("change", ({target}) => {
+    if (target.name === "gender") data.gender = target.value;
 
-    if (event.target.name === "sort") data.ageOrName = event.target.value;
+    if (target.name === "sort") data.ageOrName = target.value;
 
     sortFriends(data, arrayFriends);
   });
@@ -84,11 +84,11 @@ const sortFriends = (data, arrayFriends) => {
 
   if (data.searchField)
     arraySortFriends = arraySortFriends.filter(
-      friend =>
-        friend.name.first.includes(data.searchField) ||
-        friend.name.last.includes(data.searchField) ||
-        friend.location.state.includes(data.searchField) ||
-        friend.location.city.includes(data.searchField)
+      ({name, location}) =>
+        name.first.includes(data.searchField) ||
+        name.last.includes(data.searchField) ||
+        location.state.includes(data.searchField) ||
+        location.city.includes(data.searchField)
     );
 
   arraySortFriends.forEach(createFriend);
