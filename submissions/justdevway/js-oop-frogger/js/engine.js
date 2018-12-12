@@ -15,10 +15,24 @@
 
 var modal = document.querySelector('.modal');
 var lvlContainer =  document.querySelector('.lvl');
-var COFFICIENT = 1000;
+var COFFICIENT = 1500;
 var LVL = 1;
 var CANVAS_WIDTH = 500;
 var CANVAS_HEIGHT = 700;
+var IMG_WIDTH = 101;
+var IMG_HEIGHT = 171;
+var player_parametrs = {
+    x: () => Math.floor(Math.random() * CANVAS_WIDTH - IMG_WIDTH * 0.5),
+    y: () =>Math.floor(CANVAS_HEIGHT - IMG_HEIGHT * 1.25),
+    sprite: 'images/char-cat-girl.png'
+};
+var bonus_parametrs = {
+    x: () => Math.floor(Math.random() * CANVAS_WIDTH  * 0.6 + CANVAS_WIDTH * 0.1),
+    y: () => Math.floor(Math.random() * CANVAS_HEIGHT * 0.3 + CANVAS_HEIGHT * 0.25),
+    sprite: 'images/Heart.png'
+};
+
+var mainObjects = [enemy1, enemy2, enemy3, heart, stone, victory];
 
 var Engine = (function (global) {
     /* Predefine the variables we'll be using within this scope,
@@ -87,16 +101,11 @@ var Engine = (function (global) {
      * on the entities themselves within your app.js file).
      */
     function update(dt) {
-        updateEntities(dt)
-        checkPlayerFail()
-        checkPlayerWin();
-        checkPlayerGetHeart();
+        updateEntities(dt);
         checkPlayerDrowned();
-        checkPlayerGetStone();
+        checkCannonballGetEnemy();
+        mainObjects.forEach( el => checkWhatPlayerGet(el));
         checkStoneGetHeart();
-        if(cannonball.visibility) {
-            checkCannonballGetEnemy();
-        }
     }
 
     /* This is called by the update function and loops through all of the
@@ -187,10 +196,10 @@ var Engine = (function (global) {
         if(player.lives <= 1) {
             heart.visibility = Math.round(Math.random());
             stone.visibility = Math.round(Math.random());
-            heart.x = Math.random() * 300 + 150;
-            heart.y = Math.random() * 200 + 150;
-            stone.x = Math.random() * 300 + 150;
-            stone.y = Math.random() * 200 + 150;
+            heart.x = bonus_parametrs.x();
+            heart.y = bonus_parametrs.y();
+            stone.x = bonus_parametrs.x();
+            stone.y = bonus_parametrs.y();
         }
     }
 
@@ -222,29 +231,53 @@ var Engine = (function (global) {
      */
     global.ctx = ctx;
 
-    function checkPlayerFail () {
-        var cartoonDeffect = 70;
+    function checkWhatPlayerGet (obj) {
+        var status = checkOnMet(obj, player, IMG_WIDTH / 2);
 
-        allEnemies.forEach(function (el) {
-            var status =  checkOnMet(el, player, cartoonDeffect);
-
-            if(status && el.visibility && player.lives > 1) {
-                el.visibility = false;
-                player.lives = 1;
-                player.sprite = 'images/char-cat-girl.png';
+        if(status && obj.visibility == true) {
+            var checkOnBonus = obj.constructor == Bonus;
+            var checkOnWin = obj.constructor == Victory;
+            var checkOnFail = obj.constructor == Enemy;
+            if(checkOnBonus) {
+                if(obj.type == 'heart') {
+                    player.lives = 2;
+                    player.sprite = 'images/char-horn-girl.png'
+                    heart.visibility = 0;
+                } else {
+                    showStoneInfo();
+                    player.stone = 1;
+                    player.stoneSprite = stone.sprite;
+                    stone.visibility = 0;
+                }
             } else {
-                if(status && el.visibility) {
-                    showModal("Sorry, but you are died :(");
-                    localStorage.setItem('record', LVL);
-                    reset();
+                if(checkOnWin) {
+                    showModal("Congratulation, you will go on next lvl :)");
+                    COFFICIENT = COFFICIENT/ 2;
+                    LVL += 1;
+                    player.x = player_parametrs.x();
+                    player.y = player_parametrs.y();
+                    rebuild();
+                }
+                if(checkOnFail) {
+                    if(status && obj.visibility && player.lives > 1) {
+                        obj.visibility = false;
+                        player.lives = 1;
+                        player.sprite = player_parametrs.sprite;
+                    } else {
+                        if(status && obj.visibility) {
+                            showModal("Sorry, but you are died :(");
+                            localStorage.setItem('record', LVL);
+                            reset();
+                        }
+                    }
                 }
             }
-        });
+        }
     }
 
     function checkPlayerDrowned () {
         if(player.y < 0) {
-            var status = checkOnMet(victory, player, 70);
+            var status = checkOnMet(victory, player, IMG_WIDTH / 2);
 
             if(!status) {
                 showModal("Sorry, but you are drowned :(");
@@ -252,61 +285,26 @@ var Engine = (function (global) {
             }
         }
     }
-
-    function checkPlayerWin () {
-        var status = checkOnMet(victory, player, 70);
-
-        if (status) {
-            showModal("Congratulation, you will go on next lvl :)");
-            COFFICIENT = COFFICIENT/ 2;
-            LVL += 1;
-            player.x = Math.random() * CANVAS_WIDTH - 50;
-            player.y = CANVAS_HEIGHT - player.bugs.imgHeight;
-            rebuild();
-        }
-    }
-
-    function checkPlayerGetHeart () {
-        var status = checkOnMet(heart, player, 50);
-
-        if (status  && heart.visibility == true) {
-            player.lives = 2;
-            player.sprite = 'images/char-horn-girl.png'
-            heart.visibility = 0;
-        }
-    }
-
-    function checkPlayerGetStone () {
-        var cartoonDeffect = 70;
-        var status = checkOnMet(stone, player, cartoonDeffect);
-
-        if (status && stone.visibility == true) {
-            showStoneInfo();
-            player.stone = 1;
-            player.stoneSprite = stone.sprite;
-            stone.visibility = 0;
-        }
-    }
-
-    function checkStoneGetHeart () {
-        var cartoonDeffect = 70;
-        var status = checkOnMet(stone, heart, cartoonDeffect);
-        if (status && stone.visibility && heart.visibility) {
-           stone.visibility = 0;
-        }
-    }
     
     function checkCannonballGetEnemy () {
-        var cartoonDeffect = 70;
-
+        if(!cannonball.visibility) {
+            return;
+        }
         allEnemies.forEach(function (el) {
-            var status = checkOnMet(el, cannonball, cartoonDeffect);
+            var status = checkOnMet(el, cannonball, IMG_WIDTH / 2);
 
             if(status && el.visibility && cannonball.visibility) {
                 cannonball.visibility = false;
                 el.visibility = false;
             }
         });
+    }
+
+    function checkStoneGetHeart () {
+        var status = checkOnMet(stone, heart, IMG_HEIGHT / 4);
+        if (status && stone.visibility && heart.visibility) {
+            stone.visibility = 0;
+        }
     }
 
     function checkOnMet (el1, el2, cartoonDeffect) {
@@ -339,7 +337,7 @@ var Engine = (function (global) {
         setTimeout(function () {
             modal.classList.remove('isActive');
             player.lock = 0;
-        }, 1500);
+        }, 1200);
     }
 
     function showRecord() {
