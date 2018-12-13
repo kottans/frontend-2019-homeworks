@@ -43,7 +43,11 @@ function showFlag(e) {
     firstCard.classList.add('shown');
     flippedCardList.push(firstCard);
 };
-
+function removeShown(){
+    flippedCardList[0].classList.remove('shown');
+    flippedCardList[1].classList.remove('shown');
+    flippedCardList = [];
+}
 function hideOrRemoveFlag(e) {
     secondCard = e.target;
     secondCard.classList.add('shown');
@@ -55,10 +59,7 @@ function hideOrRemoveFlag(e) {
 
     if (flippedCardList.length == 3) {
         alert("Do not rush!");
-        for (let i = 0; i < flippedCardList.length; i++) {
-            flippedCardList[i].classList.remove('shown');
-        }
-        flippedCardList = [];
+        removeShown();
         return;
     }
 
@@ -78,11 +79,7 @@ function hideOrRemoveFlag(e) {
             }
         }, 500);
     } else {
-        setTimeout(function () {
-            flippedCardList[0].classList.remove('shown');
-            flippedCardList[1].classList.remove('shown');
-            flippedCardList = [];
-        }, 500)
+        setTimeout(removeShown, 500)
     }
 };
 
