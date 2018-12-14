@@ -5,67 +5,78 @@
    */
  // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
-class Inhabitant{
-  constructor(name,gender){ 
-      this.name = `${name.charAt(0).toUpperCase() + name.slice(1)}`;
+
+class Creature {
+  constructor(name, gender) {
+    this.name = `${name.charAt(0).toUpperCase() + name.slice(1)}`;
+    this.gender = gender;
   }
 }
-class Human extends Inhabitant{
-  constructor(name) {
-      super(name);
-      this.specie = 'Human';
-      this.legs = '2';
-      this.hands = '2';
+
+class Animal extends Creature {
+  constructor(name, gender, hands=0, legs=4) {
+    super(name, gender);
+    this.legs = legs;
+    this.hands = hands;
   }
 }
+
+class Dog extends Animal {
+  constructor(name, gender) {
+    super(name, gender);
+    this.specie = 'dog';
+    this.introduce = 'I am a dog';
+  }
+}
+
+class Cat extends Animal {
+  constructor(name, gender) {
+    super(name, gender);
+    this.introduce = 'I am a cat';
+    this.specie = 'cat';
+  }
+}
+
+class Human extends Creature {
+  constructor(name, gender, hands=2, legs=2, specie='human') {
+    super(name, gender);
+    this.specie = specie;
+    this.hands = hands;
+    this.legs = legs;
+  }
+}
+
 class Man extends Human{
-  constructor(name){
+  constructor(name, gender='male'){
       super(name);
-      this.gender = 'Male';
+      this.gender = gender;
       this.introduce = 'I am a drummer.';
-      this.expression = `<b>General information</b> ( ${this.specie}, ${this.gender} ). Hello my name is: <b>${this.name}</b>, I have: <b>${this.legs}</b> legs and <b>${this.hands}</b> hands. About myself: <b>${this.introduce}</b>`;
   }
 }
+
 class Woman extends Human{
-  constructor(name){
+  constructor(name, gender='female'){
       super(name);
-      this.gender = 'Female';
       this.introduce = 'I am a teacher.';
-      this.expression = `<b>General information</b> ( ${this.specie}, ${this.gender} ). Hello my name is: <b>${this.name}</b>, I have: <b>${this.legs}</b> legs and <b>${this.hands}</b> hands. About myself: <b>${this.introduce}</b>`;
-  }
-}
-class Animal extends Inhabitant{
-  constructor(name){
-      super(name);
-      this.specie = 'animal';
-      this.legs = '4';
-      this.hands = '0'; 
-  }
-}
-class Cat extends Animal{
-  constructor(name,gender){
-      super(name, gender);
       this.gender = gender;
-      this.introduce = 'I am a cat.';
-      this.expression = `<b>General information</b> ( ${this.specie}, ${this.gender} ). Hello my name is: <b>${this.name}</b>, I have: <b>${this.legs}</b> legs and <b>${this.hands}</b> hands. About myself: <b>${this.introduce}</b>`;
   }
 }
-class Dog extends Animal{
-  constructor(name,gender){
-      super(name, gender);
-      this.gender = gender;
-      this.introduce = 'I am a dog.';
-      this.expression = `<b>General information</b> ( ${this.specie}, ${this.gender} ). Hello my name is: <b>${this.name}</b>, I have: <b>${this.legs}</b> legs and <b>${this.hands}</b> hands. About myself: <b>${this.introduce}</b>`;
-  }
-}
-const man = new Man('Maks');
-const woman = new Woman('Ira');
-const cat = new Cat('Daisy','Female');
-const dog = new Dog('flash', 'Male');
-print(man.expression);
-print(woman.expression);
-print(cat.expression);
-print(dog.expression);
+  
+const introduce = creature => {
+  print(`<b>General information:</b>(Specie: <b>${creature.specie}</b>, Gender: <b>${creature.gender}</b>). Hello my name is: <b>${creature.name}</b>, I have: <b>${creature.legs}</b> legs and <b>${creature.hands ? creature.hands : "I have 0"}</b> hands. About myself: <b>${creature.introduce}</b>`, 'p');
+};
+
+const creaturesArray = [
+  new Cat("flash", 'male'),
+  new Dog("Daisy", 'femail'),
+  new Man("Maks"),
+  new Woman("Ira")
+];
+
+creaturesArray.map(creature => {
+  introduce(creature);
+});
+
 // ======== OUTPUT ========
 /* Use print(message) for output.
  Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
