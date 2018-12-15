@@ -1,8 +1,21 @@
 const CELL_WIDTH = 100
 const CELL_HEIGHT = 83
+
 const CANVAS_WIDTH = 505
 const CANVAS_HEIGTH = 606
-const sprites = [
+
+const START_X_POSITION = 0
+const END_X_POSITION = 404
+
+const START_Y_POSITION = 75
+const END_Y_POSITION = 407
+
+const INIT_PLAYER_COORDINATES = {x: 201, y: 407} 
+
+const ALLOW_STUFF_X = [10, 110, 210, 310, 410]
+const ALLOW_STUFF_Y = [103, 188, 271]
+
+const SPRITES = [
     'images/char-boy.png',
     'images/char-cat-girl.png',
     'images/char-horn-girl.png',
@@ -26,11 +39,6 @@ Element.prototype.setRandomPosition = function(allowArray) {
     return allowArray[Math.floor(Math.random() * allowArray.length)]
 };
 
-Element.prototype.changeSprite = function(obj) {
-    const index = sprites.indexOf(obj.sprite)
-    index === sprites.length-1 ? obj.sprite = sprites[0] : obj.sprite = sprites[index+1]
-};
-
 const Enemy = function(x, y, speed) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x
@@ -46,16 +54,14 @@ Element.prototype.update = function(dt) {
 
 Enemy.prototype.render = function() {
     if(this.x >= CANVAS_WIDTH)
-        this.x = 0
+        this.x = START_X_POSITION
     Element.prototype.render.apply(this, arguments);
 };
 
 const Player = function(){
-    this.allowX = [1, 101, 201, 301, 401]
-    this.allowY = [324, 407]
-    this.x = this.setRandomPosition(this.allowX)
-    this.y = this.setRandomPosition(this.allowY)
-    this.sprite = sprites[1]
+    this.x = INIT_PLAYER_COORDINATES.x
+    this.y = INIT_PLAYER_COORDINATES.y
+    this.sprite = SPRITES[1]
     this.lives = 3
     this.score = 0
     this.visible = true
@@ -71,35 +77,34 @@ Player.prototype.handleInput = function(key) {
     if(this.visible){
         switch (key) {
             case 'left':
-                if(this.x - CELL_WIDTH >= this.allowX[0])
+                if(this.x - CELL_WIDTH >= START_X_POSITION)
                     this.x -= CELL_WIDTH
             break;
             case 'right':
-                if(this.x + CELL_WIDTH <= CANVAS_WIDTH)
+                if(this.x + CELL_WIDTH <= END_X_POSITION)
                     this.x += CELL_WIDTH
             break;
             case 'up':
-                if(this.y - CELL_HEIGHT <=75)
+                if(this.y - CELL_HEIGHT <=START_Y_POSITION)
                     game_lavel++
-                if(this.y - CELL_HEIGHT >= 75)
+                if(this.y - CELL_HEIGHT >= START_Y_POSITION)
                     this.y -= CELL_HEIGHT
             break;
             case 'down':
-                if(this.y + CELL_HEIGHT <= 407)
+                if(this.y + CELL_HEIGHT <= END_Y_POSITION)
                     this.y += CELL_HEIGHT
             break;
         }
-        if(key === 'space' && this.x > 200 && this.x < 300 && this.y > 350 && this.y < CANVAS_HEIGTH){
-            this.changeSprite(player)
+        if(key === 'space' && this.x === INIT_PLAYER_COORDINATES.x && this.y ===INIT_PLAYER_COORDINATES.y){
+            const index = SPRITES.indexOf(player.sprite)
+            player.sprite = index === SPRITES.length-1 ? SPRITES[0] : SPRITES[index+1]
         }
     }
 };
 
 const Stuff = function(sprite){
-    this.allowX = [10, 110, 210, 310, 410]
-    this.allowY = [103, 188, 271]
-    this.x = this.setRandomPosition(this.allowX)
-    this.y = this.setRandomPosition(this.allowY)
+    this.x = this.setRandomPosition(ALLOW_STUFF_X)
+    this.y = this.setRandomPosition(ALLOW_STUFF_Y)
     this.sprite = sprite
     this.visible = true
 }
@@ -108,13 +113,13 @@ Stuff.prototype = Object.create(Element.prototype);
 
 Stuff.prototype.update = function(){
     if(!this.visible){
-        this.x = this.setRandomPosition(this.allowX)
-        this.y = this.setRandomPosition(this.allowY)
+        this.x = this.setRandomPosition(ALLOW_STUFF_X)
+        this.y = this.setRandomPosition(ALLOW_STUFF_Y)
     }
 }
 Stuff.prototype.render = function() {
     if(this.visible)
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y, 80, 105)        
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y, 80, 105)
 };
 
 const allEnemies = [

@@ -3,7 +3,7 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
-        gameInfo = doc.getElementById('info_line'), 
+        gameInfo = doc.getElementById('info_line'),
         lives = doc.getElementById('live'),
         score = doc.getElementById('score'),
         level = doc.getElementById('level'),
@@ -49,7 +49,7 @@ var Engine = (function(global) {
                 && Math.ceil(enemy.y) + 15 >= player.y && Math.ceil(enemy.y) - 15<= player.y)
             {
                 player.lives--
-                player.x = 104
+                player.x = 201
                 player.y = 407
             }
         })
@@ -128,7 +128,7 @@ var Engine = (function(global) {
         'images/enemy-bug.png',
         'images/Gem Green.png',
         'images/Heart.png',
-        ...sprites
+        ...SPRITES
     ]);
     Resources.onReady(init);
     global.ctx = ctx;
