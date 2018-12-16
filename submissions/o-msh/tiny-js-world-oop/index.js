@@ -23,14 +23,14 @@ const SayCatMixin = superclass => class extends superclass {
     };
 };
 
-class Animals extends Unit {
+class Animal extends Unit {
     constructor(props) {
         super(props);
         this.legs = props.legs || 4;
     };
 };
 
-class Dog extends Animals {
+class Dog extends Animal {
     constructor(props) {
         props.species = "Dog";
         props.say = "Woof";
@@ -38,14 +38,14 @@ class Dog extends Animals {
     };
 };
 
-class Cat extends SayCatMixin(Animals) {
+class Cat extends SayCatMixin(Animal) {
     constructor(props) {
         props.species = "Cat";
         super(props);
     };
 };
 
-class Humans extends Unit {
+class Human extends Unit {
     constructor(props) {
         props.species = "Human";
         super(props);
@@ -54,21 +54,21 @@ class Humans extends Unit {
     };
 };
 
-class Man extends Humans {
+class Man extends Human {
     constructor(props) {
         props.gender = "Male";
         super(props);
     };
 };
 
-class Woman extends Humans {
+class Woman extends Human {
     constructor(props) {
         props.gender = "Female";
         super(props);
     };
 };
 
-class CatWoman extends SayCatMixin(Humans) {
+class CatWoman extends SayCatMixin(Human) {
     constructor(props) {
         props.gender = "Female";
         super(props);
