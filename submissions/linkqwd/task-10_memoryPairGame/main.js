@@ -3,7 +3,8 @@ const pairGame = function () {
         cardContent: 'images', // colors or images
         numberOfCardsToGuess: 2,
         numberOfCardPairs: 10,
-        prewievDelay: 3000
+        prewievDelay: 3000,
+        animationDuration: 500
     }
 
     let openedCardsCounter = settings.numberOfCardsToGuess;
@@ -25,21 +26,21 @@ const pairGame = function () {
         cardsImages: ['pic1.jpg', 'pic2.jpg', 'pic3.jpg', 'pic4.jpg', 'pic5.jpg', 'pic6.jpg', 'pic7.jpg', 'pic8.jpg', 'pic9.jpg', 'pic10.jpg', 'pic11.jpg', 'pic12.jpg', 'pic13.jpg', 'pic14.jpg', 'pic15.jpg']
     }
 
-    const toggleClass = (DOMClass) => {
+    function toggleClass(DOMClass) {
         document.querySelectorAll(`.${DOM.card}`).forEach(element => {
             element.classList.toggle(DOMClass);
         });
     }
 
-    const generateCard = (index) => {
+    function generateCard(index) {
         if (settings.cardContent === 'colors') {
-            return `<div class="flip-container"><div class="flipper ${DOM.card}" data-id="${index + 100}"><div class="front"></div><div class="back" style="background-color:${cardsResources.cardsColors[index]}"></div></div></div>`
+            return `<div class="flip-container"><div class="flipper ${DOM.card} js-card-no-click" data-id="${index + 100}"><div class="front"></div><div class="back" style="background-color:${cardsResources.cardsColors[index]}"></div></div></div>`
         } else if (settings.cardContent === 'images') {
-            return `<div class="flip-container"><div class="flipper ${DOM.card}" data-id="${index + 100}"><div class="front"></div><div class="back" style="background-image: url(../images/${cardsResources.cardsImages[index]})"></div></div></div>`
+            return `<div class="flip-container"><div class="flipper ${DOM.card} js-card-no-click" data-id="${index + 100}"><div class="front"></div><div class="back" style="background-image: url(../piarGame/images/${cardsResources.cardsImages[index]})"></div></div></div>`
         }
     };
 
-    const buildHTMLCards = () => {
+    function buildHTMLCards() {
         let cards = [];
 
         for (let i = 0; i < settings.numberOfCardPairs; i++) {
@@ -51,52 +52,49 @@ const pairGame = function () {
         document.querySelector(`.${DOM.cardsHolder}`).insertAdjacentHTML('beforeend', cards.join(''));
     }
 
-    const makePreview = () => {
-        toggleClass(DOM.noClickCard);
-        setTimeout(() => toggleClass(DOM.openedCard), 500);
-        setTimeout(() => toggleClass(DOM.openedCard), settings.prewievDelay + 500);
-        setTimeout(() => toggleClass(DOM.noClickCard), settings.prewievDelay + 1000);
+    function makePreview(delay, fn) {
+        return new Promise((resolve) => setTimeout(() => {
+            if (fn) fn();
+            resolve();
+        }, delay));
     }
 
-    const updateScores = () => {
-        DOM.scoresSelector.textContent = scores;
-    }
-
-    const checkPair = () => {
+    makePreview(settings.animationDuration, () => toggleClass(DOM.openedCard))
+    .then(() => makePreview(settings.prewievDelay, () => toggleClass(DOM.openedCard)))
+    .then(() => makePreview(settings.animationDuration, () => toggleClass(DOM.noClickCard)));
+    
+    function checkPair () {
         const openedCards = document.querySelectorAll(`.${DOM.openedCard}`);
-        let IDsOfOpenedCards = [];
-
-        openedCards.forEach(el => IDsOfOpenedCards.push(+el.dataset.id));
-
-        let isIDsEqual = IDsOfOpenedCards.reduce((stack, value) => (stack === value) ? stack = value : stack = 0);
+        let iDsOfOpenedCards = [...openedCards].map((el) => +el.dataset.id);
+        let isIDsEqual = iDsOfOpenedCards.reduce((stack, value) => (stack === value) ? stack = value : stack = 0);
 
         setTimeout(() => {
             if (isIDsEqual) {
                 openedCards.forEach((card) => card.classList.add(DOM.guessedCards));
-                scores += 5
-                pairCounter++
+                scores += 5;
+                pairCounter++;
                 checkEndOfCards();
             } else {
-                scores -= 5
+                scores -= 5;
             }
 
-            updateScores()
+            DOM.scoresSelector.textContent = scores;
             openedCards.forEach((card) => card.classList.remove(DOM.openedCard));
             openedCardsCounter = settings.numberOfCardsToGuess;
         }, 500);
     }
 
-    const checkEndOfCards = () => {
+    function checkEndOfCards() {
         if (pairCounter === settings.numberOfCardPairs) {
             const link = document.createElement('a');
             link.setAttribute('class', 'link');
-            link.setAttribute('href', '/');
+            link.setAttribute('href', '/piarGame');
             document.querySelector(`.${DOM.cardsHolder}`).appendChild(link).innerHTML = `Your result is: <b>${scores}</b> <br> <b>Click to play again</b>`;
         }
     }
 
-    const setupCardClick = () => {
-        const cardClick = (event) => {
+    function setupCardClick() {
+        function cardClick(event) {
             let card = event.target.closest(`.${DOM.card}`);
 
             if (card && openedCardsCounter) {
@@ -110,7 +108,6 @@ const pairGame = function () {
     }
 
     buildHTMLCards();
-    makePreview();
     setupCardClick();
 }
 
