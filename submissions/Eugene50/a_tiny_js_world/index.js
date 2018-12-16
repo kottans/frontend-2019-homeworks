@@ -9,12 +9,13 @@ class Citizens {
     }
 };
 
-let dog = new Citizens('dog','male','Sharik', 2, 4,'Gaf!!!');
-let cat = new Citizens('cat', 'male', 'Murzik', 4, 0,'Mjau)' );
+let dog = new Citizens('dog','male','Sharik', 2, 4,'Gaf-Gaf!!!');
+let cat = new Citizens('cat', 'male', 'Murzik', 4, 0,'Mur-Mjau)' );
 let man = new Citizens('human','male','Alex', 2, 2, 'Hello to All!!!');
 let woman = new Citizens('human','female','Maria', 2, 2, 'I want coffee!!!');
 
-print(`${dog.species}; ${dog.gender}; ${dog.name};  ${dog.legs}; ${dog.hands}; ${dog.say}`);
-print(`${cat.species}; ${cat.gender}; ${cat.name};  ${cat.legs}; ${cat.hands}; ${cat.say}`);
-print(`${man.species}; ${man.gender}; ${man.name};  ${man.legs}; ${man.hands}; ${man.say}`);
-print(`${woman.species}; ${woman.gender}; ${woman.name};  ${woman.legs}; ${woman.hands}; ${woman.say}`);
+const all = [man, woman, cat, dog];
+all.forEach(element => {
+    print(`${element.species}; ${element.gender}; ${element.name}; ${element.legs}; ${element.hands}; ${element.say}`);
+
+});
