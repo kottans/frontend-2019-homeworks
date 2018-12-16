@@ -1,6 +1,4 @@
-let selectedLink;
-let data;
-let index = 0;
+
 fetch("./data.json")
   .then(function (response) {
     return response.json();
@@ -11,8 +9,7 @@ fetch("./data.json")
     makePageContent(0);
   })
   .catch(alert);
-
-function makeSideBar(data) {
+ function makeSideBar(data) {
   let menuItem = document.getElementsByTagName("li");
   let nav = document.getElementById("sideMenu");
   for (let i in data) {
@@ -30,11 +27,11 @@ function makeSideBar(data) {
   }
   );
 }
-
-function makePageContent(index) {
+ function makePageContent(index) {
   let main = document.querySelector(".main");
   let div = document.createElement("div");
   main.innerHTML = "";
   div.innerHTML = data[index].text;
   main.appendChild(div);
-}
+} 
+  
