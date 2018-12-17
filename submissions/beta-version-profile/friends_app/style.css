@@ -116,5 +116,14 @@ figure {
   box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
   display: flex;
   flex-direction: column;
-  min-width: 160px;
+  width: 200px;
+}
+figcaption > p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: nowrap;
+}
+
+figure > img {
+width: 100%;
 }
