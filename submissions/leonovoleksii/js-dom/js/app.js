@@ -2,33 +2,33 @@ const data = [
     {
         title: 'HTML',
         image: 'img/html.png',
-        description: 'Hypertext Markup Language (HTML) is the standard markup language for creating web pages and web ' +
-            'applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone ' +
-            'technologies for the World Wide Web.'
+        description: `Hypertext Markup Language (HTML) is the standard markup language for creating web pages and web
+            applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone
+            technologies for the World Wide Web.`
     },
     {
         title: 'CSS',
         image: 'img/css.png',
-        description: 'CSS is designed to enable the separation of presentation and content, including layout, colors, and fonts.' +
-            ' This separation can improve content accessibility, provide more flexibility and control in the ' +
-            'specification of presentation characteristics, enable multiple web pages to share formatting by specifying' +
-            ' the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content.'
+        description: `CSS is designed to enable the separation of presentation and content, including layout, colors, and fonts.
+             This separation can improve content accessibility, provide more flexibility and control in the 
+            specification of presentation characteristics, enable multiple web pages to share formatting by specifying
+             the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content.`
     },
     {
         title: 'JavaScript',
         image: 'img/JavaScript.png',
-        description: 'JavaScript (JS) is a lightweight, interpreted or JIT compiled programming language with first-class ' +
-            'functions. Most well-known as the scripting language for Web pages, many non-browser environments also use' +
-            ' it, such as node.js and Apache CouchDB. JS is a prototype-based, multi-paradigm, dynamic scripting' +
-            ' language, supporting object-oriented, imperative, and declarative (e.g. functional programming) styles.'
+        description: `JavaScript (JS) is a lightweight, interpreted or JIT compiled programming language with first-class 
+            functions. Most well-known as the scripting language for Web pages, many non-browser environments also use
+             it, such as node.js and Apache CouchDB. JS is a prototype-based, multi-paradigm, dynamic scripting
+             language, supporting object-oriented, imperative, and declarative (e.g. functional programming) styles.`
 
     },
     {
         title: 'DOM',
         image: 'img/dom.png',
-        description:  'The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the' +
-            ' page so that programs can change the document structure, style, and content. The DOM represents the' +
-            ' document as nodes and objects.'
+        description:  `The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the
+             page so that programs can change the document structure, style, and content. The DOM represents the
+             document as nodes and objects.`
     }
 ];
 
