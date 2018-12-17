@@ -18,19 +18,22 @@ class Inhabited {
     }
 
     sayAbout() {
-        return 'My name is ' + this.name + '. And now, as any ' + this.species + ', I say "' + this.phrase + '!"';
+        let str = 'My name is ' + this.name + '. And now, as any ' + this.species + ', I say "' + this.phrase + '!".';
+        let friends = this.friends;
+        if(friends && friends.length) {
+            let friendsName = 'So as any human I have friends: ';
+            friends.forEach( (el, index) => {
+                if(index == friends.length - 1) {
+                 friendsName += `${el.name}.`;
+                } else {
+                    friendsName += `${el.name} and `;
+                }
+            });
+            str += ` ${friendsName}`;
+        }
+        return str;
     }
-
-    // get phrase() {
-    //     return this.phrase;
-    // }
-    //
-    // set phrase(phrase) {
-    //     this.phrase = phrase;
-    // }
 }
-
-// TODO: How we can use it with Object.create ?
 
 class Human extends Inhabited {
     constructor(gender, name, friends, phrase) {
@@ -39,9 +42,7 @@ class Human extends Inhabited {
         this.friends = friends;
         this.phrase = phrase;
     }
-    sayAbout() {
-        return `Hello! My name is ${this.name}. I am a ${this.gender} and I have ${this.friends.length} friends.`
-    }
+    // super.sayAbout(['TEST 1', 'Test2']);
 }
 
 class Cat extends Inhabited {
