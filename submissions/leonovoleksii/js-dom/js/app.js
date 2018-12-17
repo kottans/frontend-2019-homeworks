@@ -1,70 +1,89 @@
-const content = [
+const data = [
     {
-        h1: 'HTML',
-        img: 'img/html.png',
-        p: 'Hypertext Markup Language (HTML) is the standard markup language for creating web pages and web ' +
+        title: 'HTML',
+        image: 'img/html.png',
+        description: 'Hypertext Markup Language (HTML) is the standard markup language for creating web pages and web ' +
             'applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone ' +
             'technologies for the World Wide Web.'
     },
     {
-        h1: 'CSS',
-        img: 'img/css.png',
-        p: 'CSS is designed to enable the separation of presentation and content, including layout, colors, and fonts.' +
+        title: 'CSS',
+        image: 'img/css.png',
+        description: 'CSS is designed to enable the separation of presentation and content, including layout, colors, and fonts.' +
             ' This separation can improve content accessibility, provide more flexibility and control in the ' +
             'specification of presentation characteristics, enable multiple web pages to share formatting by specifying' +
             ' the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content.'
     },
     {
-        h1: 'JavaScript',
-        img: 'img/JavaScript.png',
-        p: 'JavaScript (JS) is a lightweight, interpreted or JIT compiled programming language with first-class ' +
+        title: 'JavaScript',
+        image: 'img/JavaScript.png',
+        description: 'JavaScript (JS) is a lightweight, interpreted or JIT compiled programming language with first-class ' +
             'functions. Most well-known as the scripting language for Web pages, many non-browser environments also use' +
             ' it, such as node.js and Apache CouchDB. JS is a prototype-based, multi-paradigm, dynamic scripting' +
             ' language, supporting object-oriented, imperative, and declarative (e.g. functional programming) styles.'
 
     },
     {
-        h1: 'DOM',
-        img: 'img/dom.png',
-        p:  'The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the' +
+        title: 'DOM',
+        image: 'img/dom.png',
+        description:  'The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the' +
             ' page so that programs can change the document structure, style, and content. The DOM represents the' +
             ' document as nodes and objects.'
     }
 ];
 
-let fillTheContent = function() {
-    const divs = document.querySelectorAll('.content');
-    for (let i = 0; i < divs.length; i++) {
+let inx = 0;
+let divs = [];
 
-        let div = divs[i];
-        let elem;
+let fillTheContent = function(data) {
 
-        let createTextElem = function(elem) {
-            let element = document.createElement(elem);
-            let node = document.createTextNode(content[i][elem]);
-            element.appendChild(node);
-            div.appendChild(element);
-        };
-
-        let createImgElem = function(elem) {
-            let element = document.createElement(elem);
-            element.setAttribute('src', content[i][elem]);
-            div.appendChild(element);
-        };
-
-        for (elem in content[i]) {
-            if (content[i].hasOwnProperty(elem)) {
-                if (elem !== 'img') {
-                    createTextElem(elem);
-                } else {
-                    createImgElem(elem);
-                }
-            }
-        }
+    //create navigation menu item
+    const navMenu = document.querySelector('nav ul');
+    let navItem = document.createElement('li');
+    let node = document.createTextNode(data.title);
+    navItem.appendChild(node);
+    navItem.className = 'navItem';
+    if (inx === 0) {
+        navItem.classList.add('active');
     }
+    navItem.setAttribute('inx', inx);
+    navMenu.appendChild(navItem);
+    inx++;
+
+    //create div blocks of content
+    let div = document.createElement('div');
+    div.className = 'content';
+    if (divs[0] === undefined) {
+        div.classList.add('unmask');
+    }
+
+    //add the title of the content
+    let title = document.createElement('h1');
+    node = document.createTextNode(data.title);
+    title.appendChild(node);
+    div.appendChild(title);
+
+    //add the image of the content
+    let image = document.createElement('img');
+    image.setAttribute('src', data.image);
+    div.appendChild(image);
+
+    //add the description of the content
+    let description = document.createElement('p');
+    node = document.createTextNode(data.description);
+    description.appendChild(node);
+    div.appendChild(description);
+
+
+    //add the div to the container
+    divs.push(div);
+    let container = document.querySelector('.container');
+    container.appendChild(div);
 };
 
-fillTheContent();
+for (let i = 0; i < data.length; i++) {
+    fillTheContent(data[i]);
+}
 
 let buttons = document.querySelector('nav ul');
 buttons.addEventListener('click', function(event) {
