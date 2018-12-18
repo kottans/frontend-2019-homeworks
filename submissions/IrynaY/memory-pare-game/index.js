@@ -20,46 +20,25 @@ window.onload = function() {
         for(let j=0; j<4; j++){
             const td = document.createElement("td")
             const flipContainer = document.createElement("div")
-            // flipContainer.   ontouchstart="this.classList.toggle('hover')"
-            const flipper = document.createElement("div")
-            const front = document.createElement("div")
-            const back = document.createElement("div")
+            flipContainer.classList = "flip-container"
             const img = document.createElement("img")
-
-            flipContainer.className = "flip-container"
-            flipper.className = "flipper"
-            front.className = "front"
-            back.className = "back"
-
             img.src = images.shift()
-
-            back.appendChild(img)
-            flipper.appendChild(front)
-            flipper.appendChild(back)
-            flipContainer.appendChild(flipper)
-
+            img.classList = "front"
+            const back = document.createElement("div")
+            back.classList = "back"
+            flipContainer.appendChild(img)
+            flipContainer.appendChild(back)
             td.appendChild(flipContainer)
             tr.appendChild(td)
         }
         table.appendChild(tr)
     }
 
-
     table.addEventListener("click", (evt) => {
-        console.log(evt.target.target)
         if(evt.target.tagName === "DIV"){
-            evt.target.classList.toggle("show")
-            // openCards.push(evt.target.innerHTML)
-            // if(openCards.length === 2){
-            //     if(openCards[0].localeCompare(openCards[1]) === 0)
-            //         console.log("!!SDFSDFS", openCards[0], )
-            //     openCards = []
-            // }
+            evt.target.classList.toggle("flip")
         }
     })
     
     pageContainer.appendChild(table)
-
-
-
 }
