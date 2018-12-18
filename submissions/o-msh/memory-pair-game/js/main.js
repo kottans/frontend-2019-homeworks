@@ -8,7 +8,7 @@ const imgs = [
     "img/santa_christmas_emoji_sleep_tired.png",
     "img/santa_christmas_emoji_wink_tongue.png"
 ];
-const winnerMessage = () => "<div class='winner'>Congratulations!<br><button>New Game</button><div class='celebration_gif'><iframe src='https://giphy.com/embed/itDBteCsTFSVO' width='100%' height='100%' frameBorder='0' class='giphy-embed'></iframe><p><a href='https://giphy.com/gifs/girlfriend-test-pregnancy-itDBteCsTFSVO'></a></p></div></div>";
+const getWinnerMessage = () => "<div class='winner'>Congratulations!<br><button>New Game</button><div class='celebration_gif'><iframe src='https://giphy.com/embed/itDBteCsTFSVO' width='100%' height='100%' frameBorder='0' class='giphy-embed'></iframe><p><a href='https://giphy.com/gifs/girlfriend-test-pregnancy-itDBteCsTFSVO'></a></p></div></div>";
 let container;
 let openedCards = [];
 let flipState = false;
@@ -20,7 +20,7 @@ const handlerFlip = e => {
         if (!card.classList.contains(flipClassName)) {
             let src = card.querySelector("img").getAttribute("src");
             card.classList.add(flipClassName);
-            openedCards.push({ card: card, src: src });
+            openedCards.push({ card, src });
             checkCoincidence();
         }
     } else if (card.matches(".winner")) {
@@ -67,7 +67,7 @@ const hideFlipped = () => {
 
 const checkForWin = () => {
     if (container.querySelectorAll(".hidden").length === imgs.length * 2) {
-        container.innerHTML = winnerMessage();
+        container.innerHTML = getWinnerMessage();
     }
 };
 
