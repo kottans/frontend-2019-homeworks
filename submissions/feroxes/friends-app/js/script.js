@@ -3,7 +3,6 @@ const config = '?results=';
 const howManyFriend = 100 //prompt('How many friends do you want to have?:)', 12);
 
 const endPoint = url + config + howManyFriend;
-let data;
 
 fetch(endPoint).then(response => {
         if (response.ok) {
@@ -12,8 +11,7 @@ fetch(endPoint).then(response => {
         throw new Error('Request failed!');
     }, networkError => console.log(networkError.message)
 ).then(info => {
-    data = info.results;
-    runApp(data);
+    runApp(info.results);
     return;
 
 });
@@ -33,6 +31,7 @@ let runApp = function (data) {
 
     function render(userInformation) {
         let cardList = createDomElement('div', {id: 'card-list'}, dashboard);
+
         for (let i = 0; i < userInformation.length; i++) {
             let card = createDomElement('div', {className: 'card'}, cardList);
             let cardPhoto = createDomElement('div', {className: 'card-photo'}, card);
@@ -42,22 +41,14 @@ let runApp = function (data) {
                 innerHTML: 'Hi, my name is',
                 className: 'greeting-message'
             }, cardMyInfo);
-            let friendName = createDomElement('h3', {innerHTML: `${userInformation[i].name.first} ${userInformation[i].name.last}`}, cardMyInfo);
+            let friendName = createDomElement('h3', {innerHTML: getFormattedName(userInformation[i])}, cardMyInfo);
             let cardIcons = createDomElement('div', {className: 'card-icons'}, card);
-            let gangerIcon = createDomElement('div', {className: 'icon ' + checkGender()}, cardIcons);
+            let gangerIcon = createDomElement('div', {className: 'icon ' + checkGender(userInformation[i])}, cardIcons);
             let letter = createDomElement('div', {className: 'icon letter'}, cardIcons);
             let calendar = createDomElement('div', {className: 'icon calendar'}, cardIcons);
             let age = createDomElement('p', {innerHTML: userInformation[i].dob.age}, calendar);
             let marker = createDomElement('div', {className: 'icon marker'}, cardIcons);
             let phone = createDomElement('div', {className: 'icon phone'}, cardIcons);
-
-            function checkGender() {
-                if (userInformation[i].gender == 'male') {
-                    return 'gentlemen';
-                } else {
-                    return 'lady';
-                }
-            };
 
             function updateFriendInfo(e) {
                 let myInfoCard = this.parentElement.children[1];
@@ -66,14 +57,14 @@ let runApp = function (data) {
 
                 if (targetClass[0] == 'lady' || targetClass[0] == 'gentlemen') {
                     myInfoCard.children[0].innerHTML = 'Hi, my name is';
-                    myInfoCard.children[1].innerHTML = `${userInformation[i].name.first} ${userInformation[i].name.last}`;
+                    myInfoCard.children[1].innerHTML = getFormattedName(userInformation[i]);
                 } else if (targetClass[0] == 'letter') {
                     myInfoCard.children[0].innerHTML = 'My email address is';
                     myInfoCard.children[1].innerHTML = userInformation[i].email;
                 } else if (targetClass[0] == 'calendar' || e.target.tagName == 'P') {
                     let dateOfBirthday = new Date(userInformation[i].dob.date)
                     myInfoCard.children[0].innerHTML = 'My birthday is';
-                    myInfoCard.children[1].innerHTML = `${dateOfBirthday.getDate()}/${dateOfBirthday.getMonth()}/${dateOfBirthday.getFullYear()}`;
+                    myInfoCard.children[1].innerHTML = getFormattedDate(dateOfBirthday);
                 } else if (targetClass[0] == 'marker') {
                     myInfoCard.children[0].innerHTML = 'My address is';
                     myInfoCard.children[1].innerHTML = userInformation[i].location.street;
@@ -86,6 +77,21 @@ let runApp = function (data) {
         };
     };
     render(data);
+    function checkGender(person) {
+        if (person.gender == 'male') {
+            return 'gentlemen';
+        } else {
+            return 'lady';
+        }
+    };
+
+    function getFormattedDate(data) {
+        return `${data.getDate()}/${data.getMonth()}/${data.getFullYear()}`
+    };
+
+    function getFormattedName(name) {
+        return `${name.name.first} ${name.name.last}`
+    };
 
     function createDomElement(tagName, config, tagToAdd) {
         let tag = document.createElement(tagName);
@@ -140,18 +146,18 @@ let runApp = function (data) {
     function showMaleOrFemale(e) {
         let justMan = [];
         let justGirls = [];
-        if(e.target.id == 'male-btn'){
-            for(let i = 0; i < data.length; i++){
-                if(data[i].gender == 'male'){
+        if (e.target.id == 'male-btn') {
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].gender == 'male') {
                     justMan.push(data[i]);
                 }
             }
             GLOBAL_INFORMATION = justMan;
             cleanDashboard();
             render(justMan);
-        }else if(e.target.id == 'female-btn'){
-            for(let i = 0; i < data.length; i++){
-                if(data[i].gender == 'female'){
+        } else if (e.target.id == 'female-btn') {
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].gender == 'female') {
                     justGirls.push(data[i]);
                 }
             }
@@ -199,11 +205,11 @@ let runApp = function (data) {
 
         for (let i = 0; i < GLOBAL_INFORMATION.length; i++) {
             let name = GLOBAL_INFORMATION[i].name.first;
-            for (j = value.length-1; j < value.length; j++) {
+            for (j = value.length - 1; j < value.length; j++) {
                 console.log();
                 if (value == name.slice(0, value.length)) {
                     searchResult.push(GLOBAL_INFORMATION[i]);
-                }else {
+                } else {
                     cleanDashboard();
                 }
             }
@@ -217,7 +223,7 @@ let runApp = function (data) {
 
     function reset(e) {
         searchInput.value = '';
-        GLOBAL_INFORMATION=data;
+        GLOBAL_INFORMATION = data;
         cleanDashboard();
         render(data);
     };
