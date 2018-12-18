@@ -19,6 +19,20 @@ class Inhabited {
 
     sayAbout() {
         let str = 'My name is ' + this.name + '. And now, as any ' + this.species + ', I say "' + this.phrase + '!".';
+        return str;
+    }
+}
+
+class Human extends Inhabited {
+    constructor(gender, name, friends, phrase) {
+        super('human', 2, gender, name, 'Human, human');
+        this.hands = 2;
+        this.friends = friends;
+        this.phrase = phrase;
+    }
+
+    sayAbout() {
+        let str = '';
         let friends = this.friends;
         if(friends && friends.length) {
             let friendsName = 'So as any human I have friends: ';
@@ -31,18 +45,8 @@ class Inhabited {
             });
             str += ` ${friendsName}`;
         }
-        return str;
+        return super.sayAbout() + str;
     }
-}
-
-class Human extends Inhabited {
-    constructor(gender, name, friends, phrase) {
-        super('human', 2, gender, name, 'Human, human');
-        this.hands = 2;
-        this.friends = friends;
-        this.phrase = phrase;
-    }
-    // super.sayAbout(['TEST 1', 'Test2']);
 }
 
 class Cat extends Inhabited {
