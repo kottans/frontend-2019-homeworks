@@ -89,3 +89,11 @@ a:hover {
     flex-wrap: nowrap;
   }
 }
+@media not all and (min-resolution:.001dpcm) { @media
+{
+    .listItem {
+
+        letter-spacing: normal;
+
+    }
+}}
