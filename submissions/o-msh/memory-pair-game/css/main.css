@@ -1,0 +1,114 @@
+body {
+    font-family: sans-serif;
+}
+
+.container {
+    margin: auto;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 23%;
+    position: relative;
+    height: 200px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform-origin: center right;
+    transition: transform 1s;
+    margin-bottom: 30px;
+}
+
+.card.hidden {
+    visibility: hidden;
+}
+
+.card.flipped {
+    transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card_side {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card_side.front {
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.card_side.back {
+  transform: rotateY(180deg);
+}
+
+.card_side.back img {
+    width: 100%;
+    height: 100%;
+}
+
+.winner {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.winner > button {
+    margin: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    background: #ed3330;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.celebration_gif {
+    pointer-events: none;
+}
+
+@media only screen and (max-width: 800px) {
+    .card {
+        height: 100px;
+        margin-bottom: 15px;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .card {
+        height: 50px;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .card {
+        height: 20px;
+        margin-bottom: 5px;
+    }
+
+    .winner {
+        font-size: 14px;
+    }
+
+    .winner > button {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 200px) {
+    .winner {
+        font-size: 10px;
+    }
+
+    .winner > button {
+        font-size: 10px;
+    }
+}
