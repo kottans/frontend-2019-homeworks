@@ -1,0 +1,128 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	color: $text
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+b, strong
+	font-weight: bold
+
+.container-fl
+	max-width: 1280px
+	position: relative
+	margin: 0 auto
+
+.cont
+	display: flex
+
+.header
+	display: flex
+	justify-content: space-between
+	&__logo
+		font-family: "Courier New", Courier, monospace
+		font-weight: bold
+		a
+			color: #000
+
+
+.nav
+	min-width: 300px
+	height: 100%
+	&__list
+		list-style-type: none
+		background-color: #f2f2f2
+		width: 100%
+		padding: 0
+		margin: 0
+		text-align: center
+	&__item
+		border: 1px solid #ddd
+		margin: 0
+		transition: all 0.3s ease
+		&:hover
+			background-color: tomato
+		a
+			color: #000
+			display: block
+			padding: 10px 15px
+			transition: all 0.3s ease
+			&:hover
+				color: #ffffff
+				text-decoration: none
+
+.nav__item-active
+	color: #ffffff
+	background-color: tomato
+
+
+			
+
+.main
+	display: flex
+	&__content
+		padding: 0 15px
+
+
+
+.header
+	height: 60px
+	background-color: #F2F2F2
+	margin-bottom: 20px
+	&__logo
+		font-size: 28px
+		line-height: 60px
+		margin-left: 15px
+	.fa
+		font-size: 30px
+		line-height: 60px
+	&__hamburger
+		position: absolute
+		right: 30px
+		display: none
+		cursor: pointer
+
+.nav.open
+  display: block
+
+.cont.column
+	flex-direction: column
+
+.main__img
+	padding: 0 15px
+	min-width: 300px
+
+
+
+
+@import "media" // Always at the end
