@@ -1,5 +1,13 @@
+const defaultCatSaying = "Meow-ow";
+
 // ======== CLASSES ==========
-function Creature(name, gender, saying, legs) {
+function Creature(
+  name = "Creature",
+  gender = "No gender",
+  saying = "Que-qa",
+  legs = 4
+) {
+  this.species = "creature";
   this.name = name ? name : "Creature";
   this.gender = gender ? gender : "No gender";
   this.saying = saying ? saying : "Que-qa";
@@ -44,7 +52,7 @@ Dog.prototype = Object.create(Creature.prototype);
 Dog.prototype.constructor = Dog;
 
 //------------------------------------------------------------------------------------
-function Human(name, gender, saying, legs, hands, friends) {
+function Human(name, gender, saying, legs, hands = 2, friends = []) {
   Creature.apply(this, arguments);
   this.species = "human";
   this.hands = hands ? hands : 2;
@@ -71,7 +79,7 @@ Human.prototype.printInfo = function() {
 function CatWoman(name, gender, saying, legs, hands, friends) {
   Human.apply(this, arguments);
   this.species = "cat-woman";
-  this.saying = cat.saying;
+  this.saying = defaultCatSaying;
 }
 CatWoman.prototype = Object.create(Human.prototype);
 CatWoman.prototype.constructor = CatWoman;
@@ -86,8 +94,6 @@ let catWoman = new CatWoman("Julia", "female", "", 2, 2, [woman, man, dog]);
 let allInhabitants = [];
 allInhabitants.push(dog, cat, woman, man, catWoman);
 // ======= OUTPUT =========
-dog.printInfo();
-cat.printInfo();
-woman.printInfo();
-man.printInfo();
-catWoman.printInfo();
+allInhabitants.forEach(function(el) {
+  el.printInfo();
+});
