@@ -72,7 +72,7 @@ function objectInfo(obj) {
     let key;
     for (key in obj) {
         if (obj.hasOwnProperty(key)) {
-            if (typeof(obj[key]) === 'object') {
+            if (Array.isArray(obj[key])) {
                 line += obj[key].join(', ') + '; ';
             } else {
                 line += obj[key] + '; ';
