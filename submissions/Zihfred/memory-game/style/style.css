@@ -1,0 +1,50 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+
+}
+#Game {
+
+    margin: 150px auto 0;
+
+    width: 812px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+.cardItem {
+    transition-duration: 1s;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 1px;
+}
+.cardItem img {
+
+    height: 180px;
+}
+
+.flip{
+    transform: rotateY(180deg);
+}
+.flip img{
+    visibility: visible;
+}
+.nonflip{
+    transform: rotateY(0deg);
+}
+.hidden{
+    visibility: hidden;
+}
+.visible {
+    visibility: visible;
+}
+

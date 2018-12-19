@@ -1,0 +1,342 @@
+/* fonts init */
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('fonts/Rubik/Rubik-Regular.woff2') format('woff2'), url('fonts/Rubik/Rubik-Regular.woff') format('woff'), url('fonts/Rubik/Rubik-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('fonts/Rubik/Rubik-Light.woff2') format('woff2'), url('fonts/Rubik/Rubik-Light.woff') format('woff'), url('fonts/Rubik/Rubik-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* basic reset */
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Rubik';
+    font-weight: normal;
+    font-style: normal;
+    color: #000;
+    display: flex;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, figure {
+    margin: 0;
+}
+
+section {
+    font-size: 1rem;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:active {
+     text-decoration: none;
+}
+a:active,
+a:focus,
+a:visited {
+    color: #fff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    line-height: 1.5;
+}
+
+/* =========== MAIN STYLES ============= */
+
+/* sidebar styles */
+
+.main-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+    background: #283c86;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #45a247, #283c86);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #45a247, #283c86); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 16em;
+    padding: 2em 1em 1em;
+    color: #fff;
+    transition: all .4s ease-in-out;
+}
+
+.main-sidebar__logo {
+    max-width: 100px;
+    display: block;
+    margin: 0 auto 1em;
+}
+
+.main-sidebar__title {
+    margin-bottom: 1em;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 2em;
+}
+
+.main-sidebar__menu {
+    text-align: center;
+}
+
+.menu-content__item {
+    margin-bottom: 1em;
+}
+
+.menu-content__link {
+    position: relative;
+    transition: all .4s ease-in-out;
+    text-transform: uppercase;
+}
+
+.menu-content__link:before,
+.menu-content__link:after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: all .4s ease-in-out;
+}
+
+.menu-content__link:before {
+    left: 50%;
+}
+.menu-content__link:after {
+    right: 50%;
+}
+
+.menu-content__link:hover:before,
+.menu-content__link:hover:after
+{
+    width: 50%;
+}
+
+/*=================================*/
+
+/*==== styles for hamburger icon =====*/
+
+.menu-icon{
+    display: none;
+    width: 40px;
+    height: 36px;
+    position: absolute;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+.menu-icon.open {
+    left: 17.5em;
+}
+
+.menu-icon span{
+    display: block;
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    background: #45a247;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+.menu-icon span:nth-child(1) {
+    top: 0px;
+}
+
+.menu-icon span:nth-child(2),
+.menu-icon span:nth-child(3) {
+    top: 12px;
+}
+
+.menu-icon span:nth-child(4) {
+    top: 24px;
+}
+
+.menu-icon.open span:nth-child(1) {
+    top: 12px;
+    width: 0;
+    left: 50%;
+}
+
+.menu-icon.open span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.menu-icon.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.menu-icon.open span:nth-child(4) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+}
+
+/*====================================*/
+
+/* main content styles */
+
+.main-content {
+    padding-left: 16em;
+    background-size: 2em;
+    transition: all .4s ease-in-out;
+}
+
+.article-content {
+    padding: 2em 1.5em;
+}
+
+.article-content__title {
+    margin-bottom: 2rem;
+    font-size: 1.75em;
+    transition: all .4s ease-in-out;
+}
+
+.article-content__image {
+    margin-bottom: 1.5em;
+    border: 1px solid #45a247;
+}
+
+.article-content__text {
+    font-size: .875em;
+}
+
+/*====================================*/
+
+/* media queries */
+
+@media screen and (max-width: 768px) {
+
+    /* sidebar */
+
+    .menu-icon {
+        display: block;
+        top: 2em;
+        left: 1.5em;
+    }
+
+    .main-sidebar {
+        left: -100%;
+    }
+    .main-sidebar.open {
+        left: 0;
+    }
+
+    /* content */
+
+    .main-content {
+        padding-left: 0;
+    }
+
+    .main-content.opened-sidebar {
+        padding-left: 16em;
+    }
+
+    .article-content__title {
+        padding-left: 2.5em;
+    }
+
+}
+@media screen and (max-width: 600px) {
+
+    /* decreasing basic font size */
+
+    html {
+        font-size: 14px;
+    }
+
+    /* sidebar */
+
+    .menu-icon.open {
+        left: 15.5em;
+    }
+
+    .main-sidebar {
+        width: 14em;
+    }
+
+    /* content */
+
+    .main-content.opened-sidebar {
+        padding-left: 14em;
+    }
+
+}
+@media screen and (max-width: 400px) {
+
+    /* sidebar */
+
+    .menu-icon.open {
+        left: 13.5em;
+    }
+    .main-sidebar {
+        width: 12em;
+    }
+    .main-sidebar__title {
+        font-size: 1.75em;
+    }
+
+    /* content */
+
+    .main-content.opened-sidebar {
+        padding-left: 12em;
+    }
+
+}
