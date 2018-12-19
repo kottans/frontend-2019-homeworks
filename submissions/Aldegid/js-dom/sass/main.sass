@@ -17,13 +17,6 @@ body
 	font-family: $default-font
 	overflow-x: hidden
 	color: $text
-	input, textarea
-		border: #666 1px solid
-		outline: none
-		&:focus:required:invalid
-			border-color: red
-		&:required:valid
-			border-color: green
 
 .img-responsive
 	display: block
@@ -31,12 +24,6 @@ body
 	height: auto
 	&.img-width
 		width: 100%
-
-.text-center
-	text-align: center
-
-b, strong
-	font-weight: bold
 
 .container-fl
 	max-width: 1280px
@@ -54,7 +41,6 @@ b, strong
 		font-weight: bold
 		a
 			color: #000
-
 
 .nav
 	min-width: 300px
@@ -83,17 +69,12 @@ b, strong
 
 .nav__item-active
 	color: #ffffff
-	background-color: tomato
-
-
-			
+	background-color: tomato			
 
 .main
 	display: flex
 	&__content
 		padding: 0 15px
-
-
 
 .header
 	height: 60px
@@ -103,14 +84,12 @@ b, strong
 		font-size: 28px
 		line-height: 60px
 		margin-left: 15px
-	.fa
-		font-size: 30px
-		line-height: 60px
 	&__hamburger
 		position: absolute
-		right: 30px
+		right: 15px
 		display: none
 		cursor: pointer
+		align-self: center
 
 .nav.open
   display: block
@@ -122,7 +101,20 @@ b, strong
 	padding: 0 15px
 	min-width: 300px
 
+// ≥1200px
++media-breakpoint-down(lg)
+  .header__hamburger
+    display: block
+  .header
+    margin: 0
+  .nav 
+    display: none
+    &__list
+      width: 100%
+      max-height: 100%
+      margin-bottom: 15px
 
-
-
-@import "media" // Always at the end
+// ≥768px
++media-breakpoint-down(sm)
+  .main
+    flex-direction: column
