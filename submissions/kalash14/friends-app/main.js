@@ -2,7 +2,7 @@ let friendAppInit = () => {
 
     /* UI Elements selectors */
 
-    const UIElements = {
+    const uiElements = {
         userContentWrap: '.main-content__wrap',
         inputSearch: '.user-search',
         filterBlock: '.main-filter',
@@ -18,8 +18,8 @@ let friendAppInit = () => {
 
     /* Getting UI elements */
 
-    for (let key in UIElements) {
-        UIElements[key] = document.querySelector(UIElements[key]);
+    for (let key in uiElements) {
+        uiElements[key] = document.querySelector(uiElements[key]);
     }
 
     const radioFilter = document.querySelectorAll('.radio-filter');
@@ -48,7 +48,7 @@ let friendAppInit = () => {
 
     /* init debounce */
 
-    let debounce = (func, wait, immediate) => {
+    const debounce = (func, wait, immediate) => {
         let timeout;
         return function () {
             let context = this, args = arguments;
@@ -61,69 +61,49 @@ let friendAppInit = () => {
         };
     };
 
-    /* creating array of users from received data */
-
-    let createUsersList = (data) => {
-        let usersList = data.results;
-        usersList.forEach(userItem => {
-            usersArray.push(userItem);
-        });
-        return usersArray;
-    };
-
     /* rendering array of users and appending it to wrap block */
 
     let renderUsersList = (data) => {
         let usersContent = "";
-        UIElements.userContentWrap.innerHTML = "";
+        uiElements.userContentWrap.innerHTML = "";
 
-        if (data.length > 0) {
-
-            for (let i = 0, len = data.length; i < len; i++) {
-                let userItem = data[i];
-                usersContent += "<div class='main-content__item'>";
-                usersContent += "<figure class='content-item-thumb " + (userItem.gender === "male" ? "content-item-thumb-male" : "content-item-thumb-female") + "'><img src='"+ (userItem.picture.large ? userItem.picture.large : "") + "' alt='user-thumb'></figure>";
-                usersContent += "<h3 class='content-item-name'>" + (userItem.name.first ? userItem.name.first : "") + " " + (userItem.name.last ? userItem.name.last : "") + "</h3>";
-                usersContent += "<div class='content-item'>Age: " + (userItem.dob.age ? userItem.dob.age : "") + "</div>";
-                usersContent += "<div class='content-item'><span class='user-icon'>" + svgIcons.phone + "</span>" + (userItem.phone ? "<a href='tel:" + userItem.phone + "'>" + userItem.phone + "</a>" : "") + "</div>";
-                usersContent += "<div class='content-item'><span class='user-icon'>" + svgIcons.email + "</span>" + (userItem.email ? "<a href='mailto:" + userItem.email + "'>" + userItem.email + "</a>" : "") + "</div>";
-                usersContent += "<div class='content-item'><span class='user-icon'>" + svgIcons.location + "</span>" + (userItem.location.city ? userItem.location.city : "") + "</div>";
-                usersContent += "</div>";
-            }
-
-            UIElements.userContentWrap.insertAdjacentHTML('afterbegin', usersContent);
-            UIElements.loaderWrap.classList.remove('active');
+        for (let i = 0, len = data.length; i < len; i++) {
+            let userItem = data[i];
+            usersContent += "<div class='main-content__item'>";
+            usersContent += "<figure class='content-item-thumb " + (userItem.gender === "male" ? "content-item-thumb-male" : "content-item-thumb-female") + "'><img src='"+ (userItem.picture.large ? userItem.picture.large : "") + "' alt='user-thumb'></figure>";
+            usersContent += "<h3 class='content-item-name'>" + (userItem.name.first ? userItem.name.first : "") + " " + (userItem.name.last ? userItem.name.last : "") + "</h3>";
+            usersContent += "<div class='content-item'>Age: " + (userItem.dob.age ? userItem.dob.age : "") + "</div>";
+            usersContent += "<div class='content-item'><span class='user-icon'>" + svgIcons.phone + "</span>" + (userItem.phone ? "<a href='tel:" + userItem.phone + "'>" + userItem.phone + "</a>" : "") + "</div>";
+            usersContent += "<div class='content-item'><span class='user-icon'>" + svgIcons.email + "</span>" + (userItem.email ? "<a href='mailto:" + userItem.email + "'>" + userItem.email + "</a>" : "") + "</div>";
+            usersContent += "<div class='content-item'><span class='user-icon'>" + svgIcons.location + "</span>" + (userItem.location.city ? userItem.location.city : "") + "</div>";
+            usersContent += "</div>";
         }
 
+        uiElements.userContentWrap.insertAdjacentHTML('afterbegin', usersContent);
+        uiElements.loaderWrap.classList.remove('active');
+
     };
 
-    /* getting data as a promise object and then rendering it */
+    const createUsersList = (data) => {
+        usersArray = usersArray.concat(data.results);
+        return usersArray;
+    };
 
-    let getUsers = (page = 1) => {
+    const getUsers = (page) => {
+        uiElements.loaderWrap.classList.add('active');
         let dataURL = urlAPI + page;
-        UIElements.loaderWrap.classList.add('active');
-        fetch(dataURL)
-            .then((response) => response.json())
-            .catch(() => {
-                console.error('Oops! Problems with friends getting...');
-            })
-            .then((data) => createUsersList(data))
-            .catch(() => {
-                console.error('Oops! Problems with friends list...');
-            })
-            .then((data) => renderUsersList(data))
-            .catch(() => {
-                console.error('Oops! Problems with friends list rendering...');
-            });
+        return fetch(dataURL).then(response => response.json());
     };
 
-    /* init getting data function */
+    const loadUsers = (page = 1) => {
+        getUsers(page).then(createUsersList).then(renderUsersList);
+    };
 
-    getUsers();
+    loadUsers();
 
     /* filtering data */
 
-    let getFilteredUsersList = (usersArray, filterState) => {
+    const getFilteredUsersList = (usersArray, filterState) => {
 
         let copyUsersArray = usersArray.slice();
 
@@ -149,22 +129,21 @@ let friendAppInit = () => {
 
     /* checking value from search input for symbols count */
 
-    let searchHandler = (event) => {
+    const searchHandler = ({target}) => {
 
-        let targetValue = event.target.value;
-        filterState.search = targetValue;
+        filterState.search = target.value;
         renderUsersList(getFilteredUsersList(usersArray, filterState));
 
     };
 
     /* filtering users array by search phrase and rendering users passed filter */
 
-    let searchFilter = (necessaryArray, searchPhrase) => {
+    const searchFilter = (necessaryArray, searchPhrase) => {
 
         let processedSearchPhrase = searchPhrase.toLowerCase();
         necessaryArray = necessaryArray.filter((userItem) => {
 
-            return userItem.name.first.indexOf(processedSearchPhrase) !== -1 || userItem.name.last.indexOf(processedSearchPhrase) !== -1 || userItem.email.indexOf(processedSearchPhrase) !== -1
+            return userItem.name.first.includes(processedSearchPhrase) || userItem.name.last.includes(processedSearchPhrase) || userItem.email.includes(processedSearchPhrase)
 
         });
 
@@ -174,7 +153,7 @@ let friendAppInit = () => {
 
     /* init search handler with debounce function */
 
-    UIElements.inputSearch.addEventListener('keyup', debounce(searchHandler, 2000));
+    uiElements.inputSearch.addEventListener('keyup', debounce(searchHandler, 2000));
 
     /* sorting methods */
 
@@ -192,7 +171,7 @@ let friendAppInit = () => {
 
     /* change handler for filter sidebar using event delegation */
 
-    let radioHandler = (event) => {
+    const radioHandler = (event) => {
 
         if (event.target.classList.contains('age-asc-filter')) {
             filterState.sortAge = "asc";
@@ -226,15 +205,15 @@ let friendAppInit = () => {
 
     /* resetting filter */
 
-    let resetFilter = (update = false) => {
+    let resetFilter = () => {
 
-        UIElements.inputSearch.value = "";
+        uiElements.inputSearch.value = "";
 
         radioFilter.forEach(radioFilterItem => {
             radioFilterItem.checked = false;
         });
 
-        UIElements.allGenderRadio.checked = true;
+        uiElements.allGenderRadio.checked = true;
 
         filterState = {
             search: null,
@@ -243,32 +222,35 @@ let friendAppInit = () => {
             sortAge: null
         };
 
-        if (!update) {
-            renderUsersList(getFilteredUsersList(usersArray, filterState));
-        }
+        renderUsersList(getFilteredUsersList(usersArray, filterState));
 
     };
 
     /* load the next page of users */
 
-    let loadMoreUsers = () => {
+    const loadMoreUsers = () => {
         pageCounter++;
-        resetFilter(true);
-        getUsers(pageCounter);
+        resetFilter();
+        loadUsers(pageCounter);
     };
 
-    UIElements.filterBlock.addEventListener('change', radioHandler);
-    UIElements.loadMoreButton.addEventListener('click', loadMoreUsers);
-    UIElements.resetFilterButton.addEventListener('click', resetFilter(false));
+    uiElements.filterBlock.addEventListener('change', radioHandler);
+    uiElements.loadMoreButton.addEventListener('click', loadMoreUsers);
+    uiElements.resetFilterButton.addEventListener('click', resetFilter);
 
     /* making filter fixed after user scroll */
 
-    let scrollHandler = () => {
+    const scrollHandler = () => {
 
-        let headerOffsetTop = UIElements.header.offsetHeight;
+        let headerOffsetTop = uiElements.header.offsetHeight;
         let windowScrolltop = window.scrollY;
 
-        windowScrolltop > headerOffsetTop ? UIElements.sidebarMain.classList.add('main-sidebar-sticky') : UIElements.sidebarMain.classList.remove('main-sidebar-sticky')
+        if (windowScrolltop > headerOffsetTop) {
+            uiElements.sidebarMain.classList.add('main-sidebar-sticky')
+        }
+        else {
+            uiElements.sidebarMain.classList.remove('main-sidebar-sticky')
+        }
 
     };
 
@@ -276,14 +258,14 @@ let friendAppInit = () => {
 
     /* adding click event listener to filter switching view */
 
-    UIElements.closeFilterButton.addEventListener('click', () => {
-        UIElements.sidebarMain.classList.add('main-sidebar-closed');
-        UIElements.openFilterIcon.classList.add('filter-open-icon-visible');
+    uiElements.closeFilterButton.addEventListener('click', () => {
+        uiElements.sidebarMain.classList.add('main-sidebar-closed');
+        uiElements.openFilterIcon.classList.add('filter-open-icon-visible');
     });
 
-    UIElements.openFilterIcon.addEventListener('click', () => {
-        UIElements.sidebarMain.classList.remove('main-sidebar-closed');
-        UIElements.openFilterIcon.classList.remove('filter-open-icon-visible');
+    uiElements.openFilterIcon.addEventListener('click', () => {
+        uiElements.sidebarMain.classList.remove('main-sidebar-closed');
+        uiElements.openFilterIcon.classList.remove('filter-open-icon-visible');
     });
 
 };
