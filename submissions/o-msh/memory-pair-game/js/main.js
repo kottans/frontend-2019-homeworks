@@ -30,8 +30,8 @@ const handlerFlip = e => {
 };
 
 const checkCoincidence = () => {
-    let length = openedCards.length;
-    if (length === 2) {
+    let cardsCount = openedCards.length;
+    if (cardsCount === 2) {
         changeFlipState();
         if (openedCards[0].src === openedCards[1].src) {
             hideCoincidence();
