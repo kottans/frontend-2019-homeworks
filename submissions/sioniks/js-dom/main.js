@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+window.onload = function () {
   let pageContent = document.querySelector('.page-content');
   pageContent.innerHTML = contentData.ukr;
 
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
   page.addEventListener('click', function () {
     leftMenu.classList.toggle('is-active');
   });
-});
+};
 
 document.querySelector('.menu').addEventListener('click', function (evt) {
   let pageContent = document.querySelector('.page-content');
