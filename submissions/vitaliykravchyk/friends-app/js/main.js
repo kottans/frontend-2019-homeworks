@@ -1,4 +1,4 @@
-let dat, filteredByGenderData, filteredBySearchData = [];
+let data, filteredByGenderData, filteredBySearchData = [];
 const search = document.querySelector('#search');
 const sortByName = (data, type) => {
     data.sort(function(a,b){
@@ -23,18 +23,12 @@ const sortByAge = (data, type) => {
     updateProfiles(data);
 }
 const filteringProfilesByGender = () => {
-    const id = event.target.id;
-    filteredByGenderData = data.filter(elem => {
-        if(id === 'male') {
-            return elem.gender === 'male'
-        } else if (id === 'female') {
-            return elem.gender === 'female'
-        } else return true
-    })
+    const gender = event.target.id;
+    filteredByGenderData = gender === 'all' ? data : data.filter(elem => elem.gender === gender);
     filteredBySearchData = filteredByGenderData;
     updateProfiles(filteredByGenderData);
 }
-const filteringProfilesBySearch = () => {
+const filterBySearchData = () => {
     filteredBySearchData = filteredByGenderData.filter(elem => {
         return getFullName(elem.name.first, elem.name.last).toLowerCase().includes(event.target.value.toLowerCase())
     })
@@ -45,7 +39,7 @@ const createProfile = (user) => {
     profile.classList.add('profile');
     
     const name = document.createElement('h4');
-    user.gender === 'female' ? name.classList.add('female') : false;
+    if(user.gender === 'female') name.classList.add('female');
     name.innerHTML = getFullName(user.name.first, user.name.last);
     
     const image = document.createElement('img');
@@ -55,7 +49,7 @@ const createProfile = (user) => {
     info.innerHTML = '<span>' + user.dob.age + ' y.o.</span> ' + '<br>' + user.email + '<br><span>' + user.cell + '</span>' ;
     
     const gender = document.createElement('span');
-    gender.id = 'gender'
+    gender.classList.add('gender');
     gender.innerHTML = user.gender.toUpperCase();
 
     profile.appendChild(name);
@@ -70,10 +64,10 @@ const deleteProfiles = () =>{
     container.classList.add('container');
     document.querySelector('main').appendChild(container);
 }
-const reseting = () => {
+const reset = () => {
     const radioButtons = document.querySelectorAll('input[type = radio]');
     radioButtons.forEach(elem => {
-        elem.checked = elem.hasAttribute('checked') ? true : false;
+        elem.checked = elem.hasAttribute('checked');
     })
     search.value = '';
     updateProfiles(data);
@@ -99,25 +93,23 @@ fetch('https://randomuser.me/api/?results=50')
         filteredBySearchData = filteredByGenderData.slice(0);
         renderProfiles(data);
     })
-document.querySelector('section').addEventListener('click', () => {
+document.querySelector('section').addEventListener('click', (event) => {
     const type = event.target.dataset.item;
     const button = event.target.id;
-    if(button === 'female' || button === 'male' || button === 'all'){
-        filteringProfilesByGender();
-    } else {
-        switch (button) {
-            case 'age-increase': sortByAge(filteredBySearchData, type);
-                break;
-            case 'age-reduce': sortByAge(filteredBySearchData, type);
-                break;
-            case 'name-increase': sortByName(filteredBySearchData, type);
-                break;
-            case 'name-reduce': sortByName(filteredBySearchData, type);
-                break;
-            default:
-                break;
-        }
+    switch(button){
+        case 'male':
+        case 'female':
+        case 'all':
+            filteringProfilesByGender();
+            break;
+        case 'age-increase':
+        case 'age-reduce':
+            sortByAge(filteredBySearchData, type);
+            break;
+        case 'name-increase':
+        case 'name-reduce':
+            sortByName(filteredBySearchData, type);
     }
 });
-search.addEventListener('keyup', filteringProfilesBySearch);
-document.querySelector('#reset').addEventListener('click', reseting);
+search.addEventListener('keyup', filterBySearchData);
+document.querySelector('#reset').addEventListener('click', reset);
