@@ -44,7 +44,7 @@ window.onload = function () {
 			currLang = e.target.textContent;
 			if(currLang === content[i].title){
 				h2.textContent = content[i].title;
-				txt.textContent = content[i].description;
+				txt.firstElementChild.textContent = content[i].description;
 				img.src = content[i].image;
 				break;
 			}
