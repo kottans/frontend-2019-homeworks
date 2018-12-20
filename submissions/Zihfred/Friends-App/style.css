@@ -1,0 +1,157 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    background-color: #f2f4fa;
+}
+.wrapper{
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#friends-app {
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    min-width: 300px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+
+
+
+
+
+
+
+/*sort box */
+.sortbox {
+    position: fixed;
+    top: 50px;
+    padding: 10px;
+
+   width: 250px;
+
+    -webkit-box-shadow: 3px 4px 26px 6px rgba(150,129,150,1);
+    -moz-box-shadow: 3px 4px 26px 6px rgba(150,129,150,1);
+    box-shadow: 3px 4px 26px 6px rgba(150,129,150,1);
+}
+.sortbox__header{
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.sortbox__sorted{
+    text-align: left;
+    margin-bottom: 20px;
+    width: 90%;
+}
+
+.sortbox__sortedIcons{
+    float: right;
+
+    color: black;
+    width: 50px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+
+}
+
+.sortbox__sortedIcons--active{
+    color: red;
+}
+.sortbox__sortedIcons  .fas:hover {
+    cursor: pointer;
+ color: blue;
+}
+.sortbox__sortedHeader{
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    display: inline-block;
+}
+
+.sortbox__resetBtn{
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: white;
+}
+.sortbox__resetBtn:hover{
+    color: gold;
+}
+.sortbox__sortedInput{
+    padding: 5px;
+}
+
+
+.disabled{
+
+    pointer-events: none;
+    color: #f2f4fa;
+    cursor: none;
+}
+.nonActive{
+    display: none;
+    pointer-events: none;
+}
+
+
+
+/*peoples */
+
+.peoples{
+
+    margin-left: 270px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 1000px;
+
+}
+
+
+
+
+
+
+
+/*One people */
+.onePeople{
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    width: 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+
+
+    -webkit-box-shadow: 3px 4px 26px 6px rgba(150,129,150,1);
+    -moz-box-shadow: 3px 4px 26px 6px rgba(150,129,150,1);
+    box-shadow: 3px 4px 26px 6px rgba(150,129,150,1);
+}
+
+.onePeople__avatarImage{
+    border-radius: 50%;
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 3px 4px 26px -9px rgba(150,129,150,1);
+    -moz-box-shadow: 3px 4px 26px -9px rgba(150,129,150,1);
+    box-shadow: 3px 4px 26px -9px rgba(150,129,150,1);
+}
+.onePeople__description{
+    margin-bottom: 10px;
+}
+.onePeople__description:last-child{
+    margin-bottom: 0px;
+}

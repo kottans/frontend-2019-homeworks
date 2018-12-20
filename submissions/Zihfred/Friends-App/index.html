@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Fake Tinder</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="wrapper">
+    <div id="friends-app">
+        <div class="sortbox">
+            <div class="sortbox__header">Сортировка:</div>
+            <div class="sortbox__sorted sortBox__sortedByAge">
+                <div class="sortbox__sortedHeader">По возрасту:</div>
+                <div class="sortbox__sortedIcons">
+                    <i class="fas fa-chevron-circle-up" data-type="ageUp"></i>
+                    <i class="fas fa-chevron-circle-down" data-type="ageDown"></i>
+                </div>
+            </div>
+            <div class="sortbox__sorted sortBox__sortedByName">
+                <div class="sortbox__sortedHeader">По имени:</div>
+                <div class="sortbox__sortedIcons">
+                    <i class="fas fa-sort-alpha-down" data-type="nameDown"></i>
+                    <i class="fas fa-sort-alpha-up" data-type="nameUp"></i>
+                </div>
+            </div>
+            <div class="sortbox__sorted sortBox__sortedByGender">
+                <div class="sortbox__sortedHeader">По полу:</div>
+                <div class="sortbox__sortedIcons">
+                    <i class="fas fa-male" data-type="male"></i>
+                    <i class="fas fa-female" data-type="female"></i>
+                </div>
+            </div>
+            <div class="sortbox__sorted ">
+                <input type="text" placeholder="Enter Text" class="sortbox__sortedInput">
+            </div>
+            <div class="sortbox__resetBtn">
+                Reset
+            </div>
+        </div>
+        <div class="peoples">
+            <div class="onePeople">
+                <div class="onePeople__avatar">
+                    <img  class="onePeople__avatarImage" src="img/testUser.jpg" alt="">
+                </div>
+                <div class="onePeople__fullName onePeople__description">
+                    Имя: Alex
+                </div>
+                <div class="onePeople__location onePeople__description">
+                    Kiev, Ukraine
+                </div>
+                <div class="onePeople__age onePeople__description">
+                    Возраст: 21
+                </div>
+                <div class="onePeople__number onePeople__description">
+                    Моб:+380973003823
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
