@@ -8,58 +8,88 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 
-function Inhabited () {
-    this.sayAbout = function () {
-        return 'My name is ' + this.name + '. And now, as any ' + this.species +  ', I say "' + this.phrase + '!"';
+class Inhabited {
+    constructor(species, legs, gender, name, phrase) {
+        this.species = species;
+        this.legs = legs;
+        this.gender = gender;
+        this.name = name;
+        this.phrase = phrase;
+    }
+
+    sayAbout() {
+        let str = 'My name is ' + this.name + '. And now, as any ' + this.species + ', I say "' + this.phrase + '!".';
+        return str;
     }
 }
 
-function Animal (species, legs) {
-    this.species = species;
-    this.legs = legs;
-}
+class Human extends Inhabited {
+    constructor(gender, name, friends, phrase) {
+        super('human', 2, gender, name, 'Human, human');
+        this.hands = 2;
+        this.friends = friends;
+        this.phrase = phrase;
+    }
 
-Animal.prototype = new Inhabited();
-
-function Human (name, gender, phrase, friends) {
-    this.name = name;
-    this.gender = gender;
-    this.phrase = phrase;
-    this.friends = friends;
-    this.sayAbout = function () {
-        return 'My name is ' + this.name + '.' + ' I am a ' + this.gender + ' gender and I have ' + this.friends.length + ' friends.' + ' And now, I say "' + this.phrase + '!"';
+    sayAbout() {
+        let str = '';
+        let friends = this.friends;
+        if(friends && friends.length) {
+            let friendsName = 'So as any human I have friends: ';
+            friends.forEach( (el, index) => {
+                if(index == friends.length - 1) {
+                 friendsName += `${el.name}.`;
+                } else {
+                    friendsName += `${el.name} and `;
+                }
+            });
+            str += ` ${friendsName}`;
+        }
+        return super.sayAbout() + str;
     }
 }
 
-Human.prototype = new Animal('human', 2);
-
-function Cat(name, gender) {
-    this.name = name;
-    this.gender = gender;
-    this.phrase = 'Meo, meo, meo';
+class Cat extends Inhabited {
+    constructor(gender, name) {
+        super('cat', 4, gender, name, 'Meo, meo, meo');
+    }
 }
 
-Cat.prototype = new Animal('cat', 4);
-
-
-function Dog(name, gender) {
-    this.name = name;
-    this.gender = gender;
-    this.phrase = 'Rrrrrrrr...';
+class Dog extends Inhabited {
+    constructor(gender, name) {
+        super('dog', 4, gender, name, 'Rrrrrrr');
+    }
 }
 
-Dog.prototype = new Animal('dog', 4);
 
-var Robot1 = new Human('Robot1', 'male', 'I am a man', ['cat - Star', 'woman']);
-var Robot2 = new Human('Robot2', 'female', 'I am a female', ['man', 'dog Bark']);
-var Robot3 = new Human('Bot', 'computer', 'Hello from computer', ['assembler']);
-var Bark = new Dog('Bark', 'male');
-var Star = new Cat('Star', 'female');
+const Robot1 = new Human('male', 'Robot1', [new Cat('male', 'Sun'), new Human('female', 'Ann', 'Hello from Ann')], 'I am a man');
+const Robot2 = new Human('female', 'Robot2', [new Dog('male', 'Dark'), new Human('male', 'Jack', 'Hello from Jack')], 'I am a female');
+const Robot3 = new Human('Bot', 'Computer', [Robot1], 'assembler');
+const Bark = new Dog('male', 'Bark');
+const Star = new Cat('female', 'Star');
 
-var catWoman = new Cat('CatWoman', 'female');
-catWoman.friends = ['cats', 'kottans'];
-catWoman.legs = 2;
+const makeCatWoman = (name, friends) => {
+    const tempObj = new Inhabited('human', 2, 'female', name);
+    const phrase = new Cat().phrase;
+    const sayAbout = new Inhabited().sayAbout;
 
+    return Object.assign(
+        {},
+        tempObj,
+        {
+            hands: 2,
+            phrase,
+            friends,
+            sayAbout
+        }
+    )
+};
+
+
+
+
+
+const catWoman = makeCatWoman('Cat Woman', [Robot1, Robot1]);
 
 print('<div>' + Robot1.sayAbout() + '</div><hr>');
 print('<div>' + Robot2.sayAbout() + '</div><hr>');
