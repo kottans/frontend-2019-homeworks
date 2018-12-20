@@ -100,7 +100,7 @@ p {
     left: 1em;
     width: 2em;
     height: 2em;
-    z-index: 55;
+    z-index: 3;
     background: url("images/filter-tool-black-shape.svg") center no-repeat;
     background-size: cover;
     cursor: pointer;
@@ -127,9 +127,9 @@ p {
     width: 25%;
     padding: 2em 1em;
     position: fixed;
-    top: calc(53px);
+    top: 53px;
     transition: all .4s ease-in-out;
-    z-index: 50;
+    z-index: 2;
 }
 
 .main-sidebar-closed {
@@ -290,7 +290,7 @@ p {
     height: 1.5em;
     background: url('images/close-icon.svg') center no-repeat;
     background-size: 100%;
-    z-index: 55;
+    z-index: 3;
     cursor: pointer;
 }
 
@@ -361,7 +361,7 @@ a.footer-link
     display: none;
     position: fixed;
     background-color: #fff;
-    z-index: 150;
+    z-index: 4;
     top: 0;
     left: 0;
     right: 0;

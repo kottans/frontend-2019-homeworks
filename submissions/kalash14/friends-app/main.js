@@ -69,14 +69,14 @@ let friendAppInit = () => {
 
         for (let i = 0, len = data.length; i < len; i++) {
             let userItem = data[i];
-            usersContent += "<div class='main-content__item'>";
-            usersContent += "<figure class='content-item-thumb " + (userItem.gender === "male" ? "content-item-thumb-male" : "content-item-thumb-female") + "'><img src='"+ (userItem.picture.large ? userItem.picture.large : "") + "' alt='user-thumb'></figure>";
-            usersContent += "<h3 class='content-item-name'>" + (userItem.name.first ? userItem.name.first : "") + " " + (userItem.name.last ? userItem.name.last : "") + "</h3>";
-            usersContent += "<div class='content-item'>Age: " + (userItem.dob.age ? userItem.dob.age : "") + "</div>";
-            usersContent += "<div class='content-item'><span class='user-icon'>" + svgIcons.phone + "</span>" + (userItem.phone ? "<a href='tel:" + userItem.phone + "'>" + userItem.phone + "</a>" : "") + "</div>";
-            usersContent += "<div class='content-item'><span class='user-icon'>" + svgIcons.email + "</span>" + (userItem.email ? "<a href='mailto:" + userItem.email + "'>" + userItem.email + "</a>" : "") + "</div>";
-            usersContent += "<div class='content-item'><span class='user-icon'>" + svgIcons.location + "</span>" + (userItem.location.city ? userItem.location.city : "") + "</div>";
-            usersContent += "</div>";
+            usersContent += `<div class='main-content__item'>`;
+            usersContent += `<figure class='content-item-thumb ${(userItem.gender === "male" ? "content-item-thumb-male" : "content-item-thumb-female")}'><img src='${userItem.picture.large}' alt='user-thumb'></figure>`;
+            usersContent += `<h3 class='content-item-name'> ${userItem.name.first + " " + userItem.name.last}</h3>`;
+            usersContent += `<div class='content-item'>Age: ${userItem.dob.age}</div>`;
+            usersContent += `<div class='content-item'><span class='user-icon'>${svgIcons.phone}</span><a href='tel:${userItem.phone}'>${userItem.phone}</a></div>`;
+            usersContent += `<div class='content-item'><span class='user-icon'>${svgIcons.email}</span><a href='mailto:${userItem.email}'>${userItem.email}</a></div>`;
+            usersContent += `<div class='content-item'><span class='user-icon'>${svgIcons.location}</span>${userItem.location.city}</div>`;
+            usersContent += `</div>`;
         }
 
         uiElements.userContentWrap.insertAdjacentHTML('afterbegin', usersContent);
@@ -110,17 +110,20 @@ let friendAppInit = () => {
         if (filterState.gender) {
             copyUsersArray = copyUsersArray.filter((userItem) => userItem.gender === filterState.gender);
         }
-
-        if (filterState.search) {
+        else if (filterState.search) {
             copyUsersArray = searchFilter(copyUsersArray, filterState.search);
         }
-
-        if (filterState.sortName) {
-            copyUsersArray = copyUsersArray.sort((a, b) => (filterState.sortName === "desc" ?  sortedArrayDESC(a.name.first, b.name.first) : sortedArrayASC(a.name.first, b.name.first)));
+        else if (filterState.sortName === "desc") {
+            copyUsersArray = copyUsersArray.sort((a, b) => sortedArrayDESC(a.name.first, b.name.first));
         }
-
-        if (filterState.sortAge) {
-            copyUsersArray = copyUsersArray.sort((a, b) => (filterState.sortAge === "desc" ?  sortedArrayDESC(a.dob.age, b.dob.age) : sortedArrayASC(a.dob.age, b.dob.age)));
+        else if (filterState.sortName === "asc") {
+            copyUsersArray = copyUsersArray.sort((a, b) => sortedArrayASC(a.name.first, b.name.first));
+        }
+        else if (filterState.sortAge === "desc") {
+            copyUsersArray = copyUsersArray.sort((a, b) => sortedArrayDESC(a.dob.age, b.dob.age));
+        }
+        else if ((filterState.sortAge === "asc")) {
+            copyUsersArray = copyUsersArray.sort((a, b) => sortedArrayASC(a.dob.age, b.dob.age));
         }
 
         return copyUsersArray;
@@ -153,7 +156,7 @@ let friendAppInit = () => {
 
     /* init search handler with debounce function */
 
-    uiElements.inputSearch.addEventListener('keyup', debounce(searchHandler, 2000));
+    uiElements.inputSearch.addEventListener('input', debounce(searchHandler, 2000));
 
     /* sorting methods */
 
@@ -213,14 +216,11 @@ let friendAppInit = () => {
             radioFilterItem.checked = false;
         });
 
-        uiElements.allGenderRadio.checked = true;
+        uiElements.allGenderRadio.checked = true
 
-        filterState = {
-            search: null,
-            gender: null,
-            sortName: null,
-            sortAge: null
-        };
+        for (key in filterState) {
+            filterState[key] = null;
+        }
 
         renderUsersList(getFilteredUsersList(usersArray, filterState));
 
@@ -256,8 +256,6 @@ let friendAppInit = () => {
 
     window.addEventListener('scroll', debounce(scrollHandler, 50));
 
-    /* adding click event listener to filter switching view */
-
     uiElements.closeFilterButton.addEventListener('click', () => {
         uiElements.sidebarMain.classList.add('main-sidebar-closed');
         uiElements.openFilterIcon.classList.add('filter-open-icon-visible');
@@ -272,12 +270,7 @@ let friendAppInit = () => {
 
 document.addEventListener('DOMContentLoaded', mainHandler = () => {
 
-    /* init app */
-
     friendAppInit();
-
-    /* removing unnecessary event listener */
-
     document.removeEventListener('DOMContentLoaded', mainHandler);
 
 });
