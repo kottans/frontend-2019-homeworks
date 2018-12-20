@@ -22,21 +22,14 @@ body {
 }
 
 
-.disabled{
-    pointer-events: none;
-    color: #f2f4fa;
-    cursor: none;
-}
-.nonActive{
-    pointer-events: none;
-}
+
 
 
 
 
 
 /*sort box */
-.sortBox {
+.sortbox {
     position: fixed;
     top: 50px;
     padding: 10px;
@@ -47,20 +40,20 @@ body {
     -moz-box-shadow: 3px 4px 26px 6px rgba(150,129,150,1);
     box-shadow: 3px 4px 26px 6px rgba(150,129,150,1);
 }
-.sortBox__header{
+.sortbox__header{
     font-size: 1.4rem;
     margin-bottom: 10px;
 }
 
-.sortBox__sorted{
+.sortbox__sorted{
     text-align: left;
     margin-bottom: 20px;
     width: 90%;
 }
 
-.sortBox__sortedIcons{
+.sortbox__sortedIcons{
     float: right;
-    cursor: pointer;
+
     color: black;
     width: 50px;
     display: flex;
@@ -69,31 +62,43 @@ body {
 
 }
 
-.sortBox__sortedIcons--active{
+.sortbox__sortedIcons--active{
     color: red;
 }
-.sortBox__sortedIcons  .fas:hover {
+.sortbox__sortedIcons  .fas:hover {
+    cursor: pointer;
  color: blue;
 }
-.sortBox__sortedHeader{
+.sortbox__sortedHeader{
     margin-bottom: 15px;
     font-size: 1.1rem;
     display: inline-block;
 }
 
-.sortBox__resetBtn{
+.sortbox__resetBtn{
     cursor: pointer;
     display: inline-block;
     padding: 10px 30px;
     background-color: white;
 }
-.sortBox__resetBtn:hover{
+.sortbox__resetBtn:hover{
     color: gold;
 }
-.sortBox__sortedInput{
+.sortbox__sortedInput{
     padding: 5px;
 }
 
+
+.disabled{
+
+    pointer-events: none;
+    color: #f2f4fa;
+    cursor: none;
+}
+.nonActive{
+    display: none;
+    pointer-events: none;
+}
 
 
 

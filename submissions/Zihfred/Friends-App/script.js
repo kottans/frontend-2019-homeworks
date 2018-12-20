@@ -1,12 +1,12 @@
 class FriendApp {
     constructor() {
-        this.sortBox = document.querySelector('.sortBox');
+        this.sortBox = document.querySelector('.sortbox');
         this.peoples = document.querySelector('.peoples');
-        this.resetBtn = document.querySelector('.sortBox__resetBtn');
-        this.sortInput = document.querySelector('.sortBox__sortedInput');
+        this.resetBtn = document.querySelector('.sortbox__resetBtn');
+        this.sortInput = document.querySelector('.sortbox__sortedInput');
         this.sortIconMale = document.querySelector('.fa-male');
         this.sortIconFemale = document.querySelector('.fa-female');
-        this.data = [];
+        this.friends = [];
         this.startData = [];
 
         this.init();
@@ -29,8 +29,8 @@ class FriendApp {
             })
             .then(res => {
                 this.startData = res.results;
-                this.data = res.results;
-                this.generatePeoples(this.data);
+                this.friends = res.results;
+                this.generatePeoples(this.friends);
             })
             .catch(err => {
                 console.log(err);
@@ -54,8 +54,8 @@ class FriendApp {
         this.sortIconMale.classList.remove('nonActive');
         this.sortInput.value = '';
         this.clearPeoplesForm();
-        this.data = this.startData;
-        this.generatePeoples(this.data);
+        this.friends = this.startData;
+        this.generatePeoples(this.friends);
     }
 
     generateOnePeopleCard(obj) {
@@ -78,7 +78,7 @@ class FriendApp {
         let location = document.createElement('div');
         location.classList.add('onePeople__description');
         location.classList.add('onePeople__location');
-        location.textContent = `${this.makeFirstLetterUpper(obj.location.city)}`;
+        location.textContent = this.makeFirstLetterUpper(obj.location.city);
 
         let number = document.createElement('div');
         number.classList.add('onePeople__number');
@@ -90,11 +90,10 @@ class FriendApp {
         age.classList.add('onePeople__age');
         age.textContent = `Возраст: ${(obj.dob.age)}`;
 
-        onePeople.appendChild(avatar);
-        onePeople.appendChild(fullName);
-        onePeople.appendChild(location);
-        onePeople.appendChild(age);
-        onePeople.appendChild(number);
+
+        onePeople.append(avatar,fullName,location,age,number);
+
+
 
         return onePeople;
     }
@@ -123,11 +122,11 @@ class FriendApp {
                         this.filterByNameUp();
                     break;
                 case "male":
-                       this.filterByMale();
+                       this.filterByGender('male');
 
                     break;
                 case "female":
-                   this.filterByFemale();
+                   this.filterByGender('female');
             }
         }
     }
@@ -137,9 +136,7 @@ class FriendApp {
         if(this.sortInput.value){
             res =  this.filterByInputAll();
         }
-        res = this.data.sort(function (a, b) {
-            return a.dob.age - b.dob.age;
-        });
+        res = this.friends.sort((a,b)=> a.dob.age - b.dob.age);
         this.generatePeoples(res);
 
     }
@@ -148,11 +145,10 @@ class FriendApp {
         if(this.sortInput.value){
             res =  this.filterByInputAll();
         }
-        res = this.data.sort(function (a, b) {
-            return b.dob.age - a.dob.age;
-        });
+        res = this.friends.sort((a,b)=>b.dob.age - a.dob.age);
         this.clearPeoplesForm();
         this.generatePeoples(res);
+
 
 
     }
@@ -161,7 +157,7 @@ class FriendApp {
         if(this.sortInput.value){
             res =  this.filterByInputAll();
         }
-        res = this.data.sort(function (a, b) {
+        res = this.friends.sort(function (a, b) {
             if (a.name.first < b.name.first) {
                 return -1;
             }
@@ -180,7 +176,7 @@ class FriendApp {
         if(this.sortInput.value){
             res = this.filterByInputAll();
         }
-        res = this.data.sort(function (a, b) {
+        res = this.friends.sort(function (a, b) {
             if (a.name.first < b.name.first) {
                 return 1;
             }
@@ -194,50 +190,50 @@ class FriendApp {
 
 
     }
-    filterByMale(){
-        this.sortIconFemale.classList.add('disabled');
-        this.sortIconMale.classList.add('nonActive');
-        if(this.sortInput.value){
-            this.data = this.filterByInputAll('male');
-        }else{
-            this.data = this.startData;
+
+    filterByGender(gender){
+        if (gender === 'male'){
+            this.sortIconFemale.classList.add('disabled');
+            this.sortIconMale.classList.add('nonActive');
+            if(this.sortInput.value){
+                this.friends = this.filterByInputAll('male');
+            }else{
+                this.friends = this.startData;
+            }
+
+            this.friends = this.friends.filter(people => people.gender === 'male');
+        }else if (gender ==='female'){
+            this.sortIconMale.classList.add('disabled');
+            this.sortIconFemale.classList.add('nonActive');
+            if(this.sortInput.value){
+                this.friends = this.filterByInputAll();
+            }else{
+                this.friends = this.startData;
+            }
+
+            if(this.sortInput.value){
+                this.friends = this.filterByInputAll('female');
+            }
+
+            this.friends = this.friends.filter(people => people.gender === 'female');
+        }else {
+            console.log('Please, specify gender in function filterByGender(gender)');
         }
-
-        this.data = this.data.filter(function (people) {
-            return people.gender === 'male';
-        })
-
         this.clearPeoplesForm();
-        this.generatePeoples(this.data);
+        this.generatePeoples(this.friends);
     }
-    filterByFemale(){
-        this.sortIconMale.classList.add('disabled');
-        this.sortIconFemale.classList.add('nonActive');
-        if(this.sortInput.value){
-            this.data = this.filterByInputAll();
-        }else{
-            this.data = this.startData;
-        }
 
-        if(this.sortInput.value){
-            this.data = this.filterByInputAll('female');
-        }
 
-        this.data = this.data.filter(function (people) {
-            return people.gender === 'female';
-        })
 
-        this.clearPeoplesForm();
-        this.generatePeoples(this.data);
-    }
+
     filterByInputAll(gender){
         let result;
 
-            result = this.data.filter(function (people) {
+            result = this.friends.filter(function (people) {
 
-                return people.name.first.indexOf(this.sortInput.value) != -1 || people.name.last.indexOf(this.sortInput.value) != -1;
+                return people.name.first.includes(this.sortInput.value) == true || people.name.last.indexOf(this.sortInput.value) == true;
             }.bind(this));
-        
+
             return result;
 
 
@@ -248,13 +244,13 @@ class FriendApp {
 
     renderSortedByInput() {
         if (!this.sortInput.value) {
-            this.data  = this.startData;
+            this.friends  = this.startData;
             this.clearPeoplesForm();
-            this.generatePeoples(this.data);
+            this.generatePeoples(this.friends);
         } else {
             this.clearPeoplesForm();
-            this.data = this.filterByInputAll();
-            this.generatePeoples(this.data);
+            this.friends = this.filterByInputAll();
+            this.generatePeoples(this.friends);
 
         }
     }
