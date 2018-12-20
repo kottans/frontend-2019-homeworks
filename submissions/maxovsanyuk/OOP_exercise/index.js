@@ -11,70 +11,61 @@ class Creature {
     this.name = `${name.charAt(0).toUpperCase() + name.slice(1)}`;
     this.gender = gender;
   }
+  saying(){
+   print(`<b>General information</b>(Specie: <b>${this.specie}</b>, Gender: <b>${this.gender}</b>). Hello my name is: <b>${this.name}</b>, I have: <b>${this.legs}</b> legs and <b>${this.hands ? this.hands : "0"}</b> hands. About myself: <b>${this.introduce}</b>`, 'p');
+  } 
+
 }
 
-class Animal extends Creature {
-  constructor(name, gender, hands=0, legs=4) {
-    super(name, gender);
-    this.legs = legs;
-    this.hands = hands;
-  }
-}
-
-class Dog extends Animal {
+class Dog extends Creature{
   constructor(name, gender) {
     super(name, gender);
     this.specie = 'dog';
+    this.legs = 4;
+    this.hands = 0;
     this.introduce = 'I am a dog';
   }
 }
 
-class Cat extends Animal {
+class Cat extends Creature{
   constructor(name, gender) {
     super(name, gender);
-    this.introduce = 'I am a cat';
     this.specie = 'cat';
+    this.legs = 4;
+    this.hands = 0;
+    this.introduce = 'I am a cat';
   }
 }
 
-class Human extends Creature {
-  constructor(name, gender, hands=2, legs=2, specie='human') {
-    super(name, gender);
-    this.specie = specie;
-    this.hands = hands;
-    this.legs = legs;
-  }
-}
-
-class Man extends Human{
-  constructor(name, gender='male'){
-      super(name);
-      this.gender = gender;
+class Man extends Creature{
+  constructor(name, gender){
+      super(name, gender);
+      this.specie = 'human';
+      this.hands = 2;
+      this.legs = 2;
       this.introduce = 'I am a drummer.';
   }
 }
 
-class Woman extends Human{
-  constructor(name, gender='female'){
-      super(name);
+class Woman extends Creature{
+  constructor(name, gender){
+      super(name, gender);
+      this.specie = 'human';
+      this.hands = 2;
+      this.legs = 2;
       this.introduce = 'I am a teacher.';
-      this.gender = gender;
   }
 }
-  
-const introduce = creature => {
-  print(`<b>General information:</b>(Specie: <b>${creature.specie}</b>, Gender: <b>${creature.gender}</b>). Hello my name is: <b>${creature.name}</b>, I have: <b>${creature.legs}</b> legs and <b>${creature.hands ? creature.hands : "I have 0"}</b> hands. About myself: <b>${creature.introduce}</b>`, 'p');
-};
 
 const creaturesArray = [
+  new Man("Maks", 'male'),
+  new Woman("Ira", 'female'),
   new Cat("flash", 'male'),
-  new Dog("Daisy", 'femail'),
-  new Man("Maks"),
-  new Woman("Ira")
+  new Dog("Daisy", 'female')
 ];
 
 creaturesArray.map(creature => {
-  introduce(creature);
+  creature.saying();
 });
 
 // ======== OUTPUT ========
