@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url(../img/2.jpg) no-repeat center;
+  background-size: cover;
+  overflow: hidden; }
+  body h2 {
+    margin-bottom: 20px;
+    font-size: 44px;
+    font-family: 'Indie Flower', cursive;
+    color: #819da0;
+    transition: 1s; }
+    body h2:hover {
+      color: #998ea1; }
+
+.initial-container {
+  width: 750px;
+  height: 555px;
+  min-width: 750px;
+  min-height: 555px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: scroll; }
+
+.new-card {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1px 2px;
+  background: rgba(111, 145, 145, 0.452);
+  border: 0.5px solid #928f8f;
+  border-radius: 4px;
+  transition: .8s; }
+  .new-card:hover {
+    background: rgba(67, 185, 185, 0.301); }
+  .new-card img {
+    visibility: hidden; }
+  .new-card_active {
+    transform: rotateY(180deg);
+    background-color: rgba(7, 7, 7, 0.425); }
+    .new-card_active img {
+      visibility: visible; }
+    .new-card_active:hover {
+      background-color: rgba(7, 7, 7, 0.425); }
+  .new-card_remove {
+    visibility: hidden;
+    background: rgba(55, 151, 71, 0.3);
+    transition: .8s; }
+    .new-card_remove img {
+      visibility: hidden;
+      transform: rotateZ(360deg);
+      transition: .8s;
+      transform: scale(1.1); }
+    .new-card_remove:hover {
+      background: rgba(55, 151, 71, 0.3);
+      transition: .8s; }
+  .new-card_img {
+    width: 70px;
+    height: 70px;
+    transform: rotateY(180deg); }
