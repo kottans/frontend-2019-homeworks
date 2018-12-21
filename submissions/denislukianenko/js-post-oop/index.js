@@ -2,19 +2,20 @@ const defaultCatSaying = "Meow-ow";
 
 // ======== CLASSES ==========
 function Creature(
+  species = "creature",
   name = "Creature",
   gender = "No gender",
   saying = "Que-qa",
   legs = 4
 ) {
-  this.species = "creature";
+  this.species = species ? species : "creature";
   this.name = name ? name : "Creature";
   this.gender = gender ? gender : "No gender";
   this.saying = saying ? saying : "Que-qa";
   this.legs = legs ? legs : 4;
 }
 Creature.prototype.formPrintString = function() {
-  this.printStr =
+  return (
     '<span style="font-weight: bold; font-size: 23px">' +
     this.name +
     "</span>" +
@@ -28,41 +29,35 @@ Creature.prototype.formPrintString = function() {
     this.saying +
     "<br>" +
     "  Legs: " +
-    this.legs;
-};
-Creature.prototype.printInfo = function() {
-  this.formPrintString();
-  print(this.printStr);
+    this.legs
+  );
 };
 
 //-----------------------------------------------------------------------------------
 function Cat(name, gender, saying, legs) {
-  Creature.apply(this, arguments);
-  this.species = "cat";
+  Creature.apply(this, ["cat", ...arguments]);
 }
 Cat.prototype = Object.create(Creature.prototype);
 Cat.prototype.constructor = Cat;
 
 //-----------------------------------------------------------------------------------
 function Dog(name, gender, saying, legs) {
-  Creature.apply(this, arguments);
-  this.species = "dog";
+  Creature.apply(this, ["dog", ...arguments]);
 }
 Dog.prototype = Object.create(Creature.prototype);
 Dog.prototype.constructor = Dog;
 
 //------------------------------------------------------------------------------------
 function Human(name, gender, saying, legs, hands = 2, friends = []) {
-  Creature.apply(this, arguments);
-  this.species = "human";
+  Creature.apply(this, ["human", ...arguments]);
   this.hands = hands ? hands : 2;
   this.friends = friends ? friends : [];
 }
 Human.prototype = Object.create(Creature.prototype);
 Human.prototype.constructor = Human;
-Human.prototype.printInfo = function() {
-  Creature.prototype.formPrintString.apply(this);
-  this.printStr +=
+Human.prototype.formPrintString = function() {
+  return (
+    Creature.prototype.formPrintString.apply(this) +
     "<br>" +
     "  Hands: " +
     this.hands +
@@ -72,13 +67,12 @@ Human.prototype.printInfo = function() {
       .map(function(element) {
         return element.name;
       })
-      .join(", ");
-  print(this.printStr);
+      .join(", ")
+  );
 };
 //-------------------------------------------------------------------------------------
 function CatWoman(name, gender, saying, legs, hands, friends) {
   Human.apply(this, arguments);
-  this.species = "cat-woman";
   this.saying = defaultCatSaying;
 }
 CatWoman.prototype = Object.create(Human.prototype);
@@ -95,5 +89,5 @@ let allInhabitants = [];
 allInhabitants.push(dog, cat, woman, man, catWoman);
 // ======= OUTPUT =========
 allInhabitants.forEach(function(el) {
-  el.printInfo();
+  print(el.formPrintString());
 });
