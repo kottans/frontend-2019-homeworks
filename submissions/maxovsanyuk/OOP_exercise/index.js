@@ -32,8 +32,8 @@ class Dog extends Creature{
 }
 
 class Cat extends Creature{
-  constructor(name, gender, legs, hands) {
-    super(name, gender, legs, hands);
+  constructor(name, gender) {
+    super(name, gender);
     this.specie = 'cat';
     this.legs = 4;
     this.hands = 0;
