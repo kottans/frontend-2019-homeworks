@@ -1,12 +1,14 @@
 const BLOCK_HEIGHT = 83;
 const BLOCK_WIDTH = 101;
-const TOP_OffSET = 20;
+const TOP_OFFSET = 20;
 const ROWS_NUMBER = 5;
 const COLS_NUMBER = 4;
 const INITIAL_PLAYER_ROW = 5;
 const INITIAL_PLAYER_COL = 2;
 const INITIAL_PLAYER_LIFE = 3;
 const SCORE_PER_LEVEL = 3;
+const PLAYER_IMAGE = "images/char-boy.png";
+const ENEMY_IMAGE = "images/enemy-bug.png";
 
 const FIELD_HEIGHT = BLOCK_HEIGHT * ROWS_NUMBER;
 const FIELD_WIDTH = BLOCK_WIDTH * COLS_NUMBER;
@@ -14,7 +16,7 @@ const INITIAL_PLAYER_X = INITIAL_PLAYER_COL * BLOCK_WIDTH;
 const INITIAL_PLAYER_Y = INITIAL_PLAYER_ROW * BLOCK_HEIGHT;
 
 const INITIAL_ENEMIES_ROWS = [1, 2, 3].map(
-  rowNumber => rowNumber * BLOCK_HEIGHT - TOP_OffSET
+  rowNumber => rowNumber * BLOCK_HEIGHT - TOP_OFFSET
 );
 const RANDOM_SPEED = (min = 60, max = 200) =>
   Math.floor(Math.random() * (max - min)) + min;
@@ -25,19 +27,19 @@ Element.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Element.prototype.collision = function() {
+Element.prototype.checkCollision = function() {
   if (
-    this.x > player.x - BLOCK_WIDTH + TOP_OffSET &&
-    this.x < player.x + BLOCK_WIDTH - TOP_OffSET &&
-    this.y > player.y - BLOCK_HEIGHT + TOP_OffSET &&
-    this.y < player.y + BLOCK_HEIGHT - TOP_OffSET
+    this.x > player.x - BLOCK_WIDTH + TOP_OFFSET &&
+    this.x < player.x + BLOCK_WIDTH - TOP_OFFSET &&
+    this.y > player.y - BLOCK_HEIGHT + TOP_OFFSET &&
+    this.y < player.y + BLOCK_HEIGHT - TOP_OFFSET
   ) {
     this.interaction();
   }
 };
 
 let Enemy = function(x, y, speed) {
-  this.sprite = "images/enemy-bug.png";
+  this.sprite = ENEMY_IMAGE;
   this.x = x;
   this.y = y;
   this.speed = speed;
@@ -49,7 +51,7 @@ Enemy.prototype.update = function(dt) {
   this.x < FIELD_WIDTH + BLOCK_WIDTH
     ? (this.x += this.speed * dt * player.level)
     : (this.x = -BLOCK_WIDTH);
-  this.collision();
+  this.checkCollision();
 };
 
 Enemy.prototype.interaction = function() {
@@ -63,7 +65,7 @@ Enemy.prototype.interaction = function() {
 };
 
 let Player = function(x, y) {
-  this.sprite = "images/char-boy.png";
+  this.sprite = PLAYER_IMAGE;
   this.x = x;
   this.y = y;
   this.life = INITIAL_PLAYER_LIFE;
