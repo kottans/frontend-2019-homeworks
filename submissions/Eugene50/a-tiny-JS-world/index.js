@@ -17,5 +17,4 @@ let woman = new Citizens('human','female','Maria', 2, 2, 'I want coffee!!!');
 const all  = [man, woman, cat, dog];
 all.forEach(element => {
     print(`${element.species}; ${element.gender}; ${element.name}; ${element.legs}; ${element.hands}; ${element.say}`);
-
-});
+})
