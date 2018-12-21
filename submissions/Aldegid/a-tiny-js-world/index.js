@@ -59,6 +59,7 @@ const catWoman = {
   hands: 2,
   saying: woman.saying + " and sometimes " + cat.saying 
 };
+
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
@@ -72,3 +73,4 @@ const catWoman = {
   print(creature(man));
   print(creature(woman));
   print(creature(catWoman));
+  
