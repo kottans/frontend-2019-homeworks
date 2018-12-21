@@ -54,18 +54,13 @@ const catWoman = {
 };
 
 // ======== OUTPUT ========
+//another approach
 function getMessage(obj) {
-  var message =  
-  Object.keys(obj).map(key => {
-    if (Array.isArray(obj[key])){
-     return obj[key].join(', ');
+  var message = "";
+    for (var key of Object.keys(obj)) {
+        message += obj[key] + " ;";
     }
-    else{
-      return obj[key];
-    }
-  }).join('; ');
-  
-  return message;
+    return message;
 }
 
 print(getMessage(dog));
