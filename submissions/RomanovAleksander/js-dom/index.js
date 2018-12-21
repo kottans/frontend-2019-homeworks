@@ -10,7 +10,6 @@ class Menu {
         this.targetEl = targetElement;
         this.array = array;
         this.itemArray = [];
-        this.render();
         this.renderList();
         this.toggle();
     }
@@ -21,6 +20,7 @@ class Menu {
         this.listElement = document.createElement('div');
         this.text = document.createElement('p');
         this.img = document.createElement('img');
+        this.fragment = document.createDocumentFragment();
 
         this.item.classList.add(MENU_GENERAL_CLASS);
         this.titleElement.classList.add(MENU_BTN_CLASS);
@@ -37,13 +37,14 @@ class Menu {
     }
 
     renderList() {
-        for (let i = 0; i < this.array.length; i++) {
+        this.array.forEach(item => {
             this.render();
-            this.targetEl.appendChild(this.item);
-            this.titleElement.textContent = this.array[i].title;
-            this.text.textContent = this.array[i].text;
-            this.img.src = this.array[i].img;
-        }
+			this.targetEl.appendChild(this.item);
+            this.titleElement.textContent = item.title;
+            this.text.textContent = item.text;
+            this.img.src = item.img;
+        });
+//        this.targetEl.appendChild(this.fragment);
     }
 
     off() {
@@ -51,18 +52,27 @@ class Menu {
                 item.classList.remove('item_active');
             }
         )
-
     }
 
-    toggle() {
-        this.itemArray.forEach(item => {
-            item.addEventListener('click', () => {
-                    this.off();
-                    item.classList.add(MENU_ACTIVE_CLASS);
+    add(event) {
+        let target = event.target;
+        while(target !== this ) {
+            if (target.className === 'item') {
+                target.classList.add(MENU_ACTIVE_CLASS);
+                break;
+            }
+            target = target.parentNode;
+        }
+    }
 
+
+    toggle() {
+        document.querySelector('.content').addEventListener('click', () => {
+                    this.off();
+                    this.add(event);
                 }
             )
-        })
+
     }
 }
 
