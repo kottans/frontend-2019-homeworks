@@ -7,12 +7,16 @@
 // Define your objects here
 
 class Creature {
-  constructor(name, gender) {
+  constructor(name, gender, legs, hands, introduce) {
     this.name = `${name.charAt(0).toUpperCase() + name.slice(1)}`;
     this.gender = gender;
+    this.hands = hands;
+    this.legs = legs;
+    this.introduce = introduce;
   }
-  saying(){
-   print(`<b>General information</b>(Specie: <b>${this.specie}</b>, Gender: <b>${this.gender}</b>). Hello my name is: <b>${this.name}</b>, I have: <b>${this.legs}</b> legs and <b>${this.hands ? this.hands : "0"}</b> hands. About myself: <b>${this.introduce}</b>`, 'p');
+  
+  sayAboutSelf(){
+  return `<b>General information</b>(Specie: <b>${this.specie}</b>, Gender: <b>${this.gender}</b>). Hello my name is: <b>${this.name}</b>, I have: <b>${this.legs}</b> legs and <b>${this.hands ? this.hands : "0"}</b> hands. About myself: <b>${this.introduce}</b>`;
   } 
 
 }
@@ -28,8 +32,8 @@ class Dog extends Creature{
 }
 
 class Cat extends Creature{
-  constructor(name, gender) {
-    super(name, gender);
+  constructor(name, gender, legs, hands) {
+    super(name, gender, legs, hands);
     this.specie = 'cat';
     this.legs = 4;
     this.hands = 0;
@@ -38,8 +42,9 @@ class Cat extends Creature{
 }
 
 class Man extends Creature{
-  constructor(name, gender){
-      super(name, gender);
+  constructor(name){
+      super(name);
+      this.gender = 'male';
       this.specie = 'human';
       this.hands = 2;
       this.legs = 2;
@@ -48,8 +53,9 @@ class Man extends Creature{
 }
 
 class Woman extends Creature{
-  constructor(name, gender){
-      super(name, gender);
+  constructor(name){
+      super(name);
+      this.gender = 'female';
       this.specie = 'human';
       this.hands = 2;
       this.legs = 2;
@@ -58,14 +64,14 @@ class Woman extends Creature{
 }
 
 const creaturesArray = [
-  new Man("Maks", 'male'),
-  new Woman("Ira", 'female'),
+  new Man("Maks"),
+  new Woman("Ira"),
   new Cat("flash", 'male'),
   new Dog("Daisy", 'female')
 ];
 
 creaturesArray.map(creature => {
-  creature.saying();
+  print(creature.sayAboutSelf(), 'p');
 });
 
 // ======== OUTPUT ========
