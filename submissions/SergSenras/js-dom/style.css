@@ -8,14 +8,14 @@ body, html {
   box-sizing: border-box;
 }
 
-main, #header, main{
+.content, .header__wrapper{
     min-width: 400px;
 }
-main{
+.content{
   margin-bottom: 20px;
 }
 a{
-  color: #000000;
+  color: #000;
   text-decoration: none;
 }
 ul li{
@@ -24,7 +24,7 @@ ul li{
   list-style-type: none;
 }
 /* header */
-#header{
+.header__wrapper{
   width: 100%;
   min-height: 56px;
   margin: 0 auto;
@@ -63,20 +63,20 @@ ul li{
     background: #ddd;
 }
 /* content */
-.item_box{
+.item__box{
   padding: 15px;
   min-height: 150px;
   border-bottom: 1px solid #ccc;
   overflow: auto;
 }
-.item_box:last-child{
+.item__box:last-child{
   border: none;
 }
-.item_box img{
+.item__box img{
   float: left;
   margin: 15px 15px 10px 0;
 }
-.item_box .img_town{
+.item__box .img__town{
   margin: 0 15px 0 0;
   width: 122px;
   height: 99px;
@@ -87,7 +87,7 @@ ul li{
   .header__title{
     margin-left: 50px;
   }
-  #nav {
+  .nav__wrapper {
     z-index: 10;
     background-color: #fff;
     width: 200px;
@@ -96,7 +96,7 @@ ul li{
     transform: translate(-200px, 0);
     transition: transform 0.3s ease;
   }
-  #nav.open {
+  .nav__wrapper.open {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
   }
@@ -110,7 +110,7 @@ ul li{
   }
 }
 @media screen and (min-width: 850px) {
-  main, #header, #nav, main {
+  .content, .header__wrapper, .nav__wrapper {
     width: 850px;
     margin-left: auto;
     margin-right: auto;

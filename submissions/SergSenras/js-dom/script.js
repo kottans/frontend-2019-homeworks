@@ -31,11 +31,11 @@ function displayContent(key){
   var contentTowns = function(){
     for(var i in towns){
       const wrapper = document.createElement('div');
-      wrapper.className = 'item_box';
+      wrapper.className = 'item__box';
       const headerEl = document.createElement('h2');
       const textEl = document.createElement('p');
       const imageEl = document.createElement('img');
-      imageEl.className = 'img_town';
+      imageEl.className = 'img__town';
       headerEl.innerText = towns[i].name;
       textEl.innerText = towns[i].content;
       imageEl.src = towns[i].image;
@@ -49,7 +49,7 @@ function displayContent(key){
   var contentPlot = function(){
     clear();
     const wrapper = document.createElement('div');
-    wrapper.className = 'item_box';
+    wrapper.className = 'item__box';
     const textEl = document.createElement('p');
     textEl.innerText = plot.content;
     wrapper.appendChild(textEl);
@@ -59,7 +59,7 @@ function displayContent(key){
   var contentMain = function(){
     clear();
     const wrapper = document.createElement('div');
-    wrapper.className = 'item_box';
+    wrapper.className = 'item__box';
     const textEl = document.createElement('p');
     const imageEl = document.createElement('img');
     textEl.innerText = main.content;
