@@ -7,7 +7,7 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
-function outCreature(obj) {
+function creature(obj) {
   var msg = [];
   for (let key of Object.keys(obj)) {
     msg.push(obj[key]);
@@ -59,11 +59,6 @@ const catWoman = {
   hands: 2,
   saying: woman.saying + " and sometimes " + cat.saying 
 };
-
-
-
-
-
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
@@ -72,18 +67,8 @@ const catWoman = {
    However, please, REFRAIN from improving visuals at least until your code is reviewed
    so code reviewers might focus on a single file that is index.js.
    */
-  print(outCreature(dog));
-  print(outCreature(cat));
-  print(outCreature(man));
-  print(outCreature(woman));
-  print(outCreature(catWoman));
-
-/* Print examples:
-   print('ABC');
-   print('<strong>ABC</strong>');
-   print('<strong>ABC</strong>', 'div');
-
-   print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
-   */
+  print(creature(dog));
+  print(creature(cat));
+  print(creature(man));
+  print(creature(woman));
+  print(creature(catWoman));
