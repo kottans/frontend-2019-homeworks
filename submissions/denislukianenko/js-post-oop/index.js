@@ -73,6 +73,7 @@ Human.prototype.formPrintString = function() {
 //-------------------------------------------------------------------------------------
 function CatWoman(name, gender, saying, legs, hands, friends) {
   Human.apply(this, arguments);
+  this.species = "cat-woman";
   this.saying = defaultCatSaying;
 }
 CatWoman.prototype = Object.create(Human.prototype);
