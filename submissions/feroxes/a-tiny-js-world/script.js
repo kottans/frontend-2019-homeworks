@@ -33,4 +33,4 @@ let nick = new Person('human', 'male', 'Nick','Hellooooo...',2 ,2, ['Kate', 'Jan
 let helen = new Person('human', 'female', 'Helen', 'Hi!', 2,2)
 
 let bars = new Creature('cat', 'female', 'Bars', 'Meuuuu', 4, 0);
-let skot = new Creature('dog', 'male', 'Skot', 'Auuuuu!', 4,0);
+let skot = new Creature('dog', 'male', 'Skot', 'Auuuuu!', 4, 0);
