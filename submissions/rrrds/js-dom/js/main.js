@@ -81,13 +81,14 @@ data.forEach((menuItem, idx) => {
   content.dataset.indexNumber = idx;
 
   main.appendChild(content);
+
+  if (idx === 0) {
+    li.classList.add('nav__item--active');
+    content.classList.add('content__item--visible');
+  }
 });
 
 navigation.appendChild(ul);
-
-document
-  .querySelector('.nav__item')
-  .dispatchEvent(new MouseEvent('click', { view: window, bubbles: true }));
 
 document.querySelector('.header__burger').addEventListener('click', () => {
   navigation.classList.toggle('nav--visible');
