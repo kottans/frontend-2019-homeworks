@@ -13,7 +13,7 @@ const dog = {
   gender: "male",
   legs: 4,
   hands: 0,
-  saying: "\"woof\"",
+  saying: "woof",
   friends: ["John", "Seba"]
 };
 const cat = {
@@ -22,7 +22,7 @@ const cat = {
   gender: "male",
   legs: 4,
   hands: 0,
-  saying: "\"meow\"",
+  saying: "meow",
   friends: ["Didko"]
 };
 const woman = {
@@ -31,7 +31,7 @@ const woman = {
   gender: "female",
   legs: 2,
   hands: 2,
-  saying: "\"Hi, beauty!\"",
+  saying: "Hi, beauty!",
   friends: ["Murmuletka", "Seba"]
 };
 const man = {
@@ -40,7 +40,7 @@ const man = {
   gender: "male",
   legs: 2,
   hands: 2,
-  saying: "\"What's up, man?\"",
+  saying: "What's up, man?",
   friends: ["Polina", "Didko"]
 };
 const catWoman = {
@@ -54,40 +54,23 @@ const catWoman = {
 };
 
 // ======== OUTPUT ========
-function output(obj) {
-  var message = '';
-  Object.keys(obj).forEach((key, idx) => {
-    message += obj[key];
-    if (idx !== Object.keys(obj).length - 1)
-    {
-      message += '; ';
+function getMessage(obj) {
+  var message =  
+  Object.keys(obj).map(key => {
+    if (Array.isArray(obj[key])){
+     return obj[key].join(', ');
     }
-  });
-  var defaultTag = 'div';
-  print(message, defaultTag);
+    else{
+      return obj[key];
+    }
+  }).join('; ');
+  
+  return message;
 }
 
-output(dog);
-output(cat);
-output(woman);
-output(man);
-output(catWoman);
-/* Use print(message) for output.
-   Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
-
-   Message can contain HTML markup. You may also tweak index.html and/or styles.css.
-   However, please, REFRAIN from improving visuals at least until your code is reviewed
-   so code reviewers might focus on a single file that is index.js.
-   */
-
-/* Print examples:
-   print('ABC');
-   print('<strong>ABC</strong>');
-   print('<strong>ABC</strong>', 'div');
-
-   print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
-   */
-
+print(getMessage(dog));
+print(getMessage(cat));
+print(getMessage(woman));
+print(getMessage(man));
+print(getMessage(catWoman));
 
