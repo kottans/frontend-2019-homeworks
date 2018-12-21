@@ -35,7 +35,7 @@ function displayContent(key){
       const headerEl = document.createElement('h2');
       const textEl = document.createElement('p');
       const imageEl = document.createElement('img');
-      imageEl.className = 'img__town';
+      imageEl.className = 'img__town img__common';
       headerEl.innerText = towns[i].name;
       textEl.innerText = towns[i].content;
       imageEl.src = towns[i].image;
@@ -62,6 +62,7 @@ function displayContent(key){
     wrapper.className = 'item__box';
     const textEl = document.createElement('p');
     const imageEl = document.createElement('img');
+    imageEl.className = 'img__common';
     textEl.innerText = main.content;
     imageEl.src = main.image;
     wrapper.appendChild(imageEl);
