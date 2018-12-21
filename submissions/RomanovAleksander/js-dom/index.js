@@ -20,7 +20,7 @@ class Menu {
         this.listElement = document.createElement('div');
         this.text = document.createElement('p');
         this.img = document.createElement('img');
-        this.fragment = document.createDocumentFragment();
+        //this.fragment = document.createDocumentFragment();
 
         this.item.classList.add(MENU_GENERAL_CLASS);
         this.titleElement.classList.add(MENU_BTN_CLASS);
