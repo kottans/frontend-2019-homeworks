@@ -1,5 +1,5 @@
 class Citizens {
-    constructor (species, gender, name, legs = '', hands = '', say){
+    constructor (species, gender, name, say, legs = 'null', hands = 'null' ){
      this.species = species;
      this.gender = gender;
      this.name = name;
@@ -9,12 +9,12 @@ class Citizens {
     }
 };
 
-let dog = new Citizens('dog','male','Sharik', 4, 0, 'Gaf!!!');
-let cat = new Citizens('cat', 'male', 'Murzik', 4, 0, 'Mjau)' );
-let man = new Citizens('human','male','Alex', 2, 2, 'Hello to All!!!');
-let woman = new Citizens('human','female','Maria', 2, 2, 'I want coffee!!!');
+let dog = new Citizens('dog','male','Sharik','Gaf!!!', 4);
+let cat = new Citizens('cat', 'male', 'Murzik','Mjau)', 4 );
+let man = new Citizens('human','male','Alex','Hello to All!!!', 2, 2);
+let woman = new Citizens('human','female','Maria','I want coffee!!!', 2, 2);
 
 const all = [man, woman, cat, dog];
 all.forEach(element => {
-    print(`${element.species}; ${element.gender}; ${element.name}; ${element.legs}; ${element.hands}; ${element.say}`);
+    print([element.species, element.gender, element.name, element.say, element.legs, element.hands].join('; '));
 })
