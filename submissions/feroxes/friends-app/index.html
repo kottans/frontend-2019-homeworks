@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Friend App</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style/reset.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="filter">
+        <h2>Filter them all!</h2>
+        <div class="filter-container">
+            <div class="by-age-filter">
+                <p>by Age</p>
+                <div class="filter-btn" id="by-age-up"></div>
+                <div class="filter-btn" id="by-age-down"></div>
+            </div>
+            <div class="by-name-filter">
+                <p>by Name</p>
+                <div class="filter-btn" id="by-name-a-z">A-Z</div>
+                <div class="filter-btn" id="by-name-z-a">Z-A</div>
+            </div>
+            <div class="by-gender-filter">
+                <p>Male</p>
+                <div class="filter-btn" id="male-btn"></div>
+                <p>Female</p>
+                <div class="filter-btn" id="female-btn"></div>
+            </div>
+            <div class="search-by-name">
+                <input id="search" type="text" placeholder="search by name...">
+            </div>
+            <div id="reset-btn">Reset</div>
+        </div>
+    </div>
+    <div id="dashboard" class="dashboard">
+        <h1>Your friends list</h1>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
