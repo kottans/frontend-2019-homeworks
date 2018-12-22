@@ -3,12 +3,6 @@ html {
   height: auto;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
 body {
   background-color: #F1E3A7;
   margin: 0;
