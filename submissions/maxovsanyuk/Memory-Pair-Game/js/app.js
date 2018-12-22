@@ -4,8 +4,8 @@ class App{
         this.isTwoCardsActive = false;
         this.isFirstCard = true;
         this.gameScore = 0;
-        this.firstCard = undefined;
-        this.secondCard = undefined;
+        this.firstCard = null;
+        this.secondCard = null;
         this.allNumberImg = 12;
         this.imgList = [
             {
@@ -43,11 +43,12 @@ class App{
 
         const initialContainer = document.createElement('div');
         initialContainer.classList.add('initial-container');
-        document.body.appendChild(initialContainer);
-
+        
         const gameTitle = document.createElement('h2');
         gameTitle.textContent = "Memory – Pair Game";
-        initialContainer.insertAdjacentElement('beforebegin', gameTitle);
+        initialContainer.appendChild(gameTitle);
+
+        document.body.appendChild(initialContainer);
 
         this.addAllimg(allImgList, initialContainer);
     }
@@ -65,13 +66,15 @@ class App{
         
             initialContainer.appendChild(createNewCard);
             createNewCard.appendChild(newImg);
-            
-            this.checking(createNewCard, newImg);
+        
         });
+
+        this.checkCard(initialContainer);
+    
     }
 
-    checking(createNewCard, newImg){
-        createNewCard.addEventListener('mousedown', onMouseDown.bind(this)); 
+    checkCard(initialContainer, newImg){
+        initialContainer.addEventListener('mousedown', onMouseDown.bind(this)); 
         function onMouseDown (event){
 
             if( event.target == newImg || this.isTwoCardsActive){

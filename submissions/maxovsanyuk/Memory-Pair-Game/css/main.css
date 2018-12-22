@@ -13,19 +13,21 @@ body {
   background-size: cover;
   overflow: hidden; }
   body h2 {
+    width: 100%;
     margin-bottom: 20px;
     font-size: 44px;
     font-family: 'Indie Flower', cursive;
     color: #819da0;
+    text-align: center;
     transition: 1s; }
     body h2:hover {
       color: #998ea1; }
 
 .initial-container {
   width: 750px;
-  height: 555px;
+  height: 640px;
   min-width: 750px;
-  min-height: 555px;
+  min-height: 640px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

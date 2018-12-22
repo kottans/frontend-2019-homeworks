@@ -14,10 +14,12 @@ body{
     background-size: cover;
     overflow: hidden;
     h2{
+        width: 100%;
         margin-bottom: 20px;
         font-size: 44px;
         font-family: 'Indie Flower', cursive;
         color: rgb(129, 157, 160);
+        text-align: center;
         transition: 1s;
         &:hover{
             color: rgb(153, 142, 161);
@@ -27,9 +29,9 @@ body{
 
 .initial-container{
     width: 750px;
-    height: 555px;
+    height: 640px;
     min-width: 750px;
-    min-height: 555px;
+    min-height: 640px;
     display: flex;
     flex-wrap:  wrap;
     justify-content: center;
