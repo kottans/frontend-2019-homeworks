@@ -1,44 +1,63 @@
-window.onload = function() {
-    let images = [
-        "./img/1.png",
-        "./img/2.png",
-        "./img/3.png",
-        "./img/4.png",
-        "./img/5.png",
-        "./img/6.png"
-    ]
-    let openCards = [];
+const FILES = ["./img/1.png", "./img/2.png", "./img/3.png", "./img/4.png", "./img/5.png", "./img/6.png"]
+const BODY = document.querySelector("body")
+const CONGRATULATION = document.createElement("div")
+const WON_STRING = document.createElement("p")
+const RESTART = document.createElement("button")
 
-    const pageContainer = document.getElementById("container")
-    const table = document.createElement("table")
-
-    images = images.concat(images)
-    images.sort(function() { return 0.5 - Math.random() })
-        
-    for(let i=0; i<3; i++){
-        const tr = document.createElement("tr")
-        for(let j=0; j<4; j++){
-            const td = document.createElement("td")
-            const flipContainer = document.createElement("div")
-            flipContainer.classList = "flip-container"
-            const img = document.createElement("img")
-            img.src = images.shift()
-            img.classList = "front"
-            const back = document.createElement("div")
-            back.classList = "back"
-            flipContainer.appendChild(img)
-            flipContainer.appendChild(back)
-            td.appendChild(flipContainer)
-            tr.appendChild(td)
-        }
-        table.appendChild(tr)
+function renderCongratulation(){
+    CONGRATULATION.classList = "ho"
+    WON_STRING.innerHTML = "🎉 YOU WON! 🎉"
+    RESTART.id = "restart"
+    RESTART.innerHTML = "Play again 🎅🏻"
+    RESTART.onclick = () => {
+        BODY.removeChild(CONGRATULATION)
+        initGame()
     }
-
-    table.addEventListener("click", (evt) => {
-        if(evt.target.tagName === "DIV"){
-            evt.target.classList.toggle("flip")
-        }
-    })
-    
-    pageContainer.appendChild(table)
+    CONGRATULATION.appendChild(WON_STRING)
+    CONGRATULATION.appendChild(RESTART)
+    BODY.removeChild(document.getElementById("field"))
+    BODY.appendChild(CONGRATULATION)
 }
+
+function initGame(){
+    const FIELD = document.createElement("div")
+    FIELD.id = "field"
+    
+    let images = FILES.concat(FILES)
+    images.sort(() => 0.5 - Math.random())
+
+    let openCards = []
+
+    for(let i=0; i<12; i++){
+        const IMAGE = document.createElement("img")
+        IMAGE.classList = "back"
+        IMAGE.src = images.shift()
+
+        const FRONT = document.createElement("div")
+        FRONT.classList = "front"
+        
+        const FLIPPER = document.createElement("div")
+        FLIPPER.classList = "flipper"
+        FLIPPER.addEventListener("click", (event) => {
+            if(event.target.tagName === "DIV" && openCards.length<2){
+                FLIPPER.classList.toggle("flip")
+                openCards.push(FLIPPER)
+                if(openCards.length === 2)
+                    setTimeout(() => {
+                        openCards[0].children[0].src === openCards[1].children[0].src ? 
+                            openCards.forEach(element => element.children[0].classList.toggle("hide")) :
+                            openCards.forEach(element => element.classList.toggle("flip"))
+                        openCards = []
+                        if(document.getElementsByClassName("hide").length === 12)
+                            renderCongratulation()
+                    }, 700)
+            }
+        })
+        FLIPPER.appendChild(IMAGE)
+        FLIPPER.appendChild(FRONT)
+        FIELD.appendChild(FLIPPER)
+    }
+    BODY.appendChild(FIELD)
+}
+
+initGame()
