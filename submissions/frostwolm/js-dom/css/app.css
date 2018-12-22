@@ -15,11 +15,6 @@ body {
   height: 100%;
 }
 
-img{
-  width: 100%;
-  height: auto;
-}
-
 .container{
   min-height: 100vh;
   background-color: #B18F6A;
@@ -70,7 +65,9 @@ img{
 }
 
 .text__img{
+  width: 100%;
   max-width: 40vw;
+  height: auto;
   padding: 0 10px;
 }
 
