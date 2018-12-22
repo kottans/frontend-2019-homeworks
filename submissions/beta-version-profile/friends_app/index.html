@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Friends App</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <aside class="filter-panel">
+      <form>
+        <fieldset>
+          <legend>Name</legend>
+          <label class="inp" for="search"
+            ><input type="search" id="search" placeholder="&nbsp;" />
+            <span class="label">Search...</span> <span class="border"></span>
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>Gender</legend>
+          <label
+            ><input name="gender" type="radio" data-gender="male" />M</label
+          >
+          <label
+            ><input name="gender" type="radio" data-gender="female" />W</label
+          >
+          <label
+            ><input
+              name="gender"
+              type="radio"
+              data-gender="all"
+              checked
+            />All</label
+          >
+        </fieldset>
+        <fieldset>
+          <legend>Sort by name</legend>
+          <label
+            ><input
+              name="sortBy"
+              type="radio"
+              data-sort-by="nameDec"
+            />&#11015;</label
+          >
+          <label
+            ><input
+              name="sortBy"
+              type="radio"
+              data-sort-by="nameInc"
+            />&#11014;</label
+          >
+        </fieldset>
+        <fieldset>
+          <legend>Sort by age</legend>
+          <label
+            ><input
+              name="sortBy"
+              type="radio"
+              data-sort-by="ageDec"
+            />&#11015;</label
+          >
+          <label
+            ><input
+              name="sortBy"
+              type="radio"
+              data-sort-by="ageInc"
+            />&#11014;</label
+          >
+        </fieldset>
+        <button id="resetBtn" type="submit">reset</button>
+      </form>
+    </aside>
+    <main class="dashboard">
+      <h1 class="title">Friends App</h1>
+      <slot id="content"></slot>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
