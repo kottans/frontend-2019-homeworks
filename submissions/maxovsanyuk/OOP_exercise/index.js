@@ -7,13 +7,13 @@
 // Define your objects here
 
 class Creature {
-  constructor(name, gender, legs, hands, introduce) {
+  constructor(name, gender, legs, hands, introduce, specie) {
     this.name = `${name.charAt(0).toUpperCase() + name.slice(1)}`;
     this.gender = gender;
-    this.hands = hands;
     this.legs = legs;
-    
+    this.hands = hands;
     this.introduce = introduce;
+    this.specie = specie;
   }
   
   sayAboutSelf(){
@@ -22,45 +22,27 @@ class Creature {
 
 }
 
-class Dog extends Creature{
+class Dog extends Creature {
   constructor(name, gender) {
-    super(name, gender);
-    this.specie = 'dog';
-    this.legs = 4;
-    this.hands = 0;
-    this.introduce = 'I am a dog';
+    super(name, gender, 4, 0, 'I am a dog', 'dog');
   }
 }
 
 class Cat extends Creature{
   constructor(name, gender) {
-    super(name, gender);
-    this.specie = 'cat';
-    this.legs = 4;
-    this.hands = 0;
-    this.introduce = 'I am a cat';
+    super(name, gender, 4, 0, 'I am a cat', 'cat');
   }
 }
 
 class Man extends Creature{
   constructor(name){
-      super(name);
-      this.gender = 'male';
-      this.specie = 'human';
-      this.hands = 2;
-      this.legs = 2;
-      this.introduce = 'I am a drummer.';
+      super(name, 'male', 2, 2, 'I am a drummer.', 'humen');
   }
 }
 
 class Woman extends Creature{
   constructor(name){
-      super(name);
-      this.gender = 'female';
-      this.specie = 'human';
-      this.hands = 2;
-      this.legs = 2;
-      this.introduce = 'I am a teacher.';
+    super(name, 'male', 2, 2, 'I am a teacher.', 'humen');
   }
 }
 
