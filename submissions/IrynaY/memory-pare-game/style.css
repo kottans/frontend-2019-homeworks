@@ -61,3 +61,26 @@ p{
 	color: red;
 	font-weight: bold;
 }
+  
+@media screen and (max-width: 799px) {
+	img, .flipper, .front, .back {
+		width: 120px;
+		height: 120px;
+	}
+	#field{
+		width: 510px;
+		height: auto;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	img, .flipper, .front, .back {
+		width: 80px;
+		height: 80px;
+	}
+	#field{
+		width: 260px;
+		height: auto;
+	}
+}
+  
