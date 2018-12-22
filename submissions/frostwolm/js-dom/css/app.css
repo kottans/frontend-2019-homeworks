@@ -51,6 +51,14 @@ body {
   text-transform: uppercase;
 }
 
+.menu__item:hover{
+  background-color: yellow;
+}
+
+.menu__item:focus{
+  border: 3px dashed purple;
+}
+
 .active{
   background-color: red;
 }
