@@ -20,7 +20,7 @@ class Menu {
         this.listElement = document.createElement('div');
         this.text = document.createElement('p');
         this.img = document.createElement('img');
-        //this.fragment = document.createDocumentFragment();
+        // this.fragment = document.createDocumentFragment();
 
         this.item.classList.add(MENU_GENERAL_CLASS);
         this.titleElement.classList.add(MENU_BTN_CLASS);
@@ -39,12 +39,12 @@ class Menu {
     renderList() {
         this.array.forEach(item => {
             this.render();
-			this.targetEl.appendChild(this.item);
             this.titleElement.textContent = item.title;
             this.text.textContent = item.text;
             this.img.src = item.img;
+            this.targetEl.appendChild(this.item);
         });
-//        this.targetEl.appendChild(this.fragment);
+       // this.targetEl.appendChild(this.fragment);
     }
 
     off() {
@@ -67,7 +67,7 @@ class Menu {
 
 
     toggle() {
-        document.querySelector('.content').addEventListener('click', () => {
+        document.querySelector('.content').addEventListener('click', (event) => {
                     this.off();
                     this.add(event);
                 }
