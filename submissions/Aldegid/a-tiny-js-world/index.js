@@ -8,11 +8,7 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 function makeCreatureMessage(obj) {
-  var msg = [];
-  for (let key of Object.keys(obj)) {
-    msg.push(obj[key]);
-  }
-  return  `Hello i am a <strong>${msg[0]}</strong>. My name is <strong>${msg[1]}</strong> and i am a ${msg[2]}. I have <strong>${msg[3]}</strong> legs and <strong>${msg[4]}</strong> hands and i saying: <em>${msg[5]}</em><hr>`;
+  return  `Hello i am a <strong>${obj.species}</strong>. My name is <strong>${obj.name}</strong> and i am a ${obj.gender}. I have <strong>${obj.legs}</strong> legs and <strong>${obj.hands}</strong> hands and i saying: <em>${obj.saying}</em><hr>`;
 }
 
 const dog = {
