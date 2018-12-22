@@ -5,11 +5,11 @@ class Citizens {
      this.name = name;
      this.legs = legs;
      this.hands = hands;
-     this.say = say;   
+     this.say = say;
     }
 };
 
-let dog = new Citizens('dog','male','Sharik', 2, 4, 'Gaf!!!');
+let dog = new Citizens('dog','male','Sharik', 4, 0, 'Gaf!!!');
 let cat = new Citizens('cat', 'male', 'Murzik', 4, 0, 'Mjau)' );
 let man = new Citizens('human','male','Alex', 2, 2, 'Hello to All!!!');
 let woman = new Citizens('human','female','Maria', 2, 2, 'I want coffee!!!');
