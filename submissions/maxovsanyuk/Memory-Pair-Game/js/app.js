@@ -77,7 +77,7 @@ class App{
         initialContainer.addEventListener('mousedown', onMouseDown.bind(this)); 
         function onMouseDown (event){
 
-            if( event.target == newImg || this.isTwoCardsActive){
+            if( event.target == newImg || this.isTwoCardsActive || event.target == initialContainer){
                 return;
             }else{
                 event.target.classList.add('new-card_active');
