@@ -12,6 +12,7 @@ class Creature {
     this.gender = gender;
     this.hands = hands;
     this.legs = legs;
+    
     this.introduce = introduce;
   }
   
