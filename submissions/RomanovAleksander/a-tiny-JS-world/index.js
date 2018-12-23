@@ -8,29 +8,52 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 class Inhabitants {
-    constructor(species, name, gender, legs, hands, saying) {
-        this.species = species;
-        this.name = name;
-        this.gender = gender;
-        this.legs = legs;
-        this.hands = hands;
-        this.saying = saying;
+    constructor(array) {
+        this.array = array;
+        this.render();
+    }
+
+    render() {
+        this.array.forEach(person => {
+            print([person.species, person.name, person.gender, person.legs, person.hands, person.saying].join(' ; '));
+        });
     }
 }
 
-const dog = new Inhabitants('dog','Lucky', 'male', '4', '0', 'Woof-woof');
-const cat = new Inhabitants('cat','Tihon', 'male', '4', '0', 'Meow');
-const woman = new Inhabitants('human','Jenny', 'female', '2', '2', 'Hi, animals');
-const man = new Inhabitants('human','Arnold', 'male', '2', '2', 'I\'ll be back');
-
-let inhabitants = [dog, cat, woman, man];
-
-inhabitants.forEach(person => {
-    print(person.species + ';' + person.name + ';'+  person.gender + ';' + person.legs + ';' + person.hands + ';'+  person.saying);
-});
-
-
-
+const inhabitants = new Inhabitants([
+    {
+        species: 'dog',
+        name: 'Lucky',
+        gender: 'male',
+        legs: '4',
+        hands: '0',
+        saying: 'Woof-woof'
+    },
+    {
+        species: 'cat',
+        name: 'Tihon',
+        gender: 'male',
+        legs: '4',
+        hands: '0',
+        saying: 'Meow'
+    },
+    {
+        species: 'human',
+        name: 'Jenny',
+        gender: 'female',
+        legs: '2',
+        hands: '2',
+        saying: 'Hi, animals'
+    },
+    {
+        species: 'human',
+        name: 'Arnold',
+        gender: 'male',
+        legs: '2',
+        hands: '2',
+        saying: 'I\'ll be back'
+    },
+]);
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
