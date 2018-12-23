@@ -3,15 +3,43 @@
     let activeIndex;
     let controller = 1;
     let lvl = 1;
+    const maxLvl = 9;
     let done = 0;
     let currentAttempt = 0;
     let imgControl = 0;
-    const timeForGame = 300;
     const startSound = new Audio('audio/start.mp3');
-    const winSound = new Audio('audio/done2.mp3');
+    const doneTwoSound = new Audio('audio/done2.mp3');
     const lostGameSound = new Audio('audio/lost.mp3');
+    const winGameSound = new Audio('audio/win.mp3');
+    const roundTime = 40;
+    const timeForModal = 3;
+    const timeForWin = 7;
 
     initControllers();
+
+    const makeTimer = (time, container, cb) => {
+        const timeContainer = document.querySelector(container);
+        let timer = setInterval( () => {
+            let nextTick = time - 1;
+            if(nextTick) {
+                time = nextTick;
+                timeContainer.innerText = time;
+            } else {
+                if(!cb) {
+                    showModal(false);
+                } else {
+                    cb();
+                }
+                clearInterval(timer);
+            }
+        }, 1000);
+
+        return {
+            cancel: () => clearInterval(timer),
+        };
+    };
+
+    let timeForRound;
 
     document.addEventListener('keydown', function (e) {
         let enterKeyCode = 13;
@@ -22,7 +50,6 @@
                 allLabels.forEach(el => el.querySelector('.js-game__input').checked = false);
                 activeElement.querySelector('.js-game__input').checked = true;
             }
-
             if (activeElement.classList.contains('js-card')) {
                 openCard(activeElement);
             }
@@ -42,7 +69,6 @@
         showHeader.classList.add('is-active');
         startSound.play();
         startLevel(lvl);
-        changeTime(timeForGame);
     }
 
     function startLevel(lvl) {
@@ -61,6 +87,22 @@
         const attemptContainer = document.querySelector('.js-game__attempt--record');
         attemptContainer.innerText = quantity * 2;
         arr = shuffleArr(arr);
+        if(timeForRound) {
+            timeForRound.cancel();
+        }
+        if(lvl <= 5) {
+            if(lvl === 1) {
+                timeForRound = makeTimer(roundTime * lvl, '.js-game__time');
+            } else {
+                timeForRound = makeTimer(roundTime * lvl + timeForModal, '.js-game__time');
+            }
+        } else {
+            if(lvl === maxLvl) {
+                showModal(true);
+            } else {
+                timeForRound = makeTimer(roundTime * (maxLvl - lvl) + timeForModal, '.js-game__time');
+            }
+        }
         resetAllCount();
         resetActiveCards(lvl);
         removeLastIndex();
@@ -177,7 +219,7 @@
                         lastElement.classList.add('is-hide');
                         lastElement.tabIndex = -1;
                     }
-                    winSound.play();
+                    doneTwoSound.play();
                     removeLastIndex();
                     controller = 0;
                     setTimeout(function () {
@@ -245,14 +287,25 @@
         modal.classList.add('is-active');
         if (!success_round) {
             modalText.innerText = 'Sorry, but all time are spend, pls try again';
-            startTimer(count, '.js-modal__seconds', () => {
+            lostGameSound.play();
+            makeTimer(timeForModal, '.js-modal__seconds', () => {
                 location.reload();
             });
         } else {
-            modalText.innerText = 'You finish level, plz wait';
-            startTimer(count, '.js-modal__seconds', () => {
-                modal.classList.remove('is-active');
-            });
+            if(success_round == 'win') {
+                modalText.innerText = 'You win this memory game. You are our Hero! :)';
+                winGameSound.play();
+                makeTimer(timeForWin, '.js-modal__seconds', () => {
+                    modal.classList.remove('is-active');
+                    location.reload();
+                });
+            } else {
+                modalText.innerText = 'You finish level, plz wait';
+                makeTimer(timeForModal, '.js-modal__seconds', () => {
+                    modal.classList.remove('is-active');
+                });
+            }
+
         }
     }
 
@@ -264,28 +317,5 @@
         workContainer.innerText = currentAttempt;
     }
 
-    function changeTime(time) {
-        startTimer(time, '.js-game__time');
-    }
-
-
-    function startTimer(time, container, cb) {
-        const timeContainer = document.querySelector(container);
-        let timer = setTimeout(function sec() {
-            timeContainer.innerText = time;
-            if (time - 1 > 0) {
-                time -= 1;
-                timeContainer.innerText = time;
-                timer = setTimeout(sec, 1000);
-            } else {
-                clearTimeout(timer);
-                if(!cb) {
-                    lostGameSound.play();
-                    showModal(false);
-                } else {
-                    cb();
-                }
-            }
-        })
-    }
 }());
+

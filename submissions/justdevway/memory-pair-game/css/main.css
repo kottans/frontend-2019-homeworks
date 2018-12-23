@@ -88,7 +88,6 @@ body {
     border-radius: 50%;
 }
 
-
 .game__check__round {
     width: 5px;
     height: 5px;
@@ -104,6 +103,10 @@ body {
 .game__controller:focus .game__check > .game__check__round,
 .game__input:checked + .game__check > .game__check__round {
     opacity: 1;
+}
+
+.game__time {
+    height: 14px;
 }
 
 .game__input {
