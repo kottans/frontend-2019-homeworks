@@ -1,95 +1,90 @@
-var Enemy = function(){
-    this.sprite = 'images/enemy-bug.png';
-    this.x = 0;
-    this.y = 63;
-    //random speed of object
-    this.speed = (function (min, max){
-        return Math.floor(Math.random() * (max - min)) + min;
-    })(70,400);
-    this.width = 101;
-    this.height = 171;
-};
+// random speed
+function enemyRandomSpeed(max, min) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  };
 
-Enemy.prototype.update = function(dt){
-    if(this.x < 505){
-        this.x += (this.speed * dt);
-    }else{
-        this.x = 0;
+  class Enemy {
+    constructor(speed, x, y, width, height, sprite = 'images/enemy-bug.png') {
+      this.speed = speed;
+      this.x = x;
+      this.y = y;
+      this.width = width;
+      this.height = height;
+      this.sprite = sprite;
     }
-};
+  }
 
-//render enemy
-Enemy.prototype.render = function(){
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y, this.width, this.height);
-    var XColl = false;
-    var YColl = false;
-
-    if(((this.x+10) + (this.width-50) >= (player.x+10)) && ((this.x+10) <= (player.x+10) + (player.width-50))) XColl = true;
-    if(((this.y+20) + (this.height-120) >= player.y+10) && ((this.y+10) <= (player.y+10) + player.height-120)) YColl = true;
-
-    // back to the start point
-    if(XColl && YColl){
-        player.x = 200;
-        player.y = 380;
-    };
-};
-
-var Player = function(){
-    this.sprite = 'images/char-boy.png';
-    this.x = 200;
-    this.y = 380;
-    this.width = 101;
-    this.height = 171;
-};
-
-Player.prototype.update = function(){
-    if(this.y <= 40){
-        this.x = 200;
-        this.y = 380;
-    };
- };
-
-Player.prototype.render = function(){
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y, this.width, this.height);
-};
-
-Player.prototype.handleInput = function(key){
-    if(key=='left' && this.x>0){
-        this.x -= 100;
-    }else if(key=='right' && this.x<400){
-        this.x += 100;
-    }else if(key=='up' && this.y>0){
-        this.y -= 80;
-    }else if (key=='down' && this.y<380){
-        this.y += 80;
+  Enemy.prototype.update = function (dt) {
+    if (this.x < 505) {
+      this.x += (this.speed * dt);
+    } else {
+      this.x = 0;
     }
-};
+  };
 
-var enemy = new Enemy();
+  Enemy.prototype.render = function () {
+    let XColl = false;
+    let YColl = false;
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y, this.width, this.height);
 
-var enemy_1 = new Enemy();
-enemy_1.y = 145;
+    if (((this.x + 10) + (this.width - 50) >= (player.x + 10)) && ((this.x + 10) <= (player.x + 10) + (player.width - 50))) XColl = true;
+    if (((this.y + 20) + (this.height - 120) >= player.y + 10) && ((this.y + 10) <= (player.y + 10) + player.height - 120)) YColl = true;
 
-var enemy_2 = new Enemy();
-enemy_2.y = 228;
-
-var enemy_3 = new Enemy();
-
-var enemy_4 = new Enemy();
-enemy_4.y = 145;
-
-var allEnemies = [];
-allEnemies.push(enemy, enemy_1, enemy_2, enemy_3, enemy_4);
-
-var player = new Player();
-
-document.addEventListener('keyup', function(e){
-    var allowedKeys = {
-        37: 'left',
-        38: 'up',
-        39: 'right',
-        40: 'down'
+  // back to the start point
+    if (XColl && YColl) {
+      player.x = 200;
+      player.y = 380;
     };
+  };
 
-    player.handleInput(allowedKeys[e.keyCode]);
-});
+  class Player {
+    constructor(x, y, width, height, sprite = 'images/char-boy.png') {
+      this.x = x;
+      this.y = y;
+      this.width = width;
+      this.height = height;
+      this.sprite = sprite;
+    }
+  }
+
+  Player.prototype.update = function () {
+    if (this.y <= 40) {
+      this.x = 200;
+      this.y = 380;
+    };
+  };
+
+  Player.prototype.render = function () {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y, this.width, this.height);
+  };
+
+  Player.prototype.handleInput = function (key) {
+    if (key === 'left' && this.x > 0) {
+      this.x -= 100;
+    } else if (key === 'right' && this.x<400) {
+      this.x += 100;
+    } else if (key === 'up' && this.y > 0) {
+      this.y -= 80;
+    } else if (key === 'down' && this.y < 380) {
+      this.y += 80;
+    }
+  };
+  //------------------------------------------------------
+  const enemy = new Enemy(enemyRandomSpeed(70, 100), 0, 63, 101, 171);
+  const enemyJack = new Enemy(enemyRandomSpeed(90, 100), 0, 145, 101, 171);
+  const enemyMarty = new Enemy(enemyRandomSpeed(40, 100), 0, 228, 101, 171);
+  const enemyBuba = new Enemy(enemyRandomSpeed(68, 100), 0, 63, 101, 171);
+  const allEnemies = [enemy, enemyJack, enemyMarty, enemyBuba];
+  //------------------------------------------------------
+  const player = new Player(200, 380, 101, 171);
+  //------------------------------------------------------
+  document.addEventListener('keyup', function(e) {
+    const allowedKeys = {
+      37: 'left',
+      38: 'up',
+      39: 'right',
+      40: 'down'
+   };
+
+      player.handleInput(allowedKeys[e.keyCode]);
+  });
