@@ -10,33 +10,33 @@
 
 <body>
     <div class="global-wrapper">
-        <nav class="menu-wrapper">
-            <ul>
-                <li class="skype active" onclick="changeContent(this)" onmouseover="hover(this)" onmouseout="unhover(this)">
+        <div id="menu-wrapper">
+            <ul class="menu">
+                <li class="skype active">
                     <img src="img/after/skype.svg" alt="skype" />
                     <span class="tooltiptext">skype</span>
                 </li>
 
-                <li class="instagram" onclick="changeContent(this)" onmouseover="hover(this)" onmouseout="unhover(this)">
+                <li class="instagram">
                     <img src="img/before/instagram.svg" alt="instagram" />
                     <span class="tooltiptext">instagram</span>
                 </li>
-                <li class="twitter" onclick="changeContent(this)" onmouseover="hover(this)" onmouseout="unhover(this)">
+                <li class="twitter">
                     <img src="img/before/twitter.svg" alt="twitter" />
                     <span class="tooltiptext">twitter</span>
                 </li>
-                <li class="youtube" onclick="changeContent(this)" onmouseover="hover(this)" onmouseout="unhover(this)">
+                <li class="youtube">
                     <img src="img/before/youtube.svg" alt="youtube" />
                     <span class="tooltiptext">youtube</span>
                 </li>
-                <li class="facebook" onclick="changeContent(this)" onmouseover="hover(this)" onmouseout="unhover(this)">
+                <li class="facebook">
                     <img src="img/before/facebook.svg" alt="facebook" />
                     <span class="tooltiptext">facebook</span>
                 </li>
             </ul>
-        </nav>
+        </div>
         <div id="content-wrapper">
-            <div id="skype">
+            <div class="skype active-content">
                 <div class="image-wrapper">
                     <img src="img/skype.jpg" alt="skype">
                 </div>
@@ -54,7 +54,7 @@
                     Try Skype today and start adding your friends, family and colleagues. They won’t be hard to find;
                     hundreds of millions of people are already using Skype to do all sorts of things together.</p>
             </div>
-            <div id="facebook">
+            <div class="facebook">
                 <div class="image-wrapper">
                     <img src="img/facebook.jpg" alt="facebook">
                 </div>
@@ -64,7 +64,7 @@
                     accessible, or it can be shared only among a select group of friends or family, or with a single
                     person.</p>
             </div>
-            <div id="instagram">
+            <div class="instagram">
                 <div class="image-wrapper">
 
                     <img src="img/instagram.jpg" alt="instagram">
@@ -84,7 +84,7 @@
                     messaging. You can even save the photos you see on Instagram.
                 </p>
             </div>
-            <div id="twitter">
+            <div class="twitter">
                 <div class="image-wrapper">
 
                     <img src="img/twitter.jpg" alt="twitter">
@@ -98,7 +98,7 @@
                 <p>Some people use Twitter to discover interesting people and companies online, opting to follow their
                     tweets.</p>
             </div>
-            <div id="youtube">
+            <div class="youtube">
                 <div class="image-wrapper">
 
                     <img src="img/youtube.jpg" alt="youtube">
