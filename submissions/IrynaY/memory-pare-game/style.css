@@ -10,7 +10,7 @@
 	transform: rotateY(180deg);
 }
 
-img, .flipper, .front, .back {
+.card, .flipper, .front, .back {
 	width: 160px;
 	height: 160px;
 }
@@ -63,7 +63,7 @@ p{
 }
   
 @media screen and (max-width: 799px) {
-	img, .flipper, .front, .back {
+	.card, .flipper, .front, .back {
 		width: 120px;
 		height: 120px;
 	}
@@ -74,7 +74,7 @@ p{
 }
 
 @media screen and (max-width: 600px) {
-	img, .flipper, .front, .back {
+	.card, .flipper, .front, .back {
 		width: 80px;
 		height: 80px;
 	}
