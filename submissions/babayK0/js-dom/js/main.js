@@ -21,7 +21,6 @@ request.onload = function() {
         //add selectors of new items into selector-container
         selectors.navitems = document.querySelectorAll("." + styles.locationName);
         selectors.infoItems = document.querySelectorAll("." + styles.locationInfo);
-        addIDs();
         makeActiveOrInactive(0);
         addeventListener();
     } else {
@@ -40,10 +39,11 @@ function buildHTML(jsondata) {
         // nav
         let navElem = document.createElement('li');
         navElem.classList.add(styles.locationName);
+        navElem.setAttribute("id", 'item' + (i + 1));
         let navHeader = document.createElement('h2');
         navHeader.innerText = dataelem.locationName;
-        navElem.appendChild(navHeader);
-        navFragment.appendChild(navElem);
+        navHeader.appendChild(navElem);
+        navFragment.appendChild(navHeader);
         //content
         let contentElem = document.createElement('li');
         contentElem.classList.add(styles.locationInfo);
@@ -70,16 +70,6 @@ function showData(node) {
     selectors.info = document.querySelector('.info');
     selectors.navigation.appendChild(node.nav);
     selectors.info.appendChild(node.content);
-};
-
-function addIDs() {
-    let elements = document.querySelectorAll('.nav .nav-item')
-    let navArray = Array.from(elements);
-    console.log(navArray);
-    navArray.forEach(function(element, i) {
-        element.setAttribute("id", 'item' + (i + 1));
-        console.log(element);
-    })
 };
 
 function makeActiveOrInactive(i) {

@@ -48,8 +48,13 @@ body {
     border: solid 1.5px;
     cursor: pointer;
 }
-.nav-item_active {
+.nav-item:hover{
+    border-color:#ec4e4e;
+}
+.nav-item_active,.nav-item_active:hover {
+    background-color: #ec4e4e;
     color: #ec4e4e;
+    border-color: #000;
 }
 .info {
     margin: 50px;
