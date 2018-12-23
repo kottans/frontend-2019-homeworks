@@ -1,5 +1,5 @@
 class Citizens {
-    constructor (species, gender, name, say, legs = 'null', hands = 'null' ){
+    constructor (species, gender, name, say, legs = 0, hands = null ){
      this.species = species;
      this.gender = gender;
      this.name = name;
