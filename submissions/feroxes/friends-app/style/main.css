@@ -1,0 +1,329 @@
+
+body{
+    font-family: GothaPro;
+    color: #666666;
+}
+.container{
+    max-width: 1200px;
+    min-width: 400px;
+    margin: 0 auto;
+}
+
+.filter {
+    width: 180px;
+    height: 400px;
+    background: #fafafa;
+    float: left;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    margin-top: 10px;
+    padding: 2px;
+}
+.filter h2 {
+    font-size: 28px;
+    text-align: center;
+    padding-top: 20px;
+    font-weight: 600;
+    color: #585858;
+}
+.filter p {
+    font-size: 14px;
+}
+.by-age-filter{
+    width: 180px;
+    display: flex;
+    margin-top: 20px;
+    justify-content: flex-start;
+    align-items: center;
+}
+.filter-btn{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    margin: 5px;
+}
+#by-age-up{
+    background: url("img/slide-up-gray.png");
+
+}
+#by-age-up:hover{
+    background: url("img/slide-up-blue.png");
+}
+#by-age-up:active{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+#by-age-down{
+    background: url("img/slide-down-gray.png");
+}
+#by-age-down:hover{
+    background: url("img/slide-down-blue.png");
+}
+#by-age-down:active{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.by-name-filter{
+    width: 180px;
+    display: flex;
+    margin-top: 20px;
+    justify-content: flex-start;
+    align-items: center;
+}
+#by-name-a-z, #by-name-z-a{
+    text-align: center;
+    font-weight: 600;
+    padding-top: 12px;
+    height: 28px;
+
+}
+#by-name-a-z:hover, #by-name-z-a:hover {
+    color: #08088A;
+}
+#by-name-a-z:active, #by-name-z-a:active {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.by-gender-filter{
+    width: 180px;
+    display: flex;
+    margin-top: 20px;
+    justify-content: flex-start;
+    align-items: center;
+}
+#male-btn{
+    background: url("img/gentlemen-gray.png") no-repeat center;
+    background-size: 30px;
+}
+#male-btn:hover{
+    background: url("img/gentlemen-blue.png") no-repeat center;
+    background-size: 30px;
+}
+#male-btn:active{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+#female-btn{
+    background: url("img/lady-gray.png") no-repeat center;
+    background-size: 30px;
+}
+#female-btn:hover{
+    background: url("img/lady-blue.png") no-repeat center;
+    background-size: 30px;
+}
+#female-btn:active{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+#search {
+    width: 90%;
+    height: 25px;
+    margin: 15px 7px 5px;
+    outline: none;
+    border: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+#search:focus{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+#reset-btn{
+    margin: 20px auto;
+    text-align: center;
+    padding-top: 9px;
+    width: 80px;
+    height: 22px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    background-color: #fff;
+    font-weight: 600;
+}
+#reset-btn:hover {
+    color: #08088A;
+}
+#reset-btn:active{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.dashboard {
+    width: 83%;
+    background: #fafafa;
+    float: right;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.dashboard h1 {
+    padding-top: 20px;
+    color: #585858;
+    font-size: 48px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#card-list{
+    height: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 210px;
+    height: 250px;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+
+}
+.card:hover {
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
+.card:active {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.card-photo, .card-myInfo, .card-icons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-photo{
+    height: 50%;
+    background: #f2f2f2;
+}
+.card-myInfo{
+    height: 20%;
+    flex-direction: column;
+}
+.card-myInfo p {
+    font-size: 11px;
+}
+.card-myInfo h3{
+    font-size: 13px;
+    font-weight: 600;
+    color: #08088A;
+    text-align: center;
+}
+.card-photo img{
+    padding: 5px;
+    width: 40%;
+    border: 1px solid #08088A;
+    border-radius: 50%;
+}
+
+.card-icons{
+    height: 30%;
+    background: #f2f2f2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.icon{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.lady{
+    background: url("img/lady-gray.png") no-repeat;
+    background-size: 25px;
+}
+.lady:hover{
+    background: url("img/lady-blue.png") no-repeat;
+    background-size: 25px;
+}
+.gentlemen{
+    background: url("img/gentlemen-gray.png") no-repeat;
+    background-size: 25px;
+}
+.gentlemen:hover{
+    background: url("img/gentlemen-blue.png") no-repeat;
+    background-size: 25px;
+}
+.letter{
+    background: url("img/letter-gray.png") no-repeat;
+    background-size: 25px;
+}
+.letter:hover{
+    background: url("img/letter-blue.png") no-repeat;
+    background-size: 25px;
+}
+
+.calendar{
+    background: url("img/calendar-gray.png") no-repeat;
+    background-size: 25px;
+}
+.calendar:hover{
+    background: url("img/calendar-blue.png") no-repeat;
+    background-size: 25px;
+}
+.calendar p{
+    text-align: center;
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+}
+.calendar p:hover{
+    color: #08088A;
+}
+.marker{
+    background: url("img/marker-gray.png") no-repeat;
+    background-size: 25px;
+}
+.marker:hover{
+    background: url("img/marker-blue.png") no-repeat;
+    background-size: 25px;
+}
+.phone{
+    background: url("img/phone-gray.png") no-repeat;
+    background-size: 25px;
+}
+.phone:hover{
+    background: url("img/phone-blue.png") no-repeat;
+    background-size: 25px;
+}
+
+@media screen and (max-width: 1100px){
+    .dashboard{
+        width: 80%;
+    }
+}
+@media screen and (max-width: 940px){
+    .dashboard{
+        width: 75%;
+    }
+    .dashboard h1{
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 760px){
+    .dashboard{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 660px){
+    .dashboard{
+        margin-top: 200px;
+        width: 100%;
+    }
+    .filter{
+        height: 190px;
+        width: 100%;
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+    }
+    .filter-container{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+}

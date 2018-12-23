@@ -1,0 +1,169 @@
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+.fa {
+    padding: 20px;
+    font-size: 20px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+.fa:hover {
+    opacity: 0.7;
+}
+
+
+.about.hidden,
+.massages.hidden,
+.prices.hidden,
+.contacts.hidden {
+    display: none;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+  }
+
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+
+  .fa-google {
+    background: #dd4b39;
+    color: white;
+  }
+
+
+
+header { 
+    font-family: 'Caveat', cursive;
+    
+}
+header h1 {
+    margin-bottom: 0;
+    font-size: 60px;
+}
+
+header h2 {
+    margin: 0;
+}
+header, nav, main{
+    margin: auto;
+    max-width: 1000px;
+}
+.foot {
+    position: relative;
+    bottom: 10%;
+    left: 50%;
+    
+}
+
+.foot .wrap {
+    position: relative;
+    left: -50%;
+    
+}
+main {
+    text-align: center;
+}
+nav, main {
+    font-family: 'Caveat', cursive;
+    
+}
+nav {
+    font-size: 30px;
+    
+}
+.about{
+    display: flex;
+    flex-wrap: nowrap;
+    
+}
+.about p {
+    margin: 30px;
+}
+.massages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.massages img{
+    margin: auto;
+    max-height: 100px;
+    border-radius: 50%;
+}
+.about img {
+    margin: auto;
+    max-height: 130px;
+    border-radius: 50%;
+}
+main {
+    font-size: 24px;
+    line-height: 1.8;
+}
+header, nav, footer{
+    text-align: center;
+}
+
+nav{
+    margin: 50px auto;
+}
+ul li {
+    display: inline-block;
+    margin: 0 20px;
+    color: gray;
+}
+
+ul li:hover {
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+li.active {
+    color: black;
+    text-decoration: underline;
+}
+nav#mobile {
+    display: none;
+}
+@media only screen and (max-width: 600px){
+    header h1 {
+        font-size: 40px;
+    }
+    header h2 {
+        font-size: 20px;
+    }
+    .about{
+        flex-wrap: wrap;
+    }
+    nav {
+        display: none;
+    }
+    nav.open{
+        display: block;
+    }
+    nav#mobile {
+        cursor: pointer;
+        display: block;
+        color: gray;
+        border: 1px solid gray;
+        margin: 5% 10%;
+       
+    }
+    .fa {
+        padding: 10px;
+        font-size:15px;
+        width: 10px;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 800px){
+    header h1 {
+        font-size: 50px;
+    }
+}
+

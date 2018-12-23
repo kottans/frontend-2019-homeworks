@@ -1,0 +1,69 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Black Han Sans', sans-serif;
+}
+ul{
+    list-style-type: none;
+}
+.container{
+    padding: 10px;
+
+    margin: 0 auto;
+
+}
+.headerName{
+    text-align: center;
+}
+.menu{
+
+    z-index: 2;
+    font-family: 'Chakra Petch', sans-serif;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.menuItem{
+    cursor: pointer;
+    text-align: center;
+    padding: 10px 16px;
+    margin-right: 5px;
+    background-color: yellow;
+    border: 2px solid black;
+}
+.selected {
+    background-color: lightskyblue;
+    border-bottom: 0px;
+    z-index: 2;
+}
+
+.menuItem:last-child{
+    margin-right: 0px;
+}
+.content{
+
+
+    max-width: 183px;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    z-index: 0;
+    min-height: 200px;
+    width: 700px;
+    max-width: 100%;
+    margin: -2px auto 0;
+    border: 2px solid black;
+    background-color: lightskyblue;
+}
+.contentIcon{
+    margin-right: 10px;
+    font-size: 50px;
+    width: 40px;
+    float: left;
+}
+
+
