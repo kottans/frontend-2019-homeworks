@@ -36,9 +36,7 @@ body {
 
 .game {
     width: 100%;
-    /*max-width: 700px;*/
     margin: 0 auto;
-    /*background: lightseagreen;*/
     text-align: center;
 }
 
@@ -46,7 +44,7 @@ body {
     display: block;
 }
 
-.game__header__start.isActive {
+.game__header__start.is-active {
     display: none;
 }
 
@@ -54,7 +52,7 @@ body {
     display: none;
 }
 
-.game__header__score.isActive {
+.game__header__score.is-active {
     display: block;
 }
 
@@ -102,6 +100,7 @@ body {
     transition-timing-function: linear;
 }
 
+.game__controller.is-active .game__check > .game__check__round,
 .game__controller:focus .game__check > .game__check__round,
 .game__input:checked + .game__check > .game__check__round {
     opacity: 1;
@@ -157,29 +156,32 @@ body {
     margin: 1px;
 }
 
-@media only screen and (max-width: 480px) {
-    .game__card {
-        width: 40px;
-        height: 40px;
-    }
-}
-
 .card {
     opacity: 1;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+    border-radius: 5px;
     color: #333;
     font-size: 16px;
     font-weight: 600;
     font-family: sans-serif;
     text-align: center;
     cursor: pointer;
-    outline: none;
-    transition-property: opacity;
+    transition-property: opacity, box-shadow;
     transition-timing-function: linear;
-    transition-duration: 0.2s;
-    transition-delay: 0.3s;
+    transition-duration: 0.2s, 0.175s;
+    transition-delay: 0.3s, 0s;
 }
 
-.card.isHide {
+.card:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+.card:focus.is-active {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+}
+
+.card.is-hide {
     opacity: 0;
     pointer-events: none;
 }
@@ -194,7 +196,7 @@ body {
     perspective: 1000px;
 }
 
-.card.isActive .card__flipper  {
+.card.is-active .card__flipper  {
     transform: rotateY(180deg);
 }
 
@@ -260,7 +262,7 @@ body {
     transition-duration: 0.175s;
 }
 
-.modal.isActive {
+.modal.is-active {
     opacity: 1;
     z-index: 5;
 }
@@ -286,4 +288,22 @@ body {
 .modal__seconds {
     flex: 1 0 100%;
     text-align: center;
+}
+
+@media only screen and (max-width: 480px) {
+    .game__button,
+    .game__button:focus,
+    .game__button:hover {
+        background: #fff;
+        color: inherit;
+    }
+
+    .game__card {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card:focus {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+    }
 }

@@ -6,11 +6,28 @@
     let done = 0;
     let currentAttempt = 0;
     let imgControl = 0;
+    const timeForGame = 300;
     const startSound = new Audio('audio/start.mp3');
-    const doneTwoSound = new Audio('audio/done2.mp3');
-    const lostGameSound= new Audio('audio/lost.mp3');
+    const winSound = new Audio('audio/done2.mp3');
+    const lostGameSound = new Audio('audio/lost.mp3');
 
     initControllers();
+
+    document.addEventListener('keydown', function (e) {
+        let enterKeyCode = 13;
+        if (e.keyCode == enterKeyCode) {
+            const activeElement = document.activeElement;
+            if (activeElement.classList.contains('js-game__controller')) {
+                const allLabels = document.querySelectorAll('.js-game__controller');
+                allLabels.forEach(el => el.querySelector('.js-game__input').checked = false);
+                activeElement.querySelector('.js-game__input').checked = true;
+            }
+
+            if (activeElement.classList.contains('js-card')) {
+                openCard(activeElement);
+            }
+        }
+    });
 
     function initControllers() {
         const button = document.querySelector('.js-game__button');
@@ -18,20 +35,21 @@
     }
 
     function startGame() {
+        this.style.pointerEvents = 'none'
         const hiddenHeader = document.querySelector('.js-game__header__start');
         const showHeader = document.querySelector('.js-game__header__score');
-        hiddenHeader.classList.add('isActive');
-        showHeader.classList.add('isActive');
+        hiddenHeader.classList.add('is-active');
+        showHeader.classList.add('is-active');
         startSound.play();
         startLevel(lvl);
-        changeTime(300);
+        changeTime(timeForGame);
     }
 
     function startLevel(lvl) {
         if (lvl === 1) {
             initCardsContainer();
             const controller = document.querySelector('.js-game__input:checked');
-            if(controller) {
+            if (controller) {
                 const gameType = controller.getAttribute('value');
                 imgControl = gameType;
             } else {
@@ -53,31 +71,21 @@
         const list = document.querySelector('.js-game__cards');
         let columnCount;
         list.innerHTML = '';
-        switch (lvl) {
-            case 1:
-                columnCount = 2;
-                break;
-            case 2:
-                columnCount = 3;
-                break;
-            case 3:
-                columnCount = 4;
-                break;
-            case 4:
-                columnCount = 5;
-                break;
-            case 5:
-                columnCount = 8;
-                break;
-            default:
-                columnCount = lvl + 4;
+        if (lvl < 5) {
+            columnCount = lvl + 1;
+        } else if (lvl === 5) {
+            columnCount = 8;
+        } else {
+            columnCount = lvl + 4;
         }
+
         document.documentElement.style.setProperty('--count', columnCount);
-        elementsArr.forEach( el => {
+        elementsArr.forEach(el => {
             const item = document.createElement('li');
+            // item.tabIndex = 0;
             item.classList.add('game__card');
             let card;
-            if(controller > 0) {
+            if (controller > 0) {
                 card = buildCard(el, 1);
             } else {
                 card = buildCard(el);
@@ -94,14 +102,13 @@
         const cardFront = document.createElement('div');
         const cardBack = document.createElement('div');
         card.classList.add('card', 'js-card');
-        // TODO: can improve with user keyboard, but need time
-        // card.tabIndex = 0;
         card.setAttribute('data-index', value);
+        card.tabIndex = 0;
         cardContainer.classList.add('card__container');
         cardFlipper.classList.add('card__flipper');
         cardFront.classList.add('card__front');
         cardBack.classList.add('card__back');
-        if(withImg) {
+        if (withImg) {
             const img = document.createElement('img');
             img.setAttribute('src', `img/${value}.jpg`);
             img.setAttribute('alt', 'test images');
@@ -119,11 +126,16 @@
     function initCardsContainer() {
         const cardsContainer = document.querySelector('.js-game__cards');
 
-        cardsContainer.addEventListener('click', e => {
-            if (!controller) {
-                return;
-            }
-            let target = e.target;
+        cardsContainer.addEventListener('click', openCard);
+    }
+
+    function openCard(e) {
+        if (!controller) {
+            return;
+        }
+        let target;
+        if (e.target) {
+            target = e.target;
             let checkOnCard;
             let checkOnCards;
             while (!checkOnCard) {
@@ -134,58 +146,63 @@
                 target = target.parentElement;
                 checkOnCard = target.classList.contains('js-card');
             }
-
-            // get current element index
-            let index = target.getAttribute("data-index");
-            let attempt = document.querySelector('.js-game__attempt--current');
-            currentAttempt += 1;
-            attempt.innerText = currentAttempt;
-
-            // check current element index with last element index
-            activeElCount += 1;
-
-            // check that active elements count <= 2
-            if (activeElCount <= 2) {
-                if (target.classList.contains('isActive')) {
-                    return;
-                } else {
-                    target.classList.add('isActive');
-                    if (activeIndex == index) {
-                        done += 1;
-                        target.classList.add('isHide');
-                        let lastElement = document.querySelector('.js-lastIndex');
-                        if (!lastElement) {
-                            target.classList.add('js-lastIndex');
-                        } else {
-                            lastElement.classList.add('isHide');
-                        }
-                        doneTwoSound.play();
-                        removeLastIndex();
-                        controller = 0;
-                        setTimeout(function () {
-                            resetActiveCards();
-                        }, 500);
-                    } else {
-                        activeIndex = index;
-                        removeLastIndex();
-                        target.classList.add('js-lastIndex');
-                    }
-                }
+        } else {
+            if (e.classList.contains(('js-card'))) {
+                target = e;
             } else {
-                resetActiveCards();
-                removeLastIndex();
-                activeIndex = index;
-                target.classList.add('isActive', 'js-lastIndex');
-                activeElCount += 1;
+                return;
             }
-        });
+        }
+
+
+        let index = target.getAttribute("data-index");
+        let attempt = document.querySelector('.js-game__attempt--current');
+
+        currentAttempt += 1;
+        attempt.innerText = currentAttempt;
+        activeElCount += 1;
+        if (activeElCount <= 2) {
+            if (target.classList.contains('is-active')) {
+                return;
+            } else {
+                target.classList.add('is-active');
+                if (activeIndex == index) {
+                    done += 1;
+                    target.classList.add('is-hide');
+                    target.tabIndex = -1;
+                    let lastElement = document.querySelector('.js-lastIndex');
+                    if (!lastElement) {
+                        target.classList.add('js-lastIndex');
+                    } else {
+                        lastElement.classList.add('is-hide');
+                        lastElement.tabIndex = -1;
+                    }
+                    winSound.play();
+                    removeLastIndex();
+                    controller = 0;
+                    setTimeout(function () {
+                        resetActiveCards();
+                    }, 500);
+                } else {
+                    activeIndex = index;
+                    removeLastIndex();
+                    target.classList.add('js-lastIndex');
+                }
+            }
+        } else {
+            resetActiveCards();
+            removeLastIndex();
+            activeIndex = index;
+            target.classList.add('is-active', 'js-lastIndex');
+            activeElCount += 1;
+        }
     }
 
     function resetActiveCards() {
         activeElCount = 0;
         controller = 1;
-        document.querySelectorAll('.js-card.isActive').forEach(el => {
-            el.classList.remove('isActive');
+        document.querySelectorAll('.js-card.is-active').forEach(el => {
+            el.classList.remove('is-active');
         });
         checkLvl();
     }
@@ -197,12 +214,11 @@
         }
     }
 
-    function makeArr(q) {
+    function makeArr(quantity) {
         let res = [];
         let counter = 1;
-        while (counter <= q) {
-            res.push(counter);
-            res.push(counter);
+        while (counter <= quantity) {
+            res.push(counter, counter);
             counter += 1;
         }
         return res;
@@ -217,40 +233,26 @@
         if (done === Math.pow(2, lvl)) {
             lvl += 1;
             document.querySelector('.js-game__lvl__indicator').innerText = lvl;
-            showModal(1);
+            showModal(true);
             startLevel(lvl);
         }
     }
 
-    function showModal(command) {
+    function showModal(success_round) {
         const modal = document.querySelector('.js-modal');
-        const modalSeconds = document.querySelector('.js-modal__seconds');
         const modalText = document.querySelector('.js-modal__text');
-        let count = 3;
-        modal.classList.add('isActive');
-        if(!command) {
-            modalText.innerText = 'Sorry, but all time are spend, try again';
-            startTimer('lost');
+        let count = 4;
+        modal.classList.add('is-active');
+        if (!success_round) {
+            modalText.innerText = 'Sorry, but all time are spend, pls try again';
+            startTimer(count, '.js-modal__seconds', () => {
+                location.reload();
+            });
         } else {
             modalText.innerText = 'You finish level, plz wait';
-            startTimer();
-        }
-
-        function startTimer(command) {
-            let timer = setTimeout(function sec() {
-                if (count > 1) {
-                    count -= 1;
-                    modalSeconds.innerText = count;
-                    timer = setTimeout(sec, 1000);
-                } else {
-                    if(command) {
-                        location.reload()
-                    } else {
-                        modal.classList.remove('isActive');
-                        modalSeconds.innerText = 3;
-                    }
-                }
-            }, 1000);
+            startTimer(count, '.js-modal__seconds', () => {
+                modal.classList.remove('is-active');
+            });
         }
     }
 
@@ -262,21 +264,28 @@
         workContainer.innerText = currentAttempt;
     }
 
-    // TODO: can improve with make shoter time for every lvl that more than 5, but need time for it
-    function  changeTime(time) {
-        const timeContainer = document.querySelector('.js-game__time');
-        timeContainer.innerText = time;
+    function changeTime(time) {
+        startTimer(time, '.js-game__time');
+    }
 
+
+    function startTimer(time, container, cb) {
+        const timeContainer = document.querySelector(container);
         let timer = setTimeout(function sec() {
-            if (time > 0) {
+            timeContainer.innerText = time;
+            if (time - 1 > 0) {
                 time -= 1;
                 timeContainer.innerText = time;
                 timer = setTimeout(sec, 1000);
             } else {
-                showModal();
                 clearTimeout(timer);
-                lostGameSound.play();
+                if(!cb) {
+                    lostGameSound.play();
+                    showModal(false);
+                } else {
+                    cb();
+                }
             }
-        });
+        })
     }
 }());
