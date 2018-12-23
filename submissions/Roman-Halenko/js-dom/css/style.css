@@ -1,0 +1,170 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: helvetica,sans-serif;
+  margin: 0;
+  height: 100%;
+}
+
+hr {
+  margin: 0px;
+}
+
+ul {
+  padding: 0px;
+}
+
+li {
+  list-style: none;
+  margin-top: 8px;
+  text-align: right;
+}
+
+a {
+  text-decoration: none;
+  color: #fffef6;
+  font-size: 24px;
+  transition: 0.2s ease;
+  font-weight: 200;
+}
+
+a:hover {
+  color: #1e3d46;
+}
+
+section {
+  display: flex;
+  height: 100%;
+}
+
+nav {
+  background: linear-gradient(to right, #336588, #4286a7f0);
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 20%;
+  padding: 40px 20px 20px 20px;
+  box-sizing: border-box;
+}
+
+nav.open {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+main {
+  padding: 40px 20px 20px 25px;
+  flex-basis: 80%;
+}
+
+span.btn-menu {
+  display: none;
+}
+
+@media screen  and (max-width: 750px) {
+  nav {
+    position: absolute;
+    width: 300px;
+    -webkit-transform: translate(-400px, 0);
+    transform: translate(-400px, 0);
+    transition: transform 0.5s ease;
+    height: 100%;
+  }
+
+  main {
+    flex-basis: 100%;
+  }
+
+  span.btn-menu {
+    box-sizing: border-box;
+    display: flex;
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border: 2px solid #b89a6e;
+    top: 25px;
+    left: 25px;
+    border-radius: 30%;
+    background-color: #b89a6e;
+    z-index: 1000;
+  }
+
+  div.content-box {
+    width: 100%;
+  }
+}
+
+.isActive {
+  color: #1e3d46;
+}
+
+.isActive::after {
+  content: '';
+  position: relative;
+  display: inline-block;
+  height: 0px;
+  width: 0px;
+  left: 20px;
+  bottom: 0px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right:10px solid white;
+}
+
+.btn-menu::before, .btn-menu::after {
+  content: "";
+  border-top: 3px solid #ffffff;
+  width: 80%;
+  height: 0px;
+  position: absolute;
+  left: 9%;
+  border-radius: 1px;
+}
+
+.btn-menu::before {
+  top: 6px;
+}
+
+.btn-menu::after {
+  top: 13px;
+}
+
+@media screen  and (min-width: 751px) and (max-width: 1220px){
+  nav {
+    flex-basis: 30%;
+  }
+}
+
+.content {
+  flex-wrap: wrap;
+  display: flex;
+  align-items: start;
+}
+
+.title {
+  width: 100%;
+  font-size: 32px;
+}
+
+.description {
+  line-height: 1.5em;
+  width: 50%;
+}
+
+.circle {
+  width: 120px;
+  max-width: 100%;
+}
+
+.photo {
+  width: 450px;
+  max-width: 100%;
+}
+
+.content-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  width: 50%;
+}
