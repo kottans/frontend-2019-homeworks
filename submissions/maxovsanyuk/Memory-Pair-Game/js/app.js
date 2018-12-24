@@ -46,38 +46,36 @@ class App{
         
         const gameTitle = document.createElement('h2');
         gameTitle.textContent = "Memory – Pair Game";
-        initialContainer.appendChild(gameTitle);
 
+        this.addAllContent(allImgList, initialContainer, gameTitle);
+    }
+
+   addAllContent(allImgList, initialContainer, gameTitle){
+        
+    allImgList.forEach(img => {
+        const createNewCard = document.createElement('div');
+        createNewCard.className = "new-card";
+        createNewCard.setAttribute('data-name', img.name); 
+        
+        const newImg = document.createElement('img');
+        newImg.className = "new-card_img";
+        newImg.setAttribute('src', img.src); 
+    
+        initialContainer.appendChild(createNewCard);
+        createNewCard.appendChild(newImg);
+        initialContainer.insertAdjacentElement('beforebegin', gameTitle);
         document.body.appendChild(initialContainer);
 
-        this.addAllimg(allImgList, initialContainer);
-    }
+    });
 
-    addAllimg(allImgList, initialContainer){
-        
-        allImgList.forEach(img => {
-            const createNewCard = document.createElement('div');
-            createNewCard.className = "new-card";
-            createNewCard.setAttribute('data-name', img.name); 
-            
-            const newImg = document.createElement('img');
-            newImg.className = "new-card_img";
-            newImg.setAttribute('src', img.src); 
-        
-            initialContainer.appendChild(createNewCard);
-            createNewCard.appendChild(newImg);
-        
-        });
+    this.checkCard(initialContainer);
 
-        this.checkCard(initialContainer);
-    
-    }
-
+}
     checkCard(initialContainer, newImg){
         initialContainer.addEventListener('mousedown', onMouseDown.bind(this)); 
         function onMouseDown (event){
 
-            if( event.target == newImg || this.isTwoCardsActive || event.target == initialContainer){
+            if( event.target == newImg || this.isTwoCardsActive || event.target == initialContainer ){
                 return;
             }else{
                 event.target.classList.add('new-card_active');
