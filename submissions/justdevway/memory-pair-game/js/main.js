@@ -34,7 +34,7 @@
     };
 
 
-    const makeTimer = (time, container, cb) => {
+    const setTimer = (time, container, cb) => {
         const timeContainer = document.querySelector(container);
         timeContainer.innerText = time;
         let timer = createTimer(time, () => {
@@ -128,15 +128,15 @@
         }
         if (lvl <= 5) {
             if (lvl === 1) {
-                timeForRound = makeTimer(10, '.js-game__time');
+                timeForRound = setTimer(ROUND_TIME * lvl, '.js-game__time');
             } else {
-                timeForRound = makeTimer(ROUND_TIME * lvl + TIME_FOR_MODAL, '.js-game__time');
+                timeForRound = setTimer(ROUND_TIME * lvl + TIME_FOR_MODAL, '.js-game__time');
             }
         } else {
             if (lvl === MAX_LVL) {
                 showModal('next');
             } else {
-                timeForRound = makeTimer(ROUND_TIME * (MAX_LVL - lvl) + TIME_FOR_MODAL, '.js-game__time');
+                timeForRound = setTimer(ROUND_TIME * (MAX_LVL - lvl) + TIME_FOR_MODAL, '.js-game__time');
             }
         }
         resetAllCount();
@@ -348,7 +348,7 @@
         if (round_status == 'lost') {
             modalText.innerText = 'Sorry, but all time are spend, pls try again';
             LOST_GAME_SOUND.play();
-            makeTimer(TIME_FOR_MODAL, '.js-modal__seconds', () => {
+            setTimer(TIME_FOR_MODAL, '.js-modal__seconds', () => {
                 reloadGame();
                 modal.classList.remove('is_active');
             });
@@ -356,13 +356,13 @@
             if (round_status == 'win') {
                 modalText.innerText = 'You win this memory game. You are our Hero! :)';
                 WIN_GAME_SOUND.play();
-                makeTimer(TIME_FOR_AFK, '.js-modal__seconds', () => {
+                setTimer(TIME_FOR_AFK, '.js-modal__seconds', () => {
                     modal.classList.remove('is_active');
                     reloadGame();
                 });
             } else {
                 modalText.innerText = 'You finish level, plz wait';
-                makeTimer(TIME_FOR_MODAL, '.js-modal__seconds', () => {
+                setTimer(TIME_FOR_MODAL, '.js-modal__seconds', () => {
                     modal.classList.remove('is_active');
                 });
             }
