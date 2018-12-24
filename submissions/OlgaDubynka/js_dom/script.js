@@ -12,7 +12,9 @@ logo.addEventListener('click', function() {
     navList.classList.remove('active');
   }
   const elem = content.querySelector("img");
-  elem.remove();
+  if(elem) {
+    elem.remove();
+  }
 });
 
 menuBtn.addEventListener('click', function(e) {
@@ -24,14 +26,16 @@ navList.addEventListener('click', function(e) {
   let listItem = e.target;
   if (listItem.nodeName === 'LI') {
     const indexOfActiveItem = getIndexOfActiveItem(listItem);
-    const img = filterData(indexOfActiveItem, data);
-    content.innerHTML = '<img src="'+ img + '" />'
+    const img = getImage(indexOfActiveItem, data);
+    if(img) {
+      content.innerHTML = '<img src="'+ img + '" />';
+    }
   }
 });
 
-function filterData(indexOfActiveItem, data) {
+function getImage(indexOfActiveItem, data) {
   let img;
-  const arr = data.filter(item => { 
+  const arr = data.find(item => { 
     if (item.id === indexOfActiveItem) {
       img = item.img;
     };
@@ -41,6 +45,7 @@ function filterData(indexOfActiveItem, data) {
 
 function getIndexOfActiveItem(targetItem) {
   const arr = [...menuItems];
-  const indexItem = arr.indexOf(targetItem);
-  return indexItem;
+  return arr.indexOf(targetItem);
 }
+
+
