@@ -24,17 +24,34 @@ main {
 }
 
 /* === GALLERY STYLES === */
+.gallery a {
+  color: #000;
+  text-decoration: none;
+}
+
+.gallery a:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 div.gallery {
   border: 1px solid #ccc;
 }
 
 div.gallery:hover {
+  cursor: pointer;
   border: 1px solid #f26b1f;
 }
 
 div.gallery img {
+  filter: grayscale(100%);
   width: 100%;
   height: auto;
+}
+
+div.gallery img:hover {
+  filter: grayscale(0%);
 }
 
 div.desc {
@@ -79,7 +96,6 @@ nav li:first-child {
 nav li:hover {
   background: #fff;
   color: #f26b1f;
-  cursor: pointer;
   border-right: 1px solid #f26b1f;
 }
 
