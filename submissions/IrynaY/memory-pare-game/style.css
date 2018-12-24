@@ -1,5 +1,5 @@
 #field{
-	width: 670px;
+	width: 680px;
 	height: 500px;	
 	margin: 35px auto;
 	display: flex;
@@ -10,7 +10,7 @@
 	transform: rotateY(180deg);
 }
 
-.card, .flipper, .front, .back {
+.card, .flipper, .back {
 	width: 160px;
 	height: 160px;
 }
@@ -20,6 +20,8 @@
 	transform-style: preserve-3d;
 	position: relative;
 	margin: 3px;
+	border: 1px solid green;
+	border-radius: 10px;
 }
 
 .front, .back {
@@ -30,8 +32,6 @@
 .front {
 	z-index: 2;
 	transform: rotateY(0deg);
-	border: 1px solid green;
-	border-radius: 10px;
 }
 
 .back {
@@ -63,23 +63,23 @@ p{
 }
   
 @media screen and (max-width: 799px) {
-	.card, .flipper, .front, .back {
+	.card, .flipper, .back {
 		width: 120px;
 		height: 120px;
 	}
 	#field{
-		width: 510px;
+		width: 520px;
 		height: auto;
 	}
 }
 
 @media screen and (max-width: 600px) {
-	.card, .flipper, .front, .back {
+	.card, .flipper,.back {
 		width: 80px;
 		height: 80px;
 	}
 	#field{
-		width: 260px;
+		width: 270px;
 		height: auto;
 	}
 }

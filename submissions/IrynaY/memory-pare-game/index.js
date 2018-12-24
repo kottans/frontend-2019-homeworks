@@ -14,8 +14,7 @@ function renderCongratulation(){
         BODY.removeChild(CONGRATULATION)
         initGame()
     })
-    CONGRATULATION.append(WON_STRING)
-    CONGRATULATION.append(RESTART)
+    CONGRATULATION.append(WON_STRING, RESTART)
     BODY.removeChild(document.getElementById("field"))
     BODY.append(CONGRATULATION)
 }
@@ -39,21 +38,19 @@ function initGame(){
         const FLIPPER = document.createElement("div")
         FLIPPER.classList = "flipper"
 
-        FLIPPER.append(IMAGE)
-        FLIPPER.append(FRONT)
+        FLIPPER.append(IMAGE, FRONT)
         FIELD.append(FLIPPER)
     })
 
     FIELD.addEventListener("click", (event) => {
-        if(event.target.classList.value === "front" && openCards.length<2){
-            event.target.parentNode.classList.toggle("flip")
-            openCards.push(event.target.parentNode.querySelector("img"))
-
+        if(event.target.classList.value === "flipper" && openCards.length<2){
+            event.target.classList.toggle("flip")
+            openCards.push(event.target)
             if(openCards.length === 2)
                 setTimeout(() => {
-                    openCards[0].src === openCards[1].src ? 
-                        openCards.forEach(img => img.classList.toggle("hide")) :
-                        openCards.forEach(img => img.parentNode.classList.toggle("flip"))
+                    openCards[0].querySelector("img").src === openCards[1].querySelector("img").src ? 
+                        openCards.forEach(element => element.querySelector("img").classList.toggle("hide")) :
+                        openCards.forEach(element => element.classList.toggle("flip"))
                     openCards = []
                     if(document.getElementsByClassName("hide").length === images.length)
                         renderCongratulation()
