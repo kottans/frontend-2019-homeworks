@@ -56,6 +56,9 @@ Player.prototype.update = function () {
     if (this.x >= convasWidh) {
         this.x -= convasWidh;
     }
+    if(this.x < 0){
+        this.x = (convasWidh - blockWidth);
+    }
     if (this.y > initialY) {
         this.y = initialY;
     }
