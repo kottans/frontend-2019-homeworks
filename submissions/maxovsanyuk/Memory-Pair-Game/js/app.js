@@ -66,16 +66,14 @@ class App{
         initialContainer.insertAdjacentElement('beforebegin', gameTitle);
         document.body.appendChild(initialContainer);
 
-    });
-
-    this.checkCard(initialContainer);
-
+        this.checkCard(initialContainer, createNewCard); 
+    });     
 }
-    checkCard(initialContainer, newImg){
+    checkCard(initialContainer, createNewCard){
         initialContainer.addEventListener('mousedown', onMouseDown.bind(this)); 
         function onMouseDown (event){
 
-            if( event.target == newImg || this.isTwoCardsActive || event.target == initialContainer ){
+            if( event.target != createNewCard || this.isTwoCardsActive ){
                 return;
             }else{
                 event.target.classList.add('new-card_active');

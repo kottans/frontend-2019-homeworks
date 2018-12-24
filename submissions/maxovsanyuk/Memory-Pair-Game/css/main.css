@@ -25,13 +25,14 @@ body {
 
 .initial-container {
   width: 750px;
-  height: 640px;
+  height: 555px;
   min-width: 750px;
-  min-height: 640px;
+  min-height: 555px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  overflow: scroll; }
+  overflow: scroll;
+  }
 
 .new-card {
   width: 180px;
@@ -52,7 +53,7 @@ body {
     transform: rotateY(180deg);
     background-color: rgba(7, 7, 7, 0.425); }
     .new-card_active img {
-      visibility: visible; }
+      visibility: visible;}
     .new-card_active:hover {
       background-color: rgba(7, 7, 7, 0.425); }
   .new-card_remove {
