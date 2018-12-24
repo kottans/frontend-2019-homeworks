@@ -3,50 +3,42 @@ document.addEventListener("DOMContentLoaded", ready);
 //start function
 function ready() {
     var contents = document.getElementById('content-wrapper').children;
-    
-    var li_elements = Array.from(document.getElementsByClassName('menu')[0].children);
-    li_elements.forEach(element => {
-        element.addEventListener("mouseover", function () { hover(element) });
-        element.addEventListener("mouseout", function () { unhover(element) });
-        element.addEventListener("click", function () { changeContent(element) });
-    });
+    //event delegation to reduce redundancy
+    var ul = document.querySelector('.menu');
+    ul.addEventListener('click',changeContent);
 }
-function hover(element) {
-    var image = document.getElementsByClassName(element.className)[0].children[0];
-    var oldSrc = image.getAttribute('src');
-    image.setAttribute('src', oldSrc.replace('before', 'after'));
-}
-function unhover(element) {
-    if (element.classList.contains('active')) {
-        return;
-    }
-    var image = document.querySelector("."+element.classList[0]+" img");
-    var oldSrc = image.getAttribute('src');
-    image.setAttribute('src', oldSrc.replace('after', 'before'));
-}
-////////////////////////////
 
 
-function changeContent(element) {
+
+function changeContent(event) {
+    if (!event.target.matches('li')) return;    
+    var element = event.target;
     //disable all contents
-    var contents = Array.from(document.getElementById('content-wrapper').children);
+    var contents = document.querySelectorAll('.active-content');
     contents.forEach(element => {
         element.classList.remove('active-content');
     });
 
     //disable active classes
-    var active = Array.from(document.getElementsByClassName('active'));
+    var active = document.querySelectorAll('.active');
     active.forEach(el=> {
-        var image = document.querySelector("."+el.classList[0]+" img");
-        var oldSrc = image.getAttribute('src');
-        image.setAttribute('src', oldSrc.replace('after', 'before'));
+        var imgAfter = document.querySelector(".active img.after");
+        var imgBefore = document.querySelector(".active img.before");
+        imgAfter.classList.toggle('active-img');
+        imgBefore.classList.toggle('active-img');
         el.classList.toggle('active');
     });
 
-    hover(element);
     //enable content
     
     var content = document.querySelector("#content-wrapper ."+element.className);
     content.classList.toggle('active-content');
     element.classList.toggle('active');
+    var imgAfter = document.querySelector(".active img.after");
+    var imgBefore = document.querySelector(".active img.before");
+
+    imgAfter.classList.toggle('active-img');
+    imgBefore.classList.toggle('active-img');
+
+
 }

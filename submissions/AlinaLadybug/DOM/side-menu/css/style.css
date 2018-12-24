@@ -138,3 +138,19 @@ p,br{
     display: block;
 }
 
+
+
+.active-img{
+    display:block;
+}
+.menu img:not(.active-img){
+    display:none;
+}
+ul.menu li:hover>img.after{
+    display:block;
+}
+
+ul.menu li:hover>img.before{
+    display:none;
+}
+
