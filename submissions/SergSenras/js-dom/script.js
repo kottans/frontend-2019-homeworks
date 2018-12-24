@@ -19,74 +19,64 @@ var plot = {
 
 function clear(){
   const pageContent = document.getElementsByTagName('main')[0];
-  while(pageContent.hasChildNodes()){
-    pageContent.removeChild(pageContent.firstChild);
-  }
+  pageContent.innerHTML = '';
 }
 
 function displayContent(key){
   clear();
   const container = document.getElementsByTagName('main')[0];
   const fragment = document.createDocumentFragment();
-  var contentTowns = function(){
-    for(var i in towns){
+  
+  contentActivators = {
+    'nav__main': function(){
+      clear();
       const wrapper = document.createElement('div');
       wrapper.className = 'item__box';
-      const headerEl = document.createElement('h2');
       const textEl = document.createElement('p');
       const imageEl = document.createElement('img');
-      imageEl.className = 'img__town img__common';
-      headerEl.innerText = towns[i].name;
-      textEl.innerText = towns[i].content;
-      imageEl.src = towns[i].image;
-      wrapper.appendChild(headerEl);
+      imageEl.className = 'img__common';
+      textEl.innerText = main.content;
+      imageEl.src = main.image;
       wrapper.appendChild(imageEl);
       wrapper.appendChild(textEl);
-      fragment.appendChild(wrapper);
+      return wrapper;
+    },
+    'nav__plot': function(){
+      clear();
+      const wrapper = document.createElement('div');
+      wrapper.className = 'item__box';
+      const textEl = document.createElement('p');
+      textEl.innerText = plot.content;
+      wrapper.appendChild(textEl);
+  
+      return wrapper;
+    },
+    'nav__towns': function(){
+      for(var i in towns){
+        const wrapper = document.createElement('div');
+        wrapper.className = 'item__box';
+        const headerEl = document.createElement('h2');
+        const textEl = document.createElement('p');
+        const imageEl = document.createElement('img');
+        imageEl.className = 'img__town img__common';
+        headerEl.innerText = towns[i].name;
+        textEl.innerText = towns[i].content;
+        imageEl.src = towns[i].image;
+        wrapper.appendChild(headerEl);
+        wrapper.appendChild(imageEl);
+        wrapper.appendChild(textEl);
+        fragment.appendChild(wrapper);
+      }
+      return fragment;
     }
-    container.appendChild(fragment);
-  }
-  var contentPlot = function(){
-    clear();
-    const wrapper = document.createElement('div');
-    wrapper.className = 'item__box';
-    const textEl = document.createElement('p');
-    textEl.innerText = plot.content;
-    wrapper.appendChild(textEl);
-
-    container.appendChild(wrapper);
-  }
-  var contentMain = function(){
-    clear();
-    const wrapper = document.createElement('div');
-    wrapper.className = 'item__box';
-    const textEl = document.createElement('p');
-    const imageEl = document.createElement('img');
-    imageEl.className = 'img__common';
-    textEl.innerText = main.content;
-    imageEl.src = main.image;
-    wrapper.appendChild(imageEl);
-    wrapper.appendChild(textEl);
-    container.appendChild(wrapper);
   }
 
-  switch(key){
-    case 'nav__main':
-      contentMain();
-      break;
-    case 'nav__plot':
-      contentPlot();
-      break;
-    case 'nav__towns':
-      contentTowns();
-      break;
-  }
+  container.appendChild(contentActivators[key]());
 }
 
 document.addEventListener('DOMContentLoaded', function(){
   var menu = document.getElementById('menu');
   var nav = document.getElementById('nav');
-  var selectedOption = main;
 
   // display content
   displayContent('nav__main');
@@ -96,13 +86,13 @@ document.addEventListener('DOMContentLoaded', function(){
     e.stopPropagation();
   });
 
-  var classname = document.getElementsByClassName('nav__item');
+  var menuList = document.getElementsByClassName('nav__item');
   var getSelectedMenu = function(){
     var id = this.id;
     displayContent(id);
   }
-  for (var i = 0; i < classname.length; i++) {
-    classname[i].addEventListener('click', getSelectedMenu, false);
-}
+  for (var i = 0; i < menuList.length; i++) {
+    menuList[i].addEventListener('click', getSelectedMenu, false);
+  }
 })
 
