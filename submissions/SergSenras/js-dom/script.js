@@ -70,7 +70,6 @@ function displayContent(key){
       return fragment;
     }
   }
-
   container.appendChild(contentActivators[key]());
 }
 
@@ -86,13 +85,9 @@ document.addEventListener('DOMContentLoaded', function(){
     e.stopPropagation();
   });
 
-  var menuList = document.getElementsByClassName('nav__item');
-  var getSelectedMenu = function(){
-    var id = this.id;
-    displayContent(id);
-  }
-  for (var i = 0; i < menuList.length; i++) {
-    menuList[i].addEventListener('click', getSelectedMenu, false);
-  }
+  var menuList = document.querySelector('.nav__list');
+  menuList.addEventListener('click', function(event){
+    displayContent(event.path[1].id);
+  });
 })
 

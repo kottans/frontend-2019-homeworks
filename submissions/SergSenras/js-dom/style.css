@@ -129,8 +129,8 @@ body, html {
     display: inline-block;
     width: 33%;
     text-align: center;
-    line-height: 24px;
-    padding: 5px 24px;
+    line-height: 30px;
+    padding: 0;
     text-transform: uppercase;
   }
 }
