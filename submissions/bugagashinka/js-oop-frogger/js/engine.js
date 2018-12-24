@@ -65,6 +65,7 @@ var Engine = (function(global) {
   function init() {
     reset();
     lastTime = Date.now();
+    createChars();
     main();
   }
 
@@ -82,52 +83,8 @@ var Engine = (function(global) {
     checkCollisions();
   }
 
-  function playerVsEnemy(playerBox) {
-    allEnemies.forEach(function(enemy) {
-      let enemyBox = {
-        x: enemy.x,
-        y: enemy.y + 80,
-        width: enemy.x + Resources.get(enemy.sprite).width,
-        height: enemy.y + 80 + Resources.get(enemy.sprite).height - 110,
-      };
-
-      if (check(playerBox, enemyBox)) {
-        player.reset();
-      }
-    });
-  }
-
-  function playerVsProfit(playerBox, profitBox) {
-    if (check(playerBox, profitBox) && !profit.isGrabbed) {
-      profit.isGrabbed = true;
-      player.addPoints();
-    }
-  }
-
-  function check(box1, box2) {
-    return (
-      box1.x <= box2.width &&
-      box1.width >= box2.x &&
-      box1.y <= box2.height &&
-      box1.height >= box2.y
-    );
-  }
-
   function checkCollisions() {
-    let playerBox = {
-        x: player.x + 25,
-        y: player.y + 85,
-        width: player.x + 15 + Resources.get(player.sprite).width - 50,
-        height: player.y + 85 + Resources.get(player.sprite).height - 120,
-      },
-      profitBox = {
-        x: profit.x,
-        y: profit.y + 25,
-        width: profit.x + Resources.get(profit.sprite).width - 51,
-        height: profit.y + Resources.get(profit.sprite).height - 112,
-      };
-    playerVsEnemy(playerBox);
-    playerVsProfit(playerBox, profitBox);
+    player.checkCollisions();
   }
 
   /* This is called by the update function and loops through all of the
@@ -138,11 +95,10 @@ var Engine = (function(global) {
    * render methods.
    */
   function updateEntities(dt) {
-    allEnemies.forEach(function(enemy) {
-      enemy.update(dt);
-    });
+    let allEntities = allEnemies.concat(allProfits);
+    allEntities.forEach(entity => entity.update(dt));
+
     player.update();
-    profit.update();
   }
 
   /* This function initially draws the "game level", it will then call
@@ -242,11 +198,10 @@ var Engine = (function(global) {
     /* Loop through all of the objects within the allEnemies array and call
      * the render function you have defined.
      */
-    allEnemies.forEach(function(enemy) {
-      enemy.render();
-    });
+    let allEntities = allEnemies.concat(allProfits);
+    allEntities.forEach(entity => entity.render());
+
     player.render();
-    profit.render();
   }
 
   /* This function does nothing but it could have been a good place to
