@@ -19,6 +19,14 @@ body {
     background: rgba(0, 0, 0, 0.8);
 }
 
+.is_disabled {
+    opacity: 0.7;
+    pointer-events: none;
+    transition-property: opacity;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+}
+
 .wrapper {
     display: flex;
     align-items: center;
@@ -44,7 +52,7 @@ body {
     display: block;
 }
 
-.game__header__start.is-active {
+.game__header__start.is_active {
     display: none;
 }
 
@@ -52,7 +60,7 @@ body {
     display: none;
 }
 
-.game__header__score.is-active {
+.game__header__score.is_active {
     display: block;
 }
 
@@ -99,7 +107,7 @@ body {
     transition-timing-function: linear;
 }
 
-.game__controller.is-active .game__check > .game__check__round,
+.game__controller.is_active .game__check > .game__check__round,
 .game__controller:focus .game__check > .game__check__round,
 .game__input:checked + .game__check > .game__check__round {
     opacity: 1;
@@ -143,6 +151,10 @@ body {
     display: inline-block;
 }
 
+.game__content.is_disabled {
+    display: none;
+}
+
 .game__cards {
     display: grid;
     grid-template-columns: repeat(var(--count), 1fr);
@@ -180,11 +192,11 @@ body {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
 }
 
-.card:focus.is-active {
+.card:focus.is_active {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0);
 }
 
-.card.is-hide {
+.card.is_hide {
     opacity: 0;
     pointer-events: none;
 }
@@ -199,7 +211,7 @@ body {
     perspective: 1000px;
 }
 
-.card.is-active .card__flipper  {
+.card.is_active .card__flipper  {
     transform: rotateY(180deg);
 }
 
@@ -265,7 +277,7 @@ body {
     transition-duration: 0.175s;
 }
 
-.modal.is-active {
+.modal.is_active {
     opacity: 1;
     z-index: 5;
 }

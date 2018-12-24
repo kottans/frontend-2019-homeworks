@@ -3,43 +3,55 @@
     let activeIndex;
     let controller = 1;
     let lvl = 1;
-    const maxLvl = 9;
+    const MAX_LVL = 9;
     let done = 0;
     let currentAttempt = 0;
     let imgControl = 0;
-    const startSound = new Audio('audio/start.mp3');
-    const doneTwoSound = new Audio('audio/done2.mp3');
-    const lostGameSound = new Audio('audio/lost.mp3');
-    const winGameSound = new Audio('audio/win.mp3');
-    const roundTime = 40;
-    const timeForModal = 3;
-    const timeForWin = 7;
+    const START_QUANTITY = 2;
+    const START_SOUND = new Audio('audio/start.mp3');
+    const DONE_TWO_SOUND = new Audio('audio/done2.mp3');
+    const LOST_GAME_SOUND = new Audio('audio/lost.mp3');
+    const WIN_GAME_SOUND = new Audio('audio/win.mp3');
+    const ROUND_TIME = 40;
+    const TIME_FOR_MODAL = 3;
+    const TIME_FOR_AFK = 10000;
+    let timeForRound;
 
-    initControllers();
-
-    const makeTimer = (time, container, cb) => {
-        const timeContainer = document.querySelector(container);
-        let timer = setInterval( () => {
-            let nextTick = time - 1;
-            if(nextTick) {
-                time = nextTick;
-                timeContainer.innerText = time;
-            } else {
-                if(!cb) {
-                    showModal(false);
-                } else {
+    const createTimer = (time, cb) => {
+            let timer = setInterval(() => {
+                let nextTick = time - 1;
+                if (nextTick !== -1) {
                     cb();
+                    time = nextTick;
+                } else {
+                    clearInterval(timer);
                 }
-                clearInterval(timer);
-            }
-        }, 1000);
+            }, 1000);
 
         return {
             cancel: () => clearInterval(timer),
         };
     };
 
-    let timeForRound;
+
+    const makeTimer = (time, container, cb) => {
+        const timeContainer = document.querySelector(container);
+        timeContainer.innerText = time;
+        let timer = createTimer(time, () => {
+            time -= 1;
+            timeContainer.innerText = time;
+            if(time == 0) {
+                if (!cb) {
+                    showModal('lost');
+                } else {
+                    cb();
+                }
+            }
+        });
+        return {
+            cancel: () => timer.cancel()
+        };
+    };
 
     document.addEventListener('keydown', function (e) {
         let enterKeyCode = 13;
@@ -56,60 +68,84 @@
         }
     });
 
-    function initControllers() {
-        const button = document.querySelector('.js-game__button');
-        button.addEventListener('click', startGame);
-    }
-
-    function startGame() {
-        this.style.pointerEvents = 'none'
+    const controlPanelView  = (status) => {
+        const startButton = document.querySelector('.js-game__button');
         const hiddenHeader = document.querySelector('.js-game__header__start');
         const showHeader = document.querySelector('.js-game__header__score');
-        hiddenHeader.classList.add('is-active');
-        showHeader.classList.add('is-active');
-        startSound.play();
-        startLevel(lvl);
-    }
+        const gameContent = document.querySelector('.js-game__content');
 
-    function startLevel(lvl) {
+        if(status == 'hide') {
+            startButton.classList.add('is_disabled');
+            hiddenHeader.classList.add('is_active');
+            showHeader.classList.add('is_active');
+            gameContent.classList.remove('is_disabled');
+        } else {
+            startButton.classList.remove('is_disabled');
+            hiddenHeader.classList.remove('is_active');
+            showHeader.classList.remove('is_active');
+            gameContent.classList.add('is_disabled');
+        }
+    };
+
+    const startGame = () => {
+        controlPanelView('hide');
+        START_SOUND.play();
+        startLevel(lvl);
+    };
+
+    const initControllers = () => {
+        const button = document.querySelector('.js-game__button');
+        button.addEventListener('click', startGame);
+    };
+
+    const countAttempts = (container, number) => {
+        let attempt = document.querySelector(container);
+        if(number) {
+            attempt.innerText = number;
+        } else {
+            currentAttempt += 1;
+            attempt.innerText = currentAttempt;
+        }
+    };
+
+    const startLevel = (lvl) => {
         if (lvl === 1) {
             initCardsContainer();
             const controller = document.querySelector('.js-game__input:checked');
             if (controller) {
-                const gameType = controller.getAttribute('value');
-                imgControl = gameType;
+                const game_type = controller.getAttribute('value');
+                imgControl = game_type;
             } else {
                 imgControl = 1;
             }
         }
-        const quantity = Math.pow(2, lvl);
-        let arr = makeArr(quantity);
-        const attemptContainer = document.querySelector('.js-game__attempt--record');
-        attemptContainer.innerText = quantity * 2;
+        const quantity = Math.pow(START_QUANTITY, lvl);
+        let arr = makeCardsArray(quantity);
+        countAttempts('.js-game__attempt--record', quantity * 2);
         arr = shuffleArr(arr);
-        if(timeForRound) {
+        if (timeForRound) {
             timeForRound.cancel();
         }
-        if(lvl <= 5) {
-            if(lvl === 1) {
-                timeForRound = makeTimer(roundTime * lvl, '.js-game__time');
+        if (lvl <= 5) {
+            if (lvl === 1) {
+                timeForRound = makeTimer(10, '.js-game__time');
             } else {
-                timeForRound = makeTimer(roundTime * lvl + timeForModal, '.js-game__time');
+                timeForRound = makeTimer(ROUND_TIME * lvl + TIME_FOR_MODAL, '.js-game__time');
             }
         } else {
-            if(lvl === maxLvl) {
-                showModal(true);
+            if (lvl === MAX_LVL) {
+                showModal('next');
             } else {
-                timeForRound = makeTimer(roundTime * (maxLvl - lvl) + timeForModal, '.js-game__time');
+                timeForRound = makeTimer(ROUND_TIME * (MAX_LVL - lvl) + TIME_FOR_MODAL, '.js-game__time');
             }
         }
         resetAllCount();
         resetActiveCards(lvl);
         removeLastIndex();
         buildCards(arr, imgControl);
-    }
+    };
 
-    function buildCards(elementsArr, controller) {
+    const buildCards = (elementsArr, controller) => {
         const list = document.querySelector('.js-game__cards');
         let columnCount;
         list.innerHTML = '';
@@ -124,60 +160,47 @@
         document.documentElement.style.setProperty('--count', columnCount);
         elementsArr.forEach(el => {
             const item = document.createElement('li');
-            // item.tabIndex = 0;
             item.classList.add('game__card');
             let card;
             if (controller > 0) {
-                card = buildCard(el, 1);
+                card = buildCard(el, 'img');
             } else {
                 card = buildCard(el);
             }
             item.append(card);
             list.append(item);
         });
-    }
+    };
 
-    function buildCard(value, withImg) {
+    const buildCard = (value, contentType) => {
         const card = document.createElement('div');
-        const cardContainer = document.createElement('div');
-        const cardFlipper = document.createElement('div');
-        const cardFront = document.createElement('div');
-        const cardBack = document.createElement('div');
         card.classList.add('card', 'js-card');
         card.setAttribute('data-index', value);
         card.tabIndex = 0;
-        cardContainer.classList.add('card__container');
-        cardFlipper.classList.add('card__flipper');
-        cardFront.classList.add('card__front');
-        cardBack.classList.add('card__back');
-        if (withImg) {
-            const img = document.createElement('img');
-            img.setAttribute('src', `img/${value}.jpg`);
-            img.setAttribute('alt', 'test images');
-            img.classList.add('card__img');
-            cardBack.append(img);
-        } else {
-            cardBack.innerText = value;
-        }
-        cardFlipper.append(cardFront, cardBack);
-        cardContainer.append(cardFlipper);
-        card.append(cardContainer);
+        const tempImg = `<img class="card__img" src="img/${value}.jpg" />`;
+        card.innerHTML = `
+            <div class="card__container">
+                <div class="card__flipper">
+                    <div class="card__front"></div>
+                    <div class="card__back">
+                        ${contentType === 'img' ? tempImg : value }
+                    </div>
+                </div>
+            </div>  
+        `;
         return card;
-    }
+    };
 
-    function initCardsContainer() {
+    const initCardsContainer = () => {
         const cardsContainer = document.querySelector('.js-game__cards');
 
         cardsContainer.addEventListener('click', openCard);
-    }
+    };
 
-    function openCard(e) {
-        if (!controller) {
-            return;
-        }
+    const upperToCardElement = (event) => {
         let target;
-        if (e.target) {
-            target = e.target;
+        if (event.target) {
+            target = event.target;
             let checkOnCard;
             let checkOnCards;
             while (!checkOnCard) {
@@ -188,75 +211,101 @@
                 target = target.parentElement;
                 checkOnCard = target.classList.contains('js-card');
             }
+            return target;
         } else {
-            if (e.classList.contains(('js-card'))) {
-                target = e;
+            if (event.classList.contains(('js-card'))) {
+                target = event;
+                return target;
             } else {
                 return;
             }
         }
+    };
 
+    const openSameCard = (element) => {
+        let cardDisabledPause = 500;
+        done += 1;
+        element.classList.add('is_hide');
+        element.tabIndex = -1;
+        let lastElement = document.querySelector('.js-last_index');
+        if (!lastElement) {
+            element.classList.add('js-last_index');
+        } else {
+            lastElement.classList.add('is_hide');
+            lastElement.tabIndex = -1;
+        }
+        DONE_TWO_SOUND.play();
+        removeLastIndex();
+        controller = 0;
+        setTimeout(function () {
+            resetActiveCards();
+        }, cardDisabledPause);
+    };
 
-        let index = target.getAttribute("data-index");
-        let attempt = document.querySelector('.js-game__attempt--current');
+    const openOneCard = (element) => {
+        removeLastIndex();
+        element.classList.add('js-last_index');
+    };
 
-        currentAttempt += 1;
-        attempt.innerText = currentAttempt;
+    const closeAllCards = (element) => {
+        resetActiveCards();
+        removeLastIndex();
+        element.classList.add('is_active', 'js-last_index');
+        activeElCount += 1;
+    };
+
+    const openCard = (event) => {
+        if (!controller) {
+            return;
+        }
+
+        let currentElement = upperToCardElement(event);
+
+        if(!currentElement) {
+            return;
+        }
+
+        let index = currentElement.getAttribute("data-index");
+
+        countAttempts( '.js-game__attempt--current');
         activeElCount += 1;
         if (activeElCount <= 2) {
-            if (target.classList.contains('is-active')) {
+            if (currentElement.classList.contains('is_active')) {
                 return;
             } else {
-                target.classList.add('is-active');
-                if (activeIndex == index) {
-                    done += 1;
-                    target.classList.add('is-hide');
-                    target.tabIndex = -1;
-                    let lastElement = document.querySelector('.js-lastIndex');
-                    if (!lastElement) {
-                        target.classList.add('js-lastIndex');
-                    } else {
-                        lastElement.classList.add('is-hide');
-                        lastElement.tabIndex = -1;
-                    }
-                    doneTwoSound.play();
-                    removeLastIndex();
-                    controller = 0;
-                    setTimeout(function () {
-                        resetActiveCards();
-                    }, 500);
+                currentElement.classList.add('is_active');
+                let index = currentElement.getAttribute("data-index");
+
+                if(activeIndex == index) {
+                    openSameCard(currentElement);
                 } else {
                     activeIndex = index;
-                    removeLastIndex();
-                    target.classList.add('js-lastIndex');
+                    openOneCard(currentElement);
                 }
             }
         } else {
-            resetActiveCards();
-            removeLastIndex();
             activeIndex = index;
-            target.classList.add('is-active', 'js-lastIndex');
-            activeElCount += 1;
+            closeAllCards(currentElement);
         }
-    }
+    };
 
-    function resetActiveCards() {
+    const resetActiveCards = () => {
         activeElCount = 0;
         controller = 1;
-        document.querySelectorAll('.js-card.is-active').forEach(el => {
-            el.classList.remove('is-active');
+        document.querySelectorAll('.js-card.is_active').forEach(el => {
+            el.classList.remove('is_active');
         });
         checkLvl();
-    }
+    };
 
-    function removeLastIndex() {
-        const lastElement = document.querySelector('.js-lastIndex');
+    const removeLastIndex = () => {
+        const lastElement = document.querySelector('.js-last_index');
         if (lastElement) {
-            lastElement.classList.remove('js-lastIndex');
+            lastElement.classList.remove('js-last_index');
         }
-    }
+    };
 
-    function makeArr(quantity) {
+    const makeCardsArray = (quantity) => {
         let res = [];
         let counter = 1;
         while (counter <= quantity) {
@@ -264,58 +313,70 @@
             counter += 1;
         }
         return res;
+    };
+
+    const shuffleArr = (arr) => {
+        arr.sort(() => 0.5 - Math.random())
+        return arr;
     }
 
-    function shuffleArr(o) {
-        for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x) ;
-        return o;
-    }
-
-    function checkLvl() {
+    const checkLvl = () => {
         if (done === Math.pow(2, lvl)) {
             lvl += 1;
             document.querySelector('.js-game__lvl__indicator').innerText = lvl;
-            showModal(true);
+            showModal('next');
             startLevel(lvl);
         }
     }
 
-    function showModal(success_round) {
+    const reloadGame = () => {
+        timeForRound.cancel();
+        lvl = 1;
+        removeLastIndex();
+        resetActiveCards();
+        resetAllCount();
+        controlPanelView('show');
+    };
+
+    const showModal = (round_status) => {
         const modal = document.querySelector('.js-modal');
         const modalText = document.querySelector('.js-modal__text');
-        let count = 4;
-        modal.classList.add('is-active');
-        if (!success_round) {
+        const modalSeconds = document.querySelector('.js-modal__seconds');
+        let count = 3;
+        modalSeconds.innerText = count;
+        modal.classList.add('is_active');
+        if (round_status == 'lost') {
             modalText.innerText = 'Sorry, but all time are spend, pls try again';
-            lostGameSound.play();
-            makeTimer(timeForModal, '.js-modal__seconds', () => {
-                location.reload();
+            LOST_GAME_SOUND.play();
+            makeTimer(TIME_FOR_MODAL, '.js-modal__seconds', () => {
+                reloadGame();
+                modal.classList.remove('is_active');
             });
         } else {
-            if(success_round == 'win') {
+            if (round_status == 'win') {
                 modalText.innerText = 'You win this memory game. You are our Hero! :)';
-                winGameSound.play();
-                makeTimer(timeForWin, '.js-modal__seconds', () => {
-                    modal.classList.remove('is-active');
-                    location.reload();
+                WIN_GAME_SOUND.play();
+                makeTimer(TIME_FOR_AFK, '.js-modal__seconds', () => {
+                    modal.classList.remove('is_active');
+                    reloadGame();
                 });
             } else {
                 modalText.innerText = 'You finish level, plz wait';
-                makeTimer(timeForModal, '.js-modal__seconds', () => {
-                    modal.classList.remove('is-active');
+                makeTimer(TIME_FOR_MODAL, '.js-modal__seconds', () => {
+                    modal.classList.remove('is_active');
                 });
             }
-
         }
-    }
+    };
 
-    function resetAllCount() {
+    const resetAllCount = () => {
         const workContainer = document.querySelector('.js-game__attempt--current');
         done = 0;
         currentAttempt = 0;
         activeIndex = 0;
         workContainer.innerText = currentAttempt;
-    }
+    };
 
+    initControllers();
 }());
 
