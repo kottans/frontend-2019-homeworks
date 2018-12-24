@@ -1,10 +1,12 @@
+const imgBug = 'images/enemy-bug.png';
+const imgBoy = 'images/char-boy.png';
 // random speed
 function enemyRandomSpeed(max, min) {
     return Math.floor(Math.random() * (max - min)) + min;
   };
 
   class Enemy {
-    constructor(speed, x, y, width, height, sprite = 'images/enemy-bug.png') {
+    constructor(speed, x, y, width, height, sprite = imgBug) {
       this.speed = speed;
       this.x = x;
       this.y = y;
@@ -38,7 +40,7 @@ function enemyRandomSpeed(max, min) {
   };
 
   class Player {
-    constructor(x, y, width, height, sprite = 'images/char-boy.png') {
+    constructor(x, y, width, height, sprite = imgBoy) {
       this.x = x;
       this.y = y;
       this.width = width;
@@ -70,13 +72,14 @@ function enemyRandomSpeed(max, min) {
     }
   };
   //------------------------------------------------------
-  const enemy = new Enemy(enemyRandomSpeed(70, 100), 0, 63, 101, 171);
-  const enemyJack = new Enemy(enemyRandomSpeed(90, 100), 0, 145, 101, 171);
-  const enemyMarty = new Enemy(enemyRandomSpeed(40, 100), 0, 228, 101, 171);
-  const enemyBuba = new Enemy(enemyRandomSpeed(68, 100), 0, 63, 101, 171);
-  const allEnemies = [enemy, enemyJack, enemyMarty, enemyBuba];
-  //------------------------------------------------------
+  const enemy = new Enemy(enemyRandomSpeed(70, 200), 0, 63, 101, 171);
+  const enemyJack = new Enemy(enemyRandomSpeed(90, 200), 0, 145, 101, 171);
+  const enemyMarty = new Enemy(enemyRandomSpeed(40, 250), 0, 228, 101, 171);
+  const enemyBuba = new Enemy(enemyRandomSpeed(68, 150), 0, 63, 101, 171);
+
   const player = new Player(200, 380, 101, 171);
+  //------------------------------------------------------
+  const allEnemies = [enemy, enemyJack, enemyMarty, enemyBuba];
   //------------------------------------------------------
   document.addEventListener('keyup', function(e) {
     const allowedKeys = {
