@@ -82,6 +82,10 @@ body {
   word-break: break-word;
 }
 
+.surname {
+  pointer-events: none;
+}
+
 /*///////////////////////////MEDIA/////////////////////////////////*/
 @media only screen and (max-width: 768px) {
   .container {
