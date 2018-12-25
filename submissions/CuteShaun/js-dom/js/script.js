@@ -68,7 +68,7 @@
       prevListItem.classList.remove("active");
     }
 
-    if ((event.target.name = "LI")) {
+    if (event.target.classList.contains("characters-nav__item")) {
       event.target.classList.toggle("active");
       prevListItem = event.target;
     }
