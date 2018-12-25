@@ -17,7 +17,7 @@ logo.addEventListener('click', function() {
   }
 });
 
-menuBtn.addEventListener('click', function(e) {
+menuBtn.addEventListener('click', function() {
   menuBtn.classList.toggle('active');
   navList.classList.toggle('active');
 });
@@ -34,18 +34,15 @@ navList.addEventListener('click', function(e) {
 });
 
 function getImage(indexOfActiveItem, data) {
-  let img;
-  const arr = data.find(item => { 
-    if (item.id === indexOfActiveItem) {
-      img = item.img;
-    };
-  });
-  return img;
+  const activeDataItem = data.find(item => item.id === indexOfActiveItem);
+  return activeDataItem ? activeDataItem.img : '';
 }
 
 function getIndexOfActiveItem(targetItem) {
   const arr = [...menuItems];
   return arr.indexOf(targetItem);
 }
+
+
 
 
