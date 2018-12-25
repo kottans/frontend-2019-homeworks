@@ -62,10 +62,9 @@ catWoman.friends = [woman, cat];
 // ======== OUTPUT ========
 inhabitants.forEach(inhabitant => {
   const info = props.map(prop => {
-    if (prop === 'friends') {
-      return inhabitant[prop].map(friend => friend.name).join(',');
-    }
-    return inhabitant[prop];
+    return prop == 'friends'
+      ? inhabitant[prop].map(friend => friend.name).join(',')
+      : inhabitant[prop];
   });
 
   print(info.join('; '), 'div');
