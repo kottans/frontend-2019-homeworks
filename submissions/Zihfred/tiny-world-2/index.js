@@ -7,53 +7,61 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
-
 class Creature{
-        constructor(name,gender,type) {
+    constructor(name,gender,type){
             this.type = type;
             this.name = name;
             this.gender = gender;
-        }
+    }
      getInfo(){
-            let result = '';
-         Object.entries(this).forEach(function (value) {
-             result += value[0] +":"+ value[1] + "; ";
-         })
-         return result ;
-     }
-}
+        let resArr = [`name: ${this.name}`,`type: ${this.type}`,` gender: ${this.gender}, `];
+        return resArr.join();
+    }
 
+
+}
 class Animal extends  Creature{
     constructor(name,gender,type){
         super(name,gender,type);
-        this.legs = '4';
-        this.hands = '0';
-
-
+        this.legs = 4;
+        this.hands = 0;
     }
-}
+    getInfo(){
+        return super.getInfo() + `Legs: ${this.legs}, ` + `Hands: ${this.hands}, ` ;
+    }
 
+}
 class Dog extends  Animal{
-        constructor(name,gender,type = 'Dog'){
+    constructor(name,gender,type = 'Dog'){
         super(name,gender,type);
         this.gender = gender;
         this.say = 'Woof!'
         }
+    getInfo(){
+        return super.getInfo() + `Say: ${this.say}`;
+    }
 }
 class Cat extends Animal{
     constructor(name,gender,type = 'Cat'){
         super(name,gender,type);
         this.gender = gender;
         this.say = 'Woof!'
+
     }
+    getInfo(){
+        return super.getInfo() + `Say: ${this.say}`;
+    }
+
 }
 class Human extends Animal{
     constructor(name,gender,type = 'Human'){
         super(name,gender,type);
         this.say = "Hello"
     }
+    getInfo(){
+        return super.getInfo() + `Say: ${this.say}`;
+    }
 }
-
 let Population = [
     new Dog('Alfred','male'),
     new Cat('Lila','female'),
@@ -62,16 +70,6 @@ let Population = [
 ]
 
 Population.forEach((elem)=> print(elem.getInfo()));
-
-
-
-
-
-
-
-
-
-
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
