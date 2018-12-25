@@ -58,9 +58,10 @@
   ];
 
   ///DOM
-  let nav = document.getElementById("nav-list"),
-    main = document.getElementById("main"),
-    prevListItem;
+  const nav = document.getElementById("nav-list"),
+    main = document.getElementById("main");
+
+  let prevListItem;
 
   nav.addEventListener("click", function(event) {
     if (prevListItem !== undefined && prevListItem.id !== event.target.id) {
