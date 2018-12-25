@@ -1,0 +1,156 @@
+html{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+body{
+    padding: 0px;
+    margin: 0px;
+}
+#menu-wrapper{
+    display: block;
+    background-color: #f0f4ff;
+    border-right: 1px solid black;
+    text-align: center;
+    width:100px;
+    position: fixed;
+    height: 100%;
+}
+
+#menu-wrapper ul{
+    height: 50%;
+    list-style:none;
+    margin:auto 0;
+    padding: 0px;
+    color:white;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+#menu-wrapper ul li {
+    height: 100%;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+#menu-wrapper ul li img{
+    width:40px;
+    height: 40px;
+}
+#menu-wrapper ul li:hover{
+    cursor: pointer;
+}
+#menu-wrapper ul li:hover:not(.active){
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.tooltiptext {
+    visibility: hidden;
+    width: 60px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    left: 105%;
+    font-size: 10px;
+  }
+#menu-wrapper ul li:hover .tooltiptext{
+    visibility: visible;
+}
+#content-wrapper{
+    margin-left: 100px;
+    padding: 1px 20px;
+    height: 100%;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 700px) {
+    #menu-wrapper {
+      width: 100%;
+      height: auto;
+      position: relative;
+      border: none;
+    }
+    .tooltiptext{
+        display: none;
+    }
+    #menu-wrapper ul{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+    #menu-wrapper ul li
+    {
+        width: 100%;
+        float: left;
+        padding: 2px;
+    }
+    #content-wrapper {
+        margin: 0; 
+        padding:1px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    #menu-wrapper ul li {
+      text-align: center;
+      float: none;
+    }
+    #menu-wrapper ul{
+      width: auto;
+      display: block;
+    }
+   
+  }
+
+.active{
+    background-color:rgba(0, 0, 0, 1);
+}
+
+#content-wrapper>div:not(.active-content){
+    text-align: justify;
+    width:100%;
+    display:none;
+    
+}
+
+#content-wrapper .image-wrapper{
+    max-height: 300px;
+    max-width: 550px;
+    overflow: hidden;
+    border-radius: 20px;
+    margin:auto;
+
+}
+#content-wrapper img{
+    width:100%;
+    height:auto;
+}
+p,br{
+    text-indent: 20px;
+}
+
+.active-content{
+    display: block;
+}
+
+
+
+.active-img{
+    display:block;
+}
+.menu img:not(.active-img){
+    display:none;
+}
+ul.menu li:hover>img.after{
+    display:block;
+}
+
+ul.menu li:hover>img.before{
+    display:none;
+}
+
