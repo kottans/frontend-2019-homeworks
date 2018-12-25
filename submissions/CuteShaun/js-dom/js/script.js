@@ -74,7 +74,6 @@
 
     return data.filter(function(item) {
       if (event.target.id === item.name) {
-        console.log(item.imgPath);
         return (main.innerHTML = `<h2 id="character-heading" class="characters-content__heading">
         ${item.name}
       </h2>
