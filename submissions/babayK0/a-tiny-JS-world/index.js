@@ -14,7 +14,7 @@ const dog = {
    legs: '4',
    hands: '0',
    saying: 'arf-aarf!',
-   friends: ''
+   friends: undefined
 };
 const cat = {
    species: 'cat',
@@ -23,7 +23,7 @@ const cat = {
    legs: '4',
    hands: '0',
    saying: 'meeeow!',
-   friends: ''   
+   friends: undefined   
 };
 const woman = {
    species: 'human',
@@ -32,7 +32,7 @@ const woman = {
    legs: '2',
    hands: '2',
    saying: 'Failure is another steppingstone to greatness.',
-   friends: ''
+   friends: undefined
 };
 const man = {
    species: 'human',
@@ -41,7 +41,7 @@ const man = {
    legs: '2',
    hands: '2',
    saying: 'Your well-being depends on your own decisions.',
-   friends: ''
+   friends: undefined
 };
 const catwoman= {
    species: woman.species,
@@ -50,7 +50,7 @@ const catwoman= {
    legs: '2',
    hands: '2',
    saying: cat.saying,
-   friends: ''
+   friends: undefined
 };
 dog.friends = `${cat.name} and ${man.name}`;
 cat.friends = `${dog.name} and ${woman.name}`;
@@ -59,10 +59,7 @@ man.friends = `${woman.name} and ${dog.name}`;
 catwoman.friends = `${woman.name} and ${woman.friends}`
 
 function creatingOrganism(obj){
-   if(obj.friends ===''){
-   obj.friends = '...oh,i haven\'t friends =( ';
-}
-      return `I am ${obj.species}-${obj.gender}. My name is ${obj.name}.I have ${obj.legs} legs and ${obj.hands} hands.My friends are ${obj.friends}.My favorite phrase is: <strong>${obj.saying}</strong>`;
+      return `I am ${obj.species}-${obj.gender}. My name is ${obj.name}.I have ${obj.legs} legs and ${obj.hands} hands.`+(obj.friends==undefined ? '...oh, i haven\'t friends' : `My friends are ${obj.friends}`)+`.My favorite phrase is: <strong>${obj.saying}</strong>`;
 }
 
 // ======== OUTPUT ========
