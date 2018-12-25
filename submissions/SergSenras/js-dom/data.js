@@ -106,3 +106,4 @@ var plot = [
   'fight for independence from the two large kingdoms. It is later implied that this rising was orchestrated by Archibald Ironfist, ' +
   'the antagonist of Heroes of Might and Magic II.'
 }]
+
