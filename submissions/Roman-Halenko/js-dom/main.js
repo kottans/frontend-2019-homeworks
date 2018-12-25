@@ -76,16 +76,19 @@ preview.setAttribute("src", data[0].prevImg);
 preview.className = 'photo';
 cBox[1].appendChild(preview);
 
+function makeActive(trg, elements) {
+  elements.forEach(elem => {elem.classList.remove('isActive')});
+  trg.classList.add('isActive');
+}
 
-menuList.addEventListener('click', (e) => {
+menuList.addEventListener('click', (ev) => {
   for (let i = 0; i < menuItems.length; i++) {
-    if (e.target === menuItems[i]) {
+    if (ev.target === menuItems[i]) {
       ttl.innerText = data[i].title;
       dsc.innerText = data[i].description;
       sticker.setAttribute("src", data[i].stickerImg);
       preview.setAttribute("src", data[i].prevImg);
-      menuItems.forEach(item => {item.classList.remove('isActive')});
-      e.target.classList.add('isActive');
+      makeActive(ev.target, menuItems);
     }
   }
 });
