@@ -59,14 +59,12 @@ man.friends = `${woman.name} and ${dog.name}`;
 catwoman.friends = `${woman.name} and ${woman.friends}`
 
 function creatingOrganism(obj){
-   if(obj.friends!==''){
-      return `I am ${obj.species}-${obj.gender}. My name is ${obj.name}.I have ${obj.legs} legs and ${obj.hands} hands.My friends are ${obj.friends}.My favorite phrase is: <strong>${obj.saying}</strong>`;
-   }else{
-      obj.friends = '...oh,i haven\'t friends =( ';
-      return `I am ${obj.species}-${obj.gender}. My name is ${obj.name}.I have ${obj.legs} legs and ${obj.hands} hands.My friends are ${obj.friends}.My favorite phrase is: <strong>${obj.saying}</strong>`;
-   }
-
+   if(obj.friends ===''){
+   obj.friends = '...oh,i haven\'t friends =( ';
 }
+      return `I am ${obj.species}-${obj.gender}. My name is ${obj.name}.I have ${obj.legs} legs and ${obj.hands} hands.My friends are ${obj.friends}.My favorite phrase is: <strong>${obj.saying}</strong>`;
+}
+
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
