@@ -9,46 +9,48 @@
 // Define your objects here
 
 class Creature{
-        constructor(name,gender) {
+        constructor(name,gender,type) {
+            this.type = type;
             this.name = name;
             this.gender = gender;
         }
+     getInfo(){
+            let result = '';
+         Object.entries(this).forEach(function (value) {
+             result += value[0] +":"+ value[1] + "; ";
+         })
+         return result ;
+     }
 }
-Creature.prototype.getInfo = function () {
-    let result = '';
-    for(item in this){
-        if(item != 'getInfo')
-        result += item + ":" + this[item] + "; "
-    }
-    return result;
-}
+
 class Animal extends  Creature{
-    constructor(name,gender){
-        super(name,gender);
-        this.legs = 2;
-        this.hands = 2;
+    constructor(name,gender,type){
+        super(name,gender,type);
+        this.legs = '4';
+        this.hands = '0';
+
+
     }
 }
 
 class Dog extends  Animal{
-        constructor(name,gender){
-        super(name,gender);
-        this.type = 'Dog';
-        this.say = 'Woof-Woof';
+        constructor(name,gender,type = 'Dog'){
+        super(name,gender,type);
+        this.gender = gender;
+        this.say = 'Woof!'
         }
 }
 class Cat extends Animal{
-    constructor(name,gender){
-        super(name,gender);
-        this.type = 'Cat';
-        this.say = 'Meow';
+    constructor(name,gender,type = 'Cat'){
+        super(name,gender,type);
+        this.gender = gender;
+        this.say = 'Woof!'
     }
 }
 class Human extends Animal{
-    constructor(name,gender){
-        super(name,gender);
-        this.type = 'Human';
-        this.say = 'Hello KOTTANS';
+    constructor(name,gender,type = 'Human'){
+        super(name,gender,type);
+        this.say = "Hello"
     }
 }
 
