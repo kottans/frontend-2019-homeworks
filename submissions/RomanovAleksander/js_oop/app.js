@@ -1,8 +1,9 @@
-const convasWidh = 505,
+const canvasWidh = 505,
       blockWidth = 101,
       blockHeight = 83,
       initialX = blockWidth * 2,
-      initialY = 404;
+      initialY = 400,
+      minSpeed = 120;
 
 let imagesOfHeroes = [
     'images/char-boy.png',
@@ -12,11 +13,12 @@ let imagesOfHeroes = [
     'images/char-princess-girl.png'
 ];
 
-let Enemy = function (x, y) {
+const Enemy = function (x, y, player) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.speed = Math.floor(Math.random() * 250) + 70;
+    this.player= player;
+    this.speed = Math.floor(Math.random() * 250) + minSpeed;
 };
 
 Enemy.prototype.render = function () {
@@ -24,21 +26,25 @@ Enemy.prototype.render = function () {
 };
 
 Enemy.prototype.update = function (dt) {
-    if (this.x < convasWidh) {
+    if (this.x < canvasWidh) {
         this.x += this.speed * dt;
     } else {
         this.x = -blockWidth;
     }
 
-    if (!(this.y + blockHeight < player.y ||
-        this.y > player.y + blockHeight ||
-        this.x + blockWidth < player.x ||
-        this.x > player.x + blockWidth)) {
-        player.x = initialX;
-        player.y = initialY;
-    }
-
+    this.collisionDetection();
 };
+
+Enemy.prototype.collisionDetection = function () {
+    if (this.y + blockHeight > this.player.y &&
+        this.y < this.player.y + blockHeight &&
+        this.x + blockWidth > this.player.x &&
+        this.x < this.player.x + blockWidth) {
+        this.player.x = initialX;
+        this.player.y = initialY;
+    }
+};
+
 
 let Player = function (x, y) {
     this.x = x;
@@ -53,11 +59,11 @@ Player.prototype.render = function () {
 };
 
 Player.prototype.update = function () {
-    if (this.x >= convasWidh) {
-        this.x -= convasWidh;
+    if (this.x >= canvasWidh) {
+        this.x -= canvasWidh;
     }
     if(this.x < 0){
-        this.x = (convasWidh - blockWidth);
+        this.x = (canvasWidh - blockWidth);
     }
     if (this.y > initialY) {
         this.y = initialY;
@@ -66,7 +72,7 @@ Player.prototype.update = function () {
         this.score++;
         this.y = initialY;
         allEnemies.forEach(enemy => {
-            enemy.speed = Math.floor(Math.random() * 300) + 150;
+            enemy.speed = Math.floor(Math.random() * 300) + minSpeed;
         });
         document.querySelector('.score').innerHTML = this.score;
         console.log('Score: ' + this.score);
@@ -76,16 +82,16 @@ Player.prototype.update = function () {
 Player.prototype.handleInput = function (key) {
     if (key === 'left') this.x = this.x - blockWidth;
     if (key === 'right') this.x = this.x + blockWidth;
-    if (key === 'up') this.y = this.y - blockHeight;
-    if (key === 'down') this.y = this.y + blockHeight;
+    if (key === 'up') this.y = this.y - blockHeight - 1;
+    if (key === 'down') this.y = this.y + blockHeight + 1;
 };
 
-let allEnemies = [
-    new Enemy(-blockWidth, 63),
-    new Enemy(-blockWidth, 146),
-    new Enemy(-blockWidth, 229)
-];
 let player = new Player(initialX, initialY);
+let allEnemies = [
+    new Enemy(-blockWidth, 63, player),
+    new Enemy(-blockWidth, 147, player),
+    new Enemy(-blockWidth, 231, player)
+];
 
 document.addEventListener('keyup', function (e) {
     const allowedKeys = {
