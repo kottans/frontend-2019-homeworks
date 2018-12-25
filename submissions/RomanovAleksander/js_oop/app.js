@@ -17,7 +17,7 @@ const Enemy = function (x, y, player) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.player= player;
+    this.player = player;
     this.speed = Math.floor(Math.random() * 250) + minSpeed;
 };
 
@@ -42,6 +42,10 @@ Enemy.prototype.isCollide = function () {
         this.x < this.player.x + blockWidth) {
         this.player.x = initialX;
         this.player.y = initialY;
+        this.player.health--;
+        if (this.player.health > 0) {
+            this.player.score = 0;
+        }
     }
 };
 
@@ -50,32 +54,39 @@ let Player = function (x, y) {
     this.x = x;
     this.y = y;
     this.score = 0;
+    this.health = 3;
     this.sprite = imagesOfHeroes[Math.floor(Math.random() * 5)];
     console.log('Score: ' + this.score);
 };
 
 Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    document.querySelector('.score').innerHTML = `Score: ${this.score}`;
+    document.querySelector('.health').innerHTML = `Health: ${this.health}`;
 };
 
 Player.prototype.update = function () {
     if (this.x >= canvasWidth) {
         this.x -= canvasWidth;
     }
-    if(this.x < 0){
+    if (this.x < 0) {
         this.x = (canvasWidth - blockWidth);
     }
     if (this.y > initialY) {
         this.y = initialY;
     }
-    if(this.y < 0){
+    if (this.y < 0) {
         this.score++;
         this.y = initialY;
         allEnemies.forEach(enemy => {
             enemy.speed = Math.floor(Math.random() * 300) + minSpeed;
         });
-        document.querySelector('.score').innerHTML = this.score;
         console.log('Score: ' + this.score);
+    }
+    if (this.health <= 0) {
+        alert(`Game Over! Your score: ${this.score}. Click OK if you want to continue`);
+        this.health = 3;
+        this.score = 0;
     }
 };
 
