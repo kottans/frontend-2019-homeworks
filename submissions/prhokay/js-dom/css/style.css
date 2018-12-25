@@ -1,0 +1,75 @@
+body {
+  background:url(http://subtlepatterns.com/patterns/subtlenet2.png);
+  font:1em 'PT Sans', Tahoma, Arial;
+}
+
+div#main {
+  position:absolute;
+  top:10%;
+  left:10%; 
+  margin-right:200px;
+
+}
+
+.nav {
+  list-style:none;
+  margin:30px;
+  opacity:.5;
+  padding:0;
+  width:50px;
+  
+  -moz-transition:opacity .3s ease-in-out;
+  -webkit-transition:opacity .3s ease-in-out;
+  -o-transition:opacity .3s ease-in-out;
+  transition:opacity .3s ease-in-out;
+}
+
+.nav:hover {
+  opacity:1;
+}
+
+.nav button {
+  height:50px;
+  overflow:hidden;
+  width:70px;
+  background:#bbb;
+  color:#fff;
+  cursor:pointer;
+  display:block;
+  text-decoration:none;
+  
+  -moz-transition:width .2s ease-in-out, height .2s ease-in-out .2s;
+  -webkit-transition:width .2s ease-in-out, height .2s ease-in-out .2s;
+  -o-transition:width .2s ease-in-out, height .2s ease-in-out .2s;
+  transition:width .2s ease-in-out, height .2s ease-in-out .2s;
+}
+
+.nav button:hover {
+  height:50px;
+  width:100px;
+}
+
+
+.nav-link {
+  background:#bbb;
+  color:#fff;
+  cursor:pointer;
+  display:block;
+  height:40px;
+  line-height:40px;
+  margin:1px;
+  padding-left:15px;
+  width:200px;
+  text-decoration:none;
+  
+  -moz-transition:background .2s ease-in-out;
+  -webkit-transition:background .2s ease-in-out;
+  -o-transition:background .2s ease-in-out;
+  transition:background .2s ease-in-out;
+}
+
+.nav-link:hover {
+  background:#2fc5ff;
+}
+
+
