@@ -7,53 +7,51 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
-class Inhabitants {
-    constructor(arrayOfInhabitants) {
-        this.array = arrayOfInhabitants;
-        this.render();
-    }
-
-    render() {
-        this.array.forEach(person => {
-            print([person.species, person.name, person.gender, person.legs, person.hands, person.saying].join(' ; '));
-        });
+class Inhabitant {
+    constructor(species, name, gender) {
+        this.species = species;
+        this.name = name;
+        this.gender = gender;
     }
 }
 
-const inhabitants = new Inhabitants([
-    {
-        species: 'dog',
-        name: 'Lucky',
-        gender: 'male',
-        legs: '4',
-        hands: '0',
-        saying: 'Woof-woof'
-    },
-    {
-        species: 'cat',
-        name: 'Tihon',
-        gender: 'male',
-        legs: '4',
-        hands: '0',
-        saying: 'Meow'
-    },
-    {
-        species: 'human',
-        name: 'Jenny',
-        gender: 'female',
-        legs: '2',
-        hands: '2',
-        saying: 'Hi, animals'
-    },
-    {
-        species: 'human',
-        name: 'Arnold',
-        gender: 'male',
-        legs: '2',
-        hands: '2',
-        saying: 'I\'ll be back'
-    },
-]);
+class Human extends Inhabitant {
+    constructor(species, name, gender) {
+        super(species, name, gender);
+        this.legs = 2;
+        this.hands = 2;
+        this.saying = 'Hi, animals';
+    }
+}
+
+class Dog extends Inhabitant {
+    constructor(species, name, gender) {
+        super(species, name, gender);
+        this.legs = 4;
+        this.hands = '0';
+        this.saying = 'Woof-woof';
+    }
+}
+
+class Cat extends Inhabitant {
+    constructor(species, name, gender) {
+        super(species, name, gender);
+        this.legs = 4;
+        this.hands = '0' ;
+        this.saying = 'Meow';
+    }
+}
+
+const inhabitants = [
+    new Dog('dog', 'Lucky', 'male'),
+    new Cat('cat', 'Tihon', 'male'),
+    new Human('human', 'Jenny', 'female'),
+    new Human('human', 'Arnold', 'male')
+];
+
+inhabitants.forEach(person => {
+    print([person.species, person.name, person.gender, person.legs, person.hands, person.saying].join(' ; '));
+});
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
