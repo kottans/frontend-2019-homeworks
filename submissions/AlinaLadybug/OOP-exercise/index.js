@@ -8,77 +8,82 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 class Entity {
-  constructor(props) {
-    this.name = props.name;
-    this.gender = props.gender;
-    this.species = props.species;
-    this.saying = props.saying;
+  constructor(name, gender, species, saying, legs, hands, friends) {
+    this.name = name;
+    this.gender = gender;
+    this.species = species;
+    this.saying = saying;
+    this.legs = legs;
+    this.hands = hands;
+    this.friends = friends;
   }
   //spread syntax for further expanding
   setFriends(objects) {
     this.friends = [...objects];
   }
   getMessage() {
-    return  `${this.name}; ${this.gender}; ${this.species}; ${this.legs} legs; ${this.hands} hands; ${Array.isArray(this.friends)? this.friends.map(a => a.name):"no friends"}`;
+    var friends = Array.isArray(this.friends)? this.friends.map(a => a.name):"no friends";
+    var props = [this.name, this.gender, this.species, this.legs, this.hands,this.saying, friends];
+    return props.join('; ');
   }
 }
 class Human extends Entity {
-  constructor(props) {
-    super(props);
+  constructor(name,gender) {
+    super(name,gender);
     this.legs = 2;
     this.hands = 2;
     this.species = 'human';
   }
 }
 class Animal extends Entity {
-  constructor(props) {
-    super(props);
+  constructor(name,gender) {
+    super(name,gender);
     this.legs = 4;
     this.hands = 0;
   }
 }
 
 class Dog extends Animal {
-  constructor(props) {
-    super(props);
+  constructor(name,gender) {
+    super(name,gender);
     this.species = 'dog';
     this.saying = 'woof';
   }
 }
 
 class Cat extends Animal {
-  constructor(props) {
-    super(props);
+  constructor(name,gender) {
+    super(name,gender);
     this.species = 'cat';
     this.saying = 'meow';
   }
 }
 
 class Man extends Human {
-  constructor(props) {
-    super(props);
+  constructor(name,gender) {
+    super(name,gender);
     this.saying = 'I am a cool man.';
   }
 }
 class Woman extends Human {
-  constructor(props) {
-    super(props);
+  constructor(name,gender) {
+    super(name,gender);
     this.saying = 'Hi, beauty!';
   }
 }
 class CatWoman extends Woman {
-  constructor(props) {
-    super(props);
+  constructor(name,gender) {
+    super(name,gender);
     this.species = "cat-woman"
-    this.saying = new Cat(props).saying;
+    this.saying = new Cat().saying;
   }
 }
 
-var dog = new Dog({name:'Didko',gender: 'male'});
-var cat = new Cat({name:'John',gender: 'male'});
-var man = new Woman({name:'Polina',gender: 'female'});
-var woman = new Man({name:'Seba',gender: 'male'});
-var catWoman = new CatWoman({name:'Murmuletka',gender: 'female'});
+var dog = new Dog('Didko','male');
+var cat = new Cat('John','male');
+var man = new Woman('Polina', 'female');
+var woman = new Man('Seba','male');
+var catWoman = new CatWoman('Murmuletka', 'female');
 dog.setFriends([cat, man]);
 man.setFriends([woman, dog]);
 cat.setFriends([dog]);
