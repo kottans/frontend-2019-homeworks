@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Friends app</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
+</head>
+<body>
+    <header>Friends</header>
+    <div id="container">
+        <aside>
+            <form>
+                <input id="name-search"  placeholder="Search by name...">
+                <hr>
+                <div id="name-sort">
+                    <label>Sort by name:</label>
+                    <img src="img/az.png" id="name-asc"> 
+                    <img src="img/za.png" id="name-desc"> 
+                </div>
+                <hr>
+                <div id="age-sort">
+                    <label>Sort by age:</label>
+                    <img src="img/dsc.png" id="age-asc"> 
+                    <img src="img/asc.png" id="age-desc"> 
+                </div>
+                <hr>
+                <div id="gender">
+                    <label for="gender-m">Male: </label>
+                    <input type="radio" id="gender-m" name="gender" value="male">
+                    <label for="gender-f">Female: </label>
+                    <input type="radio" id="gender-f" name="gender" value="female">
+                </div>
+                <hr>
+                <img id="filter-reset" src="img/rest.png"> 
+            </form>
+        </aside>
+        <div id="content"></div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
