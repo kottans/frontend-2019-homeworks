@@ -1,128 +1,117 @@
+const SCORE_COEF = 5;
+const PAIR_REMOVED_CARDS = 2;
+
 class App{
-    constructor(){
+	constructor(){
+		this.firstCard = null;
+        this.maxGameScore = 100;
+        this.removeElemCount = 0;
+	}   
+	
+	init(list) {
+		const allImgList = [...list, ...list];
+        this.allImagesCount = allImgList.length;
+		allImgList.sort(() => 0.5 - Math.random());
+		this.renderInitialContainer();
+		this.renderCards(allImgList);
+	}
 
-        this.isTwoCardsActive = false;
-        this.isFirstCard = true;
-        this.gameScore = 0;
-        this.firstCard = null;
-        this.secondCard = null;
-        this.allNumberImg = 12;
-        this.imgList = [
-            {
-                src: 'img/HTML5.svg',
-                name: 'html',
-            },
-            {
-                src: 'img/sass.png',
-                name: 'sass',
-            },
-            {
-                src: 'img/git.png',
-                name: 'git',
-            },
-            {
-                src: 'img/vue.png',
-                name: 'vue',
-            },
-            {
-                src: 'img/js.png',
-                name: 'js',
-            },
-            {
-                src: 'img/react.png',
-                name: 'react',
-            },
-        ];
-        
-    }   
-    
-    init(){
-       
-        const allImgList = this.imgList.concat(this.imgList);
-        allImgList.sort(() => 0.5 - Math.random());
+	renderInitialContainer() {
+		const $root = document.getElementById('root');
 
-        const initialContainer = document.createElement('div');
-        initialContainer.classList.add('initial-container');
-        
-        const gameTitle = document.createElement('h2');
-        gameTitle.textContent = "Memory – Pair Game";
+		const $gameTitle = document.createElement('h2');
+		$gameTitle.textContent = "Memory – Pair Game";
+		$root.appendChild($gameTitle);
 
-        this.addAllContent(allImgList, initialContainer, gameTitle);
-    }
+		const $cardsWrapper = document.createElement('div');
+		$cardsWrapper.setAttribute('class', 'cards-wrapper');
+		$cardsWrapper.addEventListener('mousedown', this.onMouseDown.bind(this));
+		$root.appendChild($cardsWrapper);
+	}
 
-   addAllContent(allImgList, initialContainer, gameTitle){
-        
-    allImgList.forEach(img => {
-        const createNewCard = document.createElement('div');
-        createNewCard.className = "new-card";
-        createNewCard.setAttribute('data-name', img.name); 
-        
-        const newImg = document.createElement('img');
-        newImg.className = "new-card_img";
-        newImg.setAttribute('src', img.src); 
-    
-        initialContainer.appendChild(createNewCard);
-        createNewCard.appendChild(newImg);
-        initialContainer.insertAdjacentElement('beforebegin', gameTitle);
-        document.body.appendChild(initialContainer);
+	
+	renderCards(allImgList) {
+		const $cardsWrapper = document.querySelector('.cards-wrapper');
+		allImgList.forEach(img => {
+			const $card = document.createElement('div');
+			$card.setAttribute('class', 'card');
+			$card.setAttribute('data-name', img.name); 
+			
+			const $img = document.createElement('img');
+			$img.setAttribute('class', 'card__img');
+			$img.setAttribute('src', img.src); 
+		
+			$card.appendChild($img);
+			$cardsWrapper.appendChild($card);
+		});
+	}
 
-        this.checkCard(initialContainer, createNewCard); 
-    });     
-}
-    checkCard(initialContainer, createNewCard){
-        initialContainer.addEventListener('mousedown', onMouseDown.bind(this)); 
-        function onMouseDown (event){
+	onMouseDown(event) {
+		const {classList} = event.target;
+        const isTwoCardsActicve = document.querySelectorAll('.card--active').length > 1;
 
-            if( event.target != createNewCard || this.isTwoCardsActive ){
-                return;
-            }else{
-                event.target.classList.add('new-card_active');
-            };
-    
-            if(this.isFirstCard){       
-        
-                 this.firstCard = event.target;
-                 this.isFirstCard = false
-            }else{
-                this.secondCard = event.target;
-
-                    if(this.firstCard === this.secondCard ){
-                        return;
-                    }
-                        this.isTwoCardsActive = true;
-                        this.isFirstCard = true;
-
-                    if(this.firstCard.getAttribute('data-name') !== this.secondCard.getAttribute('data-name')){
-                        this.gameScore-=5;
-
-                            setTimeout(() => {
-                                this.firstCard.classList.remove('new-card_active')
-                                this.secondCard.classList.remove('new-card_active')
-                                this.isTwoCardsActive = false;
-                            }, 1000);
-
-                    }else if(this.firstCard.getAttribute('data-name') === this.secondCard.getAttribute('data-name')){
-                        this.gameScore+=15
-                        this.allNumberImg -= 2;
-
-                    setTimeout(() => {
-                        this.firstCard.classList.add('new-card_remove')
-                        this.secondCard.classList.add('new-card_remove')
-                        this.isTwoCardsActive = false;
-
-                        if(this.allNumberImg === 0){
-                            const reload = document.createElement('button');
-                            alert(` Your score is: ${this.gameScore}, max result is : 90`)
-                            location.reload();
-                        } 
-                    }, 500);   
-                }
-            }
+		if (!classList.contains('card') || isTwoCardsActicve || classList.contains('card--active')){
+			return;
         }
-    }
+		classList.add('card--active');
+
+		if(!this.firstCard) {
+			this.firstCard = event.target;
+			return;
+		}
+
+        const secondCard = event.target;
+        
+		if (this.firstCard.getAttribute('data-name') !== secondCard.getAttribute('data-name')) {
+			return setTimeout(() => {
+                this.maxGameScore -= SCORE_COEF;
+				this.firstCard.classList.remove('card--active')
+				this.firstCard = null;
+				secondCard.classList.remove('card--active')
+            }, 1000);
+        }
+
+            setTimeout(() => {
+                this.firstCard.classList.remove('card--active')
+                this.firstCard.classList.add('card--removed')
+                this.firstCard = null;
+                secondCard.classList.remove('card--active')
+                secondCard.classList.add('card--removed')   
+            }, 500);
+            this.removeElemCount += PAIR_REMOVED_CARDS;
+
+		if(this.removeElemCount === this.allImagesCount){
+			alert(`Your score is: ${this.maxGameScore}, max result is : 100`);
+			location.reload();
+        }
+	}
 }
 
 const app = new App();
-app.init();
-
+app.init([
+	{
+		src: 'img/HTML5.svg',
+		name: 'html',
+	},
+	{
+		src: 'img/sass.png',
+		name: 'sass',
+	},
+	{
+		src: 'img/git.png',
+		name: 'git',
+	},
+	{
+		src: 'img/vue.png',
+		name: 'vue',
+	},
+	{
+		src: 'img/js.png',
+		name: 'js',
+	},
+	{
+		src: 'img/react.png',
+		name: 'react',
+	}
+]);
 
