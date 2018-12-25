@@ -1,4 +1,4 @@
-const canvasWidh = 505,
+const canvasWidth = 505,
       blockWidth = 101,
       blockHeight = 83,
       initialX = blockWidth * 2,
@@ -26,16 +26,16 @@ Enemy.prototype.render = function () {
 };
 
 Enemy.prototype.update = function (dt) {
-    if (this.x < canvasWidh) {
+    if (this.x < canvasWidth) {
         this.x += this.speed * dt;
     } else {
         this.x = -blockWidth;
     }
 
-    this.collisionDetection();
+    this.isCollide();
 };
 
-Enemy.prototype.collisionDetection = function () {
+Enemy.prototype.isCollide = function () {
     if (this.y + blockHeight > this.player.y &&
         this.y < this.player.y + blockHeight &&
         this.x + blockWidth > this.player.x &&
@@ -59,11 +59,11 @@ Player.prototype.render = function () {
 };
 
 Player.prototype.update = function () {
-    if (this.x >= canvasWidh) {
-        this.x -= canvasWidh;
+    if (this.x >= canvasWidth) {
+        this.x -= canvasWidth;
     }
     if(this.x < 0){
-        this.x = (canvasWidh - blockWidth);
+        this.x = (canvasWidth - blockWidth);
     }
     if (this.y > initialY) {
         this.y = initialY;
