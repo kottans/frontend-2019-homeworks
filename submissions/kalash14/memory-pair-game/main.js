@@ -111,6 +111,9 @@ let initGame = () => {
             }
 
         }
+        else {
+            localStorage.setItem('bestDate', secondsRaw);
+        }
 
         seconds = 0;
         minutes = 0;
