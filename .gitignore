@@ -8,6 +8,7 @@ DS_Store?
 node_modules/
 dist/
 .cache
+.history
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
