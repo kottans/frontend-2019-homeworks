@@ -25,7 +25,7 @@ Enemy.prototype.render = function () {
 
 Enemy.prototype.update = function (dt) {
     if (this.x < convasWidh) {
-        this.x += this.speed * dt
+        this.x += this.speed * dt;
     } else {
         this.x = -blockWidth;
     }
@@ -65,6 +65,9 @@ Player.prototype.update = function () {
     if(this.y < 0){
         this.score++;
         this.y = initialY;
+        allEnemies.forEach(enemy => {
+            enemy.speed = Math.floor(Math.random() * 300) + 150;
+        });
         document.querySelector('.score').innerHTML = this.score;
         console.log('Score: ' + this.score);
     }
