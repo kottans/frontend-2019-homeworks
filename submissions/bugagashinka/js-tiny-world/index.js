@@ -6,7 +6,7 @@
    */
 
 // ======== OBJECTS DEFINITIONS ========
-var dog, cat, woman, man;
+var dog, cat, woman, man, catWoman;
 
 dog = {
   species: 'dog',
@@ -18,7 +18,7 @@ dog = {
 };
 cat = {
   species: 'cat',
-  name: 'Mr. Smith',
+  name: 'Mr.Smith',
   gender: 'male',
   legs: 4,
   hands: 0,
@@ -40,27 +40,7 @@ man = {
   hands: 2,
   saying: 'Honey come on',
 };
-
-const inhabitants = [dog, cat, woman, man];
-
-woman.friends = [cat, man];
-man.friends = [woman, dog];
-dog.friends = [man];
-cat.friends = [woman];
-
-// ======== OUTPUT ========
-inhabitants.forEach(inhabitant => {
-  const info = Object.keys(inhabitant).map(prop => {
-    if (prop === 'friends') {
-      return inhabitant[prop].map(friend => friend.name).join(',');
-    }
-    return inhabitant[prop];
-  });
-
-  print(info.join(';'), 'div');
-});
-
-const catWoman = {
+catWoman = {
   species: 'human',
   name: 'Kitty woman',
   gender: 'female',
@@ -70,3 +50,23 @@ const catWoman = {
     return cat.saying;
   },
 };
+const props = ['species', 'name', 'gender', 'legs', 'hands', 'saying'];
+const inhabitants = [dog, cat, woman, man, catWoman];
+
+woman.friends = [cat, man, catWoman];
+man.friends = [woman, dog];
+dog.friends = [man];
+cat.friends = [woman, catWoman];
+catWoman.friends = [woman, cat];
+
+// ======== OUTPUT ========
+inhabitants.forEach(inhabitant => {
+  const info = props.map(prop => {
+    if (prop === 'friends') {
+      return inhabitant[prop].map(friend => friend.name).join(',');
+    }
+    return inhabitant[prop];
+  });
+
+  print(info.join('; '), 'div');
+});
