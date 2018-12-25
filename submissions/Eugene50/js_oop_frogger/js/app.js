@@ -1,5 +1,9 @@
 const imgBug = 'images/enemy-bug.png';
 const imgBoy = 'images/char-boy.png';
+const widthField = 505;
+const heightField = 40;
+const playerPositionX = 200;
+const playerPositionY = 380;
 // random speed
 function enemyRandomSpeed(max, min) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -17,7 +21,7 @@ function enemyRandomSpeed(max, min) {
   }
 
   Enemy.prototype.update = function (dt) {
-    if (this.x < 505) {
+    if (this.x < widthField) {
       this.x += (this.speed * dt);
     } else {
       this.x = 0;
@@ -34,8 +38,8 @@ function enemyRandomSpeed(max, min) {
 
   // back to the start point
     if (XColl && YColl) {
-      player.x = 200;
-      player.y = 380;
+      player.x = playerPositionX;
+      player.y = playerPositionY;
     };
   };
 
@@ -50,9 +54,9 @@ function enemyRandomSpeed(max, min) {
   }
 
   Player.prototype.update = function () {
-    if (this.y <= 40) {
-      this.x = 200;
-      this.y = 380;
+    if (this.y <= heightField) {
+      this.x = playerPositionX;
+      this.y = playerPositionY;
     };
   };
 
