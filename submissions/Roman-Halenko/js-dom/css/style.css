@@ -20,17 +20,14 @@ li {
   list-style: none;
   margin-top: 8px;
   text-align: right;
-}
-
-a {
-  text-decoration: none;
   color: #fffef6;
   font-size: 24px;
   transition: 0.2s ease;
   font-weight: 200;
+  cursor: pointer;
 }
 
-a:hover {
+li:hover {
   color: #1e3d46;
 }
 

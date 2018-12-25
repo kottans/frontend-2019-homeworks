@@ -1,9 +1,10 @@
-// Mobile navigation
 const menuBtn = document.getElementById('btn-menu');
 const navBar = document.getElementById('navbar');
 const main = document.getElementsByTagName('main')[0];
 const menuItems = document.querySelectorAll('.menu-item');
+const menuList = document.querySelector('#navbar ul');
 
+// Mobile navigation
 menuBtn.addEventListener('click', e => {
   navBar.classList.toggle('open');
   e.stopPropagation();
@@ -75,13 +76,16 @@ preview.setAttribute("src", data[0].prevImg);
 preview.className = 'photo';
 cBox[1].appendChild(preview);
 
-for (let i = 0; i < menuItems.length; i++) {
-  menuItems[i].addEventListener('click', () => {
-    ttl.innerText = data[i].title;
-    dsc.innerText = data[i].description;
-    sticker.setAttribute("src", data[i].stickerImg);
-    preview.setAttribute("src", data[i].prevImg);
-    menuItems.forEach(item => {item.classList.remove('isActive')});
-    menuItems[i].classList.add('isActive');
-  });
-};
+
+menuList.addEventListener('click', (e) => {
+  for (let i = 0; i < menuItems.length; i++) {
+    if (e.target === menuItems[i]) {
+      ttl.innerText = data[i].title;
+      dsc.innerText = data[i].description;
+      sticker.setAttribute("src", data[i].stickerImg);
+      preview.setAttribute("src", data[i].prevImg);
+      menuItems.forEach(item => {item.classList.remove('isActive')});
+      e.target.classList.add('isActive');
+    }
+  }
+});
