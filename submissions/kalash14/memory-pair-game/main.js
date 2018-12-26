@@ -38,106 +38,113 @@ let initGame = () => {
     let matchesCounter = 0;
     let blockCardWrap = false;
     let cardItems;
-    let seconds = 0, minutes = 0, hours = 0, secondsRaw = 0, watchTimer;
     const bestTime = document.querySelector('.stopwatch__best');
     const currentTime = document.querySelector('.stopwatch__current');
     const FLIP_TIME = 1000;
+    let startTime = 0;
+    let startTimeInMilliseconds;
+    let timeInterval;
 
     const startButtonHandler = ({target}) => {
 
         if (target.matches('.button-start')) {
             startSection.classList.add('hidden');
             cardsSection.classList.add('active');
-            timer();
-            checkBestTime();
             renderCardItems(imagesData);
+            timeInterval = startStopWatch();
+            checkBestTime();
+            startTimeInMilliseconds = getStartDate();
         }
 
     };
 
     startSection.addEventListener('click', startButtonHandler);
 
+    const getStartDate = () => {
+        const currentDate = new Date();
+        return currentDate.getTime();
+    };
+
+    const calculateGameDuration = (startDate) => {
+        const endDate = new Date().getTime();
+        const gameDuration = endDate - startDate;
+        return gameDuration;
+    };
+
+    const displayDate = (time, element) => {
+
+        let hours = Math.floor(time / 3600000);
+        let minutes = Math.floor(time / (1000 * 60));
+        let seconds = Math.floor((time - minutes * 1000 * 60) / 1000);
+
+        element.innerHTML = createFinalDateFormat(seconds, minutes, hours);
+
+    };
+
     const createFinalDateFormat = (seconds, minutes, hours) => {
 
         const hoursString = hours ? (hours > 9 ? hours : "0" + hours) : "00",
-            minutesString = minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00",
-            secondsString = seconds > 9 ? seconds : "0" + seconds;
+              minutesString = minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00",
+              secondsString = seconds > 9 ? seconds : "0" + seconds;
 
         const finalDateFormat = `${hoursString}:${minutesString}:${secondsString}`;
 
         return finalDateFormat;
 
-
     };
 
-    const processDate = () => {
-        seconds++;
-        secondsRaw++;
-        if (seconds >= 60) {
-            seconds = 0;
-            minutes++;
-            if (minutes >= 60) {
-                minutes = 0;
-                hours++;
-            }
-        }
+    const startStopWatch = () => {
 
-        currentTime.innerHTML = createFinalDateFormat(seconds, minutes, hours);
+        return setInterval(() => {
+            startTime += FLIP_TIME;
+            displayDate(startTime, currentTime);
+        },FLIP_TIME);
 
-        timer();
-    };
-
-
-    let timer = () => {
-        watchTimer = setTimeout(processDate, FLIP_TIME);
     };
 
     const checkBestTime = () => {
-        const previousSavedDate = localStorage.getItem('bestDate');
+        const previousSavedDate = localStorage.getItem('bestTime');
 
         if (previousSavedDate) {
 
             let convertedDate = Number(previousSavedDate);
-
-            let minutes = Math.floor(convertedDate / 60);
-            let seconds = convertedDate - minutes * 60;
-            let hours = Math.floor(convertedDate / 3600);
-
-            bestTime.innerHTML = createFinalDateFormat(seconds, minutes, hours);
+            displayDate(convertedDate, bestTime);
 
         }
     };
 
-    const clearStopWatch = () => {
+    const checkBestTimeInLocalStorage = (gameDuration) => {
 
-        const previousSavedDate = localStorage.getItem('bestDate');
+        const previousSavedDate = localStorage.getItem('bestTime');
 
         if (previousSavedDate) {
 
             let convertedDate = Number(previousSavedDate);
 
-            if (secondsRaw < convertedDate) {
-                localStorage.setItem('bestDate', secondsRaw);
+            if (gameDuration < convertedDate) {
+                localStorage.setItem('bestTime', gameDuration);
             }
 
         }
         else {
-            localStorage.setItem('bestDate', secondsRaw);
+            localStorage.setItem('bestTime', gameDuration);
         }
 
-        seconds = 0;
-        minutes = 0;
-        hours = 0;
-        secondsRaw = 0;
+    };
 
-        currentTime.innerHTML = "00:00:00";
-        clearTimeout(watchTimer);
+    const clearStopWatch = () => {
+
+        const gameDuration = calculateGameDuration(startTimeInMilliseconds);
+        checkBestTimeInLocalStorage(gameDuration);
+        clearTimeout(timeInterval);
+        startTime = 0;
+        currentTime.innerHTML = '00:00:00';
 
     };
 
     const renderCardItems = (imagesURLsArray) => {
 
-        imagesURLsArray = imagesURLsArray.sort(() => { 0.5 - Math.random() });
+        imagesURLsArray = imagesURLsArray.sort(function() { return 0.5 - Math.random() });
 
         let cardItemContent = '';
         imagesURLsArray.forEach(cardItem => {
@@ -208,8 +215,8 @@ let initGame = () => {
             setTimeout(() => {
                 resetGame();
                 winModal.classList.add('active');
+                clearStopWatch();
             }, FLIP_TIME);
-            clearStopWatch();
         }
 
     };
@@ -243,8 +250,8 @@ let initGame = () => {
         if (target.matches('.button-newgame')) {
             renderCardItems(imagesData);
             winModal.classList.remove('active');
-            timer();
             checkBestTime();
+            timeInterval = startStopWatch();
         }
 
     };
