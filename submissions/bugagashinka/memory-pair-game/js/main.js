@@ -1,6 +1,7 @@
 (function(global) {
   const MAX_FLIPP_CARDS = 2,
-    SHOW_CARDS_TIME = 1000;
+    SHOW_CARDS_TIME = 1000,
+    WAIT_TIME_BEFORE_RESET = 2000;
 
   const doc = global.document,
     win = global.window;
@@ -32,7 +33,10 @@
   });
 
   function flippCardBackEnd(cardNode) {
-    if (flippedCardArr.length < MAX_FLIPP_CARDS) {
+    if (
+      !cardNode.classList.contains('hover') &&
+      flippedCardArr.length < MAX_FLIPP_CARDS
+    ) {
       cardNode.classList.toggle('hover');
       flippedCardArr.push(cardNode);
     }
@@ -57,28 +61,24 @@
       card.children[0].classList.add('front-disabled');
     });
     if (pairCount == cardImgArr.length) {
-      setTimeout(resetGame, 2000);
+      setTimeout(resetGame, WAIT_TIME_BEFORE_RESET);
     }
   }
 
   function cardPairCheck() {
-    let res =
+    return (
       flippedCardArr[0].children[1].children[0].src ==
-      flippedCardArr[1].children[1].children[0].src;
-    return res;
+      flippedCardArr[1].children[1].children[0].src
+    );
   }
 
   const cardNodeArr = Array.prototype.slice.call(
     doc.querySelectorAll('.flip-container'),
   );
 
-  let id = 0;
-  const cardArr = cardNodeArr.map(cardNode => {
-    if (id == 0 || id == 6) {
-      id = 0;
-      cardImgArr = shuffle(cardImgArr);
-    }
-    setCardImg(cardNode, cardImgArr[id++]);
+  const fullImgArray = shuffle(cardImgArr.concat(cardImgArr));
+  const cardArr = cardNodeArr.map((cardNode, id) => {
+    setCardImg(cardNode, fullImgArray[id++]);
   });
 
   function setCardImg(cardNode, imgPath) {
