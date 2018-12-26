@@ -16,22 +16,25 @@ class Inhabitant {
         this.hands = hands;
         this.saying = saying;
     }
+
+    toPrint() {
+        return [`${this.species}, ${this.name}, ${this.gender}, ${this.legs}, ${this.hands},  ${this.saying}`].join(" ; ")}
 }
 
 class Human extends Inhabitant {
     constructor(name, gender, saying, species ='human', legs = 2, hands = 2) {
-        super(name, gender, species, saying, legs, hands);
+        super(name, gender, species, legs, hands, saying,);
     }
 }
 
 class Dog extends Inhabitant {
-    constructor(name, gender, species = 'dog', legs = 4, hands = null, saying = 'Woof-woof') {
+    constructor(name, gender, species = 'dog', legs = 4, hands = 0, saying = 'Woof-woof') {
         super(name, gender, species, legs, hands, saying);
     }
 }
 
 class Cat extends Inhabitant {
-    constructor(name, gender, species = 'cat', legs = 4, hands = null, saying = 'Meow') {
+    constructor(name, gender, species = 'cat', legs = 4, hands = 0, saying = 'Meow') {
         super(name, gender, species, legs, hands, saying);
     }
 }
@@ -44,7 +47,7 @@ const inhabitants = [
 ];
 
 inhabitants.forEach(person => {
-    print([person.species, person.name, person.gender, person.legs, person.hands, person.saying].join(' ; '));
+    print(person.toPrint());
 });
 
 // ======== OUTPUT ========
