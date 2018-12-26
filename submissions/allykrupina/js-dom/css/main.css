@@ -51,13 +51,13 @@ p {
     border-left: 0;
     text-align: center;
 }
-.menu-item{
+.menu p{
     font-size: 1.5vw;
     padding: 2vw 4vw;
     cursor: pointer;
     border-bottom: 1px solid #f1f1f1;
 }
-.menu-item:hover  {
+.menu p:hover  {
     background: #f1f1f1;
 }
 @media screen and (max-width: 767px) {
@@ -65,7 +65,7 @@ p {
         display: flex;
         justify-content: space-between;
     }
-    .menu-item {
+    .menu p {
         font-size: 3vw;
         padding: 4vw 4vw;
     }

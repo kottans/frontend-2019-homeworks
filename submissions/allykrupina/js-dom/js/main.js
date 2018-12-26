@@ -1,4 +1,4 @@
-let all_cats = [
+let allCats = [
     {
         name: 'Pushok',
         url: 'img/ember-ivory-433863-unsplash.jpg',
@@ -31,22 +31,17 @@ let all_cats = [
     }
 ]
 
-function initial_cats() {
-    let handler = function() {
-        let cat_arr = document.querySelectorAll(".menu-item"),
-            index = Array.prototype.indexOf.call(cat_arr, this);
-            cat_title.textContent = all_cats[index].title;
-            cat_img.setAttribute("src", all_cats[index].url);
+function showCats() {
+    drowOneCat = (index) => {
+        cat_title.textContent = allCats[index].title;
+        cat_img.setAttribute("src", allCats[index].url);
     }
-
-    all_cats.forEach(item => {
+    allCats.forEach((item, index) => {
         let name = document.createElement('p');
-        name.className = "menu-item";
         name.innerHTML = item.name;
-        name.onclick = handler;
+        name.addEventListener("click", drowOneCat.bind(null, index));
         menu.appendChild(name);
     })
-    cat_title.textContent = all_cats[0].title;
-    cat_img.setAttribute("src", all_cats[0].url);
+    drowOneCat(0);
 };
-initial_cats();
+showCats();
