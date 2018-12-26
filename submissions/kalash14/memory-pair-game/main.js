@@ -41,7 +41,7 @@ let initGame = () => {
     let seconds = 0, minutes = 0, hours = 0, secondsRaw = 0, watchTimer;
     const bestTime = document.querySelector('.stopwatch__best');
     const currentTime = document.querySelector('.stopwatch__current');
-    const flipTime = 1000;
+    const FLIP_TIME = 1000;
 
     const startButtonHandler = ({target}) => {
 
@@ -60,17 +60,17 @@ let initGame = () => {
     const createFinalDateFormat = (seconds, minutes, hours) => {
 
         const hoursString = hours ? (hours > 9 ? hours : "0" + hours) : "00",
-              minutesString = minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00",
-              secondsString = seconds > 9 ? seconds : "0" + seconds;
+            minutesString = minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00",
+            secondsString = seconds > 9 ? seconds : "0" + seconds;
 
-        const finalDateFormat = hoursString + ":" + minutesString + ":" + secondsString;
+        const finalDateFormat = `${hoursString}:${minutesString}:${secondsString}`;
 
         return finalDateFormat;
 
 
     };
 
-    let processDate = () => {
+    const processDate = () => {
         seconds++;
         secondsRaw++;
         if (seconds >= 60) {
@@ -89,7 +89,7 @@ let initGame = () => {
 
 
     let timer = () => {
-        watchTimer = setTimeout(processDate, flipTime);
+        watchTimer = setTimeout(processDate, FLIP_TIME);
     };
 
     const checkBestTime = () => {
@@ -135,14 +135,15 @@ let initGame = () => {
 
     };
 
-    let renderCardItems = (imagesURLsArray) => {
+    const renderCardItems = (imagesURLsArray) => {
+
+        imagesURLsArray = imagesURLsArray.sort(() => { 0.5 - Math.random() });
 
         let cardItemContent = '';
         imagesURLsArray.forEach(cardItem => {
 
-            let randPosition = Math.floor(Math.random() * 12);
             cardItemContent += `
-                <div class="card-item" data-team="${cardItem.name}" style="order: ${randPosition};">
+                <div class="card-item" data-team="${cardItem.name}">
                     <div class="card-item__thumb">
                         <img src="${cardItem.url}" alt="card-item-thumb">
                     </div>
@@ -192,7 +193,7 @@ let initGame = () => {
                 target.classList.add('hidden');
                 firstCard = null;
                 blockCardWrap = false;
-            }, flipTime);
+            }, FLIP_TIME);
             matchesCounter++;
         }
         else {
@@ -207,7 +208,7 @@ let initGame = () => {
             setTimeout(() => {
                 resetGame();
                 winModal.classList.add('active');
-            }, flipTime);
+            }, FLIP_TIME);
             clearStopWatch();
         }
 
@@ -225,7 +226,7 @@ let initGame = () => {
 
             blockCardWrap = false;
 
-        }, flipTime);
+        }, FLIP_TIME);
 
         firstCard = null;
 
