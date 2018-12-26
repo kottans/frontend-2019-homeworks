@@ -7,6 +7,21 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
+
+//Return string of all property obj values
+function toString(obj) {
+  const valuesArr = Object.values(obj);
+
+  return valuesArr
+    .map(item => {
+      if (Array.isArray(item)) {
+        return item.join(", ");
+      }
+      return `${item}`;
+    })
+    .join("; ");
+}
+
 const allProps = [
   "type",
   "legs",
@@ -29,25 +44,11 @@ class MainForm {
   }
 
   say() {
-    print(this.saying);
-  }
-
-  dossier() {
-    print(
-      allProps
-        .map(item => {
-          if (Array.isArray(this[item])) {
-            return this[item].join(", ");
-          }
-
-          return `${this[item]}`;
-        })
-        .join("; ")
-    );
+    return this.saying;
   }
 
   friends() {
-    print(`<em>${this.friendList}</em>`);
+    return `<em>${this.friendList}</em>`;
   }
 }
 
@@ -74,11 +75,11 @@ const cat = new Cat("animal", 4, 0, "female", "Masya", ["Andrew"]);
 
 const catWoman = new Cat("human", 2, 2, "female", "Eva", ["Andrew", "Barkl"]);
 
-man.dossier();
-woman.dossier();
-dog.dossier();
-cat.dossier();
-catWoman.dossier();
+print(toString(man));
+print(toString(woman));
+print(toString(dog));
+print(toString(cat));
+print(toString(catWoman));
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
