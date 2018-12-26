@@ -9,17 +9,6 @@
 // Define your objects here
 
 //Return string of all property obj values
-function toString(obj) {
-  return allProps
-    .map(item => {
-      if (Array.isArray(obj[item])) {
-        return obj[item].join(", ");
-      }
-      return `${obj[item]}`;
-    })
-    .join("; ");
-}
-
 const allProps = [
   "type",
   "legs",
@@ -39,6 +28,17 @@ class MainForm {
     this.name = name;
     this.saying = saying;
     this.friendList = friendList;
+  }
+
+  toString() {
+    return allProps
+      .map(item => {
+        if (Array.isArray(this[item])) {
+          return this[item].join(", ");
+        }
+        return `${this[item]}`;
+      })
+      .join("; ");
   }
 
   say() {
@@ -73,11 +73,11 @@ const cat = new Cat("animal", 4, 0, "female", "Masya", ["Andrew"]);
 
 const catWoman = new Cat("human", 2, 2, "female", "Eva", ["Andrew", "Barkl"]);
 
-print(toString(man));
-print(toString(woman));
-print(toString(dog));
-print(toString(cat));
-print(toString(catWoman));
+print(man);
+print(woman);
+print(dog);
+print(cat);
+print(catWoman);
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
