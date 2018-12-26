@@ -17,8 +17,11 @@
     sortGender: null
   }
 
-  async function getUsers(){
-    return await fetch(API_URL, OPTS).then(res => res.json()).then(json => json.results).catch(console.error)
+  function getUsers(){
+    return fetch(API_URL, OPTS)
+      .then(res => res.json())
+      .then(json => json.results)
+      .catch(console.error)
   }
 
   function createUserCard(user){
