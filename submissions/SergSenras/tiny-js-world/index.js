@@ -8,20 +8,22 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 const man = {
-    species: 'man',
+    species: 'human',
     name: 'John',
     gender: 'male',
     legs: 2,
     hands: 2,
-    saying: 'Hi'
+    saying: 'Hi',
+    friends: ['Toby', 'Selina Kyle']
   };
   const woman = {
-    species: 'woman',
+    species: 'human',
     name: 'Mary',
     gender: 'female',
     legs: 2,
     hands: 2,
-    saying: 'Hello'
+    saying: 'Hello',
+    friends: ['Mrs. Whiskerson', 'John']
   };
   const dog = {
     species: 'dog',
@@ -29,15 +31,17 @@ const man = {
     gender: 'male',
     legs: 4,
     hands: 0,
-    saying: 'woof-woof!'
+    saying: 'woof-woof!',
+    friends: ['John']
   };
   const cat = {
     species: 'cat',
-    name: 'Toby',
+    name: 'Mrs. Whiskerson',
     gender: 'female',
     legs: 4,
     hands: 0,
-    saying: 'meow'
+    saying: 'meow',
+    friends: ['Mary', 'Selina Kyle']
   };
   const Catwoman = {
     species: 'Catwoman',
@@ -45,7 +49,8 @@ const man = {
     gender: 'female',
     legs: 2,
     hands: 2,
-    saying: cat.saying
+    saying: cat.saying,
+    friends: ['John', 'Mrs. Whiskerson']
   };
   
   // ======== OUTPUT ========
@@ -58,12 +63,17 @@ const man = {
   */
   
   var family = [man, woman, dog, cat, Catwoman];
+  function say(obj){
+    print('species: ' +obj.species+
+          '; name: '  +obj.name+
+          '; gender: '+obj.gender+
+          '; legs: '  +obj.legs+
+          '; hands: ' +obj.hands+
+          '; saying: '+obj.saying+
+          '; friends: '+obj.friends);
+  }
   family.forEach(function(member){
-    var arr = [];
-    for(var key in member){
-      arr.push(member[key]);
-    }
-    print(arr);
+    say(member);
   })
   
   /* Print examples:
