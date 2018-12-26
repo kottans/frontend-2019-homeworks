@@ -63,18 +63,15 @@ const man = {
   */
   
   var family = [man, woman, dog, cat, Catwoman];
-  function say(obj){
-    print('species: ' +obj.species+
-          '; name: '  +obj.name+
-          '; gender: '+obj.gender+
-          '; legs: '  +obj.legs+
-          '; hands: ' +obj.hands+
-          '; saying: '+obj.saying+
-          '; friends: '+obj.friends);
-  }
-  family.forEach(function(member){
-    say(member);
+  var props = ['species','name','gender','legs','hands','saying','friends'];
+  
+  family.forEach(member => {
+    const data = props.map(prop => {
+      return (prop + ': ' + member[prop]);
+    })
+    print(data.join('; '));
   })
+
   
   /* Print examples:
      print('ABC');
