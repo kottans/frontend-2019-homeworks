@@ -1,7 +1,7 @@
 ;(async () => {
   const OPTS = { method: 'GET', headers: {}, dataType: 'json'}
   const API_URL = "https://randomuser.me/api/?results=16"
-  const USERS_LIST = await fetch(API_URL, OPTS).then(res => res.json()).then(json => json.results).catch(console.error)
+  const USERS_LIST = await getUsers()
   const USER_CONTAINER = document.getElementById("content")
   const NAME_SEARCH = document.getElementById("name-search")
   const NAME_SORT = document.getElementById("name-sort")
@@ -15,6 +15,10 @@
     sortName: null,
     sortAge: null,
     sortGender: null
+  }
+
+  async function getUsers(){
+    return await fetch(API_URL, OPTS).then(res => res.json()).then(json => json.results).catch(console.error)
   }
 
   function createUserCard(user){
@@ -51,9 +55,15 @@
     }
   }
 
+  function displayUsersList(list){
+    const fragment = document.createDocumentFragment();
+    list.forEach(user => fragment.append(createUserCard(user)))
+    USER_CONTAINER.append(fragment)
+  }
+
   function applyFilters(){
-    USER_CONTAINER.innerHTML = ""
     let filteredList = USERS_LIST
+    USER_CONTAINER.innerHTML = ""
     if(FILTERS.name)
       filteredList = filteredList.filter(user => {
         let name = new RegExp(FILTERS.name).test(user.name.first)
@@ -69,12 +79,10 @@
     if(FILTERS.sortGender)
       filteredList = filteredList.filter(user => user.gender === FILTERS.sortGender)
 
-    filteredList.forEach(user => {
-      USER_CONTAINER.append(createUserCard(user))
-    })
+    displayUsersList(filteredList)
   }
 
-  USERS_LIST.forEach(user => USER_CONTAINER.append(createUserCard(user)))
+  displayUsersList(USERS_LIST)
 
   NAME_SEARCH.addEventListener("input", event => {
     FILTERS.name = event.target.value.toLowerCase()
@@ -82,7 +90,7 @@
   })
 
   NAME_SORT.addEventListener("click", (event) => {
-    if (event.target.tagName === "IMG") {
+    if (event.target.dataset.sort) {
       resetActive()
       event.target.classList.toggle("active")
       FILTERS.sortName = event.target.id === "name-asc" ? ASC : DESC
@@ -92,7 +100,7 @@
   })
 
   AGE_SORT.addEventListener("click", (event) => {
-    if(event.target.tagName === "IMG"){
+    if(event.target.dataset.sort){
       resetActive()
       event.target.classList.toggle("active")
       FILTERS.sortAge = event.target.id === "age-asc" ? ASC : DESC
@@ -102,7 +110,7 @@
   })
 
   GENDER.addEventListener("click", event =>{
-    if(event.target.tagName === "INPUT"){
+    if(event.target.name === "gender"){
       FILTERS.sortGender = event.target.value
       applyFilters()
     }
@@ -117,6 +125,6 @@
     document.getElementById("gender-m").checked = false
     document.getElementById("gender-f").checked = false
     USER_CONTAINER.innerHTML = ""
-    USERS_LIST.forEach(user => USER_CONTAINER.append(createUserCard(user)))
+    displayUsersList(USERS_LIST)
   })
 })();

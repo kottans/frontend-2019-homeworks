@@ -139,7 +139,7 @@ form img{
 @media screen and (max-width: 768px) {
     #content{
         width: 750px
-    }      
+    }
 }
 @media screen and (max-width: 425px) {
     #content, .user-card, aside {
