@@ -1,10 +1,7 @@
-(function(global) {
+(function() {
   const MAX_FLIPP_CARDS = 2,
     SHOW_CARDS_TIME = 1000,
     WAIT_TIME_BEFORE_RESET = 2000;
-
-  const doc = global.document,
-    win = global.window;
 
   let pairCount = 0,
     flippedCardArr = [],
@@ -17,17 +14,20 @@
       'images/6.jpg',
     ];
 
-  const gameBoard = doc.querySelector('.board');
+  const gameBoard = getElementBy('.board', document);
 
-  gameBoard.addEventListener('click', event => {
-    let target = event.target.classList;
-    if (!target.contains('front-disabled') && target.contains('front')) {
-      flippCardBackEnd(event.target.parentElement);
+  gameBoard.addEventListener('click', ({ target }) => {
+    let targetStyles = target.classList;
+    if (
+      !targetStyles.contains('front-disabled') &&
+      targetStyles.contains('front')
+    ) {
+      flippCardBackEnd(target.closest('.flipper'));
     }
   });
 
-  gameBoard.addEventListener('transitionend', e => {
-    if (!e.target.classList.contains('hover')) {
+  gameBoard.addEventListener('transitionend', ({ target }) => {
+    if (!target.classList.contains('hover')) {
       flippedCardArr.pop();
     }
   });
@@ -58,7 +58,8 @@
 
   function disableCardPair() {
     flippedCardArr.forEach(card => {
-      card.children[0].classList.add('front-disabled');
+      const frontCardStyles = getElementBy('.front', card).classList;
+      frontCardStyles.add('front-disabled');
     });
     if (pairCount == cardImgArr.length) {
       setTimeout(resetGame, WAIT_TIME_BEFORE_RESET);
@@ -67,13 +68,17 @@
 
   function cardPairCheck() {
     return (
-      flippedCardArr[0].children[1].children[0].src ==
-      flippedCardArr[1].children[1].children[0].src
+      getElementBy('.back img', flippedCardArr[0]).src ==
+      getElementBy('.back img', flippedCardArr[1]).src
     );
   }
 
+  function getElementBy(selector, root) {
+    return root.querySelector(selector);
+  }
+
   const cardNodeArr = Array.prototype.slice.call(
-    doc.querySelectorAll('.flip-container'),
+    document.querySelectorAll('.flip-container'),
   );
 
   const fullImgArray = shuffle(cardImgArr.concat(cardImgArr));
@@ -82,8 +87,8 @@
   });
 
   function setCardImg(cardNode, imgPath) {
-    let imgNode = doc.createElement('img');
-    let cardBack = cardNode.querySelector('.back');
+    let imgNode = document.createElement('img');
+    let cardBack = getElementBy('.back', cardNode);
     imgNode.src = imgPath;
     imgNode.setAttribute('width', '100%');
     imgNode.setAttribute('height', '100%');
@@ -93,7 +98,7 @@
   function resetGame() {
     pairCount = 0;
     cardNodeArr.forEach(cardNode => {
-      let cardFront = cardNode.querySelector('.front');
+      let cardFront = getElementBy('.front', cardNode);
       cardFront.classList.remove('front-disabled');
     });
   }
@@ -103,4 +108,4 @@
       return 0.5 - Math.random();
     });
   }
-})(this);
+})();
