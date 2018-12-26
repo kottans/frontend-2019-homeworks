@@ -41,6 +41,7 @@ let initGame = () => {
     let seconds = 0, minutes = 0, hours = 0, secondsRaw = 0, watchTimer;
     const bestTime = document.querySelector('.stopwatch__best');
     const currentTime = document.querySelector('.stopwatch__current');
+    const flipTime = 1000;
 
     const startButtonHandler = ({target}) => {
 
@@ -56,7 +57,18 @@ let initGame = () => {
 
     startSection.addEventListener('click', startButtonHandler);
 
-    /* stopwatch init */
+    const createFinalDateFormat = (seconds, minutes, hours) => {
+
+        const hoursString = hours ? (hours > 9 ? hours : "0" + hours) : "00",
+              minutesString = minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00",
+              secondsString = seconds > 9 ? seconds : "0" + seconds;
+
+        const finalDateFormat = hoursString + ":" + minutesString + ":" + secondsString;
+
+        return finalDateFormat;
+
+
+    };
 
     let processDate = () => {
         seconds++;
@@ -70,17 +82,15 @@ let initGame = () => {
             }
         }
 
-        currentTime.innerHTML = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+        currentTime.innerHTML = createFinalDateFormat(seconds, minutes, hours);
 
         timer();
     };
 
 
     let timer = () => {
-        watchTimer = setTimeout(processDate, 1000);
+        watchTimer = setTimeout(processDate, flipTime);
     };
-
-    /* the best time check */
 
     const checkBestTime = () => {
         const previousSavedDate = localStorage.getItem('bestDate');
@@ -93,7 +103,7 @@ let initGame = () => {
             let seconds = convertedDate - minutes * 60;
             let hours = Math.floor(convertedDate / 3600);
 
-            bestTime.innerHTML = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+            bestTime.innerHTML = createFinalDateFormat(seconds, minutes, hours);
 
         }
     };
@@ -182,7 +192,7 @@ let initGame = () => {
                 target.classList.add('hidden');
                 firstCard = null;
                 blockCardWrap = false;
-            }, 1000);
+            }, flipTime);
             matchesCounter++;
         }
         else {
@@ -197,7 +207,7 @@ let initGame = () => {
             setTimeout(() => {
                 resetGame();
                 winModal.classList.add('active');
-            }, 1000);
+            }, flipTime);
             clearStopWatch();
         }
 
@@ -215,7 +225,7 @@ let initGame = () => {
 
             blockCardWrap = false;
 
-        }, 1000);
+        }, flipTime);
 
         firstCard = null;
 
