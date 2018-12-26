@@ -12,12 +12,13 @@ function extend(ParentClass, ChildClass) {
 }
 
 //Inhabit class declaration
-function Inhabit(species, name, gender, saying) {
+function Inhabit(species, name, gender, saying, legs) {
   this.species = species;
   this.name = name;
   this.gender = gender;
   this.saying = saying;
   this.friends = [];
+  this.legs = legs;
 }
 
 Inhabit.prototype.addFriends = function(friends) {
@@ -26,33 +27,32 @@ Inhabit.prototype.addFriends = function(friends) {
 
 //Animal class declaration
 function Animal(species, name, gender, saying, legs = 4) {
-  Inhabit.call(this, species, name, gender, saying);
-  this.legs = legs;
+  Inhabit.call(this, species, name, gender, saying, legs);
 }
 extend(Inhabit, Animal);
 
 //Cat class declaration
-function Cat(name, gender, saying = 'Meow') {
-  Animal.call(this, 'Cat', name, gender, saying);
+function Cat(name, gender, saying = 'Meow', legs) {
+  Animal.call(this, 'Cat', name, gender, saying, legs);
 }
 extend(Animal, Cat);
 
 //Dog class declaration
-function Dog(name, gender, saying = 'Woof-woof') {
-  Animal.call(this, 'Dog', name, gender, saying);
+function Dog(name, gender, saying = 'Woof-woof', legs) {
+  Animal.call(this, 'Dog', name, gender, saying, legs);
 }
 extend(Animal, Dog);
 
 //Human class declaration
-function Human(name, gender, saying = `Hello, my name is ${name}`) {
-  Inhabit.call(this, 'Human', name, gender, saying);
+function Human(name, gender, saying = `Hello, my name is ${name}`, legs = 2) {
+  Inhabit.call(this, 'Human', name, gender, saying, legs);
   this.hands = 2;
 }
 extend(Inhabit, Human);
 
 //CatWoman class declaration
-function CatWoman(name) {
-  Human.call(this, 'Cat woman', name, 'female');
+function CatWoman(name, legs) {
+  Human.call(this, 'Cat woman', name, 'female', undefined, legs);
 }
 extend(Human, CatWoman);
 
