@@ -33,7 +33,17 @@ class MainForm {
   }
 
   dossier() {
-    print(allProps.map(item => `${this[item]}`).join("; "));
+    print(
+      allProps
+        .map(item => {
+          if (Array.isArray(this[item])) {
+            return this[item].join(", ");
+          }
+
+          return `${this[item]}`;
+        })
+        .join("; ")
+    );
   }
 
   friends() {
@@ -42,35 +52,33 @@ class MainForm {
 }
 
 class Cat extends MainForm {
-  constructor(type, legs, hands, gender, name, friendList) {
-    super(type, legs, hands, gender, name, friendList);
-    this.saying = "meow";
+  constructor(type, legs, hands, gender, name, friendList, saying = "meow") {
+    super(type, legs, hands, gender, name, saying, friendList);
   }
 }
 
 const man = new MainForm("human", 2, 2, "male", "Andrew", "Hello, Eva!", [
   "Eva",
-  " Masya"
+  "Masya"
 ]);
 const woman = new MainForm("human", 2, 2, "female", "Eva", "Hello, Andrew!", [
   "Andrew",
-  " Barkl"
+  "Barkl"
 ]);
 const dog = new MainForm("animal", 4, 0, "male", "Barkl", "bark", [
   "Eva",
-  " Andrew"
+  "Andrew"
 ]);
-const cat = new Cat("animal", 4, 0, "female", "Masya", "meow", ["Andrew"]);
-const catWoman = new Cat("human", 4, "female", "Eva", ["Andrew", "Barkl"]);
 
-man.say();
-woman.say();
-dog.say();
-catWoman.say();
-cat.say();
+const cat = new Cat("animal", 4, 0, "female", "Masya", ["Andrew"]);
+
+const catWoman = new Cat("human", 2, 2, "female", "Eva", ["Andrew", "Barkl"]);
 
 man.dossier();
-woman.friends();
+woman.dossier();
+dog.dossier();
+cat.dossier();
+catWoman.dossier();
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
