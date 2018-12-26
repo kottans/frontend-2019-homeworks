@@ -12,8 +12,8 @@ const man = {
     species: 'human',
     gender: 'male',
     name: 'John',
-    legs: '2',
-    hands: '2',
+    legs: 2,
+    hands: 2,
     saying: 'boys will be boys.',
     friends: []
 };
@@ -21,8 +21,8 @@ const woman = {
     species: 'human',
     gender: 'female',
     name: 'Sarah',
-    legs: '2',
-    hands: '2',
+    legs: 2,
+    hands: 2,
     saying: 'Love saves the world.',
     friends: []
 };
@@ -30,8 +30,8 @@ const dog = {
     species: 'dog',
     gender: 'male',
     name: 'Toby',
-    legs: '4',
-    hands: '0',
+    legs: 4,
+    hands: 0,
     saying: 'woof-woof!',
     friends: []
 };
@@ -39,8 +39,8 @@ const cat = {
     species: 'cat',
     gender: 'female',
     name: 'Maya',
-    legs: '4',
-    hands: '0',
+    legs: 4,
+    hands: 0,
     saying: 'meow',
     friends: []
 };
@@ -48,19 +48,39 @@ const catWoman= {
     species: woman.species,
     gender: woman.gender,
     name: 'Sophie',
-    legs: '2',
-    hands: '2',
+    legs: 2,
+    hands: 2,
     saying: cat.saying,
     friends: []
 };
-man.friends = [woman.name, dog.name];
-woman.friends = [man.name, cat.name];
-dog.friends = [man.name, woman.name];
-cat.friends = [woman.name];
+man.friends = [woman, dog];
+woman.friends = [man, cat];
+dog.friends = [man, woman];
+cat.friends = [woman];
 catWoman.friends = [];
 
 function printCreature(creature){
-    print(`${creature.species}; ${creature.gender}; <strong>${creature.name}</strong>; ${creature.legs}; ${creature.hands}; <em>${creature.saying}</em>; ${creature.friends.length === 0 ? '' : creature.friends.join(', ')}`);
+	const propsArr = [];
+
+    for (let prop in creature) {
+        if (creature.hasOwnProperty(prop)) {
+			let propToPush; 
+			if(prop === 'friends'){
+				propToPush = creature[prop].map(el => el.name).join(', ');
+			}else if(prop === 'name'){
+				propToPush = `<strong>${creature[prop]}</strong>`;
+			}else if(prop === 'saying'){
+				propToPush = `<em style="text-decoration: underline">${creature[prop]}</em>`;
+			}else {
+				propToPush = creature[prop];
+			}
+			
+            propsArr.push(propToPush);
+        }
+    }
+
+    return propsArr.join('; ');
+    //return `${creature.species}; ${creature.gender}; <strong>${creature.name}</strong>; ${creature.legs}; ${creature.hands}; <em>${creature.saying}</em>; ${creature.friends.length === 0 ? '' : creature.friends.map(el =>el.name).join(', ')}`;
 }
 
 // ======== OUTPUT ========
@@ -72,11 +92,11 @@ function printCreature(creature){
    so code reviewers might focus on a single file that is index.js.
    */
 
-printCreature(man);
-printCreature(woman);
-printCreature(dog);
-printCreature(cat);
-printCreature(catWoman);
+print(printCreature(man));
+print(printCreature(woman));
+print(printCreature(dog));
+print(printCreature(cat));
+print(printCreature(catWoman));
 
 /* Print examples:
    print('ABC');
