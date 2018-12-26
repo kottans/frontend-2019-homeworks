@@ -18,7 +18,7 @@ class Inhabitant {
     }
 
     toPrint() {
-        return [`${this.species}, ${this.name}, ${this.gender}, ${this.legs}, ${this.hands},  ${this.saying}`].join(" ; ")}
+        return [this.species, this.name, this.gender, this.legs, this.hands,  this.saying].join(' ; ')}
 }
 
 class Human extends Inhabitant {
