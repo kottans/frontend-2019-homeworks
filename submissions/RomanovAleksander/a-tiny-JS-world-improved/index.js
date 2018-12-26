@@ -17,7 +17,7 @@ class Inhabitant {
         this.saying = saying;
     }
 
-    toPrint() {
+    toString() {
         return [this.species, this.name, this.gender, this.legs, this.hands,  this.saying].join(' ; ')}
 }
 
@@ -47,7 +47,7 @@ const inhabitants = [
 ];
 
 inhabitants.forEach(person => {
-    print(person.toPrint());
+    print(person)
 });
 
 // ======== OUTPUT ========
