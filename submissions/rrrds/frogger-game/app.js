@@ -1,9 +1,13 @@
 const startSpeed = 300;
+const spriteWidth = 101;
+const spriteHeight = 171;
+const imagesPath = 'images/';
+
 const canvasParams = {
   width: 505,
   height: 606,
   cellStep: 83,
-  topOffset: 83 - 101
+  topOffset: 83 - spriteWidth
 };
 
 function randomInt(min, max) {
@@ -14,22 +18,31 @@ function getRandomEnemyRow() {
   return canvasParams.topOffset + randomInt(1, 4) * canvasParams.cellStep;
 }
 
+const Sprite = function() {
+  this.spriteSize = { width: spriteWidth, height: spriteHeight };
+};
+Sprite.prototype.render = function() {
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+Sprite.prototype.getImagePath = function(imageName) {
+  return imagesPath + imageName;
+};
+
 const Enemy = function(player) {
+  Sprite.call(this);
   this.player = player;
-  this.spriteSize = { width: 101, height: 171 };
   this.x = -this.spriteSize.width;
   this.y = getRandomEnemyRow();
   this.speed = startSpeed * Math.random();
-  this.sprite = 'images/enemy-bug.png';
+  this.sprite = this.getImagePath('enemy-bug.png');
 };
+Enemy.prototype = Object.create(Sprite.prototype);
+Enemy.prototype.constructor = Enemy;
 Enemy.prototype.update = function(dt) {
   this.x += this.speed * dt;
   if (this.x > canvasParams.width) this.x = -this.spriteSize.width;
 
   if (this.checkCollision()) this.player.setStartPoint();
-};
-Enemy.prototype.render = function() {
-  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 Enemy.prototype.checkCollision = function() {
   if (
@@ -44,14 +57,13 @@ Enemy.prototype.checkCollision = function() {
 };
 
 const Boy = function() {
-  this.spriteSize = { width: 101, height: 171 };
-  this.sprite = 'images/char-boy.png';
+  Sprite.call(this);
+  this.sprite = this.getImagePath('char-boy.png');
   this.setStartPoint();
 };
+Boy.prototype = Object.create(Sprite.prototype);
+Boy.prototype.constructor = Boy;
 Boy.prototype.update = function() {};
-Boy.prototype.render = function() {
-  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
 Boy.prototype.handleInput = function(direction) {
   switch (direction) {
     case 'left':
@@ -88,14 +100,10 @@ Boy.prototype.setStartPoint = function() {
 };
 
 const player = new Boy();
-const allEnemies = [
-    new Enemy(player),
-    new Enemy(player),
-    new Enemy(player)
-];
+const allEnemies = [new Enemy(player), new Enemy(player), new Enemy(player)];
 
 document.addEventListener('keyup', e => {
-  let allowedKeys = {
+  const allowedKeys = {
     37: 'left',
     38: 'up',
     39: 'right',
