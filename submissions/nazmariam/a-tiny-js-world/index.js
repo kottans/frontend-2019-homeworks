@@ -1,6 +1,5 @@
 /* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
    Complete the below for code reviewers' convenience:
-
    Code repository: https://github.com/nazmariam/nazmariam.github.io/tree/master/a-tiny-js-world
    Web app: https://nazmariam.github.io/a-tiny-js-world/
 */
@@ -34,7 +33,7 @@ function Human(name, gender, say) {
 Human.prototype = Object.create(Citizen.prototype);
 Human.prototype.constructor = Human;
 function Dog(name, gender) {
-    Animal.apply(this.arguments);
+    Animal.apply(this.legs, this.hands);
     this.species = 'dog';
     this.name = name;
     this.gender = gender;
@@ -55,12 +54,13 @@ function Cat(name, gender){
 Cat.prototype = Object.create(Citizen.prototype);
 Cat.prototype.constructor = Cat;
 function CatWoman(name){
-    Cat.apply(this.arguments);
+    Cat.apply(this.say);
+    Human.apply(this.legs, this.hands);
     this.species = 'human';
     this.name = name;
     this.gender = 'female';
-    this.legs = 2;
-    this.hands = 2;
+    this.legs = legs;
+    this.hands = hands;
     this.say = say;
 }
 CatWoman.prototype = Object.create(Cat.prototype);
@@ -73,7 +73,7 @@ let citizens = [
     new CatWoman('Selina Kyle')];
 // ======== OUTPUT ========
 citizens.forEach(el => {
-    print("Hi! I'm a "+el.species+". My name is "+el.name+". My gender is: "+el.gender+". I have: "+el.legs+" legs and "+el.hands+" hands"+". I speak like this:\""+el.say+"\"");
+    print("<div> Hi! I'm a "+el.species+". My name is "+el.name+". My gender is: "+el.gender+".<br>"+" I have: "+el.legs+" legs and "+el.hands+" hands.<br>"+" I speak like this:\""+el.say+"\"</div>");
 });
 
 
