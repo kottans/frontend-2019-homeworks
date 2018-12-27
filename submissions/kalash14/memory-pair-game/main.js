@@ -148,7 +148,7 @@ let initGame = () => {
 
     const renderCardItems = (imagesURLsArray) => {
 
-        imagesURLsArray = imagesURLsArray.sort(function() { return 0.5 - Math.random() });
+        imagesURLsArray = imagesURLsArray.sort(() => 0.5 - Math.random());
 
         let cardItemContent = '';
         imagesURLsArray.forEach(cardItem => {
