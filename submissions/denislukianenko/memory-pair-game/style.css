@@ -1,0 +1,93 @@
+body {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 40px;
+}
+
+.field {
+  width: 100%;
+  max-width: 650px;
+  display: grid;
+  grid-gap: 1vw;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.card {
+  height: 27vw;
+  max-height: 200px;
+  perspective: 500px;
+}
+
+.card.flipped .both-sides {
+  transform: rotateY(180deg);
+}
+
+.both-sides {
+  height: 100%;
+  width: 100%;
+
+  transition: 0.4s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+.back,
+.front {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(224, 244, 252);
+  border-radius: 3vmin;
+  padding: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 2vmin lightblue;
+
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+
+  background-image: url(img/card-bg.svg);
+  background-position: 50%;
+  background-size: 50px;
+  background-repeat: repeat;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.back > img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  max-width: 70px;
+  max-height: 70px;
+}
