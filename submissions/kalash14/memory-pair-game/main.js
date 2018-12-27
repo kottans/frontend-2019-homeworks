@@ -44,6 +44,10 @@ let initGame = () => {
     let startTime = 0;
     let startTimeInMilliseconds;
     let timeInterval;
+    const SECONDS_IN_MINUTE = 60;
+    const MILLISECONDS_IN_MINUTE = 1000;
+    const MILLISECONDS_IN_HOUR = 3600000;
+
 
     const startButtonHandler = ({target}) => {
 
@@ -73,9 +77,9 @@ let initGame = () => {
 
     const displayDate = (time, element) => {
 
-        let hours = Math.floor(time / 3600000);
-        let minutes = Math.floor(time / (1000 * 60));
-        let seconds = Math.floor((time - minutes * 1000 * 60) / 1000);
+        let hours = Math.floor(time / MILLISECONDS_IN_HOUR);
+        let minutes = Math.floor(time / (MILLISECONDS_IN_MINUTE * SECONDS_IN_MINUTE));
+        let seconds = Math.floor((time - minutes * MILLISECONDS_IN_MINUTE * SECONDS_IN_MINUTE) / MILLISECONDS_IN_MINUTE);
 
         element.innerHTML = createFinalDateFormat(seconds, minutes, hours);
 
