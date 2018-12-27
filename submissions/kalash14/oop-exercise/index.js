@@ -13,7 +13,7 @@ class Inhabitant {
 		this.name = name;
 		this.kind = kind;
 		this.gender = gender;
-		this.greetingsWord = `${greetingsWord}!!!`;
+		this.greetingsWord = greetingsWord;
 		this.favouriteDish = favouriteDish;
 	}
 
@@ -42,7 +42,7 @@ class Animal extends Inhabitant {
 
 const introduceCreature = (creature) => {
 
-	return `<p>${creature.greetingsWord} Nice to meet you. My name is ${creature.name} and I'm ${creature.kind}. Also, I'm a ${creature.gender}. ${(creature.legs && creature.hands ? `I have ${creature.legs} legs and ${creature.hands} hands.` : '')} ${(creature.paws ? `I have ${creature.paws} paws.` : '')} My favourite dish is ${creature.favouriteDish}. ${(creature.hairColor ? `I have a ${creature.hairColor} hair.` : '')} ${(creature.furColor ? `I have a ${creature.furColor} fur.` : '')}  </p>`;
+	return `<p>${creature.greetingsWord}!!! Nice to meet you. My name is ${creature.name} and I'm ${creature.kind}. Also, I'm a ${creature.gender}. ${(creature.legs && creature.hands ? `I have ${creature.legs} legs and ${creature.hands} hands.` : '')} ${(creature.paws ? `I have ${creature.paws} paws.` : '')} My favourite dish is ${creature.favouriteDish}. ${(creature.hairColor ? `I have a ${creature.hairColor} hair.` : '')} ${(creature.furColor ? `I have a ${creature.furColor} fur.` : '')}  </p>`;
 
 };
 
