@@ -26,42 +26,38 @@ document.addEventListener("DOMContentLoaded", ()=>{
         e.preventDefault();
         if(this.classList.contains('on')){
             this.classList.remove('on');
-            document.getElementById('side-menu').style.width = '40px';
+            document.getElementById('side-menu').classList.remove('w250');
             document.querySelector('.content').classList.remove('ml250');
         }else{
             this.classList.add('on');
-            document.getElementById('side-menu').style.width = '250px';
+            document.getElementById('side-menu').classList.add('w250');
             document.querySelector('.content').classList.add('ml250');
         }
     });
-    const sideMenuLinks = document.querySelectorAll('.side-menu__link');
-    sideMenuLinks[0].classList.add('active');
-    for(let i=0; i<sideMenuLinks.length; i++){
-        sideMenuLinks[i].addEventListener('click', function(e){
+    const sideMenu = document.querySelector('#side-menu div');
+    sideMenu.firstElementChild.classList.add('active');
+    sideMenu.addEventListener('click', function(e){
+        if(e.target.classList.contains('side-menu__link')){
             e.preventDefault();
-            openContent(this.dataset.id);
-
-        });
-    };
+            openContent(e.target.dataset.id);
+        }
+    });
     const content = document.querySelector('.content');
-    openContent();
     function openContent(contentId="0") {
         const links = document.getElementsByClassName("side-menu__link");
-        for (let i = 0; i < links.length; i++) {
-            links[i].classList.remove("active");
-        }
+        Array.from(links).forEach(link => link.classList.remove("active"));
         content.innerHTML = null;
+        const fragment = document.createDocumentFragment();
         const h1 = document.createElement('H1');
         const div = document.createElement('DIV');
         const img = document.createElement('IMG');
         h1.textContent = data[contentId].title;
         div.innerHTML = data[contentId].content;
         img.src = data[contentId].imgSrc;
-        content.appendChild(h1);
-        content.appendChild(div);
-        content.appendChild(img);
-        sideMenuLinks[contentId].classList.add('active');
+        fragment.appendChild(h1);
+        fragment.appendChild(div);
+        fragment.appendChild(img);
+        content.appendChild(fragment);
+        links[contentId].classList.add('active');
     }
 });
-
-
