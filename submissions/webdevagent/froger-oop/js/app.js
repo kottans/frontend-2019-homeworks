@@ -80,9 +80,6 @@ class Enemy extends GameActor {
   };
 };
 
-
-
-
 class Hero extends GameActor {
   constructor(y) {
     super('images/char-boy.png', 200, y);
