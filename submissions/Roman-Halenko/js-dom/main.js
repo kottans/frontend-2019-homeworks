@@ -1,6 +1,6 @@
 const menuBtn = document.getElementById('btn-menu');
 const navBar = document.getElementById('navbar');
-const main = document.getElementsByTagName('main')[0];
+const main = document.querySelector('main');
 const menuItems = document.querySelectorAll('.menu-item');
 const menuList = document.querySelector('#navbar ul');
 
@@ -11,7 +11,7 @@ menuBtn.addEventListener('click', e => {
 });
 
 main.addEventListener('click', () => {
-  if (navBar.className === "open") {
+  if (navBar.classList.contains('open')) {
     navBar.classList.remove('open');
   }
 });
@@ -82,7 +82,7 @@ function makeActive(trg, elements) {
 }
 
 menuList.addEventListener('click', (ev) => {
-  for (let i = 0; i < menuItems.length; i++) {
+  menuItems.forEach((element, i) => {
     if (ev.target === menuItems[i]) {
       ttl.innerText = data[i].title;
       dsc.innerText = data[i].description;
@@ -90,5 +90,5 @@ menuList.addEventListener('click', (ev) => {
       preview.setAttribute("src", data[i].prevImg);
       makeActive(ev.target, menuItems);
     }
-  }
+  })
 });
