@@ -1,33 +1,34 @@
-let Inhabitant = function(gender, name, saying){
+let Inhabitant = function (gender, name, saying) {
   this.gender = gender;
   this.name = name;
   this.saying = saying;
 };
 
-Inhabitant.prototype.makeMessage = function(){
-  return `Hello i am a <strong>${this.species}</strong>. My name is <strong>${this.name}</strong> and i am a ${this.gender}.I have <strong>${this.legs}</strong> legs and <strong>${this.hands}</strong> hands and i saying: <em>${this.saying}</em><hr>`;
+Inhabitant.prototype.makeMessage = function () {
+  if (this.paws !== undefined) {
+    return `Hello i am a <strong>${this.species}</strong>. My name is <strong>${this.name}</strong> and i am a ${this.gender}.I have <strong>${this.paws}</strong> paws and i saying: <em>${this.saying}</em><hr>`;
+  } else {
+    return `Hello i am a <strong>${this.species}</strong>. My name is <strong>${this.name}</strong> and i am a ${this.gender}.I have <strong>${this.legs}</strong> legs and <strong>${this.hands}</strong> hands and i saying: <em>${this.saying}</em><hr>`;
+  }
 };
 
-let Dog = function(gender, name, saying){
+let Dog = function (gender, name, saying) {
   Inhabitant.call(this, gender, name, saying);
   this.species = 'dog';
-  this.legs = 4;
-  this.hands = 0;
+  this.paws = 4;
 };
 
 Dog.prototype = Object.create(Inhabitant.prototype);
 
-let Cat = function(gender, name, saying){
+let Cat = function (gender, name, saying) {
   Inhabitant.call(this, gender, name, saying);
   this.species = 'cat';
-  this.saying = 'meow-meow!';
-  this.legs = 4;
-  this.hands = 0;
+  this.paws = 4;
 };
 
 Cat.prototype = Object.create(Inhabitant.prototype);
 
-let Human = function(gender, name, saying){
+let Human = function (gender, name, saying) {
   Inhabitant.call(this, gender, name, saying);
   this.species = 'human';
   this.legs = 2;
@@ -36,7 +37,7 @@ let Human = function(gender, name, saying){
 
 Human.prototype = Object.create(Inhabitant.prototype);
 
-let Cathuman = function(gender, name){
+let Cathuman = function (gender, name) {
   Inhabitant.call(this, gender, name, cat, woman);
   this.species = 'cat-human';
   this.legs = 2;
@@ -47,7 +48,7 @@ let Cathuman = function(gender, name){
 };
 
 Cathuman.prototype = Object.create(Inhabitant.prototype);
-Cathuman.prototype.sayMutate = function(){
+Cathuman.prototype.sayMutate = function () {
   return `${this.woman.saying} and sometimes ${this.cat.saying}`;
 };
 
