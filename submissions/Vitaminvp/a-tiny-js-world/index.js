@@ -60,27 +60,10 @@ cat.friends = [woman];
 catWoman.friends = [];
 
 function printCreature(creature){
-	const propsArr = [];
-
-    for (let prop in creature) {
-        if (creature.hasOwnProperty(prop)) {
-			let propToPush; 
-			if(prop === 'friends'){
-				propToPush = creature[prop].map(el => el.name).join(', ');
-			}else if(prop === 'name'){
-				propToPush = `<strong>${creature[prop]}</strong>`;
-			}else if(prop === 'saying'){
-				propToPush = `<em style="text-decoration: underline">${creature[prop]}</em>`;
-			}else {
-				propToPush = creature[prop];
-			}
-			
-            propsArr.push(propToPush);
-        }
-    }
-
-    return propsArr.join('; ');
-    //return `${creature.species}; ${creature.gender}; <strong>${creature.name}</strong>; ${creature.legs}; ${creature.hands}; <em>${creature.saying}</em>; ${creature.friends.length === 0 ? '' : creature.friends.map(el =>el.name).join(', ')}`;
+	return ['species', 'name', 'gender', 'legs', 'hands', 'saying']
+			  .map(key => creature[key])
+			  .concat(creature.friends.map(friend => friend.name))
+			  .join('; ');
 }
 
 // ======== OUTPUT ========
