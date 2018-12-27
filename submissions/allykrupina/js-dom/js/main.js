@@ -1,4 +1,4 @@
-let allCats = [
+const allCats = [
     {
         name: 'Pushok',
         url: 'img/ember-ivory-433863-unsplash.jpg',
@@ -32,7 +32,7 @@ let allCats = [
 ]
 
 function showCats() {
-    drowOneCat = (index) => {
+    const drowOneCat = (index) => {
         cat_title.textContent = allCats[index].title;
         cat_img.setAttribute("src", allCats[index].url);
     }
