@@ -7,23 +7,10 @@
 
 // ======== OBJECTS DEFINITIONS ========
 function Creature(props) {
-  this.species = props.species;
-  this.legs = props.legs;
-  this.hands = props.hands;
-  this.name = props.name;
-  this.gender = props.gender;
-  this.say = props.say;
+  this.props = props;
 }
 Creature.prototype.toString = function() {
-  const values = [];
-
-  for (const prop in this) {
-    if (this.hasOwnProperty(prop)) {
-      values.push(this[prop]);
-    }
-  }
-
-  return values.join('; ');
+  return Object.values(this.props).join('; ');
 };
 
 function Animal(props) {
@@ -48,7 +35,7 @@ const catWoman = new Human({
   species: 'catWoman',
   name: 'Selina Kyle',
   gender: 'female',
-  say: cat.say || 'Hello Kitty!'
+  say: cat.props.say || 'Hello Kitty!'
 });
 
 // ======== OUTPUT ========
