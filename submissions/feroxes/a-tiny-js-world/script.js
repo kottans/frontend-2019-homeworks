@@ -41,3 +41,4 @@ let helen = new Human('human', 'female', 'Helen', 'Hi!');
 
 let bars = new Animal('cat', 'female', 'Bars', 'Meuuuu');
 let skot = new Animal('dog', 'male', 'Skot', 'Auuuuu!');
+
