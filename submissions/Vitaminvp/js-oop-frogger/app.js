@@ -53,17 +53,17 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x += this.speed * dt;
 
-    handleCollision(this.player, this);
+    this.handleCollision();
 
 };
 
-function handleCollision(player, enemy) {
-    if (enemy.x > CELL.width * 5) {
-        enemy.x = -CELL.width;
-        enemy.speed = getRandomSpeed();
+Enemy.prototype.handleCollision = function() {
+    if (this.x > CELL.width * 5) {
+        this.x = -CELL.width;
+        this.speed = getRandomSpeed();
     }
-    if (player.x < enemy.x + ENEMY.width && player.x + ENEMY.width > enemy.x &&
-        player.y < enemy.y + ENEMY.height && ENEMY.height + player.y > enemy.y){
+    if (this.player.x < this.x + ENEMY.width && this.player.x + ENEMY.width > this.x &&
+        this.player.y < this.y + ENEMY.height && ENEMY.height + this.player.y > this.y){
         this.player.x = INITIAL.x;
         this.player.y = INITIAL.y;
     };
