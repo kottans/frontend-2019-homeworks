@@ -3,7 +3,11 @@ body {
     background-color: #f4f4f4;
     overflow-x: hidden;
 }
-
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
 .side-nav {
     height: 100%;
     width: 40px;
@@ -54,13 +58,16 @@ a.side-menu__link:hover,
     max-width: 100%;
 }
 
-.ml250 {
+.open-menu__content-margin {
     margin-left: 250px;
+}
+.open-menu__width {
+    width: 250px;
 }
 
 /*----------------------TOGLEMENU----------------------------------*/
 
-.toggle-mnu {
+.toggle-menu {
     float: right;
     position: absolute;
     right: 0;
@@ -71,26 +78,26 @@ a.side-menu__link:hover,
     z-index: 1;
 }
 
-.toggle-mnu span:after,
-.toggle-mnu span:before {
+.toggle-menu span:after,
+.toggle-menu span:before {
     content: "";
     position: absolute;
     left: 0;
     top: 8px
 }
 
-.toggle-mnu span:after {
+.toggle-menu span:after {
     top: 16px
 }
 
-.toggle-mnu span {
+.toggle-menu span {
     position: relative;
     display: block
 }
 
-.toggle-mnu span,
-.toggle-mnu span:after,
-.toggle-mnu span:before {
+.toggle-menu span,
+.toggle-menu span:after,
+.toggle-menu span:before {
     width: 100%;
     height: 2px;
     background-color: #fff;
@@ -102,26 +109,26 @@ a.side-menu__link:hover,
     border-radius: 2px
 }
 
-.toggle-mnu.on span {
+.toggle-menu.on span {
     background-color: transparent
 }
 
-.toggle-mnu.on span:before {
+.toggle-menu.on span:before {
     -webkit-transform: rotate(45deg) translate(-1px, 0);
     -ms-transform: rotate(45deg) translate(-1px, 0);
     transform: rotate(45deg) translate(-1px, 0)
 }
 
-.toggle-mnu.on span:after {
+.toggle-menu.on span:after {
     -webkit-transform: rotate(-45deg) translate(6px, -7px);
     -ms-transform: rotate(-45deg) translate(6px, -7px);
     transform: rotate(-45deg) translate(6px, -7px)
 }
-.toggle-mnu + div{
+.toggle-menu + ul{
     transition: all .25s ease;
     visibility: hidden;
 }
-.toggle-mnu.on + div{
+.toggle-menu.on + ul{
     visibility: visible;
 }
 /*----------------------TOGLEMENU----------------------------------*/
