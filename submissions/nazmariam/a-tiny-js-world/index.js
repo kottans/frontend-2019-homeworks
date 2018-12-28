@@ -33,7 +33,7 @@ function Human(name, gender, say) {
 Human.prototype = Object.create(Citizen.prototype);
 Human.prototype.constructor = Human;
 function Dog(name, gender) {
-    Animal.apply(this,[this.legs,this.hands]);
+    Animal.apply(this,[this.species, this.name, this.gender, this.say]);
     this.species = 'dog';
     this.name = name;
     this.gender = gender;
@@ -52,8 +52,8 @@ function Cat(name, gender){
 Cat.prototype = Object.create(Citizen.prototype);
 Cat.prototype.constructor = Cat;
 function CatWoman(name){
-    Cat.apply(this, [this.say]);
-    Human.apply(this, [this.legs, this.hands]);
+    Cat.apply(this, [this.name, this.gender]);
+    Human.apply(this, [this.name, this.gender, this.say]);
     this.species = 'human';
     this.name = name;
     this.gender = 'female';
@@ -68,9 +68,11 @@ let citizens = [
     new CatWoman('Selina Kyle')];
 // ======== OUTPUT ========
 citizens.forEach(el => {
-    print("<div> Hi! I'm a "+el.species+". My name is "+el.name+". My gender is: "+el.gender+
-        "\n I have: "+el.legs+" legs and "+el.hands+" hands."
-        +"\n I speak like this:\""+el.say+"\"</div>");
+    print(`<div>
+        Hi! I'm a ${el.species}. My name is ${el.name}. My gender is: ${el.gender}
+        I have: ${el.legs} legs and ${el.hands} hands.
+        I speak like this: \"${el.say}\"
+        </div>`);
 });
 
 
