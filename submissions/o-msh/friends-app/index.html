@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="module" src="js/index.js"></script>
+    <title>Friends app</title>
+</head>
+
+<body>
+    <button class="top" >UP</button>
+    <div class="container">
+        <div class="control">
+            <input type="text" class="search" name="search" placeholder="Name..." autocomplete="off"><br>
+            <div class="filter">
+                <div class="filter_gender">
+                    <fieldset>
+                        <legend>Gender:</legend>
+                        <input type="radio" name="gender" value="male"><label>Male</label>
+                        <input type="radio" name="gender" value="female"><label>Female</label>
+                    </fieldset>
+                </div>
+                <div class="filter_name">
+                    <fieldset>
+                        <legend>Name:</legend>
+                        <input type="radio" name="sort" data-type="name" value="asc"><label>A-Z</label>
+                        <input type="radio" name="sort" data-type="name" value="desc"><label>Z-A</label>
+                    </fieldset>
+                </div>
+                <div class="filter_age">
+                    <fieldset>
+                        <legend>Age:</legend>
+                        <input type="radio" name="sort" data-type="age" value="asc"><label>&#8593;</label>
+                        <input type="radio" name="sort" data-type="age" value="desc"><label>&#8595;</label>
+                    </fieldset>
+                </div>
+                <div class="filter_btns">
+                    <button data-type="fetch">Fetch</button>
+                    <button data-type="reset">Reset</button>
+                </div>
+            </div>
+        </div>
+        <div class="loader hide">
+            <div class="loading_animation">
+                <div class="animation_part"></div>
+                <div class="animation_part"></div>
+            </div>
+        </div>
+        <div class="main"></div>
+    </div>
+</body>
+
+</html>
