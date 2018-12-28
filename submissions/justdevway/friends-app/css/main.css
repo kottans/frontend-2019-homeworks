@@ -1,0 +1,468 @@
+:root {
+    --selection: #F08080;
+    --menu_width: 12.5%;
+}
+
+html {
+    box-sizing: border-box;
+    /*height: 100%;*/
+    font-family: sans-serif;
+    font-weight: 400;
+}
+
+*, *:after, *:before {
+    box-sizing: inherit;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(180deg, rgba(121, 196, 255, 1) 0%, rgb(56, 159, 255) 50%, rgb(46, 105, 255) 100%);
+}
+
+.container {
+    width: 100%;
+    max-width: calc(100% - 2 * var(--menu_width));
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--menu_width);
+    height: 100%;
+    background: rgba(255, 255, 255, 1);
+}
+
+.controllers {
+    padding: 10px 15px;
+    margin: 0;
+    list-style-type: none;
+}
+
+.controllers__item {
+    margin: 10px 0;
+}
+
+.controllers__buttons {
+    text-align: center;
+}
+
+.controller__button {
+    display: inline-block;
+    padding: 5px 10px;
+    background: inherit;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+    font-size: 16px;
+    cursor: pointer;
+    transition-property: background, color, border, box-shadow;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+}
+
+.controller__button:focus,
+.controller__button:hover {
+    background: var(--selection);
+    color: #fff;
+    border: 1px solid var(--selection);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.controller {
+    margin: 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+
+.controller__search {
+    width: 100%;
+    padding: 0 0 0 10px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    font-size: 16px;
+    transition-property: border-bottom;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+}
+
+.controller__search:focus,
+.controller__search:hover {
+    border-bottom: 1px solid var(--selection);
+}
+
+.controller__label {
+    display: inline-block;
+    padding: 2.5px 10px;
+    cursor: pointer;
+    outline: none;
+    transition-property: color;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+}
+
+.controller__label:hover {
+    color: var(--selection);
+}
+
+.controller__label.is_active {
+    pointer-events: none;
+}
+
+.controller__parameters {
+    display: flex;
+    align-items: center;
+}
+
+.controller__parameters--age {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    margin-right: 7.5px;
+}
+
+.controller__input {
+    display: none;
+}
+
+.controller__check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 50%;
+    transition-property: border;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+}
+
+.controller__input:checked,
+.controller__input.is_active {
+    pointer-events: none;
+}
+
+.controller__label.is_active .controller__check,
+.controller__label:focus .controller__check,
+.controller__label:hover .controller__check,
+.controller__input:checked + .controller__check {
+    border: 1px solid var(--selection);
+}
+
+.controller__check__round {
+    width: 5px;
+    height: 5px;
+    opacity: 0;
+    border-radius: 50%;
+    background: var(--selection);
+    transition-property: opacity;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+}
+
+.controller__label.is_active .controller__check > .controller__check__round,
+.controller__label:focus .controller__check > .controller__check__round,
+.controller__label:hover .controller__check > .controller__check__round,
+.controller__input:checked + .controller__check > .controller__check__round {
+    opacity: 1;
+}
+
+.controller__value {
+    margin: 0 5px;
+    transition-property: color;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+}
+
+.controller__label.is_active .controller__value,
+.controller__label:focus .controller__value,
+.controller__label:hover .controller__value,
+.controller__input:checked + .controller__value {
+    color: var(--selection);
+}
+
+
+.controller__icon {
+    width: 15px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    fill: #000;
+    transition-property: fill;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+}
+
+.controller__icon.controller__icon--up {
+    transform: rotateX(180deg);
+}
+
+
+.controller__label.is_active .controller__icon,
+.controller__label:focus .controller__icon,
+.controller__label:hover .controller__icon,
+.controller__input:checked + .controller__icon {
+    fill: var(--selection);
+}
+
+
+.cards__list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.cards__item {
+    margin: 10px 15px;
+    flex: 0 0 22%;
+}
+
+.cards__item.is_hide {
+    display: none;
+}
+
+
+.cards__item.pagination_hide {
+    display: none;
+}
+
+.card {
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #000;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+    text-align: center;
+    transition-property: background, box-shadow, border;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+}
+
+
+.card:focus,
+.card:hover {
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid var(--selection);
+    box-shadow: 0 0 5px var(--selection);
+}
+
+.card__img {
+    display: inline-block;
+    max-width: 80%;
+}
+
+.card__name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card__email {
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid rgba(51, 51, 51, 0);
+    outline: none;
+    color: inherit;
+    text-decoration: none;
+    transition-property: border-bottom, color;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+}
+
+.card__email:focus,
+.card__email:hover {
+    border-bottom: 1px solid var(--selection);
+    color: var(--selection);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.modal.is_hide {
+    display: none;
+}
+
+.modal__preloader {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.modal__preloader span:nth-child(1),
+.modal__preloader span:nth-child(2),
+.modal__preloader span:nth-child(3) {
+    animation-name: show-hide;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+
+.modal__preloader span:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+.modal__preloader span:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.pagination__list {
+    padding: 10px 0;
+    margin: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+.pagination__item {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background: #fff;
+    margin: 0;
+    color: #000;
+    cursor: pointer;
+    transition-property: border, color;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+}
+
+.pagination__item.is_active,
+.pagination__item:focus,
+.pagination__item:hover {
+    color: var(--selection);
+    border: 1px solid var(--selection);
+}
+
+
+@media only screen and (max-width: 1366px) {
+    :root {
+        --menu_width: 20%;
+    }
+
+    .container {
+        max-width: 100%;
+        padding-left: calc(var(--menu_width));
+    }
+
+    .cards__item {
+        flex: 1 0 30%;
+        max-width: 30%;
+    }
+
+}
+
+
+@media only screen and (max-width: 1024px) {
+    .cards__list {
+        justify-content: center;
+    }
+
+    .cards__item {
+        flex: 1 0 35%;
+        max-width: inherit;
+    }
+
+    .controller__button:focus,
+    .controller__button:hover {
+        background: inherit;
+        color: inherit;
+        border: 1px solid #000;
+        box-shadow: none;
+    }
+
+    .controller__search:focus,
+    .controller__search:hover {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .controller__label:hover {
+        color: inherit;
+    }
+
+    .controller__label:focus .controller__check,
+    .controller__label:hover .controller__check {
+        border: 1px solid #000;
+    }
+
+    .controller__label:focus .controller__value,
+    .controller__label:hover .controller__value {
+        color: inherit;
+    }
+
+    .controller__label:focus .controller__icon,
+    .controller__label:hover .controller__icon {
+        fill: #000;
+    }
+
+    .card:focus,
+    .card:hover {
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid #000;
+        box-shadow: none;
+    }
+
+    .card__email:focus,
+    .card__email:hover {
+        border-bottom: none;
+        color: inherit;
+    }
+
+    .pagination__item:focus,
+    .pagination__item:hover {
+        color: inherit;
+        border: 1px solid #000;
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+    .menu {
+        position: static;
+        width: 100%;
+        padding: 0 0 15px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .cards__item {
+        flex: 0 0 65%;
+        max-width: inherit;
+        margin: 5px 10px;
+    }
+}
+
+
+@keyframes show-hide {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
