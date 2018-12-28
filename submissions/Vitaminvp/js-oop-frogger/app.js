@@ -1,9 +1,16 @@
-const cellWidth = 100;
-const cellHeight = 80;
-const enemyWidth = 80;
-const enemyHeight = 60;
-const initialX = 200;
-const initialY = 400;
+const CELL = {
+    width:  100,
+    height: 80
+};
+const ENEMY = {
+    width:  80,
+    height: 60
+};
+const INITIAL = {
+    x: 200,
+    y: 400
+};
+
 const SPRITES = [
     'images/char-boy.png',
     'images/char-cat-girl.png',
@@ -11,17 +18,19 @@ const SPRITES = [
     'images/char-pink-girl.png',
     'images/char-princess-girl.png'
 ];
+
 function getRandomSpeed() {
     return Math.round(Math.random() * 600);
 }
 
 // Enemies our player must avoid
-var Enemy = function(x, y, speed) {
+const Enemy = function(x, y, speed, player) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     this.x = x;
     this.y = y;
     this.speed = speed;
+    this.player = player;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -37,15 +46,15 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x += this.speed * dt;
 
-    if (this.x > cellWidth * 5) {
-        this.x = -cellWidth;
+    if (this.x > CELL.width * 5) {
+        this.x = -CELL.width;
         this.speed = getRandomSpeed();
     }
 
-    if (player.x < this.x + enemyWidth  && player.x    + enemyWidth > this.x &&
-        player.y < this.y + enemyHeight && enemyHeight + player.y   > this.y) {
-        player.x = initialX;
-        player.y = initialY;
+    if (this.player.x < this.x + ENEMY.width  && this.player.x     + ENEMY.width > this.x &&
+        this.player.y < this.y + ENEMY.height && ENEMY.height + this.player.y    > this.y) {
+        this.player.x = INITIAL.x;
+        this.player.y = INITIAL.y;
     }
 };
 
@@ -73,25 +82,25 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(key) {
     switch (key){
         case'up':
-            this.y = (this.y > 0) ? this.y- cellHeight : initialY;
+            (this.y > 0) ? this.y = this.y- CELL.height : this.y = INITIAL.y;
             break;
         case'down':
-            this.y = (this.y < cellHeight * 5) ? this.y + cellHeight : this.y;
+            (this.y < CELL.height * 5) ? this.y = this.y + CELL.height : null;
             break;
         case'left':
-            this.x = (this.x > 1) ? this.x - cellWidth : this.x;
+            (this.x > 1) ? this.x =  this.x - CELL.width : null;
             break;
         case'right':
-            this.x = (this.x < cellWidth * 4) ? this.x + cellWidth : this.x;
+            (this.x < CELL.width * 4) ? this.x = this.x + CELL.width : null;
             break;
     }
 };
 
-var player = new Player(initialX, initialY);
-var allEnemies = [];
+const player = new Player(INITIAL.x, INITIAL.y);
+const allEnemies = [];
 
-[cellHeight , cellHeight * 2, cellHeight * 3].forEach(function(y) {
-    var enemy = new Enemy(0, y, getRandomSpeed());
+[CELL.height , CELL.height * 2, CELL.height * 3].forEach(function(y) {
+    const enemy = new Enemy(0, y, getRandomSpeed(), player);
     allEnemies.push(enemy);
 });
 // Now instantiate your objects.
@@ -103,7 +112,7 @@ var allEnemies = [];
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
+    const allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
