@@ -36,9 +36,8 @@ var man = { kind:"human",
 var  inhabitantes = [dog, cat, woman, man];
 
 inhabitantes.forEach(function(element){
-    var personArr = [];
+    var personArr = [element.kind, element.who, element.legs, element.hands, element.name, element.gender, element.say];
     var personStr = "";
-    personArr.push(element.kind, element.who, element.legs, element.hands, element.name, element.gender, element.say);
     personStr = personArr.join(";");
     personStr += (element.friend !== undefined) ?  ("; " + element.friend): "";
 
