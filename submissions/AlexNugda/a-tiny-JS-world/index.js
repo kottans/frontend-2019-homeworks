@@ -13,8 +13,8 @@ let man = {
 	gender : "male",
 	legs : 2,
 	hands : 2,
-	friends : ["Jenny", "LadyCat"],
-	say : () => "Hello from Alex!"
+	say : () => "Hello from Alex!",
+	friends : ["Jenny", "LadyCat"]
 };
 
 let woman = {
@@ -23,8 +23,8 @@ let woman = {
 	gender : "female",
 	legs : 2,
 	hands : 2,
-	friends : ["Alex", "LadyCat"],
-	say : () => "Hello from Jenny!"
+	say : () => "Hello from Jenny!",
+	friends : ["Alex", "LadyCat"]
 };
 
 let cat = {
@@ -32,8 +32,9 @@ let cat = {
 	name : "Murka",
 	gender : "female",
 	legs : 4,
-	friends : ["Alex", "Jenny", "LadyCat"],
-	say : () => "Meow!"
+	hands: 0,
+	say : () => "Meow!",
+	friends : ["Alex", "Jenny", "LadyCat"]
 };
 
 let dog = {
@@ -41,8 +42,9 @@ let dog = {
 	name : "Rex",
 	gender : "male",
 	legs : 4,
-	friends : ["Alex", "Jenny"],
-	say : () => "Woff!"
+	hands : 0,
+	say : () => "Woff!",
+	friends : ["Alex", "Jenny"]
 };
 
 let catWoman = {
@@ -51,8 +53,8 @@ let catWoman = {
 	gender : "female",
 	legs : 2,
 	hands : 2,
-	friends : ["Alex", "Jenny", "Murka"],
-	say : () => cat.say()
+	say : () => cat.say(),
+	friends : ["Alex", "Jenny", "Murka"]
 };
 
 // ======== OUTPUT ========
@@ -65,11 +67,10 @@ let catWoman = {
    */
 const showTinyJsWorldResident = (resident) => {
 	let output = "";
-	let {type, name, gender, legs} = resident;
-	let hands = resident.hands;
+	let {type, name, gender, legs, hands, say} = resident;
 	let friends = resident.friends.join(", ");
-	let say = resident.say;
-	output += `<strong>${type}</strong>, ${name}, ${gender}, ${legs}, ${hands || ""}, ${friends || ""}, ${say()}`;	
+	let items = [`<strong>${type}</strong>`, name, gender, legs, `${hands || ""}, ${friends || ""}`, say()];
+	output = items.join(", ");
 	return output;
 }
 
@@ -87,5 +88,3 @@ print(showTinyJsWorldResident(catWoman));
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
    */
-
-
