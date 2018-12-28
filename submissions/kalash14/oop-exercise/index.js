@@ -9,9 +9,11 @@
 
 class Inhabitant {
 
-    constructor(name, gender) {
+    constructor(name, gender, greetingsWords, legs) {
         this.name = name;
         this.gender = gender;
+        this.greetingsWords = greetingsWords;
+        this.legs = legs;
     }
 }
 
