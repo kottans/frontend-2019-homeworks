@@ -9,78 +9,61 @@
 
 class Inhabitant {
 
-    constructor(name, gender, greetingsWord, kind, favouriteDish) {
+    constructor(name, gender) {
         this.name = name;
-        this.kind = kind;
         this.gender = gender;
-        this.greetingsWord = greetingsWord;
-        this.favouriteDish = favouriteDish;
     }
+}
 
-    introduceCreature () {
-        return `<p>${this.greetingsWord}!!! Nice to meet you. My name is ${this.name} and I'm ${this.kind}. Also, I'm a ${this.gender}. ${(this.legs ? `I have ${this.legs} legs.` : '')} My favourite dish is ${this.favouriteDish}. </p>`;
+class Human extends Inhabitant{
+
+    constructor(name, gender) {
+        super(name, gender);
+        this.legs = 2;
+        this.hands = 2;
+        this.kind = 'Human';
+        this.greetingsWords = `Hi!`
     }
 
 }
 
-class Human extends Inhabitant {
+class Animal extends Inhabitant{
 
-    constructor(name, gender, greetingsWord, kind, favouriteDish, legs = 2) {
-        super(name, gender, greetingsWord, kind, favouriteDish);
-        this.legs = legs;
+    constructor(name, gender) {
+        super(name, gender);
+        this.legs = 4;
     }
-
-}
-
-class Animal extends Inhabitant {
-
-	constructor(name, gender, greetingsWord, kind, favouriteDish, legs = 4) {
-        super(name, gender, greetingsWord, kind, favouriteDish);
-        this.legs = legs;
-	}
 
 }
 
 class Dog extends Animal {
-    constructor(name, gender, greetingsWord = 'Bow-wow', kind = 'dog', favouriteDish, legs) {
-        super(name, gender, greetingsWord, kind, favouriteDish, legs);
+
+    constructor(name, gender) {
+        super(name, gender);
+        this.kind = 'Dog';
+        this.greetingsWords = 'Bow-wow!';
     }
+
 }
 
 class Cat extends Animal {
-    constructor(name, gender, greetingsWord = 'Meow', kind = 'cat', favouriteDish, legs) {
-        super(name, gender, greetingsWord, kind, favouriteDish, legs);
+
+    constructor(name, gender) {
+        super(name, gender);
+        this.kind = 'Cat';
+        this.greetingsWords = 'Meow!';
     }
+
 }
 
-class Man extends Human {
-    constructor(name, gender, greetingsWord, kind, favouriteDish, legs) {
-        super(name, gender, greetingsWord, kind, favouriteDish, legs);
-    }
-}
-class Woman extends Human {
-    constructor(name, gender, greetingsWord, kind, favouriteDish, legs) {
-        super(name, gender, greetingsWord, kind, favouriteDish, legs);
-    }
-}
 
-const inhabitantsArray = [
+const creatures = [
 
-    new Dog('Sharik', 'male', 'Bow-wow', 'dog', 'meat'),
-    new Cat('Kuzia', 'male', 'Meow-meow', 'cat', 'boiled fish'),
-    new Woman('Leila', 'female', 'Hi', 'woman', 'Cesar salad'),
-    new Man('Pedro Rodriguez', 'male', 'Hey, dude', 'man', 'Avocado sandwich')
+    new Human('Victor', 'male'),
+    new Human('Helen', 'female'),
+    new Cat('Pushok', 'male'),
+    new Dog('Mukhtar', 'male')
 
 ];
 
-const mainBlock = document.getElementById('main');
-let inhabitantString = '';
-
-inhabitantsArray.forEach(inhabitant => {
-
-    inhabitantString += inhabitant.introduceCreature();
-
-});
-
-mainBlock.insertAdjacentHTML('beforeend',inhabitantString);
-
+creatures.forEach(creature => print(`${creature.greetingsWords} I'm ${creature.name} and also I'm a ${creature.kind}. Also I have ${creature.legs} legs ${(creature.hands ? `and ${creature.hands} hands` : '')}`));
