@@ -1,7 +1,5 @@
-window.onload = function() {
-  strartGame();
-};
-const strartGame = () => {
+window.onload = strartGame;
+function strartGame(){
   let imgs = [
     "img/blueberries.png",
     "img/cherries.png",
@@ -11,17 +9,17 @@ const strartGame = () => {
     "img/strawberry.png"
   ];
 
-  const ShuffledDoubleImgs = imgs.concat(imgs).sort(function() {
+  const shuffledDoubleImgs = imgs.concat(imgs).sort(function() {
     return 0.5 - Math.random();
   });
 
   const content = document.querySelector(".container-thingy");
-  const bord = document.createElement("section");
+  const board = document.createElement("section");
   content.innerHTML = "";
 
 
-  bord.classList.add("flip-container");
-  ShuffledDoubleImgs.forEach(img => {
+  board.classList.add("flip-container");
+  shuffledDoubleImgs.forEach(img => {
     const flipper = document.createElement("div");
     const front = document.createElement("div");
     const back = document.createElement("div");
@@ -37,14 +35,14 @@ const strartGame = () => {
 
     flipper.appendChild(front);
     flipper.appendChild(back);
-    bord.appendChild(flipper);
+    board.appendChild(flipper);
   });
-  content.appendChild(bord);
+  content.appendChild(board);
 
   let fliped = [];
 
-  bord.addEventListener("click", evt => {
-    if (evt.target && evt.target.nodeName.toLowerCase() === "div") {
+  board.addEventListener("click", evt => {
+    if (evt.target.classList.contains("flipper")) {
       if (fliped.length < 2) {
         let target = evt.target;
         target.classList.toggle("flip");
@@ -59,11 +57,12 @@ const strartGame = () => {
   });
   const compareTargets = () => {
     if (fliped.length === 2) {
-      if (fliped[0].src === fliped[1].src) {
+      let [first,second] = fliped;
+      if (first.src === second.src) {
         fliped.forEach(({ target }) => target.classList.add("hidden"));
         fliped = [];
         const matched = document.querySelectorAll(".hidden");
-        if (matched.length === ShuffledDoubleImgs.length) {
+        if (matched.length === shuffledDoubleImgs.length) {
           alert("You won!");
           strartGame();
         }
