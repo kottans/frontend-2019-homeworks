@@ -1,6 +1,6 @@
 /* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
    Complete the below for code reviewers' convenience:
-   
+
    Code repository: https://github.com/allykrupina/allykrupina.github.io/a-tiny-JS-world
    Web app: https://allykrupina.github.io/a-tiny-js-world/
    */
@@ -48,13 +48,20 @@ const catwoman ={
     gender:'female',
     saying: cat.saying,
 }
+function convertObject(obj, value){
+    return obj[value]
+}
 function printObject(obj){
-    print('<em> ' + obj.species + '</em> - <strong>' + obj.name + '</strong>; ' + obj.gender + '; ' +
-    obj.legs + '; ' + obj.hands + '; ' + obj.saying + '; ');
+    print('<em> ' +
+    convertObject(obj, 'species') + '</em> - <strong>' +
+    convertObject(obj, 'name') + '</strong>; ' +
+    convertObject(obj, 'gender') + '; ' +
+    convertObject(obj, 'legs') + '; ' +
+    convertObject(obj, 'hands') + '; ' +
+    convertObject(obj, 'saying') + '; ');
 }
 // ======== OUTPUT ========
-printObject(dog);
-printObject(cat);
-printObject(woman);
-printObject(man);
-printObject(catwoman);
+
+[dog, cat, woman, man, catwoman].forEach(inhabitant =>
+    printObject(inhabitant)
+);
