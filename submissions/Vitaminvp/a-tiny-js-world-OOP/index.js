@@ -8,48 +8,91 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 class Creature {
-	constructor(species,  gender, name, legs, hands, saying) {
-		this.species = species;
-		this.legs    = legs;
-		this.hands   = hands;
-		this.name    = name;
-		this.gender  = gender;
-		this.saying  = saying;
-		this.friends = [];
-	}
+    constructor(name, gender) {
+        this.name = name;
+        this.gender = gender;
+        this.friends = [];
+    }
     addFriends(...args){
         this.friends = [...args];
     }
-	printCreature(){
-		return ['species', 'gender', 'name', 'legs', 'hands', 'saying']
-				  .map(key => `<strong>${this[key]}</strong>`)
-				  .concat(this.friends.map(friend => `<em>${friend['name']}</em>`))
-				  .join('; ');
-	}
-}
-
-class SuperHero extends Creature {
-    constructor(prototipe1, prototipe2, name, legs, hands) {
-      super(null, null, name, legs, hands);
-	  this.species = prototipe1.species + '-' + prototipe2.species;
-	  this.gender  = prototipe1.gender;
-      this.saying  = prototipe2.saying;
+    printCreature() {
+        return ['name', 'gender']
+            .map(key => `${key}: <strong>${this[key]}</strong>`)
+            .join('; ');
     }
 }
 
-const woman    = new Creature('human', 'female', 'Sarah', 2, 2, 'Love saves the world.');
-const man      = new Creature('human', 'male', 'John', 2, 2, 'Boys will be boys.');
-const cat      = new Creature('cat', 'female', 'Maya', 4, 0, 'Meow.');
-const dog      = new Creature('dog', 'male', 'Toby', 4, 0, 'Woof-woof!');
-const catWoman = new SuperHero(woman, cat, 'Sophie', 2, 2);
-const dogMan   = new SuperHero(man, dog, 'Barsik', 2, 2);
+class Animal extends Creature {
+    constructor(name, gender, species, say) {
+        super(name, gender);
+        this.species = species;
+        this.legs = 4;
+        this.say = say;
+    }
+    printCreature() {
+        return super.printCreature() +' '+ ['species', 'legs', 'say']
+            .map(key => `${key}: <em>${this[key]}</em>`)
+            .concat(this.friends.map(friend => `<strong>${friend['name']}</strong>`))
+            .join('; ');
+    }
+}
+class HumanBeing extends Creature {
+    constructor(name, gender, say) {
+        super(name, gender);
+        this.species = 'Human';
+        this.legs = 2;
+        this.hands = 2;
+        this.say = say;
+    }
+    printCreature() {
+        return super.printCreature() +' '+ ['species', 'legs', 'hands', 'say']
+            .map(key => `${key}: <em>${this[key]}</em>`)
+            .concat(this.friends.map(friend => `<strong>${friend['name']}</strong>`))
+            .join('; ');
+    }
+}
 
+class Dog extends Animal {
+    constructor(name, gender, species = 'dog', say = 'Woof-woof!') {
+        super(name, gender, species, say);
+    }
+}
+
+class Cat extends Animal {
+    constructor(name, gender, species = 'cat', say = 'Meow.') {
+        super(name, gender, species, say);
+    }
+}
+
+class Man extends HumanBeing {
+    constructor(name, gender='male', say = 'Boys will be boys.') {
+        super(name, gender, say);
+    }
+}
+
+class Woman extends HumanBeing {
+    constructor(name, gender='female', say = 'Love saves the world.') {
+        super(name, gender, say);
+    }
+}
+class CatWoman extends Woman {
+    constructor(name, gender='female', say = 'Love saves the world.') {
+        super(name, gender, say);
+    }
+}
+const woman    = new Woman('Sarah');
+const man      = new Man('John');
+const cat      = new Cat('Maya', 'female');
+const dog      = new Dog('Toby', 'male');
+const catWoman = new CatWoman('Sophie', undefined, cat.say);
 
 woman.addFriends(man, cat);
 man.addFriends(woman, dog);
 dog.addFriends(woman, man);
-catWoman.addFriends(cat, dog);
-dogMan.addFriends(cat, dog, woman, man);
+
+[woman, man, cat, dog, catWoman]
+    .forEach((item) => print(item.printCreature()));
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
@@ -59,7 +102,6 @@ dogMan.addFriends(cat, dog, woman, man);
    However, please, REFRAIN from improving visuals at least until your code is reviewed
    so code reviewers might focus on a single file that is index.js.
    */
-   [woman, man, cat, dog, catWoman, dogMan].map(creature => print(creature.printCreature()));
 
 /* Print examples:
    print('ABC');
