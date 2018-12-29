@@ -13,50 +13,38 @@ function Citizen(species, name, gender, legs, hands, say) {
     this.say = say;
 }
 function Animal(species, name, gender, say) {
-    this.species = species;
-    this.name = name;
-    this.gender = gender;
-    this.legs = 4;
-    this.hands = 0;
-    this.say = say;
+    Citizen.apply(this,[species, name, gender, 4, 0, say]);
 }
 Animal.prototype = Object.create(Citizen.prototype);
 Animal.prototype.constructor = Animal;
 function Human(name, gender, say) {
-    this.species = 'human';
+    Citizen.apply(this,['human', name, gender, 2, 2, say]);
     this.name = name;
     this.gender = gender;
-    this.legs = 2;
-    this.hands = 2;
     this.say = say;
 }
 Human.prototype = Object.create(Citizen.prototype);
 Human.prototype.constructor = Human;
 function Dog(name, gender) {
-    Animal.apply(this,[this.species, this.name, this.gender, this.say]);
-    this.species = 'dog';
+    Animal.apply(this,['dog', name, gender, 'bark-bark']);
     this.name = name;
     this.gender = gender;
-    this.say = 'bark-bark';
 }
 Dog.prototype = Object.create(Animal.prototype);
 Dog.prototype.constructor = Dog;
 function Cat(name, gender){
-    this.species = 'cat';
+    Animal.apply(this,['cat', name, gender, 'meow']);
     this.name = name;
     this.gender = gender;
-    this.legs = 4;
-    this.hands = 0;
-    this.say = 'meow';
 }
 Cat.prototype = Object.create(Citizen.prototype);
 Cat.prototype.constructor = Cat;
 function CatWoman(name){
-    Cat.apply(this, [this.name, this.gender]);
-    Human.apply(this, [this.name, this.gender, this.say]);
+    Cat.apply(this, [name, 'female']);
     this.species = 'human';
     this.name = name;
-    this.gender = 'female';
+    this.legs = 2;
+    this.hands = 2;
 }
 CatWoman.prototype = Object.create(Cat.prototype);
 CatWoman.prototype.constructor = CatWoman;
@@ -71,7 +59,7 @@ citizens.forEach(el => {
     print(`<div>
         Hi! I'm a ${el.species}. My name is ${el.name}. My gender is: ${el.gender}
         I have: ${el.legs} legs and ${el.hands} hands.
-        I speak like this: \"${el.say}\"
+        I speak like this: ${el.say}
         </div>`);
 });
 
