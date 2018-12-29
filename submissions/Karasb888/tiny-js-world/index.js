@@ -7,95 +7,65 @@
 
 // ======== OBJECTS DEFINITIONS ========
 
-var dog = {
-   species: 'dog' ,
-   name: 'Tommy',
-   gender:'male',
-   legs: 4,
-   hands: 0,
-   saying:'uf-uf' ,
-   output: function(){
-     let message = '';
-     for(key in dog){
-       if(key !== 'output'){
-        message+=dog[key] + ' ;';
-     }
-   }
-     return message;
-   }
+var Inhabits = function (species, name, gender, legs, hands, saying) {
+  this.species = species;
+  this.name = name;
+  this.gender = gender;
+  this.legs = legs;
+  this.hands = hands;
+  this.saying = saying;
 };
 
-var human = {
-   species: 'human',
-   name: 'Ivan',
-   gender:'male' ,
-   legs: 2,
-   hands: 2,
-   saying: 'kek kek',
-   output: function(){
-     let message = '';
-     for(key in human){
-       if(key !== 'output'){
-        message+=human[key] + ' ;';
-     }
-   }
-     return message;
-   }
-};
+Inhabits.prototype.output = function() {
+  let message = '';
+  for(key in this){
 
-var robot = {
-   species: 'robot',
-   name: 'IO-42',
-   gender: 'none',
-   legs: 2,
-   hands: 2,
-   saying: 'kill all humans',
-   output: function(){
-     let message = '';
-     for(key in robot){
-       if(key !== 'output'){
-        message+=robot[key] + ' ;';
-     }
-   }
-     return message;
-   }
-};
+    if(key !== 'output'){
+     message += this[key] + ' ';
+    }
 
-var cat = {
-   species: 'cat',
-   name: 'Kitty' ,
-   gender: 'female' ,
-   legs: 4,
-   hands: 0,
-   saying: 'meow-meow',
-   output: function(){
-     let message = '';
-     for(key in cat){
-       if(key !== 'output'){
-        message+=cat[key] + ' ;';
-     }
-   }
-     return message;
-   }
-};
+  }
+  return message;
 
-var cyborg = {
-   species: 'cyborg',
-   name: human.name + ' ' + robot.name,
-   gender: human.gender,
-   legs: human.legs,
-   hands: human.hands,
-   saying: `${human.saying} ${robot.saying} except Arnold Schwarzenegger` ,
-   output: function(){
-     let message = '';
-     for(key in cyborg){
-       if(key !== 'output'){
-        message+=cyborg[key] + ' ;';
-     }
-   }
-     return message;
-   }
 };
+var dog = new Inhabits('dog', 'Tommy', 'male', 4, 0, 'uf-uf');
+var human = new Inhabits('human', 'Ivan', 'male', 2, 2, 'kek kek');
+var robot = new Inhabits('robot', 'IO-42', 'none', 2, 2, 'kill all humans');
+var cat = new Inhabits('cat', 'Kitty', 'female', 4, 0, 'meow-meow');
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+var Mutant = function(species, first, second){
+  var params = [];
+  for(key in first){
+  let random = getRandomInt(1, 4);
+
+  switch (random){
+    case 1:
+    typeof first[key] === 'number' ? params.push(first[key] + second[key]) : params.push(first[key] + ' - ' + second[key]);
+    break;
+
+    case 2:
+    params.push(first[key]);
+    break;
+
+    case 3:
+    params.push(second[key]);
+    break;
+
+  }
+}
+  Inhabits.apply(this, params);
+  this.saying = `${first.saying} ${second.saying} I AM ALIIIIIVEEEEEEE` ;
+}
+
+Mutant.prototype = Inhabits.prototype;
+
+var cyborg = new Mutant('cyborg', human, robot);
+var catHuman = new Mutant('cat-women', cat, human);
+var dogRobot = new Mutant('dogRobot', dog, robot);
 
 // ======== OUTPUT ========
 print(dog.output(), 'div');
@@ -103,3 +73,5 @@ print(cat.output(), 'div');
 print(human.output(), 'div');
 print(robot.output(), 'div');
 print(cyborg.output(), 'div');
+print(catHuman.output(), 'div');
+print(dogRobot.output(), 'div');
