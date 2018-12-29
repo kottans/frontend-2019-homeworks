@@ -1,0 +1,113 @@
+body {
+    background-color: #f3f3f3;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.menu-button {
+    position: fixed;
+    right: 5%;
+    top: 5%;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
+
+.menu-button img,
+.menu-close img { width: 100%; }
+
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow: hidden;
+    width: 0%;
+    box-shadow: 0px 0px 20px 0px #332f2f26;
+    background: white;
+    transition: width .4s linear;
+}
+
+.navigation.open {
+    transition: all .4s linear;
+    visibility: visible;
+    width: 25%;
+}
+
+@media screen and (max-width: 704px) {
+    .navigation.open { width: 200px; }
+}
+
+/* When screen height < 410px,
+	 last nav items do not fit */
+@media screen and (max-height: 410px) {
+    .navigation { overflow: scroll; }
+}
+
+.menu-close {
+    position: absolute;
+    right: 4%;
+    top: 2%;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+}
+
+.nav-list {
+    margin: 5rem 0;
+    padding: 0;
+}
+
+.nav-list li {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    list-style: none;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.nav-list li:hover,
+.nav-list .active { background: #f3f3f3; }
+
+.main {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.main .article {
+    padding-top: 5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    text-align: justify;
+}
+
+.main img {
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+    padding: 1%;
+}
+
+@media screen and (max-width: 375px) {
+    .main img {
+        width: 100%;
+        margin-bottom: 15px;
+    }   
+}
+
+.article p {
+    font-size: 1.3rem;
+    line-height: 1.5;     
+    margin: .5rem 0;
+    font-weight: 300;
+}
+
+@media screen and (max-width: 767px) {
+    .article p { font-size: 1.1rem; }
+}
+
+.article h2 {
+    margin: 0 0 2rem;
+    text-align: center;
+    font-size: 2rem;
+}
