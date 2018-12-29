@@ -99,7 +99,9 @@ body {
   justify-content: center;
   text-align: center;
 }
-.finish-modal--hide, .playfield--hide {
+
+.finish-modal--hide,
+.playfield--hide {
   display: none;
 }
 
@@ -126,10 +128,12 @@ body {
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   text-transform: uppercase;
 }
+
 .finish-modal__button:hover {
   background-color: #e2e6ea;
   border-color: #dae0e5;
 }
+
 .finish-modal__button:active {
   background-color: #dae0e5;
   border-color: #d3d9df;

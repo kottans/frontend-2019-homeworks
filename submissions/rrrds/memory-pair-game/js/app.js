@@ -72,14 +72,11 @@ const disableSimilarCards = function() {
   disabledCardsCount += openCards.length;
 
   resetOpenCards();
-
   checkWin();
 };
 
 const openCard = function(event) {
   const flipContainer = getFlipContainer(event);
-
-  console.log(flipContainer);
 
   if (
     !flipContainer ||
@@ -119,13 +116,9 @@ const renderCards = function() {
     cardDiv.classList.add('flip-container');
     cardDiv.setAttribute('data-index', idx);
     cardDiv.innerHTML = `<div class="flip-container__flipper card">
-  <div class="flip-container__front">
-      
-  </div>
-  <div class="flip-container__back">
-      ${card}
-  </div>
-</div>`;
+      <div class="flip-container__front"></div>
+      <div class="flip-container__back">${card}</div>
+    </div>`;
     cardsFragment.appendChild(cardDiv);
   });
 
@@ -137,9 +130,7 @@ const startGame = function() {
   cards = shuffleCards(cardTypes.concat(cardTypes));
 
   clearContainer();
-
   renderCards();
-
   hideModal();
 };
 
