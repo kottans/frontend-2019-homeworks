@@ -31,7 +31,7 @@ function Meower() {
     this.say = "meow!";
 }
 function Cat(name, gender){
-    Animal.apply(this,['cat', name, gender, 'meow']);
+    Animal.apply(this,['cat', name, gender]);
     Meower.apply(this);
 }
 Cat.prototype = Object.create(Citizen.prototype);
