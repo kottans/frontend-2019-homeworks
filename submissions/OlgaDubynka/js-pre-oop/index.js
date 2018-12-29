@@ -8,47 +8,75 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 
-const dog = {
-  name: 'Richard',
-  age: 5,
-  gender: 'male',
-  paws: 4,
-  tail: 1,
-  greeting: 'wow!'
-}
-
-const cat = {
-  name: 'Rocky',
-  age: 3,
-  gender: 'female',
-  paws: 4,
-  tail: 1,
-  greeting: 'meow!'
-}
-
-const woman = {
-  name: 'Helga',
-  age: 25,
-  gender: 'female',
-  hands: 2,
-  legs: 2,
-  greeting: 'Hello!'
-}
-
-const man = {
-  name: 'Rob',
-  age: 29,
-  gender: 'male',
-  hands: 2,
-  legs: 2,
-  greeting: 'Hi!'
-}
+const inhabitants = [
+    {
+        name: 'Richard',
+        age: 5,
+        species: 'dog',
+        gender: 'male',
+        legs: 0,
+        hands: 0,
+        paws: 4,
+        tail: 1,
+        greeting: 'wow!'
+    },
+    {
+        name: 'Rocky',
+        age: 4,
+        species: 'cat',
+        gender: 'female',
+        legs: 0,
+        hands: 0,
+        paws: 4,
+        tail: 1,
+        greeting: 'meow!'
+    },
+    {
+        name: 'Helga',
+        age: 25,
+        species: 'human',
+        gender: 'female',
+        legs: 2,
+        hands: 2,
+        paws: 0,
+        tail: 0,
+        greeting: 'Hello!'
+    },
+    {
+        name: 'Rob',
+        age: 28,
+        species: 'human',
+        gender: 'male',
+        legs: 2,
+        hands: 2,
+        paws: 0,
+        tail: 0,
+        greeting: 'Hi!'
+    }
+];
 
 // ======== OUTPUT ========
-print(dog.name + ';' + dog.age + ';' + dog.gender + ';' + dog.paws + ';' + dog.tail + ';' + dog.greeting + ';');
-print(cat.name + ';' + cat.age + ';' + cat.gender + ';' + cat.paws + ';' + cat.tail + ';' + cat.greeting + ';');
-print(woman.name + ';' + woman.age + ';' + woman.gender + ';' + woman.hands + ';' + woman.legs + ';' + woman.greeting + ';');
-print(man.name + ';' + man.age + ';' + man.gender + ';' + man.hands + ';' + man.legs + ';' + man.greeting + ';');
+
+const getInhabitants = (inhabitants) => {
+    return inhabitants.forEach(el => {
+        print(`<table>
+                    <tr>
+                        <td style="width: 100px;">${el.name}</td>
+                        <td style="width: 100px;">${el.age}</td>
+                        <td style="width: 100px;">${el.species}</td>
+                        <td style="width: 100px;">${el.gender}</td>
+                        <td style="width: 100px;">${el.legs}</td>
+                        <td style="width: 100px;">${el.hands}</td>
+                        <td style="width: 100px;">${el.paws}</td>
+                        <td style="width: 100px;">${el.tail}</td>
+                        <td style="width: 100px;">${el.greeting}</td>
+                    </tr>    
+                </table>`);
+    });
+}
+
+getInhabitants(inhabitants);
+
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
 
