@@ -48,20 +48,12 @@ const catwoman ={
     gender:'female',
     saying: cat.saying,
 }
-function convertObject(obj, value){
-    return obj[value]
-}
-function printObject(obj){
-    print('<em> ' +
-    convertObject(obj, 'species') + '</em> - <strong>' +
-    convertObject(obj, 'name') + '</strong>; ' +
-    convertObject(obj, 'gender') + '; ' +
-    convertObject(obj, 'legs') + '; ' +
-    convertObject(obj, 'hands') + '; ' +
-    convertObject(obj, 'saying') + '; ');
+
+function inhabitantToString(obj){
+    return ['<em>' + obj.species + '</em>', '<strong>' + obj.name + '</strong>', obj.gender, obj.legs, obj.hands, obj.saying].join ('; ');
 }
 // ======== OUTPUT ========
 
 [dog, cat, woman, man, catwoman].forEach(inhabitant =>
-    printObject(inhabitant)
+    print(inhabitantToString(inhabitant))
 );
