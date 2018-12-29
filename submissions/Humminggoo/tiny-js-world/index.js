@@ -45,7 +45,7 @@ let woman = {
     hands: 2,
     legs: 2,
     say: function () {
-        return 'Of justice you will find none.... To judge is evil. To mete justice, more appalling still.';
+        return 'Of justice you will find none...';
     },
     friends:[],
     addFriend: being.addFriend
@@ -77,9 +77,16 @@ cat.addFriend(woman);
 man.addFriend(dog);
 catwoman.addFriend(cat);
 
-function createBeing(being){
-    return `Name: ${being.name}, species: ${being.species}, gender: ${being.gender}, hands: ${being.hands}, legs: ${being.legs}, 
-    phrase:${being.say()}, friends:${being.friends.map(i => i.name).toString()}`;
+function getInfo(being){
+    return [
+        `Name: ${being.name}`,
+        `species: ${being.species}`,
+        `gender: ${being.gender}`,
+        `hands: ${being.hands}`,
+        `legs: ${being.legs}`,
+        `phrase:${being.say()}`,
+        `friends:${being.friends.map(i => i.name).toString()}`
+    ].join('; ');
 }
 
 // ======== OUTPUT ========
@@ -90,11 +97,11 @@ function createBeing(being){
    However, please, REFRAIN from improving visuals at least until your code is reviewed
    so code reviewers might focus on a single file that is index.js.
    */
-print(createBeing(dog));
-print(createBeing(cat));
-print(createBeing(woman));
-print(createBeing(man));
-print(createBeing(catwoman));
+print(getInfo(dog));
+print(getInfo(cat));
+print(getInfo(woman));
+print(getInfo(man));
+print(getInfo(catwoman));
 /* Print examples:
    print('ABC');
    print('<strong>ABC</strong>');
