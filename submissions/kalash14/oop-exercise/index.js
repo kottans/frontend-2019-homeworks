@@ -9,9 +9,10 @@
 
 class Inhabitant {
 
-    constructor(name, gender, greetingsWords, legs) {
+    constructor(name, gender, kind, greetingsWords, legs) {
         this.name = name;
         this.gender = gender;
+        this.kind = kind;
         this.greetingsWords = greetingsWords;
         this.legs = legs;
     }
@@ -19,11 +20,9 @@ class Inhabitant {
 
 class Human extends Inhabitant{
 
-    constructor(name, gender) {
-        super(name, gender);
-        this.legs = 2;
+    constructor(name, gender, greetingsWords, legs = 2) {
+        super(name, gender, 'Human', greetingsWords, legs);
         this.hands = 2;
-        this.kind = 'Human';
         this.greetingsWords = `Hi!`
     }
 
@@ -31,18 +30,16 @@ class Human extends Inhabitant{
 
 class Animal extends Inhabitant{
 
-    constructor(name, gender) {
-        super(name, gender);
-        this.legs = 4;
+    constructor(name, gender, kind, greetingsWords, legs = 4) {
+        super(name, gender, kind, greetingsWords, legs);
     }
 
 }
 
 class Dog extends Animal {
 
-    constructor(name, gender) {
-        super(name, gender);
-        this.kind = 'Dog';
+    constructor(name, gender, greetingsWords, legs = 4) {
+        super(name, gender, 'Dog', greetingsWords, legs);
         this.greetingsWords = 'Bow-wow!';
     }
 
@@ -50,14 +47,12 @@ class Dog extends Animal {
 
 class Cat extends Animal {
 
-    constructor(name, gender) {
-        super(name, gender);
-        this.kind = 'Cat';
+    constructor(name, gender, greetingsWords, legs = 4) {
+        super(name, gender, 'Cat', greetingsWords, legs);
         this.greetingsWords = 'Meow!';
     }
 
 }
-
 
 const creatures = [
 
@@ -68,4 +63,4 @@ const creatures = [
 
 ];
 
-creatures.forEach(creature => print(`${creature.greetingsWords} I'm ${creature.name} and also I'm a ${creature.kind}. Also I have ${creature.legs} legs ${(creature.hands ? `and ${creature.hands} hands` : '')}`));
+creatures.forEach(creature => print(creature.kind + "; " + creature.gender + "; " + creature.name + "; " + creature.legs + "; " + (creature.hands ? creature.hands + "; " : "") + creature.greetingsWords));
