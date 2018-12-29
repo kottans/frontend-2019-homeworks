@@ -1,0 +1,67 @@
+h1 {
+    margin: 5px auto;
+    text-align: center;
+}
+
+.game {
+    max-width: 790px;
+    max-height: 1000px;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card {
+    position: relative;
+    transition: all .4s linear;
+    transform-style: preserve-3d;
+    margin: 5px;
+    height: 150px;
+    width: 150px;
+    cursor: pointer;
+}
+
+.back, .front {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front {
+    z-index: 2;
+    background: url('images/question.png') no-repeat center center / contain;
+    border-radius: 10px;
+}
+
+.back {
+    transform: rotateY(180deg);
+    background-color: inherit;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.selected {
+    transform: rotateY(180deg);
+}
+
+.pair .front {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .card {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .card {
+        width: 60px;
+        height: 60px;
+        cursor: none;
+    }
+}
