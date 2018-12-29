@@ -1,27 +1,33 @@
 var lives = 5;
 var wins = 0;
+
 function setScore(){
-  console.log(lives);
+
   if(lives === 0){
     table.innerHTML = 'YOU LOSE';
-    alert('YOU LOSE')
+    alert('YOU LOSE');
   }else{
   table.innerHTML = 'Lives: ' + lives + ' | Wins: ' + wins;
   }
 };
+
 document.addEventListener('DOMContentLoaded', function(){
+
   const table = document.getElementById('table');
   setScore();
+
 });
+
 //Starting values
 const CANVAS_WIDTH = 505;
 const CANVAS_HEIGHT = 606;
 const ROW_HEIGHT = 83;
 const COLL_WIDTH = 101;
+const COLL_NUMB = CANVAS_HEIGHT / COLL_WIDTH;
 
 const INFO = {
   player_start_x: CANVAS_WIDTH/2 - COLL_WIDTH/2,
-  player_start_y: CANVAS_HEIGHT - ROW_HEIGHT*2.5,
+  player_start_y: CANVAS_HEIGHT - ROW_HEIGHT*2.5, 
 };
 
 function getRandomArbitrary(min, max) {
@@ -29,14 +35,15 @@ function getRandomArbitrary(min, max) {
 }
 
 //Enemy class
-var Enemy = function(row) {
+var Enemy = function(row, player) {
    //Initial location x and y
     this.start();
     this.y = (ROW_HEIGHT - 10) * row;
     this.width = COLL_WIDTH;
     this.height = ROW_HEIGHT;
-    this.row = 6 - row;
+    this.row = COLL_NUMB - row;
     this.sprite = 'images/enemy-bug.png';
+    this.player = player;
 };
 
 Enemy.prototype.start = function() {
@@ -50,7 +57,7 @@ Enemy.prototype.update = function(dt) {
     this.x += this.speed;
 
     if(this.x  >= player.x - 70 && this.x - 70 <= player.x && this.row === player.row ){
-      player.start();
+      this.player.start();
       lives--;
       setScore();
     }
@@ -93,6 +100,7 @@ Player.prototype.render = function(){
 
 Player.prototype.handleInput = function(dir){
   switch(dir){
+
     case 'left':
       if(this.x > 0){
         this.x -= COLL_WIDTH;
@@ -116,7 +124,8 @@ Player.prototype.handleInput = function(dir){
         this.row--;
       }
     break;
-  }
+
+  };
 };
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
@@ -125,7 +134,7 @@ var player = new Player();
 
 var allEnemies = [];
 for (var i = 1; i <= 3; i ++){
-  allEnemies.push( new Enemy(i) );
+  allEnemies.push( new Enemy(i, player) );
 }
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
