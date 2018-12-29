@@ -1,0 +1,10 @@
+{
+  "projects": [
+    {"name": "Home", "tasks":["Wash the dishes", "Water the plants", "Do ironing"]},
+    {"name": "Self-development", "tasks":["Meditate at least 15 minutes", "Do exercises", "Read\"The Miracle Morning\""]},
+    {"name": "Shopping", "tasks":["Present for a friend", "New pillow", "Spices for curry"]},
+    {"name": "Movies","tasks":["Frozen", "Perks of being a wallflower", "Inception"]},
+    {"name": "Bills", "tasks":["Living tax", "Internet", "Mobile phone"]},
+    {"name": "University", "tasks":["Prepare for test", "Finish practical tasks", "Start writing the thesis"]}
+  ]
+}
