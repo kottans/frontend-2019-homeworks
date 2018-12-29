@@ -19,32 +19,28 @@ Animal.prototype = Object.create(Citizen.prototype);
 Animal.prototype.constructor = Animal;
 function Human(name, gender, say) {
     Citizen.apply(this,['human', name, gender, 2, 2, say]);
-    this.name = name;
-    this.gender = gender;
-    this.say = say;
 }
 Human.prototype = Object.create(Citizen.prototype);
 Human.prototype.constructor = Human;
 function Dog(name, gender) {
     Animal.apply(this,['dog', name, gender, 'bark-bark']);
-    this.name = name;
-    this.gender = gender;
 }
 Dog.prototype = Object.create(Animal.prototype);
 Dog.prototype.constructor = Dog;
+function Meower() {
+    this.say = "meow!";
+}
 function Cat(name, gender){
     Animal.apply(this,['cat', name, gender, 'meow']);
-    this.name = name;
-    this.gender = gender;
+    Meower.apply(this);
 }
 Cat.prototype = Object.create(Citizen.prototype);
 Cat.prototype.constructor = Cat;
+
 function CatWoman(name){
     Cat.apply(this, [name, 'female']);
-    this.species = 'human';
-    this.name = name;
-    this.legs = 2;
-    this.hands = 2;
+    Human.apply(this, [name, 'female']);
+    Meower.apply(this);
 }
 CatWoman.prototype = Object.create(Cat.prototype);
 CatWoman.prototype.constructor = CatWoman;
