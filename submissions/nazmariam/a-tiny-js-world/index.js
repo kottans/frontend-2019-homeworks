@@ -38,7 +38,6 @@ Cat.prototype = Object.create(Citizen.prototype);
 Cat.prototype.constructor = Cat;
 
 function CatWoman(name){
-    Cat.apply(this, [name, 'female']);
     Human.apply(this, [name, 'female']);
     Meower.apply(this);
 }
