@@ -30,6 +30,7 @@ body {
 }
 
 .article-text {
+	padding: 0px 3px;
 	color: #96949f;
 	text-align: justify;
 }
@@ -69,7 +70,6 @@ header {
 	color: #73bdbd;
 	margin: 0 0 10px 0;
 }
-
 }
 
 @media screen and (min-width: 800px){
