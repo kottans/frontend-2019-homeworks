@@ -29,14 +29,14 @@ let Enemy = function (x, y, speed) {
 
 Enemy.prototype.update = function (dt) {
   this.x += this.speed * dt;
-  this.handleCollision();
-};
-
-Enemy.prototype.handleCollision = function () {
   if (this.x > block.x * 5) {
     this.x = -block.x;
     this.speed = generateSpeed();
   }
+  this.handleCollision();
+};
+
+Enemy.prototype.handleCollision = function () {
   if (
     player.x < this.x + enemyPos.x &&
     player.x + enemyPos.x > this.x &&
