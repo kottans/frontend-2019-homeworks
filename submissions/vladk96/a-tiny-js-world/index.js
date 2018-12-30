@@ -54,7 +54,14 @@ const dog = {
 }
 
 const toPrettyString = (obj) => {
-    return `Species: ${obj['species']}; name: ${obj['name']}; gender: ${obj['gender']}; legs: ${obj['legs']}; hands: ${obj['hands']}; saying: ${obj['saying']};`;
+    return [
+        `Species: ${obj['species']}`,
+        `name: ${obj['name']}`,
+        `gender: ${obj['gender']}`,
+        `legs: ${obj['legs']}`,
+        `hands: ${obj['hands']}`,
+        `saying: ${obj['saying']}`,
+    ].join('; ');
 }
 
 [man, woman, cat, tiger, dog].forEach((element) => {
