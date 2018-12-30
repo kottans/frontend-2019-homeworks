@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
+    <link rel="shortcut icon" href="img/travel.png">
+    <title>Friends App</title>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="img/travel.png" width="45px" height="45px"></div>
+        <p>Find Your Next Travel Friend</p>
+    </header>
+    <aside id="sortBar">
+        <div class="sortBarBtb" id="sortBarBtb">
+                <h3>Filter options</h3>
+
+                   <label><input type="text" class="search-input" placeholder="Search..." name="search" id="search-by-name"></label>
+                    <label for="search-by-name"><img class="search-img" src="img/MB__search.png" alt="search"></label>
+
+                <div class="sort">
+                    <p>Gender</p>
+
+                    <label></label> <input type="radio" name="sort-by-sex" id="filter-by-male"></input></label>
+                    <label for="filter-by-male"><span>&#9794;</span></label>
+
+                    <label> <input type="radio" name="sort-by-sex" id="filter-by-female"></input></label>
+                    <label for="filter-by-female"><span>&#9792;</span></label>  
+
+                    <input type="radio" name="sort-by-sex" id="both-sexes" checked="true"></input>
+                    <label for="both-sexes"><span>&#9893;</span></label> 
+
+                </div>
+
+                <div class="sort"><p>Name</p> 
+
+                    <label><input type="radio" name="sort-by-name" id="sort-by-name-up"></input></label>
+                    <label for="sort-by-name-up"><span>&#8679;</span></label>
+
+                    <label><input type="radio" name="sort-by-name" id="sort-by-name-down"></input></label>
+                    <label for="sort-by-name-down"><span>&#8681;</span></label>
+
+                </div>
+
+                <div class="sort"><p></span>Age</p>
+
+                    <label><input type="radio" name="sort-by-age" id="sort-by-age-up"></input></label>
+                    <label for="sort-by-age-up"><span>&#8679;</span></label>
+
+                    <label><input type="radio" name="sort-by-age" id="sort-by-age-down"></input></label>
+                    <label for="sort-by-age-down"><span>&#8681;</span></label>
+
+                </div>
+         
+                <img class="new-year" src="img/banner-content.png">
+        </div>
+           
+        <div class="navigate" id="navigate-menu"></div>
+    </aside>
+          
+          <div class="content" id="content"></div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
