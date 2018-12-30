@@ -1,6 +1,7 @@
 const technologies = ["react", "vue", "angular", "html", "css", "js"];
 const pathToImg = "img/";
 let playArray = [];
+let cardsElArr;
 
 let blocked = false;
 let inGuessArray = [];
@@ -15,6 +16,23 @@ flip2Sound.volume = 0.1;
 function playSuccess() {
   successSound.currentTime = 0;
   successSound.play();
+}
+
+function showModal() {
+  modal.classList.add("modal-shown");
+}
+function startagain() {
+  modal.classList.remove("modal-shown");
+  let field = document.querySelector(".field");
+  field.innerHTML = "";
+
+  let blocked = false;
+  playArray = [];
+  inGuessArray = [];
+  guessedArray = [];
+
+  shuffleCards();
+  spreadCards();
 }
 
 function shuffleCards() {
@@ -53,6 +71,7 @@ function spreadCards() {
     card.appendChild(bothSides);
     field.appendChild(card);
   });
+  cardsElArr = document.querySelectorAll(".card");
 }
 
 function render() {
@@ -104,22 +123,5 @@ function handleGuess(el) {
 
 shuffleCards();
 spreadCards();
-let cardsElArr = document.querySelectorAll(".card");
 
 let modal = document.getElementsByClassName("modal")[0];
-function showModal() {
-  modal.classList.add("modal-shown");
-}
-function startagain() {
-  modal.classList.remove("modal-shown");
-  let field = document.querySelector(".field");
-
-  field.innerHTML = "";
-  let blocked = false;
-  playArray = [];
-  inGuessArray = [];
-  guessedArray = [];
-
-  shuffleCards();
-  spreadCards();
-}
