@@ -1,9 +1,21 @@
-const Enemy = function(x, y, movement) {
+let Character = function(x,y,sprite){
     this.x = x;
     this.y = y;
-    this.movement = movement;
-    this.sprite = 'images/enemy-bug.png';
+    this.sprite = sprite;
 };
+
+Character.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+let Enemy = function(x, y, movement) {
+    Character.call(this, x, y, 'images/enemy-bug.png')
+    this.movement = movement;
+};
+
+Enemy.prototype = Object.create(Character.prototype);
+
+Enemy.prototype.constructor = Character;
 
 Enemy.prototype.update = function(dt) {
     this.x += this.movement * dt;
@@ -12,22 +24,20 @@ Enemy.prototype.update = function(dt) {
         this.movement = 150 + Math.floor(Math.random() * 800);
     }
     let pos1 = player.x < this.x + 60,
-    pos2 = this.x < player.x + 37,
-    pos3 = player.y < this.y + 25,
-    pos4 = this.y < player.y + 30;
+        pos2 = this.x < player.x + 37,
+        pos3 = player.y < this.y + 25,
+        pos4 = this.y < player.y + 30;
     if (pos1 && pos2 && pos3 && pos4) { player.x = 200; player.y = 400 };
 };
 
-Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+let Player = function(x, y, movement) {
+    Character.call(this, x, y, 'images/char-boy.png')
+    this.movement = movement;
 };
 
-const Player = function(x, y, movement) {
-    this.x = x;
-    this.y = y;
-    this.movement = movement;
-    this.sprite = 'images/char-boy.png';
-};
+Player.prototype = Object.create(Character.prototype);
+
+Player.prototype.constructor = Character;
 
 Player.prototype.update = function() {
     if (this.x < 0) this.x = 0;
@@ -58,15 +68,11 @@ Player.prototype.handleInput = function(pressedKey) {
     }
 };
 
-Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
+let allEnemies = [];
+const ENEMY_POSITION = [50, 130, 220];
+const player = new Player(200, 400, 50);
 
-let allEnemies = [],
-    enemyPosition = [50, 130, 220],
-    player = new Player(200, 400, 50);
-
-enemyPosition.map((enemyCoordinate) => {
+ENEMY_POSITION.map((enemyCoordinate) => {
 	let enemy = new Enemy(0, enemyCoordinate, 100 + Math.floor(Math.random() * 300));
 	allEnemies.push(enemy);
 });
