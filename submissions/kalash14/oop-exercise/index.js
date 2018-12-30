@@ -16,14 +16,18 @@ class Inhabitant {
         this.greetingsWords = greetingsWords;
         this.legs = legs;
     }
+
+    greetingMessage() {
+        return `${this.kind}; ${this.gender}; ${this.name}; ${this.legs}; ${(this.hands ? this.hands + "; " : "")}${this.greetingsWords}`;
+    }
+
 }
 
 class Human extends Inhabitant{
 
-    constructor(name, gender, greetingsWords, legs = 2) {
+    constructor(name, gender, greetingsWords, legs = 2, hands = 2) {
         super(name, gender, 'Human', greetingsWords, legs);
-        this.hands = 2;
-        this.greetingsWords = `Hi!`
+        this.hands = hands;
     }
 
 }
@@ -38,29 +42,27 @@ class Animal extends Inhabitant{
 
 class Dog extends Animal {
 
-    constructor(name, gender, greetingsWords, legs = 4) {
+    constructor(name, gender, greetingsWords = 'Bow-wow!', legs = 4) {
         super(name, gender, 'Dog', greetingsWords, legs);
-        this.greetingsWords = 'Bow-wow!';
     }
 
 }
 
 class Cat extends Animal {
 
-    constructor(name, gender, greetingsWords, legs = 4) {
+    constructor(name, gender, greetingsWords = 'Meow!', legs = 4) {
         super(name, gender, 'Cat', greetingsWords, legs);
-        this.greetingsWords = 'Meow!';
     }
 
 }
 
 const creatures = [
 
-    new Human('Victor', 'male'),
-    new Human('Helen', 'female'),
+    new Human('Victor', 'male' , 'Hello!'),
+    new Human('Helen', 'female', 'Hi!'),
     new Cat('Pushok', 'male'),
     new Dog('Mukhtar', 'male')
 
 ];
 
-creatures.forEach(creature => print(creature.kind + "; " + creature.gender + "; " + creature.name + "; " + creature.legs + "; " + (creature.hands ? creature.hands + "; " : "") + creature.greetingsWords));
+creatures.forEach(creature => print(creature.greetingMessage()));
