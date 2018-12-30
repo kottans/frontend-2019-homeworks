@@ -8,74 +8,32 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 
-const inhabitants = [
-    {
-        name: 'Richard',
-        age: 5,
-        species: 'dog',
-        gender: 'male',
-        legs: 0,
-        hands: 0,
-        paws: 4,
-        tail: 1,
-        greeting: 'wow!'
-    },
-    {
-        name: 'Rocky',
-        age: 4,
-        species: 'cat',
-        gender: 'female',
-        legs: 0,
-        hands: 0,
-        paws: 4,
-        tail: 1,
-        greeting: 'meow!'
-    },
-    {
-        name: 'Helga',
-        age: 25,
-        species: 'human',
-        gender: 'female',
-        legs: 2,
-        hands: 2,
-        paws: 0,
-        tail: 0,
-        greeting: 'Hello!'
-    },
-    {
-        name: 'Rob',
-        age: 28,
-        species: 'human',
-        gender: 'male',
-        legs: 2,
-        hands: 2,
-        paws: 0,
-        tail: 0,
-        greeting: 'Hi!'
+class Inhabitant {
+    constructor(name, age, species, gender, legs, hands, paws, tail, greeting) {
+        this.name = name;
+        this.age = age;
+        this.species = species;
+        this.gender = gender;
+        this.legs = legs;
+        this.hands = hands;
+        this.paws = paws;
+        this.tail = tail;
+        this.greeting = greeting;
     }
-];
-
-// ======== OUTPUT ========
-
-const getInhabitants = (inhabitants) => {
-    return inhabitants.forEach(el => {
-        print(`<table>
-                    <tr>
-                        <td style="width: 100px;">${el.name}</td>
-                        <td style="width: 100px;">${el.age}</td>
-                        <td style="width: 100px;">${el.species}</td>
-                        <td style="width: 100px;">${el.gender}</td>
-                        <td style="width: 100px;">${el.legs}</td>
-                        <td style="width: 100px;">${el.hands}</td>
-                        <td style="width: 100px;">${el.paws}</td>
-                        <td style="width: 100px;">${el.tail}</td>
-                        <td style="width: 100px;">${el.greeting}</td>
-                    </tr>    
-                </table>`);
-    });
 }
 
-getInhabitants(inhabitants);
+const dog = new Inhabitant('Richard', 5, 'animal', 'male', 0, 0, 4, 1, 'wow!');
+const cat = new Inhabitant('Rocky', 4, 'animal', 'female', 0, 0, 4, 1, 'meow!');
+const woman = new Inhabitant('Helga', 25, 'human', 'female', 2, 2, 0, 0, 'Hello!');
+const man = new Inhabitant('Rob', 28, 'human', 'male', 2, 2, 0, 0, 'Hi!' ); 
+ 
+// ======== OUTPUT ========
+
+const getStringFromObj = (obj) => {
+    return `<strong>${obj.name}</strong>; age: ${obj.age}; species: ${obj.species}; gender: ${obj.gender}; legs: ${obj.legs}; hands: ${obj.hands}; paws: ${obj.paws}; tail: ${obj.tail}; greeting: ${obj.greeting};`
+}
+
+[dog, cat, woman, man].forEach(obj => print(getStringFromObj(obj)));
 
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
