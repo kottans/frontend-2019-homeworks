@@ -53,8 +53,8 @@ html,body{
   .card,
   .back,
   .front {
-    height: 170px;
-    width: 130px;
+    height: 140px;
+    width: 100px;
   }
   
   .back,
@@ -85,7 +85,12 @@ html,body{
   }
 
   .active-win{
-    display: block !important;
-    position: fixed !important;
+    display: block ;
+  }
+  
+  @media screen and (min-width: 1200px){
+    .container {
+        max-width: 480px !important;
+    }
   }
   

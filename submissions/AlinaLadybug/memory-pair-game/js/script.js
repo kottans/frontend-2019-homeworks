@@ -1,6 +1,6 @@
 // Card data
 //size should be divisible by 2
-const cardsArray = [{
+const CARDS_ARRAY = [{
   'name': 'airplane',
   'src': 'img/cards/airplane.jpg',
 },
@@ -33,24 +33,25 @@ const cardsArray = [{
   'src': 'img/cards/galaxy.jpg',
 }
 ];
-const defaultCount = 2;
-const defaultWidth = 160;
+const DEFAULT_COUNT = 2;
+const DEFAULT_WIDTH = 130;
 
 
 let gameGrid;
-let counter = defaultCount;
-document.addEventListener("DOMContentLoaded", ready);
+let counter = DEFAULT_COUNT;
 let container;
 let win;
+
+document.addEventListener("DOMContentLoaded", ready);
 
 function ready() {
   container = document.querySelector('.container');
   container.classList.add('fade');
 
-  let btnContinue = document.querySelector('button.continue');
-  let btnReset = document.querySelector('button.reset');
-  btnContinue.addEventListener('click', () => { start(counter * 2) });
-  btnReset.addEventListener('click', () => { start(defaultCount) });
+  const BTN_CONTINUE = document.querySelector('button.continue');
+  const BTN_RESET = document.querySelector('button.reset');
+  BTN_CONTINUE.addEventListener('click', () => { start(counter * 2) });
+  BTN_RESET.addEventListener('click', () => { start(DEFAULT_COUNT) });
 
   moveBackground();
   start(counter);
@@ -61,37 +62,37 @@ function start(n) {
 
   if (win)
     win.classList.remove('active-win');
+  const FADE_TIME = 100;
+  const PREVIEW_TIME = 1200;
   setTimeout(() => {
     container.classList.remove('fade');
-  }, 100);
+  }, FADE_TIME);
   addGrid(n);
-  setTimeout(preview, 1200);
+  setTimeout(preview, PREVIEW_TIME);
 }
 
 
 function removeGrid() {
-  let game = document.getElementById('game');
-  let grid = document.querySelector('.grid');
-  game.removeChild(grid);
+  const GAME = document.getElementById('game');
+  const GRID = document.querySelector('.grid');
+  GAME.removeChild(GRID);
 }
 
 
 function addGrid(n) {
-  if (document.querySelector('.grid') !== null) removeGrid();
+  if (document.querySelector('.grid')) removeGrid();
+
+  const GAME = document.getElementById('game');
 
   let grid = document.createElement('div');
-  let game = document.getElementById('game');
   //event delegation for childs(cards)
   grid.addEventListener('click', selectCard);
   grid.classList.add('grid');
-  grid.style.maxWidth = `${defaultWidth * n}px`;
-  game.appendChild(grid);
-  //duplicate all cards
-  if (n > cardsArray.length) n = defaultCount;
-  cards = cardsArray.slice(0, n);
-  gameGrid = cards.concat(cards);
-  gameGrid.sort(() => 0.5 - Math.random());
+  grid.style.maxWidth = `${DEFAULT_WIDTH * n}px`;
 
+  GAME.appendChild(grid);
+
+  gameGrid = getGrid(n);
   gameGrid.forEach(item => {
     let card = document.createElement('div');
     card.classList.add('card');
@@ -109,26 +110,35 @@ function addGrid(n) {
 }
 
 
+function getGrid(n) {
+  //duplicate all cards
+  if (n > CARDS_ARRAY.length) n = DEFAULT_COUNT;
+  cards = CARDS_ARRAY.slice(0, n);
+  gameGrid = cards.concat(cards);
+  gameGrid.sort(() => 0.5 - Math.random());
+  return gameGrid;
+}
+
+
 function preview() {
-  let cards = document.querySelectorAll('.card');
+  const cards = document.querySelectorAll('.card');
   cards.forEach(card => {
     card.classList.add('selected');
   });
-
+  const PREVIEW_TIME = 1500;
   setTimeout(() => {
     cards.forEach(card => {
       card.classList.remove('selected');
     })
-  }, 1500);
+  }, PREVIEW_TIME);
 }
 
 
-function selectCard(event) {
-  let element = event.target;
-  if (element.classList.contains('grid') || element.classList.contains('match')) {
+function selectCard({ target }) {
+  if (target.classList.contains('grid') || target.classList.contains('match')) {
     return;
   }
-  element.parentNode.classList.add('selected');
+  target.parentNode.classList.add('selected');
 
   let selectedArr = Array.from(document.getElementsByClassName('selected'));
   let selected = selectedArr.filter(el => {
@@ -142,11 +152,12 @@ function selectCard(event) {
       match(selected);
     }
     else {
+      const UNSELECT_TIME = 500;
       setTimeout(() => {
         selected.forEach(card => {
           card.classList.remove('selected');
         })
-      }, 500);
+      }, UNSELECT_TIME);
     }
   }
 }
@@ -168,26 +179,26 @@ function checkWin() {
 
 function showModal() {
   win = document.querySelector('.win');
-  let container = document.querySelector('.container');
-  container.classList.add('fade');
   win.classList.add('active-win');
 
-  let btnContinue = document.querySelector('button.continue');
-  let btnReset = document.querySelector('button.reset');
-  if (counter < cardsArray.length) {
-    btnContinue.classList.remove('disabled');
-    btnContinue.removeAttribute('disabled');
+  const CONTAINER = document.querySelector('.container');
+  CONTAINER.classList.add('fade');
+
+  const BTN_CONTINUE = document.querySelector('button.continue');
+  if (counter < CARDS_ARRAY.length) {
+    BTN_CONTINUE.classList.remove('disabled');
+    BTN_CONTINUE.removeAttribute('disabled');
 
   }
   else {
-    btnContinue.classList.add('disabled');
-    btnContinue.setAttribute('disabled', 'true');
+    BTN_CONTINUE.classList.add('disabled');
+    BTN_CONTINUE.setAttribute('disabled', 'true');
   }
 }
 
 
 // region background
-var lFollowX = 0,
+let lFollowX = 0,
   lFollowY = 0,
   x = 0,
   y = 0,
@@ -198,14 +209,14 @@ function moveBackground() {
   y += (lFollowY - y) * friction;
 
   translate = 'translate(' + x + 'px, ' + y + 'px) scale(1.1)';
-  const bg = document.querySelector('#bg');
-  bg.style.transform = translate;
+  const BG = document.querySelector('#bg');
+  BG.style.transform = translate;
   window.requestAnimationFrame(moveBackground);
 }
 window.addEventListener('mousemove', function (e) {
 
-  var lMouseX = Math.max(-100, Math.min(100, window.innerWidth / 2 - e.clientX));
-  var lMouseY = Math.max(-100, Math.min(100, window.innerHeight / 2 - e.clientY));
+  let lMouseX = Math.max(-100, Math.min(100, window.innerWidth / 2 - e.clientX));
+  let lMouseY = Math.max(-100, Math.min(100, window.innerHeight / 2 - e.clientY));
   lFollowX = (20 * lMouseX) / 100; // 100 : 12 = lMouxeX : lFollow
   lFollowY = (10 * lMouseY) / 100;
 
