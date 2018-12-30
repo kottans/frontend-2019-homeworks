@@ -8,8 +8,8 @@ class Game {
         this.targetEl = targetElement;
         this.cardsArray = cardsArray;
         this.gameGrid = this.cardsArray.concat(this.cardsArray);
-        this.firstGuess = '';
-        this.secondGuess = '';
+        this.firstName = '';
+        this.secondName = '';
         this.count = 0;
         this.delay = 700;
 
@@ -42,53 +42,50 @@ class Game {
         });
     }
 
-    clickLogic({target}) {
-        if (this.count < 2) {
-            this.count++;
-            if (this.count === 1) {
-                this.firstGuess = target.parentNode.dataset.name;
-                target.parentNode.classList.add(SELECTED_CARD);
-            } else {
-                this.secondGuess = target.parentNode.dataset.name;
-                target.parentNode.classList.add(SELECTED_CARD);
-            }
-
-            if (this.firstGuess && this.secondGuess) {
-                if (this.firstGuess === this.secondGuess) {
-                    setTimeout(() => {
-                        document.querySelectorAll('.selected').forEach(card => {
-                            card.classList.add('pair');
-                        });
-                    }, this.delay);
-                }
-                setTimeout(() => {
-                    this.firstGuess = '';
-                    this.secondGuess = '';
-                    this.count = 0;
-
-
-                    document.querySelectorAll('.selected').forEach(card => {
-                        card.classList.remove(SELECTED_CARD);
-                    });
-                }, this.delay);
-            }
-
-        }
-    }
 
     isClick() {
-        this.targetEl.addEventListener('click', event => {
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
 
-            const target = event.target;
+                if (
+                    card.classList.contains(SELECTED_CARD) ||
+                    card.classList.contains('pair')
+                ) {
+                    return
+                }
 
-            if (
-                target.className === 'game' ||
-                target.parentNode.classList.contains(SELECTED_CARD) ||
-                target.classList.contains('pair')
-            ) {
-                return
-            }
-            this.clickLogic(event);
+                if (this.count < 2) {
+                    this.count++;
+                    if (this.count === 1) {
+                        this.firstName = card.dataset.name;
+                        card.classList.add(SELECTED_CARD);
+                    } else {
+                        this.secondName = card.dataset.name;
+                        card.classList.add(SELECTED_CARD);
+                    }
+
+                    if (this.firstName && this.secondName) {
+                        if (this.firstName === this.secondName) {
+                            setTimeout(() => {
+                                document.querySelectorAll('.selected').forEach(card => {
+                                    card.classList.add('pair');
+                                });
+                            }, this.delay);
+                        }
+                        setTimeout(() => {
+                            this.firstName = '';
+                            this.secondName = '';
+                            this.count = 0;
+
+
+                            document.querySelectorAll('.selected').forEach(card => {
+                                card.classList.remove(SELECTED_CARD);
+                            });
+                        }, this.delay);
+                    }
+
+                }
+            });
         });
     }
 }
