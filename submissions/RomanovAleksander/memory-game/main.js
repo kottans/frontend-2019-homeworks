@@ -11,7 +11,8 @@ class Game {
         this.firstGuess = '';
         this.secondGuess = '';
         this.count = 0;
-        this.delay = 1000;
+        this.delay = 700;
+
         this.renderList();
         this.isClick();
     }
@@ -41,18 +42,7 @@ class Game {
         });
     }
 
-    isVarious() {
-        this.firstGuess = '';
-        this.secondGuess = '';
-        this.count = 0;
-
-        document.querySelectorAll('.selected').forEach(card => {
-            card.classList.remove(SELECTED_CARD);
-        });
-    }
-
-    clickLogic(event) {
-        const target = event.target;
+    clickLogic({target}) {
         if (this.count < 2) {
             this.count++;
             if (this.count === 1) {
@@ -71,8 +61,18 @@ class Game {
                         });
                     }, this.delay);
                 }
-                setTimeout(this.isVarious.bind(this), this.delay);
+                setTimeout(() => {
+                    this.firstGuess = '';
+                    this.secondGuess = '';
+                    this.count = 0;
+
+
+                    document.querySelectorAll('.selected').forEach(card => {
+                        card.classList.remove(SELECTED_CARD);
+                    });
+                }, this.delay);
             }
+
         }
     }
 
@@ -84,7 +84,7 @@ class Game {
             if (
                 target.className === 'game' ||
                 target.parentNode.classList.contains(SELECTED_CARD) ||
-                target.parentNode.classList.contains('pair')
+                target.classList.contains('pair')
             ) {
                 return
             }
@@ -117,6 +117,14 @@ const game = new Game(document.querySelector('.game'), [
     {
         'name': 'alex',
         'img': 'images/alex.png',
+    },
+    {
+        'name': 'alexMorty',
+        'img': 'images/minion.png',
+    },
+    {
+        'name': 'julian',
+        'img': 'images/julian.png',
     }
 ]);
 
