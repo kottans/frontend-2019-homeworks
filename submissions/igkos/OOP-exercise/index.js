@@ -17,35 +17,35 @@ class Inhabitant {
 }
 
 class Human extends Inhabitant {
-  constructor(name, saying, friends, species = "human", legs = 2, hands = 2, gender) {
-    super(name, saying, friends, species, legs, hands, gender);
+  constructor(name, saying, friends, gender) {
+    super(name, saying, friends, "human", 2, 2, gender);
   }
 }
 class Female extends Human {
-  constructor(name, saying, friends , species, legs, hands, gender = "female") {
-    super(name, saying, friends, species, legs, hands, gender);
+  constructor(name, saying, friends) {
+    super(name, saying, friends, "female");
   }
 }
 class Male extends Human {
-  constructor(name, saying, friends, species, legs, hands, gender = "male") {
-    super(name, saying, friends, species, legs, hands, gender);
+  constructor(name, saying, friends) {
+    super(name, saying, friends, "male");
   }
 }
 
 class Animal extends Inhabitant {
-  constructor(name, saying, friends, species, legs  = 4, hands = 0, gender) {
-    super(name, saying, friends, species, legs, hands, gender);
+  constructor(name, saying, friends, species, gender) {
+    super(name, saying, friends, species, 4, 0, gender);
   }
 }
 
 class Dog extends Animal {
-  constructor(name, gender, friends, species = "Dog", legs, hands, saying = "woof-woof!") {
-    super(name, saying, friends, species, legs, hands, gender);
+  constructor(name, gender, friends) {
+    super(name, "woof-woof!", friends, "Dog", gender);
   }
 }
 class Cat extends Animal {
-  constructor(name, gender, friends, species  = "cat", legs, hands, saying = "meow-meow!") {
-    super(name, saying, friends, species, legs, hands, gender);
+  constructor(name, gender, friends ) {
+    super(name, "meow-meow!", friends, "cat", gender);
   }
 }
 
