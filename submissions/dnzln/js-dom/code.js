@@ -28,8 +28,7 @@ const content = [
 
 
 var container = document.createElement('section');
-container.classList.add('rivera');
-var mainCont = document.getElementById('main-cont');
+var mainCont = document.getElementById('main-content');
 mainCont.appendChild(container);
 
 var heading = document.createElement('h2');
