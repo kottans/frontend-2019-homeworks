@@ -87,6 +87,9 @@ function handleGuess(el) {
       if (inGuessArray[0].classList.contains(el.classList[1])) {
         guessedArray.push(el);
         guessedArray.push(inGuessArray[0]);
+        if (guessedArray.length == playArray.length) {
+          setTimeout(showModal, 500);
+        }
         inGuessArray = [];
         setTimeout(playSuccess, 400);
       } else {
@@ -102,3 +105,21 @@ function handleGuess(el) {
 shuffleCards();
 spreadCards();
 let cardsElArr = document.querySelectorAll(".card");
+
+let modal = document.getElementsByClassName("modal")[0];
+function showModal() {
+  modal.classList.add("modal-shown");
+}
+function startagain() {
+  modal.classList.remove("modal-shown");
+  let field = document.querySelector(".field");
+
+  field.innerHTML = "";
+  let blocked = false;
+  playArray = [];
+  inGuessArray = [];
+  guessedArray = [];
+
+  shuffleCards();
+  spreadCards();
+}
