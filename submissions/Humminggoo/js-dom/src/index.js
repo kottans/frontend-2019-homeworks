@@ -12,30 +12,30 @@ document.addEventListener("DOMContentLoaded", handleDOM);
 function handleDOM(){
     let menuBtn = document.getElementById('menu-btn'),
         menu = document.getElementById('menu'),
-        menuItems = document.getElementsByClassName('nav-item'),
+        menuItems = document.querySelectorAll('.nav-item'),
+        menuIcon = document.getElementById('menu-btn-icon'),
         contentContainer = document.getElementById('content');
 //for the first load
     showContent(data.projects[0].name);
     menuItems[0].classList.add('nav-item-clicked', 'nav-item-active');
 
 //menu animation
-    menuBtn.addEventListener("click", toggleMenu.bind(null, menu, 'menu-active'));
+    menuBtn.addEventListener("click", () => toggleMenu(menu, menuIcon, 'menu-active'));
 
 //menu items animation
-    menu.addEventListener("click", clickItem, false);
-    menu.addEventListener("mouseenter", highlightItem, true);
-    menu.addEventListener("mouseleave", blurItem, true);
+    menu.addEventListener("click", clickItem);
+    menu.addEventListener("mouseover", toggleItem);
+    menu.addEventListener("mouseout", toggleItem);
 
 //changing open/close menu icons
-    function toggleMenu(menu, classname) {
-        menuBtn.getElementsByTagName('i').item(0).classList.toggle('fa-bars');
-        menuBtn.getElementsByTagName('i').item(0).classList.toggle('fa-times');
+    function toggleMenu(menu, icon, classname) {
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
         menu.classList.toggle(classname);
     }
     function clickItem(e) {
-        //apply animation only to menu items
         if(e.target.classList.contains('nav-item')){
-            Array.prototype.forEach.call(menuItems, i => {
+            menuItems.forEach(i => {
                     //if there is already selected item - remove classes from it
                     if(i.classList.contains('nav-item-clicked')){
                         i.classList.remove('nav-item-clicked', 'nav-item-active');
@@ -50,25 +50,17 @@ function handleDOM(){
             }
         }
     }
-    function highlightItem(e) {
-        if(e.target.classList.contains('nav-item')) {
-            if (!e.target.classList.contains('nav-item-clicked')) {
-                e.target.classList.add('nav-item-active');
-            }
-        }
-    }
-    function blurItem(e) {
-        if(e.target.classList.contains('nav-item')) {
-            if (!e.target.classList.contains('nav-item-clicked')) {
-                e.target.classList.remove('nav-item-active');
-            }
+    function toggleItem(e) {
+        let target  = e.target.closest('.nav-item:not(.nav-item-clicked)');
+        if(target) {
+                target.classList.toggle('nav-item-active');
         }
     }
 //Dynamic content, obtained from json by menu item name
     function showContent(name) {
-        let content = data.projects.filter(i => {
+        let content = data.projects.find(i => {
             return i.name === name;
-        })[0];
+        });
         console.log(content);
 
         let fragment = document.createDocumentFragment();
@@ -81,16 +73,16 @@ function handleDOM(){
         fragment.appendChild(nameDiv);
 
         //list of tasks
-        for(let i = 0; i < content.tasks.length; i++){
+        content.tasks.forEach(i => {
             let task = document.createElement('div');
-            task.textContent = content.tasks[i];
+            task.textContent = i;
             task.classList.add('task-item');
             let checkbox = document.createElement('input');
             checkbox.setAttribute('type', 'checkbox');
             task.insertAdjacentElement('afterbegin', checkbox);
             fragment.appendChild(task);
-        }
-
+            }
+        );
         contentContainer.appendChild(fragment);
     }
     function removeContent() {
