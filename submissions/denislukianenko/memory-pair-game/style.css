@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
@@ -15,12 +19,6 @@ body.scroll-blocked {
   overflow: hidden;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 h1 {
   text-align: center;
   font-weight: 800;
@@ -35,42 +33,41 @@ h1 {
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(4, 1fr);
 }
-
-.field > .card:nth-of-type(1) {
+.field > .card {
   animation: fadeIn both 600ms 0ms cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .field > .card:nth-of-type(2) {
-  animation: fadeIn both 600ms 30ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-delay: 30ms;
 }
 .field > .card:nth-of-type(3) {
-  animation: fadeIn both 600ms 60ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-delay: 60ms;
 }
 .field > .card:nth-of-type(4) {
-  animation: fadeIn both 600ms 90ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-delay: 90ms;
 }
 .field > .card:nth-of-type(5) {
-  animation: fadeIn both 600ms 120ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-delay: 120ms;
 }
 .field > .card:nth-of-type(6) {
-  animation: fadeIn both 600ms 150ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-delay: 150ms;
 }
 .field > .card:nth-of-type(7) {
-  animation: fadeIn both 600ms 180ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-delay: 180ms;
 }
 .field > .card:nth-of-type(8) {
-  animation: fadeIn both 600ms 210ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-delay: 210ms;
 }
 .field > .card:nth-of-type(9) {
-  animation: fadeIn both 600ms 240ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-delay: 240ms;
 }
 .field > .card:nth-of-type(10) {
-  animation: fadeIn both 600ms 270ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-delay: 270ms;
 }
 .field > .card:nth-of-type(11) {
-  animation: fadeIn both 600ms 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-delay: 300ms;
 }
 .field > .card:nth-of-type(12) {
-  animation: fadeIn both 600ms 330ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-delay: 330ms;
 }
 
 .card {
@@ -95,7 +92,7 @@ h1 {
 .front {
   height: 100%;
   width: 100%;
-  background-color: rgb(224, 244, 252);
+  background-color: hsl(197, 82%, 93%);
   border-radius: 3vmin;
   padding: 10px;
   display: flex;
@@ -139,7 +136,7 @@ h1 {
   justify-content: center;
   align-items: center;
   display: none;
-  background-color: #fffc;
+  background-color: hsla(0, 0%, 100%, 0.8);
   animation: fadeIn both 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .modal-shown {
