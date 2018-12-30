@@ -8,91 +8,77 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 class Creature {
-    constructor(name, gender) {
+    constructor( name, gender, species, say, legs=4 ) {
+        this.species = species;
         this.name = name;
         this.gender = gender;
+        this.legs = legs;
+        this.say = say;
         this.friends = [];
     }
     addFriends(...args){
         this.friends = [...args];
     }
-    printCreature() {
-        return ['name', 'gender']
+    toString() {
+        return [ 'name', 'gender', 'species', 'say', 'legs' ]
+            .map(key => `${key}: <strong>${this[key]}</strong>`)
+            .concat(this.friends.map(friend => `<strong>${friend['name']}</strong>`))
+            .join('; ');
+    }
+}
+
+class HumanBeing extends Creature {
+    constructor(name, gender, species= 'Human', say, legs = 2, hands = 2) {
+        super(name, gender, species, say, legs);
+        this.hands = hands;
+    }
+    toString() {
+        return super.toString() +' '+ ['hands']
             .map(key => `${key}: <strong>${this[key]}</strong>`)
             .join('; ');
     }
 }
 
-class Animal extends Creature {
-    constructor(name, gender, species, say) {
-        super(name, gender);
-        this.species = species;
-        this.legs = 4;
-        this.say = say;
-    }
-    printCreature() {
-        return super.printCreature() +' '+ ['species', 'legs', 'say']
-            .map(key => `${key}: <em>${this[key]}</em>`)
-            .concat(this.friends.map(friend => `<strong>${friend['name']}</strong>`))
-            .join('; ');
-    }
-}
-class HumanBeing extends Creature {
-    constructor(name, gender, say) {
-        super(name, gender);
-        this.species = 'Human';
-        this.legs = 2;
-        this.hands = 2;
-        this.say = say;
-    }
-    printCreature() {
-        return super.printCreature() +' '+ ['species', 'legs', 'hands', 'say']
-            .map(key => `${key}: <em>${this[key]}</em>`)
-            .concat(this.friends.map(friend => `<strong>${friend['name']}</strong>`))
-            .join('; ');
+class Dog extends Creature {
+    constructor(name, gender, species = 'dog', say = 'Woof-woof!', legs ) {
+        super(name, gender, species, say, legs);
     }
 }
 
-class Dog extends Animal {
-    constructor(name, gender, species = 'dog', say = 'Woof-woof!') {
-        super(name, gender, species, say);
-    }
-}
-
-class Cat extends Animal {
-    constructor(name, gender, species = 'cat', say = 'Meow.') {
-        super(name, gender, species, say);
+class Cat extends Creature {
+    constructor(name, gender, species = 'cat', say = 'Meow.', legs) {
+        super(name, gender, species, say, legs);
     }
 }
 
 class Man extends HumanBeing {
-    constructor(name, gender='male', say = 'Boys will be boys.') {
-        super(name, gender, say);
+    constructor(name, gender='male', species, say = 'Boys will be boys.', legs, hands) {
+        super(name, gender, species, say, legs, hands);
     }
 }
 
 class Woman extends HumanBeing {
-    constructor(name, gender='female', say = 'Love saves the world.') {
-        super(name, gender, say);
+    constructor(name, gender='female', species, say = 'Love saves the world.', legs, hands) {
+        super(name, gender, species, say, legs, hands);
     }
 }
 class CatWoman extends Woman {
-    constructor(name, gender='female', say = 'Love saves the world.') {
-        super(name, gender, say);
+    constructor(name, gender, species, say) {
+        super(name, gender, species, say);
     }
 }
 const woman    = new Woman('Sarah');
 const man      = new Man('John');
 const cat      = new Cat('Maya', 'female');
 const dog      = new Dog('Toby', 'male');
-const catWoman = new CatWoman('Sophie', undefined, cat.say);
+const catWoman = new CatWoman('Sophie', undefined, undefined, cat.say);
 
 woman.addFriends(man, cat);
 man.addFriends(woman, dog);
 dog.addFriends(woman, man);
 
 [woman, man, cat, dog, catWoman]
-    .forEach((item) => print(item.printCreature()));
+    .forEach((item) => print(item.toString()));
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
