@@ -16,6 +16,48 @@ body {
     text-align: center;
 }
 
+input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+label {
+    position: relative;
+    padding: 0 0 0 2em;
+    cursor: pointer;
+}
+
+label::before, label::after {
+    content: " ";
+    border: 1px solid #bdc3c7;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+}
+
+input[type=radio] + label::after {
+    background: darkcyan;
+    border: .2em solid #2c3e50;
+    transform: scale(0);
+}
+
+input[type="radio"]:checked + label::before {
+    background: #fff;
+    border-color: #fff;
+}
+
+input[type=radio]:checked + label::after {
+    transform: scale(1);
+}
+
+label::before, label::after {
+    transition: .25s all ease;
+}
+
 .main {
     display: flex;
     flex-flow: row wrap;

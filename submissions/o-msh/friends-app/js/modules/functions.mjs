@@ -15,7 +15,7 @@ const showLoader = () => state.dom.loading.classList.remove("hide");
 
 const hideLoader = () => state.dom.loading.classList.add("hide");
 
-const generateErrorMessage = (e) => {
+const generateErrorMessage = e => {
     let errorBlock = document.createElement("div");
     errorBlock.classList.add("error");
     errorBlock.innerHTML = `Oops... ${e.message}`;
