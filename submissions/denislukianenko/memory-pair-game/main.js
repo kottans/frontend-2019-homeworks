@@ -20,9 +20,11 @@ function playSuccess() {
 
 function showModal() {
   modal.classList.add("modal-shown");
+  document.querySelector("body").classList.add("scroll-blocked");
 }
 function startagain() {
   modal.classList.remove("modal-shown");
+  document.querySelector("body").classList.remove("scroll-blocked");
   let field = document.querySelector(".field");
   field.innerHTML = "";
 

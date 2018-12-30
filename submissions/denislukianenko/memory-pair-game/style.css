@@ -10,6 +10,11 @@ body {
   padding: 20px;
 }
 
+body.scroll-blocked {
+  height: 100%;
+  overflow: hidden;
+}
+
 *,
 *::before,
 *::after {
@@ -27,8 +32,8 @@ h1 {
   max-width: 650px;
   display: grid;
   grid-gap: 1vw;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .field > .card:nth-of-type(1) {
@@ -81,10 +86,8 @@ h1 {
 .both-sides {
   height: 100%;
   width: 100%;
-
   transition: 0.4s;
   transform-style: preserve-3d;
-
   position: relative;
 }
 
@@ -95,12 +98,10 @@ h1 {
   background-color: rgb(224, 244, 252);
   border-radius: 3vmin;
   padding: 10px;
-
   display: flex;
   justify-content: center;
   align-items: center;
   border: solid 2vmin lightblue;
-
   backface-visibility: hidden;
   position: absolute;
   top: 0;
@@ -110,7 +111,6 @@ h1 {
 .front {
   z-index: 2;
   transform: rotateY(0deg);
-
   background-image: url(img/card-bg.svg);
   background-position: 50%;
   background-size: 50px;
@@ -131,7 +131,7 @@ h1 {
 
 .modal {
   margin-top: -28px;
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -139,9 +139,7 @@ h1 {
   justify-content: center;
   align-items: center;
   display: none;
-
   background-color: #fffc;
-
   animation: fadeIn both 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .modal-shown {
@@ -154,7 +152,6 @@ h1 {
   border-radius: 10px;
   font-size: 18px;
   padding: 5px 10px;
-
   transition: 150ms;
 }
 
