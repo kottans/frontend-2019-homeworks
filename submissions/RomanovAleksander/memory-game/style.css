@@ -72,6 +72,10 @@ h1 {
         height: 80px;
         cursor: none;
     }
+
+    .back, .front {
+        cursor: none;
+    }
 }
 
 @media screen and (max-width: 380px) {
