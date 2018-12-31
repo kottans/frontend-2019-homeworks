@@ -29,12 +29,12 @@ export const initFriends = async () => {
 };
 
 const initDomElements = () => {
-    state.dom.main = document.querySelector(".main");
+    state.dom.main = document.querySelector(".content");
     state.dom.loading = document.querySelector(".loader");
-    state.dom.search = document.querySelector(".search");
+    state.dom.search = document.querySelector(".control__search");
     state.dom.filter = document.querySelector(".filter");
     state.dom.top = document.querySelector(".top");
-    state.dom.radio = Array.from(document.querySelectorAll("input[type=radio]"));
+    state.dom.radio = Array.from(document.querySelectorAll(".radio-container__selector"));
 };
 
 const initEventListener = () => {

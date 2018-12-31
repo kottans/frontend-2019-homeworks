@@ -11,9 +11,9 @@ const render = data => {
     state.dom.main.append(data);
 };
 
-const showLoader = () => state.dom.loading.classList.remove("hide");
+const showLoader = () => state.dom.loading.classList.remove("loader_hide");
 
-const hideLoader = () => state.dom.loading.classList.add("hide");
+const hideLoader = () => state.dom.loading.classList.add("loader_hide");
 
 const generateErrorMessage = e => {
     let errorBlock = document.createElement("div");
@@ -33,8 +33,8 @@ const scrollToTop = () => {
 
 const scrollWindowHandler = () => {
     document.body.scrollToTop > 30 || document.documentElement.scrollTop > 30 
-        ? state.dom.top.classList.add("enable")
-        : state.dom.top.classList.remove("enable"); 
+        ? state.dom.top.classList.add("top_active")
+        : state.dom.top.classList.remove("top_active"); 
 };
 
 export default {

@@ -6,51 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="module" src="js/index.js"></script>
     <title>Friends app</title>
 </head>
 
 <body>
-    <button class="top" >UP</button>
+    <button class="top">up</button>
     <div class="container">
         <div class="control">
-            <input type="text" class="search" name="search" placeholder="Name..." autocomplete="off"><br>
+            <input type="text" class="control__search" name="search" placeholder="Name..." autocomplete="off"><br>
             <div class="filter">
-                <div class="filter_gender">
+                <div class="filter-gender">
                     <fieldset>
                         <legend>Gender:</legend>
-                        <input type="radio" id="gender_male" name="gender" value="male"><label for="gender_male">Male</label>
-                        <input type="radio" id="gender_female" name="gender" value="female"><label for="gender_female">Female</label>
+                        <label class="radio-container">Male
+                            <input type="radio" class="radio-container__selector" name="gender" value="male">
+                            <span class="radio-container__mark"></span>
+                        </label>
+                        <label class="radio-container">Female
+                            <input type="radio" class="radio-container__selector" name="gender" value="female">
+                            <span class="radio-container__mark"></span>
+                        </label>
                     </fieldset>
                 </div>
-                <div class="filter_name">
+                <div class="filter-name">
                     <fieldset>
                         <legend>Name:</legend>
-                        <input type="radio" id="name_asc" name="sort" data-type="name" value="asc"><label for="name_asc">A-Z</label>
-                        <input type="radio" id="name_desc" name="sort" data-type="name" value="desc"><label for="name_desc">Z-A</label>
+                        <label class="radio-container">A-Z
+                            <input type="radio" class="radio-container__selector" name="sort" data-type="name" value="asc">
+                            <span class="radio-container__mark"></span>
+                        </label>
+                        <label class="radio-container">Z-A
+                            <input type="radio" class="radio-container__selector" name="sort" data-type="name" value="desc">
+                            <span class="radio-container__mark"></span>
+                        </label>
                     </fieldset>
                 </div>
-                <div class="filter_age">
+                <div class="filter-age">
                     <fieldset>
                         <legend>Age:</legend>
-                        <input type="radio" id="age_asc" name="sort" data-type="age" value="asc"><label for="age_asc">&#8593;</label>
-                        <input type="radio" id="age_desc" name="sort" data-type="age" value="desc"><label for="age_desc">&#8595;</label>
+                        <label class="radio-container">&#8593;
+                            <input type="radio" class="radio-container__selector" name="sort" data-type="age" value="asc">
+                            <span class="radio-container__mark"></span>
+                        </label>
+                        <label class="radio-container">&#8595;
+                            <input type="radio" class="radio-container__selector" name="sort" data-type="age" value="desc">
+                            <span class="radio-container__mark"></span>
+                        </label>
                     </fieldset>
                 </div>
-                <div class="filter_btns">
-                    <button data-type="fetch">Fetch</button>
-                    <button data-type="reset">Reset</button>
+                <div class="filter-btns">
+                    <button class="filter-btns__fetch" data-type="fetch">Fetch</button>
+                    <button class="filter-btns__reset" data-type="reset">Reset</button>
                 </div>
             </div>
         </div>
-        <div class="loader hide">
-            <div class="loading_animation">
-                <div class="animation_part"></div>
-                <div class="animation_part"></div>
+        <div class="loader loader_hide">
+            <div class="loader-animation">
+                <div class="loader-animation__part"></div>
+                <div class="loader-animation__part"></div>
             </div>
         </div>
-        <div class="main"></div>
+        <main class="content"></main>
     </div>
+    <script type="module" src="js/index.js"></script>
 </body>
 
 </html>

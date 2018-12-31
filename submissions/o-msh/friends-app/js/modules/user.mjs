@@ -9,12 +9,13 @@ export const fetchData = url => {
 
 const getInfo = user => {
     let info = document.createElement("div");
-    info.classList.add("info");
+    info.classList.add("card__info");
+    info.append(getPicture(user));
     let gender = document.createElement("img");
     user.gender === "male" ? gender.setAttribute("src", "img/icon-male.png") : gender.setAttribute("src", "img/icon-female.png");
-    info.innerHTML = `
-        <ul>
-            <li class='naming'>${user.name.first} ${user.name.last}</li>
+    info.innerHTML += `
+        <ul class='items'>
+            <li class='items__item-naming'>${user.name.first} ${user.name.last}</li>
             <li>${user.dob.age}</li>
             <li>${user.email}</li>
             <li>${gender.outerHTML}</li>
@@ -25,7 +26,7 @@ const getInfo = user => {
 
 const getPicture = user => {
     let picture = document.createElement("div");
-    picture.classList.add("picture");
+    picture.classList.add("card__picture");
     let img = document.createElement("img");
     img.setAttribute("src", user.picture.large);
     picture.append(img);
@@ -37,7 +38,6 @@ export const generateCards = data => {
     data.forEach(user => {
         let card = document.createElement("div");
         card.classList.add("card");
-        card.append(getPicture(user));
         card.append(getInfo(user));
         fragment.append(card);
     });
