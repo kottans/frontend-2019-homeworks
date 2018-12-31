@@ -14,7 +14,7 @@ body {
   padding: 20px;
 }
 
-body.scroll-blocked {
+.scroll-blocked {
   height: 100%;
   overflow: hidden;
 }
@@ -140,7 +140,7 @@ h1 {
 .modal {
   display: none;
 }
-.modal-shown {
+.modal-isActive {
   display: flex;
 }
 

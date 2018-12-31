@@ -25,7 +25,7 @@ function playSuccess() {
 }
 
 function showModal() {
-  config.modal.classList.add("modal-shown");
+  config.modal.classList.add("modal-isActive");
   document.querySelector("body").classList.add("scroll-blocked");
 }
 
@@ -38,7 +38,7 @@ function truncateData() {
 }
 
 function startagain() {
-  config.modal.classList.remove("modal-shown");
+  config.modal.classList.remove("modal-isActive");
   document.querySelector("body").classList.remove("scroll-blocked");
   truncateData();
   shuffleCards();
