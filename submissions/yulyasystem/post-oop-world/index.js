@@ -1,50 +1,62 @@
 class Entity {
-    constructor(species, name, gender, legs) {
-        this.species = species;
-        this.name = name;
-        this.gender = gender;
-        this.legs = legs;
-
-    }
-    saying() {
-        return `I am ${this.species} my name ${this.name}`;
-    }
+  constructor(species, name, gender, legs) {
+    this.species = species;
+    this.name = name;
+    this.gender = gender;
+    this.legs = legs;
+    this.saying = `My name is ${this.name}`;
+  }
+  toString() {
+    return `${this.saying}`;
+  }
 }
 
 class Human extends Entity {
-    constructor(name, gender, hands) {
-        super('human', name, gender, 2);
-        this.hands = 2;
-    }
-    saying() {
-        return super.saying() + `I have ${this.hands} hands and ${this.legs} legs. It is no suprise`;
-    }
+  constructor(name, gender) {
+    super("human", name, gender, 2);
+    this.hands = 2;
+  }
+  toString() {
+    return (
+      super.toString() + ` I am ${this.species} I have ${this.hands} hands`
+    );
+  }
 }
 
 class Animal extends Entity {
-    constructor(species, name, gender) {
-        super(species, name, gender, 4);
-    }
-    saying() {
-        return super.saying() + ` I am Proud to be ${this.species}`;
-    }
+  constructor(species, name, gender) {
+    super(species, name, gender, 4);
+  }
+  toString() {
+    return `I am ${this.species} I have ${this.legs} legs`;
+  }
+}
+
+class Cat extends Animal {
+  constructor(name, gender) {
+    super("cat", name, gender);
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, gender) {
+    super("dog", name, gender);
+  }
 }
 
 class CatWoman extends Human {
-    constructor(species, name, gender) {
-        super(species, name, gender);
-
-    }
+  constructor(name, gender) {
+    super(name, gender);
+    this.species = "cat-women";
+  }
 }
 
-const man = new Human('George', 'male');
-const woman = new Human('Alisa', 'female');
-const cat = new Animal('cat', 'Velik', 'male');
-const dog = new Animal('dog', 'Hugo', 'male');
-const catWoman = new CatWoman('cat-woman', 'Hinata', 'female');
+const objects = [
+  new Human("George", "male"),
+  new Human("Alisa", "female"),
+  new Cat("Velik", "male"),
+  new Dog("Hugo", "male"),
+  new CatWoman("Hinata", "female")
+];
 
-print(man.saying());
-print(woman.saying());
-print(cat.saying());
-print(dog.saying());
-print(catWoman.saying());
+objects.forEach(obj => print(obj));
