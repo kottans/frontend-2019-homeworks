@@ -17,8 +17,8 @@ class Inhabitant {
         this.legs = legs;
     }
 
-    greetingMessage() {
-        return `${this.kind}; ${this.gender}; ${this.name}; ${this.legs}; ${(this.hands ? this.hands + "; " : "")}${this.greetingsWords}`;
+    toString() {
+        return `${this.kind}; ${this.gender}; ${this.name}; ${this.legs}; ${this.greetingsWords}`;
     }
 
 }
@@ -29,6 +29,11 @@ class Human extends Inhabitant{
         super(name, gender, 'Human', greetingsWords, legs);
         this.hands = hands;
     }
+
+    toString () {
+        return `${super.toString()}; ${this.hands}`;
+    }
+
 
 }
 
@@ -65,4 +70,4 @@ const creatures = [
 
 ];
 
-creatures.forEach(creature => print(creature.greetingMessage()));
+creatures.forEach(creature => print(creature));
