@@ -184,18 +184,18 @@ function renderItems(responseData){
 
 const navigateBtn = document.getElementById('navigate-menu')
 const aside = document.getElementById('sortBar');
-const asideBtn = document.getElementById('sortBarBtb');
+const asideBtn = document.getElementById('sortBarBtn');
 
 navigateBtn.addEventListener('mousedown',(e) =>{
 
 	aside.classList.toggle('aside-cklick');
 	navigateBtn.classList.toggle('navigate-act');
-	asideBtn.classList.toggle('sortBarBtb-active');
+	asideBtn.classList.toggle('sortBarBtn-active');
 })
 
 content.addEventListener('click', () => {
 	aside.classList.remove('aside-cklick');
-	asideBtn.classList.remove('sortBarBtb-active')
+	asideBtn.classList.remove('sortBarBtn-active')
 })
 
 

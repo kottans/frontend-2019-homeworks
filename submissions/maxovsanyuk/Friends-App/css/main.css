@@ -61,7 +61,8 @@ aside {
   position: relative; }
 
 .search-input {
-  margin-top: 10px;
+  display: block;
+  margin: 10px auto;
   padding: 5px 20px;
   font-size: 12px;
   background: rgba(247, 245, 245, 0.9);
@@ -77,7 +78,7 @@ aside {
   height: 15px;
   position: absolute;
   top: 56px;
-  right: 45px; }
+  right: 42px; }
 
 .new-year {
   width: 100%;
@@ -102,45 +103,69 @@ aside {
     background-size: contain;
     right: 5px; }
 
-.sortBarBtb {
+.sortBarBtn {
   visibility: hidden; }
-  .sortBarBtb h3 {
-    text-align: center;
-    margin-top: 10px; }
-  .sortBarBtb p {
-    text-align: center;
-    margin-bottom: 10px; }
-  .sortBarBtb span {
-    margin: 0 10px 0 10px; }
 
-.sortBarBtb-active {
+.sortBarBtn-active {
   transition-delay: .3s;
   visibility: visible;
   font-size: 18px;
   color: #5497b6; }
-  .sortBarBtb-active input {
-    margin-bottom: 20px; }
+  .sortBarBtn-active h3 {
+    text-align: center;
+    margin-top: 10px; }
+  .sortBarBtn-active p {
+    text-align: center;
+    margin-bottom: 10px; }
+  .sortBarBtn-active span {
+    margin: 0 5px 0 15px; }
+
+.aside-btn {
+  width: 100%;
+  height: 80px; }
+
+.form-radio {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  position: relative;
+  background-color: #f1f1f1;
+  color: #666;
+  height: 20px;
+  width: 20px;
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  outline: none; }
+  .form-radio:checked::before {
+    position: absolute;
+    font: 13px/1 'Open Sans', sans-serif;
+    left: 6px;
+    top: 2px;
+    content: '\02143';
+    transform: rotate(40deg); }
 
 @keyframes background {
   0% {
-    background: #f9faf7 url(../img/1.png) no-repeat center center;
+    background: #f9faf7 url(../img/1.png) no-repeat center;
     background-size: 90% 90%; }
   25% {
-    background: #f9faf7 url(../img/2.png) no-repeat center center;
+    background: #f9faf7 url(../img/2.png) no-repeat center;
     background-size: 90% 90%; }
   50% {
-    background: #f9faf7 url(../img/3.png) no-repeat center center;
+    background: #f9faf7 url(../img/3.png) no-repeat center;
     background-size: 90% 90%; }
   75% {
-    background: #f9faf7 url(../img/2.png) no-repeat center center;
+    background: #f9faf7 url(../img/2.png) no-repeat center;
     background-size: 90% 90%; }
   100% {
-    background: #f9faf7 url(../img/1.png) no-repeat center center;
+    background: #f9faf7 url(../img/1.png) no-repeat center;
     background-size: 90% 90%; } }
 
 .content {
-  width: calc(100% - 120px);
-  height: calc(100% - 80px);
+  width: calc(100vw - 120px);
+  height: calc(100vh - 80px);
   display: flex;
   justify-content: flex-start;
   align-content: flex-start;
