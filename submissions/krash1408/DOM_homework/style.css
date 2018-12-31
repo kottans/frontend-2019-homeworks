@@ -25,13 +25,14 @@ header {
     margin: 1em;
     display: flex;
     flex-flow: column;
-    flex: 0 0 200px;
+    flex: 0 0 24%;
+    height: 185px;
     background-image: linear-gradient(to right , rgba(169, 169, 169,.7),rgba(169, 169, 169,.9));
     border-radius: 2px;
     box-shadow: 1px 1px 5px 1px rgba(0,0,0,.8);
 }
 .navigation__item {
-    height: 50px;
+    min-height: 50px;
     line-height: 50px;
     margin: 5px;
     text-align: center;
@@ -52,6 +53,11 @@ header {
     background-color: rgba(220, 20, 60,.15);
 }
 
+.content__wrapper {
+    width: 74%;
+    position: relative;
+    margin: 1em;
+}
 .content__item {
     background-color: rgba(0,0,0,.3);
     border-radius: 3px;
@@ -59,12 +65,11 @@ header {
     transition: opacity .5s;
     box-shadow: 1px 1px 5px 1px rgba(0,0,0,.8);
     position: absolute;
-    margin: 1em;
     font-size: 20px;
 
     display: flex;
     flex-flow: row wrap;
-    flex: 0 0 70%;
+    width: 100%;
 }
 .content__item--visible {
     opacity: 1;
@@ -83,12 +88,12 @@ h3 {
 }
 img {
     margin: 0.5em;
-    flex: 0 0 30%;
+    width: 200px;
     border-radius: 1em;
     box-shadow: 0 0 20px 10px  rgba(255,255,255,.8);
 }
 p {
-    width: 65%;
+    width: 55%;
     padding: 0;
     margin: 0.5em;
     font-family: 'Neucha', cursive;
@@ -120,29 +125,44 @@ p {
     filter: drop-shadow(16px 16px 20px red) invert(75%);
 }
 
-@media screen and (max-width:1093px) {
+@media screen and (max-width:850px) {
     main {
-        padding: 0.3em;
+        display: flex;
+        flex-flow: column nowrap;
     }
     .navigation__list {
-        margin: 0.5em;
-        flex: 0 1 160px;
+        flex: 1 1 100%;
+        flex-flow: row nowrap;
+        height: auto;
     }
     .navigation__item {
         font-size: 28px;
+        width: 33%;
+    }
+    .content__wrapper {
+        width: 95%;
+        margin: 1em;
     }
     .content__item {
-        margin: 0.5em;
+        width: 100%;
+    }
+    h3 {
+        margin: 0 1em;
+        text-transform: uppercase;
+        width: 85%;
+        min-height: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 28px;
+        letter-spacing: -2px;
     }
     img {
-        width: 95%;
-        height: auto;
+        flex: 0 0 85%;
         margin: auto;
-        flex: 1 1 auto;
-        margin: 0.5em;
     }
     p {
-        width: 95%;
+        margin: 1em;
+        width: 85%;
         text-align: center;
     }
 }
