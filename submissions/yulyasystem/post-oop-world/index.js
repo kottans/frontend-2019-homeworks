@@ -7,7 +7,9 @@ class Entity {
     this.saying = `My name is ${this.name}`;
   }
   toString() {
-    return [this.species,this.name,this.gender,this.legs,this.saying].join(';') +`${this.saying}`;
+    return [this.species, this.name, this.gender, this.legs, this.saying].join(
+      ";"
+    );
   }
 }
 
@@ -17,9 +19,7 @@ class Human extends Entity {
     this.hands = 2;
   }
   toString() {
-    return (
-      super.toString() + ` I am ${this.species} I have ${this.hands} hands`
-    );
+    return super.toString() + ` I have ${this.hands} hands`;
   }
 }
 
@@ -28,7 +28,7 @@ class Animal extends Entity {
     super(species, name, gender, 4);
   }
   toString() {
-    return `I am ${this.species} I have ${this.legs} legs`;
+    return super.toString() + ` I have ${this.legs} legs`;
   }
 }
 
@@ -49,6 +49,9 @@ class CatWoman extends Human {
     super(name, gender);
     this.species = "cat-women";
   }
+  toString() {
+    return super.toString() + ` I am ${this.species} `;
+  }
 }
 
 const objects = [
@@ -60,3 +63,4 @@ const objects = [
 ];
 
 objects.forEach(obj => print(obj));
+
