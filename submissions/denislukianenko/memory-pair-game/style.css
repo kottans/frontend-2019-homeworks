@@ -25,7 +25,7 @@ h1 {
   font-size: 40px;
 }
 
-.field {
+#field {
   width: 100%;
   max-width: 650px;
   display: grid;
@@ -33,40 +33,40 @@ h1 {
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(4, 1fr);
 }
-.field > .card {
+#field > .card {
   animation: fadeIn both 600ms 0ms cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-.field > .card:nth-of-type(2) {
+#field > .card:nth-of-type(2) {
   animation-delay: 30ms;
 }
-.field > .card:nth-of-type(3) {
+#field > .card:nth-of-type(3) {
   animation-delay: 60ms;
 }
-.field > .card:nth-of-type(4) {
+#field > .card:nth-of-type(4) {
   animation-delay: 90ms;
 }
-.field > .card:nth-of-type(5) {
+#field > .card:nth-of-type(5) {
   animation-delay: 120ms;
 }
-.field > .card:nth-of-type(6) {
+#field > .card:nth-of-type(6) {
   animation-delay: 150ms;
 }
-.field > .card:nth-of-type(7) {
+#field > .card:nth-of-type(7) {
   animation-delay: 180ms;
 }
-.field > .card:nth-of-type(8) {
+#field > .card:nth-of-type(8) {
   animation-delay: 210ms;
 }
-.field > .card:nth-of-type(9) {
+#field > .card:nth-of-type(9) {
   animation-delay: 240ms;
 }
-.field > .card:nth-of-type(10) {
+#field > .card:nth-of-type(10) {
   animation-delay: 270ms;
 }
-.field > .card:nth-of-type(11) {
+#field > .card:nth-of-type(11) {
   animation-delay: 300ms;
 }
-.field > .card:nth-of-type(12) {
+#field > .card:nth-of-type(12) {
   animation-delay: 330ms;
 }
 
@@ -126,24 +126,25 @@ h1 {
   max-height: 70px;
 }
 
-.modal {
+#modal {
   margin-top: -28px;
   position: fixed;
   width: 100vw;
   height: 100vh;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  display: none;
   background-color: hsla(0, 0%, 100%, 0.8);
   animation: fadeIn both 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.modal {
+  display: none;
 }
 .modal-shown {
   display: flex;
 }
 
-.modal > button {
+#modal > button {
   background-color: lightblue;
   border: none;
   border-radius: 10px;
@@ -152,7 +153,7 @@ h1 {
   transition: 150ms;
 }
 
-.modal > button:hover {
+#modal > button:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 15px -10px hsl(195, 33%, 50%);
 }

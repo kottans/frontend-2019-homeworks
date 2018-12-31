@@ -1,129 +1,125 @@
-const technologies = ["react", "vue", "angular", "html", "css", "js"];
-const pathToImg = "img/";
-let playArray = [];
-let cardsElArr;
+let config = {
+  technologies: ["react", "vue", "angular", "html", "css", "js"],
+  pathToImg: "img/",
+  blocked: false,
+  playArray: [],
+  inGuessArray: [],
+  guessedArray: [],
+  cardsElArr: [],
+  flip1Sound: new Audio("sound/flip-1.mp3"),
+  flip2Sound: new Audio("sound/flip-2.mp3"),
+  successSound: new Audio("sound/Success 2.mp3"),
+  modal: document.getElementById("modal"),
+  field: document.getElementById("field")
+};
 
-let blocked = false;
-let inGuessArray = [];
-let guessedArray = [];
-
-let flip1Sound = new Audio("sound/flip-1.mp3");
-let flip2Sound = new Audio("sound/flip-2.mp3");
-let successSound = new Audio("sound/Success 2.mp3");
-flip1Sound.volume = 0.1;
-flip2Sound.volume = 0.1;
+config.flip1Sound.volume = 0.1;
+config.flip2Sound.volume = 0.1;
+config.field.addEventListener("click", function(event) {
+  handleGuess(event.target.parentElement.parentElement);
+});
 
 function playSuccess() {
-  successSound.currentTime = 0;
-  successSound.play();
+  config.successSound.currentTime = 0;
+  config.successSound.play();
 }
 
 function showModal() {
-  modal.classList.add("modal-shown");
+  config.modal.classList.add("modal-shown");
   document.querySelector("body").classList.add("scroll-blocked");
 }
+
+function truncateData() {
+  config.field.innerHTML = "";
+  config.blocked = false;
+  config.playArray = [];
+  config.inGuessArray = [];
+  config.guessedArray = [];
+}
+
 function startagain() {
-  modal.classList.remove("modal-shown");
+  config.modal.classList.remove("modal-shown");
   document.querySelector("body").classList.remove("scroll-blocked");
-  let field = document.querySelector(".field");
-  field.innerHTML = "";
-
-  let blocked = false;
-  playArray = [];
-  inGuessArray = [];
-  guessedArray = [];
-
+  truncateData();
   shuffleCards();
   spreadCards();
 }
 
-function shuffleCards() {
-  technologies.forEach(element => {
-    playArray.push(element);
-    playArray.push(element);
-  });
-  playArray.sort(function() {
+function shuffleArray(arr) {
+  arr.sort(function() {
     return 0.5 - Math.random();
   });
 }
 
-function spreadCards() {
-  let field = document.querySelector(".field");
-  playArray.forEach(function(el) {
-    let card = document.createElement("div");
-    card.classList.add("card");
-    card.classList.add(el);
-    card.setAttribute("onclick", "handleGuess(this)");
-
-    let bothSides = document.createElement("div");
-    bothSides.classList.add("both-sides");
-
-    let frontSide = document.createElement("div");
-    frontSide.classList.add("front");
-
-    let backSide = document.createElement("div");
-    backSide.classList.add("back");
-
-    let img = document.createElement("img");
-    img.setAttribute("src", pathToImg + el + ".png");
-
-    backSide.appendChild(img);
-    bothSides.appendChild(frontSide);
-    bothSides.appendChild(backSide);
-    card.appendChild(bothSides);
-    field.appendChild(card);
+function shuffleCards() {
+  config.technologies.forEach(element => {
+    config.playArray.push(element);
   });
-  cardsElArr = document.querySelectorAll(".card");
+  config.playArray = config.playArray.concat(config.playArray);
+  shuffleArray(config.playArray);
+}
+
+function spreadCards() {
+  config.playArray.forEach(function(el) {
+    config.field.innerHTML += ` 
+    <div class="card ${el}">
+      <div class="both-sides">
+        <div class="front"></div>
+        <div class="back">
+          <img src="img/${el}.png">
+        </div>
+      </div>
+    </div>
+    `;
+  });
+  config.cardsElArr = document.querySelectorAll(".card");
 }
 
 function render() {
-  cardsElArr.forEach(function(el) {
-    if (inGuessArray.includes(el) || guessedArray.includes(el)) {
+  config.cardsElArr.forEach(function(el) {
+    if (config.inGuessArray.includes(el) || config.guessedArray.includes(el)) {
       if (!el.classList.contains("flipped")) {
         el.classList.add("flipped");
-        flip1Sound.currentTime = 0;
-        flip1Sound.play();
+        config.flip1Sound.currentTime = 0;
+        config.flip1Sound.play();
       }
     } else {
       if (el.classList.contains("flipped")) {
         el.classList.remove("flipped");
-        flip2Sound.currentTime = 0;
-        flip2Sound.play();
+        config.flip2Sound.currentTime = 0;
+        config.flip2Sound.play();
       }
     }
   });
 }
 
 function unblock() {
-  blocked = false;
-  inGuessArray = [];
+  config.blocked = false;
+  config.inGuessArray = [];
   render();
 }
 
 function handleGuess(el) {
-  if (!blocked) {
-    if (inGuessArray.length == 0) {
-      inGuessArray.push(el);
+  if (config.blocked) return;
+  if (config.inGuessArray.length == 0) {
+    config.inGuessArray.push(el);
+  } else {
+    if (config.inGuessArray[0].classList.contains(el.classList[1])) {
+      config.guessedArray.push(el);
+      config.guessedArray.push(config.inGuessArray[0]);
+      config.guessedArray.length == config.playArray.length
+        ? setTimeout(showModal, 500)
+        : null;
+      config.inGuessArray = [];
+      setTimeout(playSuccess, 400);
     } else {
-      if (inGuessArray[0].classList.contains(el.classList[1])) {
-        guessedArray.push(el);
-        guessedArray.push(inGuessArray[0]);
-        if (guessedArray.length == playArray.length) {
-          setTimeout(showModal, 500);
-        }
-        inGuessArray = [];
-        setTimeout(playSuccess, 400);
-      } else {
-        inGuessArray.push(el);
-        blocked = true;
-        setTimeout(unblock, 1000);
-      }
+      config.inGuessArray.push(el);
+      config.blocked = true;
+      setTimeout(unblock, 1000);
     }
-    render();
   }
+  render();
 }
 
 shuffleCards();
 spreadCards();
-
-let modal = document.getElementsByClassName("modal")[0];
