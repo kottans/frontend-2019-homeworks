@@ -28,57 +28,59 @@ class Creature {
 }
 
 class HumanBeing extends Creature {
-    constructor(name, gender, species= 'Human', say, legs = 2, hands = 2) {
-        super(name, gender, species, say, legs);
+    constructor(name, gender, say, legs = 2, hands = 2) {
+        super(name, gender, 'Human', say, legs);
         this.hands = hands;
     }
     toString() {
-        return super.toString() +' '+ ['hands']
+        return super.toString()+' '
+            +['hands']
             .map(key => `${key}: <strong>${this[key]}</strong>`)
             .join('; ');
     }
 }
 
 class Dog extends Creature {
-    constructor(name, gender, species = 'dog', say = 'Woof-woof!', legs ) {
-        super(name, gender, species, say, legs);
+    constructor(name, gender, say = 'Woof-woof!', legs ) {
+        super(name, gender, 'Dog', say, legs);
     }
 }
 
 class Cat extends Creature {
-    constructor(name, gender, species = 'cat', say = 'Meow.', legs) {
-        super(name, gender, species, say, legs);
+    constructor(name, gender, say = 'Meow.', legs) {
+        super(name, gender, 'Cat', say, legs);
     }
 }
 
 class Man extends HumanBeing {
-    constructor(name, gender='male', species, say = 'Boys will be boys.', legs, hands) {
-        super(name, gender, species, say, legs, hands);
+    constructor(name, say = 'Boys will be boys.', legs, hands) {
+        super(name, 'male', say, legs, hands);
     }
 }
 
 class Woman extends HumanBeing {
-    constructor(name, gender='female', species, say = 'Love saves the world.', legs, hands) {
-        super(name, gender, species, say, legs, hands);
+    constructor(name, say = 'Love saves the world.', legs, hands) {
+        super(name, 'female', say, legs, hands);
     }
 }
 class CatWoman extends Woman {
-    constructor(name, gender, species, say) {
-        super(name, gender, species, say);
+    constructor(name, say) {
+        super(name, say);
+        this.say = new Cat().say;
     }
 }
 const woman    = new Woman('Sarah');
 const man      = new Man('John');
 const cat      = new Cat('Maya', 'female');
 const dog      = new Dog('Toby', 'male');
-const catWoman = new CatWoman('Sophie', undefined, undefined, cat.say);
+const catWoman = new CatWoman('Sophie');
 
 woman.addFriends(man, cat);
 man.addFriends(woman, dog);
 dog.addFriends(woman, man);
 
 [woman, man, cat, dog, catWoman]
-    .forEach((item) => print(item.toString()));
+    .forEach((item) => print(item));
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
