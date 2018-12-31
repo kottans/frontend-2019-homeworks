@@ -13,6 +13,7 @@ body {
 }
 
 .game-container {
+  padding-top: 20px;
   width: 640px;
   height: 640px;
   margin: auto;
@@ -22,14 +23,6 @@ body {
   transition: .5s ease;
   transform: translateY(0);
 }
-
-@media screen and (max-width: 549px) {
-  .game-container {
-    width: 320px;
-    height: 320px;
-  }
-}
-
 .game-container.hidden {
   transform: translateY(-1500px);
 }
@@ -43,6 +36,7 @@ body {
   position: relative;
   transition:  .25s ease;
   transform-style: preserve-3d;
+  background-color: rgba(85, 22, 70, 0.4);
 }
 @media screen and (max-width: 549px) {
   .card {
@@ -75,29 +69,16 @@ body {
 
 .front-part, .back-part {
   position: absolute;
-  padding: 25px;
-  width: 100%;
-  height: 100%;
   backface-visibility: hidden;
-}
-
-@media screen and (max-width: 549px) {
-  .front-part, .back-part {
-    padding: 5px;
-}
-}
-.front-part {
-  background-image: url('../img/texture-2.png');
   border-radius: 10px;
-  background-size: cover;
 }
 
 .back-part {
   transform: rotateY(180deg);
-  border-radius: 10px;
+  padding: 25px;
+  width: 100%;
+  height: 100%;
 }
-
-
 
 .modal-container {
   text-align: center;
@@ -126,7 +107,7 @@ body {
 
 /************button**************/
 .button {
-  margin-top: 40px;
+  margin-top: 25px;
   display: inline-block;
   border: none;
   color: #fff;
@@ -178,4 +159,14 @@ body {
 
 .button:active::after {
   opacity: .32;
+}
+
+@media screen and (max-width: 549px) {
+  .game-container {
+    width: 320px;
+    height: 320px;
+  }
+  .back-part {
+    padding: 10px;
+  }
 }

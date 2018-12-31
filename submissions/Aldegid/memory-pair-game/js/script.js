@@ -21,20 +21,15 @@ let showedCards = 0;
 function createCards() {
   images = svgImages;
   let cardContainer = document.createDocumentFragment();
-  images = images.concat(images); //duplicate array of images
-  shuffle(images); // shuffle all images
+  images = images.concat(images);
+  shuffle(images);
   images.forEach(function (item) {
     let card = document.createElement('div');
-    let frontPart = document.createElement('div');
-    let backPart = document.createElement('img');
     card.classList.add('card');
     card.dataset.item = item;
-    frontPart.classList.add('front-part');
-    backPart.setAttribute('src', item);
-    backPart.classList.add('back-part');
-    card.appendChild(frontPart);
-    card.appendChild(backPart);
-    cardContainer.appendChild(card);
+    card.innerHTML = `<div class="front-part"></div>
+                      <img src="${item}" class="back-part">`
+    cardContainer.append(card);
   });
   return cardContainer;
 }
@@ -44,16 +39,15 @@ function shuffle(arr) {
 }
 
 function flipCard(e) {
-  if(!e.target.parentNode.classList.contains('card')){
+  if(!e.target.classList.contains('card')){
     return;
   }
-  currentCard = e.target.parentNode;
+  currentCard = e.target;
   if(currentCard.classList.contains('succes')){
     return;
   }
   if (lockBoard) return;
   if(currentCard === firstCard) return;
-
   currentCard.classList.add('flip');
   if (!flippedCard) {
     flippedCard = true;
@@ -68,8 +62,9 @@ function flipCard(e) {
 }
 
 function isPaired() {
-  let isPair = firstCard.dataset.item === secondCard.dataset.item;
-  isPair ? disableCards() : unflipCards();
+  if (firstCard.dataset.item === secondCard.dataset.item){
+    disableCards()
+  }else unflipCards();
 }
 
 function disableCards() {
