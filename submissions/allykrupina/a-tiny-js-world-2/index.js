@@ -8,51 +8,58 @@
 // ======== OBJECTS DEFINITIONS ========
 
 class Inhabitant {
-    constructor(species, name, gender, legs, hands, saying) {
+    constructor(species, name, gender, saying) {
         this.species = species;
         this.name = name;
         this.gender = gender;
-        this.legs = legs;
-        this.hands = hands;
         this.saying = saying;
+    }
+    toString(){
+        return ['<em>' + this.species + '</em>', '<strong>' + this.name + '</strong>', this.gender, this.saying, this.legs, this.hands].join ('; ');
     }
 }
 
 class Woman extends Inhabitant {
-    constructor(species, name, gender, saying, legs, hands) {
-        super(...arguments);
+    constructor(name, gender, saying) {
+        super('woman', name, gender, saying);
+        this.hands = 2;
+        this.legs = 2;
+        this.saying = 'I love my cat';
     }
 }
 
 class Man extends Inhabitant {
-    constructor(species, name, gender, saying, legs, hands) {
-        super(...arguments);
+    constructor(name, gender, saying) {
+        super('man', name, gender, saying);
+        this.hands = 2;
+        this.legs = 2;
+        this.saying = 'I love my dog';
     }
 }
 
 class Dog extends Inhabitant {
-    constructor(species, name, gender, saying, legs, hands) {
-        super(...arguments);
+    constructor(name, gender) {
+        super('dog', name, gender);
+        this.legs = 4;
+        this.saying = 'wooooof';
     }
 }
 
 class Cat extends Inhabitant {
-    constructor(species, name, gender, saying, legs, hands) {
-        super(...arguments);
+    constructor(name, gender) {
+        super('cat', name, gender);
+        this.legs = 4;
+        this.saying = 'murrr';
     }
 }
 
 const inhabitants = [
-    new Woman('human', 'Nika', 'female', 'I love my cat', 2, 2),
-    new Man('human', 'Kurt', 'male', 'I love my dog', 2, 2),
-    new Dog('dog', 'Grey', 'male', 'wooooof', 4, 0),
-    new Cat('cat', 'Assol', 'female', 'murrr', 4, 0)
+    new Woman('Nika', 'female'),
+    new Man('Kurt', 'male'),
+    new Dog('Grey', 'male'),
+    new Cat('Assol', 'female')
 ];
 
-function inhabitantToString(obj){
-    return ['<em>' + obj.species + '</em>', '<strong>' + obj.name + '</strong>', obj.gender, obj.legs, obj.hands, obj.saying].join ('; ');
-}
-
 inhabitants.forEach(inhabitant =>
-    print(inhabitantToString(inhabitant))
+    print(inhabitant)
 );
