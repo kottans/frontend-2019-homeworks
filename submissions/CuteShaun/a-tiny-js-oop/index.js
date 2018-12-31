@@ -7,76 +7,62 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
-const allProps = [
-  "type",
-  "legs",
-  "hands",
-  "gender",
-  "name",
-  "saying",
-  "friendList"
-];
+const allProps = ["type", "limbs", "gender", "name", "saying", "friendList"];
 
 class MainForm {
-  constructor(type, legs, hands, gender, name, saying, friendList) {
+  constructor(type, limbs, gender, name, saying, friendList) {
     this.type = type;
-    this.legs = legs;
-    this.hands = hands;
+    this.limbs = limbs;
     this.gender = gender;
     this.name = name;
     this.saying = saying;
     this.friendList = friendList;
   }
-}
 
-MainForm.prototype.toString = function() {
-  return allProps
-    .map(item => {
-      if (Array.isArray(this[item])) {
-        return this[item].join(", ");
-      }
-      return `${this[item]}`;
-    })
-    .join("; ");
-};
+  toString() {
+    return allProps
+      .map(item => {
+        if (Array.isArray(this[item])) {
+          return this[item].join(", ");
+        }
+        return `${this[item]}`;
+      })
+      .join("; ");
+  }
 
-MainForm.prototype.say = function() {
-  return this.saying;
-};
+  showSaying() {
+    return this.saying;
+  }
 
-MainForm.prototype.friends = function() {
-  return `<em>${this.friendList}</em>`;
-};
-
-class Cat extends MainForm {
-  constructor(type, legs, hands, gender, name, friendList, saying = "meow") {
-    super(type, legs, hands, gender, name, saying, friendList);
+  showFriendsList() {
+    return `<em>${this.friendList}</em>`;
   }
 }
 
-const man = new MainForm("human", 2, 2, "male", "Andrew", "Hello, Eva!", [
+class Cat extends MainForm {
+  constructor(type, limbs, gender, name, friendList, saying = "meow") {
+    super(type, limbs, gender, name, saying, friendList);
+  }
+}
+
+const man = new MainForm("human", 4, "male", "Andrew", "Hello, Eva!", [
   "Eva",
   "Masya"
 ]);
-const woman = new MainForm("human", 2, 2, "female", "Eva", "Hello, Andrew!", [
+const woman = new MainForm("human", 4, "female", "Eva", "Hello, Andrew!", [
   "Andrew",
   "Barkl"
 ]);
-const dog = new MainForm("animal", 4, 0, "male", "Barkl", "bark", [
+const dog = new MainForm("animal", 4, "male", "Barkl", "bark", [
   "Eva",
   "Andrew"
 ]);
 
-const cat = new Cat("animal", 4, 0, "female", "Masya", ["Andrew"]);
+const cat = new Cat("animal", 4, "female", "Masya", ["Andrew"]);
+const catWoman = new Cat("human", 4, "female", "Eva", ["Andrew", "Barkl"]);
+const allInhabitans = [man, woman, dog, cat, catWoman];
 
-const catWoman = new Cat("human", 2, 2, "female", "Eva", ["Andrew", "Barkl"]);
-
-print(man);
-print(woman);
-print(dog);
-print(cat);
-print(catWoman);
-
+allInhabitans.forEach(item => print(item));
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
