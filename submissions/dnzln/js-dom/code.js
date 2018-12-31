@@ -28,10 +28,12 @@ const content = [
 
 
 var container = document.createElement('section');
+container.classList.add('artilce-section');
 var mainCont = document.getElementById('main-content');
 mainCont.appendChild(container);
 
 var heading = document.createElement('h2');
+heading.classList.add('second-heading');
 var img = document.createElement('img');
 var text = document.createElement('p');
 container.appendChild(heading);
