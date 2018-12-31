@@ -30,7 +30,7 @@ const man = new Inhabitant('Rob', 28, 'human', 'male', 2, 2, 0, 0, 'Hi!' );
 // ======== OUTPUT ========
 
 const getStringFromObj = (obj) => {
-    return `<strong>${obj.name}</strong>; age: ${obj.age}; species: ${obj.species}; gender: ${obj.gender}; legs: ${obj.legs}; hands: ${obj.hands}; paws: ${obj.paws}; tail: ${obj.tail}; greeting: ${obj.greeting};`
+    return [`<strong>${obj.name}</strong>`, `age: ${obj.age}`, `species: ${obj.species}`, `gender: ${obj.gender}`, `legs: ${obj.legs}`, `hands: ${obj.hands}`, `paws: ${obj.paws}`, `tail: ${obj.tail}`, `greeting: ${obj.greeting}`].join('; ');
 }
 
 [dog, cat, woman, man].forEach(obj => print(getStringFromObj(obj)));
