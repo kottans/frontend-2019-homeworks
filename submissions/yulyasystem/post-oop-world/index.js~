@@ -7,7 +7,7 @@ class Entity {
     this.saying = `My name is ${this.name}`;
   }
   toString() {
-    return [this.species,this.name,this.gender,this.legs,this.saying].join(';') +`${this.saying}`;
+    return `${this.saying}`;
   }
 }
 
