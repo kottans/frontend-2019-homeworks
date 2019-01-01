@@ -1,18 +1,45 @@
-const CELL = { width: 101, height: 83 };
-const CANVAS = { width: 505, height: 606 };
-const ENEMY = { speed: 100, startPosition: -50, width: 80, height: 60 };
-const PLAYER_LOCATION = { x_axis: 200, y_axis: 400 };
+const CELL = {
+    width: 101,
+    height: 83
+};
+const CANVAS = {
+    width: 505,
+    height: 606,
+    offsetY: 31
+};
+const ENEMY = {
+    speed: 100,
+    startPosition: -50,
+    width: 80,
+    height: 60,
+    sprite: 'images/enemy-bug.png'
+};
+const PLAYER = {
+    xAxis: 200,
+    yAxis: 400,
+    sprite: 'images/char-boy.png'
+};
 
-const Creature = function (x, y) {
+const Creature = function (x, y, sprite) {
     this.x = x;
     this.y = y;
+    this.sprite = sprite;
 }
+
+
+Creature.prototype.render = function () {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
 // Enemies our player must avoid
-const Enemy = function (x, y, speed) {
-    Creature.call(this, x, y);
+const Enemy = function (x, y, speed, player) {
+    Creature.call(this, x, y, sprite = ENEMY.sprite);
     this.speed = speed;
-    this.sprite = 'images/enemy-bug.png';
+    this.player = player;
 };
+
+
+Enemy.prototype = Object.create(Creature.prototype);
 
 Enemy.prototype.update = function (dt) {
     this.x += this.speed * dt;
@@ -21,31 +48,23 @@ Enemy.prototype.update = function (dt) {
         this.x = ENEMY.startPosition;
         this.speed = Math.floor(Math.random() * 200) + ENEMY.speed;
     }
-
-    if (player.x > this.x - ENEMY.width && player.x < this.x + ENEMY.width &&
-        player.y > this.y - ENEMY.height && player.y < this.y + ENEMY.height) {
-        player.x = PLAYER_LOCATION.x_axis;
-        player.y = PLAYER_LOCATION.y_axis;
+    this.handleCollision();
+};
+Enemy.prototype.handleCollision = function () {
+    if (this.player.x > this.x - ENEMY.width && this.player.x < this.x + ENEMY.width &&
+        this.player.y > this.y - ENEMY.height && this.player.y < this.y + ENEMY.height) {
+        this.player.x = PLAYER.xAxis;
+        this.player.y = PLAYER.yAxis;
     }
+}
 
-};
-
-Enemy.prototype.render = function () {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
 
 const Player = function (x, y) {
-    Creature.call(this, x, y);
-
-    this.sprite = 'images/char-boy.png';
+    Creature.call(this, x, y, sprite = PLAYER.sprite);
 }
 
+Player.prototype = Object.create(Creature.prototype);
 Player.prototype.update = function (dt) {
-
-}
-
-Player.prototype.render = function () {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
 Player.prototype.handleInput = function (key) {
@@ -58,25 +77,26 @@ Player.prototype.handleInput = function (key) {
     if (key == 'up' && this.y > 0) {
         this.y = this.y - CELL.height
     }
-    if (key == 'down' && this.y < PLAYER_LOCATION.y_axis) {
+    if (key == 'down' && this.y < PLAYER.yAxis) {
         this.y = this.y + CELL.height
     }
     if (this.y < 0) {
-        this.x = PLAYER_LOCATION.x_axis;
-        this.y = PLAYER_LOCATION.y_axis;
+        this.x = PLAYER.xAxis;
+        this.y = PLAYER.yAxis;
     }
 }
 
-let allEnemies = [];
-let player = new Player(PLAYER_LOCATION.x_axis, PLAYER_LOCATION.y_axis);
-let enemiesLocation = [52, 132, 212];
-enemiesLocation.forEach(elem => {
-    let enemy = new Enemy(0, elem, ENEMY.speed);
-    allEnemies.push(enemy);
-})
+
+let player = new Player(PLAYER.xAxis, PLAYER.yAxis);
+
+let allEnemies = [1, 2, 3]
+    .map(row => row * CELL.height - CANVAS.offsetY)
+    .map(locationY => new Enemy(0, locationY, ENEMY.speed, player))
+
+
 
 document.addEventListener('keyup', function (e) {
-    var allowedKeys = {
+    const allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
