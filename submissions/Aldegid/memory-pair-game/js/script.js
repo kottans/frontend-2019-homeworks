@@ -11,6 +11,7 @@ const svgImages = [
 const container = document.querySelector('.container');
 const gameContainer = document.querySelector('.game-container');
 const modalContainer = document.querySelector('.modal-container');
+const deley = 1000;
 
 let flippedCard = false;
 let lockBoard = false;
@@ -58,7 +59,7 @@ function flipCard(e) {
   isPaired();
   setTimeout(() => {
     showWinMessage();
-  }, 500);
+  }, deley / 2);
 }
 
 function isPaired() {
@@ -82,7 +83,7 @@ function unflipCards() {
     firstCard.classList.remove('flip', 'wrong');
     secondCard.classList.remove('flip', 'wrong');
     resetBoard();
-  }, 1000);
+  }, deley);
 }
 
 function resetBoard() {
