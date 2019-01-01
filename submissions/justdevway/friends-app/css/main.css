@@ -1,6 +1,7 @@
 :root {
     --selection: #F08080;
     --menu_width: 12.5%;
+    --count: 4;
 }
 
 html {
@@ -213,9 +214,8 @@ body {
 
 
 .cards__list {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(var(--count), 1fr);
     padding: 0;
     margin: 0;
     list-style-type: none;
@@ -223,7 +223,6 @@ body {
 
 .cards__item {
     margin: 10px 15px;
-    flex: 0 0 22%;
 }
 
 .cards__item.is_hide {
@@ -361,6 +360,7 @@ body {
 @media only screen and (max-width: 1366px) {
     :root {
         --menu_width: 20%;
+        --count: 3;
     }
 
     .container {
@@ -368,22 +368,16 @@ body {
         padding-left: calc(var(--menu_width));
     }
 
-    .cards__item {
-        flex: 1 0 30%;
-        max-width: 30%;
-    }
-
 }
 
 
 @media only screen and (max-width: 1024px) {
-    .cards__list {
-        justify-content: center;
+    :root {
+        --count: 2;
     }
 
     .cards__item {
-        flex: 1 0 35%;
-        max-width: inherit;
+        margin: 1% 2.5%;
     }
 
     .controller__button:focus,
@@ -440,6 +434,10 @@ body {
 }
 
 @media only screen and (max-width: 480px) {
+    :root {
+        --count: 1;
+    }
+
     .menu {
         position: static;
         width: 100%;
