@@ -85,7 +85,7 @@ function buildCardsList() {
         .then(data => state.CardsList = data.results.map(buildCard))
         .then(() => state.filteredList = [...state.CardsList])
         .then(() => state.sortedList = [...state.CardsList])
-        .then(() => renderCards(state.CardsList));
+        .then(() => renderCards(state.filteredList));
 
     function buildCard(friend) {
         return new Card({
@@ -118,14 +118,16 @@ const renderBtn = (page, sumResults, resPerPage) => {
         btn = createBtn(page, 'prev');
     }else if (page < pages){
         btn = `${createBtn(page, 'next')} ${createBtn(page, 'prev')}`;
+    }else{
+        btn = null;
     }
     if( sumResults > 0 ){
         if(APP_CONFIG.btnWrapper) {
-            APP_CONFIG.btnWrapper.insertAdjacentHTML('beforeend', btn);
+            if(btn) APP_CONFIG.btnWrapper.insertAdjacentHTML('beforeend', btn);
         } else{
             const btnWrapper = document.createElement('DIV');
             btnWrapper.className = 'btn-wrapper';
-            btnWrapper.insertAdjacentHTML('beforeend', btn);
+            if(btn) btnWrapper.insertAdjacentHTML('beforeend', btn);
             APP_CONFIG.target.appendChild(btnWrapper);
         }
     }
@@ -178,7 +180,7 @@ APP_CONFIG.target.addEventListener('click', e => {
     const btn = e.target.closest('.btn-inline');
     if(btn){
         const goToPage = parseInt(btn.dataset.goto);
-        renderCards(state.CardsList, goToPage);
+        renderCards(state.sortedList, goToPage);
     }
 });
 
