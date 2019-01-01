@@ -1,0 +1,111 @@
+#dialog
+    position: fixed
+    width: 1560px
+    height: 478px
+    bottom: 0
+    left: 20px
+    font-family: p5hatty
+    animation: dialog-animation 1s ease-in 0s 1
+    transition: opacity .3s ease-out
+
+@keyframes dialog-animation
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+
+.dialog-hide
+    opacity: 0 !important
+    pointer-events: none
+
+.dialog-box
+    position: fixed
+    width: 1114px
+    height: 378px
+    margin-left: 300px
+    bottom: -30px
+    left: 0
+    background-image: url("../../../static/images/dialog-box.png")
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: bottom right     
+
+.dialog-box-avatar
+    position: fixed
+    width: 431px
+    height: 460px
+    bottom: 0
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: bottom left
+
+.dialog-box-avatar-name
+    position: fixed
+    font-size: 40px
+    text-transform: capitalize
+    color: #000000
+    margin-left: 140px
+    margin-top: 80px
+    transform: rotateZ(-20deg)
+
+.dialog-box-avatar-name:first-letter
+    background: #000000
+    color: #ffffff
+
+.dialog-box-text
+    position: fixed
+    font-size: 40px
+    color: #ffffff
+    margin-left: 220px
+    margin-top: 150px
+    animation: dialog-animation 1.5s ease-in 0s 1
+
+@keyframes dialog-animation
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+
+.dialog-box-button
+    position: absolute
+    width: 150px
+    height: 150px
+    right: 0
+    bottom: 0
+    margin-bottom: 50px
+    text-align: center
+    vertical-align: middle
+    line-height: 150px
+    background: #ffffff1c
+    color: #ffffffcf
+    transform: perspective(10px) rotateX(1deg)
+    font-family: p5hatty
+    font-size: 100px
+    cursor: pointer
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.45)
+    animation: dialog-box-button 2s ease-in 0s 1
+    animation-iteration-count: infinite
+
+.dialog-box-button:hover
+    transform: perspective(10px) rotateX(1deg) scale(1.05)
+
+
+.dialog-box-button:active
+    transform: perspective(10px) rotateX(1deg) scale(1)
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.18)
+
+@keyframes dialog-box-button
+    0%
+        background: #ffffff1c
+        color: #ffffffa8
+    50%
+        background: #ffffff47
+        color: #ffffff
+    100%
+        background: #ffffff1c
+        color: #ffffffa8
+
+@media (max-height: 768px) 
+    #dialog
+        transform: scale(0.7)
+        transform-origin: 0% 100%
