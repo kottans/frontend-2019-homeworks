@@ -1,0 +1,83 @@
+body, *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.game{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.game div{
+    width: calc(25% - 10px);
+    height: 12vw;
+    border-radius: 10px;
+    margin: 5px;
+    position: relative;
+    padding: 5px;
+    border: 3px solid #f45819;
+    pointer-events: none;
+    transition: 0.5s;
+    transform: rotateY(180deg);
+}
+.game .secret {
+    transform: rotateY(0deg);
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.game .success {
+    opacity: 0;
+    transition: 0.5s;
+}
+.game .success img{
+    opacity: 0;
+}
+.game .secret:after {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff url(../img/question.png);
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.game div img{
+    width: 100%;
+    display: block;
+    transition: 0.5s;
+    transition-delay: 0.1s;
+    opacity: 1;
+}
+.game .secret img{
+    opacity: 0;
+}
+.result{
+    position: absolute;
+    top: -25px;
+    left: 0;
+}
+@media screen and (max-width: 768px) {
+    .game {
+        width: 70%;
+    }
+    .game div{
+        height: 16vw;
+    }
+}
+@media screen and (max-width: 768px) {
+    .game {
+        width: 70%;
+    }
+    .game div{
+        height: 16vw;
+    }
+}
