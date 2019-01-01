@@ -15,47 +15,52 @@ class Inhabitant {
         this.saying = saying;
     }
     toString(){
-        return ['<em>' + this.species + '</em>', '<strong>' + this.name + '</strong>', this.gender, this.saying, this.legs, this.hands].join ('; ');
+        return ['<em>' + this.species + '</em>', '<strong>' + this.name + '</strong>', this.gender, this.saying, this.legs + '; '].join ('; ');
     }
 }
 
-class Woman extends Inhabitant {
+class Human extends Inhabitant {
     constructor(name, gender, saying) {
-        super('woman', name, gender, saying);
+        super('Human', name, gender, saying);
         this.hands = 2;
         this.legs = 2;
-        this.saying = 'I love my cat';
+    }
+    toString(){
+        return super.toString() + this.hands + ';';
     }
 }
 
-class Man extends Inhabitant {
-    constructor(name, gender, saying) {
-        super('man', name, gender, saying);
-        this.hands = 2;
-        this.legs = 2;
-        this.saying = 'I love my dog';
+class Woman extends Human {
+    constructor(species, name, gender, saying) {
+        super(...arguments);
+    }
+}
+
+class Man extends Human {
+    constructor(species, name, gender, saying) {
+        super(...arguments);
     }
 }
 
 class Dog extends Inhabitant {
-    constructor(name, gender) {
-        super('dog', name, gender);
+    constructor(name, gender, saying) {
+        super('dog', name, gender, saying);
         this.legs = 4;
         this.saying = 'wooooof';
     }
 }
 
 class Cat extends Inhabitant {
-    constructor(name, gender) {
-        super('cat', name, gender);
+    constructor(name, gender, saying) {
+        super('cat', name, gender, saying);
         this.legs = 4;
         this.saying = 'murrr';
     }
 }
 
 const inhabitants = [
-    new Woman('Nika', 'female'),
-    new Man('Kurt', 'male'),
+    new Woman('Nika', 'female', 'I love my cat'),
+    new Man('Kurt', 'male', 'I love my dog'),
     new Dog('Grey', 'male'),
     new Cat('Assol', 'female')
 ];
