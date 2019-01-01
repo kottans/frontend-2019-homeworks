@@ -7,12 +7,13 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
-const allProps = ["type", "limbs", "gender", "name", "saying", "friendList"];
+const allProps = ["type", "legs", "hands", "gender", "name", "saying", "friendList"];
 
 class MainForm {
-  constructor(type, limbs, gender, name, saying, friendList) {
+  constructor(type, legs, hands, gender, name, saying, friendList) {
     this.type = type;
-    this.limbs = limbs;
+    this.legs = legs;
+    this.hands = hands;
     this.gender = gender;
     this.name = name;
     this.saying = saying;
@@ -39,27 +40,65 @@ class MainForm {
   }
 }
 
-class Cat extends MainForm {
-  constructor(type, limbs, gender, name, friendList, saying = "meow") {
-    super(type, limbs, gender, name, saying, friendList);
+class Human extends MainForm {
+  constructor(legs, hands, gender, name, friendList, saying) {
+    super("human", legs, hands, gender, name, saying, friendList);
   }
 }
 
-const man = new MainForm("human", 4, "male", "Andrew", "Hello, Eva!", [
+class Dog extends MainForm {
+  constructor(legs, hands, gender, name, friendList, saying = "bark") {
+    super("dog", legs, false, gender, name, saying, friendList);
+  }
+}
+
+const Cat = (legs, gender, name, friendList) => {
+  let state = {
+    type: "cat",
+    legs,
+    gender,
+    name,
+    friendList,
+    saying: "meow",
+  }
+
+  return Object.assign(
+    {},
+    new MainForm(state.type, state.legs, state.gender, state.name, state.saying, state.friendList)
+  )
+}
+
+const CatWoman = (legs, hands, gender, name, friendList) => {
+  let state = {
+    legs,
+    hands,
+    gender,
+    name,
+    friendList,
+  }
+
+  return Object.assign(
+    {},
+    Cat(state.legs, state.gender, state.name, state.friendList)
+  )
+}
+
+
+const man = new Human(2, 2, "male", "Andrew", "Hello, Eva!", [
   "Eva",
   "Masya"
 ]);
-const woman = new MainForm("human", 4, "female", "Eva", "Hello, Andrew!", [
+const woman = new Human(2, 2, "female", "Eva", "Hello, Andrew!", [
   "Andrew",
   "Barkl"
 ]);
-const dog = new MainForm("animal", 4, "male", "Barkl", "bark", [
+const dog = new Dog(4, "male", "Barkl", "bark", [
   "Eva",
   "Andrew"
 ]);
 
-const cat = new Cat("animal", 4, "female", "Masya", ["Andrew"]);
-const catWoman = new Cat("human", 4, "female", "Eva", ["Andrew", "Barkl"]);
+const cat = Cat(4, "female", "Masya", ["Andrew"]);
+const catWoman = CatWoman(2, 2, "female", "Eva", ["Andrew", "Barkl"]);
 const allInhabitans = [man, woman, dog, cat, catWoman];
 
 allInhabitans.forEach(item => print(item));
