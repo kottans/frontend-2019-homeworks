@@ -4,7 +4,7 @@ body, *{
     box-sizing: border-box;
 }
 .game{
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-wrap: wrap;
     position: fixed;
@@ -14,7 +14,7 @@ body, *{
 }
 .game div{
     width: calc(25% - 10px);
-    height: 12vw;
+    height: 9vw;
     border-radius: 10px;
     margin: 5px;
     position: relative;
