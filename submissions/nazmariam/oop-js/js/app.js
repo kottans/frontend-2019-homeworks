@@ -10,34 +10,37 @@ const STEP = {
     x:102,
     y:82
 };
+const SPEED = (min = 40, max = 170) => Math.random() * (max - min) + min;
+const ENEMY_ROWS = [1, 2, 3].map(rowNum => rowNum * STEP.y - STEP.x/5);
 let win = 0;
-let Enemy = function(x,y,speed) {
+let Enemy = function(x,y,speed, gamer) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
     this.speed = speed;
+    this.gamer = gamer;
 };
-Enemy.prototype.update = function(dt,gamer) {
+Enemy.prototype.update = function(dt) {
     this.x += dt*this.speed;
 
-    if (this.checkCollision(gamer)){
+    if (this.checkCollision()){
         alert("You loose");
-        gamer.x = START.x;
-        gamer.y = START.y;
+        this.gamer.x = START.x;
+        this.gamer.y = START.y;
     }
 };
 Enemy.prototype.render = function() {
     if(this.x >= FIELD.w)
-        this.x = 0;
+        this.x = -STEP.x;
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-Enemy.prototype.checkCollision = function(gamer){
+Enemy.prototype.checkCollision = function(){
 
     if (
-       gamer.x < this.x + STEP.x/2 &&
-        gamer.x + STEP.x/2 > this.x &&
-        gamer.y < this.y + STEP.y/4 &&
-        gamer.y + STEP.y/4 > this.y
+       this.gamer.x < this.x + STEP.x/2 &&
+        this.gamer.x + STEP.x/2 > this.x &&
+        this.gamer.y < this.y + STEP.y/4 &&
+        this.gamer.y + STEP.y/4 > this.y
     ) {
         return true;
     } else {
@@ -95,16 +98,11 @@ Player.prototype.handleInput = function(code){
     }
 };
 const player = new Player();
-const allEnemies = [
-    new Enemy(-100, 55, 100),
-    new Enemy(-400, 135, 70),
-    new Enemy(0, 135, 35),
-    new Enemy(0, 220, 50),
-    new Enemy(-300, 220, 70)
-];
+
+const allEnemies = ENEMY_ROWS.map(rowNum => new Enemy(-STEP.x, rowNum, SPEED(), player));
 
 document.addEventListener('keyup', function(e) {
-    let allowedKeys = {
+    const allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
