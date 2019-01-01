@@ -22,9 +22,8 @@ class Inhabitant {
 
 class Human extends Inhabitant {
     constructor(species, name, gender, saying, legs = 2, hands = 2) {
-        super(species, name, gender, saying);
+        super(species, name, gender, saying, legs);
         this.hands = hands;
-        this.legs = legs;
     }
     toString(){
         return super.toString() + this.hands + ';';
