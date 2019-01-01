@@ -31,18 +31,18 @@ body {
     padding: 10px 0;
 }
 
-.menu-item {
+.menu-list {
     list-style: none;
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
-.menu-item li {
+.menu-item {
     line-height: 1.7em;
 }
 
-.menu-item li:hover {
+.menu-item:hover {
     color: #ffffff;
     cursor: pointer;
 }
