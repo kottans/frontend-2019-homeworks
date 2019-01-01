@@ -33,7 +33,7 @@ function enemyRandomSpeed(max, min) {
   Player.prototype.handleInput = function (key) {
     if (key === 'left' && this.x > 0) {
       this.x -= 100;
-    } else if (key === 'right' && this.x<400) {
+    } else if (key === 'right' && this.x < 400) {
       this.x += 100;
     } else if (key === 'up' && this.y > 0) {
       this.y -= 80;
@@ -45,14 +45,14 @@ function enemyRandomSpeed(max, min) {
   const player = new Player(200, 380, 101, 171);
 
   class Enemy {
-    constructor(speed, x, y, width, height, sprite = imgBug, boy = player) {
+    constructor(x, y, width, height, boy, speed, sprite = imgBug) {
       this.speed = speed;
       this.x = x;
       this.y = y;
       this.width = width;
       this.height = height;
       this.sprite = sprite;
-      this.boy  = boy;
+      this.boy = boy;
     }
   }
 
@@ -79,10 +79,10 @@ function enemyRandomSpeed(max, min) {
     };
   };
   //------------------------------------------------------
-  const enemy = new Enemy(enemyRandomSpeed(70, 200), 0, 63, 101, 171);
-  const enemyJack = new Enemy(enemyRandomSpeed(90, 200), 0, 145, 101, 171);
-  const enemyMarty = new Enemy(enemyRandomSpeed(40, 250), 0, 228, 101, 171);
-  const enemyBuba = new Enemy(enemyRandomSpeed(68, 150), 0, 63, 101, 171);
+  const enemy = new Enemy(0, 63, 101, 171, player, enemyRandomSpeed(70, 200));
+  const enemyJack = new Enemy(0, 145, 101, 171, player, enemyRandomSpeed(90, 200));
+  const enemyMarty = new Enemy(0, 228, 101, 171, player, enemyRandomSpeed(40, 250));
+  const enemyBuba = new Enemy(0, 63, 101, 171, player, enemyRandomSpeed(68, 150));
   //------------------------------------------------------
   const allEnemies = [enemy, enemyJack, enemyMarty, enemyBuba];
   //------------------------------------------------------
@@ -95,4 +95,5 @@ function enemyRandomSpeed(max, min) {
    };
 
       player.handleInput(allowedKeys[e.keyCode]);
+      
   });
