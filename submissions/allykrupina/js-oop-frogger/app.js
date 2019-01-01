@@ -1,3 +1,17 @@
+let allEnemies = [];
+const ENEMY_POSITION = [50, 130, 220],
+    PLAYER_X = 200,
+    PLAYER_Y = 380,
+    PLAYER_STEP_X = 50,
+    PLAYER_STEP_Y = 30,
+    PLAYER_MOVEMENT = 50,
+    RANDOM_COEFFICIENT = 100,
+    DELAY_TIME = 1000,
+    PLAYER_WIDTH = 65,
+    PLAYER_HEIGHT = 75,
+    BLOCK_WIDTH = 150,
+    FIELD_WIDTH = 505;
+
 let Character = function(x,y,sprite){
     this.x = x;
     this.y = y;
@@ -8,26 +22,34 @@ Character.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-let Enemy = function(x, y, movement) {
+let Enemy = function(x, y, player) {
     Character.call(this, x, y, 'images/enemy-bug.png')
-    this.movement = movement;
+    this.player = player;
+    this.movement = this.enemySpeed();
 };
 
 Enemy.prototype = Object.create(Character.prototype);
 
 Enemy.prototype.constructor = Character;
 
+Enemy.prototype.enemySpeed = function () {
+    return BLOCK_WIDTH + Math.floor(Math.random() * RANDOM_COEFFICIENT);
+};
+
 Enemy.prototype.update = function(dt) {
     this.x += this.movement * dt;
-    if (this.x > 505) {
-        this.x = -150;
-        this.movement = 150 + Math.floor(Math.random() * 800);
+    if (this.x > FIELD_WIDTH) {
+        this.x = -BLOCK_WIDTH;
     }
-    let pos1 = player.x < this.x + 60,
-        pos2 = this.x < player.x + 37,
-        pos3 = player.y < this.y + 25,
-        pos4 = this.y < player.y + 30;
-    if (pos1 && pos2 && pos3 && pos4) { player.x = 200; player.y = 400 };
+    this.checkCollisions();
+}
+
+Enemy.prototype.checkCollisions = function(dt) {
+    let pos1 = player.x < this.x + PLAYER_WIDTH,
+        pos2 = this.x < player.x + PLAYER_WIDTH,
+        pos3 = player.y < this.y + PLAYER_HEIGHT,
+        pos4 = this.y < player.y + PLAYER_HEIGHT;
+    if (pos1 && pos2 && pos3 && pos4) player.startPosition();
 };
 
 let Player = function(x, y, movement) {
@@ -39,41 +61,43 @@ Player.prototype = Object.create(Character.prototype);
 
 Player.prototype.constructor = Character;
 
+Player.prototype.startPosition = function () {
+    player.x = PLAYER_X;
+    player.y = PLAYER_Y
+};
+
 Player.prototype.update = function() {
     if (this.x < 0) this.x = 0;
-    if (this.x > 400) this.x = 400;
-    if (this.y > 380) this.y = 380;
+    if (this.x > PLAYER_Y) this.x = PLAYER_Y;
+    if (this.y > PLAYER_Y) this.y = PLAYER_Y;
     if (this.y < 0) {
         setTimeout(()=> {
-            this.x = 200;
-            this.y = 380
-        }, 1000)
+            this.startPosition();
+        }, DELAY_TIME)
     };
 };
 
 Player.prototype.handleInput = function(pressedKey) {
     switch (pressedKey) {
         case 'left':
-            this.x -= this.movement + 50;
+            this.x -= this.movement + PLAYER_STEP_X;
             break;
         case 'up':
-            this.y -= this.movement + 30;
+            this.y -= this.movement + PLAYER_STEP_Y;
             break;
         case 'right':
-            this.x += this.movement + 50;
+            this.x += this.movement + PLAYER_STEP_X;
             break;
         case 'down':
-            this.y += this.movement + 30;
+            this.y += this.movement + PLAYER_STEP_Y;
             break;
     }
 };
 
-let allEnemies = [];
-const ENEMY_POSITION = [50, 130, 220];
-const player = new Player(200, 400, 50);
+const player = new Player(PLAYER_X, PLAYER_Y, PLAYER_MOVEMENT);
 
 ENEMY_POSITION.map((enemyCoordinate) => {
-	let enemy = new Enemy(0, enemyCoordinate, 100 + Math.floor(Math.random() * 300));
+	let enemy = new Enemy(0, enemyCoordinate, player);
 	allEnemies.push(enemy);
 });
 
