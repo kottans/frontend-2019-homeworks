@@ -45,10 +45,10 @@ Enemy.prototype.update = function(dt) {
 }
 
 Enemy.prototype.checkCollisions = function(dt) {
-    let pos1 = player.x < this.x + PLAYER_WIDTH,
-        pos2 = this.x < player.x + PLAYER_WIDTH,
-        pos3 = player.y < this.y + PLAYER_HEIGHT,
-        pos4 = this.y < player.y + PLAYER_HEIGHT;
+    let pos1 = this.player.x < this.x + PLAYER_WIDTH,
+        pos2 = this.x < this.player.x + PLAYER_WIDTH,
+        pos3 = this.player.y < this.y + PLAYER_HEIGHT,
+        pos4 = this.y < this.player.y + PLAYER_HEIGHT;
     if (pos1 && pos2 && pos3 && pos4) player.startPosition();
 };
 
