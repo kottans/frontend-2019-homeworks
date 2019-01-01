@@ -34,9 +34,11 @@
   const makeCard = cardObj => {
     const card = document.createElement("div");
     const allDate = cardObj.dob.date;
+    const regDate = cardObj.registered.date;
     const gender = cardObj.gender;
     const name = cardObj.name.first;
     const date = findDate(allDate);
+    const registration = findDate(regDate);
     const mail = cardObj.email;
     const location = cardObj.location.city;
 
@@ -60,6 +62,7 @@
     <time>${date.str}</time>
     <a class="card__email" href="mailto:${mail}">${mail}</a>
     <div class="card__phone">${cardObj.cell}</div>
+    <time class="card__registration">${registration.str}</time>
     `;
     return card;
   };
@@ -139,7 +142,7 @@
     makePagination(".js-cards__item", ".js-pagination__main_content");
   };
 
-  const findElemInDom = ({target}, element, criticalElement) => {
+  const findElemInDom = ({ target }, element, criticalElement) => {
     if (target) {
       let checkWhatNeed;
       let checkWhenStop;
@@ -175,58 +178,48 @@
     const index = parameters.index;
     let result;
 
+    const sortByAge = (a, b) => {
+      const ageA = a.dob.age;
+      const ageB = b.dob.age;
+      if (index == 2) {
+        return desc(ageA, ageB);
+      } else {
+        return asc(ageA, ageB);
+      }
+    };
+
+    const sortByDate = (a, b) => {
+        const dateObjA = findDate(a.registered.date);
+        const dateObjB = findDate(b.registered.date);
+        const dateA = new Date(dateObjA.years, dateObjA.month, dateObjA.days);
+        const dateB = new Date(dateObjB.years, dateObjB.month, dateObjB.days);
+        if (index == 2) {
+            return asc(dateA, dateB);
+        } else {
+            return desc(dateA, dateB);
+        }
+    };
+
+    const sortByLetter = (a, b) => {
+        const nameA = a.name.first.toUpperCase();
+        const nameB = b.name.first.toUpperCase();
+        if (index == 2) {
+            return asc(nameA, nameB);
+        } else {
+            return desc(nameA, nameB);
+        }
+    };
+
     switch (name) {
       case "age": {
-        result = arr.sort((a, b) => {
-          const ageA = a.dob.age;
-          const ageB = b.dob.age;
-          if (index == 2) {
-            asc(ageA, ageB);
-          } else {
-            desc(ageA, ageB);
-          }
-        });
+        result = arr.sort(sortByAge);
         break;
       }
       case "date": {
-        result = arr.sort((a, b) => {
-          const dateObjA = findDate(a.dob.date);
-          const dateObjB = findDate(b.dob.date);
-          const dateA = new Date(dateObjA.years, dateObjA.month, dateObjA.days);
-          const dateB = new Date(dateObjB.years, dateObjB.month, dateObjB.days);
-          if (index == 2) {
-            if (dateA > dateB) {
-              return 1;
-            } else {
-              return -1;
-            }
-          } else {
-            if (dateA > dateB) {
-              return -1;
-            } else {
-              return 1;
-            }
-          }
-        });
+        result = arr.sort(sortByDate);
       }
       case "abc": {
-        result = arr.sort((a, b) => {
-          const nameA = a.name.first.toUpperCase();
-          const nameB = b.name.first.toUpperCase();
-          if (index == 2) {
-            if (nameA > nameB) {
-              return 1;
-            } else {
-              return -1;
-            }
-          } else {
-            if (nameA > nameB) {
-              return -1;
-            } else {
-              return 1;
-            }
-          }
-        });
+        result = arr.sort(sortByLetter);
         break;
       }
 
@@ -338,7 +331,6 @@
       showGender(parameters.index);
     } else {
       tempCards = rebuildArr(arr, parameters);
-      console.dir(tempCards);
 
       if (!tempCards) {
         console.error("Can't get tempArray");

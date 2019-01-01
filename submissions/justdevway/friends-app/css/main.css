@@ -283,6 +283,11 @@ body {
     color: var(--selection);
 }
 
+.card__registration {
+    font-size: 12px;
+    font-style: italic;
+}
+
 .modal {
     position: fixed;
     top: 0;
