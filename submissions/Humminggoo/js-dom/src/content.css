@@ -1,0 +1,23 @@
+.wrapper{
+    background-color: #1F1F1F;
+    height: 100vh;
+}
+.content-wrapper{
+    padding: 48px;
+    background-color: #1F1F1F;
+}
+.content-name{
+    color: #DDDDDD;
+    font-size: 24px;
+    padding-bottom: 10px;
+}
+.task-item{
+    color: #DDDDDD;
+    font-size: 18px;
+    border-bottom: 1px solid #747474;
+    padding: 10px 10px 10px 0;
+    cursor: pointer;
+}
+.task-item input{
+    margin-right: 10px;
+}

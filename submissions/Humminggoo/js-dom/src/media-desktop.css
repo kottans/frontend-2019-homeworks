@@ -1,0 +1,30 @@
+@media screen and (min-width: 760px){
+    .wrapper{
+        display: flex;
+    }
+    .head{
+        height: 10vh;
+    }
+    .btn{
+        display: none;
+    }
+    .menu{
+        position: static;
+        width: 30%;
+    }
+    .nav-head{
+        font-size: 32px;
+    }
+    .nav-item{
+        font-size: 24px;
+    }
+    .content-wrapper{
+        width: 70%;
+    }
+    .content-name{
+        font-size: 32px;
+    }
+    .task-item{
+        font-size: 24px;
+    }
+}
