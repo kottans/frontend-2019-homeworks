@@ -8,11 +8,12 @@
 // ======== OBJECTS DEFINITIONS ========
 
 class Inhabitant {
-    constructor(species, name, gender, saying) {
+    constructor(species, name, gender, saying, legs) {
         this.species = species;
         this.name = name;
         this.gender = gender;
         this.saying = saying;
+        this.legs = legs;
     }
     toString(){
         return ['<em>' + this.species + '</em>', '<strong>' + this.name + '</strong>', this.gender, this.saying, this.legs + '; '].join ('; ');
@@ -20,8 +21,8 @@ class Inhabitant {
 }
 
 class Human extends Inhabitant {
-    constructor(name, gender, saying) {
-        super('Human', name, gender, saying);
+    constructor(name, gender, saying, legs) {
+        super('Human', name, gender, saying, legs);
         this.hands = 2;
         this.legs = 2;
     }
@@ -31,30 +32,28 @@ class Human extends Inhabitant {
 }
 
 class Woman extends Human {
-    constructor(species, name, gender, saying) {
-        super(...arguments);
+    constructor(species, name, gender, saying, legs) {
+        super(species, name, gender, saying, legs);
     }
 }
 
 class Man extends Human {
-    constructor(species, name, gender, saying) {
-        super(...arguments);
+    constructor(species, name, gender, saying, legs) {
+        super(species, name, gender, saying, legs);
     }
 }
 
 class Dog extends Inhabitant {
     constructor(name, gender, saying) {
-        super('dog', name, gender, saying);
+        super('dog', name, gender, 'wooooof');
         this.legs = 4;
-        this.saying = 'wooooof';
     }
 }
 
 class Cat extends Inhabitant {
     constructor(name, gender, saying) {
-        super('cat', name, gender, saying);
+        super('cat', name, gender, 'murrr');
         this.legs = 4;
-        this.saying = 'murrr';
     }
 }
 
