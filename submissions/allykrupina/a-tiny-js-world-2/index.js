@@ -8,7 +8,7 @@
 // ======== OBJECTS DEFINITIONS ========
 
 class Inhabitant {
-    constructor(species, name, gender, saying, legs) {
+    constructor(species, name, gender, saying, legs = 4) {
         this.species = species;
         this.name = name;
         this.gender = gender;
@@ -21,10 +21,9 @@ class Inhabitant {
 }
 
 class Human extends Inhabitant {
-    constructor(name, gender, saying, legs) {
+    constructor(name, gender, saying, legs = 2, hands = 2) {
         super('Human', name, gender, saying, legs);
-        this.hands = 2;
-        this.legs = 2;
+        this.hands = hands;
     }
     toString(){
         return super.toString() + this.hands + ';';
@@ -32,36 +31,34 @@ class Human extends Inhabitant {
 }
 
 class Woman extends Human {
-    constructor(species, name, gender, saying, legs) {
-        super(species, name, gender, saying, legs);
+    constructor(name, gender, saying) {
+        super(name, gender, saying);
     }
 }
 
 class Man extends Human {
-    constructor(species, name, gender, saying, legs) {
-        super(species, name, gender, saying, legs);
+    constructor(name, gender, saying) {
+        super(name, gender, saying);
     }
 }
 
 class Dog extends Inhabitant {
     constructor(name, gender, saying) {
-        super('dog', name, gender, 'wooooof');
-        this.legs = 4;
+        super('dog', name, gender, saying);
     }
 }
 
 class Cat extends Inhabitant {
     constructor(name, gender, saying) {
-        super('cat', name, gender, 'murrr');
-        this.legs = 4;
+        super('cat', name, gender, saying);
     }
 }
 
 const inhabitants = [
     new Woman('Nika', 'female', 'I love my cat'),
     new Man('Kurt', 'male', 'I love my dog'),
-    new Dog('Grey', 'male'),
-    new Cat('Assol', 'female')
+    new Dog('Grey', 'male', 'wooooof'),
+    new Cat('Assol', 'female', 'murrr')
 ];
 
 inhabitants.forEach(inhabitant =>
