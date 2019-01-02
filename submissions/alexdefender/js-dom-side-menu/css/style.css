@@ -1,0 +1,57 @@
+@media screen and (min-width: 300px) {
+    .menu {
+        width: 25%;
+    }
+
+    .content {
+        width: 50%;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex; 
+    flex-wrap: wrap;
+    font-family: 'Courier New', Courier, monospace;
+}
+    
+.menu-list {
+    list-style-type: none;
+    padding: 10px 0px 10px 0px; 
+    background-color: rgb(198, 241, 187);
+    min-width: 100px;
+   
+}
+
+.menu-title {
+    padding: 20px 20px 20px 20px;
+    border: solid;
+    border-color: burlywood;
+}
+
+.menu-item-1, .menu-item-2, .menu-item-3, .menu-item-4, .menu-item-5 {
+    padding: 20px 20px 20px 20px;
+    background-color: rgb(197, 233, 197);
+    border-bottom: solid ;
+    border-bottom-color: burlywood;
+    cursor: pointer;
+}
+
+.content {
+    padding: 20px 20px 20px 20px;
+}
+
+.content img {
+    width: 200px;
+    float: right;
+    margin: 7px 0 7px 7px;
+}
+
+p {
+    margin-top: 0.5em; /* Отступ сверху */
+    margin-bottom: 1em; /* Отступ снизу */
+}
