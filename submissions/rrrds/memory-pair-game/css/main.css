@@ -2,7 +2,6 @@ body {
   justify-content: center;
   align-content: center;
   align-items: center;
-  align-content: center;
   display: flex;
   height: 100vh;
   width: 100vw;
@@ -11,8 +10,6 @@ body {
 .playfield {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 .card {
@@ -29,6 +26,12 @@ body {
   transition: opacity 0.3s ease-in-out;
 }
 
+.flip-container__flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
 .flip-container--open .flip-container__flipper {
   transform: rotateY(180deg);
 }
@@ -37,21 +40,11 @@ body {
   opacity: 0.2;
 }
 
-.flip-container--disabled .flip-container__back {
-  box-shadow: none;
-}
-
 .flip-container,
 .flip-container__front,
 .flip-container__back {
   font-family: 'Monoton', cursive;
-  font-size: 50pt;
-}
-
-.flip-container__flipper {
-  transition: 0.6s;
-  transform-style: preserve-3d;
-  position: relative;
+  font-size: 4rem;
 }
 
 .flip-container__front,
@@ -94,6 +87,10 @@ body {
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
 }
 
+.flip-container--disabled .flip-container__back {
+  box-shadow: none;
+}
+
 .finish-modal {
   align-items: center;
   justify-content: center;
@@ -105,7 +102,7 @@ body {
   display: none;
 }
 
-.finish-modal h2 {
+.finish-modal .greetings-text {
   font-family: 'Monoton', cursive;
   font-size: 5rem;
   font-weight: 400;

@@ -9,7 +9,7 @@ let openCardsCount = 0;
 let disabledCardsCount = 0;
 let cards = [];
 
-const shuffleCards = function(cardsArray = []) {
+const shuffleCards = (cardsArray = []) => {
   let counter = cardsArray.length;
 
   while (counter > 0) {
@@ -25,9 +25,7 @@ const shuffleCards = function(cardsArray = []) {
   return cardsArray;
 };
 
-const getFlipContainer = function(event) {
-  let { target } = event;
-
+const getFlipContainer = ({ target }) => {
   while (!target.classList.contains('flip-container')) {
     target = target.parentElement;
   }
@@ -35,28 +33,28 @@ const getFlipContainer = function(event) {
   return target;
 };
 
-const showModal = function() {
+const showModal = () => {
   playfield.classList.add('playfield--hide');
   modal.classList.remove('finish-modal--hide');
 };
 
-const hideModal = function() {
+const hideModal = () => {
   playfield.classList.remove('playfield--hide');
   modal.classList.add('finish-modal--hide');
 };
 
-const checkWin = function() {
+const checkWin = () => {
   if (disabledCardsCount >= cards.length) {
     setTimeout(showModal, 1000);
   }
 };
 
-const resetOpenCards = function() {
+const resetOpenCards = () => {
   openCards.length = 0;
   openCardsCount = 0;
 };
 
-const closeAllCards = function() {
+const closeAllCards = () => {
   openCards.forEach(openCard => {
     openCard.classList.toggle('flip-container--open');
   });
@@ -64,7 +62,7 @@ const closeAllCards = function() {
   resetOpenCards();
 };
 
-const disableSimilarCards = function() {
+const disableSimilarCards = () => {
   openCards.forEach(card => {
     card.classList.add('flip-container--disabled');
   });
@@ -75,7 +73,7 @@ const disableSimilarCards = function() {
   checkWin();
 };
 
-const openCard = function(event) {
+const openCard = event => {
   const flipContainer = getFlipContainer(event);
 
   if (
@@ -104,29 +102,29 @@ const openCard = function(event) {
   }
 };
 
-const clearContainer = function() {
+const clearContainer = () => {
   playfield.removeEventListener('click', openCard);
   playfield.innerHTML = '';
 };
 
-const renderCards = function() {
-  const cardsFragment = document.createDocumentFragment();
+const renderCards = () => {
+  const cardTemplates = [];
+
   cards.forEach((card, idx) => {
-    const cardDiv = document.createElement('div');
-    cardDiv.classList.add('flip-container');
-    cardDiv.setAttribute('data-index', idx);
-    cardDiv.innerHTML = `<div class="flip-container__flipper card">
-      <div class="flip-container__front"></div>
-      <div class="flip-container__back">${card}</div>
-    </div>`;
-    cardsFragment.appendChild(cardDiv);
+    cardTemplates.push(`
+      <div class="flip-container" data-index="${idx}">
+        <div class="flip-container__flipper card">
+          <div class="flip-container__front"></div>
+          <div class="flip-container__back">${card}</div>
+        </div>
+      </div>`);
   });
 
-  playfield.appendChild(cardsFragment);
+  playfield.innerHTML = cardTemplates.join('');
   playfield.addEventListener('click', openCard);
 };
 
-const startGame = function() {
+const startGame = () => {
   cards = shuffleCards(cardTypes.concat(cardTypes));
 
   clearContainer();
