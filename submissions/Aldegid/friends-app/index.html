@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Thasadith:400,700" rel="stylesheet">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h2>Wellcome to friend app</h2>
+    </header>
+    <section class="main-section">
+      <aside class="filter">
+        <div class="search">
+          <input type="search" name="search" class="search__input" placeholder="search ...">
+        </div>
+        <div class="filter__gender">
+          <h3>Filter by gender:</h3>
+          <div class="filter__gender-male">
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="male">Male<i class="fa fa-mars"</i></i></label>
+          </div>
+          <div class="filter__gender-femele">
+            <input type="radio" name="gender" id="femele" value="female">
+            <label for="femele"></i>Femele<i class="fa fa-venus"></i></label>
+          </div>
+          <div class="filter__gender-all">
+            <input type="radio" name="gender" id="all" value="all" class="all">
+            <label for="all">All<i class="fa fa-venus-mars"></i></label>
+          </div>
+        </div>
+        <div class="filter__age">
+          <h3 class="">Filter by age:</h3>
+          <div class="filter__age-up">
+            <input type="radio" name="age" id="up" value="asc" class="asc">
+            <label for="up"><i class="fa fa-sort-amount-desc"></i></label>
+          </div>
+          <div class="filter__age-down">
+            <input type="radio" name="age" id="down" value="desc" class="desc">
+            <label for="down"><i class="fa fa-sort-amount-asc"></i></label>
+          </div>
+
+        </div>
+        <div class="filter__name">
+          <h3 class="">Filter by name:</h3>
+          <div class="filter__name-az">
+            <input type="radio" name="name" id="az" value="az" class="az">
+            <label for="az"><i class="fa fa-sort-alpha-asc"></i></label>
+          </div>
+          <div class="filter__name-za">
+            <input type="radio" name="name" id="za" value="za" class="za">
+            <label for="za"><i class="fa fa-sort-alpha-desc"></i></label>
+          </div>
+        </div>
+        <div class="btn__center">
+          <button class="filter__reset">Reset</button>
+        </div>
+
+      </aside>
+      <div class="users">
+      </div>
+      <button class="button__scroll"><i class="fa fa-angle-double-up"></i></button>
+    </section>
+  </div>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/common.js"></script>
+</body>
+
+</html>
