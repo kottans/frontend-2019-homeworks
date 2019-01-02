@@ -10,11 +10,12 @@ Creature.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 // Enemies our player must avoid
-function Enemy(x, y, speed, sprite) {
+function Enemy(x, y, speed, sprite, player) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     Creature.call(this, x, y, sprite);
     this.speed = speed;
+    this.player = player;
 }
 Enemy.prototype = Object.create(Creature.prototype);
 // Update the enemy's position, required method for game
@@ -33,11 +34,11 @@ Enemy.prototype.rerun = function() {
         [INITIAL_STAT_ENEMY.x, this.randomSpeed(INITIAL_STAT_ENEMY.minspeed, INITIAL_STAT_ENEMY.maxspeed)];
 };
 Enemy.prototype.handleCollision = function() {
-    [player.x, player.y] = (this.x < player.x + INITIAL_STAT_GRID.cellWidth &&
-        this.x + INITIAL_STAT_GRID.cellWidth > player.x &&
-        this.y < player.y + INITIAL_STAT_GRID.cellHeight &&
-        INITIAL_STAT_GRID.cellHeight + this.y > player.y) ?
-        [INITIAL_STAT_PLAYER.x, INITIAL_STAT_PLAYER.y]: [player.x, player.y];
+    [this.player.x, this.player.y] = (this.x < this.player.x + INITIAL_STAT_GRID.cellWidth &&
+        this.x + INITIAL_STAT_GRID.cellWidth > this.player.x &&
+        this.y < this.player.y + INITIAL_STAT_GRID.cellHeight &&
+        INITIAL_STAT_GRID.cellHeight + this.y > this.player.y) ?
+        [INITIAL_STAT_PLAYER.x, INITIAL_STAT_PLAYER.y]: [this.player.x, this.player.y];
 };
 
 // Now write your own player class
@@ -70,11 +71,11 @@ Player.prototype.handleInput = function(key) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const allEnemies = Array.from(Array(3), (el, i) => {
-    return new Enemy(INITIAL_STAT_ENEMY.x, INITIAL_STAT_ENEMY.y+INITIAL_STAT_ENEMY.scale*i,
-        INITIAL_STAT_ENEMY.minspeed, INITIAL_STAT_ENEMY.sprite)
-});
 const player = new Player(INITIAL_STAT_PLAYER.x, INITIAL_STAT_PLAYER.y, INITIAL_STAT_PLAYER.sprite, INITIAL_STAT_PLAYER.step);
+const allEnemies = [0, 1, 2].map((el, i) => {
+    return new Enemy(INITIAL_STAT_ENEMY.x, INITIAL_STAT_ENEMY.y+INITIAL_STAT_ENEMY.scale*i,
+        INITIAL_STAT_ENEMY.minspeed, INITIAL_STAT_ENEMY.sprite, player)
+});
 
 
 // This listens for key presses and sends the keys to your
