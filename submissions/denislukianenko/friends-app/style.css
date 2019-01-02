@@ -1,0 +1,357 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+header {
+  flex: 60px 0 0;
+  padding: 10px;
+  padding-left: 50px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: hsl(196, 70%, 93%);
+}
+
+header > .logo {
+  margin-right: 25px;
+}
+.header-switches {
+  display: flex;
+  flex-wrap: wrap;
+}
+.header-group {
+  display: flex;
+  align-items: center;
+}
+.header-group > b {
+  /*Please, don't request that. Who needs class for one element?*/
+  margin-left: 20px;
+  font-size: 10px;
+}
+.header-group > button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: hsl(196, 40%, 80%);
+  border: none;
+}
+.header-group > button:hover {
+  background-color: hsl(196, 40%, 65%);
+}
+.header-group > .button-active {
+  background-color: hsl(196, 80%, 40%);
+  color: white;
+}
+.header-group > .button-active:hover {
+  background-color: hsl(196, 80%, 50%);
+}
+
+.header-group > input {
+  max-width: 100px;
+  margin-left: 5px;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: hsl(196, 40%, 80%);
+  border: none;
+}
+.header-group > input:hover {
+  background-color: hsl(196, 40%, 70%);
+}
+.header-group > input::placeholder {
+  color: hsl(196, 20%, 50%);
+}
+
+main {
+  flex: auto 1 1;
+  max-width: 100vw;
+  max-height: calc(100vh - 60px);
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding-left: 50px;
+
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 70px,
+    #000 calc(100% - 20vw),
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 70px,
+    #000 calc(100% - 20vw),
+    transparent
+  );
+}
+.main-reverse {
+  flex-direction: row-reverse;
+}
+.main-reverse > .column:last-of-type {
+  flex: 170px 0 0;
+  padding-left: 50px;
+  padding-right: 0;
+}
+.main-reverse > .column:first-of-type {
+  flex: 320px 0 0;
+  padding-right: 200px;
+}
+
+.column {
+  flex: 120px 0 0;
+  flex-direction: column;
+  max-height: calc(100vh - 60px);
+  border-left: 1px solid #eee;
+}
+.column-hidden > .persons-list {
+  display: none;
+}
+.column:last-of-type {
+  flex: 320px 0 0;
+  padding-right: 200px;
+}
+.column:nth-of-type(2n) > .persons-list {
+  padding-top: 80px;
+}
+
+.column h2 {
+  font-weight: 800;
+  margin: 0;
+  padding: 10px;
+  padding-left: 0;
+}
+
+.persons-list {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 108px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-top: 20px;
+  padding-bottom: 50px;
+
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent,
+    #000 20px,
+    #000 calc(100%),
+    transparent
+  );
+  mask-image: linear-gradient(
+    180deg,
+    transparent,
+    #000 20px,
+    #000 calc(100%),
+    transparent
+  );
+}
+.persons-list::-webkit-scrollbar {
+  display: none;
+}
+.column-reverse > .persons-list {
+  flex-direction: column-reverse;
+}
+
+.person {
+  position: relative;
+}
+
+.person .badge {
+  font-size: 12px;
+  font-family: Monaco, Menlo, monospace;
+  transform: rotate(-50deg);
+  position: absolute;
+  top: 25px;
+  left: 0;
+}
+
+.person .badge span {
+  height: 68px;
+  position: absolute;
+  width: 20px;
+  left: 0;
+  top: 0;
+  transform-origin: bottom center;
+}
+
+.person .badge .gender-symbol {
+  margin-top: 4px;
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+}
+.person .badge .gender-symbol.male {
+  background-color: skyblue;
+}
+.person .badge .gender-symbol.female {
+  background-color: pink;
+}
+.char0 {
+  transform: rotate(-1deg);
+}
+
+.char1 {
+  transform: rotate(6deg) scaleX(0.9);
+}
+
+.char2 {
+  transform: rotate(12deg) scaleX(0.9);
+}
+
+.char3 {
+  transform: rotate(18deg) scaleX(0.9);
+}
+
+.char4 {
+  transform: rotate(24deg) scaleX(0.9);
+}
+
+.char5 {
+  transform: rotate(30deg) scaleX(0.9);
+}
+
+.char6 {
+  transform: rotate(36deg) scaleX(0.9);
+}
+
+.char7 {
+  transform: rotate(42deg) scaleX(0.9);
+}
+
+.char8 {
+  transform: rotate(48deg) scaleX(0.9);
+}
+
+.char9 {
+  transform: rotate(54deg) scaleX(0.9);
+}
+
+.char10 {
+  transform: rotate(60deg) scaleX(0.9);
+}
+
+.char11 {
+  transform: rotate(66deg) scaleX(0.9);
+}
+
+.char12 {
+  transform: rotate(72deg) scaleX(0.9);
+}
+
+.char13 {
+  transform: rotate(78deg) scaleX(0.9);
+}
+
+.char14 {
+  transform: rotate(84deg) scaleX(0.9);
+}
+
+.char15 {
+  transform: rotate(90deg) scaleX(0.9);
+}
+
+.char16 {
+  transform: rotate(96deg) scaleX(0.9);
+}
+
+.char17 {
+  transform: rotate(102deg) scaleX(0.9);
+}
+
+.char18 {
+  transform: rotate(108deg) scaleX(0.9);
+}
+
+.char19 {
+  transform: rotate(114deg) scaleX(0.9);
+}
+
+.char20 {
+  transform: rotate(120deg) scaleX(0.9);
+}
+
+.char21 {
+  transform: rotate(126deg) scaleX(0.9);
+}
+
+.char22 {
+  transform: rotate(132deg) scaleX(0.9);
+}
+
+.char23 {
+  transform: rotate(138deg) scaleX(0.9);
+}
+
+.char24 {
+  transform: rotate(144deg) scaleX(0.9);
+}
+
+.person img {
+  padding: 10px;
+  padding-top: 10px;
+  border-radius: 50%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media screen and (max-width: 700px) {
+  header {
+    flex-basis: 100px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-switches {
+    margin-top: 10px;
+  }
+  .header-switches > .header-group:first-of-type > b {
+    margin-left: 0;
+  }
+  main {
+    max-height: calc(100vh - 100px);
+  }
+  .column {
+    max-height: calc(100vh - 100px);
+  }
+  .persons-list {
+    max-height: calc(100vh - 148px);
+  }
+}
+@media screen and (max-width: 550px) {
+  header {
+    flex-basis: 140px;
+  }
+  .header-switches {
+    flex-direction: column;
+  }
+  .header-switches > .header-group:last-of-type {
+    margin-top: 10px;
+  }
+  .header-switches > .header-group:last-of-type > b {
+    margin-left: 0;
+  }
+  main {
+    max-height: calc(100vh - 140px);
+  }
+  .column {
+    max-height: calc(100vh - 140px);
+  }
+  .persons-list {
+    max-height: calc(100vh - 188px);
+  }
+}
