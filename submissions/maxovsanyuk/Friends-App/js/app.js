@@ -1,6 +1,4 @@
-const RANDOM_DATA = 'https://randomuser.me/api/?results=60'
-const GET_RANDOM_DATA = fetch(RANDOM_DATA)
-
+const GET_RANDOM_DATA = fetch('https://randomuser.me/api/?results=60')
 .then( response => {  
 	response.json().then( data => { 
 		let responseData = data.results
@@ -12,7 +10,6 @@ const GET_RANDOM_DATA = fetch(RANDOM_DATA)
 	alert('Looks like there was a problem.');  
 	return;  
 });
-
 
 function initRender(responseData){
 
@@ -41,9 +38,9 @@ function initRender(responseData){
 	}
 
 	function filterByFemale(responseData){
-		const inputMale = document.getElementById('filter-by-female')
+		const inputFamale = document.getElementById('filter-by-female')
 
-		inputMale.addEventListener('change', () => {
+		inputFamale.addEventListener('change', () => {
 			const filterByFemale = responseData.filter( item => item.gender == 'female');
 			renderItems(filterByFemale)
 		})	
@@ -59,19 +56,11 @@ function initRender(responseData){
 	}
 		  
 	const up = (a, b) => {
-		if (a < b) {
-			return -1;
-		}else{
-			return 1;
-		}
+		return a < b ? -1 : 1;
 	};
 
 	const down = (a, b) => {
-		if (a < b) {
-			return 1;
-		}else{
-			return -1;
-		}
+		return a > b ? -1 : 1;
 	};
 
 	function sortByName(responseData){
@@ -126,58 +115,59 @@ function renderItems(responseData){
 			
 	content.innerHTML = ''
 	
-	responseData.forEach((item) => {
-				
-	const friendsAbout = document.createElement('div');
-	friendsAbout.classList.add('content__human');
-									
-	const userRemove = document.createElement('div');
-	userRemove.classList.add('user-remove');
-	userRemove.addEventListener('click',() =>{
-	document.getElementById('content').removeChild(friendsAbout)
-	});
+	responseData.forEach((item) => {	
 
-	const userFullName = document.createElement('p');
-	userFullName.classList.add('full-name')
-	userFullName.textContent = `${item.name.first.charAt(0).toUpperCase() + item.name.first.slice(1)} ${item.name.last.charAt(0).toUpperCase() + item.name.last.slice(1)}`;
-		
-	userFullName.appendChild(userRemove)
-		
-	const userPicture = document.createElement('div');
-	userPicture.classList.add('user-picture');
-	const image = document.createElement("img");
-	image.setAttribute("src", item.picture.large);
-	userPicture.appendChild(image);
+		const createInstance = document.createElement('div');
+		createInstance.classList.add('content__human');
 
-	const userAge = document.createElement('p');
-	userAge.classList.add('user-age');
-	userAge.textContent = `Age ${item.dob.age}`;
+		const userRemove = document.createElement('div');
+		userRemove.classList.add('user-remove');
+		userRemove.addEventListener('click',() => {
+		document.getElementById('content').removeChild(createInstance)
+		});
 
-	const userGender = document.createElement('p');
-	userGender.classList.add('user-gender');
-	userGender.textContent = `${item.gender}`;
+		const userFullName = document.createElement('h2');
+		userFullName.classList.add('full-name')
+		userFullName.textContent = capitalizeFirstLetter(item);	
+		userFullName.appendChild(userRemove)
+			
+		const userPicture = document.createElement('div');
+		userPicture.classList.add('user-picture');
+		const image = document.createElement("img");
+		image.setAttribute("src", item.picture.large);
+		userPicture.appendChild(image);
+	
+		const userAge = document.createElement('h3');
+		userAge.classList.add('user-age');
+		userAge.textContent = `Age ${item.dob.age}`;
+
+		const userEmail = document.createElement('h3');
+		userEmail.classList.add('user-email');
+		userEmail.textContent = `${item.email}`;
+										
+		const userLocation = document.createElement('h3');
+		userLocation.classList.add('user-location');
+		userLocation.textContent = `Curent city : ${item.location.city.charAt(0).toUpperCase() + item.name.first.slice(1)}`;		
+										
+		const userPhone = document.createElement('h3');
+		userPhone.classList.add('user-phone');
+		userPhone.textContent = `Phone : ${item.cell}`;	
+
+		const userGender = document.createElement('h3');
+		userGender.classList.add('user-gender');
+		userGender.textContent = `${item.gender}`;
 
 		if(item.gender === 'female'){
 			userFullName.classList.add('full-name', 'female');
 		}
-									
-	const userEmail = document.createElement('p');
-	userEmail.classList.add('user-email');
-	userEmail.textContent = `${item.email}`;
-									
-	const userLocation = document.createElement('p');
-	userLocation.classList.add('user-location');
-	userLocation.textContent = `Curent city : ${item.location.city.charAt(0).toUpperCase() + item.name.first.slice(1)}`;		
-									
-	const userPhone = document.createElement('p');
-	userPhone.classList.add('user-phone');
-	userPhone.textContent = `Phone : ${item.cell}`;
 
-	friendsAbout.append(userFullName, userPicture, userAge, userGender, userEmail,  userLocation, userPhone,);
-									
-	content.appendChild(friendsAbout);
-
+		createInstance.append(userFullName, userPicture, userAge, userGender, userEmail,  userLocation, userPhone,);
+		content.appendChild(createInstance);
 	})
+
+	function capitalizeFirstLetter(item){
+		return `${item.name.first.charAt(0).toUpperCase() + item.name.first.slice(1)} ${item.name.last.charAt(0).toUpperCase() + item.name.last.slice(1)}`;
+	}
 }
 
 // Navigathion menu
@@ -188,13 +178,13 @@ const asideBtn = document.getElementById('sortBarBtn');
 
 navigateBtn.addEventListener('mousedown',(e) =>{
 
-	aside.classList.toggle('aside-cklick');
+	aside.classList.toggle('aside-click');
 	navigateBtn.classList.toggle('navigate-act');
 	asideBtn.classList.toggle('sortBarBtn-active');
 })
 
 content.addEventListener('click', () => {
-	aside.classList.remove('aside-cklick');
+	aside.classList.remove('aside-click');
 	asideBtn.classList.remove('sortBarBtn-active')
 })
 
