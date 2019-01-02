@@ -55,8 +55,17 @@ const catWoman = {
 }
 
 // ======== OUTPUT ========
-print(man.species + ';' + man.legs + ';' + man.hands + ';' + man.name + ';' + man.gender + ';' + man.says);
-print(woman.species + ';' + woman.legs + ';' + woman.hands + ';' + woman.name + ';' + woman.gender + ';' + woman.says);
-print(dog.species + ';' + dog.legs + ';' + dog.hands + ';' + dog.name + ';' + dog.gender + ';' + dog.says);
-print(cat.species + ';' + cat.legs + ';' + cat.hands + ';' + cat.name + ';' + cat.gender + ';' + cat.says);
-print(catWoman.species + ';' + catWoman.legs + ';' + catWoman.hands + ';' + catWoman.name + ';' + catWoman.gender + ';' + catWoman.says);
+
+var population = [man, woman, dog, cat, catWoman];
+
+population.forEach(
+    function(elem) {
+        let str = '';
+        for (var key in elem) {
+            str += elem[key] + '; ';
+        }
+        print(str);
+    }
+);
+
+
