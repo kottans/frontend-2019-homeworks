@@ -36,8 +36,36 @@ const ITEMS = [
 ]
 
 let clickFirstElement,
-    count = 0,
-    countClick = 0;
+    count = 1,
+    countClick = 1;
+
+handlerFirstClick = (block) => {
+    document.querySelectorAll(".game > div:not(.success)").forEach(item => {
+        item.classList.add("secret");
+    });
+    block.classList.remove("secret");
+    count = 2;
+};
+handleSecondClick = (block, clickFirstElement, clickSecondElement) => {
+    if(clickSecondElement === clickFirstElement){
+        block.classList.remove("secret");
+        setTimeout(()=> {
+            document.getElementsByName(clickFirstElement).forEach(item => {
+                item.innerHTML = '';
+                item.classList.remove("element")
+                item.classList.add("success");
+            });
+        }, DELAY_TIME)
+    } else {
+        block.classList.remove("secret");
+    }
+};
+handlerFinal = () => {
+    setTimeout(()=> {
+        alert('YOU WON!! YOUR RESULT - ' + --countClick);
+        location.reload();
+    }, DELAY_TIME * 2)
+}
 
 class Game {
     constructor(renderBlock, itemsArray) {
@@ -54,7 +82,6 @@ class Game {
         block.appendChild(img);
         block.setAttribute("name", element.name);
         block.classList.add("secret", "element");
-        block.addEventListener("click", this.itemClick.bind(null, element.name, block));
         game.appendChild(block);
     }
     renderList() {
@@ -63,39 +90,17 @@ class Game {
             this.renderItem(element)
         });
     }
-    itemClick(name, block) {
-        count++;
-        result.innerHTML = countClick++;
-        let clickSecondElement = clickFirstElement;
-            clickFirstElement = name;
-        if(!!block){
-            if(count === 4){
-                document.querySelectorAll(".game > div:not(.success)").forEach(item => {
-                    item.classList.add("secret");
-                });
-                block.classList.remove("secret");
-                count = 2;
-            } else {
-                if(clickSecondElement === clickFirstElement){
-                    block.classList.remove("secret");
-                    setTimeout(()=> {
-                        document.getElementsByName(clickFirstElement).forEach(item => {
-                            item.innerHTML = '';
-                            item.classList.remove("element")
-                            item.classList.add("success");
-                        });
-                    }, DELAY_TIME)
-                } else {
-                    block.classList.remove("secret");
-                }
-            }
-            if(document.querySelectorAll(".secret").length === 0){
-                setTimeout(()=> {
-                    alert('YOU WON!!');
-                    location.reload();
-                }, DELAY_TIME * 2)
-            }
-        }
+    itemClick() {
+        document.getElementById("game").addEventListener("click", (e) => {
+            let block = e.target,
+                name = block.getAttribute("name");
+            count++;
+            result.innerHTML = countClick++;
+            let clickSecondElement = clickFirstElement;
+                clickFirstElement = name;
+            count === 4 ? handlerFirstClick(block) : handleSecondClick(block, clickFirstElement, clickSecondElement);
+            if(document.querySelectorAll(".secret").length === 0) handlerFinal();
+        });
     }
 }
 
