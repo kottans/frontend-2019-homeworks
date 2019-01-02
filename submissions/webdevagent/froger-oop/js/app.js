@@ -1,3 +1,9 @@
+/*Initalize and define getRandomValue function
+that i will use in future calculations*/
+const getRandomValue = (lim, min) => {
+  return Math.floor(Math.random() * lim + min);
+};
+
 /*Initalize and define basic Gameplay Object with
 gameplay properties and methods*/
 const GamePlay = {
@@ -35,18 +41,18 @@ class GameActor {
     this.sprite = sprite;
     this.x = x;
     this.y = y;
-    this.collide=false;
+    this.collide = false;
   }
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   };
-  checkCollision( y, x, action, property) {
+  checkCollision(y, x, action, property) {
     if (
       this.y > player.y - y &&
       this.y < player.y + y &&
       this.x > player.x - x &&
-      this.x < player.x + x){
-      this.collide=true;
+      this.x < player.x + x) {
+      this.collide = true;
       player.toInitialPosition();
     }
   };
@@ -55,16 +61,16 @@ class GameActor {
 class Enemy extends GameActor {
   constructor(y) {
     super('images/enemy-bug.png', -100, y);
-    this.speed = Math.floor((Math.random() * 150) + 20);
+    this.speed = getRandomValue(150, 20);
   }
   setMoveSpeed() {
-    this.speed = Math.floor((Math.random() * 150) + 10 + GamePlay.points * 20);
+    this.speed = getRandomValue(150, 10 + GamePlay.points * 20);
   }
   checkCollision() {
     super.checkCollision(55, 50);
-    if(this.collide){
-      GamePlay.lifes-=1;
-      this.collide=false;
+    if (this.collide) {
+      GamePlay.lifes -= 1;
+      this.collide = false;
     }
   };
   update(dt) {
@@ -80,13 +86,16 @@ class Enemy extends GameActor {
   };
 };
 
+
+
+
 class Hero extends GameActor {
   constructor(y) {
     super('images/char-boy.png', 200, y);
     this.lifes = 3;
   }
-  toInitialPosition(){
-    this.y=400;
+  toInitialPosition() {
+    this.y = 400;
   }
   handleInput(key) {
     if (GamePlay.canMove) {
@@ -103,12 +112,13 @@ class Star extends GameActor {
     super('images/Star.png', 200, -10);
   }
   checkCollision() {
-    super.checkCollision(25,15);
+    super.checkCollision(25, 15);
 
-    if(this.collide){
-      GamePlay.points+=1;
-      this.x = Math.floor((Math.random() * 400) + 10);
-      this.collide=false;}
+    if (this.collide) {
+      GamePlay.points += 1;
+      this.x = getRandomValue(400, 100);
+      this.collide = false;
+    }
   }
   pointCollector() {
     this.checkCollision();
