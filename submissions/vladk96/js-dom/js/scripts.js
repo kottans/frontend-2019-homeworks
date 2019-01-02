@@ -121,11 +121,8 @@ const changeContent = (navItem) => {
 /*
     A handler for event listener
 */
-const onNavClick = (event) => {
-    if (event.target.parentElement.tagName === 'BUTTON' ||
-        event.target.tagName === 'BUTTON'){
-        document.querySelector('.navigation').classList.remove("open");
-    } else if (event.target.tagName === 'LI') {
+const handleNavigation = (event) => {
+    if (event.target.tagName === 'LI') {
         changeContent(event.target);
     }
 }
@@ -133,13 +130,14 @@ const onNavClick = (event) => {
 /*
     A handler for event listener
 */
-const onMenuButtonClick = (event) => {
+const toggleMenu = () => {
     document.querySelector('.navigation').classList.toggle("open");
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     initNavList();
     initContent();
-    document.querySelector('.navigation').addEventListener('click', onNavClick);
-    document.querySelector('.menu-button').addEventListener('click', onMenuButtonClick);
+    document.querySelector('.navigation').addEventListener('click', handleNavigation);
+    document.querySelector('.menu-button').addEventListener('click', toggleMenu);
+    document.querySelector('.menu-close').addEventListener('click', toggleMenu);
 });
