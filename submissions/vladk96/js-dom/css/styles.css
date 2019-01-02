@@ -8,9 +8,11 @@ body {
     position: fixed;
     right: 5%;
     top: 5%;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    outline: none;
 }
 
 .menu-button img,
@@ -29,7 +31,6 @@ body {
 }
 
 .navigation.open {
-    transition: all .4s linear;
     visibility: visible;
     width: 25%;
 }
@@ -48,22 +49,25 @@ body {
     position: absolute;
     right: 4%;
     top: 2%;
-    display: inline-block;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
+    background: none;
+    border: none;
+    outline: none;
 }
 
 .nav-list {
+    font-size: 1.1rem;
     margin: 5rem 0;
     padding: 0;
+    
 }
 
 .nav-list li {
-    font-size: 1.1rem;
     padding: 1rem 2rem;
     list-style: none;
     cursor: pointer;
-    transition: all .3s ease-in-out;
+    transition: background .3s ease-in-out;
 }
 
 .nav-list li:hover,
