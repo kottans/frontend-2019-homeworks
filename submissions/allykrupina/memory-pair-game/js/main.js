@@ -60,10 +60,20 @@ handleSecondClick = (block, clickFirstElement, clickSecondElement) => {
         block.classList.remove("secret");
     }
 };
+reloadGame = () => {
+    let oldElement = document.getElementsByClassName('success');
+    while(oldElement[0]) {
+        oldElement[0].parentNode.removeChild(oldElement[0]);
+    };
+    count = 3;
+    countClick = 0;
+    result.innerHTML = countClick;
+    new Game(game, ITEMS);
+}
 handlerFinal = () => {
     setTimeout(()=> {
         alert('YOU WON!! YOUR RESULT - ' + --countClick);
-        location.reload();
+        reloadGame();
     }, DELAY_TIME * 2)
 }
 
@@ -72,7 +82,7 @@ class Game {
         this.renderBlock = renderBlock;
         this.itemsArray = itemsArray.concat(itemsArray);
         this.renderList();
-        this.itemClick();
+        if(count === 1) this.itemClick();
     }
     renderItem(element) {
         let block = document.createElement('div'),
@@ -91,14 +101,17 @@ class Game {
         });
     }
     itemClick() {
-        document.getElementById("game").addEventListener("click", (e) => {
-            let block = e.target,
-                name = block.getAttribute("name");
+        document.getElementById("game").addEventListener("click", ({ target }) => {
+            let name = target.getAttribute("name");
             count++;
             result.innerHTML = countClick++;
             let clickSecondElement = clickFirstElement;
                 clickFirstElement = name;
-            count === 4 ? handlerFirstClick(block) : handleSecondClick(block, clickFirstElement, clickSecondElement);
+            if(count === 4){
+                handlerFirstClick(target);
+            } else {
+                handleSecondClick(target, clickFirstElement, clickSecondElement);
+            }
             if(document.querySelectorAll(".secret").length === 0) handlerFinal();
         });
     }
