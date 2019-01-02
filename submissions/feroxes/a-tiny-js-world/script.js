@@ -1,43 +1,43 @@
 class Inhabitant {
-    constructor(gender, name, saying, legs, hands) {
+    constructor(species, gender, name, saying, legs, hands) {
+        this.species = species;
         this.gender = gender;
         this.name = name;
         this.saying = saying;
         this.legs = legs;
         this.hands = hands;
     }
-
-    print() {
-        let info = [];
-        for (let key in this) {
-            info.push(this[key]);
-        }
-        let str = info.join('; ');
-        console.log(str);
-    }
 }
 
 class Dog extends Inhabitant {
     constructor(gender, name, say = 'Auuuuu!', legs = 4, hands = 0) {
-        super(gender, name, say, legs, hands);
+        super('Dog', gender, name, say, legs, hands);
     }
 }
 
 class Cat extends Inhabitant {
     constructor(gender, name, say = 'Meuuu!', legs = 4, hands = 0) {
-        super(gender, name, say, legs, hands);
+        super('Cat', gender, name, say, legs, hands);
     }
 }
 
 class Human extends Inhabitant {
     constructor(gender, name, say, legs = 2, hands = 2) {
-        super(gender, name, say, legs, hands);
+        super('Human', gender, name, say, legs, hands);
     }
 }
 
+const printInfo = inhabitant => {
+    print(`${inhabitant.species}; ${inhabitant.name}; ${inhabitant.gender}; ${inhabitant.legs}; ${inhabitant.hands}; ${inhabitant.saying}`);
+}
 
-let nick = new Human( 'male', 'Nick', 'Hellooooo...');
-let helen = new Human('female', 'Helen', 'Hi!');
+const inhabitantsArray = [
+    new Human( 'male', 'Nick', 'Hellooooo...'),
+    new Human('female', 'Helen', 'Hi!'),
+    new Dog('female', 'Bars'),
+    new Cat('male', 'Skot')
+]
 
-let bars = new Dog('female', 'Bars');
-let skot = new Cat('male', 'Skot');
+inhabitantsArray.forEach(inhabitant => {
+    printInfo(inhabitant);
+});
