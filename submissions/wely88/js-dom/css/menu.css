@@ -3,8 +3,7 @@ body{
 	font-size: 0;
 	margin: 0;
 	padding: 0;
-	background-color: #dfe6e9;
-	
+	background-color: #dfe6e9;	
 }
 
 .container{
@@ -47,8 +46,8 @@ body{
 
 .menu__item:hover .fa-angle-down{
 	position: absolute;
-    top: 27px;
-    left: 50px;
+	top: 27px;
+	left: 50px;
 	z-index: 1;
 	transition: all 200ms ease-out;
 	
@@ -56,10 +55,10 @@ body{
 
 .fa-angle-down{
 	color: #b2bec3;
-    font-size: 3rem;
-    position: absolute;
-    top: 0px;
-    left: 50px;
+	font-size: 3rem;
+   	position: absolute;
+    	top: 0px;
+    	left: 50px;
 	z-index: -1;
 }    
 
@@ -76,8 +75,8 @@ body{
 
 .content__header{
 	font-size: 50px;
-    margin: 0;
-    text-align: center;
+	margin: 0;
+	text-align: center;
 }
 
 .content__text{
@@ -119,7 +118,6 @@ a{
 	.menu__item:hover .fa-angle-down {
 		left: 35px;
 	}
-
 }
 
 @media (max-width: 815px) and (min-width: 600px){
@@ -146,7 +144,7 @@ a{
 	
 	.content__text {
 		font-size: 16px;
-    }
+    	}
 	
 	.fa-angle-down {
 		font-size: 2rem;
