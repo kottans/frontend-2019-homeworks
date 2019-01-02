@@ -15,7 +15,6 @@ let data = [
         'info' : 'Эта борода носит имя французского короля Генриха IV. Прекрасно отражает ее форму другое название - "бородка вокруг рта". Нежная, сексуальная и романтичная, она добавляет в облик человека нотки мужского эротизма и позволяет ему выглядеть элегантно. Людям с округлыми, полными лицами такая бородка не пойдет, а только подчеркнет недостатки их внешности.'
     },
 ];
-
 function navItemSelected(value) {
     if (value.target.nodeName !==  "LI") {
         return;
@@ -28,7 +27,6 @@ function navItemSelected(value) {
     contentArr.forEach(item => {
         item.classList.remove('content__item--visible');
     })
-
     value.target.classList.add('navigation__item--active');
     itemArr.forEach((item, index) => {
         if (item.classList.contains('navigation__item--active')) {
@@ -36,37 +34,36 @@ function navItemSelected(value) {
         }
     })
 }
-
-let itemBuild = document.querySelector('main');
+let itemBuild = document.querySelector('.main');
 data.forEach(value => {
     const navList = document.querySelector('.navigation__list');
 
-    const item = document.createElement('li');
-    item.textContent = value.title;
-    item.classList.add('navigation__item');
-    navList.appendChild(item);
+    const navItem = document.createElement('li');
+    navItem.textContent = value.title;
+    navItem.classList.add('navigation__item');
+    navList.appendChild(navItem);
 })
-
 data.forEach(value => {
-    const wrapper = document.querySelector('.content__wrapper');
+    const wrapper = document.querySelector('.content__list');
     
-    let contentItem = document.createElement('div');
+    let contentItem = document.createElement('li');
     contentItem.classList.add('content__item');
     wrapper.appendChild(contentItem);
 
     let contentHeader = document.createElement('h3');
+    contentHeader.classList.add('content__title');
     contentHeader.textContent = value.title;
     contentItem.appendChild(contentHeader);
 
     let contentImage = document.createElement('img');
+    contentImage.classList.add('content__image');
     contentImage.setAttribute('src', value.img);
     contentItem.appendChild(contentImage);
 
-
     let contentInfo = document.createElement('p');
+    contentInfo.classList.add('content__info');
     contentInfo.textContent = value.info;
     contentItem.appendChild(contentInfo);
 })
-
 document.querySelector('.navigation__list').addEventListener('click', navItemSelected);
 
