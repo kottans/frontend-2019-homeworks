@@ -7,99 +7,75 @@
 
 // ======== OBJECTS DEFINITIONS ========
 
-var dog = {
-   species: 'dog' ,
-   name: 'Tommy',
-   gender:'male',
-   legs: 4,
-   hands: 0,
-   saying:'uf-uf' ,
-   output: function(){
-     let message = '';
-     for(key in dog){
-       if(key !== 'output'){
-        message+=dog[key] + ' ;';
-     }
-   }
-     return message;
-   }
+var Inhabit = function(livingArea, aggressiveTo, peacefulTo, neutralTo, hands, legs, saying ) {
+  this.livingArea = livingArea;
+  this.aggressiveTo = aggressiveTo;
+  this.peacefulTo = peacefulTo;
+  this.neutralTo = neutralTo;
+  this.hands = hands;
+  this.legs = legs;
+  if(this.saying !== null){
+    this.saying = saying;
+  }
 };
 
-var human = {
-   species: 'human',
-   name: 'Ivan',
-   gender:'male' ,
-   legs: 2,
-   hands: 2,
-   saying: 'kek kek',
-   output: function(){
-     let message = '';
-     for(key in human){
-       if(key !== 'output'){
-        message+=human[key] + ' ;';
-     }
-   }
-     return message;
-   }
+Inhabit.prototype.output = function() {
+  let message = '';
+  for(key in this){
+    if(key !== 'output'){
+      message += `<b>${key}</b> : <i>${this[key]}</i> `;
+    }
+  }
+  return message;
 };
 
-var robot = {
-   species: 'robot',
-   name: 'IO-42',
-   gender: 'none',
-   legs: 2,
-   hands: 2,
-   saying: 'kill all humans',
-   output: function(){
-     let message = '';
-     for(key in robot){
-       if(key !== 'output'){
-        message+=robot[key] + ' ;';
-     }
-   }
-     return message;
-   }
-};
+var Human = function(name, age, saying){
+  Inhabit.call(this, 'earth', 'humans, mutans, cyborgs', 'cats and dogs', 'robots', 2, 2);
+  this.name = name;
+  this.age = age;
+  this.saying = saying;
+}
+Human.prototype = Object.create(Inhabit.prototype);
 
-var cat = {
-   species: 'cat',
-   name: 'Kitty' ,
-   gender: 'female' ,
-   legs: 4,
-   hands: 0,
-   saying: 'meow-meow',
-   output: function(){
-     let message = '';
-     for(key in cat){
-       if(key !== 'output'){
-        message+=cat[key] + ' ;';
-     }
-   }
-     return message;
-   }
-};
+var Cat = function(name, age){
+  Inhabit.call(this, 'earth', 'dogs, mutans, robots', 'cats', 'humans', 0, 4, 'meow-meow');
+  this.name = name;
+  this.age = age;
+}
+Cat.prototype = Object.create(Inhabit.prototype);
 
-var cyborg = {
-   species: 'cyborg',
-   name: human.name + ' ' + robot.name,
-   gender: human.gender,
-   legs: human.legs,
-   hands: human.hands,
-   saying: `${human.saying} ${robot.saying} except Arnold Schwarzenegger` ,
-   output: function(){
-     let message = '';
-     for(key in cyborg){
-       if(key !== 'output'){
-        message+=cyborg[key] + ' ;';
-     }
-   }
-     return message;
-   }
-};
+var Dog = function(name, age){
+  Inhabit.call(this, 'earth', 'mutans, cats', 'humans, robots', 'dogs', 0, 4, 'uf-uf');
+  this.name = name;
+  this.age = age;
+}
+Dog.prototype = Object.create(Inhabit.prototype);
 
-// ======== OUTPUT ========
-print(dog.output(), 'div');
-print(cat.output(), 'div');
+var Robot = function(name, age){
+  Inhabit.call(this, 'Earth and space', 'none', 'none', 'all', 2, 2, 'pew-pew-pew');
+  this.name = name;
+  this.age = age;
+}
+Robot.prototype = Object.create(Inhabit.prototype);
+
+var Mutant = function(firstInhabit, secondInhabit){
+  Inhabit.call(this, 'earth and water', 'all', 'none', 'mutants');
+  this.name = firstInhabit.age + secondInhabit.age;
+  this.age = Math.max(firstInhabit.age,secondInhabit.age);
+  this.hands = firstInhabit.hands + secondInhabit.hands;
+  this.legs = firstInhabit.legs + secondInhabit.legs;
+  this.saying = `${firstInhabit.saying}  ${secondInhabit.saying} 'I am ALIVE!'`;
+}
+Mutant.prototype = Object.create(Inhabit.prototype);
+
+var human = new Human('Ivan', 22, 'Hello world');
+var dog = new Dog('Joe', 6);
+var cat = new Cat('Kitty', 5);
+var robot = new Robot('Io-22', 150);
+var mutant = new Mutant(human, dog);
+
 print(human.output(), 'div');
+print(dog.output(), 'div');
 print(robot.output(), 'div');
-print(cyborg.output(), 'div');
+print(cat.output(), 'div');
+print(mutant.output(), 'div');
