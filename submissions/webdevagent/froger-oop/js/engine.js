@@ -28,6 +28,7 @@ var Engine = (function(global) {
   let point;
   let life;
   let result;
+  let navigation=document.querySelector('.navigation');
 
 
   canvas.width = 505; //505;
@@ -35,6 +36,7 @@ var Engine = (function(global) {
   canvas.classList.add('PlayScreen');
   //doc.body.appendChild(canvas);
   doc.body.appendChild(canvas);
+  doc.body.appendChild(navigation);
 
   /* This function serves as the kickoff point for the game loop itself
    * and handles properly calling the update and render methods.
