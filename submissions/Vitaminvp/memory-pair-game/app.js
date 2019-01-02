@@ -3,6 +3,8 @@ const APP_CONFIG = {
     width: 4,
     height: 4,
     arrImgSrc: ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg", "img/6.jpg"],
+    cardFlipTime: 2000,
+    cardDeleteTime: 750,
     winningText: 'You won!'
 };
 const BLOCKS_AMOUNT = APP_CONFIG.width*APP_CONFIG.height;
@@ -27,13 +29,11 @@ class Card {
         const flipper = document.createElement('div');
         const front = document.createElement('div');
         const back = document.createElement('div');
-
         flipContainer.classList.add('flip-container');
         flipper.classList.add('flipper');
         front.classList.add('front');
         back.classList.add('back');
         flipContainer.id = generateId();
-
         flipper.appendChild(front);
         flipper.appendChild(back);
         flipContainer.appendChild(flipper);
@@ -49,7 +49,7 @@ class Card {
                         flipContainer.classList.remove('on');
                         this.callback(false);
                         this.id = "";
-                    }, 2000);
+                    }, APP_CONFIG.cardFlipTime);
                 }
                 this.id = flipContainer.id;
             }
@@ -68,7 +68,6 @@ class Cards {
         this.firstPicSrc = '';
         this.firstId = '';
     }
-
     countInc(bool, src, id) {
         if (bool) {
             this.count++;
@@ -79,12 +78,11 @@ class Cards {
                     firstCard.classList.add('hidden');
                     secondCard.classList.add('hidden');
                     this.total += 2;
-                    console.log("this.total", this.total);
                     if(this.total >= BLOCKS_AMOUNT) {
                         this.total = 0;
                         alert(APP_CONFIG.winningText);
                     }
-                }, 750);
+                }, APP_CONFIG.cardDeleteTime);
                 this.firstPicSrc = '';
                 this.firstId = '';
                 return false;
@@ -116,12 +114,10 @@ class Cards {
     renderItems() {
         this.output.innerHTML = "";
         const docFragment = document.createDocumentFragment();
-        
         const arrOfImg = APP_CONFIG.arrImgSrc.slice(0, APP_CONFIG.width);
-        //const totalBlocksAmount = arrOfImg.reduce((acc, cur, i, arr) => [...acc, ...shuffle([...arr])], []);
         const totalBlocksAmount = shuffle(arrOfImg.reduce((acc, cur, i, arr) => [...acc, ...arr], []));
         for (let i = 0; i < BLOCKS_AMOUNT; i++) {
-            new Card(docFragment, this.countInc.bind(this), totalBlocksAmount[i]);
+            new Card(docFragment, (...args) => this.countInc(...args), totalBlocksAmount[i]);
         }
         this.output.appendChild(docFragment);
     }
