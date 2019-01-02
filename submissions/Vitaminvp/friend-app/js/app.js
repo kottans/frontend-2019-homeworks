@@ -1,17 +1,22 @@
 const APP_CONFIG = {
+    api_url: 'https://randomuser.me/api/?results=50',
+    filterBy: 'name'
+};
+const CSS_CLASSES ={
     card: 'card',
+    radioButton: 'radio-box',
+    navButton: 'btn-inline'
+};
+const DOM_NODES = {
     inputText: document.querySelector('.input-text'),
-    radioButtons: '.radio-box',
     radioButtonsList: document.querySelectorAll('.radio-box'),
     form: document.querySelector('.filters'),
     target: document.querySelector('.frame'),
     reset: document.querySelector('.filter .reset_button'),
-    btnWrapper: document.querySelector('.btn-wrapper'),
-    api_url: 'https://randomuser.me/api/?results=50'
+    btnWrapper: document.querySelector('.btn-wrapper')
 };
-
 const state = {
-    CardsList: [],
+    cardsList: [],
     filteredList: [],
     sortedList: []
 };
@@ -41,14 +46,14 @@ class Card {
         this.age = props.age;
         this.cell = props.cell;
         this.mail = props.mail,
-        this.gender = props.gender;
+            this.gender = props.gender;
         this.id = props.id;
         this.password = props.password;
         this.location = props.location;
     }
     render() {
         const cardDiv = document.createElement('DIV');
-        cardDiv.className = APP_CONFIG.card;
+        cardDiv.className = CSS_CLASSES.card;
         cardDiv.id =  this.id;
         const template = `<div class="details">
                             <p class="user_title">${capitalize(this.name)}</p>
@@ -82,9 +87,9 @@ class Card {
 function buildCardsList() {
     fetch(APP_CONFIG.api_url)
         .then(data => data.json())
-        .then(data => state.CardsList = data.results.map(buildCard))
-        .then(() => state.filteredList = [...state.CardsList])
-        .then(() => state.sortedList = [...state.CardsList])
+        .then(data => state.cardsList = data.results.map(buildCard))
+        .then(() => state.filteredList = [...state.cardsList])
+        .then(() => state.sortedList = [...state.cardsList])
         .then(() => renderCards(state.filteredList));
 
     function buildCard(friend) {
@@ -122,13 +127,13 @@ const renderBtn = (page, sumResults, resPerPage) => {
         btn = null;
     }
     if( sumResults > 0 ){
-        if(APP_CONFIG.btnWrapper) {
-            if(btn) APP_CONFIG.btnWrapper.insertAdjacentHTML('beforeend', btn);
+        if(DOM_NODES.btnWrapper) {
+            if(btn) DOM_NODES.btnWrapper.insertAdjacentHTML('beforeend', btn);
         } else{
             const btnWrapper = document.createElement('DIV');
             btnWrapper.className = 'btn-wrapper';
             if(btn) btnWrapper.insertAdjacentHTML('beforeend', btn);
-            APP_CONFIG.target.appendChild(btnWrapper);
+            DOM_NODES.target.appendChild(btnWrapper);
         }
     }
 };
@@ -139,45 +144,45 @@ const renderCards = (cardsArray, currentPage = 1, resPerPage = 12) => {
     if(cardsArray && cardsArray.length !== 0){
         const fragment = document.createDocumentFragment();
         cardsArray.slice(start, end).forEach(item => fragment.appendChild(item.render()));
-        APP_CONFIG.target.innerHTML = '';
-        APP_CONFIG.target.appendChild(fragment);
+        DOM_NODES.target.innerHTML = '';
+        DOM_NODES.target.appendChild(fragment);
     }
     renderBtn(currentPage, cardsArray.length, resPerPage)
 };
 
-function filteringByName() {
-    renderCards(state.filteredList = [...state.CardsList.filter(card => card.name.search(new RegExp(this.value.toLowerCase())) !== -1)]);
-}
+function filter () {
+    renderCards(state.filteredList = [...state.cardsList.filter(card => card[APP_CONFIG.filterBy].search(new RegExp(this.value.toLowerCase())) !== -1)]);
+};
 
 const reset = () => {
-    state.sortedList = [...state.CardsList];
-    renderCards(state.filteredList = [...state.CardsList]);
+    state.sortedList = [...state.cardsList];
+    renderCards(state.filteredList = [...state.cardsList]);
 };
 const resetRadioButtons = () => {
     reset();
-    Array.from(APP_CONFIG.radioButtonsList).forEach(button => button.checked = false);
-    APP_CONFIG.radioButtonsList[0].checked = true;
+    Array.from(DOM_NODES.radioButtonsList).forEach(button => button.checked = false);
+    DOM_NODES.radioButtonsList[0].checked = true;
 };
 
 
-const sortingOptions = (e) => {
-    const target = e.target.closest(APP_CONFIG.radioButtons);
+const sortingCards = (e) => {
+    const target = e.target.closest(`.${CSS_CLASSES.radioButton}`);
     state.sortedList.length >= 0 ? null : state.sortedList = [...state.filteredList];
     if (target) SORT[target.value]();
 };
 
-APP_CONFIG.inputText.addEventListener("keyup", filteringByName);
-APP_CONFIG.inputText.addEventListener("focus", resetRadioButtons);
+DOM_NODES.inputText.addEventListener("keyup", filter);
+DOM_NODES.inputText.addEventListener("focus", resetRadioButtons);
 
-APP_CONFIG.form.addEventListener('click', function(e) {
+DOM_NODES.form.addEventListener('click', function(e) {
     let filteredList = [...state.filteredList];
-    sortingOptions(e, filteredList);
+    sortingCards(e, filteredList);
 });
 
-APP_CONFIG.reset.addEventListener('click', reset);
+DOM_NODES.reset.addEventListener('click', reset);
 
-APP_CONFIG.target.addEventListener('click', e => {
-    const btn = e.target.closest('.btn-inline');
+DOM_NODES.target.addEventListener('click', e => {
+    const btn = e.target.closest(`.${CSS_CLASSES.navButton}`);
     if(btn){
         const goToPage = parseInt(btn.dataset.goto);
         renderCards(state.sortedList, goToPage);
