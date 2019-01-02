@@ -1,3 +1,8 @@
+/*Initalize and define borders for player*/
+const leftXborder = 20;
+const rightXborder = 400;
+const topYborder = -10;
+const bottomYborder = 400;
 /*Initalize and define getRandomValue function
 that i will use in future calculations*/
 const getRandomValue = (lim, min) => {
@@ -99,10 +104,10 @@ class Hero extends GameActor {
   }
   handleInput(key) {
     if (GamePlay.canMove) {
-      if (key == 'left' && this.x > 20) this.x -= 25;
-      if (key == 'right' && this.x < 400) this.x += 25;
-      if (key == 'up' && this.y > -10) this.y -= 25;
-      if (key == 'down' && this.y < 400) this.y += 25;
+      if (key == 'left' && this.x > leftXborder) this.x -= 25;
+      if (key == 'right' && this.x < rightXborder) this.x += 25;
+      if (key == 'up' && this.y > topYborder) this.y -= 25;
+      if (key == 'down' && this.y < bottomYborder) this.y += 25;
     }
   };
 };
