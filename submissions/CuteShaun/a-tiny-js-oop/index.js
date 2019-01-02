@@ -7,8 +7,6 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
-const allProps = ["type", "legs", "hands", "gender", "name", "saying", "friendList"];
-
 class MainForm {
   constructor(type, legs, hands, gender, name, saying, friendList) {
     this.type = type;
