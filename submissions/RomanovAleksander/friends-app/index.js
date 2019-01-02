@@ -1,6 +1,8 @@
 const API_URL = "https://randomuser.me/api/?results=48";
-const CONTENT = document.querySelector(".content");
+const CONTENT = document.querySelector('.content');
 let usersList = [];
+let sortAsc = (a,b) => b.name.first < a.name.first ? 1 : -1;
+let sortDesc = (a,b) => b.name.first < a.name.first ? -1 : 1;
 
 function getUsers() {
     fetch(API_URL)
@@ -8,23 +10,21 @@ function getUsers() {
         .then((data) => {
             usersList = data.results;
             displayUsersList(usersList);
-            console.log(usersList)
         });
 }
 
 getUsers();
-
 function createUserCard(user) {
-    const card = document.createElement("div");
-    const name = document.createElement("div");
-    const photo = document.createElement("img");
-    const info = document.createElement("div");
-    const gender = document.createElement("div");
-    const phone = document.createElement("div");
+    const card = document.createElement('div');
+    const name = document.createElement('div');
+    const photo = document.createElement('img');
+    const info = document.createElement('div');
+    const gender = document.createElement('div');
+    const phone = document.createElement('div');
 
-    card.classList = "content__user-card";
-    photo.classList = "content__user-img";
-    info.classList = "content__user-info";
+    card.classList.add('content__user-card');
+    photo.classList.add('content__user-img');
+    info.classList.add('content__user-info');
 
     name.innerHTML = `${user.name.first} ${user.name.last}`;
     card.id = `${user.login.username}`;
@@ -34,25 +34,32 @@ function createUserCard(user) {
     phone.innerHTML = user.phone;
 
     if (user.gender === "female") {
-        name.classList = "content__user-name female";
-        gender.classList = "content__user-gender female";
+        name.classList.add('content__user-name');
+        name.classList.add('female');
+        gender.classList.add('content__user-gender');
+        gender.classList.add('female');
     } else {
-        name.classList = "content__user-name male";
-        gender.classList = "content__user-gender male";
+        name.classList.add('content__user-name');
+        name.classList.add('male');
+        gender.classList.add('content__user-gender');
+        gender.classList.add('male');
     }
 
     card.append(photo, name, info, phone, gender);
     return card
 }
 
-function displayUsersList(list) {
-    list.forEach((user) => {
-        document.querySelector('.content').append(createUserCard(user))
+function displayUsersList(users) {
+    const documentFragment = document.createDocumentFragment();
+    users.forEach((user) => {
+        documentFragment.append(createUserCard(user))
     });
+    CONTENT.append(documentFragment);
 }
 
-function remove(item) {
+function hide(item) {
     document.getElementById(item.login.username).classList.add('hidden');
+    document.getElementById(item.login.username).classList.remove('displayed');
 }
 
 function show(item) {
@@ -62,15 +69,15 @@ function show(item) {
 
 function checkGender() {
     if (document.querySelector('input[value=male]').checked) {
-        usersList.forEach((user) => user.gender === 'male' ? show(user) : remove(user))
+        usersList.forEach((user) => user.gender === 'male' ? show(user) : hide(user))
     } else if (document.querySelector('input[value=female]').checked) {
-        usersList.forEach((user) => user.gender === 'female' ? show(user) : remove(user))
+        usersList.forEach((user) => user.gender === 'female' ? show(user) : hide(user))
     }
 }
 
 function filteringByName() {
     usersList.forEach((user) => {
-        user.name.first.search(this.value) != -1 ? show(user) : remove(user) || user.name.last.toLowerCase().search(this.value) != -1 ? show(user) : remove(user)
+        `${user.name.first} ${user.name.last}}`.includes(this.value) ? show(user) : hide(user)
     });
 }
 
@@ -81,34 +88,23 @@ function sort() {
         }
         else if (event.target.value === "male") {
             usersList.forEach((user) => {
-                user.gender === 'male' ? show(user) : remove(user)
+                user.gender === 'male' ? show(user) : hide(user)
             })
         }
         else if (event.target.value === "female") {
             usersList.forEach((user) => {
-                user.gender === 'female' ? show(user) : remove(user)
+                user.gender === 'female' ? show(user) : hide(user)
             })
         }
         else if (event.target.value === "nameAsc") {
             CONTENT.innerHTML = "";
-            usersList.sort((b, a) => {
-                if (b.name.first < a.name.first) {
-                    return -1} else {
-                    return 1
-                }
-            });
+            usersList.sort(sortAsc);
             displayUsersList(usersList);
             checkGender()
         }
         else if (event.target.value === "nameDesc") {
             CONTENT.innerHTML = "";
-            usersList.sort((a, b) => {
-                if (b.name.first < a.name.first) {
-                    return -1
-                } else {
-                    return 1
-                }
-            });
+            usersList.sort(sortDesc);
             displayUsersList(usersList);
             checkGender()
         }
@@ -126,4 +122,4 @@ function sort() {
 }
 
 sort();
-document.getElementById('name-search').addEventListener("keyup", filteringByName);
+document.getElementById('name-search').addEventListener('input', filteringByName);
