@@ -8,23 +8,20 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 class MainForm {
-  constructor(type, legs, hands, gender, name, saying, friendList) {
-    this.type = type;
-    this.legs = legs;
-    this.hands = hands;
+  constructor(gender, name, saying, friendList) {
+    this.friendList = friendList;
     this.gender = gender;
     this.name = name;
     this.saying = saying;
-    this.friendList = friendList;
   }
 
   toString() {
-    return allProps
+    var props = Object.keys(this).reverse();
+    return props
       .map(item => {
-        if (Array.isArray(this[item])) {
-          return this[item].join(", ");
-        }
-        return `${this[item]}`;
+        return Array.isArray(this[item])
+          ? `<strong>${item}:</strong> ${this[item].join(", ")}`
+          : `<strong>${item}:</strong> ${this[item]}`;
       })
       .join("; ");
   }
@@ -39,64 +36,50 @@ class MainForm {
 }
 
 class Human extends MainForm {
-  constructor(legs, hands, gender, name, friendList, saying) {
-    super("human", legs, hands, gender, name, saying, friendList);
+  constructor(gender, name, saying, friendList) {
+    super(gender, name, saying, friendList);
+    this.type = "human";
+    this.legs = 2;
+    this.hands = 2;
   }
 }
 
 class Dog extends MainForm {
-  constructor(legs, hands, gender, name, friendList, saying = "bark") {
-    super("dog", legs, false, gender, name, saying, friendList);
+  constructor(gender, name, saying, friendList) {
+    super(gender, name, saying, friendList);
+    this.type = "dog";
+    this.legs = 2;
+    this.saying = "bark";
   }
 }
 
-const Cat = (legs, gender, name, friendList) => {
-  let state = {
-    type: "cat",
-    legs,
-    gender,
-    name,
-    friendList,
-    saying: "meow",
+class Cat extends MainForm {
+  constructor(gender, name, friendList, saying) {
+    super(gender, name, saying, friendList);
+    this.type = "cat";
+    this.legs = 2;
+    this.saying = "meow";
   }
-
-  return Object.assign(
-    {},
-    new MainForm(state.type, state.legs, state.gender, state.name, state.saying, state.friendList)
-  )
 }
 
-const CatWoman = (legs, hands, gender, name, friendList) => {
-  let state = {
-    legs,
-    hands,
-    gender,
-    name,
-    friendList,
+class CatMetamorphose extends Cat {
+  constructor(gender, name, friendList, humanInterface, saying) {
+    super(gender, name, friendList);
+    this.hands = humanInterface.hands;
   }
-
-  return Object.assign(
-    {},
-    Cat(state.legs, state.gender, state.name, state.friendList)
-  )
 }
 
+const man = new Human("male", "Andrew", "Hello, Eva!", ["Eva", "Masya"]);
+const woman = new Human("female", "Eva", "Hello, Andrew!", ["Andrew", "Barkl"]);
+const dog = new Dog("male", "Barkl", ["Eva", "Andrew"]);
 
-const man = new Human(2, 2, "male", "Andrew", "Hello, Eva!", [
+const cat = new Cat("female", "Masya", ["Andrew"]);
+const catWoman = new CatMetamorphose(
+  "female",
   "Eva",
-  "Masya"
-]);
-const woman = new Human(2, 2, "female", "Eva", "Hello, Andrew!", [
-  "Andrew",
-  "Barkl"
-]);
-const dog = new Dog(4, "male", "Barkl", "bark", [
-  "Eva",
-  "Andrew"
-]);
-
-const cat = Cat(4, "female", "Masya", ["Andrew"]);
-const catWoman = CatWoman(2, 2, "female", "Eva", ["Andrew", "Barkl"]);
+  ["Andrew", "Barkl"],
+  new Human()
+);
 const allInhabitans = [man, woman, dog, cat, catWoman];
 
 allInhabitans.forEach(item => print(item));
