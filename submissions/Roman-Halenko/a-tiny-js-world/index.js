@@ -6,6 +6,7 @@
    */
 
 // ======== OBJECTS DEFINITIONS ========
+
 function createInhab(nature, gender, name, says, legs, hands, friendlyTo) {
   return {
     nature: nature,
@@ -14,7 +15,8 @@ function createInhab(nature, gender, name, says, legs, hands, friendlyTo) {
     says: says,
     legs: legs,
     hands: hands,
-    friendlyTo: friendlyTo.join(' and ')
+    friendlyTo: friendlyTo.join(' and '),
+    about: about
   }
 };
 
@@ -23,12 +25,16 @@ const dog = createInhab('dog', 'male', 'Kim', 'Awa-waw!', 4, 0, ['Justin', 'Kate
 const woman = createInhab('woman', 'female', 'Kate', 'I need hugs!', 2, 2, ['Kim', 'Justin']);
 const man = createInhab('man', 'male', 'Justin', 'I love comics.', 2, 2, ['Kim', 'Jessy', 'Kate']);
 
-// ======== OUTPUT ========
-function printInh(obj) {
-  print(obj.name + ' is a ' + obj.nature + '. Sometime says: ' + obj.says + ' has ' + obj.legs + ' legs, ' + obj.hands + ' hands.' + ' Friendly with ' + obj.friendlyTo + '. ' + obj.gender + ', as you may guess.');
-}
+function about() {
+  return [
+    `${this.name} is a `,
+    `${this.nature}. Sometime says: `,
+    `${this.says} has `,
+    `${this.legs} legs, `,
+    `${this.hands} hands. Friendly with `,
+    `${this.friendlyTo}. `,
+    `${this.gender}, as you may guess.`
+  ].join('');
+};
 
-printInh(cat);
-printInh(dog);
-printInh(man);
-printInh(woman);
+[cat, dog, man, woman].forEach( e => { print(e.about()) });
