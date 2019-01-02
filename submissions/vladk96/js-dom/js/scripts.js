@@ -122,7 +122,8 @@ const changeContent = (navItem) => {
     A handler for event listener
 */
 const onNavClick = (event) => {
-    if (event.target.parentElement.tagName === 'BUTTON'){
+    if (event.target.parentElement.tagName === 'BUTTON' ||
+        event.target.tagName === 'BUTTON'){
         document.querySelector('.navigation').classList.remove("open");
     } else if (event.target.tagName === 'LI') {
         changeContent(event.target);
