@@ -47,7 +47,7 @@ class GameActor {
       this.x > player.x - x &&
       this.x < player.x + x){
       this.collide=true;
-      player.y = 400;
+      player.toInitialPosition();
     }
   };
 };
@@ -84,6 +84,9 @@ class Hero extends GameActor {
   constructor(y) {
     super('images/char-boy.png', 200, y);
     this.lifes = 3;
+  }
+  toInitialPosition(){
+    this.y=400;
   }
   handleInput(key) {
     if (GamePlay.canMove) {
