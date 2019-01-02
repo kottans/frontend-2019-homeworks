@@ -7,12 +7,10 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
-function Being(name, gender, species, hands, legs){
+function Being(name, gender, species){
     this.name = name;
     this.species = species;
     this.gender = gender;
-    this.hands = hands;
-    this.legs = legs;
     this.phrase = this.say();
 }
 Being.prototype = {
@@ -20,40 +18,49 @@ Being.prototype = {
         return 'Hello!';
     }
 };
-function Dog(name, gender, species='dog', hands=0, legs=4){
-    Being.call(this, name, gender, species, hands, legs)
+function Animal(name, gender, species, legs = 4){
+    Being.call(this, name, gender, species);
+    this.legs = legs;
+}
+function Human(name, gender, species='human', hands=2, legs=2){
+    Being.call(this, name, gender, species);
+    this.hands = hands;
+    this.legs = legs;
+}
+function Dog(name, gender, species='dog', legs){
+    Animal.call(this, name, gender, species, legs)
 }
 Dog.prototype = Object.create(Being.prototype);
 Dog.prototype.say = function(){
     return 'Woof!';
 };
 
-function Cat(name, gender, species='cat', hands=0, legs=4){
-    Being.call(this, name, gender, species, hands, legs)
+function Cat(name, gender, species='cat', legs){
+    Animal.call(this, name, gender, species, legs)
 }
 Cat.prototype = Object.create(Being.prototype);
 Cat.prototype.say = function(){
     return 'Nyah!';
 };
 
-function Woman(name, gender, species='human', hands=2, legs=2){
-    Being.call(this, name, gender, species, hands, legs)
+function Woman(name, gender, species, hands, legs){
+    Human.call(this, name, gender, species, hands, legs)
 }
 Woman.prototype = Object.create(Being.prototype);
 Woman.prototype.say = function(){
     return 'Of justice you will find none...';
 };
 
-function Man(name, gender, species='human', hands=2, legs=2){
-    Being.call(this, name, gender, species, hands, legs)
+function Man(name, gender, species, hands, legs){
+    Human.call(this, name, gender, species, hands, legs)
 }
 Man.prototype = Object.create(Being.prototype);
 Man.prototype.say = function(){
     return 'If you wish for peace, then prepare for war';
 };
 
-function CatWoman(name, gender, species='human', hands=2, legs=2){
-    Being.call(this, name, gender, species, hands, legs)
+function CatWoman(name, gender, species, hands, legs){
+    Human.call(this, name, gender, species, hands, legs)
 }
 CatWoman.prototype = Object.create(Cat.prototype);
 
@@ -70,7 +77,7 @@ function getInfo(being){
         `gender: ${being.gender}`,
         `hands: ${being.hands}`,
         `legs: ${being.legs}`,
-        `phrase:${being.phrase}`
+        `phrase: ${being.phrase}`
     ].join('; ');
 }
 
