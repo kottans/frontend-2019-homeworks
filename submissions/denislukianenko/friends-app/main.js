@@ -1,10 +1,14 @@
 let config = {
   apiUrl:
-    "https://randomuser.me/api/?results=500&inc=gender,name,dob,picture&seed=00f84547aa823971",
+    "https://randomuser.me/api/?results=300&inc=gender,name,dob,picture&seed=00f84547aa823971",
   mainEl: document.getElementById("main"),
   colElements: [],
   nameInpEl: document.getElementById("name-filter"),
-  ageInpEl: document.getElementById("age-filter")
+  ageInpEl: document.getElementById("age-filter"),
+  paginator: 35,
+  minAge: 100,
+  maxAge: 0,
+  filtered: []
 };
 
 let users = [];
@@ -19,13 +23,11 @@ fetch(config.apiUrl)
   .catch(alert);
 
 function findAgeExtrema(users) {
-  let min = 100;
-  let max = 0;
   users.forEach(function(user) {
-    if (user.dob.age < min) min = user.dob.age;
-    if (user.dob.age > max) max = user.dob.age;
+    if (user.dob.age < config.minAge) config.minAge = user.dob.age;
+    if (user.dob.age > config.maxAge) config.maxAge = user.dob.age;
   });
-  createAllColumns(min, 45, users);
+  createAllColumns(config.minAge, config.paginator, users);
 }
 
 function createAllColumns(min, max, users) {
@@ -35,20 +37,21 @@ function createAllColumns(min, max, users) {
   config.colElements = Array.from(document.getElementsByClassName("column"));
 }
 
+function compareNames(a, b) {
+  if (a.name.first < b.name.first) return -1;
+  if (a.name.first > b.name.first) return 1;
+  return 0;
+}
+
 function createColumn(year, users) {
-  let colArr = users.filter(function(user) {
-    if (user.dob.age == year) return true;
-  });
+  let colArr = users.filter(user => user.dob.age === year);
   if (colArr.length == 0) return;
-  colArr.sort((a, b) =>
-    a.name.first > b.name.first ? 1 : b.name.first > a.name.first ? -1 : 0
-  );
+  colArr.sort(compareNames);
   let personsHTML = "";
   colArr.forEach(function(user) {
     personsHTML += createPersonCard(user);
   });
-  let addition = "";
-  year == 21 ? (addition = "year") : null;
+  let addition = year == config.minAge ? "year" : "";
 
   config.mainEl.innerHTML += `
     <div class="column">
@@ -88,51 +91,42 @@ function createPersonCard(person) {
   `;
 }
 
-// ↓ I thought hiding columns outside of window would improve perfomence but it only became worse...
+config.mainEl.addEventListener(
+  "scroll",
+  throttle(function() {
+    if (getVisibleAges()) addContent();
+  })
+);
 
-// config.mainEl.addEventListener(
-//   "scroll",
-//   throttle(function() {
-//     let minAndMax = getVisibleAges();
-//     let min = minAndMax[0];
-//     let max = minAndMax[1];
-//     setVisible(min, max);
-//   })
-// );
+function throttle(action) {
+  let isRunning = false;
+  return function() {
+    if (isRunning) return;
+    isRunning = true;
+    window.requestAnimationFrame(() => {
+      action();
+      isRunning = false;
+    });
+  };
+}
 
-// function throttle(action) {
-//   let isRunning = false;
-//   return function() {
-//     if (isRunning) return;
-//     isRunning = true;
-//     window.requestAnimationFrame(() => {
-//       action();
-//       isRunning = false;
-//     });
-//   };
-// }
+function getVisibleAges() {
+  return !(
+    config.mainEl.scrollWidth -
+    (config.mainEl.scrollLeft + config.mainEl.offsetWidth)
+  );
+}
 
-// function getVisibleAges() {
-//   let min = Math.round((config.mainEl.scrollLeft + 50 - 120) / 120);
-//   let max = Math.round(
-//     (config.mainEl.scrollLeft + 50 + window.innerWidth) / 120
-//   );
-//   return [min, max];
-// }
+function removeNoAnimation() {
+  config.mainEl.classList.remove("no-animation");
+}
 
-// function setVisible(min, max) {
-//   config.colElements.forEach(function(el, index) {
-//     if (index <= max && index >= min) {
-//       el.classList.contains("column-hidden")
-//         ? el.classList.remove("column-hidden")
-//         : null;
-//     } else {
-//       !el.classList.contains("column-hidden")
-//         ? el.classList.add("column-hidden")
-//         : null;
-//     }
-//   });
-// }
+function addContent() {
+  config.mainEl.classList.add("no-animation");
+  let toLoad = config.filtered.length ? config.filtered : users;
+  createAllColumns(config.paginator + 1, config.paginator + 10, toLoad);
+  config.paginator += 10;
+}
 
 function toggleAges(el) {
   el.classList.toggle("button-active");
@@ -144,14 +138,14 @@ function toggleAlphabeticOrder(el) {
   el.classList.toggle("button-active");
   config.colElements.forEach(function(el) {
     el.classList.toggle("column-reverse");
-    el.getElementsByClassName("persons-list")[0].scrollTop = 0;
+    el.querySelector(".persons-list").scrollTop = 0;
   });
 }
 
 function filterUsers(el) {
   let nameToFilter = config.nameInpEl.value.toLowerCase();
   let ageToFilter = config.ageInpEl.value;
-  let filtered = users;
+  config.filtered = users;
   if (!nameToFilter && !ageToFilter) {
     truncate();
     findAgeExtrema(users);
@@ -159,33 +153,30 @@ function filterUsers(el) {
   }
 
   if (nameToFilter) {
-    filtered = users.filter(function(el) {
-      let result = false;
-      if (
+    config.filtered = users.filter(function(el) {
+      return (
         el.name.first.includes(nameToFilter) ||
         el.name.last.includes(nameToFilter)
-      )
-        result = true;
-      console.log(
-        `Name ${el.name.first} ${
-          el.name.last
-        } includes ${nameToFilter}: ${result}`
       );
-      return result;
     });
   }
   if (ageToFilter) {
-    filtered = filtered.filter(function(el) {
-      console.log(el);
-      return el.dob.age >= ageToFilter;
+    config.filtered = config.filtered.filter(function(el) {
+      return el.dob.age - ageToFilter;
     });
   }
   truncate();
-  console.log(filtered);
-  findAgeExtrema(filtered);
-  console.log(nameToFilter, ageToFilter);
+  findAgeExtrema(config.filtered);
 }
 
 function truncate() {
   config.mainEl.innerHTML = "";
+  removeNoAnimation();
 }
+
+config.nameInpEl.addEventListener("change", function(evt) {
+  filterUsers(evt.target);
+});
+config.ageInpEl.addEventListener("change", function(evt) {
+  filterUsers(evt.target);
+});

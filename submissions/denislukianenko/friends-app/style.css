@@ -22,6 +22,7 @@ header {
   align-items: center;
   flex-wrap: wrap;
   background-color: hsl(196, 70%, 93%);
+  animation: fadeInHeader both 1600ms 0ms cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 header > .logo {
@@ -112,6 +113,46 @@ main {
   flex: 320px 0 0;
   padding-right: 200px;
 }
+main > .column {
+  animation: fadeInColumn both 600ms 0ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+main > .column:nth-of-type(2) {
+  animation-delay: 30ms;
+}
+main > .column:nth-of-type(3) {
+  animation-delay: 60ms;
+}
+main > .column:nth-of-type(4) {
+  animation-delay: 90ms;
+}
+main > .column:nth-of-type(5) {
+  animation-delay: 120ms;
+}
+main > .column:nth-of-type(6) {
+  animation-delay: 150ms;
+}
+main > .column:nth-of-type(7) {
+  animation-delay: 180ms;
+}
+main > .column:nth-of-type(8) {
+  animation-delay: 210ms;
+}
+main > .column:nth-of-type(9) {
+  animation-delay: 240ms;
+}
+main > .column:nth-of-type(10) {
+  animation-delay: 270ms;
+}
+main > .column:nth-of-type(11) {
+  animation-delay: 300ms;
+}
+main > .column:nth-of-type(12) {
+  animation-delay: 330ms;
+}
+
+main.no-animation > .column {
+  animation: none;
+}
 
 .column {
   flex: 120px 0 0;
@@ -175,16 +216,17 @@ main {
 .person .badge {
   font-size: 12px;
   font-family: Monaco, Menlo, monospace;
-  transform: rotate(-50deg);
+  transform: rotate(-55deg);
   position: absolute;
-  top: 25px;
-  left: 0;
+  top: 29px;
+  left: 8px;
 }
 
 .person .badge span {
-  height: 68px;
+  /* outline: 1px solid red; */
+  height: 77px;
   position: absolute;
-  width: 20px;
+  width: 8px;
   left: 0;
   top: 0;
   transform-origin: bottom center;
@@ -207,107 +249,130 @@ main {
 }
 
 .char1 {
-  transform: rotate(6deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(6deg);
 }
 
 .char2 {
-  transform: rotate(12deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(12deg);
 }
 
 .char3 {
-  transform: rotate(18deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(18deg);
 }
 
 .char4 {
-  transform: rotate(24deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(24deg);
 }
 
 .char5 {
-  transform: rotate(30deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(30deg);
 }
 
 .char6 {
-  transform: rotate(36deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(36deg);
 }
 
 .char7 {
-  transform: rotate(42deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(42deg);
 }
 
 .char8 {
-  transform: rotate(48deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(48deg);
 }
 
 .char9 {
-  transform: rotate(54deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(54deg);
 }
 
 .char10 {
-  transform: rotate(60deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(60deg);
 }
 
 .char11 {
-  transform: rotate(66deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(66deg);
 }
 
 .char12 {
-  transform: rotate(72deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(72deg);
 }
 
 .char13 {
-  transform: rotate(78deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(78deg);
 }
 
 .char14 {
-  transform: rotate(84deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(84deg);
 }
 
 .char15 {
-  transform: rotate(90deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(90deg);
 }
 
 .char16 {
-  transform: rotate(96deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(96deg);
 }
 
 .char17 {
-  transform: rotate(102deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(102deg);
 }
 
 .char18 {
-  transform: rotate(108deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(108deg);
 }
 
 .char19 {
-  transform: rotate(114deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(114deg);
 }
 
 .char20 {
-  transform: rotate(120deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(120deg);
 }
 
 .char21 {
-  transform: rotate(126deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(126deg);
 }
 
 .char22 {
-  transform: rotate(132deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(132deg);
 }
 
 .char23 {
-  transform: rotate(138deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(138deg);
 }
 
 .char24 {
-  transform: rotate(144deg) scaleX(0.9);
+  transform: scaleX(0.9) rotate(144deg);
 }
 
 .person img {
-  padding: 10px;
-  padding-top: 10px;
+  margin: 10px;
+  margin-top: 15px;
   border-radius: 50%;
-  max-width: 100%;
-  max-height: 100%;
+  background-color: lightgray;
+  width: 120px;
+  height: 120px;
+}
+
+@keyframes fadeInHeader {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInColumn {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.98;
+  }
 }
 
 @media screen and (max-width: 700px) {
