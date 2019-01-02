@@ -1,13 +1,10 @@
-class Creature {
-    constructor(whoIs, gender, name, say) {
-        this.whoIs = whoIs;
+class Inhabitant {
+    constructor(gender, name, saying, legs, hands) {
         this.gender = gender;
         this.name = name;
-        this.say = say;
-    }
-
-    toSay() {
-        console.log(this.say);
+        this.saying = saying;
+        this.legs = legs;
+        this.hands = hands;
     }
 
     print() {
@@ -20,25 +17,27 @@ class Creature {
     }
 }
 
-class Animal extends Creature {
-    constructor(whoIs, gender, name, say) {
-        super(whoIs, gender, name, say)
-        this.legs = 4;
+class Dog extends Inhabitant {
+    constructor(gender, name, say = 'Auuuuu!', legs = 4, hands = 0) {
+        super(gender, name, say, legs, hands);
     }
 }
 
-class Human extends Creature {
-    constructor(whoIs, gender, name, say) {
-        super(whoIs, gender, name, say)
-        this.hands = 2;
-        this.legs = 2;
+class Cat extends Inhabitant {
+    constructor(gender, name, say = 'Meuuu!', legs = 4, hands = 0) {
+        super(gender, name, say, legs, hands);
+    }
+}
+
+class Human extends Inhabitant {
+    constructor(gender, name, say, legs = 2, hands = 2) {
+        super(gender, name, say, legs, hands);
     }
 }
 
 
-let nick = new Human('human', 'male', 'Nick', 'Hellooooo...');
-let helen = new Human('human', 'female', 'Helen', 'Hi!');
+let nick = new Human( 'male', 'Nick', 'Hellooooo...');
+let helen = new Human('female', 'Helen', 'Hi!');
 
-let bars = new Animal('cat', 'female', 'Bars', 'Meuuuu');
-let skot = new Animal('dog', 'male', 'Skot', 'Auuuuu!');
-
+let bars = new Dog('female', 'Bars');
+let skot = new Cat('male', 'Skot');
