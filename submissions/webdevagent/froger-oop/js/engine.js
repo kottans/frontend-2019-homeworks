@@ -148,13 +148,13 @@ var Engine = (function(global) {
          */
         ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
 
-        ctx.font = "30px Arial";
+        ctx.font = "30px Helvetica";
         ctx.fillText(`Points: ${point}`, 10, 30);
         ctx.fillText(`Lifes: ${life}`, 400, 30);
 
         if (result !='play') {
 
-          ctx.font = "60px Arial";
+          ctx.font = "60px Helvetica";
 
           ctx.fillText(result, 50, 450);
 
