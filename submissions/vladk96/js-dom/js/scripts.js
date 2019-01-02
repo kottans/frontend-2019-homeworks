@@ -122,8 +122,7 @@ const changeContent = (navItem) => {
     A handler for event listener
 */
 const onNavClick = (event) => {
-    event.preventDefault();
-    if (event.target.parentElement.tagName === 'A'){
+    if (event.target.parentElement.tagName === 'BUTTON'){
         document.querySelector('.navigation').classList.remove("open");
     } else if (event.target.tagName === 'LI') {
         changeContent(event.target);
@@ -134,7 +133,6 @@ const onNavClick = (event) => {
     A handler for event listener
 */
 const onMenuButtonClick = (event) => {
-    event.preventDefault();
     document.querySelector('.navigation').classList.toggle("open");
 }
 
