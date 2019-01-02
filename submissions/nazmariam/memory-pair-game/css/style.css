@@ -1,0 +1,86 @@
+html, body{
+	padding: 0;
+	margin: 0;
+}
+html{
+	height: 100%;
+}
+body{
+	min-height: 100%;
+}
+body{
+	background: url("../images/bg.jpg") 50% no-repeat;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+    margin: 10px;
+	opacity: 1;
+	transition: opacity 500ms;
+}
+.flip-container.hidden {
+    opacity: 0;
+}
+	/* flip the pane when hovered */
+/*.flip-container:hover .flipper,*/
+.flip-container.active .flipper,
+.flip-container.flip .flipper {
+    transform: rotateY(180deg);
+}
+.flip-container, .front, .back {
+	width: 160px;
+	height: 240px;
+}
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+    border: 1px solid #000;
+    border-radius: 20px;
+}
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	transform: rotateY(0deg);
+    background-color: #ffee5d;;
+}
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+    background-color: #4eabda;
+}
+.main{
+    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.back img {
+	display: block;
+	width: 100%;
+	margin: 32px auto;
+}
+.main h1 {
+	font-size: 125px;
+	color: #ff4383;
+	opacity: 0;
+	transition: all 9000ms;
+	text-align: center;
+	position: absolute;
+}
+.main h1.winner{
+	opacity: 1;
+}
