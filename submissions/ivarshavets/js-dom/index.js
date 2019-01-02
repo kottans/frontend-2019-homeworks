@@ -5,32 +5,38 @@ const initDom = () => {
   const menuContentVisibilityClass = 'hidden'
   const menuToggle = document.querySelector('.menu_toggler')
 
+  const populateMenu = (item, index) => {
+    const menuItem = document.createElement('li')
+    menuItem.innerHTML = item.title
+    menuItem.dataset.name = item.id
+    menu.appendChild(menuItem)
+
+    if (index === 0) {
+      menuItem.classList.add(menuItemCurrentClass)
+    }
+  }
+
+  const populateMenuContent = (item, index) => {
+    const menuItemContent = document.createElement('div')
+    menuItemContent.innerHTML = item.text
+    menuItemContent.className += `${item.id}_content menu_item_content`
+
+    if (index > 0) {
+      menuItemContent.classList.add(menuContentVisibilityClass)
+    }
+
+    menuContent.appendChild(menuItemContent)
+  }
+
   const populateContent = () => {
     data.forEach((item, index) => {
-      // populate menu
-      const menuItem = document.createElement('li')
-      menuItem.innerHTML = item.title
-      menuItem.dataset.name = item.id
-      menu.appendChild(menuItem)
-      if (index === 0) {
-        menuItem.classList.add(menuItemCurrentClass)
-      }
-
-      // populate menu content
-      const menuItemContent = document.createElement('div')
-      menuItemContent.innerHTML = item.text
-      menuItemContent.className += `${item.id}_content menu_item_content`
-
-      if (index > 0) {
-        menuItemContent.classList.add(menuContentVisibilityClass)
-      }
-
-      menuContent.appendChild(menuItemContent)
+      populateMenu(item, index)
+      populateMenuContent(item, index)
     })
   }
 
-  const switchMenuItem = (e) => {
-    const item = e.currentTarget
+  const switchMenuItem = ({ currentTarget }) => {
+    const item = currentTarget
     const currentItemName = item.dataset.name
 
     // activate menu item
