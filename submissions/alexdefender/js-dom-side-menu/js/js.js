@@ -1,92 +1,54 @@
 var contentArr = [{
-  contentGoods: "<img src=\"img/01.jpg\"><p>Главное преимущество изделия – его экономичность по сравнению с вертикальным озеленением на всю стену. </p><p>Достаточно 1–2 панелей на стене, чтобы полностью обновить интерьер комнаты, сделать его более актуальным и трендовым.</p>",
+  nameClassFromArr: "menu-item-1",
+  contentGoods: "<img class=\"img-content\" src=\"img/01.jpg\"><p>Главное преимущество изделия – его экономичность по сравнению с вертикальным озеленением на всю стену. </p><p>Достаточно 1–2 панелей на стене, чтобы полностью обновить интерьер комнаты, сделать его более актуальным и трендовым.</p>",
 }, {
-  contentGoods: "<img src=\"img/02.jpg\"><p>Главное преимущество изделия – его экономичность по сравнению с вертикальным озеленением на всю стену. </p><p>Достаточно 1–2 панелей на стене, чтобы полностью обновить интерьер комнаты, сделать его более актуальным и трендовым.</p>",
+  nameClassFromArr: "menu-item-2",
+  contentGoods: "<img class=\"img-content\" src=\"img/02.jpg\"><p>Главное преимущество изделия – его экономичность по сравнению с вертикальным озеленением на всю стену. </p><p>Достаточно 1–2 панелей на стене, чтобы полностью обновить интерьер комнаты, сделать его более актуальным и трендовым.</p>",
 }, {
-  contentGoods: "<img src=\"img/03.jpg\"><p>Главное преимущество изделия – его экономичность по сравнению с вертикальным озеленением на всю стену. </p><p>Достаточно 1–2 панелей на стене, чтобы полностью обновить интерьер комнаты, сделать его более актуальным и трендовым.</p>",
+  nameClassFromArr: "menu-item-3",
+  contentGoods: "<img class=\"img-content\" src=\"img/03.jpg\"><p>Главное преимущество изделия – его экономичность по сравнению с вертикальным озеленением на всю стену. </p><p>Достаточно 1–2 панелей на стене, чтобы полностью обновить интерьер комнаты, сделать его более актуальным и трендовым.</p>",
 }, {
-  contentGoods: "<img src=\"img/04.jpg\"><p>Главное преимущество изделия – его экономичность по сравнению с вертикальным озеленением на всю стену. </p><p>Достаточно 1–2 панелей на стене, чтобы полностью обновить интерьер комнаты, сделать его более актуальным и трендовым.</p>",
+  nameClassFromArr: "menu-item-4",
+  contentGoods: "<img class=\"img-content\" src=\"img/04.jpg\"><p>Главное преимущество изделия – его экономичность по сравнению с вертикальным озеленением на всю стену. </p><p>Достаточно 1–2 панелей на стене, чтобы полностью обновить интерьер комнаты, сделать его более актуальным и трендовым.</p>",
 }, {
-  contentGoods: "<img src=\"img/05.jpg\"><p>Главное преимущество изделия – его экономичность по сравнению с вертикальным озеленением на всю стену. </p><p>Достаточно 1–2 панелей на стене, чтобы полностью обновить интерьер комнаты, сделать его более актуальным и трендовым.</p>",
+  nameClassFromArr: "menu-item-5",
+  contentGoods: "<img class=\"img-content\" src=\"img/05.jpg\"><p>Главное преимущество изделия – его экономичность по сравнению с вертикальным озеленением на всю стену. </p><p>Достаточно 1–2 панелей на стене, чтобы полностью обновить интерьер комнаты, сделать его более актуальным и трендовым.</p>",
 }]
 
-var menuItem1 = document.querySelector('.menu-item-1');
-menuItem1.addEventListener('click', function () {
-  let element = document.querySelector(".content");
+document.querySelector(".menu-list").addEventListener('click', function (e) {
+  if (e.target && e.target.nodeName === "LI") {
+    switch (e.target.className) {
+      case "menu-item-1":
+        showContent("menu-item-1");
+        break;
+      case "menu-item-2":
+        showContent("menu-item-2");
+        break;
+      case "menu-item-3":
+        showContent("menu-item-3");
+        break;
+      case "menu-item-4":
+        showContent("menu-item-4");
+        break;
+      case "menu-item-5":
+        showContent("menu-item-5");
+        break;
+    }
+  }
+});
+
+function showContent(nameClass) {
+  let element = document.querySelector("#content");
   while (element.firstChild) {
     element.removeChild(element.firstChild);
   }
-
   let newDiv = document.createElement('div');
-  applyStyleCss(newDiv);
-  newDiv.innerHTML = contentArr[0].contentGoods;
-  let chooseContent = document.querySelector('.content');
-  chooseContent.appendChild(newDiv);
-});
-
-var menuItem2 = document.querySelector('.menu-item-2');
-menuItem2.addEventListener('click', function () {
-  let element = document.querySelector(".content");
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
+  element.className = "content content-style";
+  for (let index in contentArr) {
+    if (contentArr[index].nameClassFromArr === nameClass) {
+      newDiv.innerHTML = contentArr[index].contentGoods;
+    }
   }
-
-  let newDiv = document.createElement('div');
-  applyStyleCss(newDiv);
-  newDiv.innerHTML = contentArr[1].contentGoods;
-  let chooseContent = document.querySelector('.content');
-  chooseContent.appendChild(newDiv);
-});
-
-var menuItem3 = document.querySelector('.menu-item-3');
-menuItem3.addEventListener('click', function () {
-  let element = document.querySelector(".content");
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
-  }
-
-  let newDiv = document.createElement('div');
-  applyStyleCss(newDiv);
-  newDiv.innerHTML = contentArr[2].contentGoods;
-  let chooseContent = document.querySelector('.content');
-  chooseContent.appendChild(newDiv);
-});
-
-var menuItem4 = document.querySelector('.menu-item-4');
-menuItem4.addEventListener('click', function () {
-  let element = document.querySelector(".content");
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
-  }
-
-  let newDiv = document.createElement('div');
-  applyStyleCss(newDiv);
-  newDiv.innerHTML = contentArr[3].contentGoods;
-  let chooseContent = document.querySelector('.content');
-  chooseContent.appendChild(newDiv);
-});
-
-var menuItem5 = document.querySelector('.menu-item-5');
-menuItem5.addEventListener('click', function () {
-  let element = document.querySelector(".content");
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
-  }
-
-  let newDiv = document.createElement('div');
-  applyStyleCss(newDiv);
-  newDiv.innerHTML = contentArr[4].contentGoods;
-  let chooseContent = document.querySelector('.content');
-  chooseContent.appendChild(newDiv);
-});
-
-function applyStyleCss(element) {
-  element.style.border = "solid";
-  element.style.borderColor = "burlywood";
-  element.style.padding = "20px 20px 20px 20px";
-  element.style.margin = "-10px 20px 20px -10px";
-  element.style.transition = "2s";
+ 
+  element.appendChild(newDiv);
 }
-
-
-
