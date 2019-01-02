@@ -8,15 +8,18 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 class MainForm {
-  constructor(gender, name, saying, friendList) {
+  constructor(gender, name, saying, friendList, legs) {
     this.friendList = friendList;
     this.gender = gender;
     this.name = name;
     this.saying = saying;
+    this.legs = legs;
   }
 
   toString() {
-    var props = Object.keys(this).reverse();
+    var props = Object.keys(this)
+      .sort()
+      .reverse();
     return props
       .map(item => {
         return Array.isArray(this[item])
@@ -37,41 +40,37 @@ class MainForm {
 
 class Human extends MainForm {
   constructor(gender, name, saying, friendList) {
-    super(gender, name, saying, friendList);
+    super(gender, name, saying, friendList, 2);
     this.type = "human";
-    this.legs = 2;
     this.hands = 2;
   }
 }
 
 class Dog extends MainForm {
-  constructor(gender, name, saying, friendList) {
-    super(gender, name, saying, friendList);
+  constructor(gender, name, friendList) {
+    super(gender, name, "bark", friendList, 4);
     this.type = "dog";
-    this.legs = 2;
-    this.saying = "bark";
   }
 }
 
 class Cat extends MainForm {
-  constructor(gender, name, friendList, saying) {
-    super(gender, name, saying, friendList);
+  constructor(gender, name, friendList, legs) {
+    super(gender, name, "meow", friendList, legs);
     this.type = "cat";
-    this.legs = 2;
-    this.saying = "meow";
+    this.legs = legs || 4;
   }
 }
 
 class CatMetamorphose extends Cat {
-  constructor(gender, name, friendList, humanInterface, saying) {
-    super(gender, name, friendList);
+  constructor(gender, name, friendList, humanInterface) {
+    super(gender, name, friendList, 2);
     this.hands = humanInterface.hands;
   }
 }
 
 const man = new Human("male", "Andrew", "Hello, Eva!", ["Eva", "Masya"]);
 const woman = new Human("female", "Eva", "Hello, Andrew!", ["Andrew", "Barkl"]);
-const dog = new Dog("male", "Barkl", ["Eva", "Andrew"]);
+const dog = new Dog("male", "Barkl", "bark", ["Eva", "Andrew"]);
 
 const cat = new Cat("female", "Masya", ["Andrew"]);
 const catWoman = new CatMetamorphose(
