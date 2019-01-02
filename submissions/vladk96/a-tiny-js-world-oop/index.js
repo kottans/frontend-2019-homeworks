@@ -9,13 +9,12 @@
 // Define your objects here
 
 class Creature {
-    constructor (name, gender, species, legs, hands) {
+    constructor (name, gender, species, legs, saying) {
         this.name = name;
         this.gender = gender;
         this.species = species;
         this.legs = legs;
-        this.hands = hands;
-        this.saying = null;
+        this.saying = saying;
     }
 
     say(text) {
@@ -27,26 +26,30 @@ class Creature {
             `Species: ${this.species}`,
             `name: ${this.name}`,
             `gender: ${this.gender}`,
-            `legs: ${this.legs}`,
-            `hands: ${this.hands}`,
             `saying: ${this.saying}`,
+            `legs: ${this.legs}; `,
         ].join('; ');
     }
 }
 
 class Cat extends Creature {
-    constructor (name, gender, species = "Cat", legs = 4, hands = 0) {
-        super (name, gender, species, legs, hands);
+    constructor (name, gender, saying, species = "Cat", legs = 4) {
+        super (name, gender, species, legs, saying);
     }
 }
 
 class Human extends Creature {
-    constructor (name, gender, species = "Human", legs = 2, hands = 2) {
-        super (name, gender, species, legs, hands);
+    constructor (name, gender, saying, species = "Human", legs = 2, hands = 2) {
+        super (name, gender, species, legs, saying);
+        this.hands = hands;
+    }
+
+    toString () {
+        return super.toString() + `hands: ${this.hands};`;
     }
 }
 
-const cat = new Cat('Mark', 'male');
+const cat = new Cat('Mark', 'male', 'Meoow!');
 
 const cat1 = new Cat('Molly', 'female');
 cat1.say('Meow');
@@ -58,7 +61,7 @@ const human1 = new Human('Olya', 'female');
 human1.say('Hello!');
 
 [cat, cat1, human, human1].forEach((obj) => {
-    print(obj.toString());
+    print(obj);
 });
 
 // ======== OUTPUT ========
