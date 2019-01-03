@@ -60,12 +60,11 @@ var population = [man, woman, dog, cat, catWoman];
 
 population.forEach(
     function(elem) {
-        let str = '';
+        let arrStr = [];
         for (var key in elem) {
-            str += elem[key] + '; ';
+            arrStr.push(elem[key]);
         }
-        print(str);
+        print(arrStr.join('; '));
     }
 );
-
 
