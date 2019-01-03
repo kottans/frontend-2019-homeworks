@@ -16,6 +16,9 @@ function Being(name, gender, species){
 Being.prototype = {
     say: function () {
         return 'Hello!';
+    },
+    toString: function () {
+        return Object.keys(this).map(i => `${i}: ${this[i]}`).join('; ')
     }
 };
 function Animal(name, gender, species, legs = 4){
@@ -70,16 +73,6 @@ const woman = new Woman('Tomoe', 'female');
 const man = new Man('Oda', 'male');
 const catwoman = new CatWoman('Koneko', 'female');
 
-function getInfo(being){
-    return [
-        `Name: ${being.name}`,
-        `species: ${being.species}`,
-        `gender: ${being.gender}`,
-        `hands: ${being.hands}`,
-        `legs: ${being.legs}`,
-        `phrase: ${being.phrase}`
-    ].join('; ');
-}
 
 
 // ======== OUTPUT ========
@@ -90,7 +83,8 @@ function getInfo(being){
    However, please, REFRAIN from improving visuals at least until your code is reviewed
    so code reviewers might focus on a single file that is index.js.
    */
-[dog, cat, woman, man, catwoman].forEach(i => print(getInfo(i)));
+
+[dog, cat, woman, man, catwoman].forEach(i => print(i.toString()));
 /* Print examples:
    print('ABC');
    print('<strong>ABC</strong>');
