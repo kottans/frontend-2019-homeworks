@@ -3,16 +3,23 @@ let config = {
     "https://randomuser.me/api/?results=300&inc=gender,name,dob,picture&seed=00f84547aa823971",
   mainEl: document.getElementById("main"),
   colElements: [],
-  nameInpEl: document.getElementById("name-filter"),
-  ageInpEl: document.getElementById("age-filter"),
+  nameInputElement: document.getElementById("name-filter"),
+  ageInputElement: document.getElementById("age-filter"),
+  ageToggleElement: document.getElementById("age-toggle"),
+  abcToggleElement: document.getElementById("abc-toggle"),
   paginator: 35,
+  paginatorIncrement: 10,
   minAge: 100,
   maxAge: 0,
   filtered: []
 };
 
+document.create;
+
 let users = [];
+
 fetch(config.apiUrl)
+  .then(handleErrors)
   .then(function(response) {
     return response.json();
   })
@@ -20,7 +27,14 @@ fetch(config.apiUrl)
     users = json.results;
     findAgeExtrema(users);
   })
-  .catch(alert);
+  .catch(error => console.log(error));
+
+function handleErrors(response) {
+  if (!response.ok) {
+    throw Error(response.statusText);
+  }
+  return response;
+}
 
 function findAgeExtrema(users) {
   users.forEach(function(user) {
@@ -47,10 +61,11 @@ function createColumn(year, users) {
   let colArr = users.filter(user => user.dob.age === year);
   if (colArr.length == 0) return;
   colArr.sort(compareNames);
-  let personsHTML = "";
-  colArr.forEach(function(user) {
-    personsHTML += createPersonCard(user);
-  });
+  let personsHTML = colArr
+    .map(function(user) {
+      return createPersonCard(user);
+    })
+    .join("");
   let addition = year == config.minAge ? "year" : "";
 
   config.mainEl.innerHTML += `
@@ -124,7 +139,11 @@ function removeNoAnimation() {
 function addContent() {
   config.mainEl.classList.add("no-animation");
   let toLoad = config.filtered.length ? config.filtered : users;
-  createAllColumns(config.paginator + 1, config.paginator + 10, toLoad);
+  createAllColumns(
+    config.paginator + 1,
+    config.paginator + config.paginatorIncrement,
+    toLoad
+  );
   config.paginator += 10;
 }
 
@@ -143,8 +162,8 @@ function toggleAlphabeticOrder(el) {
 }
 
 function filterUsers(el) {
-  let nameToFilter = config.nameInpEl.value.toLowerCase();
-  let ageToFilter = config.ageInpEl.value;
+  let nameToFilter = config.nameInputElement.value.toLowerCase();
+  let ageToFilter = config.ageInputElement.value;
   config.filtered = users;
   if (!nameToFilter && !ageToFilter) {
     truncate();
@@ -161,8 +180,10 @@ function filterUsers(el) {
     });
   }
   if (ageToFilter) {
+    config.paginator = ageToFilter * 1 + 10;
+    console.log(config.paginator);
     config.filtered = config.filtered.filter(function(el) {
-      return el.dob.age - ageToFilter;
+      return el.dob.age >= ageToFilter;
     });
   }
   truncate();
@@ -174,9 +195,15 @@ function truncate() {
   removeNoAnimation();
 }
 
-config.nameInpEl.addEventListener("change", function(evt) {
+config.nameInputElement.addEventListener("change", function(evt) {
   filterUsers(evt.target);
 });
-config.ageInpEl.addEventListener("change", function(evt) {
+config.ageInputElement.addEventListener("change", function(evt) {
   filterUsers(evt.target);
+});
+config.ageToggleElement.addEventListener("click", function(evt) {
+  toggleAges(evt.target);
+});
+config.abcToggleElement.addEventListener("click", function(evt) {
+  toggleAlphabeticOrder(evt.target);
 });
