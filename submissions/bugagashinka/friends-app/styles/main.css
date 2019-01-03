@@ -1,0 +1,332 @@
+/* === GNERAL STYLES === */
+html,
+body,
+main {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+main {
+  padding: 0.7em;
+  box-sizing: border-box;
+}
+
+/* ======= Filter group styles ======= */
+#filter {
+  border-bottom: 1px solid #a8abaf;
+}
+#filter h2 {
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+#filter h3 {
+  font-size: 1em;
+}
+
+hr {
+  height: 1px;
+  border: 0;
+  margin: 0 auto;
+  background-color: #c3c3c3;
+}
+
+/* ======= Filter age styles ======= */
+.filter-age {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.filter-age p {
+  margin: 0.5em 1em;
+  position: relative;
+}
+
+.filter-age .value {
+  font-weight: normal;
+}
+
+.filter-age input {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.filter-age input:hover {
+  opacity: 1;
+}
+
+.filter-age input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #2196f3;
+  cursor: pointer;
+}
+
+.filter-age input::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #2196f3;
+  cursor: pointer;
+}
+
+/* ======= Search field group styles =======  */
+.search {
+  display: flex;
+  justify-content: center;
+}
+.search input {
+  width: 70%;
+}
+
+.search > * {
+  margin: 1em 0.3em 0.5em;
+  border-radius: 5px;
+  padding: 0.5em 0.8em;
+  font-size: 1em;
+  border: 1px solid #ced4da;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.search > *:focus {
+  border: 1px solid #33b5e5;
+  box-shadow: 0 0 0 1px #33b5e5;
+}
+
+/* ======= Filter sex group styles =======  */
+.filter-sex {
+  display: flex;
+  justify-content: center;
+  padding: 0.5em;
+}
+
+.filter-sex button {
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+  border: 1px solid #2196f3;
+  cursor: pointer;
+  color: #2196f3;
+  background: #fff;
+}
+
+.filter-sex button:focus {
+  outline: 0;
+}
+
+.filter-sex button:nth-child(1) {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-right: none;
+}
+
+.filter-sex button:nth-child(3) {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-left: none;
+}
+
+.filter-sex button:hover,
+.filter-sex button.checked {
+  background: #2196f3;
+  color: #fff;
+}
+
+/* ======= Order filter group styles =======  */
+.filter-order {
+  display: flex;
+  justify-content: space-around;
+}
+.container {
+  display: block;
+  box-sizing: initial;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 1.1em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.container input.checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.container input.checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* ======= Card styles =======  */
+.title div:nth-child(n + 2) {
+  display: inline-block;
+}
+
+#friends-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#friends-list li {
+  display: flex;
+  cursor: pointer;
+  margin: 0.7em 0;
+  padding: 0 20px;
+  border: 1px solid #a8abaf;
+  border-radius: 8px;
+}
+#friends-list img {
+  width: 110px;
+  height: 110px;
+  margin: 10px;
+  border-radius: 50%;
+  box-shadow: 0 5px 25px#a8abaf;
+}
+.info {
+  margin-top: 20px;
+  width: 200px;
+}
+
+.title {
+  text-transform: capitalize;
+}
+.title .name {
+  font-size: 1.2em;
+}
+
+.person .fas {
+  padding: 3px;
+}
+
+.location {
+  position: relative;
+  text-align: center;
+  margin: -12px -32px 10px -50px;
+}
+
+#friends-list p {
+  padding-top: 10px;
+  margin: 5px 5px;
+}
+
+@media screen and (min-width: 400px) {
+  #friends-list li {
+    justify-content: center;
+    margin: 0.7em;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  #friends-list {
+    display: flex;
+    max-width: 950px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .info {
+    margin-top: 0;
+    margin-bottom: 20px;
+    width: 200px;
+  }
+  .title .name {
+    font-size: 1.2em;
+    padding-top: 20px;
+  }
+
+  .details div {
+    padding: 3px 0 3px 0;
+  }
+
+  #friends-list li {
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 200px;
+    text-align: center;
+  }
+  #friends-list img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  #friends-list img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+  }
+  .wrapper {
+    display: flex;
+  }
+
+  #filter {
+    max-height: 450px;
+    max-width: 460px;
+    padding: 20px;
+    border: 1px solid #a8abaf;
+    border-radius: 4px;
+  }
+}
