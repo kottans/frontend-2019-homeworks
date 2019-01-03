@@ -7,84 +7,27 @@
 
 // ======== OBJECTS DEFINITIONS ========
 
-const dog = {
-    species: 'dog',
-    name: 'Tody',
-    gender: 'male',
-    legs: 4,
-    hands: 0,
-    saying: 'woof-woof!',
-    friends: ['Sharik', 'Anfisa']
-};
+var entity = function (obj, species, name, gender, legs, hands, saying, friends) {
+    obj.species = species;
+    obj.name = name;
+    obj.gender = gender;
+    obj.legs = legs;
+    obj.hands = hands;
+    obj.saying = saying;
+    obj.friends = friends;
 
-const cat = {
-    species: 'cat',
-    name: 'Kira',
-    gender: 'female',
-    legs: 4,
-    hands: 0,
-    saying: 'meow-meow!',
-    friends: ['Murka', 'Vaska']
-};
-
-const woman = {
-    species: 'human',
-    name: 'Elena',
-    gender: 'female',
-    legs: 2,
-    hands: 2,
-    saying: 'I am a woman!',
-    friends: ['Anna', 'Jon']
-};
-
-const man = {
-    species: 'human',
-    name: 'Alex',
-    gender: 'male',
-    legs: 2,
-    hands: 2,
-    saying: 'I am a man!',
-    friends: ['Tim', 'Petr']
-};
-
-const catWoman = {
-    species: 'human',
-    name: 'Eleonora',
-    gender: 'female',
-    legs: 2,
-    hands: 2,
-    saying: cat.saying,
-    friends: ['Super-man', 'Spider-man']
-};
-
-// ======== OUTPUT ========
-/* Use print(message) for output.
-   Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
-
-   Message can contain HTML markup. You may also tweak index.html and/or styles.css.
-   However, please, REFRAIN from improving visuals at least until your code is reviewed
-   so code reviewers might focus on a single file that is index.js.
-   */
-
-/* Print examples:
-   print('ABC');
-   print('<strong>ABC</strong>');
-   print('<strong>ABC</strong>', 'div');
-
-   print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
-   */
-
-function printInfo(obj) {
-    print('--- Object ---');
-    for (let index in obj) {
-        print(index + ': ' + obj[index]);
-    }
+    return obj;
 }
 
-printInfo(dog);
-printInfo(cat);
-printInfo(man);
-printInfo(woman);
-printInfo(catWoman);
+const dog = entity({}, 'dog', 'Tody', 'male', 4, 0, 'woof-woof!', ['Sharik', 'Anfisa']);
+const cat = entity({}, 'cat', 'Kira', 'female', 4, 0, 'meow-meow!', ['Murka', 'Vaska']);
+const woman = entity({}, 'human', 'Elena', 'female', 2, 2, 'I am a woman!', ['Anna', 'Jon']);
+const man = entity({}, 'human', 'Alex', 'male', 2, 2, 'I am a man!', ['Tim', 'Petr']);
+const catWoman = entity({}, 'human', 'Eleonora', 'female', 2, 2, cat.saying, ['Super-man', 'Spider-man']);
+
+var entityes = [dog, cat, woman, man, catWoman];
+
+entityes.forEach(element => {
+    print(element.species + ', ' + element.name + ', ' + element.gender + ', ' +
+    element.legs + ', ' + element.hands + ', ' + element.saying + '\n');
+});
