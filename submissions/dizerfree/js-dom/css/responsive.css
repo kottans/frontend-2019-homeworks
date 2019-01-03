@@ -1,0 +1,66 @@
+
+
+@media screen and (min-width: 700px) {
+    .sidebar {
+        height: 100%;
+        background-color: #e2e2e0;
+        padding: 0 3em;
+    }
+
+    .sidebar header {
+        width: 100%;
+        padding: 0;
+        background-color: #e2e2e0;
+    }
+
+    nav {
+        position: relative;
+        top: 0;
+        height: 0;
+        transform: none;
+    }
+
+    nav .menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu a {
+        display: inline-block;
+        padding: 0.7em 1em;
+    }
+
+    .container {
+        display: flex;
+        margin: 0 auto;
+        width: 960px;
+        height: 100%;
+    }
+
+    .hamburger_menu {
+        display: none;
+    }
+
+    .main_item.active-class {
+        display: flex;
+        flex-wrap: nowrap;
+        margin-top: 5em;
+    }
+
+    .main_item .info {
+        order: 1;
+        flex-basis: 50%;
+        margin-right: 0;
+    }
+
+    .main_item {
+        margin-right: 0;
+    }
+
+    .picture img {
+        flex-basis: 100%;
+        box-sizing: border-box;
+    }
+
+}

@@ -1,0 +1,152 @@
+html, body, main {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+header, nav, section, div {
+    box-sizing: border-box;
+}
+h1, h2 {
+    font-family: Georgia, sans-serif;
+    margin: 0;
+}
+
+h1 {
+    font-style: italic;
+}
+.sidebar {
+    height: 100%;
+}
+.sidebar header {
+    width: 100%;
+    position: relative;
+    padding: 0 3em;
+    background-color: #e2e2e0;
+}
+
+.sidebar .logo {
+    padding-top: 1em;
+}
+
+.sidebar p {
+    padding-bottom: 1em;
+}
+
+nav {
+    width: 200px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 110px;
+    -webkit-transform: translate(-300px, 0);
+    transform: translate(-300px, 0);
+    transition: transform 0.3s ease;
+}
+
+nav.open {
+    /*height: 100%;*/
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+.hamburger_menu {
+
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    bottom: 1.5em;
+    padding: 1em;
+}
+.hamburger_menu svg {
+    width: 32px;
+    fill: gray;
+    cursor: pointer;
+}
+
+nav .menu {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    padding: 1em 2em;
+    background-color: #e2e2e0;
+}
+
+
+.menu a {
+    display: inline-block;
+    padding: 0.7em 1em;
+    color: #c29d75;
+    font-family: Georgia, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.menu a.active-class {
+    background-color: #c29d75;
+    color: #ffffff;
+    border-radius: 30px;
+}
+.menu a.active-class:hover {
+    color: #ffffff;
+}
+
+.menu a:active,
+.menu a:focus,
+.menu a:hover {
+    color: #3366BB;
+}
+
+/*Content*/
+
+.main_item {
+    display: none;
+}
+
+.main_item.active-class {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5em;
+}
+
+.main_item .info{
+    order: 2;
+    flex-basis: 100%;
+    margin-left: 3em;
+    box-sizing: border-box;
+}
+
+.main_item {
+    margin-right: 2em;
+}
+
+.picture {
+    order: 1;
+    margin-left: 3em;
+    box-sizing: border-box;
+}
+
+
+
