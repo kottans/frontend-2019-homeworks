@@ -45,14 +45,8 @@ class Human extends MainForm {
   }
 
   toString() {
-    return ["hands", ...allProps]
-      .map(item => {
-        return Array.isArray(this[item])
-          ? `<strong>${item}:</strong> ${this[item].join(", ")}`
-          : `<strong>${item}:</strong> ${this[item]}`;
-      })
-      .join("; ");
-  };
+    return `<strong>hands</strong>:${this.hands}; ${super.toString()}`;
+  }
 }
 
 class Dog extends MainForm {
