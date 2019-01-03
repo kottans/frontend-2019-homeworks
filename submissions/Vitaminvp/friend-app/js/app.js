@@ -23,8 +23,8 @@ const state = {
 
 const SORT = {
     all:  () => renderCards(state.sortedList = [...state.filteredList]),
-    male: () => renderCards(state.sortedList = [...state.filteredList].filter((card) => card.gender.toLowerCase() === 'male')),
-    female: () => renderCards(state.sortedList = [...state.filteredList].filter((card) => card.gender.toLowerCase() === 'female')),
+    male: () => renderCards(state.sortedList = state.filteredList.filter((card) => card.gender.toLowerCase() === 'male')),
+    female: () => renderCards(state.sortedList = state.filteredList.filter((card) => card.gender.toLowerCase() === 'female')),
     nameAsc: () => renderCards([...state.sortedList].sort((b, a) => b.name.toLowerCase() < a.name.toLowerCase() ? -1 : 1)),
     nameDesc: () => renderCards([...state.sortedList].sort((a, b) => b.name.toLowerCase() < a.name.toLowerCase() ? -1 : 1)),
     ageAsc: () => renderCards([...state.sortedList].sort((a, b) => a.age - b.age)),
@@ -151,7 +151,7 @@ const renderCards = (cardsArray, currentPage = 1, resPerPage = 12) => {
 };
 
 function filter () {
-    renderCards(state.filteredList = [...state.cardsList.filter(card => card[APP_CONFIG.filterBy].search(new RegExp(this.value.toLowerCase())) !== -1)]);
+    renderCards(state.filteredList = state.cardsList.filter(card => card[APP_CONFIG.filterBy].search(new RegExp(this.value.toLowerCase())) !== -1));
 };
 
 const reset = () => {
@@ -167,7 +167,7 @@ const resetRadioButtons = () => {
 
 const sortingCards = (e) => {
     const target = e.target.closest(`.${CSS_CLASSES.radioButton}`);
-    state.sortedList.length >= 0 ? null : state.sortedList = [...state.filteredList];
+    if(!state.sortedList.length) state.sortedList = [...state.filteredList];
     if (target) SORT[target.value]();
 };
 
