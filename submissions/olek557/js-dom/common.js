@@ -1,15 +1,6 @@
-function getBook(link) {
-  let xhr = new XMLHttpRequest(),
-  bookContent = '';
-  xhr.open('GET', link, false);
-  xhr.send();
-  if (xhr.status != 200) {
-    alert( xhr.status + ': ' + xhr.statusText );
-  } else {
-    bookContent = JSON.parse(xhr.responseText)["content"];
-    return generateContent(bookContent);
-  }
-}
+'use strict';
+
+import bookContent from './book.js'
 
 function generateContent(book) {
   var bookName = book.match(/^# (.*?)\n/gm)[0].slice(2),
@@ -31,12 +22,12 @@ function generateContent(book) {
   return content;
 }
 
-var book = getBook('./book.json'),
+var book = generateContent(bookContent["content"]),
     sidebar = document.getElementById('sidebar'),
     contentWrapper = document.getElementById('content');
 
 sidebar.addEventListener('click',function(event){
-  if(event.target.tagName === 'LI') {
+  if(event.target.getAttribute('data-chapter')) {
     sidebar.classList.remove('open');
     window.scrollTo(0, 0);
     changeChapter(event.target.getAttribute('data-chapter'));
@@ -51,32 +42,36 @@ book.forEach((item, i) => {
 });
 
 function changeChapter(number) {
+  if(!number) {
+    number = 0;
+  }
   contentWrapper.innerHTML = '';
   let chapterLinks = sidebar.getElementsByTagName('li'),
       chapterLinksArray = Array.from(chapterLinks);
-
   chapterLinksArray.forEach(link => {
     link.classList.remove('active');
   });
 
   let title = document.createElement('h2'),
-      paragraps = book[number].text.split('\n\n');
+      paragraps = book[number].text.split('\n\n'),
+      paragrapsWrapper = document.createElement('div');
   title.innerHTML = book[number].title;
   contentWrapper.appendChild(title);
+
   paragraps.forEach(paragraph => {
     let text = document.createElement('p');
     text.innerHTML = paragraph;
-    contentWrapper.appendChild(text);
+    paragrapsWrapper.appendChild(text);
   });
-
+  contentWrapper.appendChild(paragrapsWrapper);
   chapterLinks[number].classList.add('active');
 }
 
 // INITIAL
-changeChapter(0);
+changeChapter();
 
 // MOBILE
-var mobileOpenBtn = document.getElementsByClassName('mobile-menu')[0];
+var mobileOpenBtn = document.querySelector('.mobile-menu');
 mobileOpenBtn.addEventListener('click', function() {
   sidebar.classList.add('open');
 });
