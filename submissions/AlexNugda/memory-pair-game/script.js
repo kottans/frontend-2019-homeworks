@@ -1,3 +1,4 @@
+const TIME_SHOW_CARDS = 1000;
 let gameContainer = document.getElementById("game-container");
 let gameContainerImages = document.querySelectorAll("#game-container .back");
 let cardsSrc = ["img/watermelon.png", "img/banana.png", "img/cherry.png", "img/pumpkin.png", "img/coconut.png", "img/grapes.png"];
@@ -7,21 +8,21 @@ let cardOpen = 0;
 let disableCardCount = 0;
 
 const showCards = () => {
-	cardList.sort(() => { return 0.5 - Math.random() });
-	if(gameContainer.querySelectorAll("img").length == 0){
-		for(let i=0; i<cardList.length; i++){
+	cardList.sort(() => 0.5 - Math.random());
+	if(!gameContainer.querySelectorAll("img").length){
+ 		cardList.forEach((el, i) => {
 			let img = document.createElement("img");
-			img.src = cardList[i];
+			img.src = el;
 			img.setAttribute("id", ""+i);
 			gameContainerImages[i].appendChild(img);
-		}
+		});
 	}
 	else{
-		let disableImages = document.querySelectorAll(".disable");
-		for(let i=0; i<cardList.length; i++){
+		let disableImages = document.querySelectorAll(".disable");		
+		cardList.forEach((el, i) => {
 			disableImages[i].classList.remove("disable");
-			gameContainerImages[i].querySelector("img").src = cardList[i];
-		}
+			gameContainerImages[i].querySelector("img").src = el;
+		});
 	}
 }
 
@@ -33,43 +34,39 @@ const gameRestart = () => {
 }
 
 const compareCards = () => {
-	console.log(cardsForComparison[0]["src"]+" !!! "+cardsForComparison[1]["src"])
-	return cardsForComparison[0]["src"] == cardsForComparison[1]["src"];
+	const [firstCard, secondCard] = cardsForComparison;
+	return firstCard.src == secondCard.src;
 }
 
 const closeSelectedCardPair = (isIdenticalCards) => {
-	let selectedCardPair = document.querySelectorAll(".selected-card");
-	for(let i=0; i<selectedCardPair.length; i++){
+	let selectedCardPair = document.querySelectorAll(".selected-card");	
+	selectedCardPair.forEach( card => {
 		if(isIdenticalCards){
-			selectedCardPair[i].querySelector(".front").classList.add("disable");
+			card.querySelector(".front").classList.add("disable");
 			disableCardCount++;
 		}
-		selectedCardPair[i].classList.remove("selected-card");
-	}
+		card.classList.remove("selected-card");
+	});	
 	cardOpen = 0;
 	cardsForComparison = [];
 	if(disableCardCount == cardList.length){
 		setTimeout(()=>{
 			gameRestart();
-		},1000);
+		}, TIME_SHOW_CARDS);
 	}
 }
 
 gameContainer.addEventListener("click", (e) => {
-	let currCardId = e.target.closest(".flipper").querySelector("img").id;	
-	let isCardInComparisonArray = cardsForComparison.findIndex(function(e){return e.id==currCardId});
-	if(isCardInComparisonArray == -1 && cardsForComparison.length < 2){
-		cardsForComparison.push({"id": currCardId, "src":e.target.closest(".flipper").querySelector("img").src});
+	let currCard = e.target.closest(".flipper").querySelector("img");
+	let isCardInComparisonArray = cardsForComparison.some(el => el.id == currCard.id);
+	if(!isCardInComparisonArray && cardsForComparison.length < 2){
+		cardsForComparison.push({id: currCard.id, src: currCard.src});
 		e.target.closest(".flipper").classList.add("selected-card");
-		cardOpen = cardsForComparison.length;
-		
+		cardOpen = cardsForComparison.length;		
 		if(cardOpen==2){
-		setTimeout(()=>{
-			closeSelectedCardPair(compareCards());
-		},1000);
+			setTimeout(()=>{
+				closeSelectedCardPair(compareCards());
+			}, TIME_SHOW_CARDS);
+		}		
 	}
-		
-	}
-	
-	
 });

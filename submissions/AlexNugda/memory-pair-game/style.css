@@ -13,7 +13,6 @@ body {
 	flex-wrap: wrap;
 }
 
-/* entire container, keeps perspective */
 .flip-container {
 	perspective: 1000px;
 }
@@ -28,14 +27,12 @@ body {
 	height: 160px;
 }
 
-/* flip speed goes here */
 .flipper {
 	transition: 0.6s;
 	transform-style: preserve-3d;
 	position: relative;
 }
 
-/* hide back of pane during swap */
 .front, .back {
 	box-sizing: border-box;
 	width: 160px;
@@ -49,14 +46,12 @@ body {
 	border-radius: 3px;
 }
 
-/* front pane, placed above back */
 .front {
 	z-index: 2;
 	/* for firefox 31 */
 	transform: rotateY(0deg);
 }
 
-/* back, initially hidden pane */
 .back {
 	transform: rotateY(180deg);
 }
