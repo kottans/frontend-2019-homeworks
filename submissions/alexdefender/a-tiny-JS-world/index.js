@@ -15,6 +15,7 @@ var entity = function (obj, species, name, gender, legs, hands, saying, friends)
     obj.hands = hands;
     obj.saying = saying;
     obj.friends = friends;
+    obj.infoEntityes = [species, name, gender, legs, hands, saying, friends].join("; ");
 
     return obj;
 }
@@ -28,6 +29,5 @@ const catWoman = entity({}, 'human', 'Eleonora', 'female', 2, 2, cat.saying, ['S
 var entityes = [dog, cat, woman, man, catWoman];
 
 entityes.forEach(element => {
-    print(element.species + ', ' + element.name + ', ' + element.gender + ', ' +
-    element.legs + ', ' + element.hands + ', ' + element.saying + '\n');
+    print(element.infoEntityes);
 });
