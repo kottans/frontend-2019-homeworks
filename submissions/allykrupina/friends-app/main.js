@@ -1,28 +1,41 @@
 const FRIENDS_NUMBER = 15,
+    //   FRIENDS_API_URL = `https://rer.me/api/?results=${FRIENDS_NUMBER}&nat=us`,
       FRIENDS_API_URL = `https://randomuser.me/api/?results=${FRIENDS_NUMBER}&nat=us`,
-      SOCIAL = ['instagram', 'facebook', 'linkedin', 'twitter', 'dribbble'];
+      SOCIAL = ['instagram', 'facebook', 'linkedin', 'twitter', 'dribbble'],
+      FRIENDS_ELEMENT = document.getElementById('friends'),
+      FILTER_ELEMENT = document.getElementById('filter'),
+      RESULT_ELEMENT = document.getElementById('result'),
+      AGE_ELEMENT = document.getElementById('ageFilter'),
+      GENDER_ELEMENT = document.getElementById('genderFilter'),
+      NAME_ELEMENT = document.getElementById('nameFilterInput'),
+      RESET_ELEMENT = document.getElementById('resetFilter'),
+      NOT_FRIENDS = 'I don`t have friends according to chosen this filters';
+
 let initialArray = [],
     newArray = [],
+    wrapper = document.createElement('div'),
     social = SOCIAL.map((item)=> {
         return `<a target="_blank" href="https://www.${item}.com"><i class="fa fa-${item}"></i></a>`
-    })
+    });
+    wrapper.classList.add("wrapper");
 
 let createItem = item => {
     initialArray.push(item);
-    newArray = initialArray;
 }
 let renderFriendsBlock = friendsArray => {
     friendsArray.map(createItem)
-    ageFilter.addEventListener('change', ({target}) => filterAge(target.value, newArray));
-    genderFilter.addEventListener('change', ({target}) => filterGender(target.value, newArray));
-    nameFilterInput.addEventListener('keyup', ({target}) => filterName(target.value, initialArray));
-    resetFilter.addEventListener('click', ({target}) => filterReset(initialArray));
-    new FriendsContainer(friends, newArray);
+    newArray = initialArray.slice();
+    AGE_ELEMENT.addEventListener('change', ({target}) => filterAge(target.value, newArray));
+    GENDER_ELEMENT.addEventListener('change', ({target}) => filterGender(target.value, newArray));
+    NAME_ELEMENT.addEventListener('keyup', ({target}) => filterName(target.value, initialArray));
+    NAME_ELEMENT.addEventListener('paste', ({target}) => window.setTimeout(() => filterName(target.value, initialArray)));
+    RESET_ELEMENT.addEventListener('click', ({target}) => filterReset(initialArray));
+    new FriendsContainer(FRIENDS_ELEMENT, newArray);
 };
 
 let filterRender = (array) => {
-    friends.innerHTML = '';
-    new FriendsContainer(friends, array);
+    FRIENDS_ELEMENT.innerHTML = '';
+    new FriendsContainer(FRIENDS_ELEMENT, array);
 }
 
 let filterAge = (value, array) => {
@@ -31,34 +44,52 @@ let filterAge = (value, array) => {
             return a.dob.age - b.dob.age;
         } else if (value === 'decrease') {
             return b.dob.age - a.dob.age;
-        } else if (value === 'abc') {
-            return a.name.first > b.name.first;
         } else {
-            return a.name.first < b.name.first;
+            let result = value === 'abc' ? -1 : 1;
+            return (a.name.first < b.name.first) ? result : -result;
+            return 0;
         }
     });
     filterRender(array);
 }
+
 let filterName = (value, array) => {
-    newArray = array.filter(item => item.name.first.indexOf(value) + 1 || item.name.last.indexOf(value) + 1);
+    newArray = array.filter(item => item.name.first.includes(value.toLowerCase()) || item.name.last.includes(value.toLowerCase()));
     filterRender(newArray);
 }
 
 let filterGender = (value, array) => {
-    filter.setAttribute("gender", value);
+    FILTER_ELEMENT.setAttribute("gender", value);
 }
 
 let filterReset = (array) => {
-    filter.setAttribute("gender", "all");
+    FILTER_ELEMENT.setAttribute("gender", "all");
     document.querySelectorAll('[type=radio]').forEach(radio => radio.checked = false);
-    nameFilterInput.value = '';
-    newArray = array;
+    NAME_ELEMENT.value = '';
+    newArray = array.slice();
     filterRender(array);
 }
 
-let error = () => {
-    result.innerHTML = 'I don`t have friends according to chosen this filters';
-    result.style.display = 'block';
+let handleErrors = (text) => {
+    RESULT_ELEMENT.innerHTML = text;
+    RESULT_ELEMENT.style.display = 'block';
+}
+
+let badRequest = (response) => {
+    if (!response.ok){
+        throw Error(response.statusText);
+        handleErrors(response.statusText)
+    }
+    return response;
+}
+
+let unwrap = (wrapper) => {
+    let fragment = document.createDocumentFragment();
+    while (wrapper.firstChild) {
+        let child = wrapper.removeChild(wrapper.firstChild);
+        fragment.appendChild(child);
+    }
+    wrapper.parentNode.replaceChild(fragment, wrapper);
 }
 
 class FriendsContainer {
@@ -69,13 +100,15 @@ class FriendsContainer {
     }
     renderList() {
         if(this.itemsArray.length){
-            result.style.display = 'none';
+            RESULT_ELEMENT.style.display = 'none';
             this.itemsArray.map(item => {
                 new FriendItem(item);
             });
         } else {
-            error();
+            handleErrors(NOT_FRIENDS);
         }
+        FRIENDS_ELEMENT.appendChild(wrapper);
+        unwrap(document.querySelector('.wrapper'));
     }
 }
 
@@ -101,16 +134,12 @@ class FriendItem {
             </p>
         </div>`;
         block.innerHTML = content;
-        friends.appendChild(block);
+        wrapper.appendChild(block);
     }
 }
 
 fetch(FRIENDS_API_URL)
+.then(badRequest)
 .then(response => response.json())
-.then(data => {
-    renderFriendsBlock(data.results);
-})
-.catch(error => {
-    result.innerHTML = error;
-    result.style.display = 'block';
-});
+.then(response => renderFriendsBlock(response.results))
+.catch(error => handleErrors(error));
