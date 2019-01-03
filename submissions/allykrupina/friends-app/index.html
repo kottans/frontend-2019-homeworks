@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Friends App</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1>Friends App</h1>
+        </header>
+        <main>
+            <div id="filter" class="filter">
+                <div id="nameFilter" class="filter-name">
+                    <h4>Sort by name</h4>
+                    <input type="text" id="nameFilterInput" class="filtername" name="firstname" value="" placeholder="search">
+                </div>
+                <div id="ageFilter" class="filter-age">
+                    <h4>Sort by age</h4>
+                    <input type="radio" id="age1" name="age" value="increase">
+                    <label for="age1">
+                        <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i>
+                    </label>
+                    <input type="radio" id="age2" name="age" value="decrease">
+                    <label for="age2">
+                        <i class="fa fa-sort-numeric-desc" aria-hidden="true"></i>
+                    </label>
+                    <h4>Sort by name</h4>
+                    <input type="radio" id="age3" name="age" value="abc">
+                    <label for="age3">
+                        <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i>
+                    </label>
+                    <input type="radio" id="age4" name="age" value="zyx">
+                    <label for="age4">
+                        <i class="fa fa-sort-alpha-desc" aria-hidden="true"></i>
+                    </label>
+                </div>
+                <div id="genderFilter" class="filter-gender">
+                    <h4>Sort by sex</h4>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">
+                        <i class="fa fa-male" aria-hidden="true"></i>
+                        <span>male</span>
+                    </label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">
+                        <i class="fa fa-female" aria-hidden="true"></i>
+                        <span>female</span>
+                    </label>
+                    <input type="radio" id="all" name="gender" value="all">
+                    <label for="all">
+                        <i class="fa fa-male" aria-hidden="true"></i>
+                        <i class="fa fa-female" aria-hidden="true"></i>
+                        <span>all</span>
+                    </label>
+                </div>
+                <button id="resetFilter" class="button reset">Reset</button>
+            </div>
+            <div id="friends" class="friends"></div>
+            <div id="result" class="result"></div>
+        </main>
+        <script src="main.js"></script>
+    </body>
+</html>
