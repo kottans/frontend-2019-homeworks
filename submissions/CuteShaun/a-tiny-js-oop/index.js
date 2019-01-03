@@ -77,7 +77,7 @@ class CatMetamorphose extends Cat {
 
 const man = new Human("male", "Andrew", "Hello, Eva!", ["Eva", "Masya"]);
 const woman = new Human("female", "Eva", "Hello, Andrew!", ["Andrew", "Barkl"]);
-const dog = new Dog("male", "Barkl", "bark", ["Eva", "Andrew"]);
+const dog = new Dog("male", "Barkl", ["Eva", "Andrew"]);
 
 const cat = new Cat("female", "Masya", ["Andrew"]);
 const catWoman = new CatMetamorphose(
