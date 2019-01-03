@@ -40,17 +40,19 @@ class MainForm {
 
 class Human extends MainForm {
   constructor(gender, name, saying, friendList) {
-    super(gender, name, saying, friendList, 2, "human").toString = function() {
-      return ["hands", ...allProps]
-        .map(item => {
-          return Array.isArray(this[item])
-            ? `<strong>${item}:</strong> ${this[item].join(", ")}`
-            : `<strong>${item}:</strong> ${this[item]}`;
-        })
-        .join("; ");
-    };
+    super(gender, name, saying, friendList, 2, "human");
     this.hands = 2;
   }
+
+  toString() {
+    return ["hands", ...allProps]
+      .map(item => {
+        return Array.isArray(this[item])
+          ? `<strong>${item}:</strong> ${this[item].join(", ")}`
+          : `<strong>${item}:</strong> ${this[item]}`;
+      })
+      .join("; ");
+  };
 }
 
 class Dog extends MainForm {
