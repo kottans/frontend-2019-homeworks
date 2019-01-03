@@ -1,7 +1,23 @@
+function getBook(link) {
+  let xhr = new XMLHttpRequest(),
+  bookContent = '';
+  xhr.open('GET', link, false);
+  xhr.send();
+  if (xhr.status != 200) {
+    alert( xhr.status + ': ' + xhr.statusText );
+  } else {
+    bookContent = JSON.parse(xhr.responseText)["content"];
+    return generateContent(bookContent);
+  }
+}
+
 function generateContent(book) {
   var bookName = book.match(/^# (.*?)\n/gm)[0].slice(2),
       contentArr = book.split('## '),
-      content = [];
+      content = [],
+      bookNameTitle = document.createElement('h1');
+  bookNameTitle.innerHTML = bookName;
+  document.body.insertBefore(bookNameTitle, document.body.firstChild);
   contentArr.shift();
   contentArr.forEach(item => {
     var title = item.match(/^[a-z, A-Z](.*?)\n/g)[0],
@@ -15,10 +31,9 @@ function generateContent(book) {
   return content;
 }
 
-var aliceContent = generateContent(aliceInWonderland);
-
-var sidebar = document.getElementsByClassName('sidebar')[0],
-    contentWrapper = document.getElementsByClassName('content')[0];
+var book = getBook('./book.json'),
+    sidebar = document.getElementById('sidebar'),
+    contentWrapper = document.getElementById('content');
 
 sidebar.addEventListener('click',function(event){
   if(event.target.tagName === 'LI') {
@@ -28,7 +43,7 @@ sidebar.addEventListener('click',function(event){
   }
 });
 
-aliceContent.forEach((item, i) => {
+book.forEach((item, i) => {
   var sidebarItem = document.createElement('li');
   sidebarItem.innerHTML = item.title;
   sidebarItem.setAttribute('data-chapter', i);
@@ -37,13 +52,16 @@ aliceContent.forEach((item, i) => {
 
 function changeChapter(number) {
   contentWrapper.innerHTML = '';
-  [].forEach.call(sidebar.getElementsByTagName('li'), function(elem) {
-    elem.classList.remove('active');
+  let chapterLinks = sidebar.getElementsByTagName('li'),
+      chapterLinksArray = Array.from(chapterLinks);
+
+  chapterLinksArray.forEach(link => {
+    link.classList.remove('active');
   });
 
   let title = document.createElement('h2'),
-      paragraps = aliceContent[number].text.split('\n\n');
-  title.innerHTML = aliceContent[number].title;
+      paragraps = book[number].text.split('\n\n');
+  title.innerHTML = book[number].title;
   contentWrapper.appendChild(title);
   paragraps.forEach(paragraph => {
     let text = document.createElement('p');
@@ -51,7 +69,7 @@ function changeChapter(number) {
     contentWrapper.appendChild(text);
   });
 
-  sidebar.getElementsByTagName('li')[number].classList.add('active');
+  chapterLinks[number].classList.add('active');
 }
 
 // INITIAL
