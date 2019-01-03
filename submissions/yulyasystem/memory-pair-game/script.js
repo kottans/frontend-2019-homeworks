@@ -7,6 +7,7 @@ const data = [
   "img/snowman.svg"
 ];
 let isFlipped = false;
+let isBlocked = false;
 let cards = [];
 let firstCard, secondCard;
 let grid = document.querySelector(".grid");
@@ -41,7 +42,7 @@ function createCards() {
 
 function flipCards() {
   grid.addEventListener("click", function(event) {
-    console.log(arguments.callee);
+    if(isBlocked) return;
     let target = event.target;
     let parent = target.parentElement;
     parent.classList.add("flip");
@@ -52,7 +53,7 @@ function flipCards() {
     } else {
       isFlipped = false;
       secondCard = parent;
-
+      isBlocked = true;
       if (firstCard.getAttribute("pair") === secondCard.getAttribute("pair")) {
         deleteEvent(arguments.callee);
       } else {
@@ -71,6 +72,7 @@ function unflip(){
   setTimeout(() => {
     firstCard.classList.remove("flip");
     secondCard.classList.remove("flip");
+    isBlocked = false;
   }, 800);
 }
 
