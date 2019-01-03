@@ -7,20 +7,20 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
+let allProps = ["legs", "gender", "name", "saying", "type", "friendList"];
+
 class MainForm {
-  constructor(gender, name, saying, friendList, legs) {
+  constructor(gender, name, saying, friendList, legs, type) {
     this.friendList = friendList;
     this.gender = gender;
     this.name = name;
-    this.saying = saying;
+    this.type = type;
     this.legs = legs;
+    this.saying = saying;
   }
 
   toString() {
-    var props = Object.keys(this)
-      .sort()
-      .reverse();
-    return props
+    return allProps
       .map(item => {
         return Array.isArray(this[item])
           ? `<strong>${item}:</strong> ${this[item].join(", ")}`
@@ -40,31 +40,36 @@ class MainForm {
 
 class Human extends MainForm {
   constructor(gender, name, saying, friendList) {
-    super(gender, name, saying, friendList, 2);
-    this.type = "human";
+    super(gender, name, saying, friendList, 2, "human").toString = function() {
+      return ["hands", ...allProps]
+        .map(item => {
+          return Array.isArray(this[item])
+            ? `<strong>${item}:</strong> ${this[item].join(", ")}`
+            : `<strong>${item}:</strong> ${this[item]}`;
+        })
+        .join("; ");
+    };
     this.hands = 2;
   }
 }
 
 class Dog extends MainForm {
   constructor(gender, name, friendList) {
-    super(gender, name, "bark", friendList, 4);
-    this.type = "dog";
+    super(gender, name, "bark", friendList, 4, "dog");
   }
 }
 
 class Cat extends MainForm {
-  constructor(gender, name, friendList, legs) {
-    super(gender, name, "meow", friendList, legs);
-    this.type = "cat";
-    this.legs = legs || 4;
+  constructor(gender, name, friendList, legs = 4) {
+    super(gender, name, "meow", friendList, legs, "cat");
   }
 }
 
 class CatMetamorphose extends Cat {
   constructor(gender, name, friendList, humanInterface) {
-    super(gender, name, friendList, 2);
+    super(gender, name, friendList, humanInterface.hands);
     this.hands = humanInterface.hands;
+    this.toString = humanInterface.toString;
   }
 }
 
