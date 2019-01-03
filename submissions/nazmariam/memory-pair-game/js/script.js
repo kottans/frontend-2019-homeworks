@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function() {
             let card = document.createElement('div');
             card.classList.add('flip-container');
             card.dataset.item = item;
-            // console.log(card.dataset);
             card.innerHTML = `<div class="flipper"><div class="front"></div>
                       <div class="back"></div></div>`;
             cardContainer.append(card);
@@ -21,10 +20,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     function insertImg(){
         const back = document.querySelectorAll('.back');
-
-        for (let i=0; i<randomImg.length; i++){
-            back[i].innerHTML = '<img src="images/' + randomImg[i] + '.png">';
-        }
+        back.forEach(function (item,i) {
+            item.innerHTML= '<img src="images/' + randomImg[i] + '.png">'
+        });
     }
     function doActive({target}){
         let activeCards = document.querySelectorAll('.flip-container.active');
