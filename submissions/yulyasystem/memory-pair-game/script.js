@@ -6,6 +6,7 @@ const data = [
   "img/candies.svg",
   "img/snowman.svg"
 ];
+const DELAY = 800;
 let isFlipped = false;
 let isBlocked = false;
 let cards = [];
@@ -20,29 +21,20 @@ function makeCardsArray() {
 }
 
 function createCards() {
+  let fragment = document.createElement('template');
   cards.forEach(item => {
     let attribute = item.split("/")[1];
-    let div = document.createElement("div");
-    div.className = "memory-card";
-    div.setAttribute("pair", attribute);
-
-    let frontImg = document.createElement("img");
-    frontImg.setAttribute("src", item);
-    frontImg.className = "front-side";
-
-    let backImg = document.createElement("img");
-    backImg.setAttribute("src", "img/snowflake.svg");
-    backImg.className = "back-side";
-
-    grid.appendChild(div);
-    div.append(frontImg, backImg);
+    fragment.innerHTML += `<div class="memory-card " data-pair="${attribute}">
+    <img src="${item}" class="front-side">
+    <img src="img/snowflake.svg" class="back-side">
+    </div>`;
   });
+  grid.appendChild(fragment.content);
 }
 
-function flipCards() {
-  grid.addEventListener("click", function(event) {
+function handleCardClick() {
+  grid.addEventListener("click", function ({ target }) {
     if (isBlocked) return;
-    let target = event.target;
     let parent = target.parentElement;
     parent.classList.add("flip");
     if (!isFlipped) {
@@ -52,7 +44,7 @@ function flipCards() {
       isFlipped = false;
       secondCard = parent;
 
-      if (firstCard.getAttribute("pair") === secondCard.getAttribute("pair")) {
+      if (firstCard.dataset.pair === secondCard.dataset.pair) {
         deleteEvent(arguments.callee);
       } else {
         isBlocked = true;
@@ -72,13 +64,12 @@ function unflip() {
     firstCard.classList.remove("flip");
     secondCard.classList.remove("flip");
     isBlocked = false;
-  }, 800);
+  }, DELAY);
 }
 
 function playGame() {
   makeCardsArray();
   createCards();
-  flipCards();
+  handleCardClick();
 }
 playGame();
-
