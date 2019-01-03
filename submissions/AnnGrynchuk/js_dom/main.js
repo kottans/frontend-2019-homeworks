@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function init(){
 const infoArray = [
     {title: 'Moraine Lake',
      text: 'Located in the remote Valley of the Ten Peaks in the Canadian Rockies, Moraine Lake is an emerald beauty, a small, cold glacier-fed jewel surrounded by towering mountains, immense waterfalls, and ancient rock piles, so beautiful it takes breath away. As the glaciers melt, the water in the lake rises and changes its color. <br><br> It might take away some of its magic to know that the color is affected by the sediment brought by the glacial waters. The whole area is crossed by scenic hiking trails that offer different perspectives of the lake depending on your elevation or location. You can also enjoy its beauty from a kayak or canoe, or just by sitting on a rock at its bank. Take it all in, no photograph will ever give it justice.'},
@@ -9,19 +10,19 @@ const infoArray = [
       text: 'Located on top of a cliff with a spectacular view of the Palea volcano, Nea Kameni, and the island of Thirassia, Oia is the most popular and arguably the most beautiful of all the picturesque villages of the beautiful Greek island of Santorini. Only about 11 km from Fira, on the north of the island, Oia will charm you with its traditional stone houses lining the narrow streets, breathtaking blue-domed churches, and sunbaked verandas. <br><br> While the village has its share of taverns, souvenir shops, and cafes, Oia is more quiet and laid-back than busy Fira and most people enjoy its quaint beauty by slowly exploring its narrow streets. Stroll through the village’s small port of Ammoudi by descending 300 steps down the cliff, or enjoy colorful galleries showcasing art from the many artists who fell in love with the village and made it their home. Oia, Santorini is considered by many one of the prettiest places in the world. '}
     ];
 
-let sideMenu = document.querySelector('.side_menu_list');
-let place = document.querySelectorAll('.side_menu_item');
-let description = document.querySelector('.description');
+const sideMenu = document.querySelector('.side_menu_list');
+const place = document.querySelectorAll('.side_menu_item');
+const description = document.querySelector('.description');
 
 description.innerHTML = infoArray[0].text ;
 
 sideMenu.addEventListener('click', function(e) {
   place.forEach((item, i) =>{
-    if(place[i]  === e.target){
+    if(item  === e.target){
       description.innerHTML = infoArray[i].text;
     }
     item.classList.remove('active');
     e.target.classList.add('active');
   } );
 });
- 
+}); 
