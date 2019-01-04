@@ -9,7 +9,7 @@ body{
 .container{
 	display: block;
 	width: 1000px;
-    margin: 0 auto;
+   	margin: 0 auto;
 }
 
 .navbar__sandwich{
@@ -49,8 +49,7 @@ body{
 	top: 27px;
 	left: 50px;
 	z-index: 1;
-	transition: all 200ms ease-out;
-	
+	transition: all 200ms ease-out;	
 }
 
 .fa-angle-down{
@@ -109,7 +108,7 @@ a{
 	
 	.content__text {
 		font-size: 16px;
-    }
+    	}
 	
 	.fa-angle-down {
 		left: 35px;

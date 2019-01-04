@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>friends</title>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <nav id="nav" class="nav">
+      <div class="arrow"></div>
+      <ul class="nav__list">
+        <input placeholder="Search" id="myInput" type="search" />
+        <li class="nav__item">
+          <label>
+            <select name="order by">
+              <option value=``>order by ▼▲</option>
+              <option value="ascendingAge">age ▼</option>
+              <option value="descendingAge">age ▲</option>
+              <option value="ascendingFirstName">Name ▼</option>
+              <option value="descendingFirstName">Name ▲</option>
+            </select>
+          </label>
+        </li>
+        <li class="nav__item">
+          <select name="gender">
+            <option value="all">gender ▼▲</option>
+            <option value="male">male</option>
+            <option value="female">female</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container"></div>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 #field{
 	width: 680px;
-	height: 500px;	
+	height: 500px;
 	margin: 35px auto;
 	display: flex;
 	flex-wrap: wrap;
@@ -27,6 +27,8 @@
 .front, .back {
 	backface-visibility: hidden;
 	position: absolute;
+	top: 0;
+	right: 0;
 }
 
 .front {
@@ -61,7 +63,7 @@ p{
 	color: red;
 	font-weight: bold;
 }
-  
+
 @media screen and (max-width: 799px) {
 	.card, .flipper, .back {
 		width: 120px;
@@ -83,4 +85,3 @@ p{
 		height: auto;
 	}
 }
-  
