@@ -1,0 +1,64 @@
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+.modal-overlay {
+    visibility: hidden;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: visibility 1s, opacity 0.5s ease-in-out;
+}
+.modal {
+    visibility: hidden;
+    opacity: 0;
+    position: relative;
+    width: 500px;
+    height: 400px;
+    max-height: 90%;
+    max-width: 90%;
+    min-height: 380px;
+    margin: 0 auto;
+    background: white;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 30px 10px;
+    transition: visibility 1s, opacity 0.5s ease-in-out;
+}
+.modal.show, .modal-overlay.show{
+    visibility: visible;
+    opacity: 1;
+}
+.modal .winner {
+    font-size: 60px;
+    text-align: center;
+    font-family: 'Boogaloo', cursive;
+    color: #4d4d4d;
+    text-shadow: 0px 3px 0 black;
+}
+
+.modal .restart {
+    font-family: 'Boogaloo', cursive;
+    margin: 30px auto;
+    padding: 20px 30px;
+    display: block;
+    font-size: 30px;
+    background: #4d4d4d;
+    background: linear-gradient(#4d4d4d, #222);
+    border: 1px solid #222;
+    border-radius: 5px;
+    color: white;
+    text-shadow: 0px 1px 0 black;
+    cursor: pointer;
+}
+.modal .restart:hover {
+    background: linear-gradient(#222, black);
+}

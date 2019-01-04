@@ -1,0 +1,52 @@
+.menu{
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    background-color: #282828;
+    padding-left: 24px;
+    padding-top: 24px;
+    z-index: 10;
+    left: -300px;
+    transition: left .5s;
+}
+.menu-active{
+    left: 0px;
+}
+.nav-head{
+    font-size: 24px;
+    color: #DDDDDD;
+    padding: 10px;
+    border-bottom: 1px solid #747474;
+}
+.nav-item{
+    font-size: 18px;
+    color: #DDDDDD;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/*for hover and click event*/
+.nav-item-active{
+    background-color: #363636;
+}
+.fa-circle{
+    padding-right: 5px;
+}
+.circle-blue{
+    color: #14AAF5;
+}
+.circle-violet{
+    color: #AF38EB;
+}
+.circle-lightblue{
+    color: #96C3EB;
+}
+.circle-pink{
+    color: #EB96EB;
+}
+.circle-green{
+    color: #299438;
+}
+.circle-red{
+    color: #DB4035;
+}

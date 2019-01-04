@@ -1,0 +1,80 @@
+button, input[type="submit"], input[type="reset"] 
+	background: none
+	color: inherit
+	border: none
+	padding: 0
+	font: inherit
+	cursor: pointer
+	outline: inherit
+    
+#intro-video-menu-skip
+    font-family: Arial, Helvetica, sans-serif
+    font-weight: 700
+    position: fixed
+    width: 100%
+    margin: 0 auto
+    bottom: 50px
+    text-align: center
+    color: #e0e0e0
+    animation: intro-video-menu-skip 1s ease-out 3s 1 forwards
+
+@keyframes intro-video-menu-skip
+    0%
+        opacity: 1
+    100%
+        opacity: 0
+        display: none
+
+
+#intro-video-menu
+    font-family: Arial, Helvetica, sans-serif
+    font-weight: 700
+    position: fixed
+    display: flex
+    flex-direction: column
+    width: 100%
+    bottom: 150px
+    animation: intro-video-menu-hide 4s ease-out 4s 1 forwards
+
+@keyframes intro-video-menu-hide
+    0%
+        opacity: 1
+    100%
+        opacity: 0
+
+.intro-video-menu-box
+    margin: 0 auto
+    width: 200px
+    height: 40px
+    line-height: 40px
+    margin-top: 7px
+    font-size: 18px
+    vertical-align:middle
+    text-transform: uppercase
+    text-align: center
+    vertical-align: middle
+    background-color: #c0c0c066
+    color: #1f1f1f
+    border-radius: 3px
+    cursor: pointer
+
+.intro-video-menu-box:last-child
+    height: 30px
+    line-height: 30px
+    font-size: 14px
+    vertical-align: middle
+    color: #000000
+    background-color: #ffffff87
+
+.intro-video-menu-box-active
+    background-color: #84fffe7d
+
+.intro-video-menu-hide-button
+    pointer-events: none
+    animation: intro-video-menu-hide-button 1s ease-out 0s 1 !important
+
+@keyframes intro-video-menu-hide-button
+    0%
+        bottom: 150px
+    100%
+        bottom: -300px
