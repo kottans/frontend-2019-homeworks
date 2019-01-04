@@ -1,0 +1,121 @@
+      @import url(https://fonts.googleapis.com/css?family=Roboto);
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+
+      a{
+      text-decoration:none;
+      color: white;
+      }
+
+      p,h2{
+        margin:10px;
+        color: #333333;
+      }
+      .box {
+        min-height: 150px;
+      }
+
+      .title-bar {
+        background-image: url("https://images.unsplash.com/photo-1457280468258-28589fb67a93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+        color: white;
+        text-align: center;
+        font-size: 3em;
+      }
+      /*
+      These are the responsive styles. Throw some breakpoints in here!
+      */
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:center;
+      }
+
+      .box {
+        width: 100%;
+      }
+
+      @media screen and (max-width: 400px) {
+        .title-bar {
+          color: blue;
+        }
+      }
+      @media screen and (min-width: 550px) {
+        .menu {
+          width:33.3%;
+        }
+        .content{
+          width:66.6%;
+        }
+      }
+      @media screen and (min-width: 800px) {
+        .container {
+          width:800px;
+          margin-left:auto;
+          margin-right:auto;
+        }
+      }
+      /*
+      These are styles of the list.
+      */
+      .rolldown-list {
+        text-align: left;
+        padding: 0;
+        margin: 0;
+      }
+
+      .rolldown-list li {
+        padding: 1em;
+        margin-bottom: .125em;
+        display: block;
+        list-style: none;
+        text-transform: uppercase;
+      }
+
+      .rolldown-list li {
+        visibility: hidden;
+        animation: rolldown .7s 1;
+        transform-origin: 50% 0;
+        animation-fill-mode: forwards;
+      }
+
+      .rolldown-list li:nth-child(2n) {
+        background-color: #1b4b34;
+      }
+
+      .rolldown-list li:nth-child(2n+1) {
+        background-color: #369b4e;
+      }
+
+      #btnReload {
+        float: right;
+        color: #333;
+        background: #ccc;
+        text-transform: uppercase;
+        border: none;
+        padding: .5em 1em;
+      }
+
+      #btnReload:hover {
+        background: #ddd;
+      }
+
+      @keyframes rolldown {
+        0% {
+          visibility: visible;
+          transform: rotateX(180deg) perspective(500px);
+        }
+        70% {
+          visibility: visible;
+          transform: rotateX(-20deg);
+        }
+        100% {
+          visibility: visible;
+          transform: rotateX(0deg);
+        }
+      }
