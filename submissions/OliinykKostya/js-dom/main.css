@@ -1,0 +1,77 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+header, nav, footer, section, article, div {
+  box-sizing: border-box;
+}
+
+p {
+  font-size: 18px; 
+  text-indent: 20px;
+}
+
+/*HEADER*/
+.header {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+  min-height: 56px;
+}
+
+.header__inner {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header__title {
+  font-weight: 300;
+  font-size: 4em;
+  margin: 0.5em 0.25em;
+  color: #212121;
+  text-align: center;
+}
+
+.header__menu img{
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  margin: 0px 0px;
+
+}
+/* NAVIGATION */
+.sidebar {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav__list {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.nav__item {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 24%;
+  text-align: center;
+  line-height: 15px;
+  padding: 24px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.image {
+  float: left;
+  margin: 15px 15px 10px 0;
+}
+
+.nav__list a {
+  text-decoration: none;
+}
+
