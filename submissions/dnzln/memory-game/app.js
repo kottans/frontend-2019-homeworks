@@ -1,44 +1,64 @@
-var arr = [];
-var arrayImg = [1,2,3,4,5,6,1,2,3,4,5,6];
-arrayImg = arrayImg.sort(function() { return 0.5 - Math.random() });  // перемешиваем массив
+var click = [];
+const DELAY_TIME = 900;
+var arayImages = [1,2,3,4,5,6,1,2,3,4,5,6];
+arayImages = arayImages.sort(function() { return 0.5 - Math.random() });
 
-arrayImg.forEach(                       // создаем на странице div с классом back и в него вкладываем
-    function(elem, ind, arr) {          // скрытую картинку. Блок и картинка добавляется для каждой карточки
+let wrapper = document.createElement('div');
+wrapper.classList.add('playground');
+wrapper.id = 'game';
+
+arayImages.forEach(
+    function(elem, index) {
+        let gameCard = document.createElement('div');
+        gameCard.classList.add('game-card');
+        
+        let upperPicture = document.createElement('img');
+        upperPicture.classList.add('cover-img');
+        upperPicture.setAttribute('src', 'img/0.png');
+        
         let underPicture = document.createElement('img');
         underPicture.classList.add('under-img');
-        underPicture.setAttribute('src', 'img/'+elem+'.png');
-        let conteiner = document.getElementById(ind);
-        let underConteiner = document.createElement('div');
-        underConteiner.classList.add('back');
-        underConteiner.appendChild(underPicture);
-        conteiner.appendChild(underConteiner);
+        underPicture.setAttribute('src', `img/${elem}.png`);
+        
+        let conatinerFront = document.createElement('div');
+        conatinerFront.classList.add('front');
+        conatinerFront.appendChild(upperPicture);
+        
+        let conatinerBack = document.createElement('div');
+        conatinerBack.classList.add('back');
+        conatinerBack.appendChild(underPicture);
+
+        gameCard.appendChild(conatinerFront);
+        gameCard.appendChild(conatinerBack);
+        wrapper.appendChild(gameCard);
+        gameCard.id = index;
     }
 );
 
-for(let i = 0; i <= 11; i++) {
-    document.getElementById(i).addEventListener('click', function () {main(i)});  // каждой карте - слушатель!
-}
+document.querySelector('.main-wrapper').appendChild(wrapper);
 
-function main(id) {     // каждый клик обрабатывается по сценарию ниже, вызываются соответ. функции: 
-    arr.push(id);       // открытие или закрытие карточек, скрытие отыграных карточек. 
+wrapper.addEventListener('click', function () {
+    let target = event.target.parentNode;
+        target = target.parentNode;
+    if(isNumeric(target.id)) main(target.id);
+    }
+);
+
+function main(id) {
+    click.push(id);
     openImg(id);
-    if(arr.length == 1) return;
-    if(arr.length == 2) {
-        if(arrayImg[arr[0]] == arrayImg[arr[1]]) {
-            setTimeout(destroy, 1300, arr[0], arr[1])
-            return;
-        } 
-        return;
-    } else if(arr.length == 3) {
-        if(arrayImg[arr[2]] == arrayImg[arr[1]]) {
-            setTimeout(destroy, 1300, arr[1], arr[2])
-            closeImg(arr[0]);
-            arr = [];
-            return;
+    if(click.length == 1) return;
+    if(click.length == 2) {
+        if(arayImages[click[0]] == arayImages[click[1]] && click[0] != click[1]) destroy(click[1], click[0]);
+    } else if(click.length == 3) {
+        if(arayImages[click[2]] == arayImages[click[1]] && click[2] != click[1]) {
+            destroy(click[1], click[2]);
+            closeImg(click[0]);
+            click = [];
         } else {
-            closeImg(arr[0]);
-            closeImg(arr[1]);
-            arr = [arr[2]];
+            closeImg(click[0]);
+            closeImg(click[1]);
+            click = [click[2]];
         }
     }
 }
@@ -52,10 +72,15 @@ function closeImg(id) {
 }
 
 function destroy(id1, id2) {
-    document.getElementById(id1).classList.add('hidden');
-    document.getElementById(id2).classList.add('hidden');
-    document.getElementById(id1).innerHTML = ""; 
-    document.getElementById(id2).innerHTML = "";
-    if(document.querySelector('.back') == null) setTimeout(alert, 1300, 'You win!');
+    setTimeout( function() {
+        document.getElementById(id1).classList.add('hidden');
+        document.getElementById(id2).classList.add('hidden');
+        document.getElementById(id1).innerHTML = ""; 
+        document.getElementById(id2).innerHTML = "";
+        }, DELAY_TIME );
+}
+
+function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
