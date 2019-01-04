@@ -1,62 +1,62 @@
 window.onload = () => {
     const link = "https://randomuser.me/api/?";
-    let initData = [];
-    let data = [];
-    let defaultSearch = 'results=70&inc=gender,name,picture,location,dob,phone';
+    let usersInitData = [];
+    let usersData = [];
+    const defaultSearch = 'results=70&inc=gender,name,picture,location,dob,phone';
 
     const cardContainer = document.querySelector(".container");
+    const gender = document.querySelector("input[name='gender-sort']:checked");
+
     function request(reqString){
         fetch(link+reqString)
             .then(function(response) {
                 response.json()
                     .then(users => {
-                        initData = Array.from(users.results);
-                        data = initData.slice();
-                        console.log(initData);
-                        insert(initData);
+                        usersInitData = users.results;
+                        usersData = usersInitData.slice();
+                        insert(usersInitData);
                     });
-            });
+            }).catch(function (){
+                console.log("Oops! Looks like there is a problem");
+        });
     }
-
-
-    function insert(data){
-        console.log(data);
-        cardContainer.innerHTML = "";
+    function createUserCard(profile){
         let fragment = document.createDocumentFragment();
-        data.forEach(profile => {
-            let user = document.createElement("div");
-            user.classList.add('flip-container', 'all', profile.gender);
-            let gender = document.querySelector("input[name='gender-sort']:checked");
-            if (gender !== null){
-                if (gender.value !== profile.gender){
-                    user.classList.add('hidden');
-                } else {
-                    user.classList.remove('hidden');
-                }
+        let user = document.createElement("div");
+        user.classList.add('flip-container', 'all', profile.gender);
+        if (gender !== null){
+            if (gender.value !== profile.gender){
+                user.classList.add('hidden');
+            } else {
+                user.classList.remove('hidden');
             }
-            user.innerHTML = `
+        }
+        user.innerHTML = `
               <div class="flipper">
                 <div class="front">
                     <img class="avatar" src=${profile.picture.large} alt=${profile.gender}>
                 </div>
-                <div class="back"><h3 >${profile.name.first+" "+profile.name.last}</h3>
+                <div class="back"><h3 >${profile.name.first} ${profile.name.last}</h3>
                     <h5 class="age">${profile.dob.age}</h5>
                     <h5>${profile.location.city}</h5>
                     <h5>${profile.phone}</h5>
                 </div>
               </div>`;
-            fragment.appendChild(user);
-        });
+        fragment.appendChild(user);
         cardContainer.appendChild(fragment);
     }
 
+    function insert(data){
+        cardContainer.innerHTML = "";
+        data.forEach(createUserCard);
+    }
+
     document.getElementById("reset").addEventListener("click", function(){
-        const forms = document.querySelectorAll('form');
-        forms.forEach(function (item) {
+        document.querySelectorAll('form').forEach(function (item) {
             item.reset();
         });
         document.querySelector('main h1').classList.remove('show');
-        insert(initData);
+        insert(usersInitData);
     });
 
     function noResults(){
@@ -65,7 +65,6 @@ window.onload = () => {
         let no_result = document.querySelector('main h1');
         if (flips.length === flips_hidden.length){
             no_result.classList.add('show');
-            // console.log('That\'s all folks! Nothing found...');
         } else {
             no_result.classList.remove('show');
         }
@@ -73,13 +72,12 @@ window.onload = () => {
 
     function showSearchResults(search){
         search = search.toLowerCase();
-        const flips = document.querySelectorAll('.flip-container');
-        flips.forEach(function (item) {
-            let name = item.querySelector('.back h3').textContent;
-            if (name.search(search) === -1){
-                item.classList.add('hidden')
+        document.querySelectorAll('.flip-container').forEach(function (item) {
+            const name = item.querySelector('.back h3').textContent;
+            if (name.includes(search)){
+                item.classList.remove('hidden')
             } else {
-                item.classList.remove('hidden'); //in case it was previously hidden
+                item.classList.add('hidden');
             }
             noResults();
         });
@@ -87,39 +85,34 @@ window.onload = () => {
     function searchName(){
         document.getElementById("form-search").addEventListener("submit", function(event){
             event.preventDefault();
-            let searchValue = document.getElementById("name-search").value;
+            let searchValue = event.target.elements[0].value;
             showSearchResults(searchValue);
         });
     }
-    function filters_init() {
-        let genders = document.querySelectorAll("input[name='gender-sort']");
-        genders.forEach(function (gender) {
+    function filtersInit() {
+        document.querySelectorAll("input[name='gender-sort']").forEach(function (gender) {
             gender.addEventListener("change", function(){
-                let flips = document.querySelectorAll('.flip-container');
-                flips.forEach(function (item) {
-                    // let name = item.querySelector('.back h3').textContent;
+                document.querySelectorAll('.flip-container').forEach(function (item) {
                     if (!item.classList.contains(gender.value)){
                         item.classList.add('hidden');
                         document.querySelector('main h1').classList.remove('show');
                     } else {
-                        item.classList.remove('hidden'); //in case it was previously hidden
-                        document.querySelector('main h1').classList.remove('show');
+                        item.classList.remove('hidden');
                     }
+                document.querySelector('main h1').classList.remove('show');
                     noResults();
                 });
             });
         });
 
-        let ages = document.querySelectorAll("input[name='age-sort']");
-        ages.forEach(function (age) {
+        document.querySelectorAll("input[name='age-sort']").forEach(function (age) {
             age.addEventListener("change", function(){
                 dataSort(age.value, 'age');
                 document.querySelector('main h1').classList.remove('show');
             });
         });
 
-        let names = document.querySelectorAll("input[name='name-sort']");
-        names.forEach(function (name) {
+        document.querySelectorAll("input[name='name-sort']").forEach(function (name) {
             name.addEventListener("change", function(){
                 dataSort(name.value, 'last');
                 document.querySelector('main h1').classList.remove('show');
@@ -127,15 +120,13 @@ window.onload = () => {
         });
 
         function dataSort(sortOrder, param){
-            console.log('data '+data);
             switch (param) {
                 case 'last':
-                    data.sort(sortByLastName);
+                    usersData.sort(sortByLastName);
                     break;
                 case 'age':
-                    data.sort(sortByAge);
+                    usersData.sort(sortByAge);
                     break;
-                    //some other params here
             }
 
             function sortByLastName(a, b) {
@@ -163,14 +154,12 @@ window.onload = () => {
                 }
             }
 
-            insert(data);
+            insert(usersData);
         }
     }
 
     request(defaultSearch);
-    console.log(initData);
-    console.log(data);
     searchName();
-    filters_init();
+    filtersInit();
 
 };
