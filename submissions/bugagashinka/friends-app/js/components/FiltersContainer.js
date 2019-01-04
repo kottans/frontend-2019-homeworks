@@ -1,4 +1,4 @@
-let FiltersContainer = (function() {
+const FiltersContainer = (function() {
   const filterGroup = document.getElementById('filter');
   const searchField = filterGroup.querySelector('input[type=search]');
   const filterSexGroup = filterGroup.querySelector('.filter-sex');
@@ -64,12 +64,12 @@ let FiltersContainer = (function() {
   searchField.addEventListener('keyup', event => {
     if (event.code.indexOf('Key') != 0 && event.keyCode != BACK_SPACE_CODE)
       return;
-    filterCondition.name = `${event.target.value}`;
+    filterCondition.name = event.target.value;
     filterCondition.type = getSearchType();
     applyFilter();
   });
 
-  searchField.addEventListener('search', ({ target }) => {
+  searchField.addEventListener('search', () => {
     filterCondition.name = '';
     filterCondition.type = getSearchType();
     applyFilter();
@@ -86,14 +86,14 @@ let FiltersContainer = (function() {
 
   filterSexGroup.addEventListener('click', ({ target }) => {
     if (target.type == 'button') {
-      filterCondition.sex = `${target.value}`;
+      filterCondition.sex = target.value;
       handleRadioButton(target, '.checked', filterSexGroup);
     }
   });
 
   filterGroup.addEventListener('input', ({ target }) => {
     if (target.type == 'radio') {
-      filterCondition.order = `${target.value}`;
+      filterCondition.order = target.value;
       handleRadioButton(target, 'input.checked');
     } else if (target.type == 'range') {
       handleAgeRangeInput(target);
@@ -106,23 +106,20 @@ let FiltersContainer = (function() {
   };
 
   const handleRadioButton = (button, selector, group = filterGroup) => {
-    let buttonStyles = button.classList;
+    const buttonStyles = button.classList;
     if (buttonStyles.contains('checked')) return;
     group.querySelector(selector).classList.remove('checked');
     buttonStyles.add('checked');
     applyFilter();
   };
 
-  const resetOrderFilter = ({
+  const resetOrderFilter = (
     age = false,
     name = true,
     date = false,
     asc = true,
-  } = {}) => {
-    isOrderedBy.age = age;
-    isOrderedBy.name = name;
-    isOrderedBy.date = date;
-    isOrderedBy.asc = asc;
+  ) => {
+    isOrderedBy = { age, name, date, asc };
   };
 
   const orderByAge = asc => {
@@ -215,7 +212,7 @@ let FiltersContainer = (function() {
       max > prevFilterValue.max
     ) {
       resetOrderFilter();
-      filterResult = originalData.slice();
+      filterResult = [...originalData];
     }
     const searchSexPattern =
       sex == DEF_SEX ? /(fe)?male/i : new RegExp(`\\b${sex}`, 'i');

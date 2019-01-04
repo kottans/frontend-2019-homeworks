@@ -36,7 +36,7 @@ main {
   font-size: 1em;
 }
 
-hr {
+.line {
   height: 1px;
   border: 0;
   margin: 0 auto;
@@ -185,6 +185,7 @@ hr {
   height: 25px;
   width: 25px;
   background-color: #eee;
+  border-radius: 50%;
 }
 
 .container:hover input ~ .checkmark {
@@ -206,15 +207,12 @@ hr {
 }
 
 .container .checkmark:after {
+  top: 9px;
   left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
 }
 
 /* ======= Card styles =======  */
