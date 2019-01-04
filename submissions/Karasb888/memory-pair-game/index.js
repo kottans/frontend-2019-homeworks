@@ -10,48 +10,65 @@ document.addEventListener('DOMContentLoaded', function() {
   var countOpenPairs = 0;
   var openCards = [];
 
+  const GAME_CONTAINER = document.getElementById('game');
+  var allCards = [];
+
+  for (var i = 0; i < CARDS_MAX; i++) {
+    let flipContainer = document.createElement('div');
+    flipContainer.classList.add('flip-container', 'game__card');
+    allCards.push(flipContainer);
+    let flipper = document.createElement('div');
+    flipper.classList.add('flipper');
+    let front = document.createElement('div');
+    front.classList.add('front');
+    let back = document.createElement('div');
+    back.classList.add('back');
+    flipContainer.appendChild(flipper);
+    flipper.appendChild(front);
+    flipper.appendChild(back);
+    GAME_CONTAINER.appendChild(flipContainer);
+  }
+  rebuildGameCards(allCards, cardsAtributes);
+
+
   function rebuildGameCards(nodes, attributes) {
     attributes.sort(function() {
       return 0.5 - Math.random()
     });
-    for (var i = 0; i < nodes.length; i++) {
-      nodes[i].removeAttribute(ATRIBUTE_CARD);
-      nodes[i].removeAttribute(ATTRIBUTE_CHECK);
-      nodes[i].removeAttribute(ATTRIBUTE_OPEN_CARD);
-      nodes[i].classList.remove(ANIMATION_CLASS);
-      nodes[i].setAttribute(ATRIBUTE_CARD, attributes[i]);
-    }
-  };
+    nodes.forEach(function(item, i) {
+      item.removeAttribute(ATRIBUTE_CARD);
+      item.removeAttribute(ATTRIBUTE_CHECK);
+      item.removeAttribute(ATTRIBUTE_OPEN_CARD);
+      item.classList.remove(ANIMATION_CLASS);
+      item.setAttribute(ATRIBUTE_CARD, attributes[i]);
+    });
+  }
 
-  function pairChecking(array) {
-    if (array.length === 2) {
-      if (array[0].getAttribute(ATRIBUTE_CARD) === array[1].getAttribute(ATRIBUTE_CARD)) {
+  function pairChecking(cards) {
+    if (cards.length === 2) {
+      if (cards[0].getAttribute(ATRIBUTE_CARD) === cards[1].getAttribute(ATRIBUTE_CARD)) {
         countOpenPairs++;
-        array[0].setAttribute(ATTRIBUTE_OPEN_CARD, ATTRIBUTE_OPEN_CARD);
-        array[1].setAttribute(ATTRIBUTE_OPEN_CARD, ATTRIBUTE_OPEN_CARD);
-        array.splice(0, 2);
+        cards[0].setAttribute(ATTRIBUTE_OPEN_CARD, ATTRIBUTE_OPEN_CARD);
+        cards[1].setAttribute(ATTRIBUTE_OPEN_CARD, ATTRIBUTE_OPEN_CARD);
+        cards.splice(0, 2);
         if (countOpenPairs === CARDS_MAX / 2) {
           setTimeout(gameRestart, ANIMATION_DURATION);
         }
       }
-    } else if (array.length === 3) {
-      array[0].classList.remove(ANIMATION_CLASS);
-      array[1].classList.remove(ANIMATION_CLASS);
-      array[0].removeAttribute(ATTRIBUTE_CHECK);
-      array[1].removeAttribute(ATTRIBUTE_CHECK);
-      array.splice(0, 2);
+    } else if (cards.length === 3) {
+      cards[0].classList.remove(ANIMATION_CLASS);
+      cards[1].classList.remove(ANIMATION_CLASS);
+      cards[0].removeAttribute(ATTRIBUTE_CHECK);
+      cards[1].removeAttribute(ATTRIBUTE_CHECK);
+      cards.splice(0, 2);
     }
   };
 
   function gameRestart() {
     alert('You win!');
-    rebuildGameCards(CARDS, cardsAtributes);
+    rebuildGameCards(allCards, cardsAtributes);
     openCards = [];
   };
-
-  const GAME_CONTAINER = document.getElementById('game');
-  const CARDS = document.querySelectorAll('.flip-container');
-  rebuildGameCards(CARDS, cardsAtributes);
 
   GAME_CONTAINER.addEventListener('click', function(e) {
     let clickedCard = e.target.closest('.flip-container');
