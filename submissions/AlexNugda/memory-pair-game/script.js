@@ -1,6 +1,5 @@
 const TIME_SHOW_CARDS = 1000;
 let gameContainer = document.getElementById("game-container");
-let gameContainerImages = document.querySelectorAll("#game-container .back");
 let cardsSrc = ["img/watermelon.png", "img/banana.png", "img/cherry.png", "img/pumpkin.png", "img/coconut.png", "img/grapes.png"];
 let cardList = cardsSrc.concat(cardsSrc);
 let cardsForComparison = [];
@@ -9,26 +8,32 @@ let disableCardCount = 0;
 
 const showCards = () => {
 	cardList.sort(() => 0.5 - Math.random());
-	if(!gameContainer.querySelectorAll("img").length){
+	if(!gameContainer.querySelectorAll("img").length){	
  		cardList.forEach((el, i) => {
+			let flipContainerDiv = document.createElement("div");
+				flipContainerDiv.classList.add("flip-container");
+			let flipperDiv = document.createElement("div");
+				flipperDiv.classList.add("flipper");
+			let frontDiv = document.createElement("div");
+				frontDiv.classList.add("front");
+			let backDiv = document.createElement("div");
+				backDiv.classList.add("back");
 			let img = document.createElement("img");
-			img.src = el;
-			img.setAttribute("id", ""+i);
-			gameContainerImages[i].appendChild(img);
-		});
-	}
-	else{
-		let disableImages = document.querySelectorAll(".disable");		
-		cardList.forEach((el, i) => {
-			disableImages[i].classList.remove("disable");
-			gameContainerImages[i].querySelector("img").src = el;
-		});
+				img.src = el;
+				img.setAttribute("id", i);
+			backDiv.appendChild(img);
+			flipperDiv.appendChild(frontDiv);
+			flipperDiv.appendChild(backDiv);
+			flipContainerDiv.appendChild(flipperDiv);
+			gameContainer.appendChild(flipContainerDiv);
+		});		
 	}
 }
 
 window.onload = showCards();
 const gameRestart = () => {
 	alert("You Won!");
+	gameContainer.innerHTML = "";
 	disableCardCount = 0;
 	showCards();
 }
