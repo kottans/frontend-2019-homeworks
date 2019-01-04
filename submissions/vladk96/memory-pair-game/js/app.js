@@ -69,7 +69,6 @@ let userCount = 0,
 
 document.addEventListener('DOMContentLoaded', () => {
     addImagesToCards(getDoubleSortedArray(imagePath));
-    resetGame();
 
     document.querySelector('.card-container').addEventListener('click', (event) => {
         const card = event.target.parentElement;
@@ -88,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 userCount = 0;
                 cardArray = [];
             } else {
-                setTimeout(() => {//
+                setTimeout(() => {
                     cardArray.forEach( (card) => {
                         unflipCard(card);
                     });
