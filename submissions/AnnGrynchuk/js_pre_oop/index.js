@@ -37,7 +37,11 @@ const inhebitants = [
     saying: 'Lets go to bar!'}
 ];
 
-inhebitants.forEach(item => print(item.species + " " + item.name + "; " + item.gender + "; legs:" + item.legs + "; hands:" + item.hands + "; favourite phrase:" + item.saying ));
+function printInhebitants(item){
+    return Object.values(item).join('-');
+ }
+
+inhebitants.forEach(item => print(printInhebitants(item)));
 
 inhebitants[2].saying ="I'm hungry too!";
 const newMan = Object.assign({},inhebitants[2]);
