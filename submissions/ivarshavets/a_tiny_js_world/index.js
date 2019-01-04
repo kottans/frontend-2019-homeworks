@@ -17,7 +17,11 @@ class Inhabitant {
   }
 
   getInfo(){
-    return Object.values(this).join("; ")
+    let info = `${this.species}; ${this.name}; ${this.gender}; ${this.legs}; ${this.hands}; ${this.speak};`
+    if ( this.friends ) {
+      info += ` ${this.friends.join(", ")};`;
+    }
+    return info
   }
 }
 
