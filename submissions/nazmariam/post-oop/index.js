@@ -5,23 +5,32 @@
 */
 // ======== OBJECTS DEFINITIONS ========
 class Citizen {
-    constructor(species, name, gender, say, legs, hands){
+    constructor(species, name, gender, say, legs){
         this.species = species;
         this.name = name;
         this.gender = gender;
         this.say = say;
         this.legs = legs;
-        this.hands = hands;
+    }
+    sayAbout() {
+        let str = 'My name is ' + this.name + '. I am a ' + this.species + '. I speak like this: "' + this.say + '". I have '+this.legs+' legs.';
+        return str;
     }
 }
 class Animal extends Citizen{
     constructor(species, name, gender, say){
-        super(species, name, gender, say, 4, 0)
+        super(species, name, gender, say, 4)
     }
 }
 class Human extends Citizen{
-    constructor(name, gender, say){
-        super('human',name,gender,say,2,2)
+    constructor(name, gender, say, legs, hands){
+        super('human',name,gender,say,2);
+        this.hands=2;
+    }
+    sayAbout() {
+        let str = ` Also I have ${this.hands} hands. `;
+
+        return super.sayAbout() + str;
     }
 }
 class Dog extends Animal{
@@ -42,11 +51,7 @@ const citizens = [
 ];
 // ======== OUTPUT ========
 citizens.forEach(el => {
-    print(`<div>
-        Hi! I'm a ${el.species}. My name is ${el.name}. My gender is: ${el.gender}
-        I have: ${el.legs} legs and ${el.hands} hands.
-        I speak like this: ${el.say}
-        </div>`);
+    print(`<div> ${el.sayAbout()} </div>`)
 });
 
 
