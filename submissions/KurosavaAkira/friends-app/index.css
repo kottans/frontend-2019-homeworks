@@ -1,0 +1,215 @@
+@font-face {
+    font-family: "Helvetica";
+    src: url("./font/helvetica_neue_regular.ttf");
+}
+
+body, html {
+  font-family: Helvetica;
+  height: 100%;
+  width:100%;
+  background-image: linear-gradient(to bottom, #181c23, #1c222a, #202732, #232d39, #273341);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+    outline: inherit;
+}
+
+input {
+    text-align: center;
+    caret-color: #566585;
+}
+
+input::placeholder{
+	font-size: 30px;
+	/*padding-left: 100px;*/
+	color: #0b0f14;
+}
+
+#container {
+    position: relative;
+    height: 100%;
+    width:100%;
+}
+
+#search {
+    /*top: calc(50% - 20px);
+    left: calc(50% - 160px);
+    transform: translate(-50%, -50%);*/
+    font-family: Helvetica;
+    font-weight: 500;
+    font-size: 30px;
+    border-width: 0px;
+    width: 100%;
+    outline: none;
+    color: #bbcdee;
+    background-color: #232d39;
+    padding: 10px 0;
+    transition: all .3s ease-out, top .5s ease-in-out;
+    overflow-x: hidden;
+}
+
+#search:focus{
+    color: #57718b;
+    background-color: #1c222a;
+    box-shadow: inset 0 4px 8px 0 rgba(0, 0, 0, 0.2), inset 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.filters-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #232d39;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: filter 1s ease-in-out;
+}
+
+.sorting-buttons {
+    padding: 7px 0 10px 0;
+}
+
+.sorting-buttons button {
+    width: 60px;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 0px 0px 5px 0px;
+    margin: 0 20px;
+    color: #87a0cc;
+    text-shadow: #87a0cc 0px 0px 2px;
+    border-bottom: 3px solid #14191f;
+    text-transform: lowercase;
+}
+
+.sorting-buttons button:hover {
+    color: #bbcdee;
+    text-shadow: #87a0cc 0px 0px 4px;
+    border-bottom: 3px solid #586f8b;
+}
+
+.sorting-buttons-active {
+    color: #bbe4ee !important;
+    text-shadow: #87a0cc 0px 0px 4px !important;
+    border-bottom: 3px solid #69c8c8 !important;
+}
+
+.friends-list {
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.friend {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    z-index: 1;
+    cursor: pointer;
+    transition: all 2s ease-in-out, filter 1.5s ease-in-out;
+}
+
+.friend-selected {
+    z-index: 2 !important;
+    transform: scale(3) !important;
+    margin-left: 450px !important;
+    margin-top: 100px !important;
+}
+
+.friend-not-selected {
+    pointer-events: none !important;
+    filter: blur(10px) grayscale(0.6) !important;
+}
+
+.filters-container-disable {
+    pointer-events: none !important;
+    filter: blur(10px) !important;
+}
+
+.age-phone-visible {
+    position: relative !important;
+    height: 20px !important;
+    opacity: 1 !important;
+    background-color: #334464ec !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+.friend-hide {
+    display: none !important;
+}
+
+.photo {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 3px 3px 0 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    filter: grayscale(0.6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.name {
+    font-size: 14px;
+    padding: 5px 0;
+    text-align: center;
+    color: #bbcdee6e;
+    text-transform: capitalize;
+    border-radius: 3px;
+    background-color: #334464be;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.name-selected {
+    color: #61efff;
+    border-radius: 0px;
+    box-shadow: none;
+    text-shadow: #61efff 0px 0px 4px !important;
+    background-color: #334464ec !important;
+}
+
+.age, .phone {
+    position: relative;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center;
+    font-size: 8px;
+    height: 0px;
+    opacity: 0;
+    color: #57c7ff;
+    background-color: #334464be;
+    border-top: .5px solid #0d121bbe !important;
+    transition: all .5s ease-in;
+}
+/*
+.photo:hover ~ .age, 
+.photo:hover ~ .phone {
+    position: relative;
+    height: 20px;
+    opacity: 1;
+}
+
+.friend:hover {
+    transform: scale(2);
+    margin: 0 auto;
+    height: 170px;
+}
+
+.friend:hover ~ .friend {
+    
+}
+*/
