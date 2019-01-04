@@ -37,10 +37,10 @@ let pages = [ {
 ];
  
 let ul   = 	document.querySelector(".menu");
-let h2   = 	document.querySelector('.article-title');
-let p1   = 	document.querySelector('.article-text');
-let img  = 	document.querySelector('.article-image[data-img="1"]');
-let img2 = 	document.querySelector('.article-image[data-img="2"]');
+let h2   = 	document.querySelector(".article-title");
+let p1   = 	document.querySelector(".article-text");
+let img  = 	document.querySelector(".article-image[data-img='1']");
+let img2 = 	document.querySelector(".article-image[data-img='2']");
 
 let showPage = (page) => {
 	document.title = page.articleTitle;
@@ -50,16 +50,11 @@ let showPage = (page) => {
 	img2.src = page.articleImage2;
 }
 
-ul.addEventListener( 'click', e => {
+ul.addEventListener( "click", e => {
 	document.querySelector(".active").classList.remove("active");
 	e.target.classList.add("active");
 	
-	let searchPage = (el, i, arr) => {
-		if(e.target.textContent == el.articleTitle)
-		return el;
-	}
-	
-	showPage(pages.find(searchPage));
-	
+	const searchPage = el => e.target.textContent === el.articleTitle;
+	showPage(pages.find(searchPage));	
 });
  
