@@ -57,29 +57,22 @@ main {
     margin-top: 65px;
     background-color: white;
   }
+  
   .side-menu a {
     text-align: center;
   }
+  
   .side-menu.open {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
-
   }
-}
-
-@media screen and (min-width: 450px) {
-  header {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 450px) {
+    
   .header__title {
     margin-left: 0;
     font-size: 2em;
     vertical-align: bottom; 
   }
-  
+    
   .header-menu {
     display: inline-block;
     position: absolute;
@@ -89,5 +82,11 @@ main {
   .header-menu svg {
     width: 32px;
     fill: #E0E0E0;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  header {
+    display: none;
   }
 }
