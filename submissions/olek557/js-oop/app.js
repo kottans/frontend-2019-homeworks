@@ -1,12 +1,21 @@
-const BOARD_OFFSET = 50,
+const BOARD_OFFSET_TOP = 50,
+      BOARD_OFFSET_BOTTOM = 100,
       COL_WIDTH = 101,
-      COL_HEIGHT = 83;
+      COL_HEIGHT = 83,
+      ROWS_AMOUNT = 6,
+      COLS_AMOUNT = 5,
+      BOARD_WIDTH = COLS_AMOUNT * COL_WIDTH,
+      PLAYER_START_X = COL_WIDTH * Math.floor(COLS_AMOUNT / 2),
+      PLAYER_START_Y = COL_HEIGHT * ROWS_AMOUNT - BOARD_OFFSET_BOTTOM,
+      PLAYER_FINISH_X = -17,
+      PLAYER_VERTICAL_OFFSET = 50,
+      PLAYER_HORIZONTAL_OFFSET = 70;
 
 // ENEMY CLASS
-var Enemy = function(row) {
+var Enemy = function(row, player) {
     this.setSpeed();
     this.x = 0;
-    this.y = (row - 1 ) * COL_HEIGHT + BOARD_OFFSET;
+    this.y = (row - 1) * COL_HEIGHT + BOARD_OFFSET_TOP;
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -15,7 +24,7 @@ Enemy.prototype.setSpeed = function() {
 }
 
 Enemy.prototype.update = function(dt) {
-    if(this.x < 505) {
+    if(this.x < BOARD_WIDTH) {
         this.x += dt * this.speed;
     }
     else {
@@ -26,7 +35,7 @@ Enemy.prototype.update = function(dt) {
 };
 
 Enemy.prototype.checkCollision = function() {
-  if (this.y > player.y - 50 && this.y < player.y + 50 && this.x > player.x - 70 && this.x < player.x + 70) {
+  if (this.y > player.y - PLAYER_VERTICAL_OFFSET && this.y < player.y + PLAYER_VERTICAL_OFFSET && this.x > player.x - PLAYER_HORIZONTAL_OFFSET && this.x < player.x + PLAYER_HORIZONTAL_OFFSET) {
     player.moveToStart();
   }
 };
@@ -42,14 +51,14 @@ var Player = function() {
 };
 
 Player.prototype.moveToStart = function() {
-    this.x = COL_WIDTH * 2;
-    this.y = COL_HEIGHT + BOARD_OFFSET * 6;
+    this.x = PLAYER_START_X;
+    this.y = PLAYER_START_Y;
 };
 
 Player.prototype.update = function(dx, dy) {
-    if(this.y == -32) {
+    if(this.y == PLAYER_FINISH_X) {
         console.log('win');
-        setTimeout(function() {
+        setTimeout(() => {
             player.moveToStart();
         }, 500);
     }
@@ -66,7 +75,7 @@ Player.prototype.handleInput = function(key) {
                 this.x -= COL_WIDTH;
             break;
         case 'right':
-            if(this.x < 505 - 101)
+            if(this.x < BOARD_WIDTH - COL_WIDTH)
                 this.x += COL_WIDTH;
             break;
         case 'up':
@@ -74,16 +83,15 @@ Player.prototype.handleInput = function(key) {
                 this.y -= COL_HEIGHT;
             break;
         case 'down':
-            if(this.y < COL_HEIGHT * 6 - 150)
+            if(this.y < COL_HEIGHT * ROWS_AMOUNT - BOARD_OFFSET_BOTTOM)
                 this.y += COL_HEIGHT;
             break;
     }
 };
 
 // INIT GAME
-let allEnemies = [],
-    player = new Player();
-[1, 2, 3].forEach(enemy => allEnemies.push(new Enemy(enemy)));
+let player = new Player(),
+    allEnemies = [1, 2, 3].map(enemy => (new Enemy(enemy, player)));
 
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
