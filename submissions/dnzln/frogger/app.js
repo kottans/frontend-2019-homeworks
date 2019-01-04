@@ -1,12 +1,20 @@
+const ENEMY_START_Y = [60,143,226];
+const ENEMY_START_X = -100;
+const MAX_ENEMY_SPEED = 300;
+const MIN_ENEMY_SPEED = 150;
+const PLAYER_START_Y = 380;
+const PLAYER_START_X = 202;
 const PLAYER_MOVE_Y = 83;
 const PLAYER_MOVE_X = 101;
-var arr = [60,143,226];
+const PLAYER_BODY = 80;
+const FREE_GAME_CELLS = 4;
+const MAX_PLAYGROUND_Y = FREE_GAME_CELLS * PLAYER_MOVE_Y;
+const MAX_PLAYGROUND_X = FREE_GAME_CELLS * PLAYER_MOVE_X;
+var allEnemies = [];
 
-var Enemy = function() {
-    let index = Math.floor(Math.random() * 3) + 0;
-    let speed = Math.floor(Math.random() * 300) + 150;
-    this.x = -100;
-    this.y = arr[index];
+var Enemy = function(index, speed) {
+    this.x = ENEMY_START_X;
+    this.y = ENEMY_START_Y[index];
     this.speed = speed;
     this.sprite = 'images/enemy-bug.png';
 };
@@ -15,21 +23,36 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Enemy.prototype.collision = function() {
-    if((this.x < player.x && this.x > player.x - 75) && (this.y < player.y + 20 && this.y > player.y - 25)){
+Enemy.prototype.contact = function() {
+    if((this.x < player.x && this.x > player.x - PLAYER_BODY) && (this.y < player.y + (PLAYER_BODY / 3) && this.y > player.y - (PLAYER_BODY / 3))){
         player.reset();
     }
 }; 
 
 Enemy.prototype.update = function(dt) {
-    this.collision();
+    this.contact();
     this.x += dt * this.speed;
+    for(let i = 0; i < allEnemies.length; i++) {
+        if(allEnemies[0].x > MAX_PLAYGROUND_X + PLAYER_MOVE_X) {
+            allEnemies.shift();
+            this.addEnemys(1);
+        }
+    }
+};
+
+Enemy.prototype.addEnemys = function(amount) {
+    for(let i = 0; i < amount; i++) {
+        let index = Math.floor(Math.random() * ENEMY_START_Y.length) + 0;
+        let speed = Math.floor(Math.random() * MAX_ENEMY_SPEED) + MIN_ENEMY_SPEED;
+        let enemy = new Enemy(index, speed);
+        allEnemies.push(enemy);
+    } 
 };
 
 
 var Player = function() {
-    this.x = 202;
-    this.y = 380;
+    this.x = PLAYER_START_X;
+    this.y = PLAYER_START_Y;
     this.sprite = 'images/char-boy.png';
 };
 
@@ -41,51 +64,36 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.reset = function() {
-    this.x = 202; 
-    this.y = 380;
+    this.x = PLAYER_START_X; 
+    this.y = PLAYER_START_Y;
 };
 
-var allEnemies = [];
-
-// Adding new enemies in array with interval in 1.2 sec 
-setInterval(function() {
-    let enemy = new Enemy();
-    allEnemies.push(enemy)
-}, 1200);
-
-// Deleting old enemies in array with interval in 1.2 sec, after 5 sec.
-// so we have only a few working objects in the array and in memory
-setTimeout(function () {
-    setInterval(function() {
-        allEnemies.shift();
-    }, 1200)
-}, 5000);
-
+Enemy.prototype.addEnemys(3);
 
 var player = new Player();
 
 player.handleInput = function(key) {
     switch(key) {
         case 'left': 
-            if(player.x > 20) {
+            if(player.x > 0) {
                 player.x -= PLAYER_MOVE_X;  
             } 
             break;
 
         case 'up': 
-            if(player.y > 50) {
+            if(player.y > PLAYER_MOVE_Y) {
                 player.y -= PLAYER_MOVE_Y;
-            } else if (player.y == 48) player.reset();
+            } else if (player.y < PLAYER_MOVE_Y) player.reset();
             break;
 
         case 'right': 
-            if(player.x < 404) {
+            if(player.x < MAX_PLAYGROUND_X) {
                 player.x += PLAYER_MOVE_X;
             } 
             break;
 
         case 'down': 
-            if(player.y < 380) {
+            if(player.y < MAX_PLAYGROUND_Y) {
                 player.y += PLAYER_MOVE_Y;
             } 
             break;
