@@ -18,7 +18,6 @@
   const heading = document.getElementById("heading");
   let html;
 
-  //////////////////////Function data handlers
   function dataSort() {
     data.sort(function() {
       return 0.5 - Math.random();
@@ -43,7 +42,6 @@
     return;
   }
 
-  //////////////////////Function DOM workers
   function removeActive(activeElements) {
     activeElements.forEach(item => {
       item.classList.remove("active");
@@ -56,23 +54,20 @@
     });
   }
 
-  function compareImgSrc(activeElements) {
-    return (
-      activeElements.length > 1 &&
-      activeElements[0].children[0].children[1].children[0].src ===
-        activeElements[1].children[0].children[1].children[0].src
-    );
+  function compareImgSrc(imgs) {
+    imgs = [...document.querySelectorAll(".active .flip-box__img")];
+    if (imgs.length === 2 && imgs[0].src === imgs[1].src) {
+      return true;
+    }
   }
 
-  function getActiveElems(activeElements) {
-    activeElements = [...document.querySelectorAll(".active")];
+  function getActiveElems() {
+    let activeElements = [...document.querySelectorAll(".active")];
     return activeElements;
   }
 
-  //////////////////////Event listener with cards logic
   container.addEventListener("click", function(event) {
     let classList = event.target.classList;
-    getActiveElems();
 
     if (getActiveElems().length > 1) {
       removeActive(getActiveElems());
@@ -83,15 +78,13 @@
       getActiveElems();
     }
 
-    if (compareImgSrc(getActiveElems())) {
+    if (compareImgSrc()) {
       addHidden(getActiveElems());
       let quantityHidden = document.querySelectorAll(".hidden");
-      console.log(quantityHidden);
 
-      //When all cards hidden, change main-heading color
       quantityHidden.length === 12
         ? heading.classList.add("main-heading--active")
-        : console.log("нихуяшечки");
+        : "";
     }
   });
 
