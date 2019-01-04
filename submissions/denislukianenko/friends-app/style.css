@@ -216,7 +216,7 @@ main.no-animation > .column {
 .person .badge {
   font-size: 12px;
   font-family: Monaco, Menlo, monospace;
-  transform: rotate(-55deg);
+  transform: rotate(-56deg);
   position: absolute;
   top: 29px;
   left: 8px;
@@ -244,103 +244,104 @@ main.no-animation > .column {
 .person .badge .gender-symbol.female {
   background-color: pink;
 }
-.char0 {
-  transform: rotate(-1deg);
+
+.badge > span.uppercase {
+  text-transform: uppercase;
 }
 
-.char1 {
+.person > .badge > span:nth-of-type(1) {
   transform: scaleX(0.9) rotate(6deg);
 }
 
-.char2 {
+.person > .badge > span:nth-of-type(2) {
   transform: scaleX(0.9) rotate(12deg);
 }
 
-.char3 {
+.person > .badge > span:nth-of-type(3) {
   transform: scaleX(0.9) rotate(18deg);
 }
 
-.char4 {
+.person > .badge > span:nth-of-type(4) {
   transform: scaleX(0.9) rotate(24deg);
 }
 
-.char5 {
+.person > .badge > span:nth-of-type(5) {
   transform: scaleX(0.9) rotate(30deg);
 }
 
-.char6 {
+.person > .badge > span:nth-of-type(6) {
   transform: scaleX(0.9) rotate(36deg);
 }
 
-.char7 {
+.person > .badge > span:nth-of-type(7) {
   transform: scaleX(0.9) rotate(42deg);
 }
 
-.char8 {
+.person > .badge > span:nth-of-type(8) {
   transform: scaleX(0.9) rotate(48deg);
 }
 
-.char9 {
+.person > .badge > span:nth-of-type(9) {
   transform: scaleX(0.9) rotate(54deg);
 }
 
-.char10 {
+.person > .badge > span:nth-of-type(10) {
   transform: scaleX(0.9) rotate(60deg);
 }
 
-.char11 {
+.person > .badge > span:nth-of-type(11) {
   transform: scaleX(0.9) rotate(66deg);
 }
 
-.char12 {
+.person > .badge > span:nth-of-type(12) {
   transform: scaleX(0.9) rotate(72deg);
 }
 
-.char13 {
+.person > .badge > span:nth-of-type(13) {
   transform: scaleX(0.9) rotate(78deg);
 }
 
-.char14 {
+.person > .badge > span:nth-of-type(14) {
   transform: scaleX(0.9) rotate(84deg);
 }
 
-.char15 {
+.person > .badge > span:nth-of-type(15) {
   transform: scaleX(0.9) rotate(90deg);
 }
 
-.char16 {
+.person > .badge > span:nth-of-type(16) {
   transform: scaleX(0.9) rotate(96deg);
 }
 
-.char17 {
+.person > .badge > span:nth-of-type(17) {
   transform: scaleX(0.9) rotate(102deg);
 }
 
-.char18 {
+.person > .badge > span:nth-of-type(18) {
   transform: scaleX(0.9) rotate(108deg);
 }
 
-.char19 {
+.person > .badge > span:nth-of-type(19) {
   transform: scaleX(0.9) rotate(114deg);
 }
 
-.char20 {
+.person > .badge > span:nth-of-type(20) {
   transform: scaleX(0.9) rotate(120deg);
 }
 
-.char21 {
+.person > .badge > span:nth-of-type(21) {
   transform: scaleX(0.9) rotate(126deg);
 }
 
-.char22 {
+.person > .badge > span:nth-of-type(22) {
   transform: scaleX(0.9) rotate(132deg);
 }
 
-.char23 {
+.person > .badge > span:nth-of-type(23) {
   transform: scaleX(0.9) rotate(138deg);
 }
 
-.char24 {
+.person > .badge > span:nth-of-type(24) {
   transform: scaleX(0.9) rotate(144deg);
 }
 

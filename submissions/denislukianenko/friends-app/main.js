@@ -86,17 +86,34 @@ function splitIntoChars(name) {
   return markup;
 }
 
+function wrapWithSpan(letters) {
+  let result = "";
+  letters.forEach(function(letter) {
+    result += `<span>${letter}</span>`;
+  });
+  return result;
+}
+function capitalizeLetters(firstName, lastName) {
+  const names = `${firstName} ${lastName}`.split(" ");
+  const spans = names
+    .map(name => {
+      const [firstLetter, ...tail] = name.split("");
+      return [
+        `<span class='uppercase'>${firstLetter}</span>`,
+        ...wrapWithSpan(tail)
+      ].join("");
+    })
+    .join("<span> </span>");
+  console.log(spans);
+  return spans;
+}
+
 function createPersonCard(person) {
-  let name = person.name.first + " " + person.name.last;
-  name = name
-    .split(" ")
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-  let nameHTML = splitIntoChars(name);
+  let nameHTML = capitalizeLetters(person.name.first, person.name.last);
   return `
     <div class="person">
       <div class=badge>
-        <span class="char0">
+        <span>
           <span class="gender-symbol ${person.gender}"></span>
         </span>
         ${nameHTML}
