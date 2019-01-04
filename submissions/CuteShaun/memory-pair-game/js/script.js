@@ -39,7 +39,6 @@
       .join(" ");
 
     container.innerHTML = html;
-    return;
   }
 
   function removeActive(activeElements) {
