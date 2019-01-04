@@ -25,10 +25,10 @@ const SORT = {
     all:  () => renderCards(state.sortedList = [...state.filteredList]),
     male: () => renderCards(state.sortedList = state.filteredList.filter((card) => card.gender.toLowerCase() === 'male')),
     female: () => renderCards(state.sortedList = state.filteredList.filter((card) => card.gender.toLowerCase() === 'female')),
-    nameAsc: () => renderCards([...state.sortedList].sort((b, a) => b.name.toLowerCase() < a.name.toLowerCase() ? -1 : 1)),
-    nameDesc: () => renderCards([...state.sortedList].sort((a, b) => b.name.toLowerCase() < a.name.toLowerCase() ? -1 : 1)),
-    ageAsc: () => renderCards([...state.sortedList].sort((a, b) => a.age - b.age)),
-    ageDesc: () => renderCards([...state.sortedList].sort((b, a) => a.age - b.age))
+    nameAsc: () => renderCards(state.sortedList.sort((b, a) => b.name.toLowerCase() < a.name.toLowerCase() ? -1 : 1)),
+    nameDesc: () => renderCards(state.sortedList.sort((a, b) => b.name.toLowerCase() < a.name.toLowerCase() ? -1 : 1)),
+    ageAsc: () => renderCards(state.sortedList.sort((a, b) => a.age - b.age)),
+    ageDesc: () => renderCards(state.sortedList.sort((b, a) => a.age - b.age))
 };
 const capitalize = str => str.split(' ').map(item => item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()).join(' ');
 const formatDate =  oldDate => {
@@ -152,6 +152,7 @@ const renderCards = (cardsArray, currentPage = 1, resPerPage = 12) => {
 
 function filter () {
     renderCards(state.filteredList = state.cardsList.filter(card => card[APP_CONFIG.filterBy].search(new RegExp(this.value.toLowerCase())) !== -1));
+    state.sortedList = [...state.filteredList];
 };
 
 const reset = () => {
