@@ -17,6 +17,7 @@ var Enemy = function(row, player) {
     this.x = 0;
     this.y = (row - 1) * COL_HEIGHT + BOARD_OFFSET_TOP;
     this.sprite = 'images/enemy-bug.png';
+    this.player = player;
 };
 
 Enemy.prototype.setSpeed = function() {
@@ -35,8 +36,8 @@ Enemy.prototype.update = function(dt) {
 };
 
 Enemy.prototype.checkCollision = function() {
-  if (this.y > player.y - PLAYER_VERTICAL_OFFSET && this.y < player.y + PLAYER_VERTICAL_OFFSET && this.x > player.x - PLAYER_HORIZONTAL_OFFSET && this.x < player.x + PLAYER_HORIZONTAL_OFFSET) {
-    player.moveToStart();
+  if (this.y > this.player.y - PLAYER_VERTICAL_OFFSET && this.y < this.player.y + PLAYER_VERTICAL_OFFSET && this.x > this.player.x - PLAYER_HORIZONTAL_OFFSET && this.x < this.player.x + PLAYER_HORIZONTAL_OFFSET) {
+    this.player.moveToStart();
   }
 };
 
