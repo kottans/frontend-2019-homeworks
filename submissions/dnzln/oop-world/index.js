@@ -8,45 +8,64 @@
 // ======== OBJECTS DEFINITIONS ========
 
 class Mammal {
-    constructor(name, gender, say, species) {
+    constructor(species, name, gender, say) {
         this.species = species;
         this.name = name;
         this.gender = gender;
         this.say = say;
-        this.legs = 2;
-    }   
-}
+    }
 
-class Human extends Mammal {
-    constructor(name, gender, say) {
-        super(name, gender, say);
-        this.hands = 2;
-        this.species = 'human';
+    setProperties() {
+        return [
+            '<strong>Species: </strong>',
+            this.species + '\t\t',
+            '<strong>Name: </strong>',
+            this.name + '\t\t',
+            '<strong>Gender: </strong>',
+            this.gender + '\t\t',
+            '<strong>Say: </strong>',
+            this.say + '\t\t'
+        ];
     }
 }
 
 class Animal extends Mammal {
     constructor(species, name, gender, say) {
-        super(name, gender, say, species);
-        this.legs += 2;
+        super(species, name, gender, say);
+        this.legs = 4;
+    }
+
+    printOut() {
+        let properties = super.setProperties();
+        properties.push(
+            '<strong>Legs: </strong>',
+            this.legs + '\t\t',
+        );
+        print(properties.join(''));
     }
 }
 
-var man = new Human('Adam', 'male', 'What\'s up?');
-var woman = new Human('Eve', 'female', 'Thug life!');
-var dog = new Animal('dog', 'Snoop', 'male', 'Woof!');
-var cat = new Animal('cat', 'Smelly', 'female', 'Moor!');
-
-var population = [man, woman, dog, cat];
-
-population.forEach(
-    function(elem) {
-        let arrStr = [];
-        for (var key in elem) {
-            arrStr.push('<strong>'+key+'</strong>'+ ': ');
-            arrStr.push(elem[key] + '\t\t');
-        }
-        print(arrStr.join(''));
+class Human extends Mammal {
+    constructor(species, name, gender, say) {
+        super(species, name, gender, say);
+        this.legs = 2;
+        this.hands = 2;
     }
-);
+
+    printOut() {
+        let properties = super.setProperties();
+        properties.push(
+            '<strong>Legs: </strong>',
+            this.legs + '\t\t',
+            '<strong>Hands: </strong>',
+            this.hands + '\t\t'
+        );
+        print(properties.join(''));
+    }
+}
+
+var man = new Human('human', 'Adam', 'male', 'What\'s up?').printOut();
+var woman = new Human('human', 'Eve', 'female', 'Thug life!').printOut();
+var dog = new Animal('dog', 'Snoop', 'male', 'Woof!').printOut();
+var cat = new Animal('cat', 'Smelly', 'female', 'Moor!').printOut();
 
