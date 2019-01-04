@@ -1,6 +1,7 @@
 const CELL_WIDTH = 101;
 const CELL_HEIGHT = 83;
 const BOARD_WIDTH = CELL_WIDTH * 5;
+const ENEMIES_COUNT = 3;
 
 const ENEMY = {
     startPosition: -50,
@@ -24,9 +25,10 @@ Character.prototype.render = function () {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
-const Enemy = function (x, y, speed) {
+const Enemy = function (x, y, speed, player) {
   Character.call(this, x, y, sprite = ENEMY.sprite);
   this.speed = speed;
+  this.player = player;
 };
 
 Enemy.prototype = Object.create(Character.prototype);
@@ -38,13 +40,17 @@ Enemy.prototype.update = function (dt) {
     this.x = ENEMY.startPosition;
   }
 
-  if (player.x < this.x + ENEMY.width &&
-    player.x + ENEMY.width > this.x &&
-    player.y < this.y + ENEMY.height &&
-    ENEMY.height + player.y > this.y) {
-    player.reset();
-  };
+  this.handleCollision();
 };
+
+Enemy.prototype.handleCollision = function () {
+  if (this.player.x < this.x + ENEMY.width &&
+    this.player.x + ENEMY.width > this.x &&
+    this.player.y < this.y + ENEMY.height &&
+    ENEMY.height + this.player.y > this.y) {
+    this.player.reset();
+  };
+}
 
 const Player = function (x, y) {
   Character.call(this, x, y, sprite = PLAYER.sprite);
@@ -92,11 +98,14 @@ Player.prototype.handleInput = function(key){
 }
 
 const player = new Player(PLAYER.startX, PLAYER.startY);
-const allEnemies = [
-  new Enemy(-CELL_WIDTH, 63, 100),
-  new Enemy(-CELL_WIDTH, 145, 50),
-  new Enemy(-CELL_WIDTH, 230, 75)
-];
+
+const allEnemies = [];
+for (let i = 0; i < ENEMIES_COUNT; i++) {
+  let enemyLocationX = -CELL_WIDTH;
+  let enemyLocationY = i * CELL_HEIGHT + ENEMY.height;
+  let enemySpeed = 50 + Math.floor(Math.random() * 150);
+  allEnemies.push(new Enemy(enemyLocationX, enemyLocationY, enemySpeed, player));
+};
 
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
