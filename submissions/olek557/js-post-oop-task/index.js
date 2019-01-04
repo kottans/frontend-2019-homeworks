@@ -1,25 +1,45 @@
 // ======== OBJECTS DEFINITIONS ========
-let Inhabitant = function(species, name, legs, hands, gender, phrase) {
-  this.species = species;
-  this.name = name;
-  this.legs = legs;
-  this.hands = hands;
-  this.gender = gender;
-  this.phrase = phrase;
+class Inhabitant {
+  constructor(name, gender, legs, phrase) {
+    this.name = name;
+    this.gender = gender;
+    this.legs = legs;
+    this.phrase = phrase;
+  }
+  fullInfo() {
+      return `name: ${this.name}, gender: ${this.gender}, legs: ${this.legs}, say: ${this.phrase}`;
+  }
 }
 
-let getInhabitantInfo = function(inhabitant) {
-  return [inhabitant.species, inhabitant.name, inhabitant.legs, inhabitant.hands, inhabitant.gender, inhabitant.phrase].join("; ")
+class Dog extends Inhabitant {
+  constructor(name, gender) {
+    super(name, gender, 4, 'Woof woof');
+  }
 }
 
-const dog = new Inhabitant('dog', 'Barsik', 4, 0, 'male', 'Woof woof', 'Alex', 'Bobby'),
-      man = new Inhabitant('man', 'Max', 2, 2, 'male', 'Hello world!!'),
-      woman = new Inhabitant('woman', 'Merry', 2, 2, 'female', 'Hello all'),
-      cat = new Inhabitant('cat', 'Tom', 4, 0, 'male', 'Meow'),
-      catWoman = new Inhabitant('cat-woman', 'Kitty', 2, 2, 'female', cat.phrase);
+class Cat extends Inhabitant {
+  constructor(name, gender) {
+    super(name, gender, 4, 'Meow');
+  }
+}
+
+class Human extends Inhabitant {
+  constructor(name, gender, phrase) {
+    super(name, gender, 2, phrase);
+    this.hands = 2;
+  }
+  fullInfo() {
+    return super.fullInfo() + `, hands: ${this.hands}`;
+  }
+}
+
+let inhabitants = [
+  new Dog('Barsik', 'male'),
+  new Cat('Max', 'male'),
+  new Human('Alex', 'female', "Hello world")
+];
+
 // ======== OUTPUT ========
-print(getInhabitantInfo(dog));
-print(getInhabitantInfo(man));
-print(getInhabitantInfo(woman));
-print(getInhabitantInfo(cat));
-print(getInhabitantInfo(catWoman));
+inhabitants.forEach(inhabitant => {
+  print(inhabitant.fullInfo())
+});
