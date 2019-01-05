@@ -1,0 +1,423 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+header {
+  flex: 60px 0 0;
+  padding: 10px;
+  padding-left: 50px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: hsl(196, 70%, 93%);
+  animation: fadeInHeader both 1600ms 0ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+header > .logo {
+  margin-right: 25px;
+}
+.header-switches {
+  display: flex;
+  flex-wrap: wrap;
+}
+.header-group {
+  display: flex;
+  align-items: center;
+}
+.header-group > b {
+  /*Please, don't request that. Who needs class for one element?*/
+  margin-left: 20px;
+  font-size: 10px;
+}
+.header-group > button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: hsl(196, 40%, 80%);
+  border: none;
+}
+.header-group > button:hover {
+  background-color: hsl(196, 40%, 65%);
+}
+.header-group > .button-active {
+  background-color: hsl(196, 80%, 40%);
+  color: white;
+}
+.header-group > .button-active:hover {
+  background-color: hsl(196, 80%, 50%);
+}
+
+.header-group > input {
+  max-width: 100px;
+  margin-left: 5px;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: hsl(196, 40%, 80%);
+  border: none;
+}
+.header-group > input:hover {
+  background-color: hsl(196, 40%, 70%);
+}
+.header-group > input::placeholder {
+  color: hsl(196, 20%, 50%);
+}
+
+main {
+  flex: auto 1 1;
+  max-width: 100vw;
+  max-height: calc(100vh - 60px);
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding-left: 50px;
+
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 70px,
+    #000 calc(100% - 20vw),
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 70px,
+    #000 calc(100% - 20vw),
+    transparent
+  );
+}
+.main-reverse {
+  flex-direction: row-reverse;
+}
+.main-reverse > .column:last-of-type {
+  flex: 170px 0 0;
+  padding-left: 50px;
+  padding-right: 0;
+}
+.main-reverse > .column:first-of-type {
+  flex: 320px 0 0;
+  padding-right: 200px;
+}
+main > .column {
+  animation: fadeInColumn both 600ms 0ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+main > .column:nth-of-type(2) {
+  animation-delay: 30ms;
+}
+main > .column:nth-of-type(3) {
+  animation-delay: 60ms;
+}
+main > .column:nth-of-type(4) {
+  animation-delay: 90ms;
+}
+main > .column:nth-of-type(5) {
+  animation-delay: 120ms;
+}
+main > .column:nth-of-type(6) {
+  animation-delay: 150ms;
+}
+main > .column:nth-of-type(7) {
+  animation-delay: 180ms;
+}
+main > .column:nth-of-type(8) {
+  animation-delay: 210ms;
+}
+main > .column:nth-of-type(9) {
+  animation-delay: 240ms;
+}
+main > .column:nth-of-type(10) {
+  animation-delay: 270ms;
+}
+main > .column:nth-of-type(11) {
+  animation-delay: 300ms;
+}
+main > .column:nth-of-type(12) {
+  animation-delay: 330ms;
+}
+
+main.no-animation > .column {
+  animation: none;
+}
+
+.column {
+  flex: 120px 0 0;
+  flex-direction: column;
+  max-height: calc(100vh - 60px);
+  border-left: 1px solid #eee;
+}
+.column-hidden > .persons-list {
+  display: none;
+}
+.column:last-of-type {
+  flex: 320px 0 0;
+  padding-right: 200px;
+}
+.column:nth-of-type(2n) > .persons-list {
+  padding-top: 80px;
+}
+
+.column h2 {
+  font-weight: 800;
+  margin: 0;
+  padding: 10px;
+  padding-left: 0;
+}
+
+.persons-list {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 108px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-top: 20px;
+  padding-bottom: 50px;
+
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent,
+    #000 20px,
+    #000 calc(100%),
+    transparent
+  );
+  mask-image: linear-gradient(
+    180deg,
+    transparent,
+    #000 20px,
+    #000 calc(100%),
+    transparent
+  );
+}
+.persons-list::-webkit-scrollbar {
+  display: none;
+}
+.column-reverse > .persons-list {
+  flex-direction: column-reverse;
+}
+
+.person {
+  position: relative;
+}
+
+.person .badge {
+  font-size: 12px;
+  font-family: Monaco, Menlo, monospace;
+  transform: rotate(-56deg);
+  position: absolute;
+  top: 29px;
+  left: 8px;
+}
+
+.person .badge span {
+  /* outline: 1px solid red; */
+  height: 77px;
+  position: absolute;
+  width: 8px;
+  left: 0;
+  top: 0;
+  transform-origin: bottom center;
+}
+
+.person .badge .gender-symbol {
+  margin-top: 4px;
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+}
+.person .badge .gender-symbol.male {
+  background-color: skyblue;
+}
+.person .badge .gender-symbol.female {
+  background-color: pink;
+}
+
+.badge > span.uppercase {
+  text-transform: uppercase;
+}
+
+.person > .badge > span:nth-of-type(1) {
+  transform: scaleX(0.9) rotate(6deg);
+}
+
+.person > .badge > span:nth-of-type(2) {
+  transform: scaleX(0.9) rotate(12deg);
+}
+
+.person > .badge > span:nth-of-type(3) {
+  transform: scaleX(0.9) rotate(18deg);
+}
+
+.person > .badge > span:nth-of-type(4) {
+  transform: scaleX(0.9) rotate(24deg);
+}
+
+.person > .badge > span:nth-of-type(5) {
+  transform: scaleX(0.9) rotate(30deg);
+}
+
+.person > .badge > span:nth-of-type(6) {
+  transform: scaleX(0.9) rotate(36deg);
+}
+
+.person > .badge > span:nth-of-type(7) {
+  transform: scaleX(0.9) rotate(42deg);
+}
+
+.person > .badge > span:nth-of-type(8) {
+  transform: scaleX(0.9) rotate(48deg);
+}
+
+.person > .badge > span:nth-of-type(9) {
+  transform: scaleX(0.9) rotate(54deg);
+}
+
+.person > .badge > span:nth-of-type(10) {
+  transform: scaleX(0.9) rotate(60deg);
+}
+
+.person > .badge > span:nth-of-type(11) {
+  transform: scaleX(0.9) rotate(66deg);
+}
+
+.person > .badge > span:nth-of-type(12) {
+  transform: scaleX(0.9) rotate(72deg);
+}
+
+.person > .badge > span:nth-of-type(13) {
+  transform: scaleX(0.9) rotate(78deg);
+}
+
+.person > .badge > span:nth-of-type(14) {
+  transform: scaleX(0.9) rotate(84deg);
+}
+
+.person > .badge > span:nth-of-type(15) {
+  transform: scaleX(0.9) rotate(90deg);
+}
+
+.person > .badge > span:nth-of-type(16) {
+  transform: scaleX(0.9) rotate(96deg);
+}
+
+.person > .badge > span:nth-of-type(17) {
+  transform: scaleX(0.9) rotate(102deg);
+}
+
+.person > .badge > span:nth-of-type(18) {
+  transform: scaleX(0.9) rotate(108deg);
+}
+
+.person > .badge > span:nth-of-type(19) {
+  transform: scaleX(0.9) rotate(114deg);
+}
+
+.person > .badge > span:nth-of-type(20) {
+  transform: scaleX(0.9) rotate(120deg);
+}
+
+.person > .badge > span:nth-of-type(21) {
+  transform: scaleX(0.9) rotate(126deg);
+}
+
+.person > .badge > span:nth-of-type(22) {
+  transform: scaleX(0.9) rotate(132deg);
+}
+
+.person > .badge > span:nth-of-type(23) {
+  transform: scaleX(0.9) rotate(138deg);
+}
+
+.person > .badge > span:nth-of-type(24) {
+  transform: scaleX(0.9) rotate(144deg);
+}
+
+.person img {
+  margin: 10px;
+  margin-top: 15px;
+  border-radius: 50%;
+  background-color: lightgray;
+  width: 120px;
+  height: 120px;
+}
+
+@keyframes fadeInHeader {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInColumn {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.98;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  header {
+    flex-basis: 100px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-switches {
+    margin-top: 10px;
+  }
+  .header-switches > .header-group:first-of-type > b {
+    margin-left: 0;
+  }
+  main {
+    max-height: calc(100vh - 100px);
+  }
+  .column {
+    max-height: calc(100vh - 100px);
+  }
+  .persons-list {
+    max-height: calc(100vh - 148px);
+  }
+}
+@media screen and (max-width: 550px) {
+  header {
+    flex-basis: 140px;
+  }
+  .header-switches {
+    flex-direction: column;
+  }
+  .header-switches > .header-group:last-of-type {
+    margin-top: 10px;
+  }
+  .header-switches > .header-group:last-of-type > b {
+    margin-left: 0;
+  }
+  main {
+    max-height: calc(100vh - 140px);
+  }
+  .column {
+    max-height: calc(100vh - 140px);
+  }
+  .persons-list {
+    max-height: calc(100vh - 188px);
+  }
+}
