@@ -8,52 +8,29 @@
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
 </head>
 <body>
-
 <div class="container">
     <div class="sidebar">
         <header>
             <h1 class="logo">Basilio</h1>
-
             <p>окуляри для котів</p>
-
-            <a id="hamburger_menu" class="hamburger_menu">
+            <button id="hamburger_menu" class="hamburger_menu">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"></path>
                 </svg>
-            </a>
+            </button>
         </header>
-
         <nav>
         <ul class="menu" id="menu">
-            <li><a href="#oval">Oval</a></li>
-            <li><a href="#round">Round</a></li>
-            <li><a href="#oversized">Oversized</a></li>
-            <li><a href="#rectangular">Rectangular</a></li>
+            <li><button data-target="#oval">Oval</button></li>
+            <li><button data-target="#round">Round</button></li>
+            <li><button data-target="#oversized">Oversized</button></li>
+            <li><button data-target="#rectangular">Rectangular</button></li>
         </ul>
         </nav>
     </div>
-
     <main id="product">
-
     </main>
 </div>
 <script src="js/script.js"></script>
-<script>
-    /*
-     * Open the drawer when the menu icon is clicked.
-     */
-    var hamburgerMenu = document.querySelector('#hamburger_menu');
-    var main = document.querySelector('main');
-    var drawer = document.querySelector('nav');
-
-    hamburgerMenu.addEventListener('click', function(e) {
-        drawer.classList.toggle('open');
-        e.stopPropagation();
-    });
-    main.addEventListener('click', function() {
-        drawer.classList.remove('open');
-    });
-
-</script>
 </body>
 </html>
