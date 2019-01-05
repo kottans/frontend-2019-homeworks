@@ -18,7 +18,7 @@ navbar.addEventListener('click', function(event){
 	if(elem.nodeName != 'LI') return;
 
 	const title = elem.textContent;
-	loadData(title);
+	loadData(title, displayData);
 	navbar.classList.remove('shown');
 });
 
@@ -37,17 +37,16 @@ function displayData(title){
 		currentPage = title;
 	}
 	else showError();
-	console.log('displayData:', title);
 }
 
-function loadData(title){
+function loadData(title, callback){
 	// Check if requested data is cached
-	if(title in savedData) displayData(title);
+	if(title in savedData) callback(title);
 	else fetch(`data/${title}.json`)
 		.then(response => response.json())
 		.then(data => {
 			savedData[title] = data;
-			displayData(title);
+			callback(title);
 		}, () => {
 			showError(title);
 		});
@@ -61,4 +60,4 @@ function showError(title){
  * Initiate
  */
 
-loadData('home');
+loadData('home', displayData);
