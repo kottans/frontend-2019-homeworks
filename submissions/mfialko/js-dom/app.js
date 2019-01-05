@@ -24,4 +24,3 @@ mobileMenu.addEventListener('click', function(e) {
         sideMenu.classList.toggle('open');
         e.stopPropagation();
       });
-
