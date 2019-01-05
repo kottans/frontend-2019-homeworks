@@ -1,0 +1,89 @@
+*, *:after, *:before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+img{
+	width: 100%;
+}
+body{
+	background-color: #bdbeca47;
+    background-image: url('../img/bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.game-container{
+	width: 468px;
+	height: 622.5px; 
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	perspective: 1000px;
+}
+.card{
+	height: 155.625px;
+	width:117px;
+	position: relative;
+	transform: scale(1);
+	transform-style: preserve-3d;
+	transition: transform 0.3s;
+	opacity: 1;
+  	visibility: visible;
+  	transition-delay: 0s;
+}
+.card:active {
+	transform: scale(0.95);
+	transition: transform 0.3s;
+}
+.front-face, .back-face{
+	padding: 2px;
+	position: absolute;
+	cursor: pointer;
+	backface-visibility: hidden;
+	transition: transform 0.3s;
+}
+.front-face{
+	transform: rotateY(180deg);
+}
+.flip{
+	transform: rotateY(180deg);
+}
+.block{
+	opacity: 0;
+  	visibility: hidden;
+  	transition: opacity 0.3s, visibility 0s ease-out 0.4s;
+}
+/*X-originalsize*/
+/*X/2     X/4*/
+/*207.5px; 103.75*/
+/*156px;  78*/
+
+@media screen and (min-width: 2400px) {
+	.game-container{
+	width: 640px;
+	height: 640px; 
+	margin: auto;
+	}
+	.card{
+	height: 207.5px;
+	width:156px;
+	}
+}
+@media screen and (max-width: 468px) {
+	.game-container{
+	width: 312px;
+	height: 414px; 
+	margin: auto;
+	}
+	.card{
+	height: 103.75px;
+	width:78px;
+	}
+}
