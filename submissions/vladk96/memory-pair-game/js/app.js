@@ -15,15 +15,28 @@ const getDoubleSortedArray = (array) => {
 }
 
 const addImagesToCards = (imageArray) => {
-    let cards = document.querySelectorAll('.card .back');
+    let cardContainer = document.querySelector('.card-container').cloneNode(false);
 
-    cards.forEach( (card, index) => {
-        let image = document.createElement('img');
-        image.src = imageArray[index];
-        image.alt = 'santa-image';
+    imageArray.forEach( (image) => {
+        let card = document.createElement('div'),
+            front = document.createElement('div'),
+            back = document.createElement('div');
 
-        card.appendChild(image);
+        card.classList.add('card');
+        front.classList.add('front');
+        back.classList.add('back');
+
+        let img = document.createElement('img');
+        img.src = image;
+        img.alt = 'santa-image';
+        back.appendChild(img);
+        
+        card.appendChild(front);
+        card.appendChild(back);
+        cardContainer.appendChild(card);
     });
+    document.querySelector('.main').appendChild(cardContainer);
+    document.querySelector('.card-container').remove();
 }
 
 const flipCard = (card) => {
@@ -42,7 +55,8 @@ const unhideCard = (card) => {
 }
 
 const compareImage = (cardArr) => {
-    return (cardArr[0].getElementsByTagName('img')[0].src === cardArr[1].getElementsByTagName('img')[0].src) ? true : false; 
+    console.log(cardArr)
+    return (cardArr[0].querySelector('img').src === cardArr[1].querySelector('img').src) ? true : false; 
 }
 
 const resetGame = () => {
@@ -80,18 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (userCount == MAX_CARD_COUNT) {
             if (compareImage(cardArray)) {
-                cardArray.forEach( (card) => {
-                    hideCard(card);
-                });
+                cardArray.forEach(hideCard);
                 allUserCards += userCount;
                 userCount = 0;
                 cardArray = [];
             } else {
                 setTimeout(() => {
-                    cardArray.forEach( (card) => {
-                        unflipCard(card);
-                    });
-                    
+                    cardArray.forEach(unflipCard);
                     userCount = 0;
                     cardArray = [];
                 }, DELAY_TIME);
