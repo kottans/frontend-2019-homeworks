@@ -16,27 +16,21 @@ const getFriends = async () => {
 }
 
 class Friend {
-    constructor(photo, name, age, phone, visible = true) {
-        this.id = Friend.id();
-        this.photo = photo;
-        this.name = name;
-        this.age = age;
-        this.phone = phone;
+    constructor(friend, id, visible = true) {
+        this.id = id;
+        this.photo = friend.picture.large;
+        this.name = `${friend.name.first} ${friend.name.last}`;
+        this.age = friend.dob.age;
+        this.phone = friend.cell;
         this.visible = visible;
-    }
-
-    static id() {
-        return friends.length + 1;
     }
 } 
 
 const createFriendsList = async () => {
-    const RAW_FRIENDS_LIST = await getFriends();
-	RAW_FRIENDS_LIST.forEach(friend => {
-		let new_friend = new Friend(friend.picture.large, `${friend.name.first} ${friend.name.last}`, friend.dob.age, friend.cell);
-		friends.push(new_friend);
-	});
+    const raw_friends_list = await getFriends();
+    friends = raw_friends_list.map((friend, i) => new Friend(friend, i + 1));
 	return friends;
 }
+
 
 export { createFriendsList, friends as friendsData };

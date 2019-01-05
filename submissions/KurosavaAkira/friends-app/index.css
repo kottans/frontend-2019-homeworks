@@ -105,11 +105,17 @@ input::placeholder{
     border-bottom: 3px solid #69c8c8 !important;
 }
 
+.sorting-buttons-active-reverse {
+    color: #bde8f3 !important;
+    text-shadow: #bbe1eb 0px 0px 4px !important;
+    border-bottom: 3px solid #56f8f8 !important;
+}
+
 .friends-list {
     position: relative;
-    width: 1000px;
+    width: 1042px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .friend {
@@ -119,14 +125,13 @@ input::placeholder{
     margin: 20px;
     z-index: 1;
     cursor: pointer;
-    transition: all 2s ease-in-out, filter 1.5s ease-in-out;
+    transition: all 1.5s ease-in-out, filter 1s ease-in-out;
 }
 
 .friend-selected {
-    z-index: 2 !important;
+    z-index: 200 !important;
     transform: scale(3) !important;
-    margin-left: 450px !important;
-    margin-top: 100px !important;
+    transform: scale(3) translate(150px, 50px) !important;
 }
 
 .friend-not-selected {
@@ -143,7 +148,7 @@ input::placeholder{
     position: relative !important;
     height: 20px !important;
     opacity: 1 !important;
-    background-color: #334464ec !important;
+    background-color: #303d56be !important;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 
@@ -167,10 +172,11 @@ input::placeholder{
     font-size: 14px;
     padding: 5px 0;
     text-align: center;
-    color: #bbcdee6e;
+    color: #b0ccff69;
+    padding: 5px 5px;
     text-transform: capitalize;
     border-radius: 3px;
-    background-color: #334464be;
+    background-color: #303d56be;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -179,19 +185,21 @@ input::placeholder{
     border-radius: 0px;
     box-shadow: none;
     text-shadow: #61efff 0px 0px 4px !important;
-    background-color: #334464ec !important;
+    background-color: #303d56be !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 
 .age, .phone {
     position: relative;
     display: flex;
-    justify-content: center; /* align horizontal */
+    justify-content: left; 
     align-items: center;
+    padding: 0 5px;
     font-size: 8px;
     height: 0px;
     opacity: 0;
-    color: #57c7ff;
-    background-color: #334464be;
+    color: #8ccff1bd;
+    background-color: #303d56be;
     border-top: .5px solid #0d121bbe !important;
     transition: all .5s ease-in;
 }
