@@ -1,35 +1,36 @@
 // ======== OBJECTS DEFINITIONS ========
 class Inhabitant {
-  constructor(name, gender, legs, phrase) {
+  constructor(name, gender, legs, phrase, species) {
     this.name = name;
     this.gender = gender;
     this.legs = legs;
     this.phrase = phrase;
+    this.species = species;
   }
-  fullInfo() {
-      return `name: ${this.name}, gender: ${this.gender}, legs: ${this.legs}, say: ${this.phrase}`;
+  toString() {
+      return [`species: ${this.species}`, `name: ${this.name}`, `gender: ${this.gender}`, `legs: ${this.legs}`, `say: ${this.phrase}`].join(', ');
   }
 }
 
 class Dog extends Inhabitant {
   constructor(name, gender) {
-    super(name, gender, 4, 'Woof woof');
+    super(name, gender, 4, 'Woof woof', 'dog');
   }
 }
 
 class Cat extends Inhabitant {
   constructor(name, gender) {
-    super(name, gender, 4, 'Meow');
+    super(name, gender, 4, 'Meow', 'cat');
   }
 }
 
 class Human extends Inhabitant {
   constructor(name, gender, phrase) {
-    super(name, gender, 2, phrase);
+    super(name, gender, 2, phrase, 'human');
     this.hands = 2;
   }
-  fullInfo() {
-    return super.fullInfo() + `, hands: ${this.hands}`;
+  toString() {
+    return super.toString() + `, hands: ${this.hands}`;
   }
 }
 
@@ -41,5 +42,5 @@ let inhabitants = [
 
 // ======== OUTPUT ========
 inhabitants.forEach(inhabitant => {
-  print(inhabitant.fullInfo())
+  print(inhabitant)
 });
