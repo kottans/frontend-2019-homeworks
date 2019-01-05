@@ -64,13 +64,14 @@ catWoman.friends = [cat];
 
 // ======== OUTPUT ========
 [dog, cat, woman, man, catWoman].forEach(entity => {
-	const props = [];
-	['type', 'name', 'gender', 'legs', 'hands', 'says'].forEach(prop => {
-		props.push(entity[prop]);
-	});
-	props.push(entity.friends.map(item => item.name).join(', '));
-	print(props.join('; '));
+	print(formString(entity));
 });
+
+function formString(entity){
+	const props = ['type', 'name', 'gender', 'legs', 'hands', 'says'].map(prop => entity[prop]);
+	props.push(entity.friends.map(item => item.name).join(', '));
+	return props.join('; ');
+}
 
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
