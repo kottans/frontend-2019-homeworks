@@ -10,16 +10,18 @@ var content = [
 const sideMenu = document.querySelector('.side-menu');
 const main = document.querySelector('main'); 
 const mobileMenu = document.querySelector('#menu')
+const anchors = Array.prototype.slice.call( document.querySelector('.side-menu').children );
 
-for (let i=0; i<5; i++) {
-    sideMenu.children[i].addEventListener('click', function() {
+sideMenu.addEventListener('click', function(event) {
+    var target = event.target;
+    if (target.tagName != 'A') return;
     main.innerHTML="";
-    main.insertAdjacentHTML('afterbegin', content[i]['text']);
+    main.insertAdjacentHTML('afterbegin', content[anchors.indexOf(target)]['text']);
     sideMenu.classList.remove('open');
     });
-}
 
 mobileMenu.addEventListener('click', function(e) {
         sideMenu.classList.toggle('open');
         e.stopPropagation();
       });
+
