@@ -1,22 +1,25 @@
-// "Id" is much easier to write :)
-function Id(id){return document.getElementById(id)}
+// "getId" is much easier to write :)
+function getId(id){return document.getElementById(id)}
+
+const navbar = getId('navbar');
+const main = getId('main');
 
 /*
  * Events
  */
 
-Id('navbar-toggle').addEventListener('click', function(){
-	Id('navbar').classList.toggle('shown');
+getId('navbar-toggle').addEventListener('click', function(){
+	navbar.classList.toggle('shown');
 });
 
-Id('navbar').addEventListener('click', function(event){
+navbar.addEventListener('click', function(event){
 	// delegate clicks from <li>s to <nav>
 	const elem = event.target;
 	if(elem.nodeName != 'LI') return;
 
 	const title = elem.textContent;
 	loadData(title);
-	Id('navbar').classList.remove('shown');
+	navbar.classList.remove('shown');
 });
 
 /*
@@ -30,7 +33,7 @@ function displayData(title){
 	if(title == currentPage) return;
 	const data = savedData[title];
 	if(data.content){
-		Id('main').innerHTML = data.content;
+		main.innerHTML = data.content;
 		currentPage = title;
 	}
 	else showError();
@@ -40,7 +43,7 @@ function displayData(title){
 function loadData(title){
 	// Check if requested data is cached
 	if(title in savedData) displayData(title);
-	else fetch('data/'+title+'.json')
+	else fetch(`data/${title}.json`)
 		.then(response => response.json())
 		.then(data => {
 			savedData[title] = data;
@@ -51,7 +54,7 @@ function loadData(title){
 }
 
 function showError(title){
-	Id('main').innerHTML = '<h1>No content!</h1><p>No data could be displayed for <q>'+title+'</q> query, sorry :(</p>';
+	main.innerHTML = `<h1>No content!</h1><p>No data could be displayed for <q>${title}</q> query, sorry :(</p>`;
 }
 
 /*
