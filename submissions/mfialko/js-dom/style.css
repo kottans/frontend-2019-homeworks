@@ -1,5 +1,5 @@
 body {
-  font-family: 'Lucida Sans', Arial, sans-serif;
+  font-family: "Lucida Sans", Arial, sans-serif;
 }
 
 .header {
@@ -47,7 +47,7 @@ main {
   main {
     margin-left: 0px;
   }
-  
+
   .side-menu {
     -webkit-transform: translate(-600px, 0);
     transform: translate(-600px, 0);
@@ -57,22 +57,22 @@ main {
     margin-top: 65px;
     background-color: white;
   }
-  
+
   .side-menu a {
     text-align: center;
   }
-  
+
   .side-menu.open {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
   }
-    
+
   .header__title {
     margin-left: 0;
     font-size: 2em;
     vertical-align: bottom; 
   }
-    
+
   .header-menu {
     display: inline-block;
     position: absolute;
