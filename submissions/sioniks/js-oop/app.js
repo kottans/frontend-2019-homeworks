@@ -74,11 +74,9 @@ class Player extends GameUnit {
     }
 }
 
-let allEnemies = [];
-
-enemyLocation.forEach(function (locationY) {
+let allEnemies = enemyLocation.map(function (locationY) {
     enemy = new Enemy(500, locationY);
-    allEnemies.push(enemy);
+    return enemy;
 });
 
 let player = new Player(middleRoadRowPosition, lastColumnPosition);
@@ -92,6 +90,9 @@ document.addEventListener('keyup', function (e) {
         39: 'right',
         40: 'down'
     };
-
-    player.handleInput(allowedKeys[e.keyCode]);
+    if (allowedKeys[e.keyCode]) {
+        player.handleInput(allowedKeys[e.keyCode]);
+    } else {
+        alert('Please use arrows button for game.');
+    }
 });
