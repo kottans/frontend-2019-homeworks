@@ -50,7 +50,7 @@ let inhabitants = [new Human("Alex", "male"), new Human("Jenny", "female"), new 
 
 const showInhabitant = ( inhabitant ) => {
 	let{species, name, gender, hands, legs, paws, saying} = inhabitant;
-	return (`<strong>${species}</strong>, ${name}, ${gender}, hands: ${hands || "0"}, legs: ${legs || "0"}, paws: ${paws || "0"}, saying: ${saying}`);
+	return `<strong>${species}</strong>, ${name}, ${gender}, hands: ${hands || "0"}, legs: ${legs || "0"}, paws: ${paws || "0"}, saying: ${saying}`;
 }
 
 inhabitants.forEach(inhabitant => print(showInhabitant(inhabitant)));
