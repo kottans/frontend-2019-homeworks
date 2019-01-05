@@ -32,7 +32,7 @@ class GameUnit {
 }
 
 class Enemy extends GameUnit {
-    constructor(x = 0, y, speed = enemySpeed, sprite = enemyImg) {
+    constructor(speed = enemySpeed, x = 0, y, sprite = enemyImg) {
         super(x, y, sprite)
         this.speed = speed;
     }
