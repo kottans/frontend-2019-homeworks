@@ -1,29 +1,33 @@
 const API_URL = 'https://randomuser.me/api/?results=25';
-const DELAY = 5000;
 let users = [];
 let container = document.querySelector('.container');
 let sortSpan = document.querySelector('.sort');
 let filter = document.querySelector('.filter');
-let div = document.createElement('div');
+let grid = document.querySelector('.grid');
 let search = document.querySelector('.search');
 let isSorted = false;
 
-
-
+function handleErrors(response) {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+    return response;
+}
 fetch(API_URL)
-    .then(function (response) {
+    .then(handleErrors)
+    .then(response => {
         return response.json();
     })
     .then(function (json) {
+        console.log("ok!");
         users = json.results;
         render(users);
     })
-    .catch(alert);
+    .catch(error => console.log(error));
 
-function createCards(data) {
-    div.className = "grid";
-    data.forEach((item) => {
-        div.innerHTML += `<div class="user-card">
+function createCards(users) {
+    users.forEach((item) => {
+        grid.innerHTML += `<div class="user-card">
                 <img src="${item.picture.large}" class="thumbnail">
                 <div class="profile">
                     <p class="name">${item.name.first}  ${item.name.last}</p>
@@ -34,79 +38,54 @@ function createCards(data) {
 
             </div>`;
     });
-    container.appendChild(div);
+    container.appendChild(grid);
 }
 
-function sortByAge(data) {
-
-
-    let grid = document.querySelector('.grid');
-    let sortedByAge = data.sort((a, b) => {
-        return a.dob.age - b.dob.age;
-    }).slice();
-    let sortedByAgeDown = data.sort((a, b) => {
-        return b.dob.age - a.dob.age;
-    }).slice();
+function sortByAge(users) {
+    let sortedByAge = users.sort((a, b) => a.dob.age - b.dob.age).slice();
+    let sortedByAgeDown = users.sort((a, b) => b.dob.age - a.dob.age).slice();
 
     if (isSorted) {
-        console.log(isSorted);
         grid.innerHTML = "";
         createCards(sortedByAgeDown);
         isSorted = false;
     } else {
-        console.log(isSorted, "else");
         grid.innerHTML = "";
         createCards(sortedByAge);
         isSorted = true;
     }
 
-
 }
 
-function sortByName(data) {
-    let grid = document.querySelector('.grid');
-    let sortedByName = data.sort((a, b) => {
+function sortByName(users) {
+    let sortedByName = users.sort((a, b) => {
         if (a.name.first < b.name.first) return -1;
         if (a.name.first > b.name.first) return 1;
         return 0;
     }).slice();
     grid.innerHTML = "";
     createCards(sortedByName);
-
 }
 
-function searchByName(input, data) {
-    let grid = document.querySelector('.grid');
+function searchByName(input, users) {
     let searchArray = [];
-    data.forEach(item => {
-        if (item.name.first === input) {
-            console.log(item);
+    users.map((item, index) => {
+        if (item.name.first.includes(input) ||
+            item.name.last.includes(input)) {
             searchArray.push(item);
         }
     });
     grid.innerHTML = "";
-    if (searchArray.length !== 0) {
+    if (searchArray.length) {
         createCards(searchArray);
     } else {
-        setTimeout(()=>{
-            grid.innerHTML = "";
-            createCards(data);
-            
-        },DELAY)
         grid.innerHTML = " No friend with this name, Sorry...";
     }
-
-
-
 }
 
-function render(data) {
-    createCards(data);
-
-    sortSpan.addEventListener('click', () => sortByAge(data));
-    filter.addEventListener('click', () => sortByName(data));
-    search.addEventListener('input', (event) => searchByName(event.target.value, data));
-
-
-
+function render(users) {
+    createCards(users);
+    sortSpan.addEventListener('click', () => sortByAge(users));
+    filter.addEventListener('click', () => sortByName(users));
+    search.addEventListener('input', (event) => searchByName(event.target.value, users));
 }
