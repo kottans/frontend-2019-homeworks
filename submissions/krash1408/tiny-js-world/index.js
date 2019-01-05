@@ -53,6 +53,11 @@ woman = {
     'phrase' : 'Defeat? I do not understand the meaning of this word.'
 }
 
+let strCompare = (obj) => {
+    let arr = [];
+    arr.push(obj.inhabitant, obj.name, obj.gender, obj.legs, obj.hands, obj.age, obj.phrase);
+    return arr.join(' ; ');
+}
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
@@ -71,9 +76,6 @@ woman = {
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
    */
-
-print(dog.inhabitant + ' ; ' + dog.name + ' ; ' + dog.gender + ' ; ' + dog.legs + ' ; ' + dog.hands + ' ; ' + dog.age + ' ; ' + dog.phrase);
-print(cat.inhabitant + ' ; ' + cat.name + ' ; ' + cat.gender + ' ; ' + cat.legs + ' ; ' + cat.hands + ' ; ' + cat.age + ' ; ' + cat.phrase);
-print(turtle.inhabitant + ' ; ' + turtle.name + ' ; ' + turtle.gender + ' ; ' + turtle.legs + ' ; ' + turtle.hands + ' ; ' + turtle.age + ' ; ' + turtle.phrase);
-print(man.inhabitant + ' ; ' + man.name + ' ; ' + man.gender + ' ; ' + man.legs + ' ; ' + man.hands + ' ; ' + man.age + ' ; ' + man.phrase);
-print(woman.inhabitant + ' ; ' + woman.name + ' ; ' + woman.gender + ' ; ' + woman.legs + ' ; ' + woman.hands + ' ; ' + woman.age + ' ; ' + woman.phrase);
+[dog, cat, turtle, man, woman].forEach((value) => {
+    print(strCompare(value));
+})
