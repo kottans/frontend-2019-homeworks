@@ -29,7 +29,6 @@ Board.prototype.generateHTMLBoard = function() {
     card.appendChild(card__back);
     card.appendChild(card__front);
     cardWrapper.classList.add('card__wrapper');
-    cardWrapper.style.width = `calc( 100% / ${this.squareSize} - 20px)`;
     cardWrapper.appendChild(card);
     board.appendChild(cardWrapper);
   }
