@@ -1,21 +1,19 @@
-const mainBox = document.querySelector('.game-board');
+const gameBoard = document.querySelector('.game-board');
 const allCards = document.querySelectorAll('.game-card');
 let isFlippedCard = false;
-let blockBoard = false;
+let isBlockedBoard = false;
 let firstCard, secondCard;
 
-allCards.forEach(card => card.addEventListener('click', flipCard));
+const flipCard = (targetCard) => {
+  if (isBlockedBoard || targetCard === firstCard) return;
 
-function flipCard() {
-  if (blockBoard || this === firstCard) return;
-
-  this.classList.add('flip');
+  targetCard.classList.add('flip');
 
   if (!isFlippedCard) {
     isFlippedCard = true;
-    firstCard = this;
+    firstCard = targetCard;
   } else {
-    secondCard = this;
+    secondCard = targetCard;
     checkCardsMatching();
   }
 }
@@ -28,9 +26,6 @@ const checkCardsMatching = () => {
 }
 
 const blockCards = () => {
-  firstCard.removeEventListener('click', flipCard);
-  secondCard.removeEventListener('click', flipCard);
-
   setTimeout(() => {
     firstCard.classList.add('hide');
     secondCard.classList.add('hide');
@@ -39,18 +34,18 @@ const blockCards = () => {
 }
 
 const stopFlipCards = () => {
-  blockBoard = true;
+  isBlockedBoard = true;
 
   setTimeout(() => {
     firstCard.classList.remove('flip');
     secondCard.classList.remove('flip');
 
     resetSettings();
-  }, 1500);
+  }, 700);
 }
 
 const resetSettings = () => {
-  [isFlippedCard, blockBoard] = [false, false];
+  [isFlippedCard, isBlockedBoard] = [false, false];
   [firstCard, secondCard] = [null, null];
 }
 
@@ -61,12 +56,8 @@ const resetSettings = () => {
   });
 })();
 
-
-
-
-
-
-
-
-
+gameBoard.addEventListener('click', function(e) {
+  let targetCard = e.target.parentElement;
+  targetCard.classList.contains('game-card') && flipCard(targetCard);
+});
 

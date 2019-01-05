@@ -33,11 +33,6 @@ body {
   border-radius: 5px;
 }
 
-.game-card:active {
-  transform: scale(0.98);
-  transition: transform .1s;
-}
-
 .game-card.hide {
   opacity: 0;
 }
