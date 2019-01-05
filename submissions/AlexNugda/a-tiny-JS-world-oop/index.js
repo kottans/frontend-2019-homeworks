@@ -38,15 +38,15 @@ class Dog extends Animal {
 	}
 }
 
-class catWoman extends Human {
+class CatWoman extends Human {
 	constructor(name, gender){
 		super(name, gender);
-		this.species = "catWoman";
+		this.species = "CatWoman";
 		this.saying = new Cat().saying;
 	}
 }
 
-let inhabitants = [new Human("Alex", "male"), new Human("Jenny", "female"), new Cat("Murka", "female"), new Dog("Rex", "male"), new catWoman("LadyCat", "female")];
+let inhabitants = [new Human("Alex", "male"), new Human("Jenny", "female"), new Cat("Murka", "female"), new Dog("Rex", "male"), new CatWoman("LadyCat", "female")];
 
 const showInhabitant = ( inhabitant ) => {
 	let{species, name, gender, hands, legs, paws, saying} = inhabitant;
