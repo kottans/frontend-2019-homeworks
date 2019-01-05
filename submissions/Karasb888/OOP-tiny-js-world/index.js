@@ -7,62 +7,72 @@
 
 // ======== OBJECTS DEFINITIONS ========
 
-var Inhabit = function(livingArea, aggressiveTo, peacefulTo, neutralTo, hands, legs, saying ) {
+var Inhabit = function(species, livingArea, aggressiveTo, peacefulTo, neutralTo, legs, saying) {
   this.livingArea = livingArea;
   this.aggressiveTo = aggressiveTo;
   this.peacefulTo = peacefulTo;
   this.neutralTo = neutralTo;
-  this.hands = hands;
   this.legs = legs;
-  if(this.saying !== null){
+  this.species = species;
+  if (this.saying !== null) {
     this.saying = saying;
   }
 };
 
 Inhabit.prototype.output = function() {
   let message = '';
-  for(key in this){
-    if(key !== 'output'){
-      message += `<b>${key}</b> : <i>${this[key]}</i> `;
-    }
-  }
+  let self = this;
+  let keysSorted = Object.keys(self).sort(function(a, b) {
+    return self[a] - self[b]
+  })
+  keysSorted.forEach(function(item) {
+    return message += `<b>${item}</b> : ${self[item]} <br />`;
+  });
   return message;
 };
 
-var Human = function(name, age, saying){
-  Inhabit.call(this, 'earth', 'humans, mutans, cyborgs', 'cats and dogs', 'robots', 2, 2);
+var InhabitWithHands = function(hands) {
+  this.hands = hands;
+};
+
+
+var Human = function(name, age, saying, hands) {
+  Inhabit.call(this, 'human', 'earth', 'humans, mutans, cyborgs', 'cats and dogs', 'robots', 2);
+  InhabitWithHands.call(this, 2);
   this.name = name;
   this.age = age;
   this.saying = saying;
 }
 Human.prototype = Object.create(Inhabit.prototype);
 
-var Cat = function(name, age){
-  Inhabit.call(this, 'earth', 'dogs, mutans, robots', 'cats', 'humans', 0, 4, 'meow-meow');
+var Cat = function(name, age) {
+  Inhabit.call(this, 'cat', 'earth', 'dogs, mutans, robots', 'cats', 'humans', 0, 4, 'meow-meow');
   this.name = name;
   this.age = age;
 }
 Cat.prototype = Object.create(Inhabit.prototype);
 
-var Dog = function(name, age){
-  Inhabit.call(this, 'earth', 'mutans, cats', 'humans, robots', 'dogs', 0, 4, 'uf-uf');
+var Dog = function(name, age) {
+  Inhabit.call(this, 'dog', 'earth', 'mutans, cats', 'humans, robots', 'dogs', 4, 'uf-uf');
   this.name = name;
   this.age = age;
 }
 Dog.prototype = Object.create(Inhabit.prototype);
 
-var Robot = function(name, age){
-  Inhabit.call(this, 'Earth and space', 'none', 'none', 'all', 2, 2, 'pew-pew-pew');
+var Robot = function(name, age) {
+  Inhabit.call(this, 'robot', 'Earth and space', 'none', 'none', 'all', 2, 'pew-pew-pew');
+  InhabitWithHands.call(this, 2);
   this.name = name;
   this.age = age;
 }
 Robot.prototype = Object.create(Inhabit.prototype);
 
-var Mutant = function(firstInhabit, secondInhabit){
-  Inhabit.call(this, 'earth and water', 'all', 'none', 'mutants');
+var Mutant = function(firstInhabit, secondInhabit) {
+  Inhabit.call(this, 'mutant', 'earth and water', 'all', 'none', 'mutants');
+  let hands = firstInhabit.hands || 0 + secondInhabit || 0;
+  InhabitWithHands.call(this, hands);
   this.name = firstInhabit.age + secondInhabit.age;
-  this.age = Math.max(firstInhabit.age,secondInhabit.age);
-  this.hands = firstInhabit.hands + secondInhabit.hands;
+  this.age = Math.max(firstInhabit.age, secondInhabit.age);
   this.legs = firstInhabit.legs + secondInhabit.legs;
   this.saying = `${firstInhabit.saying}  ${secondInhabit.saying} 'I am ALIVE!'`;
 }
@@ -74,8 +84,6 @@ var cat = new Cat('Kitty', 5);
 var robot = new Robot('Io-22', 150);
 var mutant = new Mutant(human, dog);
 
-print(human.output(), 'div');
-print(dog.output(), 'div');
-print(robot.output(), 'div');
-print(cat.output(), 'div');
-print(mutant.output(), 'div');
+[human, dog, robot, cat, mutant].forEach(function(item) {
+  print(item.output(), 'div');
+});
