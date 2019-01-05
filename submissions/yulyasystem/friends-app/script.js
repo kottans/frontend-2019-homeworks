@@ -5,7 +5,8 @@ let sortSpan = document.querySelector('.sort');
 let filter = document.querySelector('.filter');
 let grid = document.querySelector('.grid');
 let search = document.querySelector('.search');
-let isSorted = false;
+let arrowDown = document.querySelector('.arrow-down');
+let arrowUp = document.querySelector('.arrow-up');
 
 function handleErrors(response) {
     if (!response.ok) {
@@ -41,19 +42,18 @@ function createCards(users) {
     container.appendChild(grid);
 }
 
-function sortByAge(users) {
+function sortByAgeUp(users) {
     let sortedByAge = users.sort((a, b) => a.dob.age - b.dob.age).slice();
-    let sortedByAgeDown = users.sort((a, b) => b.dob.age - a.dob.age).slice();
+    grid.innerHTML = "";
+    createCards(sortedByAge);
 
-    if (isSorted) {
-        grid.innerHTML = "";
-        createCards(sortedByAgeDown);
-        isSorted = false;
-    } else {
-        grid.innerHTML = "";
-        createCards(sortedByAge);
-        isSorted = true;
-    }
+}
+
+function sortByAgeDown(users) {
+    let sortedByAgeDown = users.sort((a, b) => b.dob.age - a.dob.age).slice();
+    grid.innerHTML = "";
+    createCards(sortedByAgeDown);
+
 
 }
 
@@ -85,7 +85,8 @@ function searchByName(input, users) {
 
 function render(users) {
     createCards(users);
-    sortSpan.addEventListener('click', () => sortByAge(users));
+    arrowDown.addEventListener('click', () => sortByAgeDown(users));
+    arrowUp.addEventListener('click',()=>sortByAgeUp(users));
     filter.addEventListener('click', () => sortByName(users));
     search.addEventListener('input', (event) => searchByName(event.target.value, users));
 }
