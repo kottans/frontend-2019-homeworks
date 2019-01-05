@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Friends App</title>
+    <link href="https://fonts.googleapis.com/css?family=Hammersmith+One|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">Friends app</a>
+        <form class="form" name="form-sort">
+            <input id="search" class="search" type="text" name="search"  placeholder="Search">
+            <label>Sort:</label>
+            <select id="sort-gender">
+                <option value="all">all</option>
+                <option value="male">male</option>
+                <option value="female">female</option>
+            </select>
+            <select id="sort-name">
+                <option hidden disabled selected>by name</option>
+                <option value="increase">A-Z</option>
+                <option value="descrease">Z-A</option>
+            </select>
+            <select id="sort-age">
+                <option hidden disabled selected>by age</option>
+                <option value="increase">0-9</option>
+                <option value="descrease">9-0</option>
+            </select>
+            <button class="button">Reset</button>
+        </form>
+    </header>
+    <main class="main"></main>
+    <script src="js/app.js"></script>
+</body>
+</html>
