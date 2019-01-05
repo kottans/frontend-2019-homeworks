@@ -5,7 +5,7 @@ var genderCurrentUsers;
 var searchUsers;
 fetch('https://randomuser.me/api/?results=250&inc=gender,name,email,picture,location,dob&noinfo')
   .then(function(response) {
-    console.log(response.status); // 200
+    console.log(response.status);
 
     return response.json();
   })
@@ -14,17 +14,13 @@ fetch('https://randomuser.me/api/?results=250&inc=gender,name,email,picture,loca
     currentUsers = Object.assign(users.results);
     genderCurrentUsers = Object.assign(users.results);
     searchUsers = Object.assign(users.results);
-    if(document.readyState === 'complete'){
       appendUsers(allUsers);
-    }
   });
 
-//Create container which i will replace (with sorted nodes)
 var usersContainer = document.createElement('div');
 usersContainer.classList.add('users-list');
 usersContainer.setAttribute('id', 'users-container');
 
-//function that create container with new nodes
 function appendUsers(users) {
   const CONTAINER = document.getElementById('users');
   let domFragment = document.createDocumentFragment();
@@ -47,11 +43,10 @@ function appendUsers(users) {
     let email = document.createElement('div');
     email.classList.add('user__email');
     email.innerHTML = item.email;
-    container.appendChild(photo);
-    container.appendChild(name);
-    container.appendChild(location);
-    container.appendChild(age);
-    container.appendChild(email);
+
+    [photo, name, location, age, email].forEach(function(item){
+      container.appendChild(item);
+    })
     domFragment.appendChild(container);
   });
 
@@ -125,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   });
 
-  AGE_UP_INPUT.addEventListener('change', function() {
+  AGE_DOWN_INPUT.addEventListener('change', function() {
     genderCurrentUsers = genderCurrentUsers.sort(function(a, b) {
       return a.dob.age - b.dob.age;
     });
@@ -133,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function(){
     SEARCH.value = '';
   });
 
-  AGE_DOWN_INPUT.addEventListener('change', function() {
+  AGE_UP_INPUT.addEventListener('change', function() {
     genderCurrentUsers = genderCurrentUsers.sort(function(a, b) {
       return b.dob.age - a.dob.age;
     });
@@ -147,9 +142,11 @@ document.addEventListener('DOMContentLoaded', function(){
       searchUsers = searchUsers.filter(function(item) {
 
         let searchWord = SEARCH.value;
-        let serachWithoutSpaces = searchWord.replace(/\s+/g, '');
+        let searchWithoutSpaces = searchWord.replace(/\s+/g, '');
         let fullName = item.name.first + item.name.last;
-        return comparingStrings(serachWithoutSpaces, fullName);
+        fullName = fullName.toLowerCase();
+        searchWithoutSpaces = searchWithoutSpaces.toLowerCase();
+        return fullName.includes(searchWithoutSpaces);
       });
       appendUsers(searchUsers);
 
