@@ -79,7 +79,7 @@ class Player{
 // Place all enemy objects in an array called allEnemies
 let allEnemies = [];
 ENEMY_Y_POSITION.forEach(function(yPosition) {
-    enemy = new Enemy(ENEMY_START_POSITION, yPosition);
+    const enemy = new Enemy(ENEMY_START_POSITION, yPosition);
     allEnemies.push(enemy);
 });
 // Place the player object in a variable called player
@@ -95,5 +95,8 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
 
-    player.handleInput(allowedKeys[e.keyCode]);
+    const keyPressed = allowedKeys[e.keyCode];
+    if(keyPressed) {
+        player.handleInput(keyPressed);
+    }    
 });
