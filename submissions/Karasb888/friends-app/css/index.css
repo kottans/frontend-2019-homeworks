@@ -1,0 +1,214 @@
+.container {
+  width: 1120px;
+  margin: 0 auto;
+}
+@media (max-width: 1200px) {
+  .container {
+    width: 900px;
+  }
+}
+@media (max-width: 991px) {
+  .container {
+    width: 700px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    width: 400px;
+  }
+}
+@media (max-width: 425px) {
+  .container {
+    width: 310px;
+  }
+}
+.header {
+  background-color: #f5f5f5;
+}
+.header .container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px 0;
+}
+@media (max-width: 991px) {
+  .header .container {
+    flex-direction: column;
+  }
+}
+.header__logo {
+  background-image: url(../img/logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 200px;
+  height: 100px;
+  background-size: cover;
+  margin-right: 150px;
+}
+@media (max-width: 1200px) {
+  .header__logo {
+    margin-right: auto;
+  }
+}
+@media (max-width: 991px) {
+  .header__logo {
+    margin: 0 auto;
+  }
+}
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .form {
+    flex-wrap: wrap;
+  }
+}
+.form__fieldset {
+  text-align: center;
+  margin-right: 30px;
+  border: 1px solid #efabab;
+  padding: 5px;
+}
+@media (max-width: 768px) {
+  .form__fieldset {
+    margin: 0 auto;
+  }
+}
+.form__title {
+  font-size: 19px;
+  color: #ec4500;
+  padding-bottom: 14px;
+  font-family: Helvetica, san-serif;
+}
+.form__text {
+  background: transparent;
+  border-style: none;
+  border-bottom: 1px solid;
+  outline: none;
+  font-size: 19px;
+}
+@media (max-width: 768px) {
+  .form__text {
+    margin-top: 35px;
+  }
+}
+.form__input {
+  display: none;
+}
+.form__input_male:checked + label {
+  cursor: default;
+  background-image: url(../img/maleC.png);
+}
+.form__input_female:checked + label {
+  cursor: default;
+  background-image: url(../img/femaleC.png);
+}
+.form__input_az:checked + label {
+  cursor: default;
+  background-image: url(../img/azC.png);
+}
+.form__input_za:checked + label {
+  cursor: default;
+  background-image: url(../img/zaC.png);
+}
+.form__input_ageUp:checked + label {
+  cursor: default;
+  background-image: url(../img/ageUpC.png);
+}
+.form__input_ageDown:checked + label {
+  cursor: default;
+  background-image: url(../img/ageDownC.png);
+}
+.form__label {
+  transition: 0.2s;
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.form__label_male {
+  cursor: pointer;
+  background-image: url(../img/maleNC.png);
+}
+.form__label_female {
+  cursor: pointer;
+  background-image: url(../img/femaleNC.png);
+}
+.form__label_az {
+  cursor: pointer;
+  background-image: url(../img/azNC.png);
+}
+.form__label_za {
+  cursor: pointer;
+  background-image: url(../img/zaNC.png);
+}
+.form__label_ageUp {
+  cursor: pointer;
+  background-image: url(../img/ageUpNC.png);
+}
+.form__label_ageDown {
+  cursor: pointer;
+  background-image: url(../img/ageDownNC.png);
+}
+.users-list {
+  padding: 25px 0;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.user {
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  width: 240px;
+  border: 1px dotted;
+  padding: 25px 10px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
+.user__photo {
+  width: 90px;
+  padding-bottom: 15px;
+  border-radius: 50%;
+}
+.user div {
+  font-size: 15px;
+  padding-bottom: 10px;
+  font-family: Helvetica, san-serif;
+}
+.user__name {
+  word-wrap: break-word;
+  font-family: Arial, san-serif;
+  width: 220px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #24c141;
+  font-size: 19px !important;
+  position: relative;
+}
+.user__location {
+  text-transform: capitalize;
+  text-align: center;
+  line-height: 20px;
+}
+.female {
+  background-image: url(../img/female.png);
+  background-repeat: no-repeat;
+  background-position: 94% 6%;
+  background-size: 45px;
+}
+.male {
+  background-image: url(../img/male.png);
+  background-repeat: no-repeat;
+  background-position: 94% 6%;
+  background-size: 45px;
+}
