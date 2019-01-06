@@ -41,7 +41,8 @@ class Human extends Dweller {
   }
 
   getInfo() {
-    return super.getInfo(['species','name','gender','hands','legs','saying','friends']);
+    let humanProps = '; <b>hands:</b> ' + this.hands;
+    return super.getInfo() + humanProps;
   }
 }
 
