@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Friends</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <span class="filter-open-icon" role="button"></span>
+        <h2 class="main-title">Welcome to friends network!</h2>
+    </header>
+
+    <main class="main">
+        <div class="loader-container">
+            <div class="loader"></div>
+        </div>
+        <aside class="main-sidebar">
+            <div class="main-filter">
+                <div class="main-filter__close" role="button"></div>
+                <div class="main-filter__search">
+                    <input type="text" placeholder="Search" class="user-search">
+                </div>
+
+                <div class="main-filter-wrap">
+                    <div class="main-filter__item">
+                        <h3 class="filter-title">Filter by age</h3>
+                        <div class="form-group">
+                            <input type="radio" id="age-asc-filter" class="age-asc-filter radio-filter" name="sorting">
+                            <label for="age-asc-filter">Asc</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="radio" id="age-desc-filter" class="age-desc-filter radio-filter" name="sorting">
+                            <label for="age-desc-filter">Desc</label>
+                        </div>
+                    </div>
+
+                    <div class="main-filter__item">
+                        <h3 class="filter-title">Filter by name</h3>
+                        <div class="form-group">
+                            <input type="radio" id="name-asc-filter" class="name-asc-filter radio-filter" name="sorting">
+                            <label for="name-asc-filter">Aa-Zz</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="radio" id="name-desc-filter" class="name-desc-filter radio-filter" name="sorting">
+                            <label for="name-desc-filter">Zz-Aa</label>
+                        </div>
+                    </div>
+
+                    <div class="main-filter__item">
+                        <h3 class="filter-title">Filter by gender</h3>
+                        <div class="form-group">
+                            <input type="radio" id="all-filter" class="all-filter" name="gender" checked="checked">
+                            <label for="all-filter">All</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="radio" id="men-filter" class="men-filter" name="gender">
+                            <label for="men-filter">Men</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="radio" id="women-filter" class="women-filter" name="gender">
+                            <label for="women-filter">Woman</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="main-filter__reset standard-button">Reset</button>
+            </div>
+
+        </aside>
+        <section class="main-content">
+            <div class="main-content__wrap"></div>
+            <button class="main-content__loadmore standard-button">Load more</button>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Developed by <a href="https://github.com/kalash14" class="footer-link" target="_blank" rel="nofollow">Maksym Kalashnyk</a></p>
+    </footer>
+
+    <script src="main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+#black-screen-in
+    position: absolute
+    height: 100%
+    width: 100%
+    top: 0
+    background-color: #000000;
+    animation: black-screen-in 1s ease-in 0s 1
+
+@keyframes black-screen-in
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+
+#black-screen-out
+    position: absolute
+    height: 100%
+    width: 100%
+    top: 0
+    animation: black-screen-out 1s ease-in 0s 1
+
+@keyframes black-screen-out
+    0%
+        background-color: #000000
+        opacity: 1
+    100%
+        opacity: 0

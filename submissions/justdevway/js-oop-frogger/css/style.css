@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    text-align: center;
+    background: #333;
+}
+
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(ellipse at center, rgba(52,247,65,1) 0%, rgba(70,235,89,0.5) 50%, rgba(0,194,29,0) 100%);
+    background: radial-gradient(ellipse at center, rgba(52,247,65,1) 0%, rgba(52,247,65,0.55) 45%, rgba(70,235,89,0.46) 54%, rgba(70,235,89,0) 100%);
+
+
+}
+
+.canvasWrapper {
+    padding: 20px;
+    border-radius: 30px;
+
+}
+
+.canvasWrapper__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.canvasWrapper p,
+.canvasWrapper div,
+.record {
+    margin: 5px;
+    font-size: 16px;
+    font-style: italic;
+    color: #fff;
+    font-family: sans-serif;
+}
+
+.canvasWrapper .lvl {
+    font-style: normal;
+}
+
+.canvasWrapper__header div {
+    margin: 0 10px;
+    font-style: normal;
+}
+
+.canvasWrapper hr {
+    max-width: 85%;
+    margin: 0 auto;
+    opacity: 0.1;
+    border-radius: 5px;
+}
+
+.lvl span {
+    font-size: 24px;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.stoneinfo {
+    height: 25px;
+}
+
+.record {
+    height: 25pxe;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(51, 51, 51, 0.9);
+}
+
+.modal.isActive {
+    display: flex;
+}
+
+.modal__text {
+    font-size: 24px;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+}
+
+canvas {
+    width: 100%;
+    max-width: 600px;
+
+}

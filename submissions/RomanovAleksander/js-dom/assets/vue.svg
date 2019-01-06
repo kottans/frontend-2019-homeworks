@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="567px" height="219px" viewBox="0 0 567 219" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>lgo-vue-news</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Section---Podcast" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-786.000000, -200.000000)">
+        <g id="lgo-vue-news" transform="translate(786.000000, 200.000000)">
+            <g id="Group-3" transform="translate(155.132062, 0.198866)">
+                <polygon id="Path-6" fill="#39B982" points="128.371139 218.778189 255.934445 0.181475967 204.481743 0.181475967 128.371139 132.274403 51.3483448 0.181475967 0.15417367 0.181475967"></polygon>
+                <polygon id="Path-7" fill="#34495F" points="204.775077 0.430063765 128.238872 132.612482 51.5588158 0.430063765 98.7291791 0.430063765 128.238872 51.3725454 157.349496 0.430063765"></polygon>
+            </g>
+            <g id="Group-5-Copy" transform="translate(442.792404, 103.063570) scale(-1, 1) translate(-442.792404, -103.063570) translate(319.292404, 30.563570)" fill="#C7EADB">
+                <polygon id="Path-8" points="246.858893 144.257459 212.292918 144.257459 145.807734 29.3723821 17.1403474 29.3723821 0.19328856 0.133485333 163.074643 0.133485333"></polygon>
+                <polygon id="Path-9" points="41.8809816 38.0723524 58.7196587 67.1706156 122.460885 67.1706156 155.759918 125.491698 190.199272 125.491698 139.733906 38.0723524"></polygon>
+                <polygon id="Path-10" points="115.582091 76.2338939 132.158993 105.251258 98.1555529 105.251258 81.4760885 76.2338939"></polygon>
+            </g>
+            <g id="Group-5-Copy-2" transform="translate(0.130530, 30.563570)" fill="#C7EADB">
+                <polygon id="Path-8" points="246.858893 144.257459 212.292918 144.257459 145.807734 29.3723821 17.1403474 29.3723821 0.19328856 0.133485333 163.074643 0.133485333"></polygon>
+                <polygon id="Path-9" points="41.8809816 38.0723524 58.7196587 67.1706156 122.460885 67.1706156 155.759918 125.491698 190.199272 125.491698 139.733906 38.0723524"></polygon>
+                <polygon id="Path-10" points="115.582091 76.2338939 132.158993 105.251258 98.1555529 105.251258 81.4760885 76.2338939"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Memory pair game</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="container">
+        <div class="game">
+            <div class="game__header">
+                <div class="game__header__start js-game__header__start">
+                    <div class="game__controllers">
+                        <label class="game__controller js-game__controller" tabindex="0">
+                            <p class="game__controller__text">Easy</p>
+                            <input class="game__input js-game__input" type="radio" name="game_type" value="1">
+                            <div class="game__check">
+                                <div class="game__check__round"></div>
+                            </div>
+                        </label>
+                        <label class="game__controller js-game__controller" tabindex="0">
+                            <p class="game__controller__text">Hard</p>
+                            <input class="game__input js-game__input" type="radio" name="game_type" value="0">
+                            <div class="game__check">
+                                <div class="game__check__round"></div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="game__buttons">
+                        <button class="game__button js-game__button">Start</button>
+                    </div>
+                </div>
+                <div class="game__header__score js-game__header__score">
+                    <div class="game__lvl">
+                        Your level: <span class="game__lvl__indicator js-game__lvl__indicator">1</span>
+                    </div>
+                    <div class="game__time js-game__time"></div>
+                    <div class="game__attempts">
+                        <div class="game__attempt">
+                            Your attempts: <span class="js-game__attempt--current">0</span>
+                        </div>
+                        <div class="game__attempt">
+                            Minimum attempts: <span class="js-game__attempt--record">2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="game__content js-game__content is-hide">
+                <ul class="game__cards js-game__cards"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="modal js-modal">
+        <div class="modal__content">
+            <div class="modal__text js-modal__text">You win, wait plz</div>
+            <div class="modal__seconds js-modal__seconds">3</div>
+        </div>
+    </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

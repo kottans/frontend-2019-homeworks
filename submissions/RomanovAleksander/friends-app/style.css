@@ -1,0 +1,148 @@
+body {
+    background-color: #f7f7f7;
+}
+
+.content-wrapper {
+    display: flex;
+}
+
+.header {
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    color: grey;
+}
+
+.filter {
+    margin-top: 22px;
+    box-sizing: border-box;
+    padding-top: 27px;
+    background: white;
+    border-radius: 15px;
+    border: 2px solid lightgray;
+    font-size: 14px;
+    width: 250px;
+    height: 338px;
+    text-align: center;
+    position: fixed;
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 830px) {
+    .filter {
+        min-width: 100%;
+        margin: 0 0 30px 0;
+        position: relative;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .content {
+        margin-left: 0 !important;
+        justify-content: center;
+    }
+}
+
+.filter-name {
+    margin-bottom: 7px;
+    font-size: 19px;
+}
+
+#name-search {
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.radio-box {
+    position: relative;
+    margin-right: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.content{
+    margin: 10px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 270px;
+}
+
+.content__user-card{
+    width: 250px;
+    height: 320px;
+    margin: 10px;
+    padding-top: 20px;
+    color: gray;
+    background-color: white;
+    border: 2px solid lightgray;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.content__user-card:hover {
+    border: 2px solid rgba(192, 192, 192, 0.185);
+    box-shadow: 0 5px 10px 5px #bfbfbf;
+    transition-duration: 0.6s;
+    transform: scale(1.05);
+}
+
+.content__user-img{
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+}
+
+.content__user-name{
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin: 5px;
+}
+
+.content__user-phone{
+    font-weight: bold;
+    text-transform: capitalize;
+    margin: 5px;
+}
+
+.content__user-gender{
+    font-weight: bold;
+    text-transform: capitalize;
+    margin: 5px;
+}
+
+.male{
+    color: #2e4fd1;
+}
+
+.female{
+    color: #e80e32;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    padding: 0;
+    width: 0;
+    margin: 0;
+    border: none;
+    transition: all;
+    transform: scale(0) rotate(180deg);
+    transition-duration: 0.6s;
+    transform-origin: top;
+}
+
+.displayed {
+    visibility: visible;
+    transition: all;
+    transform: scale(1) rotate(360deg);
+    transition-duration: 0.6s;
+    transform-origin: bottom;
+}

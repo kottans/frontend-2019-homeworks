@@ -1,0 +1,10 @@
+.card {
+    width: 16.66666%;
+    height: 25%;
+}
+.card .front, .card .back{
+    padding: 20px;
+}
+.modal .winner{
+    font-size: 80px;
+}
