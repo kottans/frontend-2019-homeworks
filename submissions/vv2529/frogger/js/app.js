@@ -1,21 +1,18 @@
 // A common class for Enemy and Player
-var Entity = function(x, y){
+var Entity = function(x, y, sprite){
 	this.x = x;
 	this.y = y;
+	this.sprite = sprite;
 }
 Entity.prototype.render = function(){
-	// Every instance of child class of Entity should have its sprite
-	if('sprite' in this){
-		ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-	}
+	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 // Enemies our player must avoid
 var Enemy = function(x, y, speed, target){
-	Entity.call(this, x, y);
+	Entity.call(this, x, y, 'images/enemy-bug.png');
 	this.speed = speed;
 	this.target = target;
-	this.sprite = 'images/enemy-bug.png';
 	this.width = 98;
 	this.height = 66;
 };
@@ -29,8 +26,9 @@ Enemy.prototype.update = function(dt){
 }
 
 Enemy.prototype.restart = function(){
+	const rows = [65, 145, 225];
+	this.y = rows[random(3)];
 	this.x = -this.width;
-	this.y = random(3) * 80 + 65 // = 65, 145 or 225 - rows on the road
 	this.speed = random(500, 100);
 }
 
@@ -49,10 +47,11 @@ Enemy.prototype.checkForCollision = function(){
 
 // Player class
 var Player = function(x, y){
-	Entity.call(this, x, y);
+	Entity.call(this, x, y, 'images/char-boy.png');
 	this.spawnX = x;
 	this.spawnY = y;
-	this.sprite = 'images/char-boy.png';
+	this.stepX = 100;
+	this.stepY = 85;
 	this.width = 67;
 	this.height = 77;
 }
@@ -68,8 +67,8 @@ Player.prototype.handleInput = function(dir){
 		down: [0,1]
 	};
 	const shift = shifts[dir];
-	const newX = this.x + shift[0] * 100;
-	const newY = this.y + shift[1] * 85;
+	const newX = this.x + shift[0] * this.stepX;
+	const newY = this.y + shift[1] * this.stepY;
 	// Check if the player is within the screen; values were picked empirically
 	if(0 <= newX && newX <= 400) this.x = newX;
 	if(0 <= newY && newY <= 450) this.y = newY;
@@ -77,7 +76,8 @@ Player.prototype.handleInput = function(dir){
 	if(newY < 0){
 		this.restart('win');
 	}
-};
+}
+
 Player.prototype.restart = function(msg){
 	console.log(msg+'!');
 	if(msg == 'win') getId('wins').textContent++;
