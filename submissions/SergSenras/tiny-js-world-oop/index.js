@@ -17,8 +17,8 @@ class Dweller {
     this.friends = friends;
   }
 
-  getInfo(props) {
-    return props
+  getInfo() {
+    return ['species','name','gender','legs','saying','friends']
       .map( x => '<b>' + x + '</b>: ' + this[x] )
       .join('; ');
   }
@@ -30,7 +30,7 @@ class Animal extends Dweller {
   }
   
   getInfo() {
-    return super.getInfo(['species','name','gender','legs','saying','friends']);
+    return super.getInfo();
   }
 }
 
