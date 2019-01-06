@@ -5,16 +5,18 @@ let isBlockedBoard = false;
 let firstCard, secondCard;
 
 const flipCard = (targetCard) => {
-  if (isBlockedBoard || targetCard === firstCard) return;
+  if (targetCard !== null) {
+    if (isBlockedBoard || targetCard === firstCard) return;
+  
+    targetCard.classList.add('flip');
 
-  targetCard.classList.add('flip');
-
-  if (!isFlippedCard) {
-    isFlippedCard = true;
-    firstCard = targetCard;
-  } else {
-    secondCard = targetCard;
-    checkCardsMatching();
+    if (!isFlippedCard) {
+      isFlippedCard = true;
+      firstCard = targetCard;
+    } else {
+      secondCard = targetCard;
+      checkCardsMatching();
+    }
   }
 }
 
@@ -58,9 +60,6 @@ const resetSettings = () => {
 
 gameBoard.addEventListener('click', function(e) {
   const targetCard = e.target.closest('.game-card');
-  targetCard !== null &&
-  targetCard.classList.contains('game-card') && 
   flipCard(targetCard);
-  
 });
 
