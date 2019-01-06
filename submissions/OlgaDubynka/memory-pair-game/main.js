@@ -57,7 +57,10 @@ const resetSettings = () => {
 })();
 
 gameBoard.addEventListener('click', function(e) {
-  let targetCard = e.target.parentElement;
-  targetCard.classList.contains('game-card') && flipCard(targetCard);
+  const targetCard = e.target.closest('.game-card');
+  targetCard !== null &&
+  targetCard.classList.contains('game-card') && 
+  flipCard(targetCard);
+  
 });
 
