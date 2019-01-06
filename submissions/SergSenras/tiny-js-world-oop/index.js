@@ -19,7 +19,7 @@ class Dweller {
 
   getInfo() {
     return ['species','name','gender','hands','legs','saying','friends']
-      .map( x => '<b>' + x + '</b>: ' + this[x] )
+      .map( x => '<b>' + x + '</b>: ' + (this[x] != undefined ? this[x] : '') )
       .join('; ');
   }
 }
