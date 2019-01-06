@@ -83,5 +83,4 @@ const inhabitants = [
 // ======== OUTPUT ========
 inhabitants.forEach(inhabitant => {
   inhabitant.print()
-  console.log(inhabitant)
 })
