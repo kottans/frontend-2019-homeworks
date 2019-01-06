@@ -1,3 +1,6 @@
+// Global variables
+const roadRows = [65, 145, 225];
+
 // A common class for Enemy and Player
 var Entity = function(x, y, sprite){
 	this.x = x;
@@ -15,6 +18,8 @@ var Enemy = function(x, y, speed, target){
 	this.target = target;
 	this.width = 98;
 	this.height = 66;
+	this.roadLimit = 800;
+	this.speedRange = [100, 500];
 };
 Enemy.prototype = Object.create(Entity.prototype);
 Enemy.prototype.constructor = Enemy;
@@ -26,14 +31,13 @@ Enemy.prototype.update = function(dt){
 }
 
 Enemy.prototype.restart = function(){
-	const rows = [65, 145, 225];
-	this.y = rows[random(3)];
+	this.y = roadRows[random(roadRows.length)];
 	this.x = -this.width;
-	this.speed = random(500, 100);
+	this.speed = random(this.speedRange[1], this.speedRange[0]);
 }
 
 Enemy.prototype.checkOffscreen = function(){
-	if(this.x > 800) this.restart();
+	if(this.x > this.roadLimit) this.restart();
 }
 
 Enemy.prototype.checkForCollision = function(){
@@ -90,9 +94,9 @@ Player.prototype.restart = function(msg){
 // Now instantiate your objects.
 const player = new Player(200, 400);
 const allEnemies = [
-	new Enemy(100, 65, 200, player),
-	new Enemy(0, 145, 100, player),
-	new Enemy(-100, 225, 400, player)
+	new Enemy(100, roadRows[0], 200, player),
+	new Enemy(0, roadRows[1], 100, player),
+	new Enemy(-100, roadRows[2], 400, player)
 ];
 
 /*
