@@ -5,8 +5,7 @@ let isBlockedBoard = false;
 let firstCard, secondCard;
 
 const flipCard = (targetCard) => {
-  if (targetCard !== null) {
-    if (isBlockedBoard || targetCard === firstCard) return;
+    if (isBlockedBoard || !targetCard || targetCard === firstCard) return;
   
     targetCard.classList.add('flip');
 
@@ -17,7 +16,7 @@ const flipCard = (targetCard) => {
       secondCard = targetCard;
       checkCardsMatching();
     }
-  }
+
 }
 
 const checkCardsMatching = () => {
