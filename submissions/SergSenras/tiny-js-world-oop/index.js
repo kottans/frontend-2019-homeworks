@@ -17,32 +17,40 @@ class Dweller {
     this.friends = friends;
   }
 
-  getInfo() {
-    return ['species','name','gender','hands','legs','saying','friends']
-      .map( x => '<b>' + x + '</b>: ' + (this[x] != undefined ? this[x] : '') )
+  getInfo(props) {
+    return props
+      .map( x => '<b>' + x + '</b>: ' + this[x] )
       .join('; ');
   }
 }
 
 class Animal extends Dweller {
-  constructor(species,name,gender,legs,saying,friends) {
+  constructor(species,name,gender,legs = 4,saying,friends) {
     super(species,name,gender,legs,saying,friends);
+  }
+  
+  getInfo() {
+    return super.getInfo(['species','name','gender','legs','saying','friends']);
   }
 }
 
 class Human extends Dweller {
-  constructor(name,gender,legs,hands,saying,friends) {
+  constructor(name,gender,saying,friends,legs = 2,hands = 2) {
     super('human',name,gender,legs,saying,friends);
     this.hands = hands;
+  }
+
+  getInfo() {
+    return super.getInfo(['species','name','gender','hands','legs','saying','friends']);
   }
 }
 
 
-var man = new Human ('John','male',2,2,'Hi',['Toby', 'Selina Kyle']);
-var woman = new Human ('Mary','female',2,2,'Hello',['Mrs. Whiskerson', 'John']);
+var man = new Human ('John','male','Hi',['Toby', 'Selina Kyle']);
+var woman = new Human ('Mary','female','Hello',['Mrs. Whiskerson', 'John']);
 var dog = new Animal ('dog','Toby','male',4,'woof-woof!',['John']);
 var cat = new Animal ('cat','Mrs. Whiskerson','female',4,'meow',['Mary', 'Selina Kyle']);
-var Catwoman = new Human ('Catwoman','Selina Kyle','female',2,2,cat.saying,['John', 'Mrs. Whiskerson']);
+var Catwoman = new Human ('Catwoman','Selina Kyle','female',cat.saying,['John', 'Mrs. Whiskerson']);
 
 var family = [man, woman, dog, cat, Catwoman];
 family.forEach(member => {
