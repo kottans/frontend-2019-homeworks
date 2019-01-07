@@ -7,13 +7,14 @@
 
 // ======== CLASS DEFINITIONS ========
 class Inhabitant {
-	constructor(type, name, gender, legs, hands, says){
+	constructor(type, name, gender, legs, hands, says, friends = []){
 		this.type = type;
 		this.name = name;
 		this.gender = gender;
 		this.legs = legs;
 		this.hands = hands;
 		this.says = says;
+		this.friends = friends;
 	}
 	toString(){
 		const props = ['type', 'name', 'gender', 'legs', 'hands', 'says'].map(prop => this[prop]);
@@ -74,6 +75,4 @@ man.friends = [dog, woman];
 catWoman.friends = [cat];
 
 // ======== OUTPUT ========
-[dog, cat, woman, man, catWoman].forEach(entity => {
-	print(entity.toString());
-});
+[dog, cat, woman, man, catWoman].forEach(entity => print(entity));
