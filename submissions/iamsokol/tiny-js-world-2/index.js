@@ -11,9 +11,9 @@ class Inhabitant {
     }
 }
 
-class Man extends Inhabitant {
-    constructor(name, gender, saying, legs = 2, hands = 2) {
-        super('human', name, gender, saying, legs);
+class Human extends Inhabitant {
+    constructor(species, name, gender, saying, legs = 2, hands = 2) {
+        super(species, name, gender, saying, legs);
         this.hands = hands;
     }
     toString(){
@@ -21,13 +21,15 @@ class Man extends Inhabitant {
     }
 }
 
-class Woman extends Inhabitant {
-    constructor(name, gender, saying, legs = 2, hands = 2) {
-        super('human', name, gender, saying, legs);
-        this.hands = hands;
+class Man extends Human {
+    constructor(name, saying) {
+        super('human', name, 'male', saying);
     }
-    toString(){
-        return super.toString() + this.hands + ';';
+}
+
+class Woman extends Human {
+    constructor(name, saying) {
+        super('human', name, 'female', saying);
     }
 }
 
@@ -50,8 +52,8 @@ class Catwoman extends Inhabitant {
 }
 
 const inhabitants = [
-    new Man('Dima', 'male', 'I live in Kyiv'),
-    new Woman('Viktoria', 'female', 'I live in Dnipro'),
+    new Man('Dima', 'I live in Kyiv'),
+    new Woman('Viktoria', 'I live in Dnipro'),
     new Cat('Mark', 'male', 'may-may'),
     new Dog('Lola', 'female', 'gav-gav'),
     new Catwoman('Catwoman', 'female', 'may-may')
