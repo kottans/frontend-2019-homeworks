@@ -77,6 +77,11 @@ body {
   font-size: 1.25em;
 }
 
+
+.clear {
+  clear: both;
+}
+
 @media screen and (max-width: 500px) {
   .container {
     max-width: 320px;

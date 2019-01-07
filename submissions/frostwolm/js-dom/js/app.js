@@ -21,6 +21,10 @@ const articles = [
   }
 ];
 
+document.addEventListener(`DOMContentLoaded`, function () {
+  contentController.init(document.querySelector(`nav.menu`), document.querySelector(`article.text`));
+});
+
 const contentController = {
   init(navElem, contentElem, articlesArr = articles) {
     if (!navElem || !articlesArr || !contentElem) {
@@ -71,12 +75,15 @@ const contentController = {
     imgElem.setAttribute(`src`, article.imgSrc);
     imgElem.setAttribute(`alt`, article.title);
     imgElem.classList.add(`text__img`);
-    let sectionElem = document.createElement(`section`);
-    sectionElem.textContent = article.textContent;
-    sectionElem.classList.add(`text__content`);
+    let textContentElem = document.createElement(`div`);
+    textContentElem.textContent = article.textContent;
+    textContentElem.classList.add(`text__content`);
+    let clearFixElem = document.createElement(`div`);
+    clearFixElem.classList.add(`clear`);
     contentElem.appendChild(h2Elem);
     contentElem.appendChild(imgElem);
-    contentElem.appendChild(sectionElem);
+    contentElem.appendChild(textContentElem);
+    contentElem.appendChild(clearFixElem);
     return contentElem;
   }
 };
