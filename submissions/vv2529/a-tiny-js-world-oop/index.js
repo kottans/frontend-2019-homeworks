@@ -7,17 +7,16 @@
 
 // ======== CLASS DEFINITIONS ========
 class Inhabitant {
-	constructor(type, name, gender, legs, hands, says, friends = []){
+	constructor(type, name, gender, legs, says, friends = []){
 		this.type = type;
 		this.name = name;
 		this.gender = gender;
 		this.legs = legs;
-		this.hands = hands;
 		this.says = says;
 		this.friends = friends;
 	}
 	toString(){
-		const props = ['type', 'name', 'gender', 'legs', 'hands', 'says'].map(prop => this[prop]);
+		const props = ['type', 'name', 'gender', 'legs', 'says'].map(prop => this[prop]);
 		props.push(this.friends.map(item => item.name).join(', '));
 		return props.join('; ');
 	}
@@ -25,7 +24,7 @@ class Inhabitant {
 
 class Pet extends Inhabitant {
 	constructor(type, name, gender, says){
-		super(type, name, gender, 4, 0, says);
+		super(type, name, gender, 4, says);
 	}
 }
 class Dog extends Pet {
@@ -41,7 +40,11 @@ class Cat extends Pet {
 
 class Human extends Inhabitant {
 	constructor(name, gender, says){
-		super('human', name, gender, 2, 2, says);
+		super('human', name, gender, 2, says);
+		this.hands = 2;
+	}
+	toString(){
+		return super.toString() + '; ' + this.hands;
 	}
 }
 
