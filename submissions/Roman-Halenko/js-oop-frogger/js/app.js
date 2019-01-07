@@ -7,6 +7,7 @@ const Enemy = function(x, y) {
     // a helper we've provided to easily load images
     this.x = x;
     this.y = y;
+    this.width = 80;
     this.speed = randomSpeed(80, 290);
     this.edge = {right: 500, left: -101}
     this.sprite = 'images/enemy-bug.png';
@@ -36,6 +37,7 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 const Player = function() {
+    this.width = 80;
     this.sprite = 'images/char-boy.png';
     this.x = 202;
     this.y = 400;
@@ -65,13 +67,13 @@ Player.prototype.update = function() {
     if (this.y === this.edge.top) {
         this.toBegin(400);
     }
-    this.collision();
+    this.checkEnemyCollision();
 };
 
-Player.prototype.collision = function() {
+Player.prototype.checkEnemyCollision = function() {
     allEnemies.forEach( e => {
         let that = this;
-        if (e.y === that.y && that.x <= e.x+80 && that.x+90 >= e.x+15) {
+        if (e.y === that.y && that.x <= e.x + e.width && that.x + that.width >= e.x) {
           that.toBegin(0);
         }
       })
