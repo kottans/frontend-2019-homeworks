@@ -1,13 +1,14 @@
-class Inhabitant {
-  constructor(name, gender, species, saying) {
-    this.name = name;
-    this.gender = gender;
-	this.species = species;
-	this.saying = saying || `Hello from ${this.name}`;
-  }
-  showInhabitant(){
-	  return `<strong>${this.species}</strong>, ${this.name}, ${this.gender}, saying: ${this.saying}, `;
-  }
+class Inhabitant{
+	constructor(name, gender, species, saying){
+		this.name = name;
+		this.gender = gender;
+		this.species = species;
+		this.saying = saying || `Hello from ${this.name}`;
+	}
+	toString(){
+		let inhabitantInfo = [`<strong>${this.species}</strong>`, this.name, this.gender, this.saying, ""];
+		return inhabitantInfo.join(", ");
+	}
 }
 
 class Human extends Inhabitant {
@@ -16,8 +17,9 @@ class Human extends Inhabitant {
 		this.hands = 2;
 		this.legs = 2;
 	}
-	showInhabitant(){
-		return super.showInhabitant() + `hands: ${this.hands}, legs: ${this.legs}`;
+	toString(){
+		let inhabitantInfo = [`hands: ${this.hands}`, `legs: ${this.legs}`]; 
+		return super.toString() + inhabitantInfo.join(", ");
 	}
 }
 
@@ -26,8 +28,9 @@ class Animal extends Inhabitant {
 		super(name, gender, species, saying);
 		this.paws = 4;
 	}
-	showInhabitant(){
-		return super.showInhabitant() + `paws: ${this.paws}`;
+	toString(){
+		let inhabitantInfo = [`paws: ${this.paws}`]; 
+		return super.toString() + inhabitantInfo.join();
 	}
 }
 
@@ -52,4 +55,4 @@ class CatWoman extends Human {
 
 let inhabitants = [new Human("Alex", "male"), new Human("Jenny", "female"), new Cat("Murka", "female"), new Dog("Rex", "male"), new CatWoman("LadyCat", "female")];
 
-inhabitants.forEach(inhabitant => print(inhabitant.showInhabitant()));
+inhabitants.forEach(inhabitant => print(inhabitant));
