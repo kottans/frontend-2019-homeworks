@@ -28,25 +28,17 @@ const catsArray = [
 
 let menuBlock = document.createElement('div');
 let renderCats = (position) => {
-    new renderCat(catsArray, position);
+    new Cat(catsArray, position);
+}
+let renderItem = (item, index) => {
+    let block = document.createElement('p');
+    block.setAttribute("position", index);
+    let menuItem = `${item.name}`;
+    block.innerHTML = menuItem;
+    menuBlock.appendChild(block);
 }
 
-class renderMenu {
-    constructor(item, index) {
-        this.item = item;
-        this.index = index;
-        this.renderItem();
-    }
-    renderItem() {
-        let block = document.createElement('p');
-        block.setAttribute("position", this.index);
-        let menuItem = `${this.item.name}`;
-        block.innerHTML = menuItem;
-        menuBlock.appendChild(block);
-    }
-}
-
-class renderCat{
+class Cat{
     constructor(catsArray, position) {
         this.catsElement = catsArray[position];
         this.renderPosition();
@@ -61,12 +53,10 @@ class renderCat{
 }
 
 catsArray.forEach((item, index) => {
-    new renderMenu(item, index);
+    renderItem(item, index);
 })
 menu.appendChild(menuBlock);
 
-Array.from(document.querySelectorAll('.menu p')).map((element) => {
-  element.addEventListener('click', ({target}) => renderCats(target.getAttribute("position")));
-});
+document.getElementById("menu").addEventListener('click', ({target}) => renderCats(target.getAttribute("position")));
 
-new renderCat(catsArray, 0);
+new Cat(catsArray, 0);
