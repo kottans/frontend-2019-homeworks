@@ -212,3 +212,8 @@
   background-position: 94% 6%;
   background-size: 45px;
 }
+.loadedImg {
+  margin: 0 auto;
+  display: block;
+  margin-top: 25px;
+}

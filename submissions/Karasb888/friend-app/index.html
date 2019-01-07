@@ -17,34 +17,35 @@
 
         <fieldset class='form__fieldset'>
           <div class="form__title">Sex</div>
-          <input id='male' class='form__input form__input_male'  type="radio" value="male" name="sex">
+          <input id='male' class='form__input form__input_male' disabled = 'disabled' type="radio" value="male" name="sex">
           <label for='male' class='form__label form__label_male'></label>
-          <input id='female' class='form__input form__input_female' type="radio" value="female" name="sex">
+          <input id='female' class='form__input form__input_female' disabled = 'disabled' type="radio" value="female" name="sex">
           <label for='female' class='form__label form__label_female'></label>
         </fieldset>
 
         <fieldset class='form__fieldset'>
           <div class="form__title">Name</div>
-          <input id='nameAz' class='form__input form__input_az'  type="radio" value="az" name="name">
+          <input id='nameAz' class='form__input form__input_az' disabled = 'disabled' type="radio" value="az" name="name">
           <label for='nameAz' class='form__label form__label_az'></label>
-          <input id='nameZa' class='form__input form__input_za' type="radio" value="za" name="name">
+          <input id='nameZa' class='form__input form__input_za' disabled = 'disabled' type="radio" value="za" name="name">
           <label for='nameZa' class='form__label form__label_za'></label>
         </fieldset>
 
         <fieldset class='form__fieldset'>
           <div class="form__title">Age</div>
-          <input id='ageUp' class='form__input form__input_ageUp'  type="radio" value="ageUp" name="age">
+          <input id='ageUp' class='form__input form__input_ageUp' disabled = 'disabled' type="radio" value="ageUp" name="age">
           <label for='ageUp' class='form__label form__label_ageUp'></label>
-          <input id='ageDown' class='form__input form__input_ageDown' type="radio" value="ageDown" name="age">
+          <input id='ageDown' class='form__input form__input_ageDown' disabled = 'disabled' type="radio" value="ageDown" name="age">
           <label for='ageDown' class='form__label form__label_ageDown'></label>
         </fieldset>
-        <input placeholder='Type user name' class='form__text' type="text" id='search'>
+        <input placeholder='Type user name' class='form__text' disabled = 'disabled' type="text" id='search'>
 
     </div>
   </div>
   </div>
   <section class='users'>
     <div class="container" id='users'>
+      <img class = 'loadedImg' src="img/cat.gif" alt="" id='waiting-car'>
     </div>
   </section>
   <script src='index.js'></script>
