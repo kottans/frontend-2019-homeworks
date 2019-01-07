@@ -30,9 +30,7 @@ ul {
   margin: 0;
 }
 
-
 .header {
-  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26); */
   min-height: 56px;
   transition: min-height 0.3s;
 }
@@ -50,8 +48,6 @@ ul {
   display: inline-block;
   color: #212121;
 }
-
-
 
 .nav {
   width: 200px;
@@ -71,8 +67,7 @@ ul {
   height: 100%;
   padding: 0;
   margin: 0;
- 
-}
+ }
 
 .nav__item {
   box-sizing: border-box;
@@ -80,9 +75,7 @@ ul {
   width: 100%;
   text-align: center;
   line-height: 24px;
-  /* padding: 20px; */
   margin-bottom: 10px;
-  
   text-transform: uppercase;
 }
 
@@ -99,10 +92,18 @@ ul {
   display: block;
 }
 
-
-main {
+.main {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
   margin-left: 200px; 
   font-size: 20px; 
   padding: 0px 10px;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header__menu {
+  display: none;
 }

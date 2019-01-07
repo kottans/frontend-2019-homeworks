@@ -1,16 +1,8 @@
-.content {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.header__menu {
-  display: none;
-}
 
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 768px) {
   
-  main {
+  .main {
     margin-left: 0px;
   }
   .nav {
@@ -18,10 +10,8 @@
     background-color: #fff;
     width: 100%;
     position: absolute;
-	/* This trasform moves the drawer off canvas. */
-    -webkit-transform: translate(-600px, 0);
-    transform: translate(-600px, 0);
-    /* Optionally, we animate the drawer. */
+	-webkit-transform: translate(-918px, 0);
+    transform: translate(-918px, 0);
     transition: transform 0.3s ease;
   }
   .nav.open {
@@ -46,13 +36,11 @@
   }
 }
 
-@media screen and (min-width: 450px) {
+@media screen and (min-width: 768px) {
   header {
     display: none;
   }
 }
-
-
 
  @media screen and (min-width: 1050px) {
   main, .header__inner, .content {
