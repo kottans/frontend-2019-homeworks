@@ -15,7 +15,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Forever Friends</a>
+        <img class="logo" src="img/logo.png" alt="">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,24 +25,27 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link active-link" href="#">Age</a>
-                        <img class="age-asc" src="img/up-arrow.png" alt="">
-                        <img class="age-desc" src="img/down-arrow.png" alt="">
+                    <img class="age-asc" src="img/up-arrow.png" alt="">
+                    <img class="age-desc" src="img/down-arrow.png" alt="">
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Name</a>
-                        <img class="name-asc" src="img/up-arrow.png" alt="">
-                        <img class="name-desc" src="img/down-arrow.png" alt="">
+                    <img class="name-asc" src="img/up-arrow.png" alt="">
+                    <img class="name-desc" src="img/down-arrow.png" alt="">
                 </li>
-                <li  class="nav-item">
-                        <a class="nav-link" href="#">Gender</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Gender</a>
                     <label class="radio-inline"><input type="radio" name="optradio">M</label>
                     <label class="radio-inline"><input type="radio" name="optradio">F</label>
                 </li>
 
             </ul>
-            <form class="form-inline">
-                <input class="form-control mr-sm-8" type="search" placeholder="Search" aria-label="Search">
+            <form class="form-inline" onsubmit="return false">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             </form>
+            <button type="button" class="reset btn btn-outline-warning">
+                Reset
+            </button>
         </div>
     </nav>
 

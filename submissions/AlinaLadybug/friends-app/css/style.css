@@ -88,3 +88,8 @@ li.nav-item{
   .active-arrow{
     filter:brightness(150%);
   }
+
+  img.logo{
+      width:80px;
+      height: 80px;
+  }

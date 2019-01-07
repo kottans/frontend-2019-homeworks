@@ -3,15 +3,17 @@ const URL = 'https://randomuser.me/api/?results=50';
 let personCards;
 let usersData = [];
 let filteredData = [];
+let radios;
 
-document.addEventListener("DOMContentLoaded", ready);
-function ready() {
+document.addEventListener("DOMContentLoaded", executeWhenReady);
+function executeWhenReady() {
     getData(URL);
 }
 
 
+
 function addListeners() {
-    let search = document.querySelector('.form-control');
+    let search = document.querySelector('.form-inline');
     search.addEventListener('input', searchFunc);
 
     let ageDesc = document.querySelector('.age-desc');
@@ -23,19 +25,37 @@ function addListeners() {
     nameDesc.addEventListener('click', sort);
     nameAsc.addEventListener('click', sort);
 
-    let radios = document.querySelectorAll('.radio-inline input');
+    radios = document.querySelectorAll('.radio-inline input');
     radios.forEach(radio => {
-        radio.addEventListener('click', sortbygender);
+        radio.addEventListener('click', sortByGender);
     })
+
+    let reset = document.querySelector('button.reset');
+    reset.addEventListener('click', resetFilters);
+
 }
 
 
-function sort({ target }) {
-    let className = target.classList[0];
+function resetFilters({ target }) {
+    deactivateImg();
+    radios.forEach(radio => {
+        radio.checked = false;
+    })
+
+}
+
+function deactivateImg() {
     let arrows = document.querySelectorAll('.nav-item img')
     arrows.forEach(arrow => {
         arrow.classList.remove('active-arrow');
-    })
+    });
+    clearContent();
+    createContent(usersData, setInfo);
+}
+
+function sort({ target }) {
+    let className = target.classList[0];
+    deactivateImg();
     target.classList.add('active-arrow');
     filteredData = usersData;
     clearContent();
@@ -59,15 +79,15 @@ function sort({ target }) {
         case 'name-desc':
             filteredData = usersData.sort(function (a, b) {
                 if (a['name']['first'] > b['name']['first'])
-                    return 1;
+                    return -1;
             })
             break;
     }
 
-    createContent(filteredData, getInfo);
+    createContent(filteredData, setInfo);
 }
 
-function sortbygender({ target }) {
+function sortByGender({ target }) {
     let sortParam = target.parentNode.innerText;
     clearContent();
     filteredData = usersData;
@@ -83,7 +103,7 @@ function sortbygender({ target }) {
             });
             break;
     }
-    createContent(filteredData, getInfo);
+    createContent(filteredData, setInfo);
 
 }
 
@@ -92,6 +112,8 @@ function clearContent() {
     let row = document.querySelector('.row');
     row.innerHTML = '';
 }
+
+
 function searchFunc({ target }) {
     let input = target.value.toUpperCase();
     personCards.forEach(card => {
@@ -127,20 +149,22 @@ function getData(URL) {
 function parseData(response) {
     let data = JSON.parse(response);
     usersData = data.results;
-    createContent(data.results, getInfo);
+    createContent(data.results, setInfo);
 }
 
 
-function createContent(results, getInfo) {
+function createContent(results, setInfo) {
+    let container = document.querySelector('.container .row');
+
     results.forEach(result => {
-        createCard(result);
+        let card = createCard(result);
+        container.appendChild(card);
     });
-    getInfo();
+    setInfo();
 }
 
 
 function createCard(info) {
-    let container = document.querySelector('.container .row');
     let col = document.createElement('div');
     col.classList.add('col-md-3');
     col.classList.add('col-sm-6');
@@ -158,7 +182,7 @@ function createCard(info) {
     card.appendChild(thumb);
     card.appendChild(cardBody);
     col.appendChild(card);
-    container.appendChild(col);
+    return col;
 }
 
 
@@ -199,6 +223,6 @@ function createThumb(info) {
     return thumb;
 }
 
-function getInfo() {
+function setInfo() {
     personCards = document.querySelectorAll('.card-body');
 }
