@@ -35,27 +35,23 @@ const winesObject = [ {
 	wineText: 'In the mid to late 1800’s, sweet wines were more popular than dry wines. In fact, several of the most exalted wines in the world, from Sauternes in Bordeaux to Essencia from Hungary, are practically as thick as maple syrup. Dessert wines today now range from dry to sweet and are some of the boldest, most intensely flavored (and aromatic) wines in the world. There are many different types of dessert wines to explore however, if you can start with a Port or a Sauternais-styled wine (a late harvest white wine), you’ll have a great preview of what dessert wines can offer.',
 }
 ];
-let list   = 	document.querySelector('.list');
-let title   = 	document.querySelector('.title');
-let paragraph   = 	document.querySelector('.paragraph');
+
+let list = document.querySelector('.list');
+let title = document.querySelector('.title');
+let paragraph = document.querySelector('.paragraph');
+
 const showParagraph = (page) => {
 	document.title = page.wineTitle;
 	title.textContent = page.wineTitle;
 	paragraph.textContent = page.wineText;
 }
+
 list.addEventListener( 'click', e => {
-	document.querySelector('.active').classList.remove('active');
-	e.target.classList.add('active');
-	const searchParagraph = (el) =>
-	e.target.textContent == el.wineTitle;
-	showParagraph(winesObject.find(searchParagraph));
-});
-//rolldown list increments the delay on each item.
-$('.rolldown-list li').each(function () {
-  let delay = ($(this).index() / 4) + 's';
-  $(this).css({
-    webkitAnimationDelay: delay,
-    mozAnimationDelay: delay,
-    animationDelay: delay
-  });
-});
+		document.querySelector('.active').classList.remove('active');
+		e.target.classList.add('active');
+
+		const searchParagraph = (el) =>
+			e.target.textContent == el.wineTitle;
+
+		showParagraph(winesObject.find(searchParagraph));
+	});
