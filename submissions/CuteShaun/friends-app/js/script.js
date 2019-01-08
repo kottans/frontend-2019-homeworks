@@ -96,7 +96,7 @@
     filterArr = filterArr.filter(
       item => item.name.first.toLowerCase().indexOf(inputVal) === 0
     );
-    appendData(filterArr);
+    inputVal === "" ? "" : appendData(filterArr);
   }
 
   function reset(data) {
