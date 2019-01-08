@@ -5,12 +5,14 @@
    Web app: _put project's github pages URL here_
    */
 
-let addFriend = function(friend) {
-    if (this.friends.indexOf(friend) == -1) {
+
+var addFriend = function (friend) {
+   
+    if (this.friends.indexOf(friend) === -1) {
         this.friends.push(friend);
         friend.friends.push(this);
     }
-}
+};
 
 const dog = {
     species: 'dog',
@@ -77,33 +79,21 @@ womancat.addFriend(cat);
 man.addFriend(woman);
 man.addFriend(dog);
 
-listObj = [];
-listObj.push(woman);
-listObj.push(man);
-listObj.push(cat);
-listObj.push(dog);
-listObj.push(womancat);
+let inhabitants = [woman, man, cat, dog, womancat];
 
-let objToString = function(obj, lim = ';') {
-    let rezult = '';
-    for (key in obj) {
-
-        if (key == 'addFriend') {
-            continue;
-        } else if (key == 'friends') {
-            for (let i = 0; i < obj[key].length; i++) {
-
-                rezult = rezult + ((i == 0) ? '' : ',') + obj[key][i].name;
-            }
-
-        } else rezult += obj[key];
-        rezult += lim;
-
-    }
+let getDescription = function (inhabitant, delimiter = ';') {
+    let rezult = [
+    inhabitant.species,
+    inhabitant.name,
+    inhabitant.gender,
+    inhabitant.legs,
+    inhabitant.hands,
+    inhabitant.saying,
+    inhabitant.friends.length ? inhabitant.friends.map((friend) =>friend.name).join(',') : ''    
+    ].join(delimiter);
     return rezult;
 }
 
-listObj.forEach(function(obj) {
-	if (obj.hands != 0)
-    print(objToString(obj));
+inhabitants.forEach((inhabitant) => {
+    if (inhabitant.hands != 0) print(getDescription(inhabitant));
 });
