@@ -86,7 +86,8 @@
     let filterArr = [...data];
 
     filterArr = filterArr.filter(item => String(item.dob.age) === inputVal);
-    appendData(filterArr);
+
+    inputVal === "" ? "" : appendData(filterArr);
   }
 
   function filterName(data) {
