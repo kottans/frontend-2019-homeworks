@@ -7,36 +7,40 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 class Create {
-    constructor(name, gender, inhabitant,  age) {
-        this.name = name;
+    constructor(gender, name, age, say, species, legs, hands) {
         this.gender = gender;
-        this.inhabitant = inhabitant;
+        this.name = name;
+        this.say = say;
+        this.species = species;
         this.age = age;
+        this.legs = legs;
+        this.hands = hands;
     }
     whatReturn() {
-        return print(`<div>Hi! My name is - <strong>${this.name}</strong>. I\'m <strong>${this.age}</strong> years old. I am a <strong>${this.inhabitant}</strong>. I have <strong>${this.legs}</strong> legs and <strong>${this.hands}</strong> hands. I love to say: <strong>${this.say}</strong></div>`);
+        return print(`Gender: ${this.gender}, name: ${this.name}, say: ${this.say}, species: ${this.species}, age: ${this.age}, legs ${this.legs}, hands: ${this.hands}`);
     }
 }
-class Animal extends Create {
-    constructor (name, gender, inhabitant, age, say) {
-        super (name, gender, inhabitant, age);
-        this.legs = 4;
-        this.hands = 0;
-        this.say = say;
-    }
-}
+
 class Human extends Create {
-    constructor(name, gender, inhabitant, age, say) {
-        super (name, gender, inhabitant, age);
-        this.legs = 2;
-        this.hands = 2;
-        this.say = say;
+    constructor ( gender, name, age, say, species = 'Human', legs = '2', hands = '2') {
+        super (gender, name, age, say, species, legs, hands);
     }
 }
-let cat = new Animal('Simon', 'male', 'Cat', 3, 'Purrrrr...');
-let dog = new Animal('Scooby', 'male', 'Dog', 5, 'ScoobyDoobyDoo!');
-let man = new Human('Jim', 'male', 'man', 57, 'It\'s show time!');
-let woman = new Human('Margaret', 'female', 'woman', 94, 'Defeat? I do not understand the meaning of this word.');
+class Dog extends Create {
+    constructor (gender, name, age, say = 'Woof!', species = 'Dog', legs = '4', hands = '0') {
+        super (gender, name, age, say, species, legs, hands);
+    }
+}
+class Cat extends Create {
+    constructor (gender, name, age, say = 'Meow!', species = 'Cat', legs = '4', hands = '0') {
+        super (gender, name, age, say, species, legs, hands);
+    }
+}
+
+let woman = new Human('male', 'Jane', 57, 'Holla!');
+let man = new Human('male' , 'John', 57, 'I love development.');
+let cat = new Cat('male', 'Simon', 3);
+let dog = new Dog('male', 'Scooby', 7);
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
@@ -55,7 +59,7 @@ let woman = new Human('Margaret', 'female', 'woman', 94, 'Defeat? I do not under
    print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
-   */
-[cat, dog, man, woman].forEach(value => {
+*/
+[woman, man, cat, dog].forEach(value => {
     value.whatReturn();
 })
