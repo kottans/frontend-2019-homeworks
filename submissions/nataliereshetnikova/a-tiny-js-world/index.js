@@ -5,41 +5,70 @@
    */
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
-const man = {
-  species: 'human',
-  name: 'Andrew',
-  gender: 'male',
-  legs: 2,
-  hands: 2,
-  saying: 'Hi!'
-};
-const woman = JSON.parse(JSON.stringify(man));
-woman.name = 'Natalie';
-woman.gender = 'female';
-woman.saying = 'Nice of you!';
-const dog = {
-  species: 'dog',
-  name: 'Milky',
-  gender: 'female',
-  legs: 4,
-  hands: 0,
-  saying: 'woof-woof!'
-};
-const cat = JSON.parse(JSON.stringify(dog));
-  cat.species = 'cat';
-  cat.name = 'Kitt';
-  cat.gender = 'male';
-  cat.saying='meow!';
-man.friends = [dog.name, woman.name];
-woman.friends = [man.name, cat.name];
-print(dog.species + ';' + dog.name + ';' + dog.gender + ';' +
-  dog.legs + ';' + dog.hands + ';' + dog.saying + ';');
-print(cat.species + ';' + cat.name + ';' + cat.gender + ';' +
-  cat.legs + ';' + cat.hands + ';' + cat.saying + ';');
-print(man.species + ';' + man.name + ';' + man.gender + ';' +
-  man.legs + ';' + man.hands + ';' + man.saying + ';' + man.friends);
-print(woman.species + ';' + woman.name + ';' + woman.gender + ';' +
-  woman.legs + ';' + woman.hands + ';' + woman.saying + ';' + woman.friends);
+class Being {
+  constructor(name,gender,saying,friends) {
+    this.name = name;
+    this.gender = gender;
+    this.saying = saying;
+    this.friends = friends;
+  }
+}
+
+class Animal extends Being {
+  constructor(name, gender,saying) {
+    super(name,gender,saying);
+    this.hands = 0;
+    this.legs = 4;
+  }
+}
+
+class Human extends Being {
+  constructor(name,gender, saying,friends) {
+    super(name,gender, saying,friends);
+    this.spiece = "Human";
+    this.hands = 2;
+    this.legs = 2;
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, gender,saying) {
+    super(name, gender,saying);
+    this.spiece = "Dog";
+  }
+}
+
+class Cat extends Animal {
+  constructor(name, gender,saying) {
+    super(name, gender,saying);
+    this.spiece = "Cat";
+  }
+}
+const dog = new Dog('Milky','female','woof-woof!');
+const cat = new Cat('Kitt','male','meow');
+const man = new Human('Andrew','male','Hi!',[dog]);
+const woman = new Human('Natalie','female','Nice of you!',[man, cat]);
+
+function getStrFromObj(obj) {
+  let arr = [];
+  Object.values(obj).forEach((item) => {
+    if (Array.isArray(item)) {
+      let names = [];
+      item.forEach((frnd) => {
+        names.push('friend '+frnd.name);
+      });
+      arr.push(names.join('; '));
+    }else{
+      arr.push(item);
+    }
+  });
+  return arr.join('; ');
+}
+
+[dog, cat, man, woman].forEach((being) => {
+  print(getStrFromObj(being));
+})
+
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
