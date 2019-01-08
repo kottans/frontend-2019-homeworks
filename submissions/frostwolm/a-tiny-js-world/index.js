@@ -77,21 +77,15 @@ catWoman.friends.push(cat);
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
    */
 function getStrFromObj(obj) {
-  let arr = [];
-  Object.values(obj).forEach((item) => {
-    if (Array.isArray(item)) {
-      let names = [];
-      item.forEach((frnd) => {
-        names.push(frnd.name);
-      });
-      arr.push(names.join(', '));
-    }else{
-      arr.push(item);
-    }
-  });
-  return arr.join('; ');
+  return [
+    obj.species,
+    obj.name,
+    obj.gender,
+    obj.legs,
+    obj.hands,
+    obj.saying,
+    obj.friends.map(friend => friend.name).join(', ')
+  ].join('; ');
 }
 
-[dog, cat, man, woman, catWoman].forEach((hab) => {
-  print(getStrFromObj(hab));
-})
+[dog, cat, man, woman, catWoman].forEach((hab) => print(getStrFromObj(hab)));
