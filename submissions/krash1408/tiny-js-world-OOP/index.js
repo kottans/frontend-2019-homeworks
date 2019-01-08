@@ -7,46 +7,36 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 class Create {
-    constructor(name, gender, inhabitant,  age, legs) {
+    constructor(name, gender, inhabitant,  age) {
         this.name = name;
         this.gender = gender;
         this.inhabitant = inhabitant;
         this.age = age;
-        this.legs = legs;
-        this.say = '';
     }
-    whatSayAnimal() {
-        if(this.hands == undefined) {
-            this.say = 'I can\'t! I have paws!';
-        }
-    }
-    whatSayHuman() {
-        if (this.inhabitant == 'man') {
-            this.say = 'It`s show time!';
-        } else if (this.inhabitant == 'woman') {
-            this.say = 'Defeat? I do not understand the meaning of this word.';
-        }
+    whatReturn() {
+        return print(`<div>Hi! My name is - <strong>${this.name}</strong>. I\'m <strong>${this.age}</strong> years old. I am a <strong>${this.inhabitant}</strong>. I have <strong>${this.legs}</strong> legs and <strong>${this.hands}</strong> hands. I love to say: <strong>${this.say}</strong></div>`);
     }
 }
 class Animal extends Create {
-    constructor (name, gender, inhabitant, age, legs = 4) {
-        super (name, gender, inhabitant, age, legs);
+    constructor (name, gender, inhabitant, age, say) {
+        super (name, gender, inhabitant, age);
+        this.legs = 4;
+        this.hands = 0;
+        this.say = say;
     }
 }
 class Human extends Create {
-    constructor(name, gender, inhabitant, age, legs = 2, hands = 2) {
-        super (name, gender, inhabitant, age, legs);
-        this.hands = hands;
+    constructor(name, gender, inhabitant, age, say) {
+        super (name, gender, inhabitant, age);
+        this.legs = 2;
+        this.hands = 2;
+        this.say = say;
     }
 }
-let cat = new Animal('Simon', 'male', 'Cat', 3);
-cat.whatSayAnimal();
-let dog = new Animal('Scooby', 'male', 'Dog', 5);
-dog.whatSayAnimal();
-let man = new Human('Jim', 'male', 'man', 57);
-man.whatSayHuman();
-let woman = new Human('Margaret', 'female', 'woman', 94);
-woman.whatSayHuman();
+let cat = new Animal('Simon', 'male', 'Cat', 3, 'Purrrrr...');
+let dog = new Animal('Scooby', 'male', 'Dog', 5, 'ScoobyDoobyDoo!');
+let man = new Human('Jim', 'male', 'man', 57, 'It\'s show time!');
+let woman = new Human('Margaret', 'female', 'woman', 94, 'Defeat? I do not understand the meaning of this word.');
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
@@ -66,9 +56,6 @@ woman.whatSayHuman();
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
    */
-    [cat, dog].forEach(val => {
-        print(`Hi! My name is - ${val.name}. I\'m ${val.age} years old. But I\'m steel young to be a agile ${val.inhabitant}. I have ${val.legs} legs for this. Work? ${val.say}`);
-    });
-    [man, woman].forEach(val => {
-        print(`Hi! My name is - ${val.name}. I\'m ${val.age} years old. I am a real ${val.inhabitant}. I have ${val.legs} legs and ${val.hands} hands. I love to say: ${val.say}`);
-    });
+[cat, dog, man, woman].forEach(value => {
+    value.whatReturn();
+})
