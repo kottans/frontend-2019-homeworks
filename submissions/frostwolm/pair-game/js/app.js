@@ -1,13 +1,21 @@
+const FLIP_DURATION = 600;
+
 let clickedCards = [];
 let cardsNum = 12;
 let imgIDsArray = [];
 let _checkNow = false;
 
-init(cardsNum);
+init();
 
 function init(){
-    document.querySelector('.game-container').innerHTML = '';
+    let gameContainer = document.querySelector('.game-container');
     let fragment = document.createDocumentFragment();
+
+    //reset
+    gameContainer.innerHTML = '';
+    cardsNum = 12;
+    gameContainer.removeEventListener('click', onCardClickHandler);
+
     for (var i = 0; i < cardsNum; i = i + 2) {
       imgIDsArray[i] = i + 1;
       imgIDsArray[i + 1] = i + 1;
@@ -16,14 +24,15 @@ function init(){
     imgIDsArray.forEach(imgNum => {
       let flipContainer = document.createElement('div');
       flipContainer.classList.add('flip-container');
-      flipContainer.dataset.imgid = imgNum;
+      //flipContainer.dataset.imgid = imgNum;
       let flipper = document.createElement('div');
       flipper.classList.add('flipper');
       let front = document.createElement('div');
       front.classList.add('front');
       let frontImg = document.createElement('img');
       frontImg.classList.add('card');
-      frontImg.setAttribute('src', 'img/card-back.png')
+      frontImg.setAttribute('src', 'img/card-back.png');
+      frontImg.dataset.imgid = imgNum;
       let back = document.createElement('div');
       back.classList.add('back');
       let backImg = document.createElement('img');
@@ -37,13 +46,15 @@ function init(){
       flipContainer.appendChild(flipper);
       fragment.appendChild(flipContainer);
     });
-    document.querySelector('.game-container').appendChild(fragment);
-    document.querySelector('.game-container').addEventListener('click', evt => {
-      if (evt.target.classList.contains('card')) {
-        clickCard(evt.target);
-      }
-    });
+    gameContainer.appendChild(fragment);
+    gameContainer.addEventListener('click', onCardClickHandler);
 }
+
+function onCardClickHandler(evt){
+  if (evt.target.classList.contains('card')) {
+    clickCard(evt.target);
+  }
+};
 
 function clickCard(cardElement){
   if (_checkNow) {
@@ -62,16 +73,16 @@ function clickCard(cardElement){
 }
 
 function compareCards() {
-  if (clickedCards[0].parentNode.parentNode.parentNode.dataset.imgid ==
-      clickedCards[1].parentNode.parentNode.parentNode.dataset.imgid) {
+  if (clickedCards[0].dataset.imgid ==
+      clickedCards[1].dataset.imgid) {
     clickedCards.forEach(cardElem => {
       hide(cardElem);
     });
     cardsNum = cardsNum - 2;
   }else{
-    clickedCards.forEach(cardElem => {
+    setTimeout(clickedCards.forEach(cardElem => {
       flip(cardElem);
-    });
+    }), FLIP_DURATION + 100);
   }
   clickedCards = [];
   _checkNow = false;
@@ -86,9 +97,20 @@ function checkWin(){
 }
 
 function flip(cardElement){
-  cardElement.parentNode.parentNode.parentNode.classList.toggle('flip');
+  searchParentByClass(cardElement, 'flip-container').classList.toggle('flip');
 }
 
 function hide(cardElement){
-  cardElement.parentNode.parentNode.classList.add('hidden');
+  searchParentByClass(cardElement, 'flipper').classList.add('hidden');
+}
+
+function searchParentByClass(elem, className){
+  if (elem.parentNode === document.documentElement) {
+    return null;
+  }
+  if (elem.parentNode.classList.contains(className)) {
+    return elem.parentNode;
+  } else {
+    return searchParentByClass(elem.parentNode, className);
+  }
 }

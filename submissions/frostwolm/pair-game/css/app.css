@@ -8,12 +8,13 @@
   display: flex;
   width: 450px;
   flex-wrap: wrap;
+  perspective: 1000px;
 }
 
 .flip-container{
   width: 100px;
   height: 100px;
-  perspective: 1000px;
+
   padding: 5px;
 }
 
