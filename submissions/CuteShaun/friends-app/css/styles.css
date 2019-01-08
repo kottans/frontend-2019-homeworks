@@ -216,10 +216,10 @@ input {
   }
 
   .card {
-    flex: 0 1 calc(100% / 2 - 20px);
+    flex: 0 1 calc(100% / 2 - 10px);
     min-width: 110px;
-    margin-left: 10px;
-
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
   .filter-group {
