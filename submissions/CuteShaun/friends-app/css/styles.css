@@ -44,7 +44,7 @@ input {
 .container {
   width: 100%;
   height: 100%;
-  max-width: 1370px;
+  max-width: 1470px;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -57,13 +57,12 @@ input {
 }
 
 .person-list {
-  width: 74%;
+  width: 75%;
   display: flex;
   max-height: 500px;
   overflow-y: auto;
-  flex-wrap: wrap;
   background-color: #fac3a8;
-  justify-content: space-between;
+  justify-content: center;
   padding: 10px 10px;
   border-radius: 4px;
   -webkit-box-shadow: 0px 6px 41px 2px rgba(243, 113, 50, 0.58);
@@ -71,8 +70,13 @@ input {
   box-shadow: 0px 6px 41px 2px rgba(243, 113, 50, 0.58);
 }
 
+.person-list__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .filter-group {
-  width: 25%;
+  width: 24%;
   display: flex;
   flex-flow: column;
   max-height: 270px;
@@ -121,7 +125,9 @@ input {
 .card {
   margin-bottom: 10px;
   width: 24.5%;
+  flex: 0 1 calc(100% / 4 - 14px);
   max-width: 300px;
+  min-width: 223px;
   max-height: 400px;
   text-align: center;
   border: 6px solid rgba(243, 113, 50, 1);
@@ -130,6 +136,10 @@ input {
   -webkit-box-shadow: 0px 6px 41px 2px rgba(243, 113, 50, 0.58);
   -moz-box-shadow: 0px 6px 41px 2px rgba(243, 113, 50, 0.58);
   box-shadow: 0px 6px 41px 2px rgba(243, 113, 50, 0.58);
+}
+
+.card {
+  margin-left: 10px;
 }
 
 .card .card__img {
@@ -144,11 +154,18 @@ input {
 
 .card__name {
   text-align: center;
+  margin: 8px 0;
 }
 
 .card__text {
   text-align: left;
   font-size: 14px;
+}
+
+.card__email,
+.card__phone,
+.card__age {
+  margin: 4px 0;
 }
 
 .main-button {
@@ -199,7 +216,10 @@ input {
   }
 
   .card {
-    width: 49%;
+    flex: 0 1 calc(100% / 2 - 20px);
+    min-width: 110px;
+    margin-left: 10px;
+
   }
 
   .filter-group {
@@ -243,8 +263,13 @@ input {
   }
 }
 
-@media screen and (min-width: 925px) and (max-width: 1300px) {
+@media screen and (min-width: 925px) and (max-width: 1352px) {
   .card {
     width: 32%;
+  }
+
+@media screen and (min-width: 1032px) and (max-width: 1353px) {
+  .card {
+    flex: 0 1 calc(100% / 3 - 13px);
   }
 }
