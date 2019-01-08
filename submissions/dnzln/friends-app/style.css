@@ -25,6 +25,36 @@ body {
     border-radius: 1%;
 }
 
+.reset-button {
+    height: auto;
+    width: 227px;
+    padding: 15px;
+    margin: 0 20px 35px 20px;
+    font-size: 16px;
+    background-color: #ffffff;
+    border-radius: 3%;
+    border: none;
+    box-shadow: 0 0 10px #d3d3d3cc;
+}
+
+.reset-button:hover {
+    cursor: pointer;
+}
+
+.reset-button:active {
+    opacity: 0.5;
+    cursor: auto;
+    background-color: #4141410e;
+}
+
+.search-info {
+    display: flex;
+    width: 100%;
+    font-size: 1.5em;
+    margin: 0;
+    padding: 25px 0 0 25px;
+}
+
 .radio-button {
     display: none;
 }
@@ -36,10 +66,18 @@ body {
     border: 2px solid #ffffff;
     padding: 8px;
     border-radius: 3%;
+    box-shadow: 0 0 10px #d3d3d3cc;
 }
 
-.checked {
-    border: 2px solid #81b2dabd;
+.radio-img:hover {
+    cursor: pointer;
+}
+
+.radio-button:checked + .radio-img {
+    border: none;
+    opacity: 0.5;
+    cursor: auto;
+    background-color: #4141410e;
 }
 
 .sex-filter,
@@ -97,6 +135,7 @@ body {
     background-color: #fafafa;
     border: 1px solid #d3d3d3cc;
     box-shadow: 0 0 10px #d3d3d3cc;
+    cursor: pointer;
 }
 
 .user-card {
@@ -115,6 +154,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 0.5em;
+}
+
+.user-data {
+    line-height: 1.2em;
 }
 
 .main-footer {
@@ -146,14 +189,14 @@ body {
     .menu {
         width: 230px;
         margin-right: 10px;
-        max-height: 410px;
-    }
-
-    .radio-img {
-        margin: 0 5px;
+        max-height: 490px;
     }
 
     .search-input {
+        width: 180px;
+    }
+
+    .reset-button {
         width: 180px;
     }
 
@@ -164,7 +207,6 @@ body {
 
     .blocks {
         width: 140px;
-        height: auto;
     }
 
 }
@@ -177,7 +219,11 @@ body {
     .menu {
         width: 300px;
         margin-right: 10px;
-        max-height: 420px;
+        max-height: 500px;
+    }
+
+    .reset-button {
+        width: 180;
     }
 
     .content-column {
@@ -188,7 +234,6 @@ body {
 
     .blocks {
         width: 150px;
-        height: auto;
     }
 
 }
@@ -202,12 +247,16 @@ body {
 
     .menu {
         width: 300px;
-        max-height: 420px;
+        max-height: 500px;
         margin-right: 10px;
     }
 
     .search-input {
         width: auto;
+    }
+
+    .reset-button {
+        width: 227;
     }
 
     .content-column {
@@ -220,12 +269,10 @@ body {
 
     .blocks {
         width: 22.5%;
-        height: auto;
-        max-height: 260px;
+        max-height: 300px;
     }
 
     .user-card {
         margin: 30px auto 0 auto;
     }
 }
-

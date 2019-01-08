@@ -4,28 +4,22 @@ const FEMAIL_INPUT = document.querySelector('input[value=female]');
 const FILTERS = document.querySelector('.filters');
 const SEARCH_FIELD = document.getElementById('search-field');
 const LABELS_IMG = document.getElementsByClassName('radio-img');
+const RESET = document.querySelector('.reset-button');
+var nameFlag = 0;
+var ageFlag = 0;
 var usersArray = [];
 
 fetch('https://randomuser.me/api/?results=48')
-    .then( response => {response.json()
+    .then( response => response.json())
     .then( data => {
         usersArray = data.results
         printingUsers(usersArray)
-	})
-    });
+    })
 
 function printingUsers(usersArray) {
-    isChecked(); 
-    MAIN_CONTAINER.innerHTML = '';
     let fragment = document.createDocumentFragment();
     usersArray.forEach(
         function(user) {
-
-            if(FEMAIL_INPUT.checked) if(user.gender == 'female') return;
-            if(MAIL_INPUT.checked) if(user.gender == 'male') return;
-            if(!`${user.name.first} ${user.name.last}`.includes(SEARCH_FIELD.value)) return;
-            
-
             let block = document.createElement('div');
             block.classList.add('blocks');
             fragment.appendChild(block);
@@ -62,36 +56,58 @@ FILTERS.addEventListener('click', function () {
     switch(event.target.value) {
         case 'all':
         case 'male':
-        case 'female': printingUsers(usersArray); break;
+        case 'female': sortAndSearch(usersArray); break;
         case 'age-down':
-            usersArray.sort(function(a, b){return a.dob.age-b.dob.age})
-            printingUsers(usersArray.reverse()); break;          
+            if(!ageFlag || ageFlag === 1) {
+                usersArray.sort(function(a, b){return a.dob.age-b.dob.age})
+                sortAndSearch(usersArray.reverse());
+                nameFlag = 0;
+                ageFlag = 2;
+            }
+            break;
         case 'age-up':
-            usersArray.sort(function(a, b){return a.dob.age-b.dob.age})
-            printingUsers(usersArray); break;
+            if(!ageFlag || ageFlag === 2) {
+                usersArray.sort(function(a, b){return a.dob.age-b.dob.age})
+                sortAndSearch(usersArray);
+                nameFlag = 0;
+                ageFlag = 1;
+            }
+            break;
         case 'name-down':
-            usersArray = sortName(usersArray);
-            printingUsers(usersArray); break;
+            if(!nameFlag || nameFlag === 1) {
+                usersArray = sortName(usersArray);
+                sortAndSearch(usersArray);
+                ageFlag = 0;
+                nameFlag = 2;
+            }
+            break;
         case 'name-up':
-            usersArray = sortName(usersArray);
-            printingUsers(usersArray.reverse()); break;
+            if(!nameFlag || nameFlag === 2) {
+                usersArray = sortName(usersArray);
+                sortAndSearch(usersArray.reverse());
+                ageFlag = 0;
+                nameFlag = 1;
+            }
+            break;
     }
     }
 );
 
 SEARCH_FIELD.addEventListener('input', function() {
-    printingUsers(usersArray); 
+    sortAndSearch(usersArray);            
 });
 
-function isChecked(){
-    for(let i = 0; i < LABELS_IMG.length; i++) {
-        if(LABELS_IMG[i].nextSibling.checked) {
-            LABELS_IMG[i].classList.add('checked'); 
-        } else {
-            LABELS_IMG[i].classList.remove('checked');
+RESET.addEventListener('click', function() {
+    let inputs = document.querySelectorAll('.radio-button');
+    inputs.forEach(
+        function(elem) {
+            elem.checked = false;
         }
-    }
-}
+    );
+    SEARCH_FIELD.value = '';
+    MAIN_CONTAINER.innerHTML = '';
+    printingUsers(usersArray);          
+});
 
 function sortName(usersArray) {
     usersArray.sort(function(a, b){
@@ -101,5 +117,30 @@ function sortName(usersArray) {
         return 0;
     });
     return usersArray;
+}
+
+function sortAndSearch(usersArray) {
+    let userArrayLocal = [];
+    usersArray.forEach(
+        function(user) {
+            if(FEMAIL_INPUT.checked) if(user.gender == 'female') return;
+            if(MAIL_INPUT.checked) if(user.gender == 'male') return;
+            if(!`${user.name.first} ${user.name.last}`.includes(SEARCH_FIELD.value)) return;
+            userArrayLocal.push(user);
+        });
+    
+    MAIN_CONTAINER.innerHTML = '';
+
+    if(SEARCH_FIELD.value != 0) {
+        let searchInfo = document.createElement('p');
+        searchInfo.classList.add('search-info');
+        if(userArrayLocal.length == 0) {
+            searchInfo.innerHTML = `No matches found :(`;
+        } else {
+            searchInfo.innerHTML = `${userArrayLocal.length} was found:`;
+        }
+        MAIN_CONTAINER.appendChild(searchInfo);
+    }
+    printingUsers(userArrayLocal);
 }
 
