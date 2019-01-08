@@ -1,6 +1,6 @@
 (function() {
-  const URL = "https://randomuser.me/api/?results=32";
-  const main = document.getElementById("main");
+  const URL = "https://randomuser.me/api/?results=100";
+  const main = document.getElementById("card-container");
   const sortNameBtn = document.getElementById("sort-name");
   const sortAgeBtn = document.getElementById("sort-age");
   const filterAgeBtn = document.getElementById("filter-age");
@@ -10,7 +10,7 @@
   const resetBtn = document.getElementById("reset");
   let DATA = [];
   let html;
-  let count = 0;
+  let sortBy = "asc";
 
   function handleErrors(response) {
     if (!response.ok) {
@@ -54,47 +54,38 @@
     main.innerHTML = html;
   }
 
-  function sortAge(data) {
+  function sort(data, switcher) {
     let sortArr = [...data];
-    count++;
+    let currentValA;
+    let currentValB;
 
-    if (count % 2 !== 0) {
-      sortArr.sort((a, b) => {
-        if (a.dob.age < b.dob.age) return -1;
-        else if (a.dob.age > b.dob.age) return 1;
-        return 0;
-      });
-      appendData(sortArr);
-    } else {
-      sortArr.sort((a, b) => {
-        if (a.dob.age < b.dob.age) return 1;
-        else if (a.dob.age > b.dob.age) return -1;
-        return 0;
-      });
-      appendData(sortArr);
-    }
-  }
-
-  function sortName(data) {
-    let sortArr = [...data];
     sortArr.sort((a, b) => {
-      let nA = a.name.first.toLowerCase();
-      let nB = b.name.first.toLowerCase();
+      if (switcher !== "name") {
+        currentValA = a.dob.age;
+        currentValB = b.dob.age;
+      } else {
+        currentValA = a.name.first.toLowerCase();
+        currentValB = b.name.first.toLowerCase();
+      }
 
-      if (nA < nB) return -1;
-      else if (nA > nB) return 1;
+      if (currentValA < currentValB) return -1;
+      else if (currentValA > currentValB) return 1;
       return 0;
     });
-    appendData(sortArr);
+
+    sortBy === "desc" ? appendData(sortArr.reverse()) : appendData(sortArr);
+    if (sortBy === "asc") {
+      sortBy = "desc";
+    } else {
+      sortBy = "asc";
+    }
   }
 
   function filterAge(data) {
     let inputVal = ageInput.value;
     let filterArr = [...data];
 
-    filterArr = filterArr.filter(
-      item => String(item.dob.age).indexOf(inputVal) === 0
-    );
+    filterArr = filterArr.filter(item => String(item.dob.age) === inputVal);
     appendData(filterArr);
   }
 
@@ -114,8 +105,8 @@
   function render(data) {
     appendData(data);
 
-    sortNameBtn.addEventListener("click", () => sortName(data));
-    sortAgeBtn.addEventListener("click", () => sortAge(data));
+    sortNameBtn.addEventListener("click", () => sort(data, "name"));
+    sortAgeBtn.addEventListener("click", () => sort(data, "age"));
     filterAgeBtn.addEventListener("click", () => filterAge(data));
     filterNameBtn.addEventListener("click", () => filterName(data));
     resetBtn.addEventListener("click", () => reset(data));
