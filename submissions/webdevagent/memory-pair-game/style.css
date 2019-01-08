@@ -1,0 +1,75 @@
+.flip-box {
+  width: 160px;
+  height: 106.5px;
+  margin: 1px;
+}
+
+.flip-box-inner, .flip-box-front, .flip-box-back, .flip-box-back img {
+  width: inherit;
+  height: inherit;
+}
+
+.catGallery {
+  margin: 30px auto;
+  max-width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flip-box-inner {
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  display: none;
+}
+
+.transformCard {
+  transform: rotateY(180deg);
+}
+
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.flip-box-front {
+  background-color: #2980b9;
+  z-index: 2;
+}
+
+.flip-box-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #2980b9;
+  letter-spacing: .1em;
+}
+
+h2 {
+  width: 125px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+.right {
+  transform: rotateY(540deg);
+}
+
+h2:hover {
+  color: lightgrey;
+}
+
+.start {
+  display: block;
+}
+
+@media (max-width:501px) {
+  .flip-box {
+    width: 80px;
+    height: 53.25px;
+  }
+}
