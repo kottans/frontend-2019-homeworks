@@ -32,7 +32,7 @@ class GameUnit {
 }
 
 class Enemy extends GameUnit {
-    constructor(speed = enemySpeed, x = 0, y, sprite = enemyImg) {
+    constructor(x = 0, y, sprite = enemyImg, speed = enemySpeed) {
         super(x, y, sprite)
         this.speed = speed;
     }
@@ -75,7 +75,7 @@ class Player extends GameUnit {
 }
 
 let allEnemies = enemyLocation.map(function (locationY) {
-    enemy = new Enemy(500, locationY);
+    let enemy = new Enemy(500, locationY);
     return enemy;
 });
 
