@@ -2,8 +2,8 @@
  * Helper functions
  */
 
- function getId(id){return document.getElementById(id)}
- function arrayShuffle(arr){return arr.sort(() => 0.5 - Math.random())};
+ getId = (id) => document.getElementById(id);
+ arrayShuffle = (arr) => arr.sort(() => 0.5 - Math.random());
 
 /*
  * Events
@@ -40,13 +40,9 @@ movesBest = movesCurrent = 0;
 function startGame(){
 	matched = movesCurrent = 0;
 
-	const frag = document.createDocumentFragment();
-	let arr = arrayShuffle(formArray());
-	arr.forEach(img => {
-		frag.appendChild(makeTile(img));
-	});
+	let shuffled = arrayShuffle(formArray());
 	board.innerHTML = '';
-	board.appendChild(frag);
+	board.append(...shuffled.map(img => makeTile(img)));
 }
 
 function formArray(){
@@ -69,8 +65,7 @@ function makeTile(img){
 	tileImg.alt = img;
 
 	tile.appendChild(flipper);
-	flipper.appendChild(front);
-	flipper.appendChild(back);
+	flipper.append(front, back);
 	back.appendChild(tileImg);
 
 	return tile;
@@ -90,7 +85,6 @@ function checkForMatch(elem){
 
 		if(getImg(flipped[0]) == getImg(flipped[1])){
 			flipped.forEach(elem => {
-				console.log(elem);
 				elem.classList.add('matched');
 			});
 			flipped.length = 0;
@@ -112,11 +106,13 @@ function checkForWin(){
 	if(matched * 2 === boardWidth * boardHeight){
 		modal.classList.remove('hidden');
 
+		let msg = '';
 		if(!movesBest || movesCurrent < movesBest){
 			movesBest = movesCurrent;
-			winMsg.textContent = 'New best!';
+			msg = 'New best!';
 		}
-		else winMsg.textContent = 'You win!';
+		else msg = 'You win!';
+		winMsg.textContent = msg;
 		movesBestElem.textContent = movesBest;
 	}
 }
