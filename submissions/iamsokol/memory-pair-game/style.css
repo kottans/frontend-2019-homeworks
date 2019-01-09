@@ -1,0 +1,74 @@
+body, *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.gameBlock{
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+.gameBlock div{
+    width: calc(25% - 20px);
+    height: 10vw;
+    margin: 10px;
+    position: relative;
+    padding: 10px;
+    border: 2px solid #795548;
+    pointer-events: none;
+    transition: 0.5s;
+    transform: rotateY(180deg);
+}
+.gameBlock .success {
+    transform: rotateY(180deg);
+    transition: 0.5s;
+    border: none;
+}
+.gameBlock .hide {
+    transform: rotateY(0deg);
+    cursor: pointer;
+    pointer-events: auto;
+}
+.gameBlock .success img{
+    opacity: 1;
+}
+.gameBlock .hide:after {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff url(https://images.vexels.com/media/users/3/150832/isolated/preview/9eea74b840962e166f60aeb287df4654-3d-question-mark-doodle-by-vexels.png);
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.result{
+    position: absolute;
+    top: -25px;
+    left: 0;
+}
+.gameBlock .hide img{
+    opacity: 0;
+}
+.gameBlock div img{
+    width: 100%;
+    display: block;
+    transition: 0.5s;
+    transition-delay: 0.1s;
+    opacity: 1;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .gameBlock div{
+        height: 16vw;
+    }
+    .gameBlock {
+        width: 90%;
+    }
+}
