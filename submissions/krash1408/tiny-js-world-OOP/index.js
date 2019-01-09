@@ -7,33 +7,38 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 class Create {
-    constructor(gender, name, age, say, species, legs, hands) {
+    constructor(gender, name, age, say, species, legs) {
         this.gender = gender;
         this.name = name;
         this.say = say;
         this.species = species;
         this.age = age;
         this.legs = legs;
-        this.hands = hands;
     }
     whatReturn() {
-        return print(`Gender: ${this.gender}, name: ${this.name}, say: ${this.say}, species: ${this.species}, age: ${this.age}, legs ${this.legs}, hands: ${this.hands}`);
+     if (this.hands == undefined) {
+        return (`Gender: ${this.gender}, name: ${this.name}, say: ${this.say}, species: ${this.species}, age: ${this.age}, legs: ${this.legs}`);
+     } else {
+         return (`Gender: ${this.gender}, name: ${this.name}, say: ${this.say}, species: ${this.species}, age: ${this.age}, legs: ${this.legs}, hands: ${this.hands}`)
+     }
     }
 }
 
 class Human extends Create {
     constructor ( gender, name, age, say, species = 'Human', legs = '2', hands = '2') {
-        super (gender, name, age, say, species, legs, hands);
+        super (gender, name, age, say, species, legs);
+        this.hands = hands;
     }
+    
 }
 class Dog extends Create {
-    constructor (gender, name, age, say = 'Woof!', species = 'Dog', legs = '4', hands = '0') {
-        super (gender, name, age, say, species, legs, hands);
+    constructor (gender, name, age, say = 'Woof!', species = 'Dog', legs = '4') {
+        super (gender, name, age, say, species, legs);
     }
 }
 class Cat extends Create {
-    constructor (gender, name, age, say = 'Meow!', species = 'Cat', legs = '4', hands = '0') {
-        super (gender, name, age, say, species, legs, hands);
+    constructor (gender, name, age, say = 'Meow!', species = 'Cat', legs = '4') {
+        super (gender, name, age, say, species, legs);
     }
 }
 
@@ -60,6 +65,4 @@ let dog = new Dog('male', 'Scooby', 7);
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
 */
-[woman, man, cat, dog].forEach(value => {
-    value.whatReturn();
-})
+[man, woman, cat, dog].forEach( val => print(val.whatReturn(), 'div') )
