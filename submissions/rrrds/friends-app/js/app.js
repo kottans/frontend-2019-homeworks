@@ -11,7 +11,7 @@ class Component {
   setValue(state = {}) {
     if (!this.props.valueName) return;
 
-    if (!Object.prototype.hasOwnProperty.call(state, this.props.valueName)) return;
+    if (!state.hasOwnProperty(this.props.valueName)) return;
 
     const newValue = state[this.props.valueName];
 
@@ -265,6 +265,5 @@ class FriendApp {
   }
 }
 
-// const app = new FriendApp('https://randomuser.me/api/?results=50');
-const app = new FriendApp('http://httpstat.us/500');
+const app = new FriendApp('https://randomuser.me/api/?results=50');
 app.init();
