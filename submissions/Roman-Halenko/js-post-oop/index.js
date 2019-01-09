@@ -6,49 +6,57 @@
    */
 
 // ======== OBJECTS DEFINITIONS ========
-class Inhab {
-    constructor(nature, gender, name, says, legs, hands) {
+class Inhabitian {
+    constructor(nature, gender, name, says, legs) {
         this.nature = nature;
         this.gender = gender;
         this.name = name;
         this.says = says;
         this.legs = legs;
-        this.hands = hands;
         this.friends = [];
     }
 
-    addFriend() {
-        let arr = Array.prototype.slice.call(arguments);
-        arr.forEach(e => this.friends.push(e));
+    addFriend(...friendObjects) {
+        this.friends = this.friends.concat(friendObjects);
     }
 
     about() {
         return [
-          `${this.name} is a `,
-          `${this.nature}. Sometime says: `,
-          `${this.says} Has `,
-          `${this.legs} legs, `,
-          `${this.hands} hands. Friendly with: `,
-          `${this.friends.map(e => e.name).join(', ')}. `,
-          `${this.gender}, as you may guess.`
-        ].join('');
+          `name: ${this.name}`,
+          `nature: ${this.nature}`,
+          `says: ${this.says}`,
+          `legs: ${this.legs}`,
+          `friends: ${this.friends.map(e => e.name).join(', ')}`,
+          `gender: ${this.gender}`
+        ].join('; ');
     }
 };
 
-class Human extends Inhab {
+class Human extends Inhabitian {
     constructor(nature, gender, name, says, legs = 2, hands = 2) {
-        super(nature, gender, name, says, legs, hands);
+        super(nature, gender, name, says, legs);
+        this.hands = hands;
+    }
+
+    about() {
+        return super.about() + `; hands: ${this.hands};`;
     }
 };
 
-class Animal extends Inhab {
-    constructor(nature, gender, name, says, legs = 4, hands = 0) {
-        super(nature, gender, name, says, legs, hands);
+class Cat extends Inhabitian {
+    constructor(nature, gender, name, says, legs = 4) {
+        super(nature, gender, name, says, legs);
     }
 };
 
-const cat = new Animal('cat', 'female', 'Jessy', 'Wanna eat!');
-const dog = new Animal('dog', 'male', 'Kim', 'Awa-waw!');
+class Dog extends Inhabitian {
+    constructor(nature, gender, name, says, legs = 4) {
+        super(nature, gender, name, says, legs)
+    }
+};
+
+const cat = new Cat('cat', 'female', 'Jessy', 'Wanna eat!');
+const dog = new Dog('dog', 'male', 'Kim', 'Awa-waw!');
 const woman = new Human('woman', 'female', 'Kate', 'I need hugs!');
 const man = new Human('man', 'male', 'Justin', 'I love comics.');
 
