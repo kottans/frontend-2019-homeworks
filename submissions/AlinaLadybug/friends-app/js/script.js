@@ -5,25 +5,40 @@ let usersData = [];
 let filteredData = [];
 let radios;
 
-document.addEventListener("DOMContentLoaded", executeWhenReady);
-function executeWhenReady() {
-    getData(URL);
+document.addEventListener("DOMContentLoaded", () => getData(URL));
+
+function getData(URL) {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', URL);
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            parseData(xhr.responseText);
+        }
+        else {
+            alert('Request failed.  Returned status of ' + xhr.status);
+        }
+    };
+    xhr.send();
+    addListeners();
 }
 
+
+function parseData(response) {
+    let data = JSON.parse(response);
+    usersData = data.results;
+    createContent(data.results, setInfo);
+}
 
 
 function addListeners() {
     let search = document.querySelector('.form-inline');
     search.addEventListener('input', searchFunc);
 
-    let ageDesc = document.querySelector('.age-desc');
-    let ageAsc = document.querySelector('.age-asc');
-    let nameDesc = document.querySelector('.name-desc');
-    let nameAsc = document.querySelector('.name-asc');
-    ageDesc.addEventListener('click', sort);
-    ageAsc.addEventListener('click', sort);
-    nameDesc.addEventListener('click', sort);
-    nameAsc.addEventListener('click', sort);
+    let navArrows = document.querySelectorAll('.navbar-nav img');
+    navArrows.forEach(navArrow => {
+        navArrow.addEventListener('click', sort);
+    })
 
     radios = document.querySelectorAll('.radio-inline input');
     radios.forEach(radio => {
@@ -40,8 +55,9 @@ function resetFilters({ target }) {
     deactivateImg();
     radios.forEach(radio => {
         radio.checked = false;
-    })
-
+    });
+    clearContent();
+    createContent(usersData, setInfo);
 }
 
 function deactivateImg() {
@@ -49,17 +65,15 @@ function deactivateImg() {
     arrows.forEach(arrow => {
         arrow.classList.remove('active-arrow');
     });
-    clearContent();
-    createContent(usersData, setInfo);
 }
 
 function sort({ target }) {
-    let className = target.classList[0];
+    let order = target.dataset.order;
     deactivateImg();
     target.classList.add('active-arrow');
     filteredData = usersData;
     clearContent();
-    switch (className) {
+    switch (order) {
         case 'age-asc':
             filteredData = usersData.sort(function (a, b) {
                 return a['dob']['age'] - b['dob']['age'];
@@ -130,29 +144,6 @@ function searchFunc({ target }) {
 }
 
 
-function getData(URL) {
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', URL);
-
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            parseData(xhr.responseText);
-        }
-        else {
-            alert('Request failed.  Returned status of ' + xhr.status);
-        }
-    };
-    xhr.send();
-    addListeners();
-}
-
-function parseData(response) {
-    let data = JSON.parse(response);
-    usersData = data.results;
-    createContent(data.results, setInfo);
-}
-
-
 function createContent(results, setInfo) {
     let container = document.querySelector('.container .row');
 
@@ -166,8 +157,10 @@ function createContent(results, setInfo) {
 
 function createCard(info) {
     let col = document.createElement('div');
-    col.classList.add('col-md-3');
+    col.classList.add('col-xs-12');
     col.classList.add('col-sm-6');
+    col.classList.add('col-md-3');
+
     let card = document.createElement('div');
     card.classList.add('card');
     let cardBody = document.createElement('div');

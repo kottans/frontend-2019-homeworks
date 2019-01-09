@@ -9,8 +9,8 @@
     <script src="js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -25,13 +25,13 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link active-link" href="#">Age</a>
-                    <img class="age-asc" src="img/up-arrow.png" alt="">
-                    <img class="age-desc" src="img/down-arrow.png" alt="">
+                    <img data-order="age-asc" src="img/up-arrow.png" alt="">
+                    <img data-order="age-desc" src="img/down-arrow.png" alt="">
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Name</a>
-                    <img class="name-asc" src="img/up-arrow.png" alt="">
-                    <img class="name-desc" src="img/down-arrow.png" alt="">
+                    <img data-order="name-asc" src="img/up-arrow.png" alt="">
+                    <img data-order="name-desc" src="img/down-arrow.png" alt="">
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Gender</a>
@@ -40,12 +40,11 @@
                 </li>
 
             </ul>
-            <form class="form-inline" onsubmit="return false">
+            <form class="form-inline my-2 my-lg-0" onsubmit="return false">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="reset btn btn-outline-warning my-2 my-sm-0" type="button">Reset</button>
             </form>
-            <button type="button" class="reset btn btn-outline-warning">
-                Reset
-            </button>
+
         </div>
     </nav>
 
