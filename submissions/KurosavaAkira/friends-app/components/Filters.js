@@ -1,11 +1,18 @@
-import { friendsData } from './Data.js';
+import { friendsData, recalculateCardPositions } from './Data.js';
 
 const options = {
     sort : ''
 }
 
+const asc = (a, b) =>  a - b; 
+const desc = (a, b) =>  b - a; 
+
+const ascName = (a, b) =>  a.toLowerCase().localeCompare(b.toLowerCase());
+const descName = (a, b) =>  b.toLowerCase().localeCompare(a.toLowerCase());
+
 const filtersHtml = () => {
-    return `<div class="filters-container">
+    return `<div class="dark-layer"></div>
+            <div class="filters-container">
                 <input id="search" autocomplete="off" placeholder="Search...">
                 <div class="sorting-buttons">
                     <button id="age" value="age">age</button>
@@ -38,37 +45,25 @@ const addButtonsEvent = () => {
 const sortAge = () => {
     if (options.sort === 'age') {
         options.sort = 'age-reverse';
-        friendsData.sort((a, b) => {
-            return b.age - a.age;
-        }); 
-    }
-    else {
+        friendsData.sort((a, b) => desc(a.age, b.age)); 
+    } else {
         options.sort = 'age';
-        friendsData.sort((a, b) => {
-            return a.age - b.age;
-        });
+        friendsData.sort((a, b) => asc(a.age, b.age));
     }
 }
 
 const sortReset = () => {
-    friendsData.sort((a, b) => {
-        options.sort = 'reset';
-        return a.id - b.id;
-    }); 
+    options.sort = 'reset';
+    friendsData.sort((a, b) =>  asc(a.id, b.id)); 
 }
 
 const sortName = () => {
     if (options.sort === 'name') {
         options.sort = 'name-reverse';
-        friendsData.sort((a, b) => {
-            return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
-        }); 
-    }
-    else {
+        friendsData.sort((a, b) => descName(a.name, b.name));
+    } else {
         options.sort = 'name';
-        friendsData.sort((a, b) => {
-            return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-        });
+        friendsData.sort((a, b) => ascName(a.name, b.name));
     }
 }
 
@@ -81,34 +76,27 @@ const highlightActiveButton = (value) => {
 }
 
 const highlightActiveButtonOption = (button) => {
-    switch (options.sort) {
-        case 'age':
-        case 'name':
-        case 'reset':
-            button.classList.add('sorting-buttons-active');
-            button.classList.remove('sorting-buttons-active-reverse')
-            break;
-        case 'age-reverse':
-        case 'name-reverse':
-            button.classList.add('sorting-buttons-active');
-            button.classList.add('sorting-buttons-active-reverse')
-            break;
+    const sortingOptions = ['age', 'name', 'reset'];
+    button.classList.add('sorting-buttons-active');
+    if (sortingOptions.includes(options.sort)) {
+        button.classList.remove('sorting-buttons-active-reverse');
+    } else {
+        button.classList.add('sorting-buttons-active-reverse');
     }
 }
 
 const addSearchEvent = () => {
     const search = document.getElementById('search');
-    let events = ['keyup', 'input'];
+    let events = ['input'];
     events.forEach(event => search.addEventListener(event, (e) => {
             friendsData.forEach((friend, i) => {
-                const friend_node = document.getElementById(friendsData[i].id); 
+                const friendNode = document.getElementById(friendsData[i].id); 
                 if (inputEqualToFriendName(e, friend)) {
-                    friendsData[i].visible = true;
-                    friend_node.classList.remove('friend-hide');
-                }
-                else {
-                    friendsData[i].visible = false;
-                    friend_node.classList.add('friend-hide');
+                    friendsData[i].isVisible = true;
+                    friendNode.classList.remove('friend-hide');
+                } else {
+                    friendsData[i].isVisible = false;
+                    friendNode.classList.add('friend-hide');
                 }
             }); 
             sortVisibleToTop();
@@ -119,7 +107,7 @@ const addSearchEvent = () => {
 
 const sortVisibleToTop = () => {
     friendsData.sort((a, b) => {
-        return b.visible - a.visible;
+        return b.isVisible - a.isVisible;
     }); 
 }
 
@@ -129,18 +117,11 @@ const inputEqualToFriendName = (e, friend) => {
 }
 
 const updateDom = () => {
-    const items_in_row = 7;
-    let x = 0;
-    let y = -180;
-    for (let i = 0; i < friendsData.length; i++) {
-        if (i % items_in_row === 0) {
-        y += 180;
-        x = 0;
-        }
-        else x += 150;
-        const friend_node = document.getElementById(friendsData[i].id);
-        friend_node.style.transform = `translate(${x}px, ${y}px)`;
-    }
+    const positions = recalculateCardPositions(friendsData);
+    positions.forEach(({ x, y }, i) => {
+        const node = document.getElementById(friendsData[i].id);
+        node.style.transform = `translate(${x}px, ${y}px)`;
+    });
 }
 
 const render = () => {

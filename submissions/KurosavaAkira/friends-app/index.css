@@ -34,7 +34,6 @@ input {
 
 input::placeholder{
 	font-size: 30px;
-	/*padding-left: 100px;*/
 	color: #0b0f14;
 }
 
@@ -45,9 +44,6 @@ input::placeholder{
 }
 
 #search {
-    /*top: calc(50% - 20px);
-    left: calc(50% - 160px);
-    transform: translate(-50%, -50%);*/
     font-family: Helvetica;
     font-weight: 500;
     font-size: 30px;
@@ -57,7 +53,7 @@ input::placeholder{
     color: #bbcdee;
     background-color: #232d39;
     padding: 10px 0;
-    transition: all .3s ease-out, top .5s ease-in-out;
+    transition: color .3s ease-out, background-color .3s ease-out, box-shadow .3s ease-out;
     overflow-x: hidden;
 }
 
@@ -74,7 +70,12 @@ input::placeholder{
     text-align: center;
     background-color: #232d39;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transition: filter 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+.filters-container-disable {
+    pointer-events: none !important;
+    opacity: 0.2 !important;
 }
 
 .sorting-buttons {
@@ -113,9 +114,28 @@ input::placeholder{
 
 .friends-list {
     position: relative;
+    height: 100%;
     width: 1042px;
     margin: 0 auto;
     margin-top: 20px;
+    transition: transform 1.5s ease-in-out !important;
+}
+.friends-list-transform {
+    transform: scale(0.95) !important;
+    transition: transform 1s ease-in-out !important;
+}
+.dark-layer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: background-color 1.5s ease-in-out, opacity 1.5s ease-in-out;
+}
+
+.dark-layer-visible {
+    background-color: #0b0f14 !important;
+    opacity: .8 !important;
+    transition: background-color 1s ease-in-out, opacity 1s ease-in-out;
 }
 
 .friend {
@@ -125,23 +145,19 @@ input::placeholder{
     margin: 20px;
     z-index: 1;
     cursor: pointer;
-    transition: all 1.5s ease-in-out, filter 1s ease-in-out;
+    transition: transform 1.2s ease-in-out, z-index 1.2s ease-in-out, opacity 1s ease-in-out;
 }
 
 .friend-selected {
     z-index: 200 !important;
-    transform: scale(3) !important;
-    transform: scale(3) translate(150px, 50px) !important;
+    transform: scale(3.1) translate(150px, 50px) !important;
+    transition: transform 1s ease-in-out, z-index 1s ease-in-out, opacity 1s ease-in-out;
 }
 
 .friend-not-selected {
     pointer-events: none !important;
-    filter: blur(10px) grayscale(0.6) !important;
-}
-
-.filters-container-disable {
-    pointer-events: none !important;
-    filter: blur(10px) !important;
+    opacity: 0.1 !important;
+    /*filter: blur(10px) grayscale(0.6) !important;*/
 }
 
 .age-phone-visible {
@@ -201,23 +217,5 @@ input::placeholder{
     color: #8ccff1bd;
     background-color: #303d56be;
     border-top: .5px solid #0d121bbe !important;
-    transition: all .5s ease-in;
+    transition: padding .5s ease-in, font-size .5s ease-in, height .5s ease-in, opacity .5s ease-in, color .5s ease-in, background-color .5s ease-in, border-top .5s ease-in;
 }
-/*
-.photo:hover ~ .age, 
-.photo:hover ~ .phone {
-    position: relative;
-    height: 20px;
-    opacity: 1;
-}
-
-.friend:hover {
-    transform: scale(2);
-    margin: 0 auto;
-    height: 170px;
-}
-
-.friend:hover ~ .friend {
-    
-}
-*/
