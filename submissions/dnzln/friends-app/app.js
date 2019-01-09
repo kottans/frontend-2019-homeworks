@@ -125,13 +125,13 @@ function sortAndSearch(usersArray) {
         function(user) {
             if(FEMAIL_INPUT.checked) if(user.gender == 'female') return;
             if(MAIL_INPUT.checked) if(user.gender == 'male') return;
-            if(!`${user.name.first} ${user.name.last}`.includes(SEARCH_FIELD.value)) return;
+            if(!`${user.name.first} ${user.name.last}`.includes(SEARCH_FIELD.value.toLowerCase())) return;
             userArrayLocal.push(user);
         });
     
     MAIN_CONTAINER.innerHTML = '';
 
-    if(SEARCH_FIELD.value != 0) {
+    if(SEARCH_FIELD.value) {
         let searchInfo = document.createElement('p');
         searchInfo.classList.add('search-info');
         if(userArrayLocal.length == 0) {
