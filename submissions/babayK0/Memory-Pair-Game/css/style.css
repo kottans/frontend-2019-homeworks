@@ -60,11 +60,6 @@ body{
   	visibility: hidden;
   	transition: opacity 0.3s, visibility 0s ease-out 0.4s;
 }
-/*X-originalsize*/
-/*X/2     X/4*/
-/*207.5px; 103.75*/
-/*156px;  78*/
-
 @media screen and (min-width: 2400px) {
 	.game-container{
 	width: 640px;
