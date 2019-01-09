@@ -1,0 +1,49 @@
+main {	
+	display: flex;
+	flex-wrap: wrap;	
+	justify-content: center;
+}
+
+.top {	
+	display: flex;	
+	justify-content: center;
+	align-items: center;	
+	text-align: center;
+	background: pink;
+	border-radius: 5px;
+	width: 98%;	
+}
+
+.nav {
+	background: pink;
+	border-radius: 5px;	
+	width: 25%;
+	margin: 5px;
+	padding: 5px;
+}
+.nav-list a {
+	text-decoration: none;
+}
+.nav-list li {
+	list-style: none;
+	margin-bottom: 5px;
+}
+
+.content {	
+	background: pink;
+	border-radius: 5px;	
+	width: 70%;
+	margin: 5px;
+	padding: 5px;	
+	text-align: justify;
+	justify-content: center;
+}
+
+.content img {	
+	border-radius: 5px;
+}
+
+.content p {
+	
+	text-align: justify;
+}
