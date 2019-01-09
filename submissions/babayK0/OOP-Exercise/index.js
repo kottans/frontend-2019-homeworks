@@ -10,7 +10,7 @@
 const MALE = 'male';
 const FEMALE = 'female';
 class Organism{
-   constructor(gender,name,saying,friends,species,legs,hands){
+   constructor(gender,name,saying,friends,species,legs,hands,abouthands){
       this.species=species;
       this.gender=gender;
       this.name=name;
@@ -18,22 +18,32 @@ class Organism{
       this.friends=null;
       this.legs=legs;
       this.hands=hands;
+      this.abouthands = `I have ${this.hands} hands and ${this.legs} legs!`;
    }
-   get info(){
+get info(){
       return `I am ${this.species}-${this.gender}.My name is <strong>${this.name} </strong>.`
-         +(this.hands=='0' ? `I have not hands but have ${this.legs} legs!`:`I have ${this.hands} hands and ${this.legs} legs!`)
          +(this.friends==null ? '...oh, i haven\'t friends:(':`My friends are ${this.friends}.`)
-         +`My favorite phrase is: <strong>${this.saying}</strong>`;
+         
    }
 }
 class Human extends Organism{
-   constructor(gender,name,saying,friends,species='human',legs='2',hands='2'){
-      super(gender,name,saying,friends,species,legs,hands);
+   constructor(gender,name,saying,friends,species='human',legs='2',hands='2',abouthands){
+      super(gender,name,saying,friends,species,legs,hands,abouthands);
+   }
+   get info(){
+      return super.info+this.abouthands+` My favorite phrase is: <strong>${this.saying}</strong>`;
    }
 }
 class Animal extends Organism{
-   constructor(gender,name,saying,friends,species,legs='4',hands){
-      super(gender,name,saying,friends,species,legs,hands);
+   constructor(gender,name,saying,friends,species,legs='4',hands,abouthands){
+      super(gender,name,saying,friends,species,legs,hands,abouthands);
+      this.paws = `I have  ${this.legs} paws!`;
+   }
+   get info(){
+      return super.info
+      +`${this.saying}`
+      +(this.hands=='0' ? this.paws : this.abouthands)
+      +` ${this.saying} As you can say my favorite phrase is: ${this.saying}`;
    }
 }
 class Dog extends Animal{
@@ -63,7 +73,7 @@ dog.friends = `${cat.name} and ${man.name}`;
 cat.friends = `${dog.name} and ${woman.name}`;
 woman.friends = `${man.name} and ${cat.name}`;
 man.friends = `${woman.name} and ${dog.name}`;
-catwoman.friends = `${woman.name} and ${woman.friends}`
+catwoman.friends = `${woman.name} and ${woman.friends}`;
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
