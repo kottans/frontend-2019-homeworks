@@ -6,7 +6,7 @@
    */
 
 // ======== OBJECTS DEFINITIONS ========
-class Inhabitian {
+class Inhabitant {
     constructor(nature, gender, name, says, legs) {
         this.nature = nature;
         this.gender = gender;
@@ -32,7 +32,7 @@ class Inhabitian {
     }
 };
 
-class Human extends Inhabitian {
+class Human extends Inhabitant {
     constructor(nature, gender, name, says, legs = 2, hands = 2) {
         super(nature, gender, name, says, legs);
         this.hands = hands;
@@ -43,13 +43,13 @@ class Human extends Inhabitian {
     }
 };
 
-class Cat extends Inhabitian {
+class Cat extends Inhabitant {
     constructor(nature, gender, name, says, legs = 4) {
         super(nature, gender, name, says, legs);
     }
 };
 
-class Dog extends Inhabitian {
+class Dog extends Inhabitant {
     constructor(nature, gender, name, says, legs = 4) {
         super(nature, gender, name, says, legs)
     }
