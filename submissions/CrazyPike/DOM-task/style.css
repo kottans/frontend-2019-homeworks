@@ -1,0 +1,33 @@
+body{
+    display:flex;
+}
+#menu{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+
+}
+#main{
+    width: 70%;
+    border: 1px solid lightgrey;
+    border-left: none;
+    background-color: rgba(231,231,231,0.6);
+}
+.itemMenu{
+    border-top: 1px solid lightgrey;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+    height: 40px;
+    padding-left: 20px;
+    padding-bottom: auto;
+    padding-top: auto;
+
+}
+.itemMenu:last-child {
+    border-bottom: 1px solid lightgrey;
+}
+.active{
+    border-right: 0px;
+    background-color: rgba(231,231,231,0.6);
+
+}

@@ -3,62 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        body{
-            display:flex;
-        }
-        #menu{
-            width: 30%;
-            display: flex;
-            flex-direction: column;
-
-        }
-        #main{
-            width: 70%;
-            border: 1px solid lightgrey;
-            border-left: none;
-            background-color: rgba(231,231,231,0.6);
-        }
-        .itemMenu{
-            border-top: 1px solid lightgrey;
-            border-left: 1px solid lightgrey;
-            border-right: 1px solid lightgrey;
-            height: 40px;
-            padding-left: 20px;
-            padding-bottom: auto;
-            padding-top: auto;
-
-        }
-        .itemMenu:last-child {
-            border-bottom: 1px solid lightgrey;
-        }
-        .active{
-            border-right: 0px;
-            background-color: rgba(231,231,231,0.6);
-
-        }
-    </style>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
 <div id="menu"></div><div id="main"></div>
-<script>
-    let previousItem = 0;
-    let menuItems = [{name:'topic1', text: 'text1'},
-        {name:'topic2', text: 'text2'},
-        {name:'topic3', text: 'text3'},
-        {name:'topic4', text:   'text4'}];
- document.getElementById('menu').innerHTML = menuItems.map((item,index) => `<div class="itemMenu" id="item${index}">${item.name}</div>`).join(' ');
- document.getElementById('menu').addEventListener('click', (event) =>{
-     let target = event.target;
-     if (!(target.className !== 'itemMenu' || target.className !== 'itemMenu active')) return;
-     document.getElementById(`item${previousItem}`).className = 'itemMenu';
-     target.className = 'itemMenu active';
-     previousItem = target.id.match(/\d+/g)[0];
-     document.getElementById('main').innerText = menuItems[target.id.match(/\d+/g)[0]]['text'];
- });
- document.getElementById('item0').click();
-
-
-</script>
+<script src="index.js"></script>
 </body>
 </html>
