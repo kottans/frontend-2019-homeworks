@@ -1,5 +1,5 @@
 const restartButton = document.querySelector('.restart');
-const galleryContainer = document.querySelector('.catGallery');
+const galleryContainer = document.querySelector('.cat-gallery');
 let checkCard = null;
 let canOpenCard = true;
 let checkCardInnerCard;
