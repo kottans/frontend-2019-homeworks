@@ -7,7 +7,6 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
-
 const man = {
   species: 'human',
   name: 'Nick',
@@ -24,15 +23,6 @@ const woman = {
   legs: 2,
   hands: 2,
   saying: 'Where is money, Nick?!'
-};
-
-const subman = {
-  species: 'human',
-  name: 'Andy',
-  gender: 'male',
-  legs: 2,
-  hands: 2,
-  saying: 'CS GO - my favorite game!'
 };
 
 const dog = {
@@ -53,15 +43,15 @@ const cat = {
   saying: 'mrrr... iu-iu!'
 };
 
-const womancat = {
-    species: 'human',
+const womanCat = {
+    species: 'womanCat',
     name: 'Busya',
     gender: 'female',
     legs: 2,
     hands: 2,
     saying: cat.saying    
 };
-
+const inhabitans = [man, woman, dog, cat, womanCat];
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
@@ -80,9 +70,7 @@ const womancat = {
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
    */
-print(man.species + '; ' + man.name + '; ' + man.gender + '; ' + man.legs + '; ' + man.hands + '; ' + man.saying);
-print(woman.species + '; ' + woman.name + '; ' + woman.gender + '; ' + woman.legs + '; ' + woman.hands + '; ' + woman.saying);
-print(womancat.species + '; ' + womancat.name + '; ' + womancat.gender + '; ' + womancat.legs + '; ' + womancat.hands + '; ' + womancat.saying);
-print(subman.species + '; ' + subman.name + '; ' + subman.gender + '; ' + subman.legs + '; ' + subman.hands + '; ' + subman.saying);
-print(dog.species + '; ' + dog.name + '; ' + dog.gender + '; ' + dog.legs + '; ' + dog.hands + '; ' + dog.saying);
-print(cat.species + '; ' + cat.name + '; ' + cat.gender + '; ' + cat.legs + '; ' + cat.hands + '; ' + cat.saying);
+
+inhabitans.forEach(function(item, i, arr) {  
+    print(`Species: ${item.species}; Name: <strong>${item.name}</strong>; Gender: ${item.gender}; Have ${item.legs} legs and ${item.hands} hands. If dont sleep, saying: <em>${item.saying}</em>`);
+});
