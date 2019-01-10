@@ -231,7 +231,7 @@ label:focus{
     .sortage {
         justify-content: center;
     }
-    .header, .filter{
+    .header, .filter, .result{
         position: relative;
         text-align: center;
     }
