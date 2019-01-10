@@ -1,0 +1,30 @@
+.main {
+    font-family: Arial;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.sidebar {
+    width: 400px;
+    background: grey;
+    padding: 30px;
+}
+
+.list {
+    font-size: 13px;
+    display: inline-block;
+    color: white;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.list:hover {
+    color: lightblue;
+}
+
+.content {
+    background: lightgrey;
+    padding: 30px;
+    width: 100%;
+}
