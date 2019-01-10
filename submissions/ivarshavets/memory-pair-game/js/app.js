@@ -8,16 +8,9 @@ const initGame = () => {
 		cards.sort(() => 0.5 - Math.random())
 
 		cards.forEach(card => {
-			const cardEl = document.createElement('div')
-			cardEl.setAttribute('class', 'card')
-			cardEl.setAttribute('data-name', card.id)
-
-			const img = document.createElement('img')
-			img.setAttribute('class', 'card__img')
-			img.setAttribute('src', card.image)
-
-			cardEl.appendChild(img)
-			cardsHolder.appendChild(cardEl)
+			cardsHolder.innerHTML += `<div class="card" data-name="${card.id}">
+				<img src="${card.image}" class="card__img">
+			</div>`
 		})
 	}
 
