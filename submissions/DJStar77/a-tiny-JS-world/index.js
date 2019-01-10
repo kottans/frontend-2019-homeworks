@@ -72,5 +72,5 @@ const inhabitans = [man, woman, dog, cat, womanCat];
    */
 
 inhabitans.forEach(function(item, i, arr) {  
-    print(`Species: ${item.species}; Name: <strong>${item.name}</strong>; Gender: ${item.gender}; Have ${item.legs} legs and ${item.hands} hands. If dont sleep, saying: <em>${item.saying}</em>`);
+    print(`Species: ${item.species}; Name: <strong>${item.name}</strong>; Gender: ${item.gender}; Have ${item.legs} legs and ${item.hands} hands. If not sleeping, says: <em>${item.saying}</em>`);
 });
