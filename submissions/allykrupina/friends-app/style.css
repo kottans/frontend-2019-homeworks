@@ -1,0 +1,183 @@
+*, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+body{
+    background: #f5f9e9;
+}
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+}
+h1{
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    background: -moz-linear-gradient(45deg, rgba(131,48,80,1) 0%, rgba(218,118,135,1) 100%);
+    background: -webkit-linear-gradient(45deg, rgba(131,48,80,1) 0%, rgba(218,118,135,1) 100%);
+    background: linear-gradient(45deg, rgba(131,48,80,1) 0%, rgba(218,118,135,1) 100%);
+}
+h4{
+    font-weight: 100;
+    text-transform: lowercase;
+    padding-bottom: 5px;
+}
+p, a{
+    color: #5f5f5f;
+}
+main{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin-top: 60px;
+}
+.filter-age input,
+.filter-gender input{
+    display: none;
+}
+label{
+    cursor: pointer;
+    display: inline-block;
+}
+label .fa{
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 10px;
+}
+input:checked + label{
+    background: #d97586;
+    border-radius: 10px;
+    color: #fff;
+}
+#genderFilter label{
+    display: block;
+}
+input:focus,
+button:focus,
+label:focus{
+    outline: none;
+}
+.button{
+    display: block;
+    box-shadow: none;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    text-transform: lowercase;
+    font-size: 16px;
+    background: #ddd;
+}
+.button:hover{
+    background: #aeaeae;
+    cursor: pointer;
+}
+.filter{
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 200px;
+    padding: 80px 20px 20px;
+    background: #fff;
+    margin-right: 20px;
+    box-shadow: 5px 0px 20px 0px rgb(197, 197, 197);
+}
+.filter > div{
+    margin-bottom: 30px;
+}
+.filtername{
+    padding: 8px 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.friends{
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% - 220px);
+    margin-left: 220px;
+    justify-content: center;
+    padding: 25px 10px;
+}
+.friend-item{
+    width: 300px;
+    transition: 0.2s;
+    margin: 0 20px 50px;
+    border-radius: 20px;
+    padding-bottom: 30px;
+    background: #fff;
+    overflow: hidden;
+    text-align: center;
+    -webkit-box-shadow: 5px 5px 18px 0px rgba(168,168,168,1);
+    -moz-box-shadow: 5px 5px 18px 0px rgba(168,168,168,1);
+    box-shadow: 5px 5px 18px 0px rgba(168,168,168,1);
+}
+.friend-item:hover{
+    transform: scale(0.97);
+    cursor: pointer;
+    opacity: 0.8;
+}
+.friend-img{
+    text-align: center;
+    padding: 30px 0 50px;
+    background: url(img/card.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+.friend-img img{
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.friend-name {
+    padding: 10px 10px 0px;
+    text-transform: uppercase;
+}
+.friend-name + p {
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+.friend-social{
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+.friend-social a{
+    padding: 0 15px;
+}
+.friend-social i{
+    color: #5f5f5f;
+}
+.friend-social + p {
+    font-size: 12px;
+    padding: 15px;
+}
+.friend-detail{
+    font-size: 12px;
+    padding: 15px;
+}
+#filter[gender="male"] + #friends div[gender="female"]{
+    display: none;
+}
+#filter[gender="female"] + #friends div[gender="male"]{
+    display: none;
+}
+.result {
+    display: none;
+    position: fixed;
+    z-index: 11;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffb7c4;
+    padding: 20px 80px;
+    border-radius: 30px;
+    box-shadow: 5px 5px 20px 0px rgb(197, 197, 197);
+}

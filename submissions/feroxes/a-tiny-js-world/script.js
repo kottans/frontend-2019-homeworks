@@ -1,36 +1,43 @@
-class Creature {
-    constructor(whoIs, gender, name, say, legs){
-        this.whoIs = whoIs;
+class Inhabitant {
+    constructor(species, gender, name, saying, legs, hands) {
+        this.species = species;
         this.gender = gender;
         this.name = name;
-        this.say = say;
+        this.saying = saying;
         this.legs = legs;
-    }
-    toSay(){
-            console.log(this.say);
-        }
-    print(){
-        let info = [];
-        
-        for(let key in this){
-           info.push(this[key]);
-        }
-        let str = info.join('; ');
-        console.log(str);
-    }
-}
-class Person extends Creature{
-     constructor(whoIs, gender, name, say, legs, hands, friends){
-        super(whoIs, gender, name, say, legs)
         this.hands = hands;
-        this.friends = friends;
-     }
+    }
 }
 
+class Dog extends Inhabitant {
+    constructor(gender, name, say = 'Auuuuu!', legs = 4, hands = 0) {
+        super('Dog', gender, name, say, legs, hands);
+    }
+}
 
+class Cat extends Inhabitant {
+    constructor(gender, name, say = 'Meuuu!', legs = 4, hands = 0) {
+        super('Cat', gender, name, say, legs, hands);
+    }
+}
 
-let nick = new Person('human', 'male', 'Nick','Hellooooo...',2 ,2, ['Kate', 'Jane']);
-let helen = new Person('human', 'female', 'Helen', 'Hi!', 2,2)
+class Human extends Inhabitant {
+    constructor(gender, name, say, legs = 2, hands = 2) {
+        super('Human', gender, name, say, legs, hands);
+    }
+}
 
-let bars = new Creature('cat', 'female', 'Bars', 'Meuuuu', 4, 0);
-let skot = new Creature('dog', 'male', 'Skot', 'Auuuuu!', 4, 0);
+const printInfo = inhabitant => {
+    print(`${inhabitant.species}; ${inhabitant.name}; ${inhabitant.gender}; ${inhabitant.legs}; ${inhabitant.hands}; ${inhabitant.saying}`);
+}
+
+const inhabitantsArray = [
+    new Human( 'male', 'Nick', 'Hellooooo...'),
+    new Human('female', 'Helen', 'Hi!'),
+    new Dog('female', 'Bars'),
+    new Cat('male', 'Skot')
+]
+
+inhabitantsArray.forEach(inhabitant => {
+    printInfo(inhabitant);
+});
