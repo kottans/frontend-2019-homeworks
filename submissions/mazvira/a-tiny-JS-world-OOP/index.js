@@ -20,69 +20,44 @@ Inhabitant.prototype.printInhabitants =  function() {
 }
 
 var Human = function(name, gender, saying, friends){
-    Inhabitant.apply(this, arguments);
-    this.species = 'human';
-    this.legs = 2;
+    Inhabitant.apply(this,['human', name, gender, 2, saying, friends]);
     this.hands = 2;
 }
 
 Human.prototype = Object.create(Inhabitant.prototype);
 Human.prototype.constructor = Human;
 Human.prototype.printInhabitants = function () {
-    return Inhabitant.prototype.printInhabitants.apply(this) + this.hands;
+    return [Inhabitant.prototype.printInhabitants.apply(this), this.hands].join(' - ');
 }
 
 var FourLeggedAnimal = function(species, name, gender, saying, friends){
-    Inhabitant.apply(this, arguments);
-    this.legs = 4;
+    Inhabitant.apply(this, [species, name, gender, 4, saying, friends]);
 }
 
 FourLeggedAnimal.prototype = Object.create(Inhabitant.prototype);
 FourLeggedAnimal.prototype.constructor = FourLeggedAnimal;
 
 var Dog = function(name, gender, saying, friends){
-    FourLeggedAnimal.apply(this, arguments);
-    this.species = 'dog';
+    FourLeggedAnimal.apply(this, ['dog', name, gender, saying, friends]);
 }
 
 Dog.prototype = Object.create(FourLeggedAnimal.prototype);
 Dog.prototype.constructor = Dog;
 
 var Cat = function(name, gender, saying, friends){
-    FourLeggedAnimal.apply(this, arguments);
-    this.species = 'cat';
+    FourLeggedAnimal.apply(this, ['cat', name, gender, saying, friends]);
 }
 
 Cat.prototype = Object.create(FourLeggedAnimal.prototype);
 Cat.prototype.constructor = Cat;
 
-var name = 'Toby';
-var gender = 'male';
-var saying = 'woof-woof!';
-var friends = ["Tom", "Olena", "Sergejs"];
+var dog = new Dog('Toby', 'male', 'woof-woof!', ['Tom', 'Olena', 'Sergejs']);
 
-var dog = new Dog(name, gender, saying, friends);
+var cat = new Cat('Tom', 'male', 'meow!', ['Toby', 'Olena', 'Sergejs']);
 
-name = 'Tom';
-gender = 'male';
-saying = 'meow!';
-friends = ["Toby", "Olena", "Sergejs"];
+var woman = new Human('Olena', 'female', 'Hello world!', ['Toby', 'Tom', 'Sergejs']);
 
-var cat = new Cat(name, gender, saying, friends);
-
-name = 'Olena';
-gender = 'female';
-saying = 'Hello world!';
-friends = ["Toby", "Tom", "Sergejs"];
-
-var woman = new Human(name, gender, saying, friends);
-
-name = 'Sergejs';
-gender = 'male';
-saying = 'Hello world!';
-friends = ["Toby", "Tom", "Olena"];
-
-var man = new Human(name, gender, saying, friends);
+var man = new Human('Sergejs', 'male', 'Hello world!', ['Toby', 'Tom', 'Olena']);
 
 // ======== OUTPUT ========
 
