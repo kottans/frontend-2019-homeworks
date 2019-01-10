@@ -16,20 +16,17 @@ class Create {
         this.legs = legs;
     }
     whatReturn() {
-     if (this.hands == undefined) {
         return (`Gender: ${this.gender}, name: ${this.name}, say: ${this.say}, species: ${this.species}, age: ${this.age}, legs: ${this.legs}`);
-     } else {
-         return (`Gender: ${this.gender}, name: ${this.name}, say: ${this.say}, species: ${this.species}, age: ${this.age}, legs: ${this.legs}, hands: ${this.hands}`)
-     }
     }
 }
-
 class Human extends Create {
     constructor ( gender, name, age, say, species = 'Human', legs = '2', hands = '2') {
         super (gender, name, age, say, species, legs);
         this.hands = hands;
     }
-    
+    whatReturn() {
+        return (super.whatReturn() + `, hands: ${this.hands}`)
+    }
 }
 class Dog extends Create {
     constructor (gender, name, age, say = 'Woof!', species = 'Dog', legs = '4') {
@@ -41,12 +38,10 @@ class Cat extends Create {
         super (gender, name, age, say, species, legs);
     }
 }
-
 let woman = new Human('male', 'Jane', 57, 'Holla!');
 let man = new Human('male' , 'John', 57, 'I love development.');
 let cat = new Cat('male', 'Simon', 3);
 let dog = new Dog('male', 'Scooby', 7);
-
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
