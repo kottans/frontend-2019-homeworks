@@ -1,10 +1,20 @@
-main {	
-	display: flex;
-	flex-wrap: wrap;	
-	justify-content: center;
+@import url(https://fonts.googleapis.com/css?family=Roboto);;
+html, body {
+	margin: 0;
+	padding: 0;
 }
 
-.top {	
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.main {	
+	display: flex;
+	flex-wrap: wrap;	
+	justify-content: center;	
+}
+
+.header {	
 	display: flex;	
 	justify-content: center;
 	align-items: center;	
@@ -41,9 +51,4 @@ main {
 
 .content img {	
 	border-radius: 5px;
-}
-
-.content p {
-	
-	text-align: justify;
 }
