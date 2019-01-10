@@ -1,0 +1,164 @@
+html {
+    font-size: 10px;
+}
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 1.6rem;
+    background-image: url('../img/bg.png');
+    background-repeat: repeat;
+    width: 100vw;
+    height: 100vh;
+}
+.main-navigation {
+    width: 100%;
+}
+.main-navigation__list{
+    margin: auto;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(128, 128, 128);
+}
+.main-navigation__item {
+    margin: 0;
+    padding: 0;
+    line-height: 8rem;
+    flex: 1 1 20rem;
+    text-align: center;
+    font-size: 6rem;
+    cursor: pointer;
+    border: .1rem solid rgb(169, 169, 169);
+    will-change: background-color;
+    transition: background-color .5s;
+}
+.text {
+    color: rgba(220,20,60,.6);
+    filter: drop-shadow(.5rem .5rem 1rem rgba(255, 0, 0, 1)) invert(30%);
+}
+.main-navigation__item:hover {
+    background-color: rgb(158, 158, 158);
+}
+.main-navigation__item:hover .text {
+    filter: drop-shadow(0 0 .4rem rgba(220, 20, 60, 1));
+}
+.game-field {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.game-field__wrapper {
+    width: 64rem;
+    height: 64rem;
+    background-color: rgb(173, 216, 230);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    border-radius: .5rem;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+.card {
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    border-radius: .5rem;
+    margin: .5rem;
+    perspective: 100rem;
+    cursor: pointer;
+    will-change: opacity;
+    transition: opacity .5s linear;
+    opacity: 1;
+
+}
+.card__wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition: transform .5s;
+}
+.card__wrapper--click {
+    transform: rotateY(180deg);
+}
+.help-btn--click {
+    transform: rotateY(180deg);
+}
+.card__front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 145, 61, 0.589);
+    border-radius: inherit;
+    transform: rotateY(0deg);
+    z-index: 2;
+    backface-visibility: hidden;
+}
+.card__back {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(235, 34, 34, 0.616);
+    border-radius: inherit;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    font-size: 14rem;
+    line-height: 15rem;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+.same-cards {
+    opacity: 0;
+    cursor: auto;
+}
+.main-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 8rem;
+    background-color: rgb(128, 128, 128);
+}
+.footer__contacts {
+    width: 7rem;
+    height: 7rem;
+    margin: auto .3rem;
+    filter: drop-shadow(1.6rem 1.6rem 2rem rgba(255, 0, 0, 1)) invert(30%);
+}
+.footer__contacts:hover {
+    filter: drop-shadow(0 0 .4rem rgba(220, 20, 60, 1));
+}
+.svg-inline--fa {
+    width: 7rem;
+    height: 7rem;
+}
+@media (max-width: 720px) {
+    .main-navigation__item {
+        line-height: 5rem;
+        font-size: 4rem;
+    }
+    .game-field__wrapper {
+        width: 44rem;
+        height: 44rem;
+    }
+    .card {
+        position: relative;
+        width: 10rem;
+        height: 10rem;
+    }
+    .main-footer {
+        height: 5rem;
+    }
+}
