@@ -84,10 +84,10 @@ label{
     background: rgba(73, 27, 105, 0.46);
     color: #fff;
 }
-#filterBlock[gender="male"] + .main #mainBlock .friend-item[gender="female"]{
+#filterBlock[gender="male"] + .main #mainBlock .item[gender="female"]{
     display: none;
 }
-#filterBlock[gender="female"] + .main #mainBlock .friend-item[gender="male"]{
+#filterBlock[gender="female"] + .main #mainBlock .item[gender="male"]{
     display: none;
 }
 input:checked + label .fa,
