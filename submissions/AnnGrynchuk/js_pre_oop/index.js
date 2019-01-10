@@ -7,6 +7,7 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
+
 const inhebitant = function(species, name, gender, legs, hands, saying){
     this.species = species;
     this.name = name;
@@ -30,5 +31,6 @@ const man = new inhebitant('human', 'Alex', 'male', 2, 2, 'Lets go to bar!');
 inhebitants.push(dog,cat,woman,man);
 
 inhebitants.forEach(item =>print(item.joinInhebitantsInString()));
+
 
 
