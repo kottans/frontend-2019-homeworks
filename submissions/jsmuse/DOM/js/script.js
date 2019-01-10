@@ -33,10 +33,11 @@ const data = [
 
 const mainHeading = document.getElementById('sidebar-list');
 const contentBlock = document.getElementById('content');
-const isContent = contentBlock.firstElementChild;
 
 // func for updating content text
 const updateContent = (currentIndex) => {
+    const isContent = contentBlock.firstElementChild;
+
     isContent && contentBlock.removeChild(isContent);
     const contentElem = document.createElement('div');
     const textContent = document.createTextNode(data[currentIndex].content);
@@ -55,7 +56,6 @@ data.map((item, index) => {
 
     myPara.addEventListener('click', () => {
         updateContent(index);
-        console.log('The heading was clicked!');
     });
 
     mainHeading.appendChild(myPara);
