@@ -2,7 +2,6 @@ let mainArray = [];
 let sortArray = [];
 let sortElementsArray = [];
 const friendsAmount = 30;
-// const getFriendsList = `https://rer.me/api/?results=${friendsAmount}&nat=us`;
 const getFriendsList = `https://randomuser.me/api/?results=${friendsAmount}&nat=us`;
 const notFound = 'Friends not found';
 
@@ -42,7 +41,7 @@ let filterRender = (arr) => {
 }
 let errorsHandler = (text) => {
     infoBlock.innerHTML = text;
-    infoBlock.style.display = 'block';
+    infoBlock.classList.add("show");
 }
 let randomInteger = (min, max) => {
     let rand = min - 0.5 + Math.random() * (max - min + 1);
@@ -54,8 +53,8 @@ let renderItem = (el) => {
     element.classList.add("item");
     element.setAttribute("gender", el.gender);
     let content = `
-        <div class="img">
-            <img src=${el.picture.large} alt=${el.name.last}>
+        <div class="image">
+            <img class="image-item" src=${el.picture.large} alt=${el.name.last}>
         </div>
         <div class="info">
             <p class="title">${el.name.first} ${el.name.last}</p>
@@ -83,7 +82,7 @@ let renderItem = (el) => {
 let Container = (renderBlock, itemsArray) => {
     sortElementsArray = [];
     if(itemsArray.length){
-        infoBlock.style.display = 'none';
+        infoBlock.classList.remove("show");
         itemsArray.map(item => {
             renderItem(item);
         });

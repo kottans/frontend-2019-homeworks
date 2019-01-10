@@ -15,7 +15,7 @@ button:focus,
 label:focus{
     outline: none;
 }
-header{
+.header{
     position: fixed;
     width: 100%;
     top: 0;
@@ -34,9 +34,6 @@ header{
     font-size: 25px;
     padding: 5px;
 }
-label{
-    cursor: pointer;
-}
 .filter{
     position: fixed;
     width: 100%;
@@ -50,17 +47,17 @@ label{
     background: -webkit-linear-gradient(left, rgb(162,126,208) 0%,rgb(221,182,247) 100%);
     background: linear-gradient(to right, rgb(162,126,208) 0%,rgb(221,182,247) 100%);
 }
-.sortgender input,
-.sortage input{
+.sortgender .radio-input,
+.sortage .radio-input{
     display: none;
 }
 .sortage {
     display: flex;
 }
-.sortgender label{
+.sortgender .radio-label{
     margin-right: 15px;
 }
-.sortage div:first-child{
+.sortage .sortage-item:first-child{
     padding-right: 20px;
 }
 .filtername{
@@ -68,6 +65,7 @@ label{
     line-height: 1;
     margin-top: 5px;
     border: none;
+    width: 200px;
 }
 .drop{
     padding: 10px 5px;
@@ -84,16 +82,24 @@ label{
     background: rgba(73, 27, 105, 0.46);
     color: #fff;
 }
-#filterBlock[gender="male"] + .main #mainBlock .item[gender="female"]{
+.filter[gender="male"] + .main .friends .item[gender="female"]{
     display: none;
 }
-#filterBlock[gender="female"] + .main #mainBlock .item[gender="male"]{
+.filter[gender="female"] + .main .friends .item[gender="male"]{
     display: none;
 }
-input:checked + label .fa,
-input:checked + label span{
+.radio-label{
+    cursor: pointer;
+    transition: 0.3s;
+}
+.radio-label:hover{
     color: #fff;
 }
+.radio-input:checked + .radio-label .fa,
+.radio-input:checked + .radio-label .radio-title{
+    color: #fff;
+}
+
 .friends {
     display: flex;
     flex-wrap: wrap;
@@ -135,7 +141,7 @@ input:checked + label span{
     width: calc(100% - 210px);
     text-align: left;
 }
-.img{
+.image{
     display: inline-block;
     padding: 25px;
     background: url('circle.png');
@@ -144,7 +150,7 @@ input:checked + label span{
     margin-right: 30px;
     width: 180px;
 }
-.img img{
+.image .image-item{
     width: 128px;
     border-radius: 50%;
 }
@@ -168,4 +174,18 @@ input:checked + label span{
 .social .fa {
     display: block;
     padding-bottom: 5px;
+    text-align: center;
+}
+.result {
+    text-align: center;
+    font-size: 25px;
+    position: fixed;
+    top: 50%;
+    width: 100%;
+    left: 0;
+    transform: translateY(-50%);
+    display: none;
+}
+.result.show{
+    display: block;
 }
