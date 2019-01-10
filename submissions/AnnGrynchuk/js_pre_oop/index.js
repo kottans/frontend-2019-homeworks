@@ -7,45 +7,28 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
-const inhebitants = [ 
-    {species: 'dog',
-    name: 'Toby',
-    gender: 'male',
-    legs: 4,
-    hands: 0,
-    saying: 'woof-woof!'},
+const inhebitant = function(species, name, gender, legs, hands, saying){
+    this.species = species;
+    this.name = name;
+    this.gender = gender;
+    this.legs = legs;
+    this.hands = hands;
+    this.saying = saying;
+};
 
-   {species: 'cat',
-    name: 'Persik',
-    gender: 'male',
-    legs: 4,
-    hands: 0,
-    saying: 'meawww-meaww!'},
+inhebitant.prototype.joinInhebitantsInString = function(){
+    
+     return [this.species,this.name,this.gender,this.legs,this.hands, this.saying].join("-");
+};
 
-   {species: 'human',
-    name: 'Poly',
-    gender: 'female',
-    legs: 2,
-    hands: 2,
-    saying: 'I am hungry!'},
+let inhebitants = [];
+const dog = new inhebitant('dog', 'Toby', 'male', 4, 0, 'woof-woof!');
+const cat = new inhebitant('cat', 'Persik', 'male', 4, 0, 'meawww-meaww!');
+const woman = new inhebitant('human', 'Poly', 'female', 2, 2, 'I am hungry!');
+const man = new inhebitant('human', 'Alex', 'male', 2, 2, 'Lets go to bar!');
 
-   {species: 'human',
-    name: 'Alex',
-    gender: 'male',
-    legs: 2,
-    hands: 2,
-    saying: 'Lets go to bar!'}
-];
+inhebitants.push(dog,cat,woman,man);
 
-function printInhebitants(item){
-    return Object.values(item).join('-');
- }
-
-inhebitants.forEach(item => print(printInhebitants(item)));
-
-inhebitants[2].saying ="I'm hungry too!";
-const newMan = Object.assign({},inhebitants[2]);
-print(newMan.saying);
-
+inhebitants.forEach(item =>print(item.joinInhebitantsInString()));
 
 
