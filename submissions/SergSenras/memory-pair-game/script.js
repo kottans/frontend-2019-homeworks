@@ -1,4 +1,4 @@
-var cardsImages = [
+let cardsImages = [
   {name: 'bulbasaur', src: 'img/bulbasaur.png'},
   {name: 'caterpie', src: 'img/caterpie.png'},
   {name: 'charmander', src: 'img/charmander.png'},
@@ -12,67 +12,61 @@ var cardsImages = [
 const DUPLICATE_AMOUNT = 2;
 const WRAPPER = document.getElementById('container');
 
-var src = []
+let src = []
+   ,shuffleArray = []
    ,cardDeck = []
    ,comparedCards = [];
 
-for(var i = 0; i < cardsImages.length; i++){
-  var j = 0;
+for(let i = 0; i < cardsImages.length; i++){
+  let j = 0;
   while(j < DUPLICATE_AMOUNT ){
     src.push(cardsImages[i]);
     j++;
   }
 }
-// shuffle array
-src = src.sort(function() { return 0.5 - Math.random() });
 
-// display all cards on the board
-function initCards() {
-  var markup = '';
-  for(var i = 0; i < src.length; i++){
-    markup += `<div class="card-container">
-                 <div class="card">
-                   <div class="back `+ src[i].name +`" style="background-image:url('`+src[i].src+`');">
-                   </div>
-                   <div class="front `+ src[i].name +`">
-                   </div>
-                 </div>
-               </div>`;
-  }
-  document.getElementById('container').insertAdjacentHTML('afterbegin',markup);
+shuffleArray = src.sort( () => 0.5 - Math.random());
+
+let getCardTemplate = (name, src) => {
+  return `<div class="card-container">
+            <div class="card">
+              <div class="back ${name}" style="background-image:url('${src}');"></div>
+              <div class="front ${name}"></div>
+            </div>
+          </div>`
 }
 
-// show card on click
-function showCard(event) {
-  let selectedCard = event.target;
-  let parentCardDiv = event.target.parentElement.parentElement;
+function initCards() {
+  let markup = '';
+  markup = shuffleArray.reduce( ( accumulator, currentValue ) => accumulator.concat(getCardTemplate(currentValue.name, currentValue.src)), '' );
+  WRAPPER.insertAdjacentHTML('afterbegin',markup);
+}
 
-  if(parentCardDiv.className.indexOf('isSelected') == -1) {
+function showCardOnClick(event) {
+  let selectedCard = event.target;
+  let parentCardDiv = event.target.closest('.card-container');
+
+  if(!parentCardDiv.classList.contains('isSelected')) {
     parentCardDiv.classList.add('isSelected');
 
     comparedCards.push(selectedCard);
     if(comparedCards.length == 2){
-      // disable click while check matching
       WRAPPER.classList.add('disableDiv');
-      cardsMatch();
+      checkCardsMatch();
     }
   } 
 }
 
-// remove cards if they match
-function cardsMatch() {
+function checkCardsMatch() {
     setTimeout(function(){
       if(comparedCards[0].className == comparedCards[1].className) {
-        // remove cards if they match
-        comparedCards.forEach( x => x.parentElement.parentElement.style.visibility = 'hidden' );
+        comparedCards.forEach( x => x.closest('.card-container').classList.add('isMatch') );
       } else {
-        // hide cards if it does not match
         comparedCards.forEach(function(el){
-          el.parentElement.parentElement.classList.remove('isSelected');
+          el.closest('.card-container').classList.remove('isSelected');
         })
       }
       comparedCards = [];
-      // enable click
       WRAPPER.classList.remove('disableDiv');
     }, 1000);
 }
@@ -80,7 +74,6 @@ function cardsMatch() {
 document.addEventListener('DOMContentLoaded', function(){
   initCards();
 
-  var container = document.getElementById('container');
-  container.addEventListener('click', showCard);
+  WRAPPER.addEventListener('click', showCardOnClick);
 })
 
