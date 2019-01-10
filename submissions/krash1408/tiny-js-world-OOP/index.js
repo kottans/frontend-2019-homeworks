@@ -20,8 +20,8 @@ class Create {
     }
 }
 class Human extends Create {
-    constructor ( gender, name, age, say, species = 'Human', legs = '2', hands = '2') {
-        super (gender, name, age, say, species, legs);
+    constructor ( gender, name, age, say, hands = '2') {
+        super (gender, name, age, say,  'Human', 2);
         this.hands = hands;
     }
     whatReturn() {
@@ -29,13 +29,13 @@ class Human extends Create {
     }
 }
 class Dog extends Create {
-    constructor (gender, name, age, say = 'Woof!', species = 'Dog', legs = '4') {
-        super (gender, name, age, say, species, legs);
+    constructor (gender, name, age) {
+        super (gender, name, age, 'Woof!', 'Dog', 4);
     }
 }
 class Cat extends Create {
-    constructor (gender, name, age, say = 'Meow!', species = 'Cat', legs = '4') {
-        super (gender, name, age, say, species, legs);
+    constructor (gender, name, age) {
+        super (gender, name, age, 'Meow!', 'Cat', 4);
     }
 }
 let woman = new Human('male', 'Jane', 57, 'Holla!');
