@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Memory - Pair game</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1 class="game-title">Memory Pair</h1>
+	<div id="board"></div>
+	<div class="backdrop hidden" id="modal">
+		<div class="modal">
+			<h2 id="win-msg">You win!</h2>
+			<p>Now you own a fortune of <big><b>186</b></big> kopiykas!</p>
+			<button class="btn" id="btn-restart">New game</button>
+		</div>
+	</div>
+	<div class="scores">
+		<p class="score">Current score: <b id="moves-current">0</b></p>
+		<p class="score">Best score: <b id="moves-best">0</b></p>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
