@@ -7,29 +7,78 @@
 
 // ======== OBJECTS DEFINITIONS ========
 
+class Entity {
+    constructor(species, name, gender, legs) {
+        this.species = species;
+        this.name = name;
+        this.gender = gender;
+        this.legs = legs;
+    }
 
-var Entity = function (species, name, gender, legs, hands, saying, friends) {
-    this.species = species;
-    this.name = name;
-    this.gender = gender;
-    this.legs = legs;
-    this.hands = hands;
-    this.saying = saying;
-    this.friends = friends;
+    toString() {
+        return [this.species, this.name, this.gender, this.legs].join(', ');
+    }
 }
 
-Entity.prototype.printInfo = function () {
-    print([this.species, this.name, this.gender, this.legs, this.hands, this.saying, this.friends].join("; "));
+class Human extends Entity {
+    constructor(name, gender) {
+        super('human', name, gender, 2);
+        this.hands = 2;
+    } 
 }
 
-const dog = new Entity('dog', 'Tody', 'male', 4, 0, 'woof-woof!', ['Sharik', 'Anfisa']);
-const cat = new Entity('cat', 'Kira', 'female', 4, 0, 'meow-meow!', ['Murka', 'Vaska']);
-const woman = new Entity('human', 'Elena', 'female', 2, 2, 'I am a woman!', ['Anna', 'Jon']);
-const man = new Entity('human', 'Alex', 'male', 2, 2, 'I am a man!', ['Tim', 'Petr']);
-const catWoman = new Entity('human', 'Eleonora', 'female', 2, 2, cat.saying, ['Super-man', 'Spider-man']);
+class Man extends Human {
+    constructor(name, saying) {
+        super(name, 'man');
+        this.saying = saying;
+    }
+    toString() {
+        return super.toString() + `${this.saying}! I have ${this.hands} hands.`;
+    }
+}
 
-var entityes = [dog, cat, woman, man, catWoman];
+class Woman extends Human {
+    constructor(name, saying) {
+        super(name, 'woman');
+        this.saying = saying;
+    }
+    toString() {
+        return super.toString() + `${this.saying}! I have ${this.hands} hands.`;
+    }
+}
 
-entityes.forEach(element => {
-    element.printInfo();
+
+class Animal extends Entity {
+    constructor(name, gender) {
+        super('aminal', name, gender, 4);
+    }
+}
+
+class Dog extends Animal {
+    constructor(name, gender, saying) {
+        super(name, gender);
+        this.saying = saying;
+    }
+    toString() {
+        return super.toString() + `${this.saying}! I have ${this.hands} hands.`;
+    }
+}
+
+class Cat extends Animal {
+    constructor(name, gender, saying) {
+        super(name, gender);
+        this.saying = saying;
+    }
+    toString() {
+        return super.toString() + `${this.saying}! I have ${this.hands} hands.`;
+    }
+}
+
+let objs = [new Woman('Ann', 'Hi'),
+            new Man('Mike', 'Hi, bro'),
+            new Dog('Bobik', 'male', 'Wof-wof'),
+            new Cat('Murka', 'female', 'Mur-mur')];
+
+objs.forEach(element => {
+    print(element);
 });
