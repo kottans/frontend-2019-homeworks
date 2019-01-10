@@ -99,6 +99,7 @@ let inferenceMainBlock = friendsList => {
     inputName.addEventListener('keyup', ({target}) => search(target.value, mainArray));
     radioGender.addEventListener('change', ({target}) => sortGender(target.value, sortArray));
     radioAge.addEventListener('change', ({target}) => sortAge(target.value, sortArray));
+    menuButton.addEventListener('click', ({target}) => menuButton.classList.toggle('open'));
     Container(mainBlock, sortArray);
 };
 
