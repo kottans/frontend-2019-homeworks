@@ -65,11 +65,9 @@ function insertContentInCards() {
 function gameRules(val) {
   const cardFrontArray = document.querySelectorAll('.card__front');
   if (!event.target.classList.contains('card__front')) {
-    console.log(event.target)
     return;
   }
   else {
-    console.log(val);
     val.target.offsetParent.classList.toggle('card__wrapper--click');
     cardsPool.push(event.target.nextSibling);
     if (cardsPool.length === 2 && checkCardsPool(cardsPool)) {
