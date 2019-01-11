@@ -1,12 +1,12 @@
 .main {
-    font-family: Arial;
+    font-family: arial, sans-serif;
     max-width: 1280px;
     margin: 0 auto;
     display: flex;
 }
 
 .sidebar {
-    width: 400px;
+    width: 300px;
     background: grey;
     padding: 30px;
 }

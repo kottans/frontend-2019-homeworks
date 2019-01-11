@@ -39,7 +39,7 @@ const updateContent = (currentIndex) => {
     const isContent = contentBlock.firstElementChild;
 
     isContent && contentBlock.removeChild(isContent);
-    const contentElem = document.createElement('div');
+    const contentElem = document.createElement(`div`);
     const textContent = document.createTextNode(data[currentIndex].content);
 
     contentElem.appendChild(textContent);
@@ -48,18 +48,19 @@ const updateContent = (currentIndex) => {
 
 // add titles
 data.map((item, index) => {
-    const myPara = document.createElement('li');
+    const myPara = document.createElement(`li`);
     const textOfParagraph = document.createTextNode(item.title);
 
-    myPara.className = 'list';
+    myPara.className = `list`;
     myPara.appendChild(textOfParagraph);
-
-    myPara.addEventListener('click', () => {
-        updateContent(index);
-    });
+    myPara.setAttribute('id', index);
 
     mainHeading.appendChild(myPara);
 });
 
-// add first text content
+mainHeading.addEventListener('click', (event) => {
+    if (event.target.tagName === 'LI') updateContent(event.target.id);
+});
+
+// add default text content
 updateContent(0);
