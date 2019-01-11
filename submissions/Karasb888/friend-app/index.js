@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const AGE_UP_INPUT = document.getElementById('ageUp');
   const AGE_DOWN_INPUT = document.getElementById('ageDown');
   const SEARCH = document.getElementById('search');
+  const INPUTS = [MALE_INPUT, FEMALE_INPUT, NAME_AZ_INPUT, NAME_ZA_INPUT, AGE_UP_INPUT, AGE_DOWN_INPUT, SEARCH];
 
   var usersContainer = document.createElement('div');
   usersContainer.classList.add('users-list');
@@ -23,40 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
       appendUsers(allUsers);
     });
 
-  MALE_INPUT.addEventListener('change', function() {
-    sortingUsers();
-  });
-
-  FEMALE_INPUT.addEventListener('change', function() {
-    sortingUsers();
-  });
-
-  NAME_AZ_INPUT.addEventListener('change', function() {
-    sortingUsers();
-  });
-
-  NAME_ZA_INPUT.addEventListener('change', function() {
-    sortingUsers();
-  });
-
-  AGE_DOWN_INPUT.addEventListener('change', function() {
-    sortingUsers();
-  });
-
-  AGE_UP_INPUT.addEventListener('change', function() {
-    sortingUsers();
-  });
-
-  SEARCH.addEventListener('focus', function() {
-    document.addEventListener('keyup', function() {
-      sortingUsers();
-    });
-  });
+  INPUTS.forEach(input => input.addEventListener('change', sortingUsers))
 
   function unloackButtons() {
     CAT.remove();
-    let inputs = [MALE_INPUT, FEMALE_INPUT, NAME_AZ_INPUT, NAME_ZA_INPUT, AGE_UP_INPUT, AGE_DOWN_INPUT, SEARCH];
-    inputs.forEach(function(item) {
+    INPUTS.forEach(function(item) {
       item.removeAttribute('disabled');
     });
   };
@@ -133,10 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
       let email = document.createElement('div');
       email.classList.add('user__email');
       email.innerHTML = item.email;
-
-      [photo, name, location, age, email].forEach(function(item) {
-        container.appendChild(item);
-      })
+      container.append(photo, name, location, age, email);
       domFragment.appendChild(container);
     });
 
