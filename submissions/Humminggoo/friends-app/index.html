@@ -11,14 +11,13 @@
     <link rel="stylesheet" href="style/range.css">
     <link rel="stylesheet" href="style/radio-button.css">
     <link rel="stylesheet" href="style/desktop.css" media="screen and (min-width:1000px)">
-    <script src="range-slider.js"></script>
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
 </head>
 <body>
 <header class="head">
     <h1 class="head-title">FriendApp</h1>
     <div class="head-search"><i class="fas fa-search icon icon-search"></i>
-        <input type="search" class="head-input-hidden" id="nameSearch"></div>
+        <input type="search" class="head-input-hidden" name="nameSearch" id="searchBar"></div>
 </header>
 <div class="menu-wrapper">
 <div class="menu" id="sort-menu">
@@ -49,8 +48,8 @@
             <legend class="filter-title">Age</legend>
             <section class="range-slider">
                 <span class="rangeValues"></span>
-                <input value="1" min="0" max="100" step="1" type="range" id="minAge" class="custom-range">
-                <input value="100" min="0" max="100" step="1" type="range" id="maxAge" class="custom-range">
+                <input value="1" min="0" max="100" step="1" type="range" name="age" class="custom-range" id="minAge">
+                <input value="100" min="0" max="100" step="1" type="range" name="age" class="custom-range" id="maxAge">
             </section>
         </fieldset>
         <fieldset class="filter filter-gender">
@@ -64,7 +63,7 @@
         </fieldset>
         <fieldset class="filter filter-location">
             <legend class="filter-title">Location</legend>
-                <input type="search" class="filter-location-field" id="locationSearch">
+                <input type="search" class="filter-location-field" name="locationSearch" id="locationBar">
         </fieldset>
     </div>
 </div>

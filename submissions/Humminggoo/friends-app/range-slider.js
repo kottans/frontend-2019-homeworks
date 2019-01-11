@@ -1,13 +1,17 @@
-document.addEventListener('DOMContentLoaded', function(){
-    let sliderSections = document.querySelectorAll(".custom-range");
-    sliderSections.forEach(i => {
-        i.oninput = getVals;
-        i.oninput();
-    });
-});
-function getVals(){
-    let slides = document.querySelectorAll(".custom-range");
-    let [slide1, slide2] = [slides[0].value, slides[1].value];
-    const displayElement = document.querySelector(".rangeValues");
-    displayElement.innerHTML = slide1 + " - " + slide2;
+class Slider {
+    constructor(){
+        this.sliderSections = document.querySelectorAll(".custom-range");
+        this.range = document.querySelector(".rangeValues");
+    }
+    handleInput(){
+        this.sliderSections.forEach(i => {
+            i.oninput = () => this.getVals();
+            i.oninput();
+        })
+    }
+    getVals() {
+        let [slide1, slide2] = [this.sliderSections[0].value, this.sliderSections[1].value];
+        this.range.innerHTML = slide1 + " - " + slide2;
+    }
 }
+export default Slider;
