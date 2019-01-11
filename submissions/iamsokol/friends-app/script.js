@@ -1,24 +1,26 @@
 let mainArray = [];
 let sortArray = [];
 let sortElementsArray = [];
-const friendsAmount = 30;
-const getFriendsList = `https://randomuser.me/api/?results=${friendsAmount}&nat=us`;
-const notFound = 'Friends not found';
+const FRIENDS_AMOUNT = 30;
+const GET_FRIENDS_LIST = `https://randomuser.me/api/?results=${FRIENDS_AMOUNT}&nat=us`;
+const NOT_FOUND = 'Friends not found';
+let wrapperBlock = document.createElement('div');
+wrapperBlock.classList.add("friends");
 
-let dropFilters = (arr) => {
-    filterBlock.setAttribute("gender", "all");
+let dropFilters = (filterArr) => {
+    filterBlock.setAttribute("data-gender", "all");
     document.querySelectorAll('[type=radio]').forEach(radio => radio.checked = false);
     inputName.value = '';
-    sortArray = arr.slice();
-    filterRender(arr);
+    sortArray = filterArr.slice();
+    filterRender(filterArr);
 }
-let search = (target, arr) => {
-    sortArray = arr.filter(el => el.name.first.includes(target.toLowerCase()) || el.name.last.includes(target.toLowerCase()))
+let search = (target, filterArr) => {
+    sortArray = filterArr.filter(el => el.name.first.includes(target.toLowerCase()) || el.name.last.includes(target.toLowerCase()))
     filterRender(sortArray);
 }
-let sortGender = (target, arr) => filterBlock.setAttribute("gender", target);
-let sortAge = (target, arr) => {
-    arr.sort((a, b) => {
+let sortGender = (target, filterArr) => filterBlock.setAttribute("data-gender", target);
+let sortAge = (target, filterArr) => {
+    filterArr.sort((a, b) => {
         if(target === 'inc'){
             return a.dob.age - b.dob.age;
         } else if (target === 'dec') {
@@ -33,11 +35,10 @@ let sortAge = (target, arr) => {
             return 0;
         }
     });
-    filterRender(arr);
+    filterRender(filterArr);
 }
-let filterRender = (arr) => {
-    mainBlock.innerHTML = '';
-    Container(mainBlock, arr);
+let filterRender = (filterArr) => {
+    containerBlock(filterArr);
 }
 let errorsHandler = (text) => {
     infoBlock.innerHTML = text;
@@ -51,7 +52,7 @@ let randomInteger = (min, max) => {
 let renderItem = (el) => {
     let element = document.createElement('div');
     element.classList.add("item");
-    element.setAttribute("gender", el.gender);
+    element.setAttribute("data-gender", el.gender);
     let content = `
         <div class="image">
             <img class="image-item" src=${el.picture.large} alt=${el.name.last}>
@@ -79,7 +80,7 @@ let renderItem = (el) => {
     element.innerHTML = content;
     sortElementsArray.push(element);
 }
-let Container = (renderBlock, itemsArray) => {
+let containerBlock = (itemsArray) => {
     sortElementsArray = [];
     if(itemsArray.length){
         infoBlock.classList.remove("show");
@@ -87,23 +88,26 @@ let Container = (renderBlock, itemsArray) => {
             renderItem(item);
         });
     } else {
-        errorsHandler(notFound);
+        errorsHandler(NOT_FOUND);
     }
-    sortElementsArray.map((item) => mainBlock.appendChild(item));
+    wrapperBlock.innerHTML = '';
+    sortElementsArray.map((item) => {
+        wrapperBlock.appendChild(item);
+    })
+    main.insertBefore(wrapperBlock, infoBlock);
 }
 let inferenceMainBlock = friendsList => {
     friendsList.map((item) => mainArray.push(item));
     sortArray = mainArray.slice();
     elementDrop.addEventListener('click', ({target}) => dropFilters(mainArray));
-    inputName.addEventListener('paste', ({target}) => window.setTimeout(() => search(target.value, mainArray)));
-    inputName.addEventListener('keyup', ({target}) => search(target.value, mainArray));
+    inputName.addEventListener('input', ({target}) => window.setTimeout(() => search(target.value, mainArray)));
     radioGender.addEventListener('change', ({target}) => sortGender(target.value, sortArray));
     radioAge.addEventListener('change', ({target}) => sortAge(target.value, sortArray));
     menuButton.addEventListener('click', ({target}) => menuButton.classList.toggle('open'));
-    Container(mainBlock, sortArray);
+    containerBlock(sortArray);
 };
 
-fetch(getFriendsList)
+fetch(GET_FRIENDS_LIST)
 .then(response => {
     if (!response.ok){
         throw Error(response.statusText);

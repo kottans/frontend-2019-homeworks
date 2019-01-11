@@ -40,13 +40,16 @@ label:focus{
     z-index: 3;
     bottom: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: left;
     flex-wrap: wrap;
     background: rgba(255, 255, 255, 0.42);
     padding: 25px;
     background: -moz-linear-gradient(left, rgb(162,126,208) 0%, rgb(221,182,247) 100%);
     background: -webkit-linear-gradient(left, rgb(162,126,208) 0%,rgb(221,182,247) 100%);
     background: linear-gradient(to right, rgb(162,126,208) 0%,rgb(221,182,247) 100%);
+}
+.filter > * {
+    margin-right: 25px;
 }
 .sortgender .radio-input,
 .sortage .radio-input{
@@ -57,6 +60,9 @@ label:focus{
 }
 .sortgender .radio-label{
     margin-right: 15px;
+}
+.sortgender .radio-label:last-child {
+    margin-right: 0;
 }
 .sortage .sortage-item:first-child{
     padding-right: 20px;
@@ -73,20 +79,25 @@ label:focus{
     text-align: center;
     text-transform: uppercase;
     width: 160px;
+    margin-top: 10px;
     font-size: 16px;
     cursor: pointer;
     background: #fff;
     border: 1px solid #8a67c1;
     transition: 0.3s;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .drop:hover{
     background: rgba(73, 27, 105, 0.46);
     color: #fff;
 }
-.filter[gender="male"] + .main .friends .item[gender="female"]{
+.filter[data-gender="male"] + .main .friends .item[data-gender="female"]{
     display: none;
 }
-.filter[gender="female"] + .main .friends .item[gender="male"]{
+.filter[data-gender="female"] + .main .friends .item[data-gender="male"]{
     display: none;
 }
 .radio-label{
@@ -201,8 +212,18 @@ label:focus{
     .item {
         width: 565px;
     }
+    .filter > * {
+        margin-right: 0;
+    }
     .drop {
-        margin-top: 10px;
+        position: relative;
+        right: 0;
+        top: 0;
+        transform: translateY(0%);
+    }
+    .filter {
+        display: flex;
+        justify-content: space-around;
     }
 }
 @media screen and (max-width: 600px){
