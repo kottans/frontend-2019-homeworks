@@ -6,26 +6,35 @@
    */
 
 // ======== OBJECTS DEFINITIONS ========
+class Inhebitant {
+    constructor(species, name, gender, legs, saying) {
+        this.species = species;
+        this.name = name;
+        this.gender = gender;
+        this.legs = legs;
+        this.saying = saying;
+    }
 
-const inhebitant = function(species, name, gender, legs, hands, saying){
-    this.species = species;
-    this.name = name;
-    this.gender = gender;
-    this.legs = legs;
-    this.hands = hands;
-    this.saying = saying;
-};
+    joinInhebitantsInString(){
+         return  `${this.species}-${this.name}-${this.gender}-${this.legs}-${this.saying}`;
+      }
+}
+class Human extends Inhebitant {
+    constructor(species, name, gender, legs, hands, saying) {
+        super(species, name, gender, legs, saying);
+        this.hands = hands;
+    }
 
-inhebitant.prototype.joinInhebitantsInString = function(){
-    
-     return [this.species,this.name,this.gender,this.legs,this.hands, this.saying].join("-");
-};
+    joinInhebitantsInString(){
+        return  `${this.species}-${this.name}-${this.gender}-${this.legs}-${this.hands}-${this.saying}`;
+      }
+}
 
 let inhebitants = [];
-const dog = new inhebitant('dog', 'Toby', 'male', 4, 0, 'woof-woof!');
-const cat = new inhebitant('cat', 'Persik', 'male', 4, 0, 'meawww-meaww!');
-const woman = new inhebitant('human', 'Poly', 'female', 2, 2, 'I am hungry!');
-const man = new inhebitant('human', 'Alex', 'male', 2, 2, 'Lets go to bar!');
+const dog = new Inhebitant('dog', 'Toby', 'male', 4, 'woof-woof!');
+const cat = new Inhebitant('cat', 'Persik', 'male', 4, 'meawww-meaww!');
+const woman = new Human('human', 'Poly', 'female', 2, 2, 'I am hungry!');
+const man = new Human('human', 'Alex', 'male', 2, 2, 'Lets go to bar!');
 
 inhebitants.push(dog,cat,woman,man);
 
