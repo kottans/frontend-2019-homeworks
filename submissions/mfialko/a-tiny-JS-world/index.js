@@ -48,9 +48,7 @@ function printInhabitant(obj) {
     print([obj.species, obj.name, obj.gender, obj.legs, obj.hands, obj.saying, obj.friends].join("; "));
 }
 
-[dog, cat, man, woman].forEach(element => {
-    return printInhabitant(element);
-});
+[dog, cat, man, woman].forEach(printInhabitant);
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
