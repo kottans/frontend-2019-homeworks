@@ -16,7 +16,8 @@ fetch(URL)
     .catch(error => console.log(error));
 
 const createCards = (prof) => {
-    let cardContainer = document.createElement('div');
+    let main = document.querySelector('.main'),
+        cardContainer = document.createElement('div');
     cardContainer.classList.add('card-container');
     
     prof.forEach((item) => {
@@ -36,7 +37,8 @@ const createCards = (prof) => {
             </div>`;
         cardContainer.appendChild(card);
     });
-    document.querySelector('.main').appendChild(cardContainer);
+    main.innerHTML = '';
+    main.appendChild(cardContainer);
 }
 
 const searchName = (e, users) => {
@@ -47,13 +49,11 @@ const searchName = (e, users) => {
         return fullName.includes(word);
     });
 
-    document.querySelector('.main').innerHTML = '';
     createCards(usersArray);
 }
 
-const filterGender = (e, users) => {
-    const gender = e.target.value;
-    document.querySelector('.main').innerHTML = '';
+const filterGender = (users) => {
+    const gender = document.getElementById('sort-gender').value;
 
     if (gender === 'all') {
         sortedArray = users;
@@ -64,9 +64,8 @@ const filterGender = (e, users) => {
     }
 }
 
-const sortAge = (e, users) => {
-    const value = e.target.value;
-    document.querySelector('.main').innerHTML = '';
+const sortAge = (users) => {
+    const value = document.getElementById('sort-age').value;
 
     if (value === 'increase') {
         createCards(users.sort( (a, b) => a.dob.age - b.dob.age));
@@ -75,9 +74,8 @@ const sortAge = (e, users) => {
     }
 }
 
-const sortName = (e, users) => {
-    const value = e.target.value;
-    document.querySelector('.main').innerHTML = '';
+const sortName = (users) => {
+    const value = document.getElementById('sort-name').value;
 
     if (value === 'increase') {
         createCards(users.sort( (a, b) => (a.name.first < b.name.first) ?  -1 : 1 ));
@@ -90,17 +88,11 @@ const reset = () => {
     document.querySelector('.form').reset();
 }
 
-const resetSelectValues = (gender, name, age) => {
-    if (gender) {
-        document.getElementById('sort-gender').value = 'all';
-    }
-    if (name) {
-        document.getElementById('sort-name').value = 'by name';
-    }
-    if (age) {
-        document.getElementById('sort-age').value = 'by age';
-    }
-}
+const resetGender = () => document.getElementById('sort-gender').value = 'all';
+
+const resetSortName = () => document.getElementById('sort-name').value = 'by name';
+
+const resetAge = () => document.getElementById('sort-age').value = 'by age';
 
 const render = (users) => {
     createCards(users);
@@ -109,19 +101,22 @@ const render = (users) => {
 
     document.getElementById('search').addEventListener('keyup', (e) => {
         searchName(e, users);
-        resetSelectValues(true, true, true);
+        filterGender(usersArray);
+        sortAge(sortedArray);
+        sortName(sortedArray);
     });
-    document.getElementById('sort-gender').addEventListener('change', (e) => {
-        filterGender(e, usersArray);
-        resetSelectValues(false, true, true);
+    document.getElementById('sort-gender').addEventListener('change', () => {
+        filterGender(usersArray);
+        sortAge(sortedArray);
+        sortName(sortedArray);
     });
-    document.getElementById('sort-age').addEventListener('change', (e) => {
-        sortAge(e, sortedArray);
-        resetSelectValues(false, true, false);
+    document.getElementById('sort-age').addEventListener('change', () => {
+        sortAge(sortedArray);
+        resetSortName();
     });
-    document.getElementById('sort-name').addEventListener('change', (e) => {
-        sortName(e, sortedArray);
-        resetSelectValues(false, false, true);
+    document.getElementById('sort-name').addEventListener('change', () => {
+        sortName(sortedArray);
+        resetAge();
     });
     document.querySelector('.reset').addEventListener('click', reset);
 }
