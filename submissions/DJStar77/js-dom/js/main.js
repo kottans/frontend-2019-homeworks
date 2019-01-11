@@ -8,34 +8,14 @@ const data = [
 	];
 
 let item = document.querySelector('.nav-list');
-item.addEventListener('click', function(event) {		
-	switch (event.target.textContent) {
-		case "Классический":			
-			var n = 0;
-			break;
-		case "Европейский":
-			var n = 1;
-			break;
-		case "Японский":
-			var n = 2;
-			break;
-		case "Американский":
-			var n = 3;
-			break;
-		case "Бразильский":
-			var n = 4;
-			break;
-		case "Аппаратный":
-			var n = 5;
-			break;
-	}
+item.addEventListener('click', function(event) {	
 	let image = document.getElementById('img');
 	let content = document.querySelector('.intro');
 				if (document.getElementById('intro')) {
 					let element = document.getElementById('intro');
 					element.parentNode.removeChild(element);					
-				}
-	document.title = data[n].title;	
-	content.innerHTML = data[n].content;
-	image.innerHTML = data[n].img;
+				}	
+	document.title = data[event.target.dataset.order].title;
+	content.innerHTML = data[event.target.dataset.order].content;
+	image.innerHTML = data[event.target.dataset.order].img;
 });
