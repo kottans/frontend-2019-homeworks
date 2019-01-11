@@ -8,6 +8,7 @@ body, *{
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
+    pointer-events: none;
 }
 .gameBlock div{
     width: calc(25% - 20px);
