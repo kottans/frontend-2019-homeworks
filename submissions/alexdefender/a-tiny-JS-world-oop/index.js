@@ -8,69 +8,66 @@
 // ======== OBJECTS DEFINITIONS ========
 
 class Entity {
-    constructor(species, name, gender, legs) {
+    constructor(species, name, gender, legs, saying) {
         this.species = species;
         this.name = name;
         this.gender = gender;
         this.legs = legs;
+        this.saying = saying;
     }
 
     toString() {
-        return [this.species, this.name, this.gender, this.legs].join(', ');
+        return [this.species, this.name, this.gender, this.legs, this.saying].join(', ');
     }
 }
 
 class Human extends Entity {
-    constructor(name, gender) {
-        super('human', name, gender, 2);
+    constructor(name, gender, saying) {
+        super('human', name, gender, 2, saying);
         this.hands = 2;
     } 
 }
 
 class Man extends Human {
     constructor(name, saying) {
-        super(name, 'man');
-        this.saying = saying;
+        super(name, 'man', saying);
     }
     toString() {
-        return super.toString() + `${this.saying}! I have ${this.hands} hands.`;
+        return super.toString() + `! I have ${this.hands} hands.`;
     }
 }
 
 class Woman extends Human {
     constructor(name, saying) {
-        super(name, 'woman');
-        this.saying = saying;
+        super(name, 'woman', saying);
     }
     toString() {
-        return super.toString() + `${this.saying}! I have ${this.hands} hands.`;
+        return super.toString() + `! I have ${this.hands} hands.`;
     }
 }
 
 
 class Animal extends Entity {
-    constructor(name, gender) {
-        super('aminal', name, gender, 4);
+    constructor(species, name, gender, saying) {
+        super(species, name, gender, 4, saying);
     }
 }
 
 class Dog extends Animal {
     constructor(name, gender, saying) {
-        super(name, gender);
-        this.saying = saying;
+        super('dog', name, gender, saying);
     }
     toString() {
-        return super.toString() + `${this.saying}! I have ${this.hands} hands.`;
+        return super.toString() + `! I have ${this.hands} hands.`;
     }
 }
 
 class Cat extends Animal {
     constructor(name, gender, saying) {
-        super(name, gender);
-        this.saying = saying;
+        super('cat', name, gender, saying);
     }
     toString() {
-        return super.toString() + `${this.saying}! I have ${this.hands} hands.`;
+        return super.toString() + `! I have ${this.hands} hands.`;
     }
 }
 
