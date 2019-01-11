@@ -48,17 +48,11 @@ const catWoman = {
 };
 
 const listObj = (obj) => {
-    let str = '';
-
-    for (item in obj) {
-        if (obj[item] !== 0) str += `${obj[item]}; `;
-    }
+    const str = Object.keys(obj)
+        .map((i) => obj[i])
+        .join('; ');
 
     return str;
 };
 
-print(listObj(dog));
-print(listObj(cat));
-print(listObj(woman));
-print(listObj(man));
-print(listObj(catWoman));
+[dog, cat, woman, man, catWoman].forEach((item) => print(listObj(item)));
