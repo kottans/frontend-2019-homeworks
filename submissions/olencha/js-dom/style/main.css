@@ -22,7 +22,7 @@ body {
     width: 100%;
 }
 
-h1 {
+.page-title {
     width: 100%;
     color: #3CBCC3;
     text-align: center;
@@ -34,12 +34,12 @@ h1 {
     padding: 0;
 }
 
-.active {
+.books .active {
     background-color: #3CBCC3;
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
-.books li {
+.book-item {
     width: 100%;
     border-bottom: 2px solid #1D1D2C;
     font-family: inherit;
