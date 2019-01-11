@@ -9,49 +9,50 @@
 // Define your objects here
 const man = {
   species: 'human',
-  name: 'Nick',
+  name: '<strong>Nick</strong>',
   gender: 'male',
   legs: 2,
   hands: 2,
-  saying: 'Glory Ukraine!'
+  saying: '<strong>Glory Ukraine!</strong>'
 };
 
 const woman = {
   species: 'human',
-  name: 'Alyona',
+  name: '<strong>Alyona</strong>',
   gender: 'female',
   legs: 2,
   hands: 2,
-  saying: 'Where is money, Nick?!'
+  saying: '<strong>Where is money, Nick?!</strong>'
 };
 
 const dog = {
   species: 'dog',
-  name: 'Torry',
+  name: '<strong>Torry</strong>',
   gender: 'female',
   legs: 4,
   hands: 0,
-  saying: 'rrr-gaf-gaf!!'
+  saying: '<strong>rrr-gaf-gaf!!</strong>'
 };
 
 const cat = {
   species: 'cat',
-  name: 'Mouse',
+  name: '<strong>Mouse</strong>',
   gender: 'female',
   legs: 4,
   hands: 0,
-  saying: 'mrrr... iu-iu!'
+  saying: '<strong>mrrr... iu-iu!</strong>'
 };
 
 const womanCat = {
     species: 'womanCat',
-    name: 'Busya',
+    name: '<strong>Busya</strong>',
     gender: 'female',
     legs: 2,
     hands: 2,
     saying: cat.saying    
 };
 const inhabitans = [man, woman, dog, cat, womanCat];
+
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
@@ -70,7 +71,14 @@ const inhabitans = [man, woman, dog, cat, womanCat];
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
    */
+function getFormattedString(object) {
+  let formattedString = '';
+  for (let item of Object.keys(object)) {
+      formattedString += object[item] + "; ";
+    }
+    return formattedString;
+};
 
-inhabitans.forEach(function(item, i, arr) {  
-    print(`Species: ${item.species}; Name: <strong>${item.name}</strong>; Gender: ${item.gender}; Have ${item.legs} legs and ${item.hands} hands. If not sleeping, says: <em>${item.saying}</em>`);
+inhabitans.forEach(function(item) {
+    print(getFormattedString(item));
 });
