@@ -4,7 +4,6 @@ body {
   line-height: 24px;
   color: #fff;
   background-color: #0c161e;
-  
 }
 
 .app {
@@ -48,6 +47,29 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 5px;
+  transition: all .6s;
+}
+
+.app-header a::after {
+  transition: .6s;
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 4px;
+  background: #3f51b5;
+  left: 50%;
+  bottom: -25%;
+  transform: translate(-50%, -50%);
+}
+
+.app-header a:hover::after {
+  width: 115%;
+}
+
+.app-header a:focus {
+  color: #e2b100;
 }
 
 .app-body {
@@ -225,8 +247,4 @@ body {
     background-size: 100%;
   }
 }
-
-
-
-
 

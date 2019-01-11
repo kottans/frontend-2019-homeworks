@@ -1,9 +1,7 @@
 const FORM_FILTER = document.getElementById('form-filter');
 const INPUTS_FORM = FORM_FILTER.querySelectorAll('input');
 const USER_LIST = document.querySelector('.user-list');
-const BTN_SEARCH_BY_NAME = document.querySelector('.search-name-btn');
 const INPUT_NAME = document.querySelector('.search-by-name');
-const BTN_SEARCH_BY_AGE = document.querySelector('.search-age-btn');
 const INPUT_AGE = document.querySelector('.search-by-age');
 const RESET = document.querySelector('.btn-reset');
 
@@ -25,20 +23,28 @@ const fetchUsers = () =>
 		.then(data => data.results)
     .catch(error => console.log('error'));
     
-//prepare data for using template
-const source = document
-.querySelector('#user-card')
-.textContent
-.trim();
-  
-//compile data using template
-const compiled = _.template(source);
 
 //render users
-const renderUsers = (items, template, parent) => {
+const renderUsers = (data, parent) => {
   let htmlString = '';
-  items.forEach(item => {
-    htmlString += template(item);
+  data.map(user => {
+    return htmlString += `<div class="user-list__item">
+                          <div class="user-card">
+                            <div class="user-card__img-wrap">
+                              <img  class="user-card__img" src="${user.img}" alt="user-photo">
+                            </div>
+                            <div class="user-card__name">${user.name}</div>
+                            <div class="user-card__btns">
+                              <button class="search-btn btn-flw btn-card">follow</button>
+                              <button class="search-btn btn-msg btn-card">message</button>
+                            </div>
+                            <div class="user-info">
+                              <p class="user-info__age">Age: ${user.age}</p>
+                              <p class="user-info__gender">Gender: ${user.gender}</p>
+                              <p class="user-info__location">City: ${user.location}</p>	
+                          </div>
+                          </div>
+                        </div>`
   });
   parent.innerHTML = htmlString;
 };
@@ -56,62 +62,46 @@ users.then(data => {
       })
   );
 
+  renderUsers(users, USER_LIST);
 
   FORM_FILTER.addEventListener('click', function(e) {
     const target = e.target;
     const inputChecked = target.checked;
-    let isSortedUsers;
-    switch (target === 'INPUT' !== null && inputChecked) {
+    let getUsers = users;
+    let inputVal;
+    switch ((target === 'INPUT' !== null && inputChecked) || (target.classList.contains('search-btn'))) {
       case target.value === 'up-age':
-        isSortedUsers = users.sort((a, b) => a.age - b.age);
-        renderUsers(isSortedUsers, compiled, USER_LIST);
+        getUsers = users.sort((a, b) => a.age - b.age);
         break;
       case target.value === 'down-age':
-        isSortedUsers = users.sort((a, b) => b.age - a.age);
-        renderUsers(isSortedUsers, compiled, USER_LIST);
+        getUsers = users.sort((a, b) => b.age - a.age);
         break;
       case target.value === 'up-name': 
-        isSortedUsers = users.sort((a, b) => ((a.name > b.name) - (a.name < b.name)));
-        renderUsers(isSortedUsers, compiled, USER_LIST);
+        getUsers = users.sort((a, b) => ((a.name > b.name) - (a.name < b.name)));
         break;
       case target.value === 'down-name':
-        isSortedUsers = users.sort((a, b) => ((a.name < b.name) - (a.name > b.name)));
-        renderUsers(isSortedUsers, compiled, USER_LIST);
+        getUsers = users.sort((a, b) => ((a.name < b.name) - (a.name > b.name)));
         break;
       case target.value === 'male' || target.value === 'female':
-        const isFilteredUsers = users.filter(item => item.gender === target.value);
-        renderUsers(isFilteredUsers, compiled, USER_LIST);
+        getUsers = users.filter(item => item.gender === target.value);
+        break;
+      case target.classList.contains('search-name-btn'):
+        inputVal = INPUT_NAME.value;
+        getUsers = users.filter(item => item.name.toLowerCase().includes(inputVal));
+        break;
+      case target.classList.contains('search-age-btn'):
+        inputVal = INPUT_AGE.value;
+        getUsers = users.filter(item => String(item.age) === inputVal);
+        break;
+      case target.classList.contains('btn-reset'):
+        INPUT_NAME.value = '';
+        INPUT_AGE.value = '';
+        [...INPUTS_FORM].forEach((item) => {
+          item.checked = false;
+        });
         break;
     }
+    renderUsers(getUsers, USER_LIST);
   });
-
-  BTN_SEARCH_BY_NAME.addEventListener('click', function(e) {
-    e.preventDefault();
-    let inputNameVal = INPUT_NAME.value;
-    const isFilteredUsers = users.filter(item => (
-      item.name.toLowerCase().includes(inputNameVal))
-    );
-    renderUsers(isFilteredUsers, compiled, USER_LIST);
-  });
-
-  BTN_SEARCH_BY_AGE.addEventListener('click', function(e) {
-    e.preventDefault();
-    let inputAgeVal = INPUT_AGE.value;
-    const isFilteredUsers = users.filter(item => (
-      String(item.age) === inputAgeVal)
-    );
-    renderUsers(isFilteredUsers, compiled, USER_LIST);
-  });
-
-
-  RESET.addEventListener('click', function() {
-    renderUsers(users, compiled, USER_LIST);
-    INPUT_NAME.value = '';
-    INPUT_AGE.value = '';
-    [...INPUTS_FORM].forEach((item) => {
-      item.checked = false;
-    });
-  });
-
-  renderUsers(users, compiled, USER_LIST);
+  
 });

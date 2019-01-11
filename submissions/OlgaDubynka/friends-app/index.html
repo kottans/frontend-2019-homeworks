@@ -56,7 +56,7 @@
               <button type="button" class="search-name-btn search-btn">search</button>
             </div>
             <div class="search-age search-box">
-              <input class="search-by-age search-input" type="text" placeholder="Search by age..."></input>
+              <input class="search-by-age search-input" type="number" placeholder="Search by age..."></input>
               <button type="button" class="search-age-btn search-btn">search</button>
             </div>
             <div class="search-box">
@@ -69,26 +69,6 @@
         </div>
     </main>
   </div>
-  <script type="text/lodash-template" id="user-card">
-		<div class="user-list__item">
-			<div class="user-card">
-        <div class="user-card__img-wrap">
-          <img  class="user-card__img" src="<%- img %>" alt="user-photo">
-        </div>
-        <div class="user-card__name"><%- name %></div>
-        <div class="user-card__btns">
-          <button class="search-btn btn-flw btn-card">follow</button>
-          <button class="search-btn btn-msg btn-card">message</button>
-        </div>
-        <div class="user-info"
-          <p class="user-info__age">Age: <%- age %></p>
-          <p class="user-info__gender">Gender: <%- gender %></p>
-          <p class="user-info__location">City: <%- location %></p>	
-			</div>
-			</div>
-		</div>
-	</script>
-	<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
