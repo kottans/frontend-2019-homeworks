@@ -175,7 +175,7 @@ footer {
 .show-more:hover, .show-more:focus {
 	color: #444;
 }
-.extra {
+.extra-hidden {
 	display: none;
 }
 
@@ -204,7 +204,7 @@ footer {
 	.card {margin: 10px 50px;}
 }
 @media screen and (min-width: 980px) {
-	.extra {display: block;}
+	.extra-hidden {display: block;}
 	.show-more {display: none;}
 	.card {margin: 10px;}
 }
