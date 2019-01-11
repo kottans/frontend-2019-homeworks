@@ -1,0 +1,89 @@
+body{
+    background: rgb(179, 38, 38);
+    color: aliceblue;
+    font-size: 16px;
+}
+header{
+    text-align: center;
+    display: block;
+    font-size: 26px;
+}
+section{
+    flex-direction: row;
+    display: flex;
+}
+.menu {
+    background: rgb(243, 58, 58);
+    padding: 15px;
+    width: 15%;
+    min-width: 150px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,.1);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    float: left;
+    height: min-content
+}
+.menu h2 {
+    font-size: 22px;
+    margin: 0 0 10px;
+    padding: 0 5px;
+    position: relative;
+}
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; 
+    border-top: 1px solid rgba(0,0,0,.3);
+}
+.menu li {
+    margin: 12px 0 0 0px;
+}
+.menu a {
+    color: aliceblue;
+    text-decoration: none;
+    display: block;  
+    padding: 5px;
+    position: relative;
+    transition: .3s linear;
+}
+.menu a:after {
+    content:"\f18e";
+    font-family: FontAwesome;
+    position: absolute;
+    right: 5px;
+    color: white;
+    transition: .2s linear;
+  }
+.menu a:hover {
+    background: rgb(116, 219, 162);
+    color: white;
+}
+.content {
+    margin-left: 10px; 
+    width: 80%;
+    min-width: 200px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#contentText{
+    font-size: 22px;
+}
+#contentHeder{
+    text-align: center;
+}
+#contentImg{
+    display:block; margin:0 auto;
+}
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+    #contentImg{
+        display: none;
+    }
+    section{
+        flex-direction: column;
+    }    
+    .menu {
+        padding: 10px;
+        width: 100%;
+    }
+    .content {
+        width: 100%;
+    }    
+}
