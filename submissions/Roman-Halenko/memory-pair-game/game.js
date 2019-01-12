@@ -24,10 +24,9 @@ function addCard(e) {
      </div>`)
 };
 
-// Fill the area with cards
 function fillArea(src) {
-  let somthing = src.concat(src);
-  somthing.sort( () => { return 0.5 - Math.random() } ).forEach(addCard);
+  let doubleArr = src.concat(src);
+  doubleArr.sort(() => 0.5 - Math.random()).forEach(addCard);
 };
 
 function flipCard(card) {
@@ -44,7 +43,6 @@ function flipBack(cards) {
   })
 };
 
-// Move/hide paired cards
 function moveUp(cards) {
   cards.forEach( card => {
     if (!card.classList.contains('hidden')) {
@@ -61,18 +59,18 @@ function congrats() {
   }
 };
 
-function update() {
+function update(delay) {
   let openedCards = document.querySelectorAll('.open');
 
   if (openedCards.length === 2) {
     if (openedCards[0].isEqualNode(openedCards[1])) {
-      setTimeout(moveUp, 700, openedCards);
-      setTimeout(flipBack, 600, openedCards);
+      setTimeout(moveUp, delay, openedCards);
+      setTimeout(flipBack, delay, openedCards);
     } else {
-      setTimeout(flipBack, 700, openedCards);
+      setTimeout(flipBack, delay, openedCards);
     }
   }
-  setTimeout(congrats, 800);
+  setTimeout(congrats, delay);
 };
 
 fillArea(sources);
@@ -80,10 +78,8 @@ fillArea(sources);
 section.addEventListener('click', (event) => {
   let target = event.target;
   if (target !== section) {
-    while (!target.classList.contains('flipper-container')) {
-      target = target.parentNode;
-    }
+    target = target.closest('.flipper-container');
     flipCard(target);
   }
-  update();
+  update(800);
  });
