@@ -24,15 +24,12 @@ var contentData = {
 document.addEventListener("DOMContentLoaded", addListenerToMenu);
 
 function addListenerToMenu() {
-    var menuList = document.getElementsByTagName("li");
-    for (var i = 0; i < menuList.length; i++){
-        menuList[i].addEventListener("click", onMenuItemClick);
-    };
+    document.getElementById("menu-list").addEventListener("click", onMenuItemClick);
 }
 
 function onMenuItemClick(e) {
-    if (e && e.currentTarget && e.currentTarget.textContent) {
-       fillContent(e.currentTarget.textContent);
+    if (e && e.target && e.target.tagName == "A" && e.target.textContent) {
+       fillContent(e.target.textContent);
     }
 }
 
