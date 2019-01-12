@@ -26,26 +26,22 @@ class Human extends Entity {
         super('human', name, gender, 2, saying);
         this.hands = 2;
     } 
+    toString() {
+        return super.toString() + `! I have ${this.hands} hands.`;
+    }
 }
 
 class Man extends Human {
     constructor(name, saying) {
-        super(name, 'man', saying);
-    }
-    toString() {
-        return super.toString() + `! I have ${this.hands} hands.`;
-    }
+        super(name, 'male', saying);
+    }  
 }
 
 class Woman extends Human {
     constructor(name, saying) {
-        super(name, 'woman', saying);
-    }
-    toString() {
-        return super.toString() + `! I have ${this.hands} hands.`;
+        super(name, 'female', saying);
     }
 }
-
 
 class Animal extends Entity {
     constructor(species, name, gender, saying) {
@@ -57,17 +53,12 @@ class Dog extends Animal {
     constructor(name, gender, saying) {
         super('dog', name, gender, saying);
     }
-    toString() {
-        return super.toString() + `! I have ${this.hands} hands.`;
-    }
+    
 }
 
 class Cat extends Animal {
     constructor(name, gender, saying) {
         super('cat', name, gender, saying);
-    }
-    toString() {
-        return super.toString() + `! I have ${this.hands} hands.`;
     }
 }
 
