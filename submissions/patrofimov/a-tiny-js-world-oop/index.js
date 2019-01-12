@@ -5,74 +5,87 @@
    Web app: _put project's github pages URL here_
    */
 
-function Inhabitant(species, name, gender, legs, hands) {
+function Inhabitant(name, gender, species) {
 
     this.species = species;
     this.name = name;
     this.gender = gender;
-    this.hands = hands;
-    this.legs = legs;
     this.friends = [];
 
 };
 
+
+Inhabitant.prototype.addFriend = function (friend) {
+    if (this.friends.includes(friend)) {
+        this.friends.push(friend);
+        friend.friends.push(this);
+    }
+};
+
+Inhabitant.prototype.saying = 'Hello';
+
 Inhabitant.prototype.getDescription = function (delimiter = ';') {
+
     let rezult = [
     this.species,
     this.name,
     this.gender,
     this.legs,
-    this.hands,
+        (this.species === 'human') ? this.hands : 'no',
     this.saying,
     this.friends.length ? this.friends.map((friend) => friend.name).join(',') : ''
     ].join(delimiter);
     return rezult;
 }
 
-Inhabitant.prototype.addFriend = function (friend) {
-    if (this.friends.indexOf(friend) === -1) {
-        this.friends.push(friend);
-        friend.friends.push(this);
-    }
-};
 
-Inhabitant.prototype.saying = '';
+function Animal(name, gender, species, legs = 4) {
+    Inhabitant.call(this, name, gender, species);
+    this.legs = legs;
+}
 
-function Dog(name, gender, legs = 2) {
-    Inhabitant.call(this, 'dog', name, gender, legs, 0);
+function Human(name, gender, species = 'human', hands = 2, legs = 2) {
+    Inhabitant.call(this, name, gender, species);
+    this.hands = hands;
+    this.legs = legs;
+}
+
+function Dog(name, gender, species = 'dog', legs) {
+    Animal.call(this, name, gender, species, legs);
 };
 Dog.prototype = Object.create(Inhabitant.prototype);
 Dog.prototype.saying = 'woof-woof!';
 
-function Cat(name, gender, legs = 2) {
-    Inhabitant.call(this, 'cat', name, gender, legs, 0);
+function Cat(name, gender, species = 'cat', legs) {
+    Animal.call(this, name, gender, species, legs);
 };
 Cat.prototype = Object.create(Inhabitant.prototype);
 Cat.prototype.saying = 'meow-meow!';
 
-function Man(name, gender, legs = 2, hands = 2) {
-    Inhabitant.call(this, 'human', name, gender, legs, hands);
+function Man(name, gender, species, hands, legs) {
+    Human.call(this, name, gender, species, hands, legs);
 };
 Man.prototype = Object.create(Inhabitant.prototype);
 Man.prototype.saying = 'Hello, Bar!';
 
-function Woman(name, gender, legs = 2, hands = 2) {
-    Inhabitant.call(this, 'human', name, gender, legs, hands);
+function Woman(name, gender, species, hands, legs) {
+    Human.call(this, name, gender, species, hands, legs);
 };
 
 Woman.prototype = Object.create(Inhabitant.prototype);
 Woman.prototype.saying = 'Hello, Ken!';
 
-function WomanCat(name, gender, legs = 2, hands = 2) {
-    Inhabitant.call(this, 'human', name, gender, legs, hands, 0);
+function WomanCat(name, gender, species, legs, hands) {
+    Human.call(this, name, gender, species, hands, legs);
 };
 WomanCat.prototype = Object.create(Inhabitant.prototype);
 WomanCat.prototype.saying = Cat.prototype.saying;
-let dog = new Dog('Toby', 'male');
-let cat = new Cat('Julia', 'female');
-let man = new Man('Ken', 'male');
-let woman = new Woman('Barbi', 'female');
-let womanCat = new WomanCat('Natali', 'female');
+
+const dog = new Dog('Toby', 'male');
+const cat = new Cat('Julia', 'female');
+const man = new Man('Ken', 'male');
+const woman = new Woman('Barbi', 'female');
+const womanCat = new WomanCat('Natali', 'female');
 
 woman.addFriend(cat);
 woman.addFriend(womanCat);
