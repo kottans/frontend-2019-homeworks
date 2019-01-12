@@ -16,50 +16,53 @@
     </header>
     <section class="main-section">
       <aside class="filter">
-        <div class="search">
-          <input type="search" name="search" class="search__input" placeholder="search ...">
-        </div>
-        <div class="filter__gender">
-          <h3>Filter by gender:</h3>
-          <div class="filter__gender-male">
-            <input type="radio" name="gender" id="male" value="male">
-            <label for="male">Male<i class="fa fa-mars"</i></i></label>
-          </div>
-          <div class="filter__gender-femele">
-            <input type="radio" name="gender" id="femele" value="female">
-            <label for="femele"></i>Femele<i class="fa fa-venus"></i></label>
-          </div>
-          <div class="filter__gender-all">
-            <input type="radio" name="gender" id="all" value="all" class="all">
-            <label for="all">All<i class="fa fa-venus-mars"></i></label>
-          </div>
-        </div>
-        <div class="filter__age">
-          <h3 class="">Filter by age:</h3>
-          <div class="filter__age-up">
-            <input type="radio" name="age" id="up" value="asc" class="asc">
-            <label for="up"><i class="fa fa-sort-amount-desc"></i></label>
-          </div>
-          <div class="filter__age-down">
-            <input type="radio" name="age" id="down" value="desc" class="desc">
-            <label for="down"><i class="fa fa-sort-amount-asc"></i></label>
-          </div>
+        <form class="filter__form" id="filter__form">
+            <div class="search">
+                <input type="search" name="search" class="search__input" placeholder="search by name...">
+              </div>
+              <div class="filter__gender">
+                <h3>Filter by gender:</h3>
+                <div class="filter__gender-male">
+                  <input type="radio" data-item="gender-male" name="gender" id="male" value="male">
+                  <label for="male">Male<i class="fa fa-mars"></i></label>
+                </div>
+                <div class="filter__gender-femele">
+                  <input type="radio" data-item="gender-femele" name="gender" id="female" value="female">
+                  <label for="female"></i>Femele<i class="fa fa-venus"></i></label>
+                </div>
+                <div class="filter__gender-all">
+                  <input type="radio" data-item="gender-all" name="gender" id="all" value="all" class="all">
+                  <label for="all">All<i class="fa fa-venus-mars"></i></label>
+                </div>
+              </div>
+              <div class="filter__age">
+                <h3 class="">Filter by age:</h3>
+                <div class="filter__age-up">
+                  <input type="radio" name="age-sort" data-item="age-sort-asc" id="age-asc" value="age-asc" class="age-asc">
+                  <label for="age-asc"><i class="fa fa-sort-amount-asc"></i></label>
+                </div>
+                <div class="filter__age-down">
+                  <input type="radio" name="age-sort" data-item="age-sort-desc" id="age-desc" value="age-desc" class="age-desc">
+                  <label for="age-desc"><i class="fa fa-sort-amount-desc"></i></label>
+                </div>
 
-        </div>
-        <div class="filter__name">
-          <h3 class="">Filter by name:</h3>
-          <div class="filter__name-az">
-            <input type="radio" name="name" id="az" value="az" class="az">
-            <label for="az"><i class="fa fa-sort-alpha-asc"></i></label>
-          </div>
-          <div class="filter__name-za">
-            <input type="radio" name="name" id="za" value="za" class="za">
-            <label for="za"><i class="fa fa-sort-alpha-desc"></i></label>
-          </div>
-        </div>
-        <div class="btn__center">
-          <button class="filter__reset">Reset</button>
-        </div>
+              </div>
+              <div class="filter__name">
+                <h3 class="">Filter by name:</h3>
+                <div class="filter__name-asc">
+                  <input type="radio" name="name-sort" data-item="name-sort-asc" id="name-asc" value="name-asc" class="name-asc">
+                  <label for="name-asc"><i class="fa fa-sort-alpha-asc"></i></label>
+                </div>
+                <div class="filter__name-desc">
+                  <input type="radio" name="name-sort" data-item="name-sort-desc" id="name-desc" value="name-desc" class="name-desc">
+                  <label for="name-desc"><i class="fa fa-sort-alpha-desc"></i></label>
+                </div>
+              </div>
+              <div class="btn__center">
+                <button class="filter__reset">Reset</button>
+              </div>
+        </form>
+
 
       </aside>
       <div class="users">

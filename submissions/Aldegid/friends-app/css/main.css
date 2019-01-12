@@ -51,7 +51,6 @@ body {
   width: 100%;
   padding: 15px;
   border-radius: 5px;
-  /* box-shadow: 0px 0px 2px 1px hsl(208, 86%, 57%); */
 }
 
 .filter__gender-male,
@@ -59,9 +58,9 @@ body {
 .filter__gender-all,
 .filter__age-up,
 .filter__age-down,
-.filter__name-az,
-.filter__name-za {
-  /* box-shadow: 0px 0px 1px 1px hsl(208, 86%, 57%); */
+.filter__name-asc,
+.filter__name-desc
+ {
   padding: 7px;
   margin-bottom: 7px;
   border-radius: 5px;
@@ -89,7 +88,7 @@ body {
   text-align: center;
   position: relative;
   outline: none;
-  transition: background-color .1s ease;
+  transition: background-color .25s ease;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -129,7 +128,6 @@ body {
   opacity: .32;
 }
 
-
 .button__scroll {
   display: none;
   position: fixed;
@@ -148,7 +146,6 @@ body {
 .button__scroll.show {
   display: block;
 }
-
 
 /**************user cards***************/
 
@@ -172,7 +169,7 @@ body {
   padding: 5px 25px;
   margin: 10px;
   color: #ffffff;
-  transform: all .25s ease;
+  transition: all .25s ease;
 }
 
 .users .user:hover {
@@ -217,7 +214,7 @@ body {
     padding-left: 28px;
     cursor: pointer;
     line-height: 20px;
-    display: inline-block;
+    display: block;
     color: #fff;
     font-weight: bold;
 }

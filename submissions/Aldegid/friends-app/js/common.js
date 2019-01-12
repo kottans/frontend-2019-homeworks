@@ -4,29 +4,37 @@ const genderNode = document.querySelector('.filter__gender');
 const ageNode = document.querySelector('.filter__age');
 const nameNode = document.querySelector('.filter__name');
 const checkAll = document.querySelector('.all');
-const filterAsc = document.querySelector('.asc');
-const filterDesc = document.querySelector('.desc');
-const filterAz = document.querySelector('.az');
-const filterZa = document.querySelector('.za');
+const filterAsc = document.querySelector('.age-asc');
+const filterDesc = document.querySelector('.age-desc');
+const filterAz = document.querySelector('.name-asc');
+const filterZa = document.querySelector('.name-desc');
 const resetBtn = document.querySelector('.filter__reset');
 const scrollBtn = document.querySelector('.button__scroll');
+const filterForm = document.querySelector('.filter__form');
+const radioButtons = document.querySelectorAll('input[type = radio]');
 const scrollHeight = 300;
+let originData = [];
 
-function createElem(elem) {
-  return document.createElement(elem);
-}
-function append(parent, element) {
-  return parent.appendChild(element);
-}
-function asc(a, b){
-  if(a < b) {
+fetch('https://randomuser.me/api/?results=30')
+  .then((res) => res.json())
+  .then(data => {
+    originData = data.results;
+    totalData = originData.slice();
+    renderUsers(originData);
+  })
+  .catch(function (err) {
+    console.error(err);
+  });
+
+function asc(a, b) {
+  if (a < b) {
     return -1;
   } else {
     return 1
   }
 }
-function desc(a, b){
-  if(a < b) {
+function desc(a, b) {
+  if (a < b) {
     return 1;
   } else {
     return -1
@@ -34,104 +42,130 @@ function desc(a, b){
 }
 
 const createUsers = user => {
-  let div = createElem('div');
+  let fragment = document.createDocumentFragment();
+  let div = document.createElement('div');
   div.classList.add('user');
   let userContent = ` <p class = "user__gender"> ${user.gender}  |  ${user.dob.age} y.o.</p>
-                          <img src="${user.picture.large}" alt="${user.name.first}">
-                          <p class = "user__name">${user.name.first} ${user.name.last}</p>
-                          <p class = "user__phone"><i class="fa fa-phone"></i>${user.phone}</p>
-                          <p class = "user__email"><i class="fa fa-envelope"></i>${user.email}</p>`
+                      <img src="${user.picture.large}" alt="${user.name.first}">
+                      <p class = "user__name">${user.name.first} ${user.name.last}</p>
+                      <p class = "user__phone"><i class="fa fa-phone"></i>${user.phone}</p>
+                      <p class = "user__email"><i class="fa fa-envelope"></i>${user.email}</p>`
   div.innerHTML = userContent;
-  append(content, div);
+  fragment.append(div);
+  return fragment;
 }
-
 function renderUsers(data) {
-  data.forEach(createUsers);
-  searchField.addEventListener('input', e => searchFilter(e.target.value, data));
-  genderNode.addEventListener('change', e => filterByGender(e.target.value, data));
-  ageNode.addEventListener('change', e => filterByAgeName(e.target.value, data));
-  nameNode.addEventListener('change', e => filterByAgeName(e.target.value, data));
-  resetBtn.addEventListener('click', e => reset(data));
-}
-
-function searchFilter(input, data) {
   content.innerHTML = '';
-  let result = [];
-  data.forEach(user => {
-    let fullName = user.name.first + user.name.last;
-    if (fullName.indexOf(input) != -1){
-      result.push(user);
-    }
-  })
-  result.forEach(createUsers);
+  let users = data.map(createUsers);
+  content.append(...users);
 }
-
-function filterByGender(val, data) {
+const searchFilter = (input, data) => {
   content.innerHTML = '';
-  let result = [];
-  data.filter(user => {
-    if(val !== 'all'){
-      if(user.gender === val){
-        result.push(user);
-      }
-    } else if(val === 'all') {
-      result.push(user);
-    }
+  const inpValue = input.value;
+  let newData = data.filter(user => {
+    const fullName = user.name.first + user.name.last;
+    return fullName.includes(inpValue);
   })
-  result.forEach(createUsers);
+  return newData;
+}
+const filterByMale = data => {
+  let newData = data.filter(user => user.gender === 'male');
+  return newData;
+}
+const filterByFemale = data => {
+  let newData = data.filter(user => user.gender === 'female');
+  return newData;
+}
+const showAll = data => {
+  let newData = data;
+  return newData;
+}
+const sortByNameDesc = data => {
+  let newData = data.sort((a, b) => desc(a.name.first, b.name.first));
+  return newData;
+}
+const sortByNameAsc = data => {
+  let newData = data.sort((a, b) => asc(a.name.first, b.name.first));
+  return newData;
+}
+const sortByAgeDesc = (data) => {
+  let newData = data.sort((a, b) => desc(a.dob.age, b.dob.age));
+  return newData;
+}
+const sortByAgeAsc = (data) => {
+  let newData = data.sort((a, b) => asc(a.dob.age, b.dob.age));
+  return newData;
 }
 
-function filterByAgeName(val, data){
-   content.innerHTML = '';
-    if(val === 'asc'){
-      data.sort((a, b) => asc(a.dob.age, b.dob.age));
-      data.forEach(createUsers);
-    }
-    else if(val === 'desc'){
-      data.sort((a, b) => desc(a.dob.age, b.dob.age));
-      data.forEach(createUsers);
-    }
-    else if(val === 'az'){
-      data.sort((a, b) => asc(a.name.first, b.name.first));
-      data.forEach(createUsers);
-    }
-    else if(val === 'za'){
-      data.sort((a, b) => desc(a.name.first, b.name.first));
-      data.forEach(createUsers);
-    }
-}
+const handleChange = ({ target }) => {
+  let friendsToProcess = originData.slice();
+  const form = target.closest('form');
+  const getCheckedInput = elem => Array.from(form.elements[elem]).find(input => input.checked);
+  const inputAge = getCheckedInput('age-sort');
+  const inputName = getCheckedInput('name-sort');
+  const inputGender = getCheckedInput('gender');
+  const inputSearch = form.elements['search'];
 
-function reset(data){
+  let sortByAge;
+  let sortByName;
+  let filterByGender;
+
+  if (inputSearch === target) {
+    friendsToProcess = searchFilter(target, friendsToProcess);
+  }
+  if (inputAge === target) {
+    sortByAge = inputAge.value === 'age-asc'
+      ? sortByAgeAsc
+      : sortByAgeDesc;
+    friendsToProcess = sortByAge(friendsToProcess);
+  }
+  if (inputName === target) {
+    sortByName = inputName.value === 'name-asc'
+      ? sortByNameAsc
+      : sortByNameDesc;
+    friendsToProcess = sortByName(friendsToProcess);
+  }
+  if (inputGender) {
+    if (inputGender.value === 'male') {
+      filterByGender = filterByMale;
+    }
+    if (inputGender.value === 'female') {
+      filterByGender = filterByFemale;
+    }
+    if (inputGender.value === 'all') {
+      filterByGender = showAll;
+    }
+    friendsToProcess = filterByGender(friendsToProcess);
+  }
+  renderUsers(friendsToProcess);
+}
+searchField.addEventListener('input', handleChange);
+filterForm.addEventListener('change', handleChange);
+
+resetBtn.addEventListener('click', () => {
+  content.innerHTML = '';
   searchField.value = '';
-  checkAll.checked = true;
-  filterAsc.checked = false;
-  filterDesc.checked = false;
-  filterAz.checked = false;
-  filterZa.checked = false;
-  content.innerHTML = '';
-  data.forEach(createUsers);
-}
+  radioButtons.forEach(item => {
+    item.checked = !item.checked;
+  })
+  renderUsers(originData);
+});
 
-function scroll(){
-  if (document.body.scrollTop > scrollHeight || document.documentElement.scrollTop > scrollHeight) {
+function scroll() {
+  const bodyScrollTop = document.body.scrollTop;
+  const elemScrollTop = document.documentElement.scrollTop
+  if (bodyScrollTop > scrollHeight || elemScrollTop > scrollHeight) {
     scrollBtn.classList.add('show');
   } else {
     scrollBtn.classList.remove('show');
   }
 }
-window.onscroll = function() {scroll()};
-scrollBtn.addEventListener('click', function(){
+window.addEventListener('scroll', function () {
+  scroll()
+});
+scrollBtn.addEventListener('click', function () {
   window.scrollTo({
     top: 0,
     behavior: "smooth"
-});
-})
-
-fetch('https://randomuser.me/api/?results=30')
-  .then((res) => res.json())
-  .then(data => {
-    renderUsers(data.results)
-  })
-  .then(function (err) {
-    console.log("error:" + err);
   });
+})
