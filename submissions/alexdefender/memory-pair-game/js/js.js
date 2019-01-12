@@ -4,6 +4,8 @@ const IMAGES = [
     'img/03.jpg',
     'img/04.jpg',
 ];
+const DELAY_TIME = 700;
+const DELAY_TIME_WIN = 800;
 
 var gameContainer = document.getElementById('game-container');
 var firstCard;
@@ -11,11 +13,12 @@ var firstCardNode;
 var secondCard;
 var secondCardNode;
 var winCount = 0;
+var lockCard = false;
 
 function showCards() {
     let doubleImages = IMAGES.concat(IMAGES);
     shuffle(doubleImages);
-
+    let cards = document.createDocumentFragment();
     doubleImages.forEach(element => {
         let card = document.createElement('div');
         card.classList.add('card');
@@ -24,22 +27,26 @@ function showCards() {
                                 <div class="card-back">
                                 <img class="image" src="${element}">
                             </div>`;
-        gameContainer.appendChild(card);
+        cards.append(card);
     });
+    gameContainer.appendChild(cards);
 }
 
 function flipCard(event) {
-    if (event.target.classList.contains('card-success')) return;
-    if (event.target.classList.contains('flip')) return;
+    let currentCard = event.target;
+    if (currentCard.classList.contains('card-success') ||
+        currentCard.classList.contains('flip') ||
+        lockCard) return;
 
-    event.target.classList.add('flip');
+    currentCard.classList.add('flip');
 
     if (!firstCard) {
-        firstCard = event.target.dataset.item;
-        firstCardNode = event.target;
+        firstCard = currentCard.dataset.item;
+        firstCardNode = currentCard;
     } else {
-        secondCard = event.target.dataset.item;
-        secondCardNode = event.target;
+        lockCard = true;
+        secondCard = currentCard.dataset.item;
+        secondCardNode = currentCard;
         checkPair();
     }
 }
@@ -49,30 +56,32 @@ function checkPair() {
         setTimeout(function () {
             firstCardNode.classList.replace('card', 'card-success');
             secondCardNode.classList.replace('card', 'card-success');
-        }, 600);
+            lockCard = false;
+        }, DELAY_TIME);
         checkWin();
     } else {
-        setTimeout(returnFlipCard, 700);
+        setTimeout(returnFlipCard, DELAY_TIME);
     }
     firstCard = '';
     secondCard = '';
+
 }
 
 function returnFlipCard() {
     firstCardNode.classList.remove('flip');
     secondCardNode.classList.remove('flip');
+    lockCard = false;
 }
 
 function checkWin() {
     winCount++;
     if (winCount === 4) {
-        setTimeout(function() {alert('You win!')}, 900);
+        setTimeout(function () { alert('You win!') }, DELAY_TIME_WIN);
     }
 }
 
-function shuffle(o) {
-    for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-    return o;
+function shuffle(arr) {
+    return arr.sort(function () { return 0.5 - Math.random() });
 };
 
 showCards();
