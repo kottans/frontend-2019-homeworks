@@ -7,36 +7,48 @@
 
 // ======== OBJECTS DEFINITIONS ========
 class Inhebitant {
-    constructor(species, name, gender, legs, saying) {
+    constructor(species, name, gender, saying, legs) {
         this.species = species;
         this.name = name;
         this.gender = gender;
-        this.legs = legs;
         this.saying = saying;
+        this.legs = legs;
     }
 
     joinInhebitantsInString(){
-         return  `${this.species}-${this.name}-${this.gender}-${this.legs}-${this.saying}`;
+         return [this.species,this.name,this.gender,this.saying,this.legs,].join("-");
       }
 }
-class Human extends Inhebitant {
-    constructor(species, name, gender, legs, hands, saying) {
-        super(species, name, gender, legs, saying);
+class Person extends Inhebitant {
+    constructor(species, name, gender, saying, legs=2, hands=2 ) {
+        super(species, name, gender, saying, legs, hands);
         this.hands = hands;
     }
 
     joinInhebitantsInString(){
-        return  `${this.species}-${this.name}-${this.gender}-${this.legs}-${this.hands}-${this.saying}`;
+        return super.joinInhebitantsInString() + "-" + this.hands;
+        
       }
 }
 
-let inhebitants = [];
-const dog = new Inhebitant('dog', 'Toby', 'male', 4, 'woof-woof!');
-const cat = new Inhebitant('cat', 'Persik', 'male', 4, 'meawww-meaww!');
-const woman = new Human('human', 'Poly', 'female', 2, 2, 'I am hungry!');
-const man = new Human('human', 'Alex', 'male', 2, 2, 'Lets go to bar!');
+class Dog extends Inhebitant {
+    constructor(species, name, gender, saying, legs=4) {
+        super(species, name, gender, saying, legs);
+    }
 
-inhebitants.push(dog,cat,woman,man);
+}
+
+class Cat extends Inhebitant {
+    constructor(species, name, gender, saying, legs=4) {
+        super(species, name, gender, saying, legs);
+    }
+
+}
+
+const dog = new Dog('dog', 'Toby', 'male', 'woof-woof!');
+const cat = new Cat('cat', 'Persik', 'male', 'meawww-meaww!');
+const woman = new Person('woman', 'Poly', 'female', 'I am hungry!');
+const man = new Person('man', 'Alex', 'male', 'Lets go to bar!');
+let inhebitants = [dog,cat,woman,man];
 
 inhebitants.forEach(item =>print(item.joinInhebitantsInString()));
- 
