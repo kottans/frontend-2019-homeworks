@@ -35,32 +35,25 @@ class Inhabitant {
 
 class Cat extends Inhabitant {
   constructor(name, gender, saying, friends) {
-    super(name, gender, saying, friends);
-    this.species = 'cat';
-    this.legs = 4;
+    super(name, gender, saying, friends, 'cat', 4);
   }
 }
 
 class Dog extends Inhabitant {
   constructor(name, gender, saying, friends) {
-    super(name, gender, saying, friends);
-    this.species = 'dog';
-    this.legs = 4;
+    super(name, gender, saying, friends, 'dog', 4);
   }
 
 }
 
 class Human extends Inhabitant {
   constructor(name, gender, saying, friends) {
-    super(name, gender, saying, friends);
-    this.species = 'human';
-    this.legs = 2;
+    super(name, gender, saying, friends, 'human', 2);
     this.hands = 2;
   }
 
   getInfo() {
     let info = super.getInfo() + `; ${this.hands};`;
-
     return info;
   }
 }
