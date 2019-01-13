@@ -13,13 +13,16 @@ const INITIAL_DATA_PLAYER = {
 };
 const INITIAL_DATA_ENEMY = {
     x: -100,
-    y: 200,
+    y: 50,
     sprite: 'images/enemy-bug.png',
-    speed: 10,
-    distance: 40
+    minspeed: 50,
+    maxspeed: 500,
+    deltaspeed: 5,
+    distanceY: 60,
+    distanceX: 40
 };
 
-var Entity = function (x, y, sprite) {
+let Entity = function (x, y, sprite) {
     this.sprite = sprite;
     this.x = x;
     this.y = y;
@@ -29,15 +32,22 @@ Entity.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-var Enemy = function (x, y, player, sprite = '', speed = 0) {
+let Enemy = function (x, y, player, sprite = '', speed = 0) {
     sprite = (sprite === '') ? INITIAL_DATA_ENEMY.sprite : sprite;
-    speed = (speed === 0) ? INITIAL_DATA_ENEMY.speed : speed;
+    speed = (speed === 0) ? randomeSpeed(speed) : speed;
     Entity.call(this, x, y, sprite);
     this.speed = speed;
     this.player = player;
 };
 
 Enemy.prototype = Object.create(Entity.prototype);
+
+function randomeSpeed(speed) {
+    randomspeed = INITIAL_DATA_ENEMY.minspeed + Math.floor(Math.random() * INITIAL_DATA_ENEMY.deltaspeed + 1);
+    speed = (speed === 0) ? randomspeed : speed;
+    newspeed = Math.floor(Math.random() * INITIAL_DATA_ENEMY.deltaspeed + 1) + speed;
+    return (newspeed > INITIAL_DATA_ENEMY.maxspeed) ? randomspeed : newspeed;
+}
 
 Enemy.prototype.update = function (dt) {
     this.x += dt * this.speed;
@@ -47,13 +57,15 @@ Enemy.prototype.update = function (dt) {
 
 Enemy.prototype.rerun = function () {
     this.x = (this.x > INITIAL_DATA_GRID.trackEnd) ? INITIAL_DATA_ENEMY.x : this.x;
+    this.speed = randomeSpeed(this.speed);
+    console.log(this.speed);
 };
 
 Enemy.prototype.handleCollision = function () {
     [this.player.x, this.player.y] = (this.player.x > this.x - INITIAL_DATA_GRID.cellWidth && this.player.x < this.x + INITIAL_DATA_GRID.cellWidth && this.player.y > this.y - INITIAL_DATA_GRID.cellHeight && this.player.y < this.y + INITIAL_DATA_GRID.cellHeight) ? [INITIAL_DATA_PLAYER.x, INITIAL_DATA_PLAYER.y] : [this.player.x, this.player.y];
 };
 
-var Player = function (x, y, sprite = '', step = 0) {
+let Player = function (x, y, sprite = '', step = 0) {
     sprite = (sprite === '') ? INITIAL_DATA_PLAYER.sprite : sprite;
     step = (step === 0) ? INITIAL_DATA_PLAYER.step : step;
     Entity.call(this, x, y, sprite);
@@ -62,7 +74,7 @@ var Player = function (x, y, sprite = '', step = 0) {
 
 Player.prototype = Object.create(Entity.prototype);
 
-Player.prototype.update = function() {};
+Player.prototype.update = function () {};
 
 Player.prototype.handleInput = function (key) {
 
@@ -84,10 +96,11 @@ Player.prototype.handleInput = function (key) {
 const player = new Player(INITIAL_DATA_PLAYER.x, INITIAL_DATA_PLAYER.y);
 
 const allEnemies = [0, 1, 2, 3].map((element, index) => {
-    return new Enemy(INITIAL_DATA_ENEMY.x, INITIAL_DATA_ENEMY.y + INITIAL_DATA_ENEMY.distance * index, player)});
+    return new Enemy(INITIAL_DATA_ENEMY.x + INITIAL_DATA_ENEMY.distanceX * index, INITIAL_DATA_ENEMY.y + INITIAL_DATA_ENEMY.distanceY * index, player)
+});
 
 document.addEventListener('keyup', function (e) {
-    var allowedKeys = {
+    let allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
