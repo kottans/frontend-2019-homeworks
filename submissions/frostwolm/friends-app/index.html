@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Friends App</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<header>
+  <h1 class="apptitle">Friends App</h1>
+</header>
+<main class="main-container">
+  <div class="controls">
+    <div class="agesort">
+      <span>By Age:</span>
+      <button class="sortbtn btn" id="agesortAZ">A-Z</button>
+      <button class="sortbtn btn" id="agesortZA">Z-A</button>
+    </div>
+    <div class="namesort">
+      <span>By Name:</span>
+      <button class="sortbtn btn" id="namesortAZ">A-Z</button>
+      <button class="sortbtn btn" id="namesortZA">Z-A</button>
+    </div>
+    <div class="filter">
+      <input class="finput" type="number" id="ageinput"><button class="filterbtn btn" id="agefilter">Filter by age</button>
+      <input class="finput" stype="text" id="nameinput"><button class="filterbtn btn" id="namefilter">Filter by name</button>
+    </div>
+    <div class="reset">
+      <button class="btn" id="resetbtn">Reset</button>
+    </div>
+  </div>
+  <div class="users">
+
+  </div>
+</main>
+<script src="js/app.js" charset="utf-8"></script>
+</body>
+</html>

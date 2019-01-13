@@ -1,0 +1,68 @@
+.apptitle{
+  text-align: center;
+}
+.main-container{
+  display: flex;
+  width: 1200px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.users{
+  min-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.controls{
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.finput{
+  display: block;
+  margin: 0 auto;
+}
+
+.agesort, .namesort, .filter, .reset{
+  margin: 10px;
+}
+
+.controls span{
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
+
+.btn{
+  background-color: #79DFF6;
+  border-radius: 2px;
+  border: 1px solid;
+  width: 100%;
+  margin: 5px 0;
+}
+
+.card{
+  width: 150px;
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #79F6D3;
+  margin-bottom: 20px;
+}
+
+.card img{
+  border-radius: 50%;
+}
+
+.nametext{
+  text-transform: capitalize;
+}
+
+.phonetext{
+  font-weight: bold;
+}
