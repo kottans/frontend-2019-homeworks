@@ -26,6 +26,8 @@ body {
   cursor: pointer;
   text-transform: capitalize;
   font-size: 35px;
+  color: #fff;
+  text-decoration: none;
 }
 
 .app-header ul {
@@ -40,7 +42,7 @@ body {
   margin-right: 0;
 }
 
-.app-header a {
+.app-header nav a {
   display: block;
   font-size: 24px;
   color: #fff;
@@ -52,7 +54,7 @@ body {
   transition: all .6s;
 }
 
-.app-header a::after {
+.app-header  nav a::after {
   transition: .6s;
   content: '';
   position: absolute;
@@ -64,11 +66,11 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.app-header a:hover::after {
+.app-header  nav a:hover::after {
   width: 115%;
 }
 
-.app-header a:focus {
+.app-header  nav a:focus {
   color: #e2b100;
 }
 
@@ -111,7 +113,8 @@ body {
 }
 
 .search-box label {
-  width: 50px;
+  width: 100px;
+  display: flex;
 }
 
 .search-input {
