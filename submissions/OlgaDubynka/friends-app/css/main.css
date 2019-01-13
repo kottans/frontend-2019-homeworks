@@ -144,6 +144,11 @@ body {
   background-color: #ff5722;
 }
 
+.search-btn:focus,
+.btn-reset:focus {
+  background-color: #ff5722;
+}
+
 .user-list {
   position: relative;
   display: flex;

@@ -70,9 +70,6 @@ const makeSearch = ({ target }) => {
   let getUsers = users;
   let inputVal;
   switch ((target !== null && inputChecked) || (target.classList.contains('search-btn'))) {
-    case target.value === 'male' || target.value === 'female':
-      getUsers = users.filter(item => item.gender === target.value);
-      break;
     case target.value === 'up-age':
       getUsers = users.sort((a, b) => a.age - b.age);
       break;
@@ -84,6 +81,9 @@ const makeSearch = ({ target }) => {
       break;
     case target.value === 'down-name':
       getUsers = users.sort((a, b) => ((a.name < b.name) - (a.name > b.name)));
+      break;
+    case target.value === 'male' || target.value === 'female':
+      getUsers = users.filter(item => item.gender === target.value);
       break;
     case target.classList.contains('search-name-btn'):
       inputVal = INPUT_NAME.value;
