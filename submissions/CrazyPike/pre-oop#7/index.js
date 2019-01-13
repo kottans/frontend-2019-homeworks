@@ -44,7 +44,7 @@ const man = {
 }
 
 function stringify (obj) {
-    return Object.values(obj).join(';');
+    return [obj.species, obj.legs, obj.hands, obj.name, obj.gender, obj.phrase].join(';');
 }
 
 let beings = [dog,cat,woman,man];
