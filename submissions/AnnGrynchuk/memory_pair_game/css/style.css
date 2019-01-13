@@ -1,0 +1,69 @@
+    html {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        background-color: #000000;
+    }
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
+    .image {
+        width: 400px;
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #000000;
+    }
+
+    .cardContainer {
+        width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        perspective: 1000px;
+    }
+
+    .flip-container {
+        perspective: 1000px;
+        padding: 10px;
+    }
+  
+    .flip-container, .front, .back {
+        width: 155px;
+        height: 150px;
+    }
+    
+    .flipper {
+        transition: 0.6s;
+        transform-style: preserve-3d;
+        position: relative;
+    }
+    
+    .front, .back {
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    .front {
+        z-index: 2;
+        transform: rotateY(0deg);
+    }
+      
+    .back {
+        transform: rotateY(180deg);
+    }
+
+    .flip-container.active .flipper{
+        transform: rotateY(180deg);
+    }
+
+    .flip-container.delete .flipper{
+        opacity:0;
+    }
