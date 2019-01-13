@@ -4,10 +4,6 @@ const USER_LIST = document.querySelector('.user-list');
 const INPUT_NAME = document.querySelector('.search-by-name');
 const INPUT_AGE = document.querySelector('.search-by-age');
 const RESET = document.querySelector('.btn-reset');
-const INPUT_UP = document.querySelector('#up-name');
-const INPUT_DOWN = document.querySelector('#down-name');
-const INPUT_MALE = document.querySelector('#male');
-const INPUT_FEMALE = document.querySelector('#female');
 
 const ENDPOINT = 'https://randomuser.me/api/?';
 const RES = 'results=20';
@@ -105,7 +101,6 @@ const makeSearch = ({ target }) => {
       });
       break;
   }
-
   renderUsers(getUsers, USER_LIST);
 };
 
