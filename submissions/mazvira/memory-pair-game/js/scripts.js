@@ -47,7 +47,7 @@ grid.setAttribute('class', 'grid');
 
 game.appendChild(grid);
 
-var gameGrid = cards.concat(cards);
+const gameGrid = cards.concat(cards);
 
 gameGrid.sort(() => 0.5 - Math.random());
 
@@ -58,6 +58,7 @@ gameGrid.forEach(item => {
 
   const front = document.createElement('div');
   front.classList.add('front');
+  front.dataset.name = item.name;
 
   const back = document.createElement('div');
   back.classList.add('back');
@@ -68,11 +69,11 @@ gameGrid.forEach(item => {
   card.appendChild(back);
 });
 
-var count = 0;
-var firstGuess = '';
-var secondGuess = '';
-var previousTarget = null;
-var delay = 1200;
+let count = 0;
+let firstGuess = '';
+let secondGuess = '';
+let previousTarget = null;
+let delay = 1200;
 
 grid.addEventListener('click', function (event) {
   var clicked = event.target;
@@ -82,10 +83,10 @@ grid.addEventListener('click', function (event) {
   if (count < 2) {
     count++;
     if (count === 1) {
-      firstGuess = clicked.parentNode.dataset.name;
-      clicked.parentNode.classList.add('selected');
+	  firstGuess = clicked.dataset.name;
+	  clicked.parentNode.classList.add('selected');
     } else {
-      secondGuess = clicked.parentNode.dataset.name;
+	  secondGuess = clicked.dataset.name;
       clicked.parentNode.classList.add('selected');
     }
   
@@ -101,20 +102,21 @@ grid.addEventListener('click', function (event) {
   }
  });
 
-var match = function(){
-  var selected = document.querySelectorAll('.selected');
+const match = function(){
+  let selected = document.querySelectorAll('.selected');
   selected.forEach(card => {
     card.classList.add('match');
   });
 };
 
-var resetGuesses = function(){
+const resetGuesses = function(){
   firstGuess = '';
   secondGuess = '';
   count = 0;
 
-  var selected = document.querySelectorAll('.selected');
+  let selected = document.querySelectorAll('.selected');
   selected.forEach(card => {
     card.classList.remove('selected');
   });
 };
+
