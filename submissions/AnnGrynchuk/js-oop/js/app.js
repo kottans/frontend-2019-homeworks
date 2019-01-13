@@ -1,16 +1,15 @@
 // Enemies our player must avoid
-const playerWidth = 70;
-const playerHeight = 80;
-const moveX = 101;
-const moveY = 85;
 
-const Enemy = function(x, y, speed) {
+const edgeField = 400;
+
+const Enemy = function(x, y, speed, player) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
      this.x = x;
      this.y = y;
      this.speed = speed;
      this.sprite = 'images/enemy-bug.png';
+     this.player = player;
 };
 
 // Update the enemy's position, required method for game
@@ -21,7 +20,7 @@ const Enemy = function(x, y, speed) {
 Enemy.prototype.update = function(dt) {
     this.x += this.speed * dt; 
 
-    if(this.x >400){
+    if(this.x > edgeField){
       this.x = -30;
       this.speed = Math.floor(Math.random() * 200) + 70;
     };
@@ -29,7 +28,7 @@ Enemy.prototype.update = function(dt) {
 
 Enemy.prototype.checkCollisions = function(){
 
-    if( this.x + playerWidth > player.x && playerWidth + player.x > this.x && this.y + playerHeight > player.y && playerHeight + player.y > this.y ){
+    if( this.x + player.width > player.x && player.width + player.x > this.x && this.y + player.height > player.y && player.height + player.y > this.y ){
         player.x = 200;
         player.y = 400;
     }
@@ -44,16 +43,20 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-const Player = function(x, y) {
+const Player = function(x, y, width, height, moveX, moveY) {
     this.x = x;
     this.y = y;
     this.sprite = 'images/char-boy.png';
+    this.width = width;
+    this.height = height;
+    this.moveX = moveX;
+    this.moveY = moveY;
 };
 
 Player.prototype.update = function() {
   
        for(var i=0; i < allEnemies.length; i++){
-           if(allEnemies[i].x + playerWidth > player.x && playerWidth +  player.x > allEnemies[i].x &&  allEnemies[i].y + playerHeight > player.y && playerHeight +  player.y > allEnemies[i].y){
+           if(allEnemies[i].x + player.width  > player.x && player.width  +  player.x > allEnemies[i].x &&  allEnemies[i].y + player.height > player.y && player.height +  player.y > allEnemies[i].y){
             player.x = 200;
             player.y = 400;  
            }
@@ -67,13 +70,13 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function (key){
     
         if(key == 'left' && player.x>0){
-            player.x-= moveX;
+            player.x-= player.moveX;
         }  else if (key == 'right' && player.x<400) { 
-            player.x+= moveX;
+            player.x+= player.moveX;
         } else if (key =='up' && player.y>0) { 
-            player.y-= moveY;
+            player.y-= player.moveY;
         } else if (key == 'down' && player.y<400) { 
-            player.y+= moveY;
+            player.y+=player.moveY;
         } ;
         if(player.y < 0){
             setTimeout(function () {
@@ -88,17 +91,17 @@ Player.prototype.handleInput = function (key){
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 let allEnemies = [];
-const enemy1 = new Enemy(50,80,100);
-const enemy2 = new Enemy(30,220,50);
+const enemy1 = new Enemy(50,80,100,Player);
+const enemy2 = new Enemy(30,220,50,Player);
 
 allEnemies.push(enemy1, enemy2);
 
-const player = new Player(200, 400);
+const player = new Player(200,400,70,80,101,85);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
+    const allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
