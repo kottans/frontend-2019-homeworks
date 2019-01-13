@@ -80,9 +80,9 @@ function compareCards() {
     });
     cardsNum = cardsNum - 2;
   }else{
-    setTimeout(clickedCards.forEach(cardElem => {
-      flip(cardElem);
-    }), FLIP_DURATION + 100);
+    clickedCards.forEach(cardElem => {
+      setTimeout(() => flip(cardElem), 100);
+    });
   }
   clickedCards = [];
   _checkNow = false;
