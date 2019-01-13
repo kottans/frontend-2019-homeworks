@@ -1,0 +1,219 @@
+html {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 10px;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 1.4rem;
+}
+* {
+    box-sizing: border-box;
+}
+.hidden {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	padding:0 !important;
+	border:0 !important;
+	height: 1px !important; 
+	width: 1px !important; 
+	overflow: hidden;
+}
+.main {
+    width: 100%;
+}
+/* навигация */
+.main-navigation {
+    display: flex;
+    flex-flow: row nowrap;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(65, 166, 255, 0.856);
+    height: 5rem;
+    flex-flow: row nowrap;
+    z-index: 2;
+}
+.main-logo {
+    width: 25%;
+    min-width: 18.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    margin-right: auto;
+    border: none;
+    font-size: 3rem;
+    line-height: 5rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 .5rem rgba(255, 255, 255, 0.788);
+    transition: background-color .5s;
+}
+.main-logo:hover {
+    background-color: rgba(255, 255, 255, 0.925);
+    color: rgba(65, 166, 255, 0.856);
+    cursor: pointer;
+}
+
+/* поле сортировки */
+.sort {
+    cursor: pointer;
+    min-width: 5rem;
+    min-height: 5rem;
+}
+.sort:hover {
+    filter: drop-shadow(0 0 .4rem #4c4cff);
+}
+.hidden:checked + .sort {
+    filter: drop-shadow(0 0 .4rem #0000ff);
+}
+.name-az {
+    width: 5rem;
+    height: 5rem;
+    background-image: url(../img/sort-alpha-down-solid.svg);
+    background-repeat: no-repeat;
+}
+.name-za {
+    width: 5rem;
+    height: 5rem;
+    background-image: url(../img/sort-alpha-up-solid.svg);
+    background-repeat: no-repeat;
+}
+.age-az {
+    width: 5rem;
+    height: 5rem;
+    background-image: url(../img/sort-numeric-up-solid.svg);
+    background-repeat: no-repeat;
+}
+.age-za {
+    width: 5rem;
+    height: 5rem;
+    background-image: url(../img/sort-numeric-down-solid.svg);
+    background-repeat: no-repeat;
+}
+#search {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    font-size: 2rem;
+    color: rgba(85, 85, 92, 0.781);
+    outline: none;
+}
+#reset {
+    border: none;
+    background-color: rgba(65, 166, 255, 0.856);
+    text-shadow: 0 0 .5rem rgba(255, 255, 255, 0.788);
+    color: rgb(255, 255, 255);
+    outline: none;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: all .5s;
+}
+#reset:hover {
+    background-color:rgb(255, 255, 255);
+    color: rgba(65, 166, 255, 0.856);
+    text-shadow: 0 0 .5rem rgba(0, 68, 255, 0.788);
+}
+
+
+/* контент */
+.main-field {
+    width: 100%;
+}
+.main-field__wrapper {
+    width: 80%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 5.2rem auto;
+}
+.main-menu {
+    display: none;
+}
+/* карточки */
+.card {
+    border-radius: .3rem;
+    min-width: 15rem;
+    max-width: 17rem;
+    height: 22rem;
+    margin: .5rem;
+    display: flex;
+    flex-flow: column;
+    flex: 1 1 14rem;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgba(116, 134, 150, 0.699);
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.466);
+}
+.card__photo {
+    width: 14rem;
+    margin-top: 1rem;
+    border-radius: 50%;
+    transition: all .5s;
+    filter: grayscale(100%);
+    
+}
+.card__name,
+.card__age {
+    text-align: center;
+    line-height: 2rem;
+    width: 100%;
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem;
+    color: rgb(8, 46, 104);
+    text-shadow: 0 0 .3rem rgb(255, 255, 255);
+}
+.card:hover {
+    box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.288);
+    cursor: pointer;
+}
+.card:hover .card__photo {
+    filter: grayscale(0%);
+}
+/* футер */
+.main-footer {
+    grid-area: f;
+    background-color: rgba(65, 166, 255, 0.856);
+    position: fixed;
+    width: 100%;
+    height: 5rem;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    transition: all .5s;
+}
+.fa-at,
+.fa-telegram-plane {
+    transition: all .5s;
+    width: 4rem;
+    height: 4rem;
+}
+.fa-at path,
+.fa-telegram-plane path {
+    fill: rgba(255, 255, 255, 0.932);
+}
+.footer__contacts {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 1rem;
+}
+.fa-at:hover,
+.fa-telegram-plane:hover {
+    filter: drop-shadow(0 0 .4rem #4c4cff);
+}
+.main-footer:hover {
+    background-color: rgba(255, 255, 255, 0.932);
+}
+.main-footer:hover .fa-at path,
+.main-footer:hover .fa-telegram-plane path {
+    fill: rgba(65, 166, 255, 0.856);
+}
