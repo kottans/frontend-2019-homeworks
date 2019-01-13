@@ -73,25 +73,25 @@ body {
 .name-az {
     width: 5rem;
     height: 5rem;
-    background-image: url(../img/sort-alpha-down-solid.svg);
+    background-image: url('img/sort-alpha-down-solid.svg');
     background-repeat: no-repeat;
 }
 .name-za {
     width: 5rem;
     height: 5rem;
-    background-image: url(../img/sort-alpha-up-solid.svg);
+    background-image: url('img/sort-alpha-up-solid.svg');
     background-repeat: no-repeat;
 }
 .age-az {
     width: 5rem;
     height: 5rem;
-    background-image: url(../img/sort-numeric-up-solid.svg);
+    background-image: url('img/sort-numeric-up-solid.svg');
     background-repeat: no-repeat;
 }
 .age-za {
     width: 5rem;
     height: 5rem;
-    background-image: url(../img/sort-numeric-down-solid.svg);
+    background-image: url('img/sort-numeric-down-solid.svg');
     background-repeat: no-repeat;
 }
 #search {
