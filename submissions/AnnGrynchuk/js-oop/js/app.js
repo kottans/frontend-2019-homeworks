@@ -28,9 +28,9 @@ Enemy.prototype.update = function(dt) {
 
 Enemy.prototype.checkCollisions = function(){
 
-    if( this.x + player.width > player.x && player.width + player.x > this.x && this.y + player.height > player.y && player.height + player.y > this.y ){
-        player.x = 200;
-        player.y = 400;
+      if( this.x + this.player.width > this.player.x && this.player.width + x > this.x && this.y + this.player.height > this.player.y && this.player.height + this.player.y > this.y ){
+        this.player.x = 200;
+        this.player.y = 400;
     }
 };
 
@@ -56,9 +56,9 @@ const Player = function(x, y, width, height, moveX, moveY) {
 Player.prototype.update = function() {
   
        for(var i=0; i < allEnemies.length; i++){
-           if(allEnemies[i].x + player.width  > player.x && player.width  +  player.x > allEnemies[i].x &&  allEnemies[i].y + player.height > player.y && player.height +  player.y > allEnemies[i].y){
-            player.x = 200;
-            player.y = 400;  
+           if(allEnemies[i].x + this.width  > this.x && this.width  +  this.x > allEnemies[i].x &&  allEnemies[i].y + this.height >this.y && this.height + this.y > allEnemies[i].y){
+            this.x = 200;
+            this.y = 400;  
            }
        }
 };
@@ -69,16 +69,16 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function (key){
     
-        if(key == 'left' && player.x>0){
-            player.x-= player.moveX;
-        }  else if (key == 'right' && player.x<400) { 
-            player.x+= player.moveX;
-        } else if (key =='up' && player.y>0) { 
-            player.y-= player.moveY;
-        } else if (key == 'down' && player.y<400) { 
-            player.y+=player.moveY;
+        if(key == 'left' && this.x>0){
+            this.x-= this.moveX;
+        }  else if (key == 'right' && this.x<400) { 
+            this.x+= this.moveX;
+        } else if (key =='up' && this.y>0) { 
+            this.y-= this.moveY;
+        } else if (key == 'down' && this.y<400) { 
+            this.y+=this.moveY;
         } ;
-        if(player.y < 0){
+        if(this.y < 0){
             setTimeout(function () {
                 alert("You are the winner!");
                 player.x = 200;
