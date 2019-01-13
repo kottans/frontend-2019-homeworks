@@ -4,14 +4,15 @@ let menuItems = [{name:'topic1', text: 'text1'},
     {name:'topic3', text: 'text3'},
     {name:'topic4', text:   'text4'}];
 let elementMenu = document.getElementById('menu');
-let menuList = menuItems.map((item,index) => `<li class="itemMenu" id="item${index}" itemNumber=${index}>${item.name}</li>`).join(' ');
+let menuList = menuItems.map((item,index) => `<li class="itemMenu"  item=${index}>${item.name}</li>`).join(' ');
 elementMenu.innerHTML = menuList;
 elementMenu.addEventListener('click', (event) =>{
     let target = event.target;
-    if (!(target.className !== 'itemMenu' || target.className !== 'itemMenu active')) return;
-    document.getElementById(`item${previousItem}`).className = 'itemMenu';
-    target.className = 'itemMenu active';
-    previousItem = target.getAttribute('itemNumber');
-    document.getElementById('main').innerText = menuItems[previousItem]['text'];
+    let targetClass = target.classList;
+    if (!targetClass.contains('itemMenu')) return;
+    document.querySelector(`li[item="${previousItem}"]`).className = 'itemMenu';
+    targetClass.toggle('active');
+    previousItem = target.getAttribute('item');
+    document.getElementById('main').innerText = menuItems[+previousItem]['text'];
 });
-document.getElementById('item0').click();
+document.querySelector('li[item="0"]').click();
