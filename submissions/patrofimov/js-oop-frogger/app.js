@@ -2,18 +2,18 @@ const INITIAL_DATA_GRID = {
     cellWidth: 80,
     cellHeight: 60,
     start: 0,
-    end: 400,
+    end: 420,
     trackEnd: 500
 };
 const INITIAL_DATA_PLAYER = {
     x: 200,
     y: 400,
     sprite: 'images/char-boy.png',
-    step: 10
+    step: 40
 };
 const INITIAL_DATA_ENEMY = {
     x: -100,
-    y: 50,
+    y: 60,
     sprite: 'images/enemy-bug.png',
     minspeed: 50,
     maxspeed: 500,
@@ -58,7 +58,6 @@ Enemy.prototype.update = function (dt) {
 Enemy.prototype.rerun = function () {
     this.x = (this.x > INITIAL_DATA_GRID.trackEnd) ? INITIAL_DATA_ENEMY.x : this.x;
     this.speed = randomeSpeed(this.speed);
-    console.log(this.speed);
 };
 
 Enemy.prototype.handleCollision = function () {
