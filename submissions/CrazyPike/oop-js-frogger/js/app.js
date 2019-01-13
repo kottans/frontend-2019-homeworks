@@ -1,6 +1,13 @@
 // Enemies our player must avoid
-var coordinatesYBugs = [60,145,230];
-var Enemy = function() {
+const coordinatesYBugs = [60,145,230];
+const LEFT_BORDER_CANVAS = -100;
+const RIGHT_BORDER_CANVAS = 600;
+const START_X_PLAYER = 200;
+const START_Y_PLAYER = 300;
+const STEP_X_PLAYER = 100;
+const STEP_Y_PLAYER = 80;
+
+var Enemy = function(player) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -9,7 +16,8 @@ var Enemy = function() {
     this.sprite = 'images/enemy-bug.png';
     this.speed = 100 + Math.floor(Math.random()*50);
     this.y = coordinatesYBugs[Math.floor(Math.random()*3)];
-    this.x = -100;
+    this.x = LEFT_BORDER_CANVAS;
+    this.player = player;
 };
 
 // Update the enemy's position, required method for game
@@ -19,16 +27,16 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x =+ this.x+dt*this.speed;
-    if (this.x > 600) {this.x = -100;
+    if (this.x > RIGHT_BORDER_CANVAS) { this.x = LEFT_BORDER_CANVAS;
                         this.y = coordinatesYBugs[Math.floor(Math.random()*3)];
-                      this.speed = 100 + Math.floor(Math.random()*50);}
-    if (Math.abs(this.x - player.x) < 50 && Math.abs(this.y - player.y) < 30) {
-        console.log('busted');
-        player.x = 200;
-        player.y = 300;
-        player.render();
-    }
+                        this.speed = 100 + Math.floor(Math.random()*50);}
+    if (this.isCollision(this,this.player)) this.player.reset();
+
 };
+
+Enemy.prototype.isCollision = function(enemy,player){
+    return (Math.abs(enemy.x - player.x) < 50 && Math.abs(enemy.y - player.y) < 30)
+}
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -41,29 +49,38 @@ Enemy.prototype.render = function() {
 
 var Player = function () {
     this.sprite = 'images/char-boy.png';
-    this.x = 200;
-    this.y = 300;
+    this.x = START_X_PLAYER;
+    this.y = START_Y_PLAYER;
 }
 
 Player.prototype.update = function () {
-    if (this.y <= 40) setTimeout(()=>{this.x = 200; this.y = 300;},500)
+    if (this.y <= 40) setTimeout(()=>{this.x = START_X_PLAYER; this.y = START_Y_PLAYER;},500)
 }
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+Player.prototype.reset = function() {
+    this.x = START_X_PLAYER;
+    this.y = START_Y_PLAYER;
+}
+
 Player.prototype.handleInput = function (key) {
 
     switch (key) {
-        case 'up': {if (this.y>40) this.y -=80;
-                    break;}
-        case 'left': {if (this.x > 60)this.x -=100;
-            break;}
-        case 'down': {if (this.y < 360)this.y +=80;
-            break;}
-        case 'right': {if (this.x < 400)this.x +=100;
-            break;}
+        case 'up': {if (this.y > 40) this.y -= STEP_Y_PLAYER;
+                    break;
+                    }
+        case 'left': {if (this.x > 60) this.x -= STEP_X_PLAYER;
+                    break;
+                    }
+        case 'down': {if (this.y < 360) this.y += STEP_Y_PLAYER;
+                    break;
+                    }
+        case 'right': {if (this.x < 400) this.x += STEP_X_PLAYER;
+                    break;
+                    }
     }
     this.render();
 }
@@ -71,8 +88,9 @@ Player.prototype.handleInput = function (key) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var allEnemies = [new Enemy(), new Enemy(), new Enemy(), new Enemy()]
-var player = new Player();
+const player = new Player();
+const allEnemies = [new Enemy(player), new Enemy(player), new Enemy(player), new Enemy(player)]
+
 
 
 
