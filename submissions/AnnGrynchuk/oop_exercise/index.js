@@ -19,9 +19,9 @@ class Inhebitant {
          return [this.species,this.name,this.gender,this.saying,this.legs,].join("-");
       }
 }
-class Person extends Inhebitant {
-    constructor(species, name, gender, saying, legs=2, hands=2 ) {
-        super(species, name, gender, saying, legs, hands);
+class Human extends Inhebitant {
+    constructor(name, gender, saying, hands=2 ) {
+        super('human', name, gender, saying, 2);
         this.hands = hands;
     }
 
@@ -30,25 +30,21 @@ class Person extends Inhebitant {
         
       }
 }
-
 class Dog extends Inhebitant {
-    constructor(species, name, gender, saying, legs=4) {
-        super(species, name, gender, saying, legs);
+    constructor( name, gender, saying) {
+        super('dog', name, gender, saying, 4);
     }
-
 }
-
 class Cat extends Inhebitant {
-    constructor(species, name, gender, saying, legs=4) {
-        super(species, name, gender, saying, legs);
+    constructor(name, gender, saying) {
+        super('cat', name, gender, saying, 4);
     }
-
 }
 
-const dog = new Dog('dog', 'Toby', 'male', 'woof-woof!');
-const cat = new Cat('cat', 'Persik', 'male', 'meawww-meaww!');
-const woman = new Person('woman', 'Poly', 'female', 'I am hungry!');
-const man = new Person('man', 'Alex', 'male', 'Lets go to bar!');
+const dog = new Dog('Toby', 'male', 'woof-woof!');
+const cat = new Cat('Persik', 'male', 'meawww-meaww!');
+const woman = new Human('Poly', 'female', 'I am hungry!');
+const man = new Human('Alex', 'male', 'Lets go to bar!');
 let inhebitants = [dog,cat,woman,man];
 
 inhebitants.forEach(item =>print(item.joinInhebitantsInString()));
