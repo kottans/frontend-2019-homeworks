@@ -1,3 +1,7 @@
+const API_RANDOM_USER = 'https://randomuser.me/api/?results=30';
+const MIN_AGE = 0;
+const MAX_AGE = 0;
+
 function renderCardItem (item,index)  {
     return `
     <div class="friendCardItem" id="card${index}">
@@ -7,7 +11,6 @@ function renderCardItem (item,index)  {
 }
 
 function drawRenderCardList (list) {
-    console.log('!!!');
     document.getElementById('container').innerHTML =  list.map((item, index) => renderCardItem(item)).join('');
 }
 
@@ -15,52 +18,43 @@ var friendsList = [];
 
 (async ()=>{
 
-            await fetch('https://randomuser.me/api/?results=30' )
+            await fetch(`${API_RANDOM_USER}` )
             .then(response => response.json())
             .then(data => {
                 friendsList = data.results;
             });
-    console.dir(friendsList);
+
     drawRenderCardList(friendsList);
-
-
-
 
 })();
 
-function sortByName(way) {
-    return friendsList.sort((a,b) => {
+function filterArray(list){
+    let lower = document.getElementById("lowerAge").value;
+    let upper = document.getElementById("upperAge").value;
+    let name = document.getElementById('searchName').value;
+    lower = (lower === '') ? MIN_AGE : +lower;
+    upper = (upper === '') ? MAX_AGE : +upper;
+    name = name.toLowerCase();
+    return list.filter((item) => {
+        return (item.dob.age >= lower && item.dob.age <= upper) && (item.name.first.indexOf(name) > -1 || item.name.last.indexOf(name) > -1)
+    })
+
+
+}
+
+
+function sortByName(list,way) {
+
+    return list.sort((a,b) => {
         if (a.name.last === b.name.last) return (a.name.first > b.name.first) ? 1 : -1;
         if (way) return (a.name.last > b.name.last) ? 1 : -1
             else return (a.name.last > b.name.last) ? -1 : 1
     })
 }
 
-function filterByName(name) {
-    console.log(name);
-    name = name.toLowerCase();
-    return friendsList.filter((item) => {
-        return (item.name.first.indexOf(name) > -1 || item.name.last.indexOf(name) > -1)
-    })
-}
 
-
-function filterByAge(lower,upper) {
-
-    lower = (lower === '') ? 0 : +lower;
-    upper = (upper === '') ? 150 : +upper;
-    console.log(lower);
-    console.log(upper);
-
-    return friendsList.filter((item) => {
-        return (item.dob.age >= lower && item.dob.age <= upper)
-    })
-}
-
-
-function sortByAge(way) {
-    return friendsList.sort((a,b) => {
-      //  if (a.name.last === b.name.last) return (a.name.first > b.name.first) ? 1 : -1;
+function sortByAge(list, way) {
+    return list.sort((a,b) => {
         if (way) return (new Date(a.dob.date) > new Date(b.dob.date)) ? 1 : -1
         else return (new Date(a.dob.date) > new Date(b.dob.date)) ? -1 : 1
     })
@@ -68,13 +62,11 @@ function sortByAge(way) {
 
 
 
-document.getElementById('nameAsc').addEventListener("click", () => drawRenderCardList(sortByName(true)));
-document.getElementById('nameDesc').addEventListener("click", () => drawRenderCardList(sortByName(false)));
-document.getElementById('ageAsc').addEventListener("click", () => drawRenderCardList(sortByAge(false)));
-document.getElementById('ageDesc').addEventListener("click", () => drawRenderCardList(sortByAge(true)));
-document.getElementById('searchName').addEventListener("input", (event) => drawRenderCardList(filterByName(event.target.value)));
-document.getElementById('filterAge').addEventListener("click", () => drawRenderCardList(filterByAge(
-    document.getElementById("lowerAge").value, document.getElementById("upperAge").value
-)))
+document.getElementById('nameAsc').addEventListener("click", () => drawRenderCardList(sortByName(filterArray(friendsList),true)));
+document.getElementById('nameDesc').addEventListener("click", () => drawRenderCardList(sortByName(filterArray(friendsList),false)));
+document.getElementById('ageAsc').addEventListener("click", () => drawRenderCardList(sortByAge(filterArray(friendsList),false)));
+document.getElementById('ageDesc').addEventListener("click", () => drawRenderCardList(sortByAge(filterArray(friendsList),true)));
+document.getElementById('searchName').addEventListener("input", (event) => drawRenderCardList(filterArray(friendsList)));
+document.getElementById('filterAge').addEventListener("click", () => drawRenderCardList(filterArray(friendsList)));
 
 
