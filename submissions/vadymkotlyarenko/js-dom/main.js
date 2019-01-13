@@ -21,7 +21,9 @@ var contentData = {
     }
 }
 
-document.addEventListener("DOMContentLoaded", addListenerToMenu);
+function init() {
+    document.addEventListener("DOMContentLoaded", addListenerToMenu);
+}
 
 function addListenerToMenu() {
     document.getElementById("menu-list").addEventListener("click", onMenuItemClick);
@@ -45,3 +47,5 @@ function fillContent(value) {
         }
     }
 }
+
+init();
