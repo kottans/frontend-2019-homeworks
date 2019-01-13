@@ -9,11 +9,11 @@ body{
    display: flex; 
 }
 
-.navigation ul{
+.nav ul{
     list-style: none;
 }
 
-.navigation li{
+.nav li{
     padding: 10px 20px; 
     margin: 5px 0; 
     font-family: "Arial", sans-serif;
@@ -24,11 +24,11 @@ body{
     cursor: pointer; 
 }
 
-.navigation .active{
+.nav .active{
    background-color: #20B2AA;
 }
 
-aside {
+.nav {
     max-width: 30%; 
     min-width: 250px;
 }
@@ -60,3 +60,4 @@ aside {
         align-items: center;
     }
 }
+
