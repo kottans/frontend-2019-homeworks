@@ -68,6 +68,6 @@ let beings = [dog,cat,woman,man];
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
    */
 
-print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
+
 beings.forEach(item => print(stringify(item)));
 
