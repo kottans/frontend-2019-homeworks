@@ -43,6 +43,11 @@ const man = {
     phrase: 'Jenny'
 }
 
+function stringify (obj) {
+    return Object.values(obj).join(';');
+}
+
+let beings = [dog,cat,woman,man];
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
@@ -64,7 +69,5 @@ const man = {
    */
 
 print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-print(`${dog.species}; ${dog.name}; ${dog.gender}; ${dog.legs}; ${dog.hands}; ${dog.phrase}`);
-print(`${cat.species}; ${cat.name}; ${cat.gender}; ${cat.legs}; ${cat.hands}; ${cat.phrase}`);
-print(`${man.species}; ${man.name}; ${man.gender}; ${man.legs}; ${man.hands}; ${man.phrase}`);
-print(`${woman.species}; ${woman.name}; ${woman.gender}; ${woman.legs}; ${woman.hands}; ${woman.phrase}`);
+beings.forEach(item => print(stringify(item)));
+
