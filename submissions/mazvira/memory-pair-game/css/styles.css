@@ -1,0 +1,50 @@
+body {
+  margin: 20px 0;
+  background: #00FFFF;
+}
+
+.grid {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.selected {
+  transform: rotateY(180deg);
+}
+
+.card {
+  margin: 5px;
+  position: relative;
+  transition: all .4s linear;
+  transform-style: preserve-3d;
+
+}
+
+.card, .back, .front {
+  height: 150px;
+  width: 150px;
+} 
+
+.back, .front {
+  position: absolute; 
+  backface-visibility: hidden;
+}
+
+.front {
+  background: #20B2AA
+}
+
+.back {
+  transform: rotateY(180deg);
+  background-color: white;  
+  background-size: contain;
+  background-repeat: no-repeat; 
+  background-position: center center; 
+}
+
+.match .front {
+  background: url('../img/fruits.jpg') ;
+}
