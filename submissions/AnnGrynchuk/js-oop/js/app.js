@@ -24,14 +24,15 @@ Enemy.prototype.update = function(dt) {
       this.x = -30;
       this.speed = Math.floor(Math.random() * 200) + 70;
     };
+
+    this.checkCollisions();
 };
 
 Enemy.prototype.checkCollisions = function(){
-
-      if( this.x + this.player.width > this.player.x && this.player.width + x > this.x && this.y + this.player.height > this.player.y && this.player.height + this.player.y > this.y ){
+    if(this.x + this.player.width > this.player.x && this.player.width + this.player.x > this.x && this.y + this.player.height > this.player.y && this.player.height + this.player.y > this.y) {
         this.player.x = 200;
         this.player.y = 400;
-    }
+    };
 };
 
 // Draw the enemy on the screen, required method for game
@@ -54,13 +55,7 @@ const Player = function(x, y, width, height, moveX, moveY) {
 };
 
 Player.prototype.update = function() {
-  
-       for(var i=0; i < allEnemies.length; i++){
-           if(allEnemies[i].x + this.width  > this.x && this.width  +  this.x > allEnemies[i].x &&  allEnemies[i].y + this.height >this.y && this.height + this.y > allEnemies[i].y){
-            this.x = 200;
-            this.y = 400;  
-           }
-       }
+
 };
 
 Player.prototype.render = function() {
@@ -78,6 +73,7 @@ Player.prototype.handleInput = function (key){
         } else if (key == 'down' && this.y<400) { 
             this.y+=this.moveY;
         } ;
+  
         if(this.y < 0){
             setTimeout(function () {
                 alert("You are the winner!");
@@ -90,13 +86,11 @@ Player.prototype.handleInput = function (key){
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-let allEnemies = [];
-const enemy1 = new Enemy(50,80,100,Player);
-const enemy2 = new Enemy(30,220,50,Player);
-
-allEnemies.push(enemy1, enemy2);
-
 const player = new Player(200,400,70,80,101,85);
+const enemy1 = new Enemy(50,80,100,player);
+const enemy2 = new Enemy(30,220,50,player);
+let allEnemies = [enemy1,enemy2];
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
