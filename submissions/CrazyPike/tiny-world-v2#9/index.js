@@ -9,9 +9,9 @@
 // Define your objects here
 
 class Being {
-    constructor(legs,hands,name,gender,phrase){
+    constructor(species,legs,name,gender,phrase){
+        this.species = species;
         this.legs = legs;
-        this.hands = hands;
         this.name = name;
         this.gender = gender;
         this.phrase = phrase;
@@ -19,9 +19,9 @@ class Being {
 }
 
 class Dog extends Being{
-    constructor(legs,hands,name,gender,phrase) {
-        super(legs,hands,name,gender,phrase);
-        this.species = 'dog';
+    constructor(legs,name,gender,phrase) {
+        super('dog', legs,name,gender,phrase);
+
 
     }
 
@@ -29,19 +29,19 @@ class Dog extends Being{
 }
 
 class Cat extends Being{
-    constructor(legs,hands,name,gender,phrase) {
-        super(legs,hands,name,gender,phrase);
-        this.species = 'dcat';
+    constructor(legs,name,gender,phrase) {
+        super('cat',legs,name,gender,phrase);
+
 
     }
 
 
 }
 
-class Man extends Being{
+class Human extends Being{
     constructor(legs,hands,name,gender,phrase) {
-        super(legs,hands,name,gender,phrase);
-        this.species = 'human';
+        super('human',legs,name,gender,phrase);
+        this.hands = hands
 
     }
 
@@ -51,8 +51,8 @@ class Man extends Being{
 
 const dog = new Dog(4,0,'Woof','male','Poof');
 const cat = new Cat(4,0,'Cat','male','meow');
-const woman = new Man(2,2,'Jenny','female','Jack');
-const man = new Man(2,2,'Jack','male','Jenny');
+const woman = new Human(2,2,'Jenny','female','Jack');
+const man = new Human(2,2,'Jack','male','Jenny');
 
 
 
