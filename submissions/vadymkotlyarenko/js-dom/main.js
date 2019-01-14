@@ -22,17 +22,15 @@ var contentData = {
 }
 
 function init() {
-    document.addEventListener("DOMContentLoaded", addListenerToMenu);
+    document.addEventListener("DOMContentLoaded", onMenuItemClick);
 }
 
-function addListenerToMenu() {
-    document.getElementById("menu-list").addEventListener("click", onMenuItemClick);
-}
-
-function onMenuItemClick(e) {
-    if (e && e.target && e.target.tagName == "A" && e.target.textContent) {
-        fillContent(e.target.textContent);
-    }
+function onMenuItemClick() {
+    document.getElementById("menu-list").addEventListener("click", function(e) {
+        if (e && e.target && e.target.tagName == "A" && e.target.textContent) {
+            fillContent(e.target.textContent);
+        };       
+    });
 }
 
 function fillContent(value) {
