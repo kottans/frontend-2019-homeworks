@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    border:none;
+    outline:none;
+    box-sizing: border-box;
+}
+body {
+    background: linear-gradient(45deg, #EECFBA, #C5DDE8);
+    margin:0;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.content{
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+}
+.fltrers {
+    display: flex;
+    flex-direction:column;
+    justify-content: row;
+    align-items: center;
+    width: 25%;
+    background:white;
+    padding: 10px;
+    margin-top:5px;
+    border-radius: 3px;
+}
+.fltrers button{
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: background-color .3s;
+    cursor: pointer;
+    background-color: transparent;
+    border:1px solid #666;
+}
+.fltrers button:hover{
+    background-color: rgb(141, 189, 238);
+}
+.users-content {
+    display:flex;
+    justify-content: space-between;
+    flex:1;
+    flex-wrap: wrap;
+    margin-left: 20px;
+}
+.user {
+    background: linear-gradient(#a2c9ee, #9ab0c2);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 0;
+    width: calc(20% - 20px/5);
+    height: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 250px;
+}
+.user-img {
+    overflow:hidden;
+    height: 128px;    
+    object-fit: contain;
+
+}
+.search-filter {
+    font-size: 1.5em;
+    margin-bottom:10px;
+}
+.sex-filter, .age-filter, .name-filter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.sex-filter{
+    margin-bottom:10px;
+}
+.sex-filter input[type='radio'], .age-filter input[type='radio'], .name-filter input[type='radio']{
+    display: none;
+}
+.sex-filter input[type='radio']:checked+span{
+    border:1px solid rgb(141, 189, 238);
+}
+.sex-filter label span{
+    display: block;
+    border:1px solid #666;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+.sex-filter label:not(:last-child){
+    margin-right:10px;
+}
+.age-filter img, .name-filter img{
+    transform: scale(0.7);
+    transition: transform .3s;
+}
+.age-filter input[type='radio']:checked+img, .name-filter input[type='radio']:checked+img{
+    transform: scale(1);
+}
+.fltrers input[type=text] {
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+    width: 100%;
+    height: 30px;
+    border-radius: 20px;
+    border: 1px solid #666;
+    padding: 0 10px;
+}
+.user-name, .user-age, .user-gender, .user-phone, .user-email {
+    margin: 10px;
+}
+@media screen and (max-width: 425px){
+    .content{
+        flex-direction: column;
+    }
+    .fltrers{
+        width: 100%;
+        margin-bottom:20px;
+    }
+    .users-content{
+        margin: 0;
+    }
+    .user{
+        width: 100%;
+    }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale = 1">
+    <link rel="stylesheet" type="text/css" href="main.css">   
+    <title>Friends App</title>
+</head>
+  <body>
+    <div class="content">
+      <div class="fltrers">
+        <div class="sex-filter">
+          <label><input type="radio" name="sex-filter" value="all" class="buttons" checked> <span>All</span></label>
+          <label><input type="radio" name="sex-filter" value="male" class="buttons"> <span>Male</span></label>
+          <label><input type="radio" name="sex-filter" value="female" class="buttons"> <span>Female</span></label>
+        </div>
+        <div class="age-filter">
+          Age
+          <label><input type="radio" id="age-down" name="age-filter" value="age-down" class="buttons">
+            <img src="img/arrow-down.png">
+          </label>
+          <label><input type="radio" id="age-up" name="age-filter" value="age-up" class="buttons">
+            <img src="img/arrow-up.png">
+          </label>
+        </div>
+        <div class="name-filter">
+          Name
+          <label><input type="radio" id="name-down" name="name-filter" value="name-down" class="buttons">
+  <img src="img/arrow-down.png">
+          </label>
+          <label><input type="radio" id="name-up" name="name-filter" value="name-up" class="buttons">
+            <img src="img/arrow-up.png" >
+          </label>
+        </div>
+        <input type="text" class="search-filter" placeholder="Search...">
+        <button class="reset-button">Reset</button>
+      <div class="grid"></div>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
+ 
