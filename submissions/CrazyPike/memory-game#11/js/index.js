@@ -1,4 +1,4 @@
-let input = [1,5,4,8,3,2,6,4,7,3,1,6,8,5,2,7]
+const input = [1,5,4,8,3,2,6,4,7,3,1,6,8,5,2,7]
 var firstCard = {
     id : 'none',
     card: 'none'
@@ -15,8 +15,8 @@ let images = {
     8: 'veg8',
 }
 
-let container = document.getElementById('container');
-container.innerHTML = input.map((item,index) => `<div class="card" id="card${index  }" card="${item} "><img src="./img/${images[item]}.png"></div>`).join(' ');
+const container = document.getElementById('container');
+container.innerHTML = input.map((item,index) => `<div class="card" id="card${index}" card="${item} "><img src="./img/${images[item]}.png"></div>`).join(' ');
 container.addEventListener('click', (event) =>{
     var target = event.target;
     if (target.className !== 'card') return;
@@ -28,20 +28,13 @@ container.addEventListener('click', (event) =>{
     }
     else if (firstCard.card === targetCard) {
         document.getElementById(firstCard.id).className = 'card displayed noborder';
-
         target.className = 'card displayed noborder ';
         firstCard.id = 'none';
 
     }   else {
-
-
         let timerid = setTimeout(function() {
             target.className = 'card';}, 300)
-
         document.getElementById(firstCard.id).className = 'card';
-
-
-
         firstCard.id = 'none';
     }
 } )
