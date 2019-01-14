@@ -1,4 +1,4 @@
-const USER = new URL('https://randomuser.me/api/?results=20');
+const USER = new URL('https://randomuser.me/api/?results=10');
 const CONTAINER_FILTERS = document.getElementById('container-filters');
 const CONTAINER_CARDS = document.getElementById('container-cards');
 const SORT_AGE_UP = document.getElementById('sort-age-up');
@@ -34,7 +34,7 @@ let createCards = () => {
                             ${element.name.last.charAt(0).toUpperCase() + element.name.last.slice(1)}</div>
                             <div><img class="card-photo" src="${element.picture.large}"></div>
                             <div class="card-info">
-                            I am ${element.dob.age} years old<br> 
+                            ${element.dob.age} years<br> 
                             ${element.email}<br>
                             ${element.phone}
                             </div>
@@ -100,17 +100,18 @@ let resetInfo = () => {
     createCards();
 }
 
-// let findName = elem => {
-//     let input = elem.data;
-//     console.log(input);
-//     let arr = CONTAINER_CARDS.childNodes;
-//     console.log(arr);
+let findInfo = elem => {
+    let search = elem.target.value;
+    let arr = CONTAINER_CARDS.childNodes;
 
-//     arr.forEach(element => {
-//         let name = element.childNodes[1].firstChild;
-//         console.log(name.indexOf(input));
-//     });
-// }
+    arr.forEach(element => {
+        if (element.textContent.indexOf(search) === -1) {
+            element.classList.add('hide-card');
+        } else {
+            element.classList.remove('hide-card');
+        }
+    });
+}
 
 let removeUsers = () => {
     while (CONTAINER_CARDS.firstChild) CONTAINER_CARDS.removeChild(CONTAINER_CARDS.firstChild);
@@ -127,4 +128,4 @@ GENDER_ALL.addEventListener('click', resetInfo);
 GENDER_MALE.addEventListener('click', sortGender);
 GENDER_FEMALE.addEventListener('click', sortGender);
 RESET_BUTTON.addEventListener('click', resetInfo);
-// SEARCH.addEventListener('input', findName);
+SEARCH.addEventListener('input', findInfo);
