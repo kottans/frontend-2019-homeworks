@@ -52,7 +52,7 @@ const womanCat = {
     saying: cat.saying    
 };
 const inhabitans = [man, woman, dog, cat, womanCat];
-
+const properties = ['name', 'species', 'gender', 'legs', 'hands', 'saying'];
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
@@ -71,14 +71,19 @@ const inhabitans = [man, woman, dog, cat, womanCat];
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
    */
-function getFormattedString(object) {
+
+function getNewString(object) {
   let formattedString = '';
-  for (let item of Object.keys(object)) {
-      formattedString += object[item] + "; ";
-    }
+  properties.forEach(function(item){
+      for (let key in object) {      
+          if (item == key) {
+            formattedString += item + ": "+ object[key] + "; "; 
+           }
+          }
+  })  
     return formattedString;
 };
 
 inhabitans.forEach(function(item) {
-    print(getFormattedString(item));
+    print(getNewString(item));
 });
