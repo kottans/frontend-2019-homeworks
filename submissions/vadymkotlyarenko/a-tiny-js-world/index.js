@@ -1,4 +1,3 @@
-
 function capitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
@@ -11,7 +10,7 @@ function Inhabitant(species, name, gender, legs, hands, saying, friends) {
     this.hands = hands;
     this.saying = saying;
     this.friends = friends;
-    this.printInformation = function() {
+    this.getTextForPrint = function() {
         var textToPrint = '';
         for (const key in this) {
             if (!this[key] || typeof(this[key]) === 'function') {
@@ -35,19 +34,17 @@ function Inhabitant(species, name, gender, legs, hands, saying, friends) {
             }
             textToPrint += capitalizeFirstLetter(key) + '=>' + this[key] + ';'
         }
-        print(textToPrint);
+        return textToPrint;
     };
 };
   
 const dog = new Inhabitant('dog', 'Buddy','male', 4, 0 , 'woof-woof');
-dog.printInformation();
+print(dog.getTextForPrint());
 const cat = new Inhabitant('cat', 'Garfield','male', 4, 0 , 'mew', dog);
-cat.printInformation();
+print(cat.getTextForPrint());
 const man = new Inhabitant('human', 'Jonathan','male', 2, 2 , 'Hello!',[dog,dog]);
-man.printInformation();
+print(man.getTextForPrint());
 const woman = new Inhabitant('human', 'Megan','female', 2, 2 , 'Hi!');
-woman.printInformation();
+print(woman.getTextForPrint());
 const catWomen = new Inhabitant('cat', 'Joe','female', 4, 0 , cat, dog);
-catWomen.printInformation();
-
-  
+print(catWomen.getTextForPrint());
