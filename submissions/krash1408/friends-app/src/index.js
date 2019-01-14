@@ -1,4 +1,4 @@
-const url = 'https://randomuser.me/api/?results=30&inc=gender,name,email,registered,dob,phone,id,picture&nas=us';
+const url = 'https://randomuser.me/api/?results=50&inc=gender,name,email,registered,dob,phone,id,picture&nas=us';
 const field = document.querySelector('.main-field');
 const fieldWrapper = document.createElement('div');
 fieldWrapper.classList.add('main-field__wrapper');
@@ -32,20 +32,54 @@ function getUsersList() {
 function createCard ( value ) {
   card = document.createElement('div');
   card.classList.add('card');
+  cardWrapper = document.createElement('div');
+  cardWrapper.classList.add('card__wrapper');
+
+  cardFront = document.createElement('div');
+  cardFront.classList.add('card__front');
+  cardBack = document.createElement('div');
+  cardBack.classList.add('card__back');
+
   cardPhoto = document.createElement('img');
   cardPhoto.classList.add('card__photo');
   cardPhoto.setAttribute('src', `${value.picture.large}`);
   cardName = document.createElement('p');
   cardName.classList.add('card__name');
-  cardName.innerHTML = `Name: ${value.name.first} ${value.name.second}`;
+  cardName.innerHTML = `Name: ${value.name.first} ${value.name.last}`;
   cardAge = document.createElement('p');
   cardAge.classList.add('card__age');
-  cardAge.innerHTML = `Age: ${value.dob.age}`
-  card.appendChild(cardPhoto);
-  card.appendChild(cardName);
-  card.appendChild(cardAge);
+  cardAge.innerHTML = `Age: ${value.dob.age}`;
+
+  cardBirthDay = document.createElement('p');
+  cardBirthDay.classList.add('card__birthday');
+  cardBirthDay.innerHTML = `Date of birth:<br>${value.dob.date}`;
+  cardEmail = document.createElement('p');
+  cardEmail.classList.add('card__email');
+  cardEmail.innerHTML = `Email:<br>${value.email}`;
+  cardID = document.createElement('p');
+  cardID.classList.add('card__id');
+  cardID.innerHTML = `Accaunt ID:<br>${value.id.value}`;
+  cardPhone = document.createElement('p');
+  cardPhone.classList.add('card__phont');
+  cardPhone.innerHTML = `Phone number:<br>${value.phone}`;
+
+  card.appendChild(cardWrapper);
+
+  cardWrapper.appendChild(cardFront);
+  cardWrapper.appendChild(cardBack);
+
+  cardFront.appendChild(cardPhoto);
+  cardFront.appendChild(cardName);
+  cardFront.appendChild(cardAge);
+
+  cardBack.appendChild(cardBirthDay);
+  cardBack.appendChild(cardEmail);
+  cardBack.appendChild(cardID);
+  cardBack.appendChild(cardPhone);
+
   value.element = card;
 }
+
 function createFiled ( array ) {
   array.forEach(value => fieldWrapper.appendChild(value.element))
   field.appendChild(fieldWrapper);
@@ -63,6 +97,21 @@ const sortByName = function ( a, b ) {
   if (nameA > nameB) return 1
   return 0
 }
+const sortByGenderMale = function  ( array ) {
+  let card = document.querySelectorAll('.card');
+  array.forEach((value, i) => {
+    if ( value.gender !== 'male') {card[i].style.display = 'none'}
+    else {card[i].style.display = ''}
+  })
+}
+const sortByGenderFemale = function  ( array ) {
+  let card = document.querySelectorAll('.card');
+  array.forEach((value, i) => {
+    if ( value.gender !== 'female') {card[i].style.display = 'none'}
+    else {card[i].style.display = ''}
+  })
+}
+
 // поиск по имени
 function search(  ) {
   let names = document.getElementsByClassName('card__name');
@@ -82,11 +131,14 @@ function search(  ) {
 //сортировка по имени и возрасту
 document.querySelector('.main-navigation').addEventListener('click', () => {
   const inputNodeList = document.querySelectorAll('.hidden'); 
+  const male = document.querySelector('.male');
+  const female = document.querySelector('.female');
   const nameAZ = document.querySelector('.name-az');
   const nameZA = document.querySelector('.name-za');
   const ageAZ = document.querySelector('.age-az');
   const ageZA = document.querySelector('.age-za');
   const reset = document.querySelector('#reset');
+
   switch (event.target) {
     case nameAZ :
       usersCurrentArr.sort(sortByName);
@@ -104,6 +156,12 @@ document.querySelector('.main-navigation').addEventListener('click', () => {
       usersCurrentArr.sort(sortByAge).reverse();
       createFiled( usersCurrentArr );
       break;
+    case male :
+      sortByGenderMale( usersCurrentArr );
+      break;
+    case female :
+        sortByGenderFemale( usersCurrentArr );
+        break;
     case reset :
       inputNodeList.forEach(val => val.checked = false);
       document.getElementById('search').value = '';
@@ -116,4 +174,13 @@ document.querySelector('.main-navigation').addEventListener('click', () => {
 document.querySelector('#search').addEventListener('input', () => {
   search( usersCurrentArr );
 })
+
+document.querySelectorAll('.card__front').forEach( val => {
+  val.addEventListener('click', () => {
+    console.log(target);
+    console.log(click)
+    val.classList.toggle('rotate');
+  })
+}) 
+
 getUsersList();
