@@ -113,6 +113,7 @@ function sortListDir({target}) {
       }
     }
     if (shouldSwitch) {
+      ('hello');
       b[i].parentNode.insertBefore(b[i + 1], b[i]);
       switching = true;
     }
@@ -123,14 +124,8 @@ ageSortBlock.addEventListener('click', (el) => {
   if (el.target.className == 'full-age') Users.sort(ageSortMG);
   else {
     Users.sort(ageSortGM);
-    ('hey');
   }
-  while (friendsContainer.firstChild) {
-    friendsContainer.removeChild(friendsContainer.firstChild);
-  }
-  Users.forEach(num => {
-    friendsContainer.appendChild(num)
-  });
+  renderNewFlist(Users);
 });
 
 function ageSortMG(a, b) {
@@ -146,23 +141,14 @@ genderSortBlock.addEventListener('click', ({target}) => {
   if (target.className == 'male') sortedArray = Users.filter(num => num.gender == 'male');
   else if (target.className == 'female') sortedArray = Users.filter(num => num.gender == 'female');
   else sortedArray = Users;
-  while (friendsContainer.firstChild) {
-    friendsContainer.removeChild(friendsContainer.firstChild);
-  }
-  sortedArray.forEach(num => {
-    friendsContainer.appendChild(num)
-  });
-
+  renderNewFlist(sortedArray);
 })
 
 reset.addEventListener('click', ({target}) => {
   if (target.tagName != 'div')
-    while (friendsContainer.firstChild) {
-      friendsContainer.removeChild(friendsContainer.firstChild);
-    }
-  reserArray.forEach(num => friendsContainer.appendChild(num));
-
+  renderNewFlist(reserArray);
 })
+
 hideButton.addEventListener('click', ({target}) => {
   openButton.classList.remove('remove-card');
   document.querySelector('.navigation').classList.add('remove-card');
@@ -173,27 +159,27 @@ openButton.addEventListener('click', ({target}) => {
   navigation.classList.remove('remove-card');
   openButton.classList.remove('forOpen');
 });
+
 navBar.addEventListener('click', ({target}) => {
   if (target.className == 'request') {
-    while (friendsContainer.firstChild) {
-      friendsContainer.removeChild(friendsContainer.firstChild);
-    }
-    arrayOfAddFriends.forEach(num => friendsContainer.appendChild(num));
+    renderNewFlist(arrayOfAddFriends);
     document.querySelector('.home-information').classList.remove('show-block');
     document.querySelector('.home-information').classList.add('remove-card');
   }
   if (target.className == 'people') {
-    while (friendsContainer.firstChild) {
-      friendsContainer.removeChild(friendsContainer.firstChild);
-    }
-    reserArray.forEach(num => friendsContainer.appendChild(num));
+    renderNewFlist(reserArray);
     document.querySelector('.home-information').classList.remove('show-block');
     document.querySelector('.home-information').classList.add('remove-card');
   }
   if (target.className == 'home') {
-    while (friendsContainer.firstChild) {
-      friendsContainer.removeChild(friendsContainer.firstChild);
-    }
+    renderNewFlist();
     document.querySelector('.home-information').classList.add('show-block');
   }
 })
+
+function renderNewFlist(pushArray){
+  while (friendsContainer.firstChild) {
+    friendsContainer.removeChild(friendsContainer.firstChild);
+  }
+  if(pushArray!=undefined)pushArray.forEach(num => friendsContainer.appendChild(num));
+}
