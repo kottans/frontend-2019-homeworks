@@ -9,10 +9,10 @@ const showFriends = friends => {
 		let img = document.createElement("img");
 		img.src = friend.picture.large;	
 		let name  = document.createElement("p");
-		name.textContent = (friend.name.first + " " + friend.name.last);
+		name.textContent = (`${friend.name.first} ${friend.name.last}`);
 		name.classList.add("friend-name");		
 		let age = document.createElement("p");
-		age.textContent = "I have " + friend.dob.age + " years old";
+		age.textContent = `I have ${friend.dob.age} years old`;
 		let loc = document.createElement("p");
 		loc.textContent = friend.location.state + " " + friend.location.city;
 		let email = document.createElement("div");
@@ -25,15 +25,14 @@ const showFriends = friends => {
 }
 
 const friendsListInit = listOfFriends => {
-	if(listOfFriendsAll.length == 0)
-		listOfFriendsAll = listOfFriends;	
+	listOfFriendsAll = [...listOfFriends];	
 	let filterParams = {
 		gender: "",
 		sortNameAge: "",
 		searchFriend: ""
 	};	
 	addListenersToForm(filterParams);
-	showFriends(listOfFriends);
+	showFriends(listOfFriendsAll);
 }
 
 const addListenersToForm = (filterParams) => {
@@ -48,29 +47,13 @@ const addListenersToForm = (filterParams) => {
 	});
 	document.querySelector(".search-text").addEventListener("input", ({target}) => {
 		filterParams.searchFriend = target.value;
-		searchFriends(listOfFriendsAll, filterParams);
+		filterFriends(listOfFriendsAll, filterParams);
 	});
-	document.querySelector("[type=reset]").addEventListener("click", () => {
-		filterParams = {
-			gender: "",
-			sortNameAge: "",
-			searchFriend: ""
-		};
-		showFriends(listOfFriendsAll);
-	});
-}
-
-const searchFriends = (listOfFriends, filterParams) => {
-	let filteredFriends = listOfFriends;
-	if (filterParams.searchFriend)
-    filteredFriends = filteredFriends.filter(
-		({name}) => name.first.includes(filterParams.searchFriend) || name.last.includes(filterParams.searchFriend)
-    );
-	showFriends(filteredFriends);
+	document.querySelector("[type=reset]").addEventListener("click", resetFilter);
 }
 
 const filterFriends = (listOfFriends, filterParams) => {
-	let filteredFriends = listOfFriends;
+	let filteredFriends = [...listOfFriends];
 	
 	switch(filterParams.gender){
 		case "male":
@@ -83,23 +66,50 @@ const filterFriends = (listOfFriends, filterParams) => {
 	
  	switch(filterParams.sortNameAge){
 		case "nameAsc":
-			filteredFriends = filteredFriends.sort((friend, friendNext) => friend.name.first > friendNext.name.first ? 1 : -1);
+			filteredFriends = filteredFriends.sort((friend, friendNext) => (friend.name.first > friendNext.name.first ? 1 : -1) || 0);
 			break;
  		case "nameDesc":
-			filteredFriends = filteredFriends.sort((friend, friendNext) => friend.name.first < friendNext.name.first ? 1 : -1);
+			filteredFriends = filteredFriends.sort((friend, friendNext) => (friend.name.first < friendNext.name.first ? 1 : -1) || 0);
 			break;
 		case "ageAsc":
-			filteredFriends = filteredFriends.sort((friend, friendNext) => friend.dob.age > friendNext.dob.age ? 1 : -1);
+			filteredFriends = filteredFriends.sort((friend, friendNext) => friend.dob.age - friendNext.dob.age);
 			break;
 		case "ageDesc":
-			filteredFriends = filteredFriends.sort((friend, friendNext) => friend.dob.age < friendNext.dob.age ? 1 : -1);
+			filteredFriends = filteredFriends.sort((friend, friendNext) => friendNext.dob.age - friend.dob.age);
 			break; 
 	}
+	
+	if (filterParams.searchFriend){
+		filteredFriends = filteredFriends.filter(
+			({name}) => name.first.includes(filterParams.searchFriend) || name.last.includes(filterParams.searchFriend)
+		);
+	}	
+	
 	showFriends(filteredFriends);
 }
 
+const resetFilter = () => {
+	filterParams = {
+			gender: "",
+			sortNameAge: "",
+			searchFriend: ""
+		};
+	frendsAppInit();
+}
+
+const handleErrors = (response) => {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+    return response;
+}
+
+const frendsAppInit = () => {
 fetch(FRIENDS_API_URL)
+	.then(handleErrors)
 	.then(response => response.json())
-	.then(data => {
-	friendsListInit(data.results)
-	});
+    .then(data => friendsListInit(data.results) )
+    .catch(error => friendsContainer.innerHTML = error.message ); 
+}
+
+window.onload = frendsAppInit();
