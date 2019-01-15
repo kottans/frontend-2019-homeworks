@@ -2,7 +2,7 @@ const ul = document.querySelector('.container');
 const h2 = document.querySelector('.techName');
 const p1 = document.querySelector('.description');
 const img = document.querySelector('.logo');
-const technology = (el) => {
+const setTechnology = (el) => {
    document.h2 = el.name;
    h2.content = el.name;
    p1.textContent = el.paragraph;
@@ -12,7 +12,7 @@ ul.addEventListener ('click', event => {
    document.querySelector('.default').classList.remove('.default');
    event.target.classList.add('default');
    const currentParagraph = (el) => event.target.textContent == el.name;
-   technology(data.find(currentParagraph));
+   setTechnology(data.find(currentParagraph));
  });
 let data = [ 
     {name: "React",
