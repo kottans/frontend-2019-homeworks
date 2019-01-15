@@ -22,7 +22,6 @@ const loadUserDataInArray = async () => {
         listUsers.push(element);
         tempListUser = listUsers.slice();
     });
-    // console.log(listUsers);
     createCards();
 }
 
@@ -47,7 +46,7 @@ let createCards = () => {
 }
 
 let sort = elem => {
-    switch (elem.target.id) {
+    switch (elem.id) {
         case 'sort-age-up':
             compare = (a, b) => a.dob.age - b.dob.age;
             break;
@@ -70,7 +69,7 @@ let sort = elem => {
 let sortGender = elem => {
     if (!lockSort) {
         let array = [];
-        switch (elem.target.id) {
+        switch (elem.id) {
             case 'gender-male':
                 listUsers.forEach(element => {
                     if (element.gender !== 'male') element.delete;
@@ -117,15 +116,20 @@ let removeUsers = () => {
     while (CONTAINER_CARDS.firstChild) CONTAINER_CARDS.removeChild(CONTAINER_CARDS.firstChild);
 }
 
+let addEventListeners = () => {
+    CONTAINER_FILTERS.onclick = function(event) {
+        let target = event.target;
+        if (target === SORT_AGE_DOWN || target === SORT_AGE_UP || 
+            target === SORT_NAME_UP || target === SORT_NAME_DOWN) {
+            sort(target);
+        } else if (target === GENDER_ALL || target === RESET_BUTTON) {
+            resetInfo();
+        } else if (target === GENDER_MALE || target === GENDER_FEMALE) {
+            sortGender(target);
+        }
+    }
+    SEARCH.addEventListener('input', findInfo);
+}
+
 loadUserDataInArray();
-
-SORT_AGE_UP.addEventListener('click', sort);
-SORT_AGE_DOWN.addEventListener('click', sort);
-SORT_NAME_UP.addEventListener('click', sort);
-SORT_NAME_DOWN.addEventListener('click', sort);
-
-GENDER_ALL.addEventListener('click', resetInfo);
-GENDER_MALE.addEventListener('click', sortGender);
-GENDER_FEMALE.addEventListener('click', sortGender);
-RESET_BUTTON.addEventListener('click', resetInfo);
-SEARCH.addEventListener('input', findInfo);
+addEventListeners();
