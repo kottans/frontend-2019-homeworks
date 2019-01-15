@@ -8,10 +8,10 @@ const setTechnology = (el) => {
    p1.textContent = el.paragraph;
    img.src = el.image;
 };
+const currentParagraph = (el) => event.target.textContent == el.name;
 ul.addEventListener ('click', event => {
    document.querySelector('.default').classList.remove('.default');
    event.target.classList.add('default');
-   const currentParagraph = (el) => event.target.textContent == el.name;
    setTechnology(data.find(currentParagraph));
  });
 let data = [ 
