@@ -14,7 +14,7 @@ ul.addEventListener ('click', event => {
    event.target.classList.add('default');
    setTechnology(data.find(currentParagraph));
  });
-let data = [ 
+const data = [ 
     {name: "React",
     paragraph: "React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes. Declarative views make your code more predictable and easier to debug.",
     image: "img/react2.png"}, 
