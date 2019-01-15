@@ -7,6 +7,8 @@ const navigation = document.querySelector('.navigation')
 const ageSortBlock = document.querySelector('.age');
 const reset = document.querySelector('.reset');
 const navBar = document.querySelector('.nav-bar');
+const Users = Array(40).fill(0);
+let dataContainer;
 let arrayOfAddFriends = [];
 let saveArray = Array(40).fill(0);
 let reserArray;
@@ -44,28 +46,15 @@ function makeProfileCard(person) {
   flipBox.gender = person.gender;
   return flipBox;
 };
-const Users = Array(40).fill(0);
-let dataContainer;
-
-function setDataOrder(list, number) {
-  list.dataset.order = number;
-  list.querySelector('.flip-box-inner').dataset.order = number;
-  list.querySelector('.flip-box-front').dataset.order = number;
-  list.querySelector('.flip-box-back').dataset.order = number;
-  list.querySelector('img').dataset.order = number;
-  list.querySelectorAll('p').forEach(num => num.dataset.order = number);
-}
-
 
 function fillUsers(userData) {
   Users.forEach((num, i) => {
-
     Users[i] = makeProfileCard(userData[i]);
-    setDataOrder(Users[i], i);
+    Users[i].dataset.order = i;
+    ['.flip-box-inner','.flip-box-front','.flip-box-back','img'].forEach(num=>Users[i].querySelector(num).dataset.order = i);
+    Users[i].querySelectorAll('p').forEach(num => num.dataset.order = i);
     allFriendsCards = document.querySelectorAll('.flip-box');
-
   })
-
 }
 
 getFriendsData.then(response => response.json())
@@ -73,25 +62,25 @@ getFriendsData.then(response => response.json())
     dataContainer = data.results;
     fillUsers(data.results);
     reserArray = Users.slice();
-
   });
 
 friendsContainer.addEventListener('click', flipCard);
+nameSearch.addEventListener('keyup', inputSearch);
 
 function flipCard({target}) {
+  let innerCard=friendsContainer.querySelector(`.flip-box-inner[data-order='${target.dataset.order}']`);
+  let boxCard=friendsContainer.querySelector(`.flip-box[data-order='${target.dataset.order}']`);
   if (target.className != 'friends' && target.className != 'add-friend') {
-    friendsContainer.querySelector(`.flip-box-inner[data-order='${target.dataset.order}']`).classList.toggle('clicked');
+    innerCard.classList.toggle('clicked');
   }
   if (target.className == 'add-friend' && target.textContent != 'sent') {
     ('sent');
-    arrayOfAddFriends.push(friendsContainer.querySelector(`.flip-box[data-order='${target.dataset.order}']`));
+    arrayOfAddFriends.push(boxCard);
     target.textContent = 'sent';
   }
 }
-nameSearch.addEventListener('keyup', inputSearch);
 
 function inputSearch({target}) {
-  ('hello');
   let value = target.value.toUpperCase();
   let names = friendsContainer.querySelectorAll('.name');
   names.forEach(num => {
@@ -103,36 +92,9 @@ function inputSearch({target}) {
   })
 }
 
-letterSortBlock.addEventListener('click', (ev) => {
-  (ev.target.className);
-  if (ev.target.className == 'a-z') sortListDir();
-  else sortListDirD();
-});
+letterSortBlock.addEventListener('click',sortListDir);
 
-function sortUsers({target}) {
-  if (target.className != ('abc')) {
-
-    Users.sort(compare);
-
-    Users.forEach((num, i) => {
-      (num.personName);
-      allFriendsCards[i].personName = num.personName;
-      (allFriendsCards[i].personName);
-    });
-  }
-}
-
-function compare(a, b) {
-  if (a.personName < b.personName) return -1;
-  if (a.personName > b.personName) return 1;
-}
-
-function changeCard(filterArray, dataNum) {
-  setDataOrder(filterArray, dataNum);
-
-}
-
-function sortListDir() {
+function sortListDir({target}) {
   var list, i, switching, b, shouldSwitch;
   list = friendsContainer;
   switching = true;
@@ -141,36 +103,16 @@ function sortListDir() {
     b = friendsContainer.getElementsByClassName("flip-box");
     for (i = 0; i < (b.length - 1); i++) {
       shouldSwitch = false;
-      if (b[i].personName.toLowerCase() > b[i + 1].personName.toLowerCase()) {
+      if (b[i].personName.toLowerCase() > b[i + 1].personName.toLowerCase()&&target.className=='a-z') {
+        shouldSwitch = true;
+        break;
+      }
+      if (b[i].personName.toLowerCase() < b[i + 1].personName.toLowerCase()&&target.className=='z-a') {
         shouldSwitch = true;
         break;
       }
     }
     if (shouldSwitch) {
-      ('hello');
-      b[i].parentNode.insertBefore(b[i + 1], b[i]);
-      switching = true;
-    }
-  }
-}
-
-function sortListDirD() {
-  var list, i, switching, b, shouldSwitch;
-  list = friendsContainer;
-  switching = true;
-  while (switching) {
-    switching = false;
-    b = friendsContainer.getElementsByClassName("flip-box");
-    for (i = 0; i < (b.length - 1); i++) {
-      shouldSwitch = false;
-      if (b[i].personName.toLowerCase() < b[i + 1].personName.toLowerCase()) {
-        shouldSwitch = true;
-        break;
-      }
-    }
-    if (shouldSwitch) {
-      ('hello');
-
       b[i].parentNode.insertBefore(b[i + 1], b[i]);
       switching = true;
     }
@@ -255,4 +197,3 @@ navBar.addEventListener('click', ({target}) => {
     document.querySelector('.home-information').classList.add('show-block');
   }
 })
-
