@@ -4,19 +4,19 @@ import { cards } from './Cards';
 const container = document.getElementById('container');
 
 const board = () => {
-    return `<div id="battleground-board" class="battleground-board-disable">${board_image()}</div>`;
+    return `<div id="battleground-board" class="battleground-board-disable">${boardImage()}</div>`;
 }
 
-const board_image = () => {
-    return `<div class="battleground-board-image">${board_field()}</div>`;
+const boardImage = () => {
+    return `<div class="battleground-board-image">${boardField()}</div>`;
 }
 
-const board_field = () => {
+const boardField = () => {
     return `<div class="battleground-board-field">${cards()}</div>`;
 }
 
-const Render = () => {
+const render = () => {
     container.insertAdjacentHTML('beforeend', board());
 }
 
-export default Render;
+export default render;

@@ -1,5 +1,5 @@
 import './IntroVideoMenu.sass';
-import Settings from '../Settings';
+import settings from '../Settings';
 
 const introVideoMenuHTML = () => {
     return `<div id="intro-video-menu">
@@ -23,11 +23,11 @@ const addClickEvent = () => {
 }
 //remove menu after it hides
 const removeMenuAfterHide = () => {
-    const intro_video_menu = document.getElementById('intro-video-menu');
-    const intro_video_menu_skip = document.getElementById('intro-video-menu-skip');
-    intro_video_menu.addEventListener('animationend', () => { 
-        intro_video_menu.remove() 
-        intro_video_menu_skip.remove() 
+    const introVideoMenu = document.getElementById('intro-video-menu');
+    const introVideoMenuSkip = document.getElementById('intro-video-menu-skip');
+    introVideoMenu.addEventListener('animationend', () => { 
+        introVideoMenu.remove() 
+        introVideoMenuSkip.remove() 
     });
 }
 
@@ -44,28 +44,29 @@ const buttonsFunc = (button) => {
 } 
 
 const buttonSound = () => {
-    const button_sound = document.getElementsByClassName('intro-video-menu-box')[0];
-    button_sound.classList.toggle('intro-video-menu-box-active');
-    const full_screen_video = document.getElementById('full-screen-video');
-    Settings.sound = Settings.sound == true ? false : true;
+    const buttonSound = document.querySelector('.intro-video-menu-box');
+    buttonSound.classList.toggle('intro-video-menu-box-active');
+    const fullScreenVideo = document.getElementById('full-screen-video');
+    settings.sound = !settings.sound;
     const soundtrack = document.getElementById('soundtrack');
     soundtrack.muted = !soundtrack.muted;
-    if(full_screen_video.muted) full_screen_video.muted = false;
-    else full_screen_video.muted = true;
+    if(fullScreenVideo.muted) fullScreenVideo.muted = false;
+    else fullScreenVideo.muted = true;
 }
 
 const buttonScreen = () => {
-    const button_sound = document.getElementsByClassName('intro-video-menu-box')[1];
-    button_sound.classList.toggle('intro-video-menu-box-active');
-    Settings.fullscreen = Settings.fullscreen == true ? false : true;
-    if(!(document.webkitCurrentFullScreenElement==null)) document.webkitCancelFullScreen();
+    const buttonSound = document.getElementsByClassName('intro-video-menu-box')[1];
+    const isFullscreen = document.webkitCurrentFullScreenElement == null;
+    buttonSound.classList.toggle('intro-video-menu-box-active');
+    settings.fullscreen = !settings.fullscreen;
+    if(!(isFullscreen)) document.webkitCancelFullScreen();
     else document.documentElement.webkitRequestFullScreen();
 }
 
 const buttonHide = () => {
-    const intro_video_menu = document.getElementById('intro-video-menu');
-    intro_video_menu.classList.add('intro-video-menu-hide-button');
-    intro_video_menu.addEventListener('animationend', () => { intro_video_menu.remove() });
+    const introVideoMenu = document.getElementById('intro-video-menu');
+    introVideoMenu.classList.add('intro-video-menu-hide-button');
+    introVideoMenu.addEventListener('animationend', () => { introVideoMenu.remove() });
 }
 
 const render = () => {

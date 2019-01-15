@@ -1,19 +1,19 @@
 //import './MainPage.sass';
-import BlackScreen from '../PageTransition/BlackScreenTransition';
-import Sundtrack from '../Sound';
-import RenderGameScene from './GameScene';
-import RenderBattlegroundStats from './BattlegroundStats';
-import RenderBattlegroundBoard from './BattlegroundBoard';
-import RenderDialogBox from './DialogBox';
+import blackScreen from '../PageTransition/BlackScreenTransition';
+import sundtrack from '../Sound';
+import renderGameScene from './GameScene';
+import renderBattlegroundStats from './BattlegroundStats';
+import renderBattlegroundBoard from './BattlegroundBoard';
+import renderDialogBox from './DialogBox';
 
-const MainPage = () => {
-    BlackScreen.fromBlack();
-    Sundtrack.change('main-page.mp3');
-    RenderGameScene();
-    RenderBattlegroundStats();
-    RenderBattlegroundBoard();
-    const dialog_text = "Hey, sergeant! You are in the alpha version of the game,<br>so you can't save a princess or lost your life.<br>She will wait for you in next update.";
-    RenderDialogBox('captain-sad.png', 'capitan', dialog_text);
+const mainPage = () => {
+    blackScreen.fromBlack();
+    sundtrack.change('main-page.mp3');
+    renderGameScene();
+    renderBattlegroundStats();
+    renderBattlegroundBoard();
+    const dialogText = "Hey, sergeant! You are in the alpha version of the game,<br>so you can't save a princess or lost your life.<br>She will wait for you in next update.";
+    renderDialogBox('captain-sad.png', 'capitan', dialogText);
 };
 
-export default MainPage;
+export default mainPage;
