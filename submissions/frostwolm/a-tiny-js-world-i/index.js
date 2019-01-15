@@ -1,11 +1,9 @@
 class Inhabitant {
-  constructor(species, name, gender, saying, legs, hands) {
+  constructor(species, name, gender, saying) {
     this.species = species;
     this.name = name;
     this.gender = gender;
     this.saying = saying;
-    this.legs = legs;
-    this.hands = hands;
     this.friends = [];
   }
   addFriend(friend){
@@ -14,32 +12,44 @@ class Inhabitant {
     return this;
   }
   toString(){
-    return [this.species, this.name, this.gender, this.legs, this.hands, this.saying, this.friends.map(friend => friend.name).join(', ')].join ('; ') + '; ';
+    return [this.species, this.name, this.gender, this.saying, this.friends.map(friend => friend.name).join(', ')].join ('; ');
   }
 }
 
 class Human extends Inhabitant {
-  constructor(species, name, gender, saying, legs = 2, hands = 2) {
-    super(species, name, gender, saying, legs, hands);
+  constructor(name, gender, saying, legs = 2, hands = 2) {
+    super('human', name, gender, saying);
+    this.legs = legs;
     this.hands = hands;
+  }
+  toString(){
+    let str = super.toString().split('; ');
+    str.splice(4, 0, this.legs, this.hands);
+    return str.join('; ') + '; ';
   }
 }
 
 class Animal extends Inhabitant {
-  constructor(species, name, gender, saying, legs = 4, hands = 0) {
-    super(species, name, gender, saying, legs, hands);
+  constructor(species, name, gender, saying, legs = 4) {
+    super(species, name, gender, saying);
+    this.legs = legs;
+  }
+  toString(){
+    let str = super.toString().split('; ');
+    str.splice(4, 0, this.legs, 0);
+    return str.join('; ') + '; ';
   }
 }
 
 class Man extends Human {
   constructor(name, saying) {
-      super('human', name, 'male', saying);
+      super(name, 'male', saying);
   }
 }
 
 class Woman extends Human {
   constructor(name, saying) {
-      super('human', name, 'female', saying);
+      super(name, 'female', saying);
   }
 }
 
@@ -57,20 +67,20 @@ class Dog extends Animal {
 
 class CatWoman extends Human {
   constructor(name, saying) {
-      super('human', name, 'female', saying);
+      super(name, 'female', saying);
   }
 }
 
 class World {
-  constructor() {
-    this.habbitants = Array.from(arguments);
+  constructor(...habs) {
+    this.habbitants = habs;
   }
   addHabbitant(hab){
     this.habbitants.push(hab);
     return this;
   }
   toString(){
-    return this.habbitants.map(hab => print(hab)).join('\n');
+    return this.habbitants.join('\n');
   }
 }
 
