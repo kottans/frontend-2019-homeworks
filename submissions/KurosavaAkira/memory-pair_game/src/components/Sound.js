@@ -1,4 +1,4 @@
-const Sundtrack = {
+const sundtrack = {
     create : function(url, loop = false, muted = true) {
       let audio = new Audio();
       audio.id = 'soundtrack';
@@ -23,4 +23,4 @@ const Sundtrack = {
     }
 }
 
-export default Sundtrack;
+export default sundtrack;

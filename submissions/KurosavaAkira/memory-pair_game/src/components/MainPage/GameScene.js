@@ -2,12 +2,12 @@ import './GameScene.sass';
 
 const container = document.getElementById('container');
 
-const game_scene_html = () => {
+const gameSceneHtml = () => {
     return `<div id="game-scene"></div>`
 }
   
-const Render = () => {
-    return container.insertAdjacentHTML('beforeend', game_scene_html());
+const render = () => {
+    return container.insertAdjacentHTML('beforeend', gameSceneHtml());
 }
 
-export default Render;
+export default render;

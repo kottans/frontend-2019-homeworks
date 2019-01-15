@@ -1,10 +1,10 @@
 import './cards.sass';
-import CardImages from './CardImages';
+import cardImages from './CardImages';
 
-const number_of_cards = 12;
+const NUMBER_OF_CARDS = 12;
 
 let cards = [];
-let cards_img_final = [];
+let cardsImgFinal = [];
 
 class Card {
   constructor(x, y, image) {
@@ -24,7 +24,7 @@ const shuffleCardsImg = (cards) => {
 }
 //Сut off half of the cards to create a duplicate of each card
 const cutHalfCardsImg = () => { 
-    return CardImages.slice(0, number_of_cards / 2);
+    return cardImages.slice(0, NUMBER_OF_CARDS / 2);
 }
 
 const cloneCardsImg = () => {
@@ -32,17 +32,17 @@ const cloneCardsImg = () => {
     for (let i = gameCards.length - 1; i >= 0; i--){
       gameCards.push(gameCards[i]);
     }
-    return cards_img_final = gameCards;
+    return cardsImgFinal = gameCards;
 }
 
 const generateCards = () => {
   let x = 75;
   let y = 90;
-  for (let i = 0; i < number_of_cards; i++) {
+  for (let i = 0; i < NUMBER_OF_CARDS; i++) {
     if (i === 6) x = 75;
     if (i >= 6) y = 210;
     x += 120;
-    cards.push(new Card(x, y, cards_img_final[i]));
+    cards.push(new Card(x, y, cardsImgFinal[i]));
   }
 }
 
@@ -51,25 +51,25 @@ const resetCardsForNextGame = () => {
 }
 
 const generateCardsHtml = () => {
-  let html_string = '';
-  for (let i = 0; i < number_of_cards; i++) {
-    html_string += `<div class="card" id="${cards[i].id}">
+  let htmlString = '';
+  for (let i = 0; i < NUMBER_OF_CARDS; i++) {
+    htmlString += `<div class="card" id="${cards[i].id}">
                       <div class="card-content" style="margin-left: ${cards[i].x}px; margin-top: ${cards[i].y}px">
                         <div class="card-front"></div>
                         <div class="card-back" style="background-image: url(static/images/card-images/${cards[i].image})"></div>
                       </div>
                     </div>`;
   }
-  return html_string;
+  return htmlString;
 }
 
 const render = () => {
-    shuffleCardsImg(CardImages);
+    shuffleCardsImg(cardImages);
     cutHalfCardsImg();
     cloneCardsImg();
-    shuffleCardsImg(cards_img_final);
+    shuffleCardsImg(cardsImgFinal);
     generateCards();
     return generateCardsHtml();
 }
 
-export { render as cards, cards as cards_data, resetCardsForNextGame as resetCards };
+export { render as cards, cards as cardsData, resetCardsForNextGame as resetCards };

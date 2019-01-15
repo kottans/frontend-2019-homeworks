@@ -1,4 +1,4 @@
-const Images = [ 
+const images = [ 
    '1.gif',
    '2.gif' ,
    '3.gif',
@@ -23,4 +23,4 @@ const Images = [
    '22.gif',
 ]
 
-export default Images;
+export default images;

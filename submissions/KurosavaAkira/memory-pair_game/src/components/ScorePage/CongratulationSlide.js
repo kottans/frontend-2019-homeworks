@@ -10,9 +10,9 @@ const congratulationSlide = (congratulation) => {
 
 const render = (congratulation) => {
     container.insertAdjacentHTML('beforeend', congratulationSlide(congratulation));
-    const score_page = document.getElementById('score-page');
-    score_page.addEventListener('animationend', () => { 
-        score_page.classList.add('score-page-rebound');
+    const scorePage = document.getElementById('score-page');
+    scorePage.addEventListener('animationend', () => { 
+        scorePage.classList.add('score-page-rebound');
     });
 }
 
