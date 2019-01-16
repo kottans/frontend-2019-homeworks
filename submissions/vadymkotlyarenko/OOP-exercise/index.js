@@ -1,19 +1,18 @@
 class Inhabitant {
-    constructor(species, name, gender, legs, hands, ...friends) {
+    constructor(species, name, gender, legs, saying, ...friends) {
         this.species = species;
         this.name = name;
         this.gender = gender;
         this.legs = legs;
-        this.hands = hands;
-        this.friends = friends;
+        this.friends = friends;        
+        this.saying = saying;
     }
-    get textToPrint() {
+    toString() {
         return [
             `Species => ${this.species}`,
             `Name => ${this.name}`,
             `Gender => ${this.gender}`,
             `Legs => ${this.legs}`,
-            `Hands => ${this.hands}`,
             `Friends => ${this.friends.length > 0 ? this.getFriendsName(this.friends) : "No one"}`,
         ].join("; ")
     }
@@ -27,51 +26,47 @@ class Inhabitant {
 };
 
 class Human extends Inhabitant {
-    constructor(species, name, gender, legs, hands, saying, ...friends) {
-        super(species, name, gender, legs, hands, ...friends)
-        this.saying = saying;
+    constructor(name, gender, legs, hands, saying, ...friends) {
+        super("human", name, gender, legs, hands, saying, ...friends)
+        this.hands = hands;
     }
-    get textToPrint() {
+    toString() {
         return [
-            super.textToPrint,
+            super.toString(),
             `Saying => ${this.saying}`
         ].join("; ")
     }
 }
 
 class Dog extends Inhabitant {
-    constructor(species, name, gender, legs, hands, saying, ...friends) {
-        super(species, name, gender, legs, hands, ...friends)
-        this.saying = saying;
+    constructor(name, gender, legs, saying, ...friends) {
+        super("dog", name, gender, legs, saying, ...friends)
     }
-    get textToPrint() {
+    toString() {
         return [
-            super.textToPrint,
+            super.toString(),
             `Saying => ${this.saying}`
         ].join("; ")
     }
 }
 
 class Cat extends Inhabitant {
-    constructor(species, name, gender, legs, hands, saying, ...friends) {
-        super(species, name, gender, legs, hands, ...friends)
-        this.saying = saying;
+    constructor(name, gender, legs, saying, ...friends) {
+        super("cat", name, gender, legs, saying, ...friends)
     }
-    get textToPrint() {
+    toString() {
         return [
-            super.textToPrint,
+            super.toString(),
             `Saying => ${typeof(this.saying) === "object" ? this.saying.saying : this.saying}`
         ].join("; ")
     }
 }
 
-const dog = new Dog("dog", "Buddy", "male", 4, 0, "woof-woof!");
-print(dog.textToPrint);
-const cat = new Cat("cat", "Garfield", "male", 4, 0, "meu", dog);
-print(cat.textToPrint);
-const man = new Human("human", "Jonathan", "male", 2, 2, "Hello!", dog, cat);
-print(man.textToPrint);
-const woman = new Human("human", "Megan", "female", 2, 2, "Hi!");
-print(woman.textToPrint);
-const catWomen = new Cat("cat", "Jane", "female", 4, 0, cat);
-print(catWomen.textToPrint);
+const dog = new Dog("Buddy", "male", 4, "woof-woof!");
+const cat = new Cat("cat", "Garfield", "male", 4, "meu", dog);
+const man = new Human("Jonathan", "male", 2, 2, "Hello!", dog, cat);
+const woman = new Human("Megan", "female", 2, 2, "Hi!");
+const catWomen = new Cat("Jane", "female", 4, cat);
+[dog, cat, man, woman, catWomen].forEach(item => 
+    print(item.toString())
+);
