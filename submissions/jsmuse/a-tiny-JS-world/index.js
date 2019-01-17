@@ -48,11 +48,15 @@ const catWoman = {
 };
 
 const listObj = (obj) => {
-    const str = Object.keys(obj)
-        .map((i) => obj[i])
-        .join('; ');
-
-    return str;
+    return [
+        `${obj.species}`,
+        `${obj.name}`,
+        `${obj.gender}`,
+        `${obj.legs}`,
+        `${obj.hands}`,
+        `${obj.saying}`,
+        obj.friends && `${obj.friends}`,
+    ].join('; ');
 };
 
 [dog, cat, woman, man, catWoman].forEach((item) => print(listObj(item)));
