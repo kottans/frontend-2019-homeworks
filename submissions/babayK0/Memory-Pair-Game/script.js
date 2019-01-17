@@ -5,42 +5,43 @@ let openedCards = [];
 let openedFront = [];
 const BODY = document.querySelector("body");
 
-function addBlockOfClick(){
-	BODY.style.pointerEvents = 'none';
-}
-function removeBlockOfClick(i) {
-	setTimeout(() => {
-    	BODY.style.pointerEvents = 'auto';
-	}, TIME * i);
-}
-
 function startGame() {
     const GAME_CONTAINER = document.createElement("div");
     GAME_CONTAINER.classList.add("game-container");
+
+    function addBlockOfClick(){
+        GAME_CONTAINER.classList.toggle("game-container_blocked");
+    }
+    function removeBlockOfClick(i) {
+        setTimeout(() => {
+            GAME_CONTAINER.classList.toggle("game-container_blocked");
+        }, TIME * i);
+    }
+
     let cards = IMAGES.concat(IMAGES);
 
     function creatingCards(cardSrc, i) {
-        function creatingFF_BF() {
+        function creatingFrontAndBack() {
             const FRONT_FACE = document.createElement("img");
             FRONT_FACE.classList.add("front-face");
             FRONT_FACE.src = cardSrc;
-            FRONT_FACE.setAttribute("id", 'front' + (i + 1));
+            FRONT_FACE.setAttribute("id", 'front' + i);
 
             const BACK_FACE = document.createElement("img");
             BACK_FACE.classList.add("back-face");
             BACK_FACE.src = BACK_FACE_SRC;
-            BACK_FACE.setAttribute("id", (i + 1));
+            BACK_FACE.setAttribute("id", i);
             creatingCARD(FRONT_FACE, BACK_FACE);
         }
 
         function creatingCARD(FRONT_FACE, BACK_FACE) {
             const CARD = document.createElement("div");
             CARD.classList.add("card");
-            CARD.setAttribute("id", 'card' + (i + 1));
+            CARD.setAttribute("id", 'card' + i);
             CARD.append(FRONT_FACE, BACK_FACE);
             GAME_CONTAINER.append(CARD);
         }
-        creatingFF_BF();
+        creatingFrontAndBack();
     }
 
     function addEvent() {
@@ -49,18 +50,20 @@ function startGame() {
             let card = document.getElementById("card" + (target.id));
             let front = document.getElementById("front" + (target.id))
             if (clicked.classList.value === "back-face" && openedCards.length < 2) {
-                card.classList.toggle("flip");
+                flip(card);
                 openedCards.push(card);
                 if (openedFront.length < 2) {
                     openedFront.push(front);
                 }
             }
             if (openedFront.length === 2) {
-                let [firstCard, secondCard] = [openedFront[0], openedFront[1]];
+                let [firstCard, secondCard] = openedFront;
+                let checkSame = (firstCard.src === secondCard.src);
+                let checkNotSame = (firstCard.id !== secondCard.id);
                 setTimeout(() => {
-                    if (firstCard.src === secondCard.src && firstCard.id !== secondCard.id) {
-                    	addBlockOfClick();
-                    	removeBlockOfClick(1);
+                    if (checkSame && checkNotSame) {
+                        addBlockOfClick();
+                        removeBlockOfClick(1);
                         openedCards.forEach(element => {
                             element.classList.toggle("block");
                             if (document.getElementsByClassName("block").length === IMAGES.length * 2) {
@@ -70,7 +73,7 @@ function startGame() {
                             }
                         });
                     } else {
-                        openedCards.forEach(element => element.classList.toggle("flip"));
+                        openedCards.forEach(element => flip(element));
                     }
                     openedCards = [];
                     openedFront = [];
@@ -79,18 +82,17 @@ function startGame() {
             BODY.style.pointerEvents = 'auto';
         });
     }
-
+    function flip(element){
+        element.classList.toggle("flip");
+    }
     function flipAll() {
         const allCards = GAME_CONTAINER.querySelectorAll(".card");
         allCards.forEach(element => {
-            setTimeout(() => {
+            function flip(){
                 element.classList.toggle("flip");
-            }, TIME);
-        });
-        allCards.forEach(element => {
-            setTimeout(() => {
-                element.classList.toggle("flip");
-            }, TIME * 4);
+            }
+            setTimeout(flip,TIME);
+            setTimeout(flip,TIME * 4);
         });
     }
 
@@ -99,9 +101,8 @@ function startGame() {
     addEvent();
     flipAll();
     BODY.append(GAME_CONTAINER);
-
+    addBlockOfClick();
     removeBlockOfClick(4);
 }
 
-addBlockOfClick();
 startGame();

@@ -27,6 +27,9 @@ body{
 	align-items: center;
 	perspective: 1000px;
 }
+.game-container_blocked{
+	pointer-events: none;
+}
 .card{
 	height: 155.625px;
 	width:117px;
@@ -38,7 +41,7 @@ body{
   	visibility: visible;
   	transition-delay: 0s;
 }
-.card:active {
+.back-face:active {
 	transform: scale(0.95);
 	transition: transform 0.3s;
 }
