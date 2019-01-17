@@ -44,6 +44,7 @@ form {
 }
 
 .btn_filter {
+  cursor: pointer;
   height: 100%;
   border: none;
   font-size: 12px;

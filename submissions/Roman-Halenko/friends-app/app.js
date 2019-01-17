@@ -1,20 +1,24 @@
-const main = document.querySelector('main');
+const config = {};
+config.main = document.querySelector('main');
+config.sortBtn = document.getElementById('sort_btn');
+config.header = document.querySelector('header');
+config.searchField = document.getElementById('search');
+config.select = document.getElementById('input-sort');
+config.filterBtns = document.querySelectorAll('.btn_filter');
+config.filtersContainer = document.querySelector('.wrapper.filter_collection');
 
-const sortBtn = document.getElementById('sort_btn');
-
-const header = document.querySelector('header');
-
-const searchField = document.getElementById('search');
-
-const select = document.getElementById('input-sort');
-
-const filterBtns = document.querySelectorAll('.btn_filter');
-
-const filtersContainer = document.querySelector('.wrapper.filter_collection');
+function handleErrors(response) {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+    return response;
+}
 
 fetch('https://randomuser.me/api/?results=60&nat=us')
-.then(response => response.json())
-.then(response => controller(response.results))
+    .then(handleErrors)
+    .then(response => response.json())
+    .then(response => controller(response.results))
+    .catch(error => console.log(error));
 
 function controller(srcArr) {
 
@@ -22,26 +26,29 @@ function controller(srcArr) {
   let inputStr = "";
 
   function searchByName(e) {
-    inputStr = searchField.value.toLowerCase();
+    inputStr = config.searchField.value.toLowerCase();
     list = srcArr.filter(e => e.name.last.includes(inputStr) || e.name.first.includes(inputStr));
     renderHTML(list);
   }
 
   function filterByGender(ev) {
-    makeActive(ev.target, filterBtns);
-    if (ev.target.value === 'male') {
-      list = srcArr.filter(e => e.gender === 'male');
-    } else if (ev.target.value === 'female') {
-      list = srcArr.filter(e => e.gender === 'female');
-    } else if (ev.target.value === 'all') {
-      list = srcArr.filter(e => e.gender);
+    makeActive(ev.target, config.filterBtns);
+    switch (ev.target.value) {
+      case 'male':
+        list = srcArr.filter(e => e.gender === 'male');
+        break;
+      case 'female':
+        list = srcArr.filter(e => e.gender === 'female');
+        break;
+      case 'all':
+        list = srcArr.filter(e => e.gender);
     }
     renderHTML(list);
   }
 
-  function makeActive(trg, elements) {
+  function makeActive(target, elements) {
     elements.forEach(elem => elem.classList.remove('active'));
-    trg.classList.add('active');
+    target.classList.add('active');
   }
 
   function sortByAgeDesc(a, b) {
@@ -56,14 +63,7 @@ function controller(srcArr) {
 
   function sortByNameAz() {
     list.sort((a, b) => {
-      let nameA = a.name.first;
-      let nameB = b.name.first;
-      if (nameA > nameB) {
-        return 1;
-      }
-      if (nameA < nameB) {
-        return -1;
-      }
+      return a.name.first > b.name.first ? 1 : -1;
       return 0;
     })
     renderHTML(list);
@@ -71,57 +71,51 @@ function controller(srcArr) {
 
   function sortByNameZa() {
     list.sort((a, b) => {
-      let nameA = a.name.first;
-      let nameB = b.name.first;
-      if (nameA < nameB) {
-        return 1;
-      }
-      if (nameA > nameB) {
-        return -1;
-      }
+      return a.name.first < b.name.first ? 1 : -1;
       return 0;
     })
     renderHTML(list);
   }
 
-  filtersContainer.addEventListener('click', filterByGender);
+  config.filtersContainer.addEventListener('click', filterByGender);
 
-  searchField.addEventListener('input', searchByName);
+  config.searchField.addEventListener('input', searchByName);
 
-  select.addEventListener('change', e => {
-    if (e.target.value === 'ASC') {
-      sortByAgeAsc();
-    } else if (e.target.value === 'DESC') {
-      sortByAgeDesc();
-    } else if (e.target.value === 'ZA') {
-      sortByNameZa();
-    } else if (e.target.value === 'AZ') {
-      sortByNameAz();
+  config.select.addEventListener('change', e => {
+    switch (e.target.value) {
+      case 'ASC':
+        sortByAgeAsc();
+        break;
+      case 'DESC':
+        sortByAgeDesc();
+        break;
+      case 'ZA':
+        sortByNameZa();
+        break;
+      case 'AZ':
+        sortByNameAz();
     }
   });
 
   renderHTML(list);
 };
 
-function renderHTML(arrOfObj) {
-  main.innerHTML = '';
+function renderHTML(usersArray) {
+  config.main.innerHTML = '';
 
-  arrOfObj.forEach(e => {
-    main.insertAdjacentHTML('beforeend',
+  usersArray.forEach(user => {
+    config.main.insertAdjacentHTML('beforeend',
     `
     <div class="usr_card">
-      <img class="user_img" src="${e.picture.large}">
-      <p class="usr_name">${e.name.first} ${e.name.last}</p>
-      <span class="label">Age: ${e.dob.age}</span>
+      <img class="user_img" src="${user.picture.large}">
+      <p class="usr_name">${user.name.first} ${user.name.last}</p>
+      <span class="label">Age: ${user.dob.age}</span>
       <span class="location">
-        <i class="fa fa-home"></i> ${e.location.state}: ${e.location.city}
+        <i class="fa fa-home"></i> ${user.location.state}: ${user.location.city}
       </span>
     </div>
     `);
   })
 };
 
-// function compareNumbers(a, b) {
-//   return a - b;
-// }
-sortBtn.addEventListener('click', () => header.classList.toggle('open'));
+config.sortBtn.addEventListener('click', () => config.header.classList.toggle('open'));
