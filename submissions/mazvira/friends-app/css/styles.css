@@ -1,0 +1,98 @@
+h1 {
+    background-color: #6495ED;
+    font-family: "Arial", cursive;
+    color: #FF00FF;
+    text-align: center;
+    font-size: 70px;
+    margin: 0 auto;
+}
+
+main {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    background-color: #00BFFF;
+}
+
+#users {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+aside {
+    text-align: center;
+    width: 20%;
+}
+
+aside form {
+    margin: 10px;
+}
+
+#users figure {
+    font-family: "Arial", cursive;
+    font-size: 21px;
+    border-radius: 40%;
+    width: 20%;
+    text-align: center;
+}
+
+figcaption p {
+    margin: 0;
+}
+
+figcaption p:first-child {
+    text-transform: capitalize;
+}
+
+img {
+    border-radius: 40%;
+    margin: 20px auto;
+}
+
+.filter {
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+
+a {
+    margin: 0;
+    font-size: 14px;
+    font-family: "Arial", monospace;
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 50px;
+    }
+
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    #users figure {
+        width: 100%;
+        margin: 10px auto;
+    }
+
+    img {
+        margin: 0 auto;
+    }
+
+    figcaption {
+        padding: 0;
+    }
+
+    aside span {
+        margin: 5px;
+        font-size: 14px;
+    }
+}
+
