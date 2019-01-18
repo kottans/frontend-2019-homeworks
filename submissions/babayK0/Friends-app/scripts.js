@@ -1,5 +1,4 @@
 const FRIENDS_API = "https://randomuser.me/api/?results=30";
-const GET_FRIENDS = fetch(FRIENDS_API);
 const ICONS = {
     phone: "<i class=\"fas fa-phone icon\"></i>",
     mail: "<i class=\"fas fa-envelope icon\"></i>",
@@ -19,77 +18,87 @@ const RESET = document.querySelector(".reset");
 
 let users = [];
 
-GET_FRIENDS.then(response => response.json()).then(json => {
+fetch(FRIENDS_API).then(response => response.json()).then(json => {
     users = json.results;
     makeFriend(users);
 });
 
 function makeFriend(users) {
 	const CONTENT_FRAGMENT = document.createDocumentFragment();
-	users.forEach( element => {
+
+	function makeUser(element){
+
 		const USER_CONTAINER = document.createElement('div');
-		USER_CONTAINER.classList.add('user_container');
-		CONTENT_FRAGMENT.appendChild(USER_CONTAINER);
-
 		const INFO_CONTAINER = document.createElement('div');
-		INFO_CONTAINER.classList.add('info_container');
-		USER_CONTAINER.appendChild(INFO_CONTAINER);
-
 		const PHOTO_CONTAINER = document.createElement('div');
-		PHOTO_CONTAINER.classList.add('photo_container')
-		INFO_CONTAINER.appendChild(PHOTO_CONTAINER);
-
 		const PHOTO = document.createElement('img');
-		PHOTO.classList.add('photo');
-		PHOTO.setAttribute('src', element.picture.large);
-		PHOTO_CONTAINER.appendChild(PHOTO);
-
 		const NAME = document.createElement('p');
-		NAME.innerHTML=(`${element.name.first} ${element.name.last}`).toUpperCase();
-		NAME.classList.add('name');
-		INFO_CONTAINER.appendChild(NAME);
-
 		const AGE = document.createElement('p');
-		AGE.innerHTML=`Age: ${element.dob.age}`;
-		AGE.classList.add('age');
-		INFO_CONTAINER.appendChild(AGE);
-
 		const MAIL = document.createElement('a');
-		MAIL.href=`mailto:${element.email}`;
-		MAIL.innerHTML=`Mail me ! `+(ICONS.mail);
-		MAIL.classList.add('mail');
-		INFO_CONTAINER.appendChild(MAIL);
-
 		const PHONE = document.createElement('div');
-		PHONE.innerHTML=`Call me ! `
-		+`<a href="tel:${element.phone}" title="${element.phone}">${ICONS.phone}</a>`;
-		PHONE.classList.add('phone');
-		INFO_CONTAINER.appendChild(PHONE);
-
 		const HOME = document.createElement('p');
-		HOME.innerHTML=(`${element.location.city}`).toUpperCase()
-		+(ICONS.home);
-		HOME.classList.add('home');
-		INFO_CONTAINER.appendChild(HOME);
-	});
+		makeContent(PHOTO,NAME,AGE,MAIL,PHONE,HOME)
+	
+
+		function makeContent(PHOTO,NAME,AGE,MAIL,PHONE,HOME){
+			PHOTO.setAttribute('src', element.picture.large);
+			NAME.innerHTML=`${element.name.first} ${element.name.last}`;
+			AGE.innerHTML=`Age: ${element.dob.age}`;
+			MAIL.href=`mailto:${element.email}`;
+			MAIL.innerHTML=`Mail me ! `+(ICONS.mail);
+			PHONE.innerHTML=`Call me ! `
+			+`<a href="tel:${element.phone}" title="${element.phone}">${ICONS.phone}</a>`;
+			HOME.innerHTML=(`${element.location.city}`)
+			+(ICONS.home);
+			addCSS(USER_CONTAINER,INFO_CONTAINER,PHOTO_CONTAINER,
+					PHOTO,NAME,AGE,MAIL,PHONE,HOME)
+		}
+
+		function addCSS(USER_CONTAINER,INFO_CONTAINER,PHOTO_CONTAINER,
+					PHOTO,NAME,AGE,MAIL,PHONE,HOME){
+			USER_CONTAINER.classList.add('user_container');
+			INFO_CONTAINER.classList.add('info_container');
+			PHOTO_CONTAINER.classList.add('photo_container')
+			PHOTO.classList.add('photo');
+			NAME.classList.add('name');
+			AGE.classList.add('age');
+			MAIL.classList.add('mail');
+			PHONE.classList.add('phone');
+			HOME.classList.add('home');
+			renderUser(CONTENT_FRAGMENT,USER_CONTAINER,
+						INFO_CONTAINER,PHOTO_CONTAINER)
+		}
+
+		function renderUser(){
+			CONTENT_FRAGMENT.appendChild(USER_CONTAINER);
+			USER_CONTAINER.appendChild(INFO_CONTAINER);
+			INFO_CONTAINER.appendChild(PHOTO_CONTAINER);
+			PHOTO_CONTAINER.appendChild(PHOTO);
+			INFO_CONTAINER.appendChild(NAME);
+			INFO_CONTAINER.appendChild(AGE);
+			INFO_CONTAINER.appendChild(MAIL);
+			INFO_CONTAINER.appendChild(PHONE);
+			INFO_CONTAINER.appendChild(HOME);
+
+		}
+	}
+
+	users.forEach(makeUser);
 	CONTENT.appendChild(CONTENT_FRAGMENT);
 }
 
+
 SORT_AGE.addEventListener("click", function ({target}){
-	switch(target.value){
-		case "age-asc":
-			users.sort(function(a,b){
-				return a.dob.age - b.dob.age;
-			})
-			showSorted(users);
-			break;
-		case "age-desc": 
-			users.sort(function(a,b){
-				return b.dob.age - a.dob.age;
-			})
-			showSorted(users);
-			break;
+	if(target.value=="age-asc"){
+		users.sort(function(a,b){
+			return a.dob.age - b.dob.age;
+		});
+	}else if(target.value=="age-desc"){
+		users.sort(function(a,b){
+			return b.dob.age - a.dob.age;
+		});
 	}
+	showSorted(users);
 });
 
 function sortName(users){
@@ -101,42 +110,29 @@ function sortName(users){
 	return users;
 }
 SORT_NAME.addEventListener("click", function ({target}){
-	switch(target.value){
-		case "name-az":
-			users = sortName(users);
-			showSorted(users);
-			break;
-		case "name-za":
-			users = sortName(users);
-			showSorted(users.reverse());
-			break;
+	users = sortName(users);
+	if(target.value=="name-za"){
+		users.reverse();
 	}
+	showSorted(users);
 });
-
 
 SORT_SEX.addEventListener("click", function ({target}){
-	switch(target.value){
-		case "man":
-			showSorted(users);
-			break;
-		case "woman":
-			showSorted(users);
-			break;
-		case "all":
-			showSorted(users);
-			break;
-	}
+	if(target.value=="man"||target.value=="woman"||target.value=="all") showSorted(users);
 });
 
-SEARCH.addEventListener("input",function({target}){
+SEARCH.addEventListener("input",function(){
 	showSorted(users);
 });
 
 function showSorted(users){
 	let sortedUsers = [];
+
 	users.forEach(function(element){
-		if(!`${element.name.first}${element.name.last}`
-		.includes(SEARCH.value.toLowerCase())) return;
+		let fullName = `${element.name.first}${element.name.last}`;
+		let isIncludesFullname = fullName.includes(SEARCH.value.toLowerCase());
+
+		if(!isIncludesFullname) return;
 		if(MAN.checked){
 			if(element.gender==="male"){
 				sortedUsers.push(element);
@@ -156,15 +152,12 @@ function showSorted(users){
 			}
 		}		
 	});
-	console.log(sortedUsers);
 	CONTENT.innerHTML='';
 	makeFriend(sortedUsers);
 }
 
 RESET.addEventListener("click",function({target}){
-	console.log(target);
-	let radio = Array.prototype.slice.call(RADIO);
-	radio.forEach(function(radiobtn){
+	RADIO.forEach(function(radiobtn){
 		radiobtn.checked= false;
 	});
 	ALL.checked=true;

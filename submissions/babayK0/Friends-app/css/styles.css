@@ -193,6 +193,7 @@ img{
 	font-size: 18px;
 	font-weight: 700;
 	margin-bottom: 5px;
+	text-transform: uppercase;
 }
 .age{
 	font-weight: 700;
@@ -216,6 +217,7 @@ img{
 }
 .home{
 	font-size: 14px;
+	text-transform: uppercase;
 }
 
 
