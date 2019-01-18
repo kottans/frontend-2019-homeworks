@@ -5,7 +5,7 @@ p,h2,h3{
 .header{
   z-index: 1;
   display: block;
-  overflow: scroll;
+  overflow: hidden;
   position: fixed;
   top: 0;
   left:0;
@@ -13,14 +13,11 @@ p,h2,h3{
   background-color:#fff;
 }
 .flip-box {
-
-
   width: 200px;
   height: 200px;
   perspective: 1000px;
   margin:20px;
 }
-
 
 .flip-box-inner {
   border-radius: 10px;
@@ -71,7 +68,8 @@ p,h2,h3{
   transform: rotateY(180deg);
 }
 .friends{
-  margin-top: 130px;
+  position: absolute;
+  top:21%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -91,6 +89,7 @@ body{
 ul{
   display: flex;
   justify-content: center;
+  padding: 0;
 }
 ul li{
   display: inline-block;
@@ -117,7 +116,7 @@ h1{
 }
 .navigation{
   position: fixed;
-  overflow: scroll;
+  overflow: hidden;
   bottom: 0;
   z-index: 1;
   background-color: white;
@@ -147,8 +146,6 @@ h1{
   height: 30px;
 
 }
-
-
 .forOpen{
   position: fixed;
   overflow: scroll;
@@ -173,4 +170,7 @@ h1{
 }
 .show-block{
   display: block!important;
+}
+.nav-bar{
+  width: 100%;
 }
