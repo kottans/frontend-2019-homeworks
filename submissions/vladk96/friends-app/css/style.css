@@ -1,0 +1,125 @@
+body {
+    font-family: 'Hammersmith One', sans-serif;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    box-shadow: 0 2px 0 0 #f5f5f5;
+    padding: 1.5rem 0;
+}
+
+.header .logo {
+    font-size: 2rem;
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: 2%;
+}
+
+.form {
+    font-family: 'Roboto', sans-serif;
+    margin-right: 5%;
+}
+
+.form .search,
+.form select {
+    display: inline-block;
+    padding: .67em 1em;
+    color: rgba(0,0,0,.95);
+    border: 1px solid rgba(34,36,38,.15);
+    border-radius: .28rem;
+    background: #fff;
+    outline: 0;
+}
+
+.form .search { margin-right: 25px;}
+.form .search:focus { border-color: #85b7d9; }
+
+.form select { margin: 0 10px; }
+
+.form label {
+    color: rgba(0,0,0,.87);
+    font-size: .92em;
+}
+
+.form button {
+    outline: 0;
+    background: #e0e1e2;
+    color: rgba(0,0,0,.6);
+    padding: .78em 1.5em;
+    border: none;
+    border-radius: .28rem;
+    transition: background-color .3s linear;
+    cursor: pointer;
+}
+
+.form button:hover {
+    color: rgba(0,0,0,.8);
+    background-color: #cacbcd;
+}
+
+.main {
+    padding: 10% 1%;
+}
+
+
+.card-container {    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    width: 190px;
+    border-radius: .28rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    margin: 10px;
+}
+
+.card .image {
+    padding-top: 15px;
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+}
+
+.card img {
+    border-radius: 50%;
+    transition: transform .4s ease;
+}
+.card img:hover { transform: scale(1.1); }
+
+.card .content { padding: 0 10px 10px; }
+
+.card .name {
+    font-size: 1.28em;
+    color: rgba(0,0,0,.85);
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: color .2s linear;
+}
+.card .name:hover { color: #85b7d9; }
+
+.card .age,
+.card .gender,
+.card .tel,
+.card .city {
+    font-size: .9rem;
+    margin: 5px 0;
+    font-weight: 400;
+}
+
+.card .age,
+.card .gender { color: rgba(0,0,0,.4);}
+
+.card .tel { margin-top: 10px; }

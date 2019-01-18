@@ -1,0 +1,10 @@
+body {
+    margin: 0px;
+    text-align: center;
+}
+#score {
+    position: absolute;
+    font-size: 25px;
+    left:  47%;
+    bottom: 88%;
+}

@@ -1,3 +1,4 @@
+
 class Citizen {
     constructor (species, gender, name, say, legs = 0, hands = null ){
      this.species = species;
@@ -35,7 +36,7 @@ class Citizen {
       }
  }
  class Woman extends Human {
-      constructor(gender,  name, say){
+      constructor(gender, name, say){
          super('human', gender, name, say )
       }
  }
@@ -50,3 +51,4 @@ class Citizen {
     print([element.species, element.gender, element.name, element.say, element.legs, element.hands].join('; '));
  })
  
+

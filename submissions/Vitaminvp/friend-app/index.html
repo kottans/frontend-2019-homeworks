@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My Friends app</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<header>
+	<div>
+		<h1 class="animate-title"><span>M</span><span>y</span> <span>F</span><span>r</span><span>i</span><span>e</span><span>n</span><span>d</span><span>s</span> <span>A</span><span>P</span><span>P</span><span>!</span><span>!</span><span>!</span></h1>
+	</div>
+</header>
+
+<div class="wrapper">
+	<form class="filters">
+		<h2 class="filters-header">Filtering options</h2>
+		<div class="filter name-search">
+			<label>
+				<input class="input-text" type="search" placeholder="Search by name">
+			</label>
+		</div>
+		<div class="filter">
+			<h4 class="filter-name">By gender: </h4>
+			<label><input class="radio-box" type="radio" name="gender" value="all" checked><span><i class="fas fa-male"></i><i class="fas fa-female"></i></span></label><br>
+			<label><input class="radio-box" type="radio" name="gender" value="male"><span><i class="fas fa-male"></i></span></label><br>
+			<label><input class="radio-box" type="radio" name="gender" value="female"><span><i class="fas fa-female"></i></span></label>
+		</div>
+		<div class="filter">
+			<h4 class="filter-name">By name: </h4>
+			<label><input class="radio-box" type="radio" name="order" value="nameAsc"><span><i class="fas fa-sort-alpha-down"></i></span></label><br>
+			<label><input class="radio-box" type="radio" name="order" value="nameDesc"><span><i class="fas fa-sort-alpha-up"></i></span></label>
+		</div>
+		<div class="filter">
+			<h4 class="filter-name">By age: </h4>
+			<label><input class="radio-box" type="radio" name="order" value="ageAsc"><span><i class="fas fa-sort-amount-down"></i></span></label><br>
+			<label><input class="radio-box" type="radio" name="order" value="ageDesc"><span><i class="fas fa-sort-amount-up"></i></span></label>
+		</div>
+		<div class="filter">
+			<label><input type="reset" value="reset" class="reset_button"></label>
+		</div>
+	</form>
+	<div class="frame cards_container"></div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+
+</html>

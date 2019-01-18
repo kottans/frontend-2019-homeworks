@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Friends App</title>
+    <link href="./css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+<body>
+<div class="flex">
+
+<div id="menu" class="verticalFlex">
+    <span>Sort By Name</span><br>
+    <button id="nameAsc"><i class="fas fa-arrow-down"></i></i>
+    </button>
+    <button id="nameDesc"><i class="fas fa-arrow-up"></i></i>
+    </button>
+    <br>
+    <hr>
+    <span>Search by Name</span><br>
+    <input id="searchName"/>
+    <br>
+    <hr>
+    <span>Sort By Age</span><br>
+    <button id="ageAsc"><i class="fas fa-arrow-down"></i></button>
+    <button id="ageDesc"><i class="fas fa-arrow-up"></i></button>
+    <br>
+    <hr>
+    <span>Filter by Age</span><br>
+    <input id="lowerAge" class="ageInput"/>
+    <input id="upperAge" class="ageInput"/>
+    <button id="filterAge"><i class="fas fa-search"></i></button>
+</div>
+<div id="container"></div>
+
+</div>
+<script src='./js/index.js'></script>
+</body>
+</html>

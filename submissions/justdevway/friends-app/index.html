@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Friends app</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="http://kottans.org/public/images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://kottans.org/public/images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://kottans.org/public/images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="http://kottans.org/public/images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="http://kottans.org/public/images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="http://kottans.org/public/images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="http://kottans.org/public/images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="http://kottans.org/public/images/favicons/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" href="http://kottans.org/public/images/favicons/favicon-196x196.png" sizes="196x196">
+    <link rel="icon" type="image/png" href="http://kottans.org/public/images/favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="http://kottans.org/public/images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="http://kottans.org/public/images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div class="menu js-menu">
+    <ul class="controllers js-controllers">
+        <li class="controllers__item">
+            <fieldset class="controller">
+                <legend class="controller__legend">Search by name</legend>
+                <input type="text" class="controller__search js-name_search">
+            </fieldset>
+        </li>
+        <li class="controllers__item">
+            <fieldset class="controller">
+                <legend class="controller__legend">Sort by name</legend>
+                <label class="controller__label js-controller__label" tabindex="0">
+                    <input class="controller__input js-controller__input" type="radio" name="abc" value="2">
+                    <div class="controller__parameters">
+                        <div class="controller__check">
+                            <div class="controller__check__round"></div>
+                        </div>
+                        <span class="controller__value">a-z</span>
+                    </div>
+                </label>
+                <label class="controller__label js-controller__label" tabindex="0">
+                    <input class="controller__input js-controller__input" type="radio" name="abc" value="1">
+                    <div class="controller__parameters">
+                        <div class="controller__check">
+                            <div class="controller__check__round"></div>
+                        </div>
+                        <span class="controller__value">z-a</span>
+                    </div>
+                </label>
+            </fieldset>
+        </li>
+        <li class="controllers__item">
+            <fieldset class="controller">
+                <legend class="controller__legend">Filter by gender</legend>
+                <label class="controller__label js-controller__label" tabindex="0">
+                    <input class="controller__input js-controller__input" type="radio" name="gender" value="2">
+                    <div class="controller__parameters">
+                        <div class="controller__check">
+                            <div class="controller__check__round"></div>
+                        </div>
+                        <span class="controller__value">Male</span>
+                    </div>
+                </label>
+                <label class="controller__label js-controller__label js-controller__label js-controller__label"
+                       tabindex="0">
+                    <input class="controller__input js-controller__input" type="radio" name="gender" value="1">
+                    <div class="controller__parameters">
+                        <div class="controller__check">
+                            <div class="controller__check__round"></div>
+                        </div>
+                        <span class="controller__value">Female</span>
+                    </div>
+                </label>
+                <label class="controller__label js-controller__label" tabindex="0">
+                    <input class="controller__input js-controller__input" type="radio" name="gender" value="0">
+                    <div class="controller__parameters">
+                        <div class="controller__check">
+                            <div class="controller__check__round"></div>
+                        </div>
+                        <span class="controller__value">All</span>
+                    </div>
+                </label>
+            </fieldset>
+        </li>
+        <li class="controllers__item">
+            <fieldset class="controller">
+                <legend class="controller__legend">Sort by age</legend>
+                <label class="controller__label js-controller__label" tabindex="0">
+                    <input class="controller__input js-controller__input" type="radio" name="age" value="2">
+                    <div class="controller__parameters controller__parameters--age">
+                        <div class="controller__check">
+                            <div class="controller__check__round"></div>
+                        </div>
+                        <svg class="controller__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 292.362 292.362">
+                            <path d="M286.935 69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952 0-9.233 1.807-12.85 5.424C1.807 72.998 0 77.279 0 82.228c0 4.948 1.807 9.229 5.424 12.847l127.907 127.907c3.621 3.617 7.902 5.428 12.85 5.428s9.233-1.811 12.847-5.428L286.935 95.074c3.613-3.617 5.427-7.898 5.427-12.847 0-4.948-1.814-9.229-5.427-12.85z"/>
+                        </svg>
+                    </div>
+                </label>
+                <label class="controller__label js-controller__label" tabindex="0">
+                    <input class="controller__input js-controller__input" type="radio" name="age" value="1">
+                    <div class="controller__parameters controller__parameters--age">
+                        <div class="controller__check">
+                            <div class="controller__check__round"></div>
+                        </div>
+                        <svg class="controller__icon controller__icon--up" xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 292.362 292.362">
+                            <path d="M286.935 69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952 0-9.233 1.807-12.85 5.424C1.807 72.998 0 77.279 0 82.228c0 4.948 1.807 9.229 5.424 12.847l127.907 127.907c3.621 3.617 7.902 5.428 12.85 5.428s9.233-1.811 12.847-5.428L286.935 95.074c3.613-3.617 5.427-7.898 5.427-12.847 0-4.948-1.814-9.229-5.427-12.85z"/>
+                        </svg>
+                    </div>
+                </label>
+            </fieldset>
+        </li>
+        <li class="controllers__item">
+            <fieldset class="controller">
+                <legend class="controller__legend">Sort by date</legend>
+                <label class="controller__label js-controller__label" tabindex="0">
+                    <input class="controller__input js-controller__input" type="radio" name="date" value="2">
+                    <div class="controller__parameters controller__parameters--age">
+                        <div class="controller__check">
+                            <div class="controller__check__round"></div>
+                        </div>
+                        <svg class="controller__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 292.362 292.362">
+                            <path d="M286.935 69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952 0-9.233 1.807-12.85 5.424C1.807 72.998 0 77.279 0 82.228c0 4.948 1.807 9.229 5.424 12.847l127.907 127.907c3.621 3.617 7.902 5.428 12.85 5.428s9.233-1.811 12.847-5.428L286.935 95.074c3.613-3.617 5.427-7.898 5.427-12.847 0-4.948-1.814-9.229-5.427-12.85z"/>
+                        </svg>
+                    </div>
+                </label>
+                <label class="controller__label js-controller__label" tabindex="0">
+                    <input class="controller__input js-controller__input" type="radio" name="date" value="1">
+                    <div class="controller__parameters controller__parameters--age">
+                        <div class="controller__check">
+                            <div class="controller__check__round"></div>
+                        </div>
+                        <svg class="controller__icon controller__icon--up" xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 292.362 292.362">
+                            <path d="M286.935 69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952 0-9.233 1.807-12.85 5.424C1.807 72.998 0 77.279 0 82.228c0 4.948 1.807 9.229 5.424 12.847l127.907 127.907c3.621 3.617 7.902 5.428 12.85 5.428s9.233-1.811 12.847-5.428L286.935 95.074c3.613-3.617 5.427-7.898 5.427-12.847 0-4.948-1.814-9.229-5.427-12.85z"/>
+                        </svg>
+                    </div>
+                </label>
+            </fieldset>
+        </li>
+        <li class="controllers__item">
+            <fieldset class="controller">
+                <legend class="controller__legend">Search by email</legend>
+                <input type="text" class="controller__search js-mail_search">
+            </fieldset>
+        </li>
+        <li class="controllers__item">
+            <fieldset class="controller">
+                <legend class="controller__legend">Search by location</legend>
+                <input type="text" class="controller__search js-location_search">
+            </fieldset>
+        </li>
+    </ul>
+    <div class="controllers__buttons">
+        <button class="controller__button js-controller__button">Reset</button>
+    </div>
+</div>
+<div class="container">
+    <div class="cards">
+        <div class="cards__container">
+            <div class="cards__main_content js-cards__main_content">
+                <ul class="cards__list js-card__list"></ul>
+            </div>
+            <div class="cards__pagination">
+                <div class="pagination">
+                    <div class="pagination__main_content js-pagination__main_content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal js-modal">
+    <div class="modal__preloader js-modal__preloader">
+        Loading
+        <span>.</span>
+        <span>.</span>
+        <span>.</span>
+    </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+	"data":	[
+		{	
+			"locationName": "Gondor",
+	        "locationInfo": "Gondor was the prominent kingdom of Men in Middle-earth, bordered by Rohan to the north, Harad to the south, the cape of Andrast and the Sea to the west, and Mordor to the east. Its first capital was Osgiliath, moved to Minas Tirith in TA 1640. The city of Minas Tirith remained the capital of Gondor for the rest of the Third Age and into years of the Fourth Age; other major fortresses include Dol Amroth in Belfalas and Osgiliath, which was a city on the Anduin.Gondor was founded by the brothers Isildur and Anárion, exiles from Númenor. Gondor was an allied kingdom with Arnor, whose line of king chieftains came from Isildur, while the Line of the Kings of Gondor was from Anárion. Gondor was at the height of its power in its early years due to the ships and the military might that its armies possessed. However, continued attacks by allies of Sauron, civil war, and a devastating plague caused it to gradually decline over the course of the Third Age until Sauron's final defeat and the crowning of Aragorn II Elessar. Following that time the power of Gondor once again expanded, until the former lands of Arnor were brought under the banner of the Reunited Kingdom. In all, there were thirty-one kings of Gondor after Anárion, who was slain before Barad-dûr at the Siege of Barad-dûr.",
+	        "emblemSrc": "img/Gondor.png"
+		},
+		{
+			"locationName": "Rohan",
+			"locationInfo": "Rohan was a great kingdom of Men, located in the land once known as Calenardhon, situated in the great vale between the Misty Mountains to the north and the White Mountains to the south. The land of Rohan extended from the fords of the river Isen in the west, up to the shores of the river Anduin in the east. The forest of Fangorn lay within the borders of Rohan, and the Elven city of Lorien lay to the north of the river Limlight.The land of Rohan was originally part of Gondor, but gained independence from it. The land was first known as Rohan to the Men of Gondor, and its people the Rohirrim, meaning 'the Horse-lords', but the people of Rohan called themselves the Eorlingas, sons of Eorl the Young, first King of Rohan, as the land of Calenardhon was given in gift to Eorl and his people by Cirion, Steward of Gondor, in thanks for their service to Gondor in battle against the Balchoth. Eorl, the first king, swore an oath of friendship, at need or at call, to the Lords of Gondor, and thus the Rohirrim became the greatest allies of the Men of Gondor throughout the Third Age and beyond. They were known for their cavalry and horse training, which came into use countless times in battles such as the Battle of the Hornburg and on the Pelennor Fields.",
+			"emblemSrc": "img/Rohan.png"
+		},
+		{
+			"locationName": "Mordor",
+			"locationInfo": "Mordor was a black, volcanic plain located in the southeast of Middle-earth to the East of Gondor, Ithilien and the great river Anduin. Mordor was chosen by Sauron to be his realm because of the mountain ranges surrounding it on three sides, creating a natural fortress against his enemies. Translated, it means, \"Land of Darkness\".Mordor was a relic of the devastating works of Morgoth, apparently formed by massive volcanic eruptions. It was given the name Mordor before Sauron settled there, because of its volcano and its eruptions. However, only Shelob had settled there before Sauron did.",
+			"emblemSrc": "img/Mordor.png"
+		},
+		{
+			"locationName": "Isengard",
+			"locationInfo": "Isengard is a large fortress in the fictional universe of Middle-earth. It is a translation of the term Angrenost from the fictional language of Sindarin. Isengard was built in the Second Age around the tower of Orthanc by the Númenóreans in exile. Its location was at the north-western corner of Rohan, guarding the Fords of Isen from enemy incursions into Calenardhon together with the fortress of Aglarond to its south. Isengard was a green and pleasant place, with many large trees and grass fields, fed by the Angren. Orthanc stood in the exact centre.",
+			"emblemSrc": "img/Isengard.png"
+		}
+	]
+}
