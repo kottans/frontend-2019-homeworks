@@ -1,9 +1,10 @@
 class Inhabitant {
-  constructor(species, name, gender, saying) {
+  constructor(species, name, gender, saying, legs) {
     this.species = species;
     this.name = name;
     this.gender = gender;
     this.saying = saying;
+    this.legs = legs;
     this.friends = [];
   }
   addFriend(friend){
@@ -12,32 +13,27 @@ class Inhabitant {
     return this;
   }
   toString(){
-    return [this.species, this.name, this.gender, this.saying, this.friends.map(friend => friend.name).join(', ')].join ('; ');
+    return [this.species, this.name, this.gender, this.saying, this.friends.map(friend => friend.name).join(', '), this.legs].join ('; ') + '; ';
   }
 }
 
 class Human extends Inhabitant {
   constructor(name, gender, saying, legs = 2, hands = 2) {
-    super('human', name, gender, saying);
-    this.legs = legs;
+    super('human', name, gender, saying, legs);
     this.hands = hands;
   }
   toString(){
-    let str = super.toString().split('; ');
-    str.splice(4, 0, this.legs, this.hands);
-    return str.join('; ') + '; ';
+    return super.toString() + this.hands + '; ';
   }
 }
 
 class Animal extends Inhabitant {
   constructor(species, name, gender, saying, legs = 4) {
-    super(species, name, gender, saying);
+    super(species, name, gender, saying, legs);
     this.legs = legs;
   }
   toString(){
-    let str = super.toString().split('; ');
-    str.splice(4, 0, this.legs, 0);
-    return str.join('; ') + '; ';
+    return super.toString();
   }
 }
 
