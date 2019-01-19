@@ -5,24 +5,32 @@ const CLASS_STYLE_CARD = 'card';
 const CLASS_STYLE_NOBORDER = 'noborder';
 const MEMORY_BOARD_SIZE = 16;
 
-var firstCard = {
+let  firstCard = {
     id : 'none',
     card: 'none'
 }
 
-let images = {
-    1: 'veg1',
-    2: 'veg2',
-    3: 'veg3',
-    4: 'veg4',
-    5: 'veg5',
-    6: 'veg6',
-    7: 'veg7',
-    8: 'veg8',
+let images = [
+    'veg1',
+    'veg2',
+    'veg3',
+    'veg4',
+    'veg5',
+    'veg6',
+    'veg7',
+    'veg8'
+]
+
+let arrayItem = 0;
+let imagesQty = images.length;
+for (let i = 0; i < MEMORY_BOARD_SIZE; i+=2 ){
+    cardItemsArray.push(arrayItem);
+    cardItemsArray.push(arrayItem);
+    arrayItem = (arrayItem === imagesQty - 1) ? 0 : ++arrayItem;
 }
 
-fillArray(cardItemsArray)
 shuffle(cardItemsArray);
+
 const container = document.getElementById('container');
 container.innerHTML = cardItemsArray.map((item, index) => `<div class="${CLASS_STYLE_CARD}" id="card${index}" card="${item} "><img src="./img/${images[item]}.png"></div>`).join(' ');
 container.addEventListener('click', ({target}) =>{
@@ -46,15 +54,6 @@ container.addEventListener('click', ({target}) =>{
     }
 } )
 
-
-function fillArray(array){
-    let arrayItem = 1;
-    for (let i = 0; i < MEMORY_BOARD_SIZE; i+=2 ){
-        array.push(arrayItem);
-        array.push(arrayItem);
-        arrayItem = (arrayItem === 8) ? 1 : ++arrayItem;
-    }
-}
 
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
