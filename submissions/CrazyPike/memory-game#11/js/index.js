@@ -1,21 +1,37 @@
-const cardItemsArray = [];
+const input = [];
 const SHOW_SECOND_CARD_TIMEOUT = 300;
 const CLASS_STYLE_DISPLAYED = 'displayed';
 const CLASS_STYLE_CARD = 'card';
 const CLASS_STYLE_NOBORDER = 'noborder';
 const MEMORY_BOARD_SIZE = 16;
 
-let firstCard = {
+let  firstCard = {
     id : 'none',
     card: 'none'
 }
 
-let images = ['veg1', 'veg2', 'veg3', 'veg4', 'veg5', 'veg6', 'veg7', 'veg8']
+let images = [
+    'veg1',
+    'veg2',
+    'veg3',
+    'veg4',
+    'veg5',
+    'veg6',
+    'veg7',
+    'veg8']
 
-fillArray(cardItemsArray)
-shuffle(cardItemsArray);
+let arrayItem = 0;
+let imagesQty = images.length;
+for (let i = 0; i < MEMORY_BOARD_SIZE; i+=2 ){
+    input.push(arrayItem);
+    input.push(arrayItem);
+    arrayItem = (arrayItem === imagesQty - 1) ? 0 : ++arrayItem;
+}
+
+shuffle(input);
+
 const container = document.getElementById('container');
-container.innerHTML = cardItemsArray.map((item, index) => `<div class="${CLASS_STYLE_CARD}" id="card${index}" card="${item} "><img src="./img/${images[item]}.png"></div>`).join(' ');
+container.innerHTML = input.map((item,index) => `<div class="${CLASS_STYLE_CARD}" id="card${index}" card="${item} "><img src="./img/${images[item]}.png"></div>`).join(' ');
 container.addEventListener('click', ({target}) =>{
     if (!target.classList.contains(CLASS_STYLE_CARD) || target.classList.contains(CLASS_STYLE_DISPLAYED)) return;
     let targetCard = target.getAttribute('card');
@@ -37,20 +53,10 @@ container.addEventListener('click', ({target}) =>{
     }
 } )
 
-
-function fillArray(array){
-    let arrayItem = 0;
-    for (let i = 0; i < MEMORY_BOARD_SIZE; i+=2 ){
-        array.push(arrayItem);
-        array.push(arrayItem);
-        arrayItem = (arrayItem === MEMORY_BOARD_SIZE/2) ? 0 : ++arrayItem;
-    }
-}
-
-function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+        [a[i], a[j]] = [a[j], a[i]];
     }
-    return array;
+    return a;
 }
