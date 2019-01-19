@@ -166,7 +166,6 @@ body {
 }
 .card:hover .card__wrapper {
     transform: rotateY(180deg);
-    box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.288);
 }
 .card__front,
 .card__back {
@@ -175,28 +174,19 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    backface-visibility: hidden;
     
     border-radius: .3rem;
     background-color: rgb(116, 134, 150);
-    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.466);
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: center;
 }
-.card__front {
-    z-index: 2;
-    backface-visibility: hidden;
-
-}
 .card__back {
     transform: rotateY(180deg);
-    backface-visibility: hidden;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
     text-align: center;
-    padding: 0.5rem auto;
+    padding: 0.5rem;
 }
 .card__photo {
     width: 14rem;
