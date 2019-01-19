@@ -65,6 +65,7 @@ h1 {
     text-align: center;
     margin: 10px;
     font-size: 150%;
+    text-transform: capitalize;
 }
 
 .card-photo {

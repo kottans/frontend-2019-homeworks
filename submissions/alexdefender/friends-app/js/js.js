@@ -12,25 +12,28 @@ const RESET_BUTTON = document.getElementById('reset-button');
 const SEARCH = document.getElementById('search');
 
 let listUsers = [];
-let tempListUser = [];
-let lockSort = false;
+let backUpListUser = [];
+let switchSort = false;
 
 const loadUserDataInArray = async () => {
-    let response = await fetch(USER);
-    let json = await response.json();
-    json.results.forEach(element => {
-        listUsers.push(element);
-        tempListUser = listUsers.slice();
-    });
+    try {
+        let response = await fetch(USER);
+        let json = await response.json();
+        json.results.forEach(element => {
+            listUsers.push(element);
+            backUpListUser = listUsers.slice();
+        });
+    } catch (e) {
+        console.log(e);
+    }
     createCards();
 }
 
-let createCards = () => {
+const createCards = () => {
     let cards = '';
     listUsers.forEach(element => {
         card = `<div class="card">
-                    <div class="card-name">${element.name.first.charAt(0).toUpperCase() + element.name.first.slice(1)} 
-                            ${element.name.last.charAt(0).toUpperCase() + element.name.last.slice(1)}</div>
+                    <div class="card-name">${element.name.first} ${element.name.last}</div>
                             <div><img class="card-photo" src="${element.picture.large}"></div>
                             <div class="card-info">
                             ${element.dob.age} years<br> 
@@ -45,7 +48,7 @@ let createCards = () => {
     CONTAINER_CARDS.innerHTML = cards;
 }
 
-let sort = elem => {
+const sort = elem => {
     switch (elem.id) {
         case 'sort-age-up':
             compare = (a, b) => a.dob.age - b.dob.age;
@@ -66,70 +69,61 @@ let sort = elem => {
     createCards();
 }
 
-let sortGender = elem => {
-    if (!lockSort) {
-        let array = [];
-        switch (elem.id) {
-            case 'gender-male':
-                listUsers.forEach(element => {
-                    if (element.gender !== 'male') element.delete;
-                    else array.push(element);
-                });
-                lockSort = true;
-                break;
-            case 'gender-female':
-                listUsers.forEach(element => {
-                    if (element.gender !== 'female') element.delete;
-                    else array.push(element);
-                });
-                lockSort = true;
-                break;
-        }
-        listUsers = array;
+const sortGender = elem => {
+    listUsers = backUpListUser.slice();
+    let array = [];
+    switch (elem.id) {
+        case 'gender-male':
+            array = listUsers.filter(user => user.gender == 'male');
+            break;
+        case 'gender-female':
+            array = listUsers.filter(user => user.gender == 'female');
+            break;
     }
 
+    listUsers = array.slice();
     removeUsers();
     createCards();
 }
 
-let resetInfo = () => {
-    listUsers = tempListUser.slice();
-    lockSort = false;
+const resetInfo = () => {
+    listUsers = backUpListUser.slice();
     removeUsers();
     createCards();
 }
 
-let findInfo = elem => {
-    let search = elem.target.value;
-    let arr = CONTAINER_CARDS.childNodes;
-
-    arr.forEach(element => {
-        if (element.textContent.indexOf(search) === -1) {
-            element.classList.add('hide-card');
-        } else {
+const findInfo = ({target}) => {
+    let search = target.value;
+    let arrayCards = CONTAINER_CARDS.childNodes;
+    arrayCards.forEach((element, index) => {
+        let surName = element.querySelector('.card-name').textContent;
+        if (surName.includes(search)) {
             element.classList.remove('hide-card');
+        } else {
+            element.classList.add('hide-card');
         }
     });
 }
 
-let removeUsers = () => {
-    while (CONTAINER_CARDS.firstChild) CONTAINER_CARDS.removeChild(CONTAINER_CARDS.firstChild);
+const removeUsers = () => {
+    while (CONTAINER_CARDS.firstChild) {
+        CONTAINER_CARDS.removeChild(CONTAINER_CARDS.firstChild);
+    }
 }
 
-let addEventListeners = () => {
-    CONTAINER_FILTERS.onclick = function(event) {
-        let target = event.target;
-        if (target === SORT_AGE_DOWN || target === SORT_AGE_UP || 
-            target === SORT_NAME_UP || target === SORT_NAME_DOWN) {
-            sort(target);
-        } else if (target === GENDER_ALL || target === RESET_BUTTON) {
-            resetInfo();
-        } else if (target === GENDER_MALE || target === GENDER_FEMALE) {
-            sortGender(target);
-        }
+CONTAINER_FILTERS.addEventListener('click', event => {
+    let target = event.target;
+    if (target === SORT_AGE_DOWN || target === SORT_AGE_UP ||
+        target === SORT_NAME_UP || target === SORT_NAME_DOWN) {
+        sort(target);
+    } else if (target === GENDER_ALL || target === RESET_BUTTON) {
+        resetInfo();
+    } else if (target === GENDER_MALE || target === GENDER_FEMALE) {
+        sortGender(target);
+    } else if (target.id === 'search') {
+       SEARCH.addEventListener('input', findInfo);
     }
-    SEARCH.addEventListener('input', findInfo);
-}
+});
+
 
 loadUserDataInArray();
-addEventListeners();
