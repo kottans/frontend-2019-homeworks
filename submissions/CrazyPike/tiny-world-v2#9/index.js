@@ -9,19 +9,22 @@
 // Define your objects here
 
 class Being {
-    constructor(legs,hands,name,gender,phrase){
+    constructor(species,legs,name,gender,phrase){
+        this.species = species;
         this.legs = legs;
-        this.hands = hands;
         this.name = name;
         this.gender = gender;
         this.phrase = phrase;
     }
+
+    stringify() {
+        return [this.species, this.legs, this.hands, this.name, this.gender, this.phrase].filter(item => (item !== undefined )).join(';')}
 }
 
 class Dog extends Being{
-    constructor(legs,hands,name,gender,phrase) {
-        super(legs,hands,name,gender,phrase);
-        this.species = 'dog';
+    constructor(legs,name,gender,phrase) {
+        super('dog', legs,name,gender,phrase);
+
 
     }
 
@@ -29,19 +32,19 @@ class Dog extends Being{
 }
 
 class Cat extends Being{
-    constructor(legs,hands,name,gender,phrase) {
-        super(legs,hands,name,gender,phrase);
-        this.species = 'dcat';
+    constructor(legs,name,gender,phrase) {
+        super('cat',legs,name,gender,phrase);
+
 
     }
 
 
 }
 
-class Man extends Being{
+class Human extends Being{
     constructor(legs,hands,name,gender,phrase) {
-        super(legs,hands,name,gender,phrase);
-        this.species = 'human';
+        super('human',legs,name,gender,phrase);
+        this.hands = hands
 
     }
 
@@ -51,9 +54,10 @@ class Man extends Being{
 
 const dog = new Dog(4,0,'Woof','male','Poof');
 const cat = new Cat(4,0,'Cat','male','meow');
-const woman = new Man(2,2,'Jenny','female','Jack');
-const man = new Man(2,2,'Jack','male','Jenny');
+const woman = new Human(2,2,'Jenny','female','Jack');
+const man = new Human(2,2,'Jack','male','Jenny');
 
+const beings = [dog,cat,man,woman];
 
 
 
@@ -77,7 +81,9 @@ const man = new Man(2,2,'Jack','male','Jenny');
    */
 
 print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-print(`${dog.species}; ${dog.name}; ${dog.gender}; ${dog.legs}; ${dog.hands}; ${dog.phrase}`);
-print(`${cat.species}; ${cat.name}; ${cat.gender}; ${cat.legs}; ${cat.hands}; ${cat.phrase}`);
-print(`${man.species}; ${man.name}; ${man.gender}; ${man.legs}; ${man.hands}; ${man.phrase}`);
-print(`${woman.species}; ${woman.name}; ${woman.gender}; ${woman.legs}; ${woman.hands}; ${woman.phrase}`);
+beings.forEach(item => print(item.stringify()));
+//print(dog.stringify());
+//print(cat.stringify());
+//print(man.stringify());
+//print(woman.stringify());
+
