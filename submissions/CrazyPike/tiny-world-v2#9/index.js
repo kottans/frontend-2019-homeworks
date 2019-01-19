@@ -16,6 +16,9 @@ class Being {
         this.gender = gender;
         this.phrase = phrase;
     }
+
+    stringify() {
+        return [this.species, this.legs, this.hands, this.name, this.gender, this.phrase].filter(item => (item !== undefined )).join(';')}
 }
 
 class Dog extends Being{
@@ -54,6 +57,7 @@ const cat = new Cat(4,0,'Cat','male','meow');
 const woman = new Human(2,2,'Jenny','female','Jack');
 const man = new Human(2,2,'Jack','male','Jenny');
 
+const beings = [dog,cat,man,woman];
 
 
 
@@ -77,7 +81,9 @@ const man = new Human(2,2,'Jack','male','Jenny');
    */
 
 print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-print(`${dog.species}; ${dog.name}; ${dog.gender}; ${dog.legs}; ${dog.hands}; ${dog.phrase}`);
-print(`${cat.species}; ${cat.name}; ${cat.gender}; ${cat.legs}; ${cat.hands}; ${cat.phrase}`);
-print(`${man.species}; ${man.name}; ${man.gender}; ${man.legs}; ${man.hands}; ${man.phrase}`);
-print(`${woman.species}; ${woman.name}; ${woman.gender}; ${woman.legs}; ${woman.hands}; ${woman.phrase}`);
+beings.forEach(item => print(item.stringify()));
+//print(dog.stringify());
+//print(cat.stringify());
+//print(man.stringify());
+//print(woman.stringify());
+
