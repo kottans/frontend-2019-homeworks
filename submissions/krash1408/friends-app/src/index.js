@@ -1,10 +1,11 @@
-const url = 'https://randomuser.me/api/?results=50&inc=gender,name,email,registered,dob,phone,id,picture&nas=us';
-const field = document.querySelector('.main-field');
-const fieldWrapper = document.createElement('div');
-fieldWrapper.classList.add('main-field__wrapper');
-fieldWrapper.innerHTML = '';
-let usersCurrentArr = [];
-let usersSortedArr = [];
+const URL = 'https://randomuser.me/api/?results=50&inc=gender,name,email,registered,dob,phone,id,picture&nas=us',
+      FIELD = document.querySelector('.main-field');
+let FIELDWRAPPER = document.createElement('div');
+FIELDWRAPPER.classList.add('main-field__wrapper');
+FIELDWRAPPER.innerHTML = '';
+let usersCurrentArr = [],
+    usersSortedArr = [],
+    genderSortedArray = [];
 const restoreSortedArray = function () {
   usersSortedArr = [];
   usersCurrentArr.forEach( val => {
@@ -12,9 +13,8 @@ const restoreSortedArray = function () {
   })
   
 }
-
 const request = function() {
-  fetch(url)
+  fetch(URL)
     .then(function ifError(response) {
       if (response.ok) {
         return response.json();
@@ -31,11 +31,9 @@ const request = function() {
       })
     })
     .then(function () {
-      createFiled( usersSortedArr );
+      createField( usersCurrentArr );
     })
-    .catch(error => error);
 }
-
 class createCard {
   constructor(value) {
     this.value = value;
@@ -65,9 +63,7 @@ class createCard {
     const cardAge = document.createElement('p');
     cardAge.classList.add('card__age');
     cardAge.innerHTML = `Age: ${this.value.dob.age}`;
-    cardFront.appendChild(cardPhoto);
-    cardFront.appendChild(cardName);
-    cardFront.appendChild(cardAge);
+    cardFront.append(cardPhoto, cardName, cardAge);
 
     return cardFront;
   }
@@ -86,20 +82,19 @@ class createCard {
     const cardPhone = document.createElement('p');
     cardPhone.classList.add('card__phont');
     cardPhone.innerHTML = `Phone number:<br>${this.value.phone}`;
-    cardBack.appendChild(cardBirthDay);
-    cardBack.appendChild(cardEmail);
-    cardBack.appendChild(cardID);
-    cardBack.appendChild(cardPhone);
+    cardBack.append(cardBirthDay, cardEmail, cardID, cardPhone);
 
     return cardBack;
   }
 }
-
-const createFiled = function( array ) {
-  array.forEach(value => fieldWrapper.appendChild(value.element))
-  field.appendChild(fieldWrapper);
+const createField = function( array ) {
+  const removeField = function(  ) {
+    document.querySelectorAll('.card').forEach(() => FIELDWRAPPER.removeChild(FIELDWRAPPER.firstElementChild))
 }
-
+  removeField();
+  array.forEach(value => FIELDWRAPPER.append(value.element))
+  FIELD.append(FIELDWRAPPER);
+}
 const sortByAge = function( a, b ) {
     if ( a.value.dob.age < b.value.dob.age ) return -1;
     if ( a.value.dob.age > b.value.dob.age) return 1;
@@ -112,21 +107,12 @@ const sortByName = function ( a, b ) {
   if (nameA > nameB) return 1
   return 0
 }
-const sortByGenderMale = function  ( array ) {
-  let card = document.querySelectorAll('.card');
-  array.forEach((value, i) => {
-    if ( value.value.gender !== 'male') {card[i].style.display = 'none'}
-    else {card[i].style.display = ''}
+const sortByGender = function(gender) {
+  usersSortedArr = [];
+  usersCurrentArr.forEach(val => {
+    if (val.value.gender == gender) {usersSortedArr.push(val)}
   })
 }
-const sortByGenderFemale = function  ( array ) {
-  let card = document.querySelectorAll('.card');
-  array.forEach((value, i) => {
-    if ( value.value.gender !== 'female') {card[i].style.display = 'none'}
-    else {card[i].style.display = ''}
-  })
-}
-
 const search = function() {
   let names = document.getElementsByClassName('card__name');
   const search = document.querySelector('#search');
@@ -142,50 +128,42 @@ const search = function() {
   }
 
 }
-
 document.querySelector('.main-navigation').addEventListener('click', () => {
   const inputNodeList = document.querySelectorAll('.hidden'); 
-  const male = document.querySelector('.male');
-  const female = document.querySelector('.female');
-  const nameAZ = document.querySelector('.name-az');
-  const nameZA = document.querySelector('.name-za');
-  const ageAZ = document.querySelector('.age-az');
-  const ageZA = document.querySelector('.age-za');
-  const reset = document.querySelector('#reset');
-
+  const male = document.querySelector('.male'),
+        female = document.querySelector('.female'),
+        nameAZ = document.querySelector('.name-az'),
+        nameZA = document.querySelector('.name-za'),
+        ageAZ = document.querySelector('.age-az'),
+        ageZA = document.querySelector('.age-za'),
+        reset = document.querySelector('#reset');
   switch (event.target) {
     case nameAZ :
-      usersSortedArr.sort(sortByName);
-      createFiled( usersSortedArr );
-      restoreSortedArray();
+      createField( usersSortedArr.sort(sortByName) );
       break;
     case nameZA :
-    usersSortedArr.sort(sortByName).reverse();
-      createFiled( usersSortedArr );
-      restoreSortedArray();
+      createField( usersSortedArr.sort(sortByName).reverse() );
       break;
     case ageZA :
-      usersSortedArr.sort(sortByAge);
-      createFiled( usersSortedArr );
-      restoreSortedArray();
+      createField( usersSortedArr.sort(sortByAge) );
       break;
     case ageAZ :
-      usersSortedArr.sort(sortByAge).reverse();
-      createFiled( usersSortedArr );
-      restoreSortedArray();
+      createField( usersSortedArr.sort(sortByAge).reverse() );
       break;
     case male :
-      sortByGenderMale( usersSortedArr );
+      sortByGender('male');
+      createField( usersSortedArr );
       break;
     case female :
-      sortByGenderFemale( usersSortedArr );
+      sortByGender('female');
+      createField( usersSortedArr );
       break;
     case reset :
       inputNodeList.forEach(val => val.checked = false);
       document.getElementById('search').value = '';
       document.querySelectorAll('.card').forEach( val => val.style.display = "")
-      field.removeChild(fieldWrapper);
-      createFiled( usersCurrentArr );
+      FIELD.removeChild(FIELDWRAPPER);
+      createField( usersCurrentArr );
       restoreSortedArray();
       break;
   }
@@ -193,5 +171,4 @@ document.querySelector('.main-navigation').addEventListener('click', () => {
 document.querySelector('#search').addEventListener('input', () => {
   search( usersCurrentArr );
 })
-
 request();
