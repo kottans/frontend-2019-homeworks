@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Random friends</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<header class="flex-container">
-<a href="index.html" class="logo">Friends app</a>
-        <form class="form" name="form-sort" >
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>Random friends</title>
+      <link rel="stylesheet" href="css/style.css">
+   </head>
+   <body>
+      <header class="flex-container">
+         <a href="index.html" class="logo">Friends app</a>
+         <form class="form" name="form-sort" >
             <input id="search" class="search" type="text" name="search"  placeholder="Search">
             <label>Filter:</label>
             <select id="sort-gender" size="3">
-				<option disabled selected class = "sort-gender-field">by gender</option>
-                <option value="all">all</option>
-                <option value="male">male</option>
-                <option value="female">female</option>
+               <option disabled selected class = "sort-gender-field">by gender</option>
+               <option value="all">all</option>
+               <option value="male">male</option>
+               <option value="female">female</option>
             </select>
-			<label>Sort:</label>
+            <label>Sort:</label>
             <select id="sort-name" size="3">
-                <option disabled selected class = "sort-name-field">by name</option>
-                <option value="nameUp">A-Z</option>
-                <option value="nameDown">Z-A</option>
+               <option disabled selected class = "sort-name-field">by name</option>
+               <option value="nameUp">A-Z</option>
+               <option value="nameDown">Z-A</option>
             </select>
             <select id="sort-age" size="3">
-                <option disabled selected class = "sort-age-field">by age</option>
-                <option value="ageUp">asc</option>
-                <option value="ageDown">desc</option>
+               <option disabled selected class = "sort-age-field">by age</option>
+               <option value="ageUp">asc</option>
+               <option value="ageDown">desc</option>
             </select>
             <button class="reset">Reset</button>
-        </form>
-</header>
-
-<div class="wrapper">
-    <div id="friends-app">
-           <div class="persons">
-            
-        </div>
-    </div>
-</div>
-<script src="js/app.js"></script>
-</body>
+         </form>
+      </header>
+      <div class="wrapper">
+         <div id="friends-app">
+            <div class="persons">
+            </div>
+         </div>
+      </div>
+      <script src="js/app.js"></script>
+   </body>
 </html>

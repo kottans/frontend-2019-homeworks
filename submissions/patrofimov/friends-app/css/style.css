@@ -101,7 +101,6 @@ body {
     padding: 10px;
     text-align: center;
     display: inline-block;
-   /*  width: 200px; */
     margin-right: 20px;
     margin-bottom: 20px;
     -webkit-box-shadow: inset 0px 1px 20px 0px rgba(150,129,150,1);
@@ -111,15 +110,11 @@ body {
 
 .person__photo{
     border-radius: 50%;
-   /*  border: 1px solid black; */
     width: 10rem;
     height: 10rem;
-   /*  margin-top: 10px; */
     margin-bottom: 0.8rem;
-   /*  -webkit-box-shadow: 3px 4px 26px -9px rgba(150,129,150,1);
-    -moz-box-shadow: 3px 4px 26px -9px rgba(150,129,150,1);
-    box-shadow: 3px 4px 26px -9px rgba(150,129,150,1); */
-}
+ }
+ 
 .person__description{
     margin-bottom: 10px;
 }
