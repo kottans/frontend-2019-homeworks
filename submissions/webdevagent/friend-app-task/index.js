@@ -1,16 +1,10 @@
 const friendsContainer = document.querySelector('.friends');
-const hideButton = document.querySelector('.hide');
 const openButton = document.querySelector('.open');
-const letterSortBlock = document.querySelector('.abc');
-const genderSortBlock = document.querySelector('.gender');
-const navigation = document.querySelector('.navigation')
-const ageSortBlock = document.querySelector('.age');
-const reset = document.querySelector('.reset');
+const navigation = document.querySelector('.navigation');
 const navBar = document.querySelector('.nav-bar');
 const Users = Array(40).fill(0);
 let arrayOfAddFriends = [];
 let resetArray;
-const nameSearch = document.querySelector('.myInput');
 const FRIENDS_API_URL = "https://randomuser.me/api/?results=40";
 const getFriendsData = fetch(FRIENDS_API_URL);
 
@@ -19,60 +13,54 @@ getFriendsData.then(response => response.json())
     fillUsers(data.results);
     resetArray = Users.slice();
   });
+friendsContainer.addEventListener('click', flipCard);
 
-  friendsContainer.addEventListener('click', flipCard);
-  nameSearch.addEventListener('keyup', inputSearch);
-  letterSortBlock.addEventListener('click',sortListDir);
-  ageSortBlock.addEventListener('click', ({target}) => {
-    if (target.className == 'full-age') Users.sort(ageSortMG);
-    else {
-      Users.sort(ageSortGM);
-    }
+navigation.addEventListener('click', ({target}) => {
+  if (target.className == 'a-z' || target.className == 'z-a') sortListDir(target);
+  if (target.className == 'full-age' || target.className == 'not-full') {
+    (target.className == 'full-age') ? Users.sort(ageSortMG): Users.sort(ageSortGM);
     renderNewFlist(Users);
-  });
-  genderSortBlock.addEventListener('click', ({target}) => {
+  };
+  if (target.className == 'male' || target.className == 'female' || target.className == 'both') {
     let sortedArray;
-    if (target.className == 'male') sortedArray = Users.filter(num => num.gender == 'male');
-    else if (target.className == 'female') sortedArray = Users.filter(num => num.gender == 'female');
-    else sortedArray = Users;
+    (target.className == 'male') ? sortedArray = Users.filter(num => num.gender == 'male'):
+      (target.className == 'female') ? sortedArray = Users.filter(num => num.gender == 'female') : sortedArray = Users;
     renderNewFlist(sortedArray);
-  });
-
-  reset.addEventListener('click', ({target}) => {
-    if (target.tagName != 'div')
-    renderNewFlist(resetArray);
-  });
-
-  hideButton.addEventListener('click', ({target}) => {
+  }
+  if (target.className == 'reset') renderNewFlist(resetArray);
+  if (target.className == 'hide') {
     openButton.classList.remove('remove-card');
     navigation.classList.add('remove-card');
     openButton.classList.add('forOpen');
-  });
-  openButton.addEventListener('click', ({target}) => {
-    openButton.classList.add('remove-card');
-    navigation.classList.remove('remove-card');
-    openButton.classList.remove('forOpen');
-  });
+  }
+});
 
-  navBar.addEventListener('click', ({target}) => {
-    function classChanger(friends){
-      document.querySelector('.home-information').classList.remove('show-block');
-      if(friends=='home')document.querySelector('.home-information').classList.add('show-block');
-      else document.querySelector('.home-information').classList.add('remove-block');
-    }
-    if (target.className == 'request') {
-      renderNewFlist(arrayOfAddFriends);
-      classChanger();
-    }
-    if (target.className == 'people') {
-      renderNewFlist(resetArray);
-      classChanger();
-    }
-    if (target.className == 'home') {
-      renderNewFlist();
-      classChanger('home');
-    }
-  });
+navigation.addEventListener('keyup', inputSearch);
+openButton.addEventListener('click', ({target}) => {
+  openButton.classList.add('remove-card');
+  navigation.classList.remove('remove-card');
+  openButton.classList.remove('forOpen');
+});
+
+navBar.addEventListener('click', ({target}) => {
+  function classChanger(friends) {
+    document.querySelector('.home-information').classList.remove('show-block');
+    if (friends == 'home') document.querySelector('.home-information').classList.add('show-block');
+    else document.querySelector('.home-information').classList.add('remove-block');
+  }
+  if (target.className == 'request') {
+    renderNewFlist(arrayOfAddFriends);
+    classChanger();
+  }
+  if (target.className == 'people') {
+    renderNewFlist(resetArray);
+    classChanger();
+  }
+  if (target.className == 'home') {
+    renderNewFlist();
+    classChanger('home');
+  }
+});
 
 function createCard(element, className, parrent) {
   let card = document.createElement(element);
@@ -108,14 +96,14 @@ function fillUsers(userData) {
   Users.forEach((num, i) => {
     Users[i] = makeProfileCard(userData[i]);
     Users[i].dataset.order = i;
-    ['.flip-box-inner','.flip-box-front','.flip-box-back','img'].forEach(num=>Users[i].querySelector(num).dataset.order = i);
+    ['.flip-box-inner', '.flip-box-front', '.flip-box-back', 'img'].forEach(num => Users[i].querySelector(num).dataset.order = i);
     Users[i].querySelectorAll('p').forEach(num => num.dataset.order = i);
   })
 };
 
 function flipCard({target}) {
-  let innerCard=friendsContainer.querySelector(`.flip-box-inner[data-order='${target.dataset.order}']`);
-  let boxCard=friendsContainer.querySelector(`.flip-box[data-order='${target.dataset.order}']`);
+  let innerCard = friendsContainer.querySelector(`.flip-box-inner[data-order='${target.dataset.order}']`);
+  let boxCard = friendsContainer.querySelector(`.flip-box[data-order='${target.dataset.order}']`);
   if (target.className != 'friends' && target.className != 'add-friend') {
     innerCard.classList.toggle('clicked');
   }
@@ -127,18 +115,20 @@ function flipCard({target}) {
 };
 
 function inputSearch({target}) {
-  let value = target.value.toUpperCase();
-  let names = friendsContainer.querySelectorAll('.name');
-  names.forEach(num => {
-    if (num.textContent.toUpperCase().indexOf(value) > -1) {
-      friendsContainer.querySelector(`.flip-box[data-order='${num.dataset.order}']`).classList.remove('remove-card');
-    } else {
-      friendsContainer.querySelector(`.flip-box[data-order='${num.dataset.order}']`).classList.add('remove-card');
-    }
-  })
+  if (target.className == 'myInput') {
+    let value = target.value.toUpperCase();
+    let names = friendsContainer.querySelectorAll('.name');
+    names.forEach(num => {
+      if (num.textContent.toUpperCase().indexOf(value) > -1) {
+        friendsContainer.querySelector(`.flip-box[data-order='${num.dataset.order}']`).classList.remove('remove-card');
+      } else {
+        friendsContainer.querySelector(`.flip-box[data-order='${num.dataset.order}']`).classList.add('remove-card');
+      }
+    })
+  }
 };
 
-function sortListDir({target}) {
+function sortListDir(target) {
   let list, count, switching, mainCard, shouldSwitch;
   list = friendsContainer;
   switching = true;
@@ -147,11 +137,11 @@ function sortListDir({target}) {
     mainCard = friendsContainer.getElementsByClassName("flip-box");
     for (count = 0; count < (mainCard.length - 1); count++) {
       shouldSwitch = false;
-      if (mainCard[count].personName.toLowerCase() > mainCard[count + 1].personName.toLowerCase()&&target.className=='a-z') {
+      if (mainCard[count].personName.toLowerCase() > mainCard[count + 1].personName.toLowerCase() && target.className == 'a-z') {
         shouldSwitch = true;
         break;
       }
-      if (mainCard[count].personName.toLowerCase() < mainCard[count + 1].personName.toLowerCase()&&target.className=='z-a') {
+      if (mainCard[count].personName.toLowerCase() < mainCard[count + 1].personName.toLowerCase() && target.className == 'z-a') {
         shouldSwitch = true;
         break;
       }
@@ -172,9 +162,9 @@ function ageSortGM(a, b) {
   return b.personAge - a.personAge;
 };
 
-function renderNewFlist(pushArray){
+function renderNewFlist(pushArray) {
   while (friendsContainer.firstChild) {
     friendsContainer.removeChild(friendsContainer.firstChild);
   }
-  if(pushArray!=undefined)pushArray.forEach(num => friendsContainer.appendChild(num));
+  if (pushArray != undefined) pushArray.forEach(num => friendsContainer.appendChild(num));
 };
