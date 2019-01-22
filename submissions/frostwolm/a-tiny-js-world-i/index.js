@@ -30,10 +30,6 @@ class Human extends Inhabitant {
 class Animal extends Inhabitant {
   constructor(species, name, gender, saying, legs = 4) {
     super(species, name, gender, saying, legs);
-    this.legs = legs;
-  }
-  toString(){
-    return super.toString();
   }
 }
 
