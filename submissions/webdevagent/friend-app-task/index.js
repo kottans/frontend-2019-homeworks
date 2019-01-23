@@ -2,7 +2,7 @@ const friendsContainer = document.querySelector('.friends');
 const openButton = document.querySelector('.open');
 const navigation = document.querySelector('.navigation');
 const navBar = document.querySelector('.nav-bar');
-const Users = Array(40).fill(0);
+let Users = Array(40).fill(0);
 let arrayOfAddFriends = [];
 let resetArray;
 const FRIENDS_API_URL = "https://randomuser.me/api/?results=40";
@@ -21,11 +21,11 @@ navigation.addEventListener('click', ({target}) => {
     (target.className == 'full-age') ? Users.sort(ageSortMG): Users.sort(ageSortGM);
     renderNewFlist(Users);
   };
-  if (target.className == 'male' || target.className == 'female' || target.className == 'both') {
+  if (target.className == 'male' || target.className == 'female') {
     let sortedArray;
-    (target.className == 'male') ? sortedArray = Users.filter(num => num.gender == 'male'):
-      (target.className == 'female') ? sortedArray = Users.filter(num => num.gender == 'female') : sortedArray = Users;
-    renderNewFlist(sortedArray);
+    (target.className == 'male') ? Users = resetArray.filter(num => num.gender == 'male'):
+      Users = resetArray.filter(num => num.gender == 'female');
+    renderNewFlist(Users);
   }
   if (target.className == 'reset') renderNewFlist(resetArray);
   if (target.className == 'hide') {
@@ -44,9 +44,8 @@ openButton.addEventListener('click', ({target}) => {
 
 navBar.addEventListener('click', ({target}) => {
   function classChanger(friends) {
-    document.querySelector('.home-information').classList.remove('show-block');
-    if (friends == 'home') document.querySelector('.home-information').classList.add('show-block');
-    else document.querySelector('.home-information').classList.add('remove-block');
+    if (friends == 'home') document.querySelectorAll('.navigation,.open').forEach(num => num.classList.remove('remove-card'));
+    else document.querySelectorAll('.navigation,.open').forEach(num => num.classList.add('remove-card'));
   }
   if (target.className == 'request') {
     renderNewFlist(arrayOfAddFriends);
@@ -54,10 +53,6 @@ navBar.addEventListener('click', ({target}) => {
   }
   if (target.className == 'people') {
     renderNewFlist(resetArray);
-    classChanger();
-  }
-  if (target.className == 'home') {
-    renderNewFlist();
     classChanger('home');
   }
 });
@@ -82,7 +77,7 @@ function makeProfileCard(person) {
   let email = createCard('p', '', flipBoxBack);
   addFriend.textContent = 'connect';
   picture.src = person.picture.large;
-  flipBox.personName = `${person.name.first}`;
+  flipBox.personName = `${person.name.first}${person.name.last}`;
   flipBox.personAge = +`${person.dob.age}`;
   nameFront.textContent = `${person.name.first} ${person.name.last}`;
   nameBack.textContent = `Name: ${person.name.first} ${person.name.last}`;
@@ -129,29 +124,9 @@ function inputSearch({target}) {
 };
 
 function sortListDir(target) {
-  let list, count, switching, mainCard, shouldSwitch;
-  list = friendsContainer;
-  switching = true;
-  while (switching) {
-    switching = false;
-    mainCard = friendsContainer.getElementsByClassName("flip-box");
-    for (count = 0; count < (mainCard.length - 1); count++) {
-      shouldSwitch = false;
-      if (mainCard[count].personName.toLowerCase() > mainCard[count + 1].personName.toLowerCase() && target.className == 'a-z') {
-        shouldSwitch = true;
-        break;
-      }
-      if (mainCard[count].personName.toLowerCase() < mainCard[count + 1].personName.toLowerCase() && target.className == 'z-a') {
-        shouldSwitch = true;
-        break;
-      }
-    }
-    if (shouldSwitch) {
-      ('hello');
-      mainCard[count].parentNode.insertBefore(mainCard[count + 1], mainCard[count]);
-      switching = true;
-    }
-  }
+  (target.className == 'a-z') ? Users.sort((a, b) => (a.personName > b.personName) ? 1 : -1):
+    Users.sort((a, b) => (a.personName > b.personName) ? 1 : -1).reverse();
+  renderNewFlist(Users);
 };
 
 function ageSortMG(a, b) {
