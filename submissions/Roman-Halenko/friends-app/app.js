@@ -32,9 +32,9 @@ function controller(srcArr) {
     renderHTML(list);
   }
 
-  function filterByGender(ev) {
-    makeActive(ev.target, config.filterBtns);
-    switch (ev.target.value) {
+  function filterByGender({target}) {
+    makeActive(target, config.filterBtns);
+    switch (target.value) {
       case 'male':
         list = srcArr.filter(e => e.gender === 'male');
         break;
