@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-const Enemy = function (x, y, speed) {
+var Enemy = function (x, y, speed) {
 
     // The following variables are used to determine the x and y axis and speed of the enemy
     this.x = x;
@@ -39,7 +39,7 @@ Enemy.prototype.render = function () {
 };
 
 // Player class focusing on x and y axis
-const Player = function (x, y) {
+var Player = function (x, y) {
 
     // Variables for the player to move along x and y axis 
     this.x = x;
@@ -96,10 +96,10 @@ Player.prototype.handleInput = function (keyPress) {
 
 
 // All enemies are placed in an array
-let allEnemies = [];
+var allEnemies = [];
 
 // Location of the 3 enemies on the y axis located on the stone road
-let enemyLocation = [63, 147, 230];
+var enemyLocation = [63, 147, 230];
 
 
 // For each enemy located on the y axis from 0 on the x axis move at a speed of 200 
@@ -110,7 +110,7 @@ enemyLocation.forEach(function (locationY) {
 });
 
 // The starting location of the player is located at x=200, y=405
-let player = new Player(202, 405);
+var player = new Player(202, 405);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. 
