@@ -1,11 +1,12 @@
-const config = {};
-config.main = document.querySelector('main');
-config.sortBtn = document.getElementById('sort_btn');
-config.header = document.querySelector('header');
-config.searchField = document.getElementById('search');
-config.select = document.getElementById('input-sort');
-config.filterBtns = document.querySelectorAll('.btn_filter');
-config.filtersContainer = document.querySelector('.wrapper.filter_collection');
+const config = {
+  main: document.querySelector('main'),
+  sortBtn: document.getElementById('sort_btn'),
+  header: document.querySelector('header'),
+  searchField: document.getElementById('search'),
+  select: document.getElementById('input-sort'),
+  filterBtns: document.querySelectorAll('.btn_filter'),
+  filtersContainer: document.querySelector('.wrapper.filter_collection')
+};
 
 function handleErrors(response) {
     if (!response.ok) {
@@ -25,7 +26,7 @@ function controller(srcArr) {
   let list = srcArr;
   let inputStr = "";
 
-  function searchByName(e) {
+  function searchByName() {
     inputStr = config.searchField.value.toLowerCase();
     list = srcArr.filter(e => e.name.last.includes(inputStr) || e.name.first.includes(inputStr));
     renderHTML(list);
@@ -51,12 +52,12 @@ function controller(srcArr) {
     target.classList.add('active');
   }
 
-  function sortByAgeDesc(a, b) {
+  function sortByAgeDesc() {
     list.sort((a, b) => b.dob.age - a.dob.age);
     renderHTML(list);
   }
 
-  function sortByAgeAsc(a, b) {
+  function sortByAgeAsc() {
     list.sort((a, b) =>  a.dob.age - b.dob.age);
     renderHTML(list);
   }
@@ -64,7 +65,6 @@ function controller(srcArr) {
   function sortByNameAz() {
     list.sort((a, b) => {
       return a.name.first > b.name.first ? 1 : -1;
-      return 0;
     })
     renderHTML(list);
   }
@@ -72,7 +72,6 @@ function controller(srcArr) {
   function sortByNameZa() {
     list.sort((a, b) => {
       return a.name.first < b.name.first ? 1 : -1;
-      return 0;
     })
     renderHTML(list);
   }
@@ -81,8 +80,8 @@ function controller(srcArr) {
 
   config.searchField.addEventListener('input', searchByName);
 
-  config.select.addEventListener('change', e => {
-    switch (e.target.value) {
+  config.select.addEventListener('change', ({target}) => {
+    switch (target.value) {
       case 'ASC':
         sortByAgeAsc();
         break;
