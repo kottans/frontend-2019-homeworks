@@ -36,6 +36,7 @@ This repo was created for students to submit their homeworks for review.
      (use mentor's github username)
    * list your reflections on this subtask
      (_what was new to you_, _what surprised you_, _what you intend to use in future_)
+     
 [icon-mit]: https://img.shields.io/badge/license-MIT-blue.svg
 [license]: https://github.com/OleksiyRudenko/a-tiny-JS-world/blob/master/LICENSE.md
 
