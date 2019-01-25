@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function init(){
 
 const url = 'https://randomuser.me/api/?results=15'; 
-const container = document.querySelector('.friendContainer');
+const container = document.querySelector('.friend_container');
 const searchName = document.getElementById("searchName");
 const sortByNameUp = document.getElementById("sortNameUp");
 const sortByNameDown = document.getElementById("sortNameDown");
@@ -11,34 +11,32 @@ const reset =  document.getElementById("reset");
 let friends=[]; 
 let sideMenu = document.querySelector('.side_menu_list');
 
+function handleErrors(response) {
+  if (!response.ok) {
+      throw Error(response.statusText);
+  }
+  return response;
+} 
+
 fetch(url)
-.then((resp) => resp.json())
+.then(handleErrors)
+.then((response) => response.json())
 .then(function(data) {
   friends = data.results;
   showFriends(friends);
 })
-.catch(function(error) {
-  console.log(error);
-});   
+.catch(error => console.log(error));
+  
+function createFriendBox (friend){
+    let friendBox = document.createElement('div');
+    let friendInfo =document.createElement('div');
+    let friendImg = document.createElement('img');
+    let friendName = document.createElement('h3');
+    let friendGender = document.createElement('p');
+    let friendAge = document.createElement('p');
+    let friendLocation = document.createElement('p');
+    let friendPhone = document.createElement('p');
 
-function addElement(elem) {
-  return document.createElement(elem);
-};
-
-function append(parent, el) {
-return parent.appendChild(el);
-};
- 
-function showFriends(data){
-  return data.map(function(friend) {
-    let friendBox = addElement('div');
-    let friendInfo =addElement('div');
-    let friendImg = addElement('img');
-    let friendName = addElement('h3');
-    let friendGender = addElement('p');
-    let friendAge = addElement('p');
-    let friendLocation =addElement('p');
-    let friendPhone = addElement('p');
     friendBox.classList.add("info");
     friendImg.classList.add("photo");
     friendName.classList.add("name");
@@ -53,47 +51,44 @@ function showFriends(data){
     friendAge.innerHTML ="I am " + `${friend.dob.age}` + " years old";
     friendLocation.innerHTML = "I live in " + `${friend.location.city}` + ", " + `${friend.location.state}`;
     friendPhone.innerHTML = "Call me: " + `${friend.phone}`;
+     
+    container.appendChild(friendBox);
+    friendBox.append(friendImg, friendInfo);
+    friendInfo.append(friendName, friendGender, friendAge, friendLocation, friendPhone);
+};
 
-    append(friendBox, friendImg);
-    append(friendBox, friendInfo);
-    append(friendInfo, friendName);
-    append(friendInfo, friendGender);
-    append(friendInfo, friendAge);
-    append(friendInfo, friendLocation);
-    append(friendInfo, friendPhone);
-    append(container, friendBox);
-  })
+function showFriends(data){
+  container.innerHTML = "";
+  data.forEach(createFriendBox);
 };
 
 sideMenu.addEventListener('click', (e) =>{
  let friendList = [...friends];
 
- if(e.target === searchName ){
-  friendList = friendList.filter((item)=>{
+ if( e.target === searchName && searchName.value.length>0){
     let writtenName = searchName.value.toLowerCase();
-    let name = item.name.first.toLowerCase();
-   return name.includes(writtenName);
-  });
+    let suitedNames = friendList.filter((item)=>
+    item.name.first.toLowerCase().includes(writtenName));
+     showFriends(suitedNames);
  } else if( e.target === sortByNameUp){
     friendList.sort((a, b)=> 
-    ((a.name.first > b.name.first) - (a.name.first < b.name.first)));
-
+     ((a.name.first > b.name.first) - (a.name.first < b.name.first)));
+     showFriends(friendList);
  } else if( e.target === sortByNameDown){
     friendList.sort((a, b)=> 
-    ((b.name.first > a.name.first) - (b.name.first < a.name.first)));
-  
+     ((b.name.first > a.name.first) - (b.name.first < a.name.first)));
+     showFriends(friendList);
  } else if(e.target === sortByAgeUp){
     friendList.sort((a, b)=> 
      a.dob.age - b.dob.age)
-
+     showFriends(friendList);
  } else if( e.target === sortByAgeDown){
     friendList.sort((a, b)=> 
-      b.dob.age - a.dob.age);
-
+     b.dob.age - a.dob.age);
+     showFriends(friendList);
  } else if(  e.target === reset){
-   showFriends(friends);
+     showFriends(friends);
  }
- container.innerHTML = "";
- showFriends(friendList);
 });
 });
+

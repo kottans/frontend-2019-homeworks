@@ -5,25 +5,25 @@ html {
     font-family: Roboto;
     background-image: linear-gradient(#03D8E3,#58FAAF)
 }
-.wrapper{
+.wrapper {
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
 }
-.header_name{
+.header_name {
     color:#FFFFFF;
     padding: 20px;
     font-size:28px;
     text-align:center;
     text-transform: uppercase;
 } 
-.friendContainer {
+.friend_container {
     display: flex;
     flex-wrap: wrap;
     flex-grow: 2;
     flex-basis: 80%;
 }
-.info{
+.info {
     width: 160px;
     height: 300px;
     padding: 10px;
@@ -33,19 +33,19 @@ html {
     border-radius: 25px;
     flex-wrap: wrap;
 }
-.photo{
+.photo {
   display:block;
   margin-left: auto;
   margin-right: auto;
 }
-.name{
+.name {
   text-align:center;
   font-size:14px;
   color:  #099389;
   text-transform: uppercase;
   border-bottom: 1px dashed  #03D8E3;
 }
-.text{
+.text {
   text-align:center;
   font-size:12px;
   color:  #4a5353 ;
@@ -103,15 +103,15 @@ html {
   background-color:#abfaf3;
   border-radius: 20px;
 }
-.side_menu_item:hover, .side_menu_item_reset:hover{
+.side_menu_item:hover, .side_menu_item_reset:hover {
   background-color:#3AAAA1; 
 }
-.search:hover{
+.search:hover {
   background-color:#abfaf3;
 }
 
-@media screen and (min-width:400px) and (max-width:500px){
- .header_name{
+@media screen and (min-width:400px) and (max-width:500px) {
+ .header_name {
     padding: 10px;
     font-size:18px;
  }
@@ -119,24 +119,24 @@ html {
     padding: 10px;
     font-size:12px;
  }
- .friendContainer{
+ .friend_container {
     padding:20px 10px;
  }
 }
 
-@media screen and (max-width:400px){
- .header_name{
+@media screen and (max-width:400px) {
+ .header_name {
     padding: 5px;
     font-size:18px;
   }
-  .side_menu_list{
+  .side_menu_list {
     padding: 0 10px;
   }
   .side_menu_item {
     padding: 5px;
     font-size:12px;
   }
-  .info{
+  .info {
     width: 130px;
     height: 220px;
     padding: 10px;
@@ -146,13 +146,13 @@ html {
     border-radius: 25px;
     flex-wrap: wrap;
   }
-  .photo{
+  .photo {
     width:80px;
   }
-  .name{
+  .name {
     font-size:12px;
   }
-  .text{
+  .text {
     font-size:10px;
   }
 }
