@@ -8,8 +8,9 @@ const sortByNameDown = document.getElementById("sortNameDown");
 const sortByAgeUp = document.getElementById("sortAgeUp");
 const sortByAgeDown = document.getElementById("sortAgeDown");
 const reset =  document.getElementById("reset");
-let friends=[]; 
 let sideMenu = document.querySelector('.side_menu_list');
+let friends=[]; 
+let filteredNames;
 
 function handleErrors(response) {
   if (!response.ok) {
@@ -62,15 +63,20 @@ function showFriends(data){
   data.forEach(createFriendBox);
 };
 
-sideMenu.addEventListener('click', (e) =>{
- let friendList = [...friends];
-
- if( e.target === searchName && searchName.value.length>0){
+searchName.addEventListener('change', () =>{
+    let listOfFriends = [...friends];
     let writtenName = searchName.value.toLowerCase();
-    let suitedNames = friendList.filter((item)=>
+    filteredNames = listOfFriends.filter((item)=>
     item.name.first.toLowerCase().includes(writtenName));
-     showFriends(suitedNames);
- } else if( e.target === sortByNameUp){
+    showFriends(filteredNames);
+});
+
+sideMenu.addEventListener('click', (e) =>{
+    let friendList = [...friends];
+    if(filteredNames)
+     friendList = filteredNames;
+     
+ if( e.target === sortByNameUp){
     friendList.sort((a, b)=> 
      ((a.name.first > b.name.first) - (a.name.first < b.name.first)));
      showFriends(friendList);
@@ -87,6 +93,7 @@ sideMenu.addEventListener('click', (e) =>{
      b.dob.age - a.dob.age);
      showFriends(friendList);
  } else if(  e.target === reset){
+     searchName.value = "";
      showFriends(friends);
  }
 });
