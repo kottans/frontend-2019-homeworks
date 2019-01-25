@@ -1,61 +1,20 @@
-const friendsContainer = document.querySelector('.friends');
-const openButton = document.querySelector('.open');
-const navigation = document.querySelector('.navigation');
-const navBar = document.querySelector('.nav-bar');
-let Users = Array(40).fill(0);
-let arrayOfAddFriends = [];
-let resetArray;
 const FRIENDS_API_URL = "https://randomuser.me/api/?results=40";
 const getFriendsData = fetch(FRIENDS_API_URL);
+const appData = {
+  friendsContainer: document.querySelector('.friends'),
+  openButton: document.querySelector('.open'),
+  navigation: document.querySelector('.navigation'),
+  navBar: document.querySelector('.nav-bar')
+}
+const arrayOfAddFriends = [];
+const resetArray = [];
+let Users = [];
 
 getFriendsData.then(response => response.json())
   .then(data => {
     fillUsers(data.results);
-    resetArray = Users.slice();
-  });
-friendsContainer.addEventListener('click', flipCard);
-
-navigation.addEventListener('click', ({target}) => {
-  if (target.className == 'a-z' || target.className == 'z-a') sortListDir(target);
-  if (target.className == 'full-age' || target.className == 'not-full') {
-    (target.className == 'full-age') ? Users.sort(ageSortMG): Users.sort(ageSortGM);
-    renderNewFlist(Users);
-  };
-  if (target.className == 'male' || target.className == 'female') {
-    let sortedArray;
-    (target.className == 'male') ? Users = resetArray.filter(num => num.gender == 'male'):
-      Users = resetArray.filter(num => num.gender == 'female');
-    renderNewFlist(Users);
-  }
-  if (target.className == 'reset') renderNewFlist(resetArray);
-  if (target.className == 'hide') {
-    openButton.classList.remove('remove-card');
-    navigation.classList.add('remove-card');
-    openButton.classList.add('forOpen');
-  }
-});
-
-navigation.addEventListener('keyup', inputSearch);
-openButton.addEventListener('click', ({target}) => {
-  openButton.classList.add('remove-card');
-  navigation.classList.remove('remove-card');
-  openButton.classList.remove('forOpen');
-});
-
-navBar.addEventListener('click', ({target}) => {
-  function classChanger(friends) {
-    if (friends == 'home') document.querySelectorAll('.navigation,.open').forEach(num => num.classList.remove('remove-card'));
-    else document.querySelectorAll('.navigation,.open').forEach(num => num.classList.add('remove-card'));
-  }
-  if (target.className == 'request') {
-    renderNewFlist(arrayOfAddFriends);
-    classChanger();
-  }
-  if (target.className == 'people') {
-    renderNewFlist(resetArray);
-    classChanger('home');
-  }
-});
+    Users.forEach(num => resetArray.push(num));
+  }).catch(error => console.log(error));
 
 function createCard(element, className, parrent) {
   let card = document.createElement(element);
@@ -65,7 +24,7 @@ function createCard(element, className, parrent) {
 };
 
 function makeProfileCard(person) {
-  let flipBox = createCard('div', 'flip-box', friendsContainer);
+  let flipBox = createCard('div', 'flip-box', appData.friendsContainer);
   let flipBoxInner = createCard('div', 'flip-box-inner', flipBox);
   let flipBoxFront = createCard('div', 'flip-box-front', flipBoxInner);
   let flipBoxBack = createCard('div', 'flip-box-back', flipBoxInner);
@@ -88,8 +47,8 @@ function makeProfileCard(person) {
 };
 
 function fillUsers(userData) {
-  Users.forEach((num, i) => {
-    Users[i] = makeProfileCard(userData[i]);
+  userData.forEach((num, i) => {
+    Users.push(makeProfileCard(num));
     Users[i].dataset.order = i;
     ['.flip-box-inner', '.flip-box-front', '.flip-box-back', 'img'].forEach(num => Users[i].querySelector(num).dataset.order = i);
     Users[i].querySelectorAll('p').forEach(num => num.dataset.order = i);
@@ -97,8 +56,8 @@ function fillUsers(userData) {
 };
 
 function flipCard({target}) {
-  let innerCard = friendsContainer.querySelector(`.flip-box-inner[data-order='${target.dataset.order}']`);
-  let boxCard = friendsContainer.querySelector(`.flip-box[data-order='${target.dataset.order}']`);
+  let innerCard = appData.friendsContainer.querySelector(`.flip-box-inner[data-order='${target.dataset.order}']`);
+  let boxCard = appData.friendsContainer.querySelector(`.flip-box[data-order='${target.dataset.order}']`);
   if (target.className != 'friends' && target.className != 'add-friend') {
     innerCard.classList.toggle('clicked');
   }
@@ -109,15 +68,15 @@ function flipCard({target}) {
   }
 };
 
-function inputSearch({target}) {
+function inputSearch(target) {
   if (target.className == 'myInput') {
     let value = target.value.toUpperCase();
-    let names = friendsContainer.querySelectorAll('.name');
+    let names = appData.friendsContainer.querySelectorAll('.name');
     names.forEach(num => {
       if (num.textContent.toUpperCase().indexOf(value) > -1) {
-        friendsContainer.querySelector(`.flip-box[data-order='${num.dataset.order}']`).classList.remove('remove-card');
+        appData.friendsContainer.querySelector(`.flip-box[data-order='${num.dataset.order}']`).classList.remove('remove-card');
       } else {
-        friendsContainer.querySelector(`.flip-box[data-order='${num.dataset.order}']`).classList.add('remove-card');
+        appData.friendsContainer.querySelector(`.flip-box[data-order='${num.dataset.order}']`).classList.add('remove-card');
       }
     })
   }
@@ -138,8 +97,50 @@ function ageSortGM(a, b) {
 };
 
 function renderNewFlist(pushArray) {
-  while (friendsContainer.firstChild) {
-    friendsContainer.removeChild(friendsContainer.firstChild);
+  while (appData.friendsContainer.firstChild) {
+    appData.friendsContainer.removeChild(appData.friendsContainer.firstChild);
   }
-  if (pushArray != undefined) pushArray.forEach(num => friendsContainer.appendChild(num));
+  if (pushArray != undefined) pushArray.forEach(num => appData.friendsContainer.appendChild(num));
 };
+
+function tabChanger({target}) {
+  if (target.className == 'request') {
+    renderNewFlist(arrayOfAddFriends);
+    classChanger(document.querySelectorAll('.navigation,.open'));
+  }
+  if (target.className == 'people') {
+    renderNewFlist(resetArray);
+    classChanger(false, document.querySelectorAll('.navigation,.open'));
+  }
+};
+
+function usersFilter(actionEvent) {
+  if (actionEvent.type == 'keyup') inputSearch(actionEvent.target);
+  if (actionEvent.target.className == 'a-z' || actionEvent.target.className == 'z-a') sortListDir(actionEvent.target);
+  if (actionEvent.target.className == 'full-age' || actionEvent.target.className == 'not-full') {
+    (actionEvent.target.className == 'full-age') ? Users.sort(ageSortMG): Users.sort(ageSortGM);
+    renderNewFlist(Users);
+  };
+  if (actionEvent.target.className == 'male' || actionEvent.target.className == 'female') {
+    let sortedArray;
+    (actionEvent.target.className == 'male') ? Users = resetArray.filter(num => num.gender == 'male'):
+      Users = resetArray.filter(num => num.gender == 'female');
+    renderNewFlist(Users);
+  }
+  if (actionEvent.target.className == 'reset') renderNewFlist(resetArray);
+  if (actionEvent.target.className == 'hide') classChanger([appData.navigation], [appData.openButton]);
+};
+
+function showNavigation({target}) {
+  classChanger([appData.openButton], [appData.navigation]);
+};
+
+function classChanger(addClassesArray, removeClassesArray, ) {
+  if (addClassesArray) addClassesArray.forEach(num => num.classList.add('remove-card'))
+  if (removeClassesArray) removeClassesArray.forEach(num => num.classList.remove('remove-card'));
+};
+
+['click', 'keyup'].forEach((num, i) => appData.navigation.addEventListener(num, usersFilter));
+appData.friendsContainer.addEventListener('click', flipCard);
+appData.openButton.addEventListener('click', showNavigation);
+appData.navBar.addEventListener('click', tabChanger);
