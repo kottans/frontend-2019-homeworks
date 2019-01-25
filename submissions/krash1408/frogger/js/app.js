@@ -4,12 +4,12 @@ const playerStartLocation = { 'x' : 202, 'y' : 405 },
         return 100 + Math.floor(Math.random() * 222);
       }
 // Enemies our player must avoid
-const Enemy = function (x, y, speed) {
+const Enemy = function (x, y, speed, player) {
     // The following variables are used to determine the x and y axis and speed of the enemy
     this.x = x;
     this.y = y;
     this.speed = speed;
-
+    this.player = player;
     // The image of the enemy of cockroach that is added to the playing field 
     this.sprite = 'images/enemy-bug.png';
 };
@@ -32,12 +32,12 @@ Enemy.prototype.render = function () {
 };
 // Player class focusing on x and y axis
 Enemy.prototype.checkCollisium = function () {
-    if (player.x < this.x + 80 &&
-    player.x + 80 > this.x &&
-    player.y < this.y + 60 &&
-    60 + player.y > this.y) {
-    player.x = playerStartLocation.x;
-    player.y = playerStartLocation.y;
+    if (this.player.x < this.x + 80 &&
+    this.player.x + 80 > this.x &&
+    this.player.y < this.y + 60 &&
+    60 + this.player.y > this.y) {
+    this.player.x = playerStartLocation.x;
+    this.player.y = playerStartLocation.y;
 };
 }
 const Player = function (x, y) {
@@ -83,10 +83,10 @@ Player.prototype.handleInput = function (keyPress) {
         }, 800);
     };
 };
-// All enemies are placed in an array
-const allEnemies = [63, 147, 230].map(value => {return new Enemy( 0, value, ( 0 + randomSpeed() ) )});
 // The starting location of the player is located at x=200, y=405
 const player = new Player( playerStartLocation.x, playerStartLocation.y );
+// All enemies are placed in an array
+const allEnemies = [63, 147, 230].map(value => {return new Enemy( 0, value, ( 0 + randomSpeed() ), player )});
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. 
 document.addEventListener('keyup', function (e) {
