@@ -44,6 +44,7 @@ form {
 }
 
 .btn_filter {
+  margin: 0px;
   cursor: pointer;
   height: 100%;
   border: none;
@@ -72,7 +73,7 @@ form {
   background: none;
   border: none;
   border-bottom: 3px solid #284640c4;
-  /* margin-bottom: 20px; */
+  -webkit-appearance: textfield;
 }
 
 #search:focus {
@@ -200,6 +201,7 @@ span.location:first-letter {
 }
 
 #input-sort {
+  margin: 0;
   border: none;
   background-color: #212121;
   color: white;
