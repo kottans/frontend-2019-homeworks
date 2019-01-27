@@ -36,7 +36,7 @@ class FriendApp {
   }
   showPersons(data) {
     data.forEach(person => {
-      this.addCardTopersons(this.createPersonCard(person));
+      this.addCardToPersons(this.createPersonCard(person));
     });
   }
 
@@ -52,34 +52,34 @@ class FriendApp {
   }
 
   createPersonCard(element) {
-    let person = document.createElement("div");
+    const person = document.createElement("div");
     person.classList.add("person");
 
-    let photo = document.createElement("div");
+    const photo = document.createElement("div");
     photo.classList.add("person__photo");
 
-    let photoImg = document.createElement("img");
+    const photoImg = document.createElement("img");
     photoImg.classList.add("person__photo");
     photoImg.setAttribute("src", element.picture.large);
     photo.appendChild(photoImg);
 
-    let fullName = document.createElement("div");
+    const fullName = document.createElement("div");
     fullName.classList.add("person__description");
     fullName.textContent = `${this.firstLetterToUpper(
       element.name.first
     )} ${this.firstLetterToUpper(element.name.last)}`;
 
-    let location = document.createElement("div");
+    const location = document.createElement("div");
     location.classList.add("person__description");
     location.classList.add("person__location");
     location.textContent = this.firstLetterToUpper(element.location.city);
 
-    let number = document.createElement("div");
+    const number = document.createElement("div");
     number.classList.add("person__number");
     number.classList.add("person__description");
     number.textContent = `Моб: ${element.cell}`;
 
-    let age = document.createElement("div");
+    const age = document.createElement("div");
     age.classList.add("person__description");
     age.classList.add("person__age");
     age.textContent = `Возраст: ${element.dob.age}`;
@@ -87,7 +87,7 @@ class FriendApp {
     return person;
   }
 
-  addCardTopersons(card) {
+  addCardToPersons(card) {
     this.persons.appendChild(card);
   }
 
@@ -111,31 +111,33 @@ class FriendApp {
         break;
       case "male":
         this.filterByGender("male");
-
         break;
       case "female":
         this.filterByGender("female");
+        break;
+      case "all":
+        this.filterByGender("all");
     }
   }
   filterByAge(asc = true) {
     this.hidePersons();
-    let friendsTemp;
+    this.friends = this.initialFriends;
     if (this.filterInput.value) {
-      friendsTemp = this.getPersonsByInput();
+      this.getPersonsByInput();
     }
-    friendsTemp = asc
+    const friendsTemp = asc
       ? this.friends.sort((a, b) => a.dob.age - b.dob.age)
       : this.friends.sort((a, b) => b.dob.age - a.dob.age);
     this.showPersons(friendsTemp);
   }
 
   filterByName(asc = true) {
-    let friendsTemp;
+    this.hidePersons();
+    this.friends = this.initialFriends;
     if (this.filterInput.value) {
-      friendsTemp = this.getPersonsByInput();
+      this.getPersonsByInput();
     }
-
-    friendsTemp = asc
+    const friendsTemp = !asc
       ? this.friends.sort((a, b) => {
           if (a.name.first < b.name.first) {
             return 1;
@@ -154,41 +156,33 @@ class FriendApp {
           }
           return 0;
         });
-    this.hidePersons();
     this.showPersons(friendsTemp);
   }
 
   filterByGender(gender) {
+    this.friends = this.initialFriends;
+    if (this.filterInput.value) {
+      this.getPersonsByInput();
+    }
     if (gender === "male") {
-      if (this.filterInput.value) {
-        this.friends = this.getPersonsByInput("male");
-      } else {
-        this.friends = this.initialFriends;
-      }
       this.friends = this.friends.filter(person => person.gender === "male");
     } else if (gender === "female") {
-      if (this.filterInput.value) {
-        this.friends = this.getPersonsByInput();
-      } else {
-        this.friends = this.initialFriends;
-      }
-      if (this.filterInput.value) {
-        this.friends = this.getPersonsByInput("female");
-      }
       this.friends = this.friends.filter(person => person.gender === "female");
-    } else {
-      console.log("Polygender is not supported!");
     }
     this.hidePersons();
     this.showPersons(this.friends);
   }
 
-  getPersonsByInput(gender) {
-    let result = this.friends.filter(
+  getPersonsByInput() {
+    const result = this.friends.filter(
       function(person) {
         return (
-          person.name.first.includes(this.filterInput.value) == true ||
-          person.name.last.indexOf(this.filterInput.value) == true
+          person.name.first
+            .toLowerCase()
+            .includes(this.filterInput.value.toLowerCase()) ||
+          person.name.last
+            .toLowerCase()
+            .includes(this.filterInput.value.toLowerCase())
         );
       }.bind(this)
     );
@@ -196,15 +190,12 @@ class FriendApp {
   }
 
   filterPersonsByInput() {
-    if (!this.filterInput.value) {
-      this.friends = this.initialFriends;
-      this.hidePersons();
-      this.showPersons(this.friends);
-    } else {
-      this.hidePersons();
+    this.hidePersons();
+    this.friends = this.initialFriends;
+    if (this.filterInput.value) {
       this.friends = this.getPersonsByInput();
-      this.showPersons(this.friends);
     }
+    this.showPersons(this.friends);
   }
 
   addEventsListeners() {
