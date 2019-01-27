@@ -52,7 +52,7 @@ const addFilteringAndSearchingListeners = function (userList) {
 
     const inputSearch = document.getElementById("search");
     inputSearch.addEventListener("input", event => {
-        filterState.bySearch = event.target.value;
+        filterState.bySearch = event.target.value.trim();
         createListOfUsers(filterUsers(userList, filterState));
     });
 
@@ -119,5 +119,5 @@ const resetInput = function () {
     document.getElementById("search").value = "";
 };
 
-getUsers();
+getUsers;
 
