@@ -1,7 +1,10 @@
+const GENDER_ALL = "all", GENDER_MALE = "male", GENDER_FEMALE = "female";
+const SORT_TYPE = {NAMEUP: 'nameUp', NAMEDOWN: 'nameDown', AGEUP: 'ageUp', AGEDOWN: 'ageDown'};
+
 class FriendApp {
   constructor() {
     this.persons = document.querySelector(".persons");
-    this.filterInput = document.querySelector("#search");
+    this.searchInput = document.querySelector("#search");
     this.sortGender = document.querySelector("#sort-gender");
     this.sortAge = document.querySelector("#sort-age");
     this.sortName = document.querySelector("#sort-name");
@@ -11,8 +14,10 @@ class FriendApp {
     this.init();
     this.reset = this.reset.bind(this);
     this.sort = this.sort.bind(this);
-    this.filterPersonsByInput = this.filterPersonsByInput.bind(this);
+    this.filterPersonsByText = this.filterPersonsByText.bind(this);
     this.addEventsListeners();
+    this.selectedSort = "";
+    this.selectedGender = GENDER_ALL;
   }
 
   init() {
@@ -45,10 +50,12 @@ class FriendApp {
   }
 
   reset() {
-    this.filterInput.value = "";
+    this.searchInput.value = "";
     this.hidePersons();
     this.friends = this.initialFriends;
     this.showPersons(this.friends);
+    this.selectedSort = "";
+    this.selectedGender = GENDER_ALL;
   }
 
   createPersonCard(element) {
@@ -97,47 +104,51 @@ class FriendApp {
 
   sort(e) {
     switch (e.target.value) {
-      case "ageUp":
-        this.filterByAge();
+      case SORT_TYPE.AGEUP:
+		this.selectedSort = e.target.value;
+        this.sortByAge();
         break;
-      case "ageDown":
-        this.filterByAge(false);
+      case SORT_TYPE.AGEDOWN:
+		this.selectedSort = e.target.value;
+        this.sortByAge(false);
         break;
-      case "nameDown":
-        this.filterByName(false);
+      case SORT_TYPE.NAMEDOWN:
+		this.selectedSort = e.target.value;
+        this.sortByName(false);
         break;
-      case "nameUp":
-        this.filterByName();
+      case SORT_TYPE.NAMEUP:
+		this.selectedSort = e.target.value;
+        this.sortByName();
         break;
-      case "male":
-        this.filterByGender("male");
-        break;
-      case "female":
-        this.filterByGender("female");
-        break;
-      case "all":
-        this.filterByGender("all");
-    }
+      case GENDER_MALE:
+	  case GENDER_FEMALE:
+	  case GENDER_ALL:
+		this.selectedGender = e.target.value;
+        this.filterByGender();
+       }
   }
-  filterByAge(asc = true) {
+  sortByAge(asc = true) {
     this.hidePersons();
     this.friends = this.initialFriends;
-    if (this.filterInput.value) {
-      this.getPersonsByInput();
+    if (this.searchInput.value) {
+      this.friends = this.getPersonsByText();
     }
-    const friendsTemp = asc
-      ? this.friends.sort((a, b) => a.dob.age - b.dob.age)
-      : this.friends.sort((a, b) => b.dob.age - a.dob.age);
-    this.showPersons(friendsTemp);
+    this.friends = this.getPersonsByGender();
+    this.showPersons(this.getPersonsByAge(asc));
   }
 
-  filterByName(asc = true) {
+  sortByName(asc = true) {
     this.hidePersons();
     this.friends = this.initialFriends;
-    if (this.filterInput.value) {
-      this.getPersonsByInput();
+    if (this.searchInput.value) {
+      this.friends = this.getPersonsByText();
     }
-    const friendsTemp = !asc
+    this.friends = this.getPersonsByGender();
+    this.showPersons(this.getPersonsByName(asc));
+  }
+
+  getPersonsByName(asc) {
+    const result = !asc
       ? this.friends.sort((a, b) => {
           if (a.name.first < b.name.first) {
             return 1;
@@ -156,50 +167,83 @@ class FriendApp {
           }
           return 0;
         });
-    this.showPersons(friendsTemp);
+    return result;
   }
 
-  filterByGender(gender) {
+  getPersonsByAge(asc) {
+    const result = asc
+      ? this.friends.sort((a, b) => a.dob.age - b.dob.age)
+      : this.friends.sort((a, b) => b.dob.age - a.dob.age);
+    return result;
+  }
+
+  filterByGender() {
     this.friends = this.initialFriends;
-    if (this.filterInput.value) {
-      this.getPersonsByInput();
+    if (this.searchInput.value) {
+      this.friends = this.getPersonsByText();
     }
-    if (gender === "male") {
-      this.friends = this.friends.filter(person => person.gender === "male");
-    } else if (gender === "female") {
-      this.friends = this.friends.filter(person => person.gender === "female");
-    }
+    this.friends = this.getPersonsByGender();
+    this.sortPersons();
     this.hidePersons();
     this.showPersons(this.friends);
   }
 
-  getPersonsByInput() {
+  sortPersons() {
+    switch (this.selectedSort) {
+      case SORT_TYPE.AGEUP:
+        this.friends = this.getPersonsByAge();
+        break;
+      case SORT_TYPE.AGEDOWN:
+        this.friends = this.getPersonsByAge(false);
+        break;
+      case SORT_TYPE.NAMEDOWN:
+        this.friends = this.getPersonsByName(false);
+        break;
+      case SORT_TYPE.NAMEUP:
+        this.friends = this.getPersonsByName();
+    }
+  }
+
+  getPersonsByGender() {
     const result = this.friends.filter(
       function(person) {
         return (
-          person.name.first
-            .toLowerCase()
-            .includes(this.filterInput.value.toLowerCase()) ||
-          person.name.last
-            .toLowerCase()
-            .includes(this.filterInput.value.toLowerCase())
+          this.selectedGender === GENDER_ALL || person.gender === this.selectedGender 
         );
       }.bind(this)
     );
     return result;
   }
 
-  filterPersonsByInput() {
+  getPersonsByText() {
+    const result = this.friends.filter(
+      function(person) {
+        return (
+          person.name.first
+            .toLowerCase()
+            .includes(this.searchInput.value.toLowerCase()) ||
+          person.name.last
+            .toLowerCase()
+            .includes(this.searchInput.value.toLowerCase())
+        );
+      }.bind(this)
+    );
+    return result;
+  }
+
+  filterPersonsByText() {
     this.hidePersons();
     this.friends = this.initialFriends;
-    if (this.filterInput.value) {
-      this.friends = this.getPersonsByInput();
+    if (this.searchInput.value) {
+      this.friends = this.getPersonsByText();
     }
+    this.friends = this.getPersonsByGender();
+    this.sortPersons();
     this.showPersons(this.friends);
   }
 
   addEventsListeners() {
-    this.filterInput.addEventListener("keyup", this.filterPersonsByInput);
+    this.searchInput.addEventListener("keyup", this.filterPersonsByText);
     this.sortGender.addEventListener("change", this.sort);
     this.sortAge.addEventListener("change", this.sort);
     this.sortName.addEventListener("change", this.sort);
