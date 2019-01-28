@@ -1,0 +1,69 @@
+/* General layout styles */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-size: 15px;
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+  line-height: 1.5;
+}
+
+.app {
+	display: flex;
+	justify-content: center;
+	margin: 40px;
+}
+
+h1 {
+	text-align: center;
+}
+
+/* Cards styles */
+.cards-holder {
+	display: grid;
+  grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(4, 150px);
+	grid-column-gap: 4px;
+	grid-row-gap: 4px;
+	width: 600px;
+}
+
+.card {
+	display: flex;
+	border: 1px solid #00b2b2;
+	border-radius: 5px;
+	background-color: #fff;
+	transform-style: preserve-3d;
+	transform: rotateY(0deg);
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.card::after {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	border-radius: 4px;
+	backface-visibility: hidden;
+}
+
+.card--active {
+	transform: rotateY(180deg);
+}
+
+.card__img {
+	width: 100%;
+	height: auto;
+	margin: auto;
+	border-radius: 4px;
+}
+
+.hidden {
+	visibility: hidden;
+}

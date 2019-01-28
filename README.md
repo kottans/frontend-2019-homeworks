@@ -1,4 +1,4 @@
-[![MIT Licensed][icon-mit]][license]
+![MIT Licensed][icon-mit]][license]
 [![Kottans-Frontend][icon-kottans]][kottans-frontend]
 #  Frontend 2019 course homeworks
 This repo was created for students to submit their homeworks for review. 

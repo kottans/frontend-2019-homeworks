@@ -1,0 +1,267 @@
+/* fonts init */
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('fonts/Rubik/Rubik-Regular.woff2') format('woff2'), url('fonts/Rubik/Rubik-Regular.woff') format('woff'), url('fonts/Rubik/Rubik-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('fonts/Rubik/Rubik-Light.woff2') format('woff2'), url('fonts/Rubik/Rubik-Light.woff') format('woff'), url('fonts/Rubik/Rubik-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* my color palette variables */
+
+:root {
+    --text-color: #1B1464;
+    --border-color: #833471;
+    --custom-red: #EA2027;
+    --custom-green: #009432;
+    --radius: 4px;
+}
+
+/* basic reset */
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    font-family: 'Rubik';
+    font-weight: normal;
+    font-style: normal;
+    color: var(--text-color);
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, figure {
+    margin: 0;
+}
+
+section {
+    font-size: 1rem;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+a:active,
+a:focus,
+a:visited {
+    color: var(--text-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    line-height: 1.5;
+}
+
+/* modal window */
+
+.win-modal {
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    width: 100%;
+    padding-top: 2em;
+}
+
+.win-modal.active {
+    display: block;
+}
+
+.button {
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+    border: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    transition: opacity .4s ease-in-out;
+    background-color: var(--custom-green);
+}
+
+.button-start {
+    margin-bottom: 2em;
+}
+
+.button:hover{
+    opacity: .8;
+}
+
+.win-modal__header {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.75em;
+}
+
+.win-modal__figure {
+    margin-bottom: 1em;
+}
+
+.win-modal__figure img{
+    border-radius: var(--radius);
+}
+
+/* cards wrap */
+
+main {
+    position: relative;
+    height: 100vh;
+}
+
+.cards-section {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 1em 0;
+    display: none;
+}
+
+.cards-section.active {
+    display: block;
+}
+
+.cards-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1em;
+    perspective: 1000px;
+}
+.card-item {
+    flex: 1 1 calc(25% - 1em);
+    height: calc((94vh - 6em) / 3);
+    margin-left: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 1em;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform .4s ease-in-out;
+    transform: rotateY(180deg);
+    position: relative;
+}
+
+.card-item:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: inline-block;
+    background-color: #fff;
+    z-index: 1;
+    background: url("images/i.png") center no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    transform: rotateY(-180deg);
+    transition: all .2s ease-in-out;
+    backface-visibility: hidden;
+}
+
+.card-item.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.card-item.flipped {
+    transform: rotateY(0deg);
+}
+
+.card-item:active:after,
+.card-item.flipped:after
+{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.card-item__thumb {
+    max-width: 8em;
+    margin: 0 auto;
+    visibility: hidden;
+}
+
+.card-item.flipped .card-item__thumb {
+    visibility: visible;
+}
+
+/* stopwatch */
+
+.stopwatch {
+    font-size: 0.875em;
+    margin-bottom: 1rem;
+}
+
+/* start section */
+
+.start-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(163, 203, 56,0.7);
+    bottom: 0;
+}
+
+.start-section.hidden {
+    display: none;
+}
+
+.start-section__title {
+    max-width: 80%;
+    text-align: center;
+    margin: 2em auto;
+}
+
+.start-section__banner {
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.start-section__banner img {
+    border-radius: 4px;
+    box-shadow: 4px 4px 6px rgba(87, 88, 187,.6);
+}

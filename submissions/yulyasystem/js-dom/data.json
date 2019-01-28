@@ -1,0 +1,19 @@
+  [
+    {   
+        "id": 0,
+        "heading": "a bit of grammar",
+        "text": "<h3>Actual(ly)<\/h3>\r\n        <p>Actual means <i>real<\/i>, but actually means <i>realy, in fact<\/i>. Actually often introduces suprising or unexpected info <\/p>\r\n        <div class=\\\"example\\\"> Did you enjoy Kottans course? Very much, actually.<\/div>\r\n        <h3>In Time\/ On Time<\/h3>\r\n        <p >In time means somthing happened at the last moment before it was too late. <\/p>\r\n        <div class=\\\"example\\\">I got stuck in task and passed it just in time.<\/div>\r\n        <p>On time means punctually, according to schedule<\/p>\r\n        <div class=\\\"example\\\">The course will finish in month. Please, make all tasks on time.<\/div>\r\n        <h3>Try+ infintive or try+ ing<\/h3>\r\n        <p>Try + infinitive means that something is difficult and you make an attempt to do it.<\/p>\r\n        <div class=\\\"example\\\">I`m trying to learn programming but it is very difficult.<\/div>\r\n        <p>Try+ ing means make an experiment. It might work, it might not :) <\/p>"
+
+
+},
+    {
+        "id":1,
+        "heading": "rules from mr.robot",
+        "text":"  <p>Deliberate Learning, or “Productivity Hacking” as it’s also been dubbed means dedicating at least 5 hours of your week to retaining new information.</p><p>This is usually accomplished in three ways: Reading, Reflecting and Experimenting.</p> <h4>READ</h4><p>Whether it’s reading people’s faces, emotions or between the lines, you have a lot to gain by dedicating at least five hours in your week to reading.He does it as a way to relate to people better — to understand why people behave the way that they do.</p> <h4>REFLECT</h4><p>In Mr. Robot’s sophomore season premiere, Elliot journals every thought that he is having, as he is having it. This moment allows the viewer some incredible insight into how his mind works.</p> <strong>In many instances, self reflection gives you essential information about yourself that you simply would not have access to unless you sat down in silence.</strong> <h4>EXPERIMENT</h4> <p>Elliot informs us that he has a “perfectly constructed loop” in which he has an almost mind numbing — and I guess that’s the purpose, routine where he does what he perceives “normal” people do daily. With a twist!</p> <p>Anyway, the takeaway from this is disrupt your routine!</p><p>Get lost! I mean that literally. Experiment with new ideas, new concepts and never stay the same.</p>"},
+    {
+        
+            "id":2,
+            "heading": "who are you?",
+            "text":"<h4>NERD</h4> <p>You enjoy learning and do not adhere social norms. Your IQ exceeds your weight :)</p> <h4>GRANGER</h4><p>If you just reek of awesomenes you are exactly hella granger!</p> <h4>BOOK SMART</h4><p>You are intelligent and very well educated academically.</p><h4>BRAINIAC</h4><p>If  you were a superhero, your brain would definitely be your secret weapon.</p>"
+    }
+]

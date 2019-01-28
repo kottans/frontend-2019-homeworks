@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Effective JavaScript: Frogger</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<p class="scoreboard">
+		<span class="score wins">Wins: <span id="wins">0</span></span>
+		<span class="score losses">Losses: <span id="losses">0</span></span>
+	</p>
+	<button class="btn-options" id="btn-change-skin">⋯</button>
+
+	<div class="backdrop hidden" id="skin-box">
+		<div class="skin-box-inner">
+			<p class="skin-text">Select your character!</p>
+			<label>
+				<input type="radio" name="skin" class="skin-radio" checked>
+				<img src="images/char-boy.png" alt="boy" class="skin-img">
+			</label>
+			<label>
+				<input type="radio" name="skin" class="skin-radio">
+				<img src="images/char-cat-girl.png" alt="cat girl" class="skin-img">
+			</label>
+			<label>
+				<input type="radio" name="skin" class="skin-radio">
+				<img src="images/char-horn-girl.png" alt="horn girl" class="skin-img">
+			</label>
+			<label>
+				<input type="radio" name="skin" class="skin-radio">
+				<img src="images/char-pink-girl.png" alt="pink girl" class="skin-img">
+			</label>
+			<label>
+				<input type="radio" name="skin" class="skin-radio">
+				<img src="images/char-princess-girl.png" alt="princess girl" class="skin-img">
+			</label>
+		</div>
+	</div>
+
+	<script src="js/resources.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/engine.js"></script>
+</body>
+</html>
