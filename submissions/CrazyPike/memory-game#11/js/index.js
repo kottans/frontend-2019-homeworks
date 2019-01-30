@@ -3,34 +3,19 @@ const SHOW_SECOND_CARD_TIMEOUT = 300;
 const CLASS_STYLE_DISPLAYED = 'displayed';
 const CLASS_STYLE_CARD = 'card';
 const CLASS_STYLE_NOBORDER = 'noborder';
-const MEMORY_BOARD_SIZE = 16;
+const MEMORY_BOARD_SIZE = 20;
 
-let  firstCard = {
+let firstCard = {
+
     id : 'none',
     card: 'none'
 }
 
-let images = [
-    'veg1',
-    'veg2',
-    'veg3',
-    'veg4',
-    'veg5',
-    'veg6',
-    'veg7',
-    'veg8'
-]
+let images = ['veg1', 'veg2', 'veg3', 'veg4', 'veg5', 'veg6', 'veg7', 'veg8']
 
-let arrayItem = 0;
-let imagesQty = images.length;
-for (let i = 0; i < MEMORY_BOARD_SIZE; i+=2 ){
-    cardItemsArray.push(arrayItem);
-    cardItemsArray.push(arrayItem);
-    arrayItem = (arrayItem === imagesQty - 1) ? 0 : ++arrayItem;
-}
 
+fillArray(cardItemsArray)
 shuffle(cardItemsArray);
-
 const container = document.getElementById('container');
 container.innerHTML = cardItemsArray.map((item, index) => `<div class="${CLASS_STYLE_CARD}" id="card${index}" card="${item} "><img src="./img/${images[item]}.png"></div>`).join(' ');
 container.addEventListener('click', ({target}) =>{
@@ -42,18 +27,30 @@ container.addEventListener('click', ({target}) =>{
         firstCard.card = targetCard;
     }
     else if (firstCard.card === targetCard) {
+
         document.getElementById(firstCard.id).classList.toggle(CLASS_STYLE_NOBORDER);
         target.classList.toggle(CLASS_STYLE_NOBORDER);
         firstCard.id = 'none';
 
     }   else {
         let timerid = setTimeout(function() {
+
             target.classList.toggle(CLASS_STYLE_DISPLAYED);}, SHOW_SECOND_CARD_TIMEOUT);
         document.getElementById(firstCard.id).classList.toggle(CLASS_STYLE_DISPLAYED);
         firstCard.id = 'none';
     }
 } )
 
+
+
+function fillArray(array){
+    let arrayItem = 0;
+    for (let i = 0; i < MEMORY_BOARD_SIZE; i+=2 ){
+        array.push(arrayItem);
+        array.push(arrayItem);
+        arrayItem = (arrayItem === images.length-1) ? 0 : ++arrayItem;
+    }
+}
 
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -62,3 +59,4 @@ function shuffle(array) {
     }
     return array;
 }
+
