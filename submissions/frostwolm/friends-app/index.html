@@ -13,26 +13,34 @@
 </header>
 <main class="main-container">
   <div class="controls">
-    <div class="agesort">
-      <span>By Age:</span>
-      <button class="sortbtn btn" id="agesortAZ">A-Z</button>
-      <button class="sortbtn btn" id="agesortZA">Z-A</button>
+    <div class="controls__group sort">
+      <span class="controls__text">By Age:</span>
+      <button class="controls__button sort__button sort__button--increase" id="age-sort-increase"></button>
+      <button class="controls__button sort__button sort__button--reduce" id="age-sort-degrease"></button>
     </div>
-    <div class="namesort">
-      <span>By Name:</span>
-      <button class="sortbtn btn" id="namesortAZ">A-Z</button>
-      <button class="sortbtn btn" id="namesortZA">Z-A</button>
+    <div class="controls__group sort">
+      <span class="controls__text">By Name:</span>
+      <button class="controls__button sort__button sort__button--increase" id="name-sort-increase"></button>
+      <button class="controls__button sort__button sort__button--reduce" id="name-sort-decrease"></button>
     </div>
-    <div class="filter">
-      <input class="finput" type="number" id="ageinput"><button class="filterbtn btn" id="agefilter">Filter by age</button>
-      <input class="finput" stype="text" id="nameinput"><button class="filterbtn btn" id="namefilter">Filter by name</button>
+    <div class="controls__group filter">
+      <input class="controls__input" type="number" id="age-input">
+      <button class="controls__button controls__button--stretch" id="age-filter">Filter by age</button>
+      <input class="controls__input" stype="text" id="name-input">
+      <button class="controls__button controls__button--stretch" id="name-filter">Filter by name</button>
     </div>
     <div class="reset">
-      <button class="btn" id="resetbtn">Reset</button>
+      <button class="controls__button controls__button--stretch" id="reset-button">Reset</button>
     </div>
   </div>
-  <div class="users">
-
+  <div class="users" id="users">
+  </div>
+  <div class="modal visually-hidden" id="modal-error">
+    <div>
+        <p class="modal__text">
+            Something go wrong!
+        </p>
+    </div>
   </div>
 </main>
 <script src="js/app.js" charset="utf-8"></script>

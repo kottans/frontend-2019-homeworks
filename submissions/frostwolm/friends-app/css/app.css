@@ -1,28 +1,34 @@
+html{
+  font-size: 1em;
+}
+
 .apptitle{
   text-align: center;
 }
 .main-container{
   display: flex;
-  width: 1200px;
+  min-width: 1200px;
   margin: 0 auto;
   justify-content: space-between;
 }
 
 .users{
-  min-width: 900px;
+  min-width: 1000px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  padding: 20px;
+  align-items: flex-start;
 }
 
 .controls{
   min-width: 200px;
   display: flex;
+  font-size: 1.5rem;
   flex-direction: column;
   margin-left: 10px;
 }
 
-.finput{
+.controls__input{
   display: block;
   margin: 0 auto;
 }
@@ -31,18 +37,46 @@
   margin: 10px;
 }
 
-.controls span{
+.sort{
+  display: flex;
+  font-size: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0 20%;
+}
+
+.controls__text{
   display: block;
   text-align: center;
   font-weight: bold;
+  min-width: 100%;
 }
 
-.btn{
-  background-color: #79DFF6;
-  border-radius: 2px;
-  border: 1px solid;
-  width: 100%;
+.controls__button{
+  font-size: inherit;
+  border: none;
   margin: 5px 0;
+  background-color: #79DFF6;
+}
+
+.sort__button{
+  width: 3rem;
+  height: 3rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.sort__button--increase{
+  background-image: url('../img/sort-down.svg');
+
+}
+.sort__button--reduce{
+  background-image: url('../img/sort-up.svg');
+}
+
+.controls__button--stretch{
+  width: 100%;
 }
 
 .card{
@@ -52,17 +86,45 @@
   flex-direction: column;
   align-items: center;
   background-color: #79F6D3;
+  margin-right: 20px;
   margin-bottom: 20px;
 }
 
-.card img{
+.card__image{
   border-radius: 50%;
 }
 
-.nametext{
+.card__name-text{
   text-transform: capitalize;
 }
 
-.phonetext{
+.card__phone-text{
   font-weight: bold;
+}
+
+.visually-hidden{
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.modal{
+  position: fixed;
+  right: 0;
+  top: 0;
+  width:100%;
+  height:100%;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  opacity: 0.5;
+  z-index:99999999;   
+}
+
+.modal__text{
+  font-size: 2rem;
+  color: red;
 }
