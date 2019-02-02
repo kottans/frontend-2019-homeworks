@@ -38,8 +38,7 @@ body {
 
 .search {
 	font-size: 100%;
-	width: 13rem;
-	background:antiquewhite;
+	border-width:0;
 }
 
 .flex-container {
@@ -56,22 +55,14 @@ body {
     padding: 1.5rem 0;
   }
 
-
 .reset {
     outline: 0;
-    background: #e0e1e2;
+    background: white;
     color: rgba(0,0,0,.6);
     padding: .78em 1.5em;
     border: none;
-    border-radius: .28rem;
-    transition: background-color .3s linear;
-	font-size: 100%;
+  	font-size: 100%;
 	font-weight: bold;
-}
-
-.sort-name-field, .sort-age-field, .sort-gender-field {
-	background:antiquewhite;
-	font-weight:bold;
 }
 
 .form select {
@@ -79,13 +70,11 @@ body {
 }
 
 .form .search {
-    margin-right: 25px;
+    margin-right: 10px;
 }
 
-.disabled{
-    pointer-events: none;
-    color: #f2f4fa;
-    cursor: none;
+.age-group {
+    white-space: nowrap;
 }
 
 /*persons */

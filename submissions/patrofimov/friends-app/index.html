@@ -11,24 +11,31 @@
          <a href="index.html" class="logo">Friends app</a>
          <form class="form" name="form-sort" >
             <input id="search" class="search" type="text" name="search"  placeholder="Search">
-            <label>Filter:</label>
-            <select id="sort-gender" size="3">
-               <option disabled selected class = "sort-gender-field">by gender</option>
-               <option value="all">all</option>
-               <option value="male">male</option>
-               <option value="female">female</option>
-            </select>
-            <label>Sort:</label>
-            <select id="sort-name" size="3">
-               <option disabled selected class = "sort-name-field">by name</option>
-               <option value="nameUp">A-Z</option>
-               <option value="nameDown">Z-A</option>
-            </select>
-            <select id="sort-age" size="3">
-               <option disabled selected class = "sort-age-field">by age</option>
-               <option value="ageUp">1-9</option>
-               <option value="ageDown">9-1</option>
-            </select>
+            <fieldset>
+               <legend>Gender:</legend>
+               <select id="filter-gender">
+                  <option value="all">all</option>
+                  <option value="male">male</option>
+                  <option value="female">female</option>
+               </select>
+            </fieldset>
+            <fieldset>
+               <legend>Age:</legend>
+               <div class="age-group">
+                  <input type="number" placeholder="from" step="10" min="0" max="100" value = "0" id="agefrom" size="2">
+                  <span> - </span>
+                  <input type="number" placeholder="to" step="10" min="0" max="100" value = "100" id="ageto" size="2">
+               </div>
+            </fieldset>
+            <fieldset>
+               <legend>Sort:</legend>
+               <select id="sort-type">
+                  <option value="nameUp">name (A-Z)</option>
+                  <option value="nameDown">name (Z-A)</option>
+                  <option value="ageUp">age (1-9)</option>
+                  <option value="ageDown">age (9-1)</option>
+               </select>
+            </fieldset>
             <button class="reset">Reset</button>
          </form>
       </header>
