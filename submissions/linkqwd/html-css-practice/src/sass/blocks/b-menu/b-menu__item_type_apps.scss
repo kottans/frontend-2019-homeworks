@@ -1,0 +1,21 @@
+.b-menu__item_type_apps {
+    background: url(../img/v1_051523630.png) -5px 1033px;
+    min-height: 20px;
+    min-width: 20px;
+
+    &:after {
+        min-height: 20px;
+        min-width: 20px;
+        display: block;
+        content: '';
+        margin-top: -20px;
+        background: #fbfbfb;
+        opacity: 0.4;
+        transition: opacity 225ms ease-in-out;
+        pointer-events: none;
+    }
+
+    &:hover:after {
+        opacity: 0;
+    }
+}

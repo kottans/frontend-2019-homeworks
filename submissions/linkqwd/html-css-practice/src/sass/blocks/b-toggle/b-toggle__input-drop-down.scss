@@ -1,0 +1,16 @@
+.b-toggle__input-drop-down {
+    opacity: 0;
+    position: absolute;
+    top: -10000px;
+
+    &:checked ~ .b-toggle__content-wrapper, &:checked ~ .b-menu__item-decoration-triangle {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    // alternative solution for focusing
+    //
+    // &:focus ~ .b-toggle__label {
+    //     opacity: 1;
+    // }
+}

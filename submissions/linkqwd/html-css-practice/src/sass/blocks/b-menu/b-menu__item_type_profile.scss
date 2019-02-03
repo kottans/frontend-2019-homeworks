@@ -1,0 +1,27 @@
+.b-menu__item_type_profile {
+    height: 32px;
+    width: 32px;
+    background: $accent;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+
+    &:after {
+        content: 'A';
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        pointer-events: none;
+    }
+
+    & .b-toggle__label {
+       height: 32px; 
+       width: 32px;
+    }
+
+    & .b-menu__item-decoration-triangle:after, .b-menu__item-decoration-triangle:before {
+        right: 8px;
+    }
+}

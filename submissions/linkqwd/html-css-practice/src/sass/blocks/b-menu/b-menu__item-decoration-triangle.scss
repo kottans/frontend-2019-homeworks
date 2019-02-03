@@ -1,0 +1,23 @@
+.b-menu__item-decoration-triangle {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 100ms ease-in-out;
+
+    &:after,
+    &:before {
+        content: '';
+        position: absolute;
+        top: calc(100% + 5px);
+        border-style: solid;
+    }
+
+    &:after {
+        border-color: transparent transparent #fff transparent;
+        border-width: 8px;
+    }
+
+    &:before {
+        border-color: transparent transparent #444 transparent;
+        border-width: 8px;
+    }
+}
