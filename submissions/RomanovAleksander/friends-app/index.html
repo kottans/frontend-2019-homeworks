@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Friends App</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="header">Find your friends</header>
+<div class="content-wrapper">
+    <section class="filter">
+        <div>
+            <label>
+                <input id="name-search" placeholder="Search...">
+            </label>
+        </div>
+        <div id="gender">
+            <p class="filter-name">Gender</p>
+            <label><input class="radio-box" type="radio" name="gender" value="all" checked>All</label>
+            <label><input class="radio-box" type="radio" name="gender" value="male">Male</label>
+            <label><input class="radio-box" type="radio" name="gender" value="female">Female</label>
+        </div>
+        <div>
+            <p class="filter-name">Sort by name</p>
+            <label><input class="radio-box" type="radio" name="order" value="nameAsc">A-Z</label><br>
+            <label><input class="radio-box" type="radio" name="order" value="nameDesc">Z-A</label>
+        </div>
+        <div>
+            <p class="filter-name">Sort by age</p>
+            <label><input class="radio-box" type="radio" name="order" value="ageAsc">&uarr;</label><br>
+            <label><input class="radio-box" type="radio" name="order" value="ageDesc">&darr;</label>
+        </div>
+    </section>
+    <div class="content"></div>
+</div>
+</body>
+<script src="./index.js"></script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory-Pair Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <section class="start-section">
+            <h2 class="start-section__title">Hello! We are glad to see you on Premier League memory pair game! Let's play!!!</h2>
+            <button class="button button-start">Start!</button>
+            <figure class="start-section__banner">
+                <img src="images/banner.jpg" alt="premier-league-banner">
+            </figure>
+        </section>
+        <section class="cards-section">
+            <div class="stopwatch">
+                <p>Time: <time class="stopwatch__current"></time></p>
+                <p>The best time: <time class="stopwatch__best">00:00:00</time></p>
+            </div>
+            <div class="cards-wrap"></div>
+        </section>
+        <section class="win-modal">
+            <h2 class="win-modal__header">Congrats! You win! <a href="https://en.wikipedia.org/wiki/Phil_Jones_(footballer,_born_1992)" target="_blank">Phil Jones</a> is glad for you!</h2>
+            <figure class="win-modal__figure">
+                <img src="images/win.jpg" alt="win-image">
+            </figure>
+            <button class="button button-newgame">New game</button>
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>

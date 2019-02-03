@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<title>Find your Friend !</title>
+</head>
+<body>
+	<div class="container">
+		<header class="header">
+			<div class="logo">
+				<img src="img/logo.png" alt="Friends">
+			</div>
+			<h1 class="header_title">Find your Friend !</h1>
+		</header>
+		<aside class="aside">
+			<div class="filters_container">
+				<div class="search_container">
+					<input type="text" placeholder="Search..." class="search">
+				</div>
+
+				<div class="sort_sex">
+					<h3 class="filter_title">Gender:</h3>
+					<input type="radio" name="sort-by-sex" id="man" value="man" class="radio"></input>
+					<label for="man" class="label">
+						<i class="fas fa-male"></i>
+					</label>
+		          	<input type="radio" name="sort-by-sex" id="woman" value="woman" class="radio"></input>
+		          	<label for="woman" class="label">
+		          		<i class="fas fa-female"></i>
+		          	</label>
+		          	<input type="radio" name="sort-by-sex" id="all" value="all" checked="checked" class="radio"></input>
+		          	<label for="all" class="label">
+		          		<i class="fas fa-users"></i>
+		          	</label>
+				</div>
+
+				<div class="sort_age">
+					<h3 class="filter_title">Age:</h3>
+					<input type="radio" name="sort" id="age-asc" value="age-asc" class="radio age-asc"></input>
+					<label for="age-asc" class="label">
+						<i class="fas fa-sort-amount-up"></i>
+					</label>
+					<input type="radio" name="sort" id="age-desc" value="age-desc" class="radio age-desc"></input>
+					<label for="age-desc" class="label">
+						<i class="fas fa-sort-amount-down"></i>
+					</label>
+				</div>
+
+				<div class="sort_name">
+					<h3 class="filter_title">Name:</h3>
+					<input type="radio" name="sort" id="name-az" value="name-az" class="radio name-az"></input>
+					<label for="name-az" class="label">
+						<i class="fas fa-sort-alpha-down"></i>
+					</label>
+					<input type="radio" name="sort" id="name-za" value="name-za" class="radio name-za"></input>
+					<label for="name-za" class="label">
+						<i class="fas fa-sort-alpha-up"></i>
+					</label>
+				</div>
+			</div>
+			<div class="reset">
+				<button id="reset" class="reset_btn">Reset</button>
+			</div>
+		</aside>
+		<div class="content"></div>
+	</div>
+	<script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+body {
+	margin: 0;
+	background: radial-gradient(circle at 50% 50%, #eee, #ccc);
+	font: 20px/1.5em sans-serif;
+	text-align: center;
+}
+.game-title {
+	font-family: Verdana;
+	font-size: 3em;
+	text-transform: uppercase;
+	text-shadow: 0 2px 4px #0008;
+}
+
+
+#board {
+	display: flex;
+	justify-content: space-between;
+	align-content: space-between;
+	flex-wrap: wrap;
+	width: 630px;
+	height: 470px;
+	margin: auto;
+}
+.tile-img {
+	width: 100%;
+	height: 100%;
+}
+.tile {
+	width: 150px;
+	height: 150px;
+	border: 2px solid #000;
+	border-radius: 5px;
+	background-color: #fff;
+	perspective: 1000px;
+}
+
+.front {
+	background: repeating-linear-gradient(to left, #fff0 10%, #ddf 10%, #ddf 15%, #fff0 15%, #fff0 35%),
+		repeating-linear-gradient(to top, #fff0 10%, #ddf 10%, #ddf 15%, #fff0 15%, #fff0 35%);
+}
+
+/*
+ * Animation for matching
+ */
+
+.matched {
+	animation: matched 1s ease-in forwards;
+}
+@keyframes matched {
+	0% {
+		background-color: #fd4;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		background-color: #fff;
+		opacity: 0;
+	}
+}
+
+/*
+ * CSS for flipping
+ */
+
+.tile.flipped .flipper {
+	transform: rotateY(180deg);
+}
+.flipper, .front, .back {
+	width: 100%;
+	height: 100%;
+}
+.flipper {
+	transition: 0.5s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+.back {
+	transform: rotateY(180deg);
+}
+
+/*
+ * Scores
+ */
+
+.scores {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	text-align: left;
+}
+.score {
+	margin: 0;
+}
+
+/*
+ * Modal
+ */
+
+.backdrop {
+	position: fixed;
+	left: 0;
+	top: 0;
+  display: flex;
+	justify-content: center;
+	align-items: center; 
+	width: 100%;
+	height: 100%;
+	background: #0008;
+}
+.modal {
+	padding: 20px 50px 50px;
+	border-radius: 10px;
+	background: #eee;
+}
+
+.btn {
+	padding: 10px 20px;
+	border: 1px outset #000;
+	border-radius: 5px;
+	background: #fff;
+	cursor: pointer;
+	transition: background .1s;
+}
+.btn:hover {
+	border-style: inset;
+	background: #eee;
+}
+.btn:focus {
+	border-style: inset;
+	background: #ddd;
+}
+
+.hidden {
+	display: none;
+}
