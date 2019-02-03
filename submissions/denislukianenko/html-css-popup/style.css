@@ -8,7 +8,7 @@ body {
   font-weight: 100;
 }
 
-header {
+.header {
   display: flex;
   justify-content: flex-end;
   width: 100%;
@@ -259,19 +259,16 @@ header {
   background-color: #ddd;
 }
 
-.less {
-  display: none;
-}
-
-#more-state-checkbox:checked
+.more-state-checkbox:checked
   + .services-palette-wrapper
   > .services-palette
   > .service-additional {
   display: flex;
 }
-#more-state-checkbox:checked ~ .more-services-button > .less {
+.more-state-checkbox:checked ~ .more-services-button > .less {
   display: block;
 }
-#more-state-checkbox:checked ~ .more-services-button > .more {
+.less,
+.more-state-checkbox:checked ~ .more-services-button > .more {
   display: none;
 }
