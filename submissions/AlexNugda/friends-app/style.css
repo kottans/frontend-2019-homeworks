@@ -1,0 +1,55 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	background: #f1eef6;
+	font-size: 18px;
+	text-align: center;
+}
+
+main{
+	display: flex;
+	flex-direction: row;
+}
+
+#show-friends{
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.filter{
+	min-width: 200px;
+}
+
+.person-card{
+	width: 230px;
+	box-sizing: border-box;
+	padding: 10px 3px;
+	margin: 3px;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+}
+
+.person-card img{
+	border-radius: 50%;
+}
+
+.friend-name{
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.email{
+	font-size: 0.8em;
+}
+
+button[type = reset] {
+    margin: 10px auto;
+	background-color: #c6c6c6;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+}

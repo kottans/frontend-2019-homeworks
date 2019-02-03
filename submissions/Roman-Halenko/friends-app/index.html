@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Friends App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <header>
+      <div id="filter_area">
+        <form>
+          <input type="search" id="search" placeholder="Search...">
+          <div class="wrapper filter_collection">
+            <button class="btn_filter" type="button" value="all">All</button>
+            <button class="btn_filter" type="button" value="male">Male</button>
+            <button class="btn_filter" type="button" value="female">Female</button>
+          </div>
+          <div class="wrapper">
+            <label class="sort-label" for="input-sort">Sort by:</label>
+            <select id="input-sort">
+              <option value="default">Default</option>
+              <option value="ASC">Age: ASC</option>
+              <option value="DESC">Age: DESC</option>
+              <option value="AZ">Name: A – Z</option>
+              <option value="ZA">Name: Z – A</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <button id="sort_btn">Sort</button>
+    </header>
+    <main>
+    </main>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

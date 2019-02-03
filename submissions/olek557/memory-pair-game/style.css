@@ -1,0 +1,66 @@
+.wrapper {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  width: 500px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.card__wrapper {
+  perspective: 500px;
+  width: calc(100% / 4 - 20px);
+  margin: 10px;
+}
+
+.card__wrapper.open .card,
+.card__wrapper.hide .card {
+  transform: rotateY(180deg);
+}
+
+.card__wrapper.hide .card {
+  opacity: 0;
+  cursor: default;
+}
+
+.card__wrapper.hide .card__front {
+  background: white;
+}
+
+
+.card__front, .card__back, .card {
+  width: 100%;
+  height: 120px;
+  border-radius: 5px;
+}
+
+.card {
+  cursor: pointer;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.3)
+}
+
+.card__front, .card__back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card__front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+  background-image: url(./morocco-blue.png);
+}
+
+.card__back {
+  font-size: 100px;
+  text-align: center;
+  line-height: 120px;
+  color: rgba(0, 0, 0, 0.3);
+  transform: rotateY(180deg);
+}

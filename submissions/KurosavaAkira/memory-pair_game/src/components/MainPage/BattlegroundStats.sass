@@ -1,0 +1,26 @@
+#battleground-stats
+    position: fixed
+    left: 50%
+    transform: translate(-50%, 0)
+    font-family: p5hatty
+    animation: battleground-stats 1s ease-in 0s 1
+    transition: opacity .3s ease-out
+    filter: grayscale(0.9)
+
+@keyframes battleground-stats
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+
+.battleground-stats-hide
+    opacity: 0 !important
+    pointer-events: none
+
+.battleground-stats-image
+    width: 915px
+    height: 130px
+    background-image: url("../../../static/images/battleground-stats.png")
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: center center   

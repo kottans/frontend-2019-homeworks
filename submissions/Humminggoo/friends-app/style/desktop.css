@@ -1,0 +1,29 @@
+.menu-wrapper{
+    width: 30%;
+    float: right;
+}
+.menu-button-container{
+    flex-direction: column;
+    width: 50%;
+    float: left;
+}
+.menu-button, .filter{
+    width: 100%;
+    margin: 5px;
+}
+.fa-angle-up, .fa-angle-down{
+    font-size: 20px;
+}
+.filter-menu{
+    width: 100%;
+}
+.filter-gender-label{
+    padding-right: 30px;
+}
+.filter-location-field{
+    width: 100%;
+}
+.card-wrapper{
+    width: 70%;
+    float: right;
+}

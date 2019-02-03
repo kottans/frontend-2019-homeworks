@@ -1,0 +1,46 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+ }
+body {
+  display: flex;
+ }
+.memory-game {
+  width: 640px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+  }
+#container {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  }
+img {
+  border: solid;
+  }
+.back-face,
+.front-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 12%;
+  backface-visibility: hidden;
+ }
+.front-face {
+  transform: rotateY(180deg);
+  }
+#container.open {
+  transform: rotateY(180deg);
+  }
+.close{
+  visibility: hidden;
+  }
