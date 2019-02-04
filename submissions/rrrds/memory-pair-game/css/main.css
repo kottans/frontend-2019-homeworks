@@ -1,0 +1,137 @@
+body {
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.playfield {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.card {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 140px;
+  height: 180px;
+  margin: 10px;
+}
+
+.flip-container {
+  perspective: 1000px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.flip-container__flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flip-container--open .flip-container__flipper {
+  transform: rotateY(180deg);
+}
+
+.flip-container.flip-container--open.flip-container--disabled {
+  opacity: 0.2;
+}
+
+.flip-container,
+.flip-container__front,
+.flip-container__back {
+  font-family: 'Monoton', cursive;
+  font-size: 4rem;
+}
+
+.flip-container__front,
+.flip-container__back {
+  border-radius: 5px;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.flip-container__front {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transform: rotateY(0deg);
+  border: 1px solid #b9b9b9;
+  background: radial-gradient(
+        circle at 0% 50%,
+        rgba(96, 16, 48, 0) 9px,
+        #4a4a4a 10px,
+        rgba(96, 16, 48, 0) 11px
+      )
+      0px 10px,
+    radial-gradient(at 100% 100%, rgba(96, 16, 48, 0) 9px, #4a4a4a 10px, rgba(96, 16, 48, 0) 11px),
+    #dcdcdc;
+  background-size: 20px 20px;
+}
+
+.flip-container__back {
+  transform: rotateY(180deg);
+  border: 1px solid #b9b9b9;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.03);
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+}
+
+.flip-container--disabled .flip-container__back {
+  box-shadow: none;
+}
+
+.finish-modal {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.finish-modal--hide,
+.playfield--hide {
+  display: none;
+}
+
+.finish-modal .greetings-text {
+  font-family: 'Monoton', cursive;
+  font-size: 5rem;
+  font-weight: 400;
+}
+
+.finish-modal__button {
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  color: #212529;
+  background-color: #f8f9fa;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #f8f9fa;
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  text-transform: uppercase;
+}
+
+.finish-modal__button:hover {
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
+}
+
+.finish-modal__button:active {
+  background-color: #dae0e5;
+  border-color: #d3d9df;
+}

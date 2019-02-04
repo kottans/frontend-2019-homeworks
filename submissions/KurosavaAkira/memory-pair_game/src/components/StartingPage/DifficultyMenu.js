@@ -1,8 +1,8 @@
 import './DifficultyMenu.sass';
-import MainPage from '../MainPage/MainPage';
-import BlackScreen from '../PageTransition/BlackScreenTransition';
+import mainPage from '../MainPage/MainPage';
+import blackScreen from '../PageTransition/BlackScreenTransition';
 
-const game_difficulty_menu = () => {
+const gameDifficultyMenu = () => {
     return `<div class="difficulty-menu">
                 <button class="difficulty-name difficulty-disabled" value="easy">Easy</button>
                 <button class="difficulty-name" value="normal">Normal</button>
@@ -12,40 +12,50 @@ const game_difficulty_menu = () => {
   
 const render = () => {
     const container = document.getElementById('container');
-    return container.insertAdjacentHTML('beforeend', game_difficulty_menu());
+    return container.insertAdjacentHTML('beforeend', gameDifficultyMenu());
 }
 
 const addClickEvent = () => {
-    const buttons = document.querySelectorAll('.difficulty-name');
-    buttons.forEach( button => {
-        button.addEventListener('click', () => { applyDifficulty(button.value) });
+    const difficultyMenu = document.querySelector('.difficulty-menu');
+    difficultyMenu.addEventListener('click', (e) => {
+        switch (e.target.value) {
+            case 'easy':
+                applyDifficulty(e.target.value);
+                break;
+            case 'normal':
+                applyDifficulty(e.target.value);
+                break;
+            case 'hard':
+                applyDifficulty(e.target.value);
+                break;
+        }
     });
 }
 
 const applyDifficulty = (difficulty) => {
     pageTransitionEffect();
-    const black_screen = document.getElementById('black-screen-in');
-    const full_screen_video = document.getElementById('full-screen-video');
-    full_screen_video.classList.add('full-screen-video-zoom');
-    return black_screen.addEventListener('animationend', () => { 
-           full_screen_video.classList.remove('full-screen-video-zoom');
+    const blackScreen = document.getElementById('black-screen-in');
+    const fullScreenVideo = document.getElementById('full-screen-video');
+    fullScreenVideo.classList.add('full-screen-video-zoom');
+    return blackScreen.addEventListener('animationend', () => { 
+           fullScreenVideo.classList.remove('full-screen-video-zoom');
            document.getElementById('full-screen-video').pause();
-           document.getElementsByClassName('difficulty-menu')[0].remove();
+           document.querySelector('.difficulty-menu').remove();
            document.getElementById('game-options-button').remove(); 
            document.getElementById('game-options-menu').remove();
-           MainPage();
+           mainPage();
     });
 }
 
 const pageTransitionEffect = () => {
-    const menu = document.getElementsByClassName('difficulty-menu')[0];
+    const menu = document.querySelector('.difficulty-menu');
     menu.classList.add('difficulty-menu-transition');
-    BlackScreen.toBlack();
+    blackScreen.toBlack();
 }
 
-const RenderDifficultyMenu = () => {
+const renderDifficultyMenu = () => {
     render();
     addClickEvent();
 }
 
-export default RenderDifficultyMenu;
+export default renderDifficultyMenu;

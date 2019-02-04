@@ -1,8 +1,8 @@
 import './ScoreTable.sass';
-import BlackScreen from '../PageTransition/BlackScreenTransition';
+import blackScreen from '../PageTransition/BlackScreenTransition';
 import { changeFullScreenVideo } from '../FullScreenVideo/FullScreenVideo';
-import Sundtrack from '../Sound';
-import StartingPage from '../StartingPage/StartingPage';
+import sundtrack from '../Sound';
+import startingPage from '../StartingPage/StartingPage';
 
 const scoreTable = () => {
     return `<div id="score-table">
@@ -12,22 +12,22 @@ const scoreTable = () => {
 }
 
 const addPlayAgainEvent = () => {
-    const play_again = document.getElementById('play-again');
-    play_again.addEventListener('click', () => { restartGame() });
+    const playAgain = document.getElementById('play-again');
+    playAgain.addEventListener('click', () => { restartGame() });
 }
 
 const restartGame = () => {
-    BlackScreen.toBlack();
-    const black_screen = document.getElementById('black-screen-in');
+    blackScreen.toBlack();
+    const blackScreenDom = document.getElementById('black-screen-in');
     const soundtrack = document.getElementById('soundtrack');
-    black_screen.addEventListener('animationend', () => { 
+    blackScreenDom.addEventListener('animationend', () => { 
         cleanDom();
         soundtrack.pause();
         changeFullScreenVideo('kottans-end.mp4');
-        const full_screen_video = document.getElementById('full-screen-video');
-        full_screen_video.onended = function(e) {
-            StartingPage();
-            Sundtrack.change('starting-page.mp3');
+        const fullScreenVideo = document.getElementById('full-screen-video');
+        fullScreenVideo.onended = function(e) {
+            startingPage();
+            sundtrack.change('starting-page.mp3');
         }
     });
 }
@@ -40,12 +40,12 @@ const cleanDom = () => {
 }
 
 const render = () => {
-    const score_page = document.getElementById('score-page');
-    const score_page_congratulation = document.getElementsByClassName('score-page-congratulation')[0];
-    score_page.insertAdjacentHTML('beforeend', scoreTable());
-    const score_table = document.getElementById('score-table');
-    score_page_congratulation.addEventListener('animationend', () => { 
-        score_table.classList.add('score-table-visible');
+    const scorePage = document.getElementById('score-page');
+    const scorePageCongratulation = document.querySelector('.score-page-congratulation');
+    scorePage.insertAdjacentHTML('beforeend', scoreTable());
+    const scoreTableDom = document.getElementById('score-table');
+    scorePageCongratulation.addEventListener('animationend', () => { 
+        scoreTableDom.classList.add('score-table-visible');
     });
     addPlayAgainEvent();
 }

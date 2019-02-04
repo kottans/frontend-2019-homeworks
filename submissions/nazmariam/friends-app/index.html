@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>friends</title>
+    <script src="js/script.js"></script>
+</head>
+<body>
+<main>
+    <aside class="filters">
+        <form  id="form-search">
+            <input id="name-search" type="text" name="name-search" placeholder="Search name or surname" value="">
+            <input type="submit" value="Search">
+        </form>
+        <form>
+            <fieldset id="age-sort">
+                <p>Sort by age</p>
+                <input id="sort19" type="radio" value="az" name="age-sort"><label for="sort19">1-9</label>
+                <input id="sort91" type="radio" value="za" name="age-sort"><label for="sort91">9-1</label>
+            </fieldset>
+
+            <fieldset id="name-sort">
+                <p>Sort by name</p>
+                <input id="sortaz" type="radio" value="az" name="name-sort"><label for="sortaz">AZ</label>
+                <input id="sortza" type="radio" value="za" name="name-sort"><label for="sortza">ZA</label>
+            </fieldset>
+
+            <fieldset id="gender-sort">
+                <!--<p>Sort by gender</p>-->
+                <input id="sort-all" type="radio" value="all" name="gender-sort"><label for="sort-all"><img src="https://img.icons8.com/windows/50/000000/user-female.png"><img src="https://img.icons8.com/windows/50/000000/user-male.png"></label>
+                <input id="sort-female" type="radio" value="female" name="gender-sort"><label for="sort-female"><img src="https://img.icons8.com/windows/50/000000/user-female.png"></label>
+                <input id="sort-male" type="radio" value="male" name="gender-sort"><label for="sort-male"><img src="https://img.icons8.com/windows/50/000000/user-male.png"></label>
+            </fieldset>
+        </form>
+        <button id="reset">Reset</button>
+
+    </aside>
+
+    <section class="container">
+    </section>
+    <h1>That's all folks! Nothing found...</h1>
+
+</main>
+
+</body>
+</html>

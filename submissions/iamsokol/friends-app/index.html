@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>My Friends List</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <header class="header">
+            <h1>My Friends List</h1>
+        </header>
+        <div class="menu-button" id="menuButton">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div id="filterBlock" class="filter">
+            <div id="radioGender" class="sortgender">
+                <p>Sort by sex</p>
+                <input class="radio-input" type="radio" id="male" name="gender" value="male">
+                <label class="radio-label" for="male"><i class="fa fa-male" aria-hidden="true"></i><span class="radio-title">male</span></label>
+                <input class="radio-input" type="radio" id="female" name="gender" value="female">
+                <label class="radio-label" for="female"><i class="fa fa-female" aria-hidden="true"></i><span class="radio-title">female</span></label>
+                <input class="radio-input" type="radio" id="all" name="gender" value="all">
+                <label class="radio-label" for="all"><i class="fa fa-male" aria-hidden="true"></i><i class="fa fa-female" aria-hidden="true"></i><span class="radio-title">all</span></label>
+            </div>
+            <div id="radioAge" class="sortage">
+                <div class="sortage-item">
+                    <p>Sort by name</p>
+                    <input class="radio-input" type="radio" id="filter1" name="filter" value="abc">
+                    <label class="radio-label" for="filter1"><i class="fa fa-chevron-down" aria-hidden="true"></i></label>
+                    <input class="radio-input" type="radio" id="filter2" name="filter" value="zyx">
+                    <label class="radio-label" for="filter2"><i class="fa fa-chevron-up" aria-hidden="true"></i></label>
+                </div>
+                <div class="sortage-item">
+                    <p>Sort by age</p>
+                    <input class="radio-input" type="radio" id="filter3" name="filter" value="inc">
+                    <label class="radio-label" for="filter3"><i class="fa fa-chevron-down" aria-hidden="true"></i></label>
+                    <input class="radio-input" type="radio" id="filter4" name="filter" value="dec">
+                    <label class="radio-label" for="filter4"><i class="fa fa-chevron-up" aria-hidden="true"></i></label>
+                </div>
+            </div>
+            <div id="nameFilter" class="sortname">
+                <h4>Sort by name</h4>
+                <input type="text" id="inputName" class="filtername" name="firstname" value="" placeholder="search">
+            </div>
+            <button id="elementDrop" class="drop">Reset</button>
+        </div>
+        <div class="main" id="main">
+            <div id="infoBlock" class="result"></div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,11 +1,11 @@
-import Sundtrack from '../Sound';
-import CongratulationSlide from './CongratulationSlide';
-import ScoreTable from './ScoreTable';
+import sundtrack from '../Sound';
+import congratulationSlide from './CongratulationSlide';
+import scoreTable from './ScoreTable';
 
-const ScorePage = (slide_text) => {
-    Sundtrack.change('score-page.mp3');
-    CongratulationSlide(slide_text);
-    ScoreTable();
+const scorePage = (slide_text) => {
+    sundtrack.change('score-page.mp3');
+    congratulationSlide(slide_text);
+    scoreTable();
 };
 
-export default ScorePage;
+export default scorePage;
