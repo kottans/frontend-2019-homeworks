@@ -1,0 +1,359 @@
+@import './base';
+
+.nav{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 20px 20px 0 0;
+  & li{
+    margin-left: 20px;
+  }
+  &__bell{
+    color: $font-color;
+    display: block;
+    margin-top: 2px;
+    margin-left: 6px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0.5;
+    @include transition;
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+  &__auth{
+    display: block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #00897b;
+    @include transition;
+    &::before {
+      content: url(../assets/img/photo.png);
+    }
+    &:hover {
+      opacity: .8;
+    }
+  }
+  &__link{
+    color: $font-color;
+    text-decoration: none;
+    margin: 0 5px 0 0;
+    @include transition;
+    &:hover{
+      color: $font-color;
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+  }
+  &__menu{
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 1%;
+    border: 1px solid #ccc;
+    border-color: $main-color;
+    box-shadow: 0 2px 10px $main-color;
+    background: #fff;
+    border-radius: 2px;
+    max-width: 320px;
+    width: 100%;
+    max-height: 634px;
+    height: 496px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    animation-name: google;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    &_rect{
+      content: "";
+      border-color: transparent;
+      border-bottom-color: #fff;
+      border-style: dashed dashed solid;
+      border-width: 0 8.5px 8.5px;
+      box-shadow: 0 2px 10px $main-color;
+      position: absolute;
+      left: 6.5px;
+      top: -9px;
+      z-index: 1;
+      height: 0;
+      width: 0;
+    }
+    &_lists{
+      display: flex;
+      flex-wrap: wrap;
+      margin: 20px;
+      justify-content: space-between;
+    }
+    &_listsMore{
+      display: none;
+    }
+    & li{
+      margin: 1px;
+      border-radius: 2px;
+      border: 1px solid transparent;
+      z-index: 1;
+      padding: 1px;
+      color: black;
+      height: 98px;
+      width: 81px;
+      & a{
+        text-decoration: none;
+        color: rgba(0,0,0,0.87);
+        border: 1px solid transparent;
+        display: block;
+        @include transition;
+        &:focus{
+        outline: 3px solid $focused;
+        transition: none;
+        }
+        &:active{
+          outline: 2px solid lightgreen;
+        }
+      }
+      &:hover{
+        & a{
+          border: 1px solid rgba(0,0,0,.2);
+        }
+        & .nav__menu_title {
+          z-index: 3;
+          background: rgba(255,255,255,.9);
+          white-space: normal;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+        }
+      }
+    }
+    &_icon{
+      margin: 0 auto;
+      display: block;
+      height: 64px;
+      vertical-align: top;
+      width: 64px;
+      background-image: url(../assets/img/sprite.png);
+      -webkit-background-size: 64px 2410px;
+      background-size: 64px 2410px;
+      &-user{
+        background-position-y: -70px;
+      }
+      &-search{
+        background-position-y: -1311px;
+      }
+      &-map{
+        background-position-y: -207px;
+      }
+      &-youtube{
+        background-position-y: -550px;
+      }
+      &-news{
+        background-position-y: -1034px;
+      }
+      &-gmail{
+        background-position-y: -1103px;
+      }
+      &-contacts{
+        background-position-y: -2140px;
+      }
+      &-disk{
+        background-position-y: -2002px;
+      }
+      &-calendar{
+        background-position-y: -829px;
+      }
+      &-google{
+        background-position-y: -412px;
+      }
+      &-translate{
+        background-position-y: -1657px;
+      }
+      &-photo{
+        background-position-y: -1519px;
+      }
+      &-doc{
+        background-position-y: 959px;
+      }
+      &-blogger{
+        background-position-y: 339px;
+      }
+      &-hangout{
+        background-position-y: 821px;
+      }
+      &-keep{
+        background-position-y: 1028px;
+      }
+      &-jamboard{
+        background-position-y: 1509px;
+      }
+      &-class{
+        background-position-y: 1789px;
+      }
+      &-earth{
+        background-position-y: 544px;
+      }
+      &-collection{
+        background-position-y: 684px;
+      }
+    }
+    &_title{
+      text-align: center;
+      display: block;
+      line-height: $font-size;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 4.9em;
+      text-overflow: ellipsis;
+    }
+    &_input{
+      display: none;
+      & ~ label{
+        text-align: center;
+        display: block;
+        cursor: pointer;
+        line-height: 2.5em;
+        background-color: $bg-color;
+      }
+      &:checked{
+        & ~ label{
+          height: 2px;
+          width: 80%;
+          margin: 0 auto;
+          span{
+            display: none;
+          }
+        }
+        & ~ .nav__menu_listsMore{
+          display: flex;
+          flex-wrap: wrap;
+          margin: $font-size;
+          justify-content: flex-start;
+        }
+        & ~ .nav__menu_linkMore{
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+    &_linkMore{
+      display: none;
+      font-size: 0.9em;
+      color: inherit;
+      line-height: 1.2;
+      padding-bottom: 10px;
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+        opacity: 0.8;
+      }
+    }
+    &_listMore {
+      animation-name: google;
+      animation-duration: 0.5s;
+      animation-timing-function: ease;
+      animation-delay: 0s;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-fill-mode: none;
+      animation-play-state: running;
+    }
+  }
+  &__input{
+    display: none;
+    &_icons{
+      top: -1px;
+      padding: 0;
+      margin: 0;
+      line-height: 0.7;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      cursor: pointer;
+      &:hover .nav__input_icon{
+        color: #000;
+      }
+    }
+    &_icon{
+      display: block;
+      font-size: 0.55em;
+      @include transition;
+      &:after,
+      &:before{
+        position: absolute;
+        content: "■";
+        right: calc(100% + 1px);
+      }
+      &:after{
+        left: calc(100% + 1px);
+      }
+    }
+    & ~ label {
+      color: #999999;
+    }
+    &_close{
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0,0,0, 0.1);
+      animation-name: google;
+      animation-duration: 0.5s;
+      animation-timing-function: ease;
+      animation-delay: 0s;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-fill-mode: none;
+      animation-play-state: running;
+    }
+    &:checked{
+      & ~ label{
+        color: #000;
+        & > .nav__input_close{
+          display: block;
+        }
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          right: 100px;
+          transform: translateX(-50%);
+          top: 31px;
+          border: 10px solid transparent;
+          border-bottom: 10px solid $main-color;
+          z-index: 3;
+          animation-name: google;
+          animation-duration: 0.1s;
+          animation-timing-function: ease;
+          animation-delay: 0s;
+          animation-iteration-count: 1;
+          animation-direction: normal;
+          animation-fill-mode: none;
+          animation-play-state: running;
+        }
+        &::after {
+          border-bottom: 10px solid white;
+          top: 32px;
+        }
+      }
+      & ~ .nav__menu{
+        display: block;
+      }
+    }
+  }
+}
+
+@keyframes google {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+
+
