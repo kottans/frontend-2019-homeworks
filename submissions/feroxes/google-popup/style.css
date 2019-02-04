@@ -1,0 +1,207 @@
+header {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 70px;
+    position: relative;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 290px;
+    font-size: 14px;
+    color: #000;
+    padding-right: 20px;
+    position: relative;
+}
+
+.menu a:visited {
+    color: #000;
+}
+
+.menu a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+#dots_label {
+    width: 20px;
+    height: 20px;
+    background: url("img/google_sprite.png") no-repeat;
+    background-position: -132px -42px;
+    background-size: 510px;
+    cursor: pointer;
+}
+
+#dots_label:hover {
+    background: url("img/google_sprite.png") no-repeat;
+    background-position: -132px -42px;
+    background-size: 510px;
+}
+
+.bell {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    cursor: pointer;
+    background: url("img/google_sprite.png") no-repeat;
+    background-position: -202.5px -22px;
+    background-size: 550px;
+    background-color: #737373;
+}
+
+.bell:hover {
+    background-color: #000;
+
+}
+
+.face {
+    width: 40px;
+    cursor: pointer;
+}
+
+.google_services {
+    width: 350px;
+    height: 515px;
+    border: 1px solid #dadada;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 55px;
+    right: 30px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 40px 0 0;
+    overflow: scroll;
+    cursor: pointer;
+}
+
+.google_services-icon {
+    width: 90px;
+    height: 95px;
+    margin: 10px;
+    border: 1px solid #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.google_services-icon:hover {
+    border: 1px solid #dadada;
+}
+
+.google_services-icon a:focus {
+    box-shadow: 0 0 0 3px rgb(123, 176, 255);
+}
+
+.google_services-icon div {
+    width: 55px;
+    height: 55px;
+    background-size: 75px;
+    padding: 10px;
+}
+
+.search {
+    background: url("img/google_ico_sprite.png") no-repeat;
+    background-position-y: -1535px;
+}
+
+.maps {
+    background: url("img/google_ico_sprite.png") no-repeat;
+    background-position-y: -242px;
+}
+
+.youtube {
+    background: url("img/google_ico_sprite.png") no-repeat;
+    background-position-y: -647px;
+}
+
+.news {
+    background: url("img/google_ico_sprite.png") no-repeat;
+    background-position-y: -1210px;
+}
+
+.gmail {
+    background: url("img/google_ico_sprite.png") no-repeat;
+    background-position-y: -1290px;
+}
+
+.contacts {
+    background: url("img/google_ico_sprite.png") no-repeat;
+    background-position-y: -2507px;
+}
+
+.drive {
+    background: url("img/google_ico_sprite.png") no-repeat;
+    background-position-y: -2345px;
+}
+
+.calendar {
+    background: url("img/google_ico_sprite.png") no-repeat;
+    background-position-y: -970px;
+}
+
+.googleplus {
+    background: url("img/google_ico_sprite.png") no-repeat;
+    background-position-y: -485px;
+}
+
+.translator {
+    background: url("img/google_ico_sprite.png") no-repeat;
+    background-position-y: -1940px;
+}
+
+.photo {
+    background: url("img/google_ico_sprite.png") no-repeat;
+    background-position-y: -1780px;
+}
+
+.docs {
+    background: url("img/google_ico_sprite.png") no-repeat;
+    background-position-y: -1698px;
+}
+
+.playmarket {
+    background: url("img/google_ico_sprite.png") no-repeat;
+    background-position-y: -2748px;
+}
+
+.account {
+    background: url("img/google_ico_sprite.png") no-repeat;
+    background-position-y: -81px;
+}
+
+.sheets {
+    background: url("img/google_ico_sprite.png") no-repeat;
+    background-position-y: -325px;
+}
+
+.google_services-button {
+    width: 100%;
+    height: 30px;
+    margin: 0;
+    text-align: center;
+    background-color: #f5f5f5;
+    padding-top: 15px;
+    cursor: pointer;
+}
+
+#more, #dots, .hidden {
+    display: none;
+}
+
+#dots:checked ~ .google_services {
+    display: flex;
+}
+
+#more:checked ~ #more-icons {
+    display: none;
+}
+
+#more:checked ~ .hidden {
+    display: flex;
+}
