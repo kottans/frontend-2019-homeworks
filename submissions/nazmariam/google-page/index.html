@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google search</title>
+    <link rel="stylesheet" href="dist/css/main.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul id="menu">
+                <li><a href="#">Gmail</a></li>
+                <li><a href="#">Images</a></li>
+                <li>
+                    <input id="check01" type="checkbox" name="menu" class="button-popup"/>
+                    <label for="check01">
+                        <span class="close-mask"></span>
+                        <span class="button-icon"></span>
+                    </label>
+                    <div class="wrapper">
+                        <ul class="submenu">
+                            <li><a href="#">Account</a></li>
+                            <li><a href="#"><span>Search</span></a></li>
+                            <li><a href="#"><span>Maps</span></a></li>
+                            <li><a href="#"><span>YouTube</span></a></li>
+                            <li><a href="#"><span>Play</span></a></li>
+                            <li><a href="#"><span>Gmail</span></a></li>
+                            <li><a href="#"><span>Contacts</span></a></li>
+                            <li><a href="#"><span>Drive</span></a></li>
+                            <li><a href="#"><span>Calendar</span></a></li>
+                            <li><a href="#"><span>Google+</span></a></li>
+                            <li><a href="#"><span>Translate</span></a></li>
+                            <li><a href="#"><span>Photos</span></a></li>
+                            <input type="checkbox" id="toggle-more" class="button-more">
+                            <label for="toggle-more" class="show-more">More
+                                <div class="close-mask"></div>
+                            </label>
+                            <span></span>
+                            <ul class="hidden-icons">
+                                <li ><a href="#"><span>Docs</span></a></li>
+                                <li ><a href="#"><span>Blogger</span></a></li>
+                                <li ><a href="#"><span>Hangouts</span></a></li>
+                                <li ><a href="#"><span>Collection</span></a></li>
+                                <li ><a href="#"><span>Jamboard</span></a></li>
+                                <li ><a href="#"><span>Classroom</span></a></li>
+                                <li ><a href="#"><span>Earth</span></a></li>
+                            </ul>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="search-form">
+            <form id="google-search" name="google-search">
+                <div class="search-block">
+                    <a href="https://www.google.com.ua/"> <img height="92px" src="dist/images/googlelogo.png" width="272px" id="hplogo" alt="Google" title="Google" onload="typeof google==='object'&amp;&amp;google.aft&amp;&amp;google.aft(this)"></a>
+                    <div class="search-line">
+                        <input type="text" name="search" id="search" placeholder="" class="searching-input"/>
+                        <span class="search-mic"></span>
+                    </div>
+                </div>
+                <input type="submit" class="button" value="Google Search"/>
+                <input type="button" class="button" value="I'm feeling lucky"/>
+            </form>
+        </section>
+        <section class="result"></section>
+    </main>
+<script src="dist/scripts/script.js"></script>
+</body>
+</html>

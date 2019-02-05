@@ -1,0 +1,262 @@
+@import url("reset.scss");
+@import url("search.scss");
+body {
+  font-family: arial, sans-serif;
+  font-size: 13px;
+}
+
+ul#menu {
+  position: absolute;
+  top: 8px;
+  margin: 8px;
+  color: rgba(0, 0, 0, 0.87);
+  right: 0;
+  align-items: center;
+  display: flex;
+}
+ul#menu > li {
+  float: left;
+  list-style-type: none;
+  margin: 0 10px;
+}
+ul#menu > li:nth-last-child(2) a {
+  background: #000000de url(../images/sprite.png) 23px 865px;
+  width: 20px;
+  height: 20px;
+  opacity: 0.65;
+  border-radius: 50%;
+  display: block;
+}
+ul#menu > li:nth-last-child(2) a:hover {
+  opacity: 1;
+}
+ul#menu > li:nth-last-child(1) a {
+  background: url("../images/avatar.jpg");
+  background-size: contain;
+  display: block;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+}
+ul#menu > li a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+}
+ul#menu > li a:hover {
+  text-decoration: underline;
+}
+ul#menu > li a:visited {
+  color: inherit;
+}
+
+label .button-icon {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  background: url(../images/sprite.png) 86px 1031px;
+  width: 17px;
+  height: 17px;
+  opacity: 0.65;
+}
+label .button-icon:hover {
+  opacity: 1;
+}
+label .close-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  display: none;
+}
+
+.button-popup, .button-more {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.button-popup:checked ~ .wrapper {
+  display: block;
+}
+
+.button-popup:focus ~ label .button-icon {
+  outline: 2px solid #4d90fe;
+}
+
+.button-popup:checked + label > .close-mask {
+  display: block;
+}
+
+.wrapper {
+  position: absolute;
+  background: #fff;
+  right: 8px;
+  top: 44px;
+  -webkit-animation: gb__a 0.2s;
+  animation: gb__a 0.2s;
+  -webkit-border-radius: 2px;
+  width: 320px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px #ccc;
+  border-radius: 2px;
+  display: none;
+}
+.wrapper::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  position: absolute;
+  top: -7px;
+  left: 212px;
+  background-color: white;
+  transform: rotate(-45deg);
+}
+
+ul.submenu {
+  list-style-type: none;
+  overflow: overlay;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  max-height: 455px;
+}
+ul.submenu li {
+  display: block;
+}
+ul.submenu li:nth-child(1) a {
+  width: 64px;
+}
+ul.submenu li:nth-child(1) a:before {
+  background: url("../images/avatar.jpg");
+  background-size: contain;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 5px 0 9px;
+}
+ul.submenu li:nth-child(2) a:before {
+  background: url(../images/sprite.png) 92px 936px;
+}
+ul.submenu li:nth-child(3) a:before {
+  background: url(../images/sprite.png) 71px 1594px;
+}
+ul.submenu li:nth-child(4) a:before {
+  background: url(../images/sprite.png) 66px 519px;
+}
+ul.submenu li:nth-child(5) a:before {
+  background: url(../images/sprite.png) 92px 2497px;
+}
+ul.submenu li:nth-child(6) a:before {
+  background: url(../images/sprite.png) 92px 105px;
+}
+ul.submenu li:nth-child(7) a:before {
+  background: url(../images/sprite.png) 92px 1247px;
+}
+ul.submenu li:nth-child(8) a:before {
+  background: url(../images/sprite.png) 92px 2322px;
+}
+ul.submenu li:nth-child(9) a:before {
+  background: url(../images/sprite.png) 92px 2668px;
+}
+ul.submenu li:nth-child(10) a:before {
+  background: url(../images/sprite.png) 92px 2426px;
+}
+ul.submenu li:nth-child(11) a:before {
+  background: url(../images/sprite.png) 90px 660px;
+}
+ul.submenu li:nth-child(12) a:before {
+  background: url(../images/sprite.png) 92px 1388px;
+}
+ul.submenu li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  color: #ddd;
+  text-decoration: none;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+ul.submenu li a:before {
+  width: 64px;
+  height: 64px;
+  content: "";
+}
+ul.submenu li:hover a {
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  margin: -1px;
+}
+ul.submenu .show-more {
+  width: 100%;
+  background: #f5f5f5;
+  padding: 12px 0;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.87);
+  opacity: 1;
+}
+ul.submenu .button-more:checked ~ .hidden-icons {
+  display: flex;
+}
+ul.submenu .button-more:checked ~ span {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  display: block;
+  width: 80%;
+  height: 1px;
+  margin: 12px 0;
+}
+ul.submenu .button-more:checked ~ .show-more {
+  display: none;
+}
+ul.submenu .button-more:focus ~ .show-more {
+  outline: 2px solid #4d90fe;
+  margin: 0 2px 2px;
+}
+ul.submenu .hidden-icons {
+  display: none;
+  flex-wrap: wrap;
+  padding: 0 16px;
+}
+ul.submenu .hidden-icons a {
+  padding: 12px;
+}
+ul.submenu .hidden-icons li:nth-child(1) a:before {
+  background: url(../images/sprite.png) 92px 2116px;
+  border-radius: unset;
+  width: 64px;
+  height: 64px;
+  margin: auto;
+}
+ul.submenu .hidden-icons li:nth-child(2) a:before {
+  background: url(../images/sprite.png) 76px 1664px;
+}
+ul.submenu .hidden-icons li:nth-child(3) a:before {
+  background: url(../images/sprite.png) 92px 2740px;
+}
+ul.submenu .hidden-icons li:nth-child(4) a:before {
+  background: url(../images/sprite.png) 92px 1317px;
+}
+ul.submenu .hidden-icons li:nth-child(5) a:before {
+  background: url(../images/sprite.png) 92px 1005px;
+}
+ul.submenu .hidden-icons li:nth-child(6) a:before {
+  background: url(../images/sprite.png) 92px 2185px;
+}
+ul.submenu .hidden-icons li:nth-child(7) a:before {
+  background: url(../images/sprite.png) 92px 447px;
+}
+
+/*# sourceMappingURL=main.css.map */

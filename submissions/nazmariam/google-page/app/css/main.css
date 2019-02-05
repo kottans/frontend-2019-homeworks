@@ -1,0 +1,16 @@
+body {
+  background-color: yellow;
+  color: #000; }
+  body li {
+    color: red;
+    background-color: green; }
+
+html {
+  margin: 0; }
+
+li {
+  color: #fff; }
+
+a {
+  text-decoration: #0c3256;
+  color: green; }
