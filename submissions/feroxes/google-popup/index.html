@@ -10,12 +10,12 @@
     <title>Google</title>
 </head>
 <body>
-    <header>
-        <div class="menu">
-            <a href="#">Gmail</a>
-            <a href="#">Images</a>
-            <label id="dots_label" for="dots"></label>
-            <input id="dots" type="checkbox">
+    <div class="header">
+        <ul class="menu">
+            <li><a href="#">Gmail</a></li>
+            <li><a href="#">Images</a></li>
+            <li><label id="dots_label" class="dots_label" for="dots"></label></li>
+            <input id="dots" class="dots_input" type="checkbox">
             <div class="google_services">
                 <div class="google_services-icon">
                     <a href="#"><div class="search"></div></a>
@@ -65,8 +65,8 @@
                     <a href="#"><div class="docs"></div></a>
                     Docs
                 </div>
-                <input id="more" type="checkbox">
-                <label class="google_services-button" id="more-icons" for="more">More</label>
+                <input id="more" class="more_input" type="checkbox">
+                <label class="google_services-button more-icons" for="more">More</label>
                 <div class="google_services-icon hidden">
                     <a href="#"><div class="playmarket"></div></a>
                     Play Market
@@ -104,9 +104,9 @@
                     You Tube
                 </div>
             </div>
-            <div class="bell"></div>
-            <img class="face" src="img/face.png" alt="">
-        </div>
-    </header>
+            <li><div class="bell"></div></li>
+            <li><img class="face" src="img/face.png" alt=""></li>
+        </ul>
+    </div>
 </body>
 </html>
