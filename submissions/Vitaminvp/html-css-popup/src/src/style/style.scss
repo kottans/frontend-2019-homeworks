@@ -213,7 +213,11 @@
       text-overflow: ellipsis;
     }
     &_input{
-      display: none;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      position: absolute;
+      top: 200vh;
       & ~ label{
         text-align: center;
         display: block;
@@ -266,7 +270,11 @@
     }
   }
   &__input{
-    display: none;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    top: 200vh;
     &_icons{
       top: -1px;
       padding: 0;
