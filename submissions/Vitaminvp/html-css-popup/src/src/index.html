@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML & CSS practice: Google-style Popup</title>
+</head>
+<body>
+<header>
+    <nav class="">
+        <ul class="nav">
+            <li class="nav__list"><a class="nav__link" href="#">Gmail</a></li>
+            <li class="nav__list"><a class="nav__link" href="#">Images</a></li>
+            <li class="nav__list">
+                <input type="checkbox" class="nav__input" id="nav__input">
+                <label for="nav__input">
+                    <span class="nav__input_close"></span>
+                    <span class="nav__input_icons" >
+                        <span class="nav__input_icon">&#9632;</span>
+                        <span class="nav__input_icon">&#9632;</span>
+                        <span class="nav__input_icon">&#9632;</span>
+                    </span>
+                </label>
+                <div class="nav__menu">
+                    <ul class="nav__menu_lists">
+                        <li class="nav__menu_list"><a class="nav__menu_link" href="#"><span
+                                class="nav__menu_icon "></span> <span class="nav__menu_title">Обліковий запис</span></a>
+                        </li>
+                        <li class="nav__menu_list"><a class="nav__menu_link" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-search"></span> <span
+                                class="nav__menu_title">Пошук</span></a></li>
+                        <li class="nav__menu_list"><a class="nav__menu_link" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-map"></span> <span
+                                class="nav__menu_title">Карти</span></a></li>
+                        <li class="nav__menu_list"><a class="nav__menu_link" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-youtube"></span> <span class="nav__menu_title">YouTube</span></a>
+                        </li>
+                        <li class="nav__menu_list"><a class="nav__menu_link" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-news"></span> <span
+                                class="nav__menu_title">Новини</span></a></li>
+                        <li class="nav__menu_list"><a class="nav__menu_link" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-gmail"></span> <span
+                                class="nav__menu_title">Gmail</span></a></li>
+                        <li class="nav__menu_list"><a class="nav__menu_link" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-contacts"></span> <span class="nav__menu_title">Контати</span></a>
+                        </li>
+                        <li class="nav__menu_list"><a class="nav__menu_link" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-disk"></span> <span
+                                class="nav__menu_title">Диск</span></a></li>
+                        <li class="nav__menu_list"><a class="nav__menu_link" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-calendar"></span> <span class="nav__menu_title">Календар</span></a>
+                        </li>
+                        <li class="nav__menu_list"><a class="nav__menu_link" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-google"></span> <span class="nav__menu_title">Google+</span></a>
+                        </li>
+                        <li class="nav__menu_list"><a class="nav__menu_link" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-translate"></span> <span class="nav__menu_title">Перекладач</span></a>
+                        </li>
+                        <li class="nav__menu_list"><a class="nav__menu_link" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-photo"></span> <span class="nav__menu_title">Фотознімки</span></a>
+                        </li>
+                    </ul>
+                    <input type="checkbox" class="nav__menu_input" id="nav__menu_input">
+                    <label for="nav__menu_input" role="button"><span>Більше</span></label>
+                    <ul class="nav__menu_listsMore">
+                        <li class="nav__input_listMore"><a class="nav__input_linkMore" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-doc"></span> <span class="nav__menu_title">Документи</span></a>
+                        </li>
+                        <li class="nav__input_listMore"><a class="nav__input_linkMore" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-blogger"></span> <span class="nav__menu_title">Blogger</span></a>
+                        </li>
+                        <li class="nav__input_listMore"><a class="nav__input_linkMore" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-hangout"></span> <span class="nav__menu_title">Hangout</span></a>
+                        </li>
+                        <li class="nav__input_listMore"><a class="nav__input_linkMore" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-keep"></span> <span
+                                class="nav__menu_title">Keep</span></a></li>
+                        <li class="nav__input_listMore"><a class="nav__input_linkMore" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-jamboard"></span> <span class="nav__menu_title">Jamboard</span></a>
+                        </li>
+                        <li class="nav__input_listMore"><a class="nav__input_linkMore" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-class"></span> <span
+                                class="nav__menu_title">Class</span></a></li>
+                        <li class="nav__input_listMore"><a class="nav__input_linkMore" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-earth"></span> <span
+                                class="nav__menu_title">Earth</span></a></li>
+                        <li class="nav__input_listMore"><a class="nav__input_linkMore" href="#"><span
+                                class="nav__menu_icon nav__menu_icon-collection"></span> <span class="nav__menu_title">Collection</span></a>
+                        </li>
+                    </ul>
+                    <a class="nav__menu_linkMore" href="#">Even more from Google</a>
+                </div>
+            </li>
+            <li class="nav__list">
+                <a href="#">
+                    <svg class="nav__bell" focusable="true" viewBox="0 0 24 24">
+                        <path d="M12,2C6.5,2,2,6.5,2,12c0,5.5,4.5,10,10,10s10-4.5,10-10C22,6.5,17.5,2,12,2z M12,18c-0.6,0-1-0.5-1-1h2 C13,17.5,12.5,18,12,18z M17,16H7v-0.6l1.2-1.2v-3c0-1.9,1-3.4,2.8-3.8V6.9C11.1,6.4,11.5,6,12,6s0.9,0.4,0.9,0.9v0.4 c1.8,0.4,2.8,2,2.8,3.8v3l1.2,1.2V16z"></path>
+                    </svg>
+                </a>
+            </li>
+            <li class="nav__list"><a href="#" class="nav__auth"></a></li>
+        </ul>
+    </nav>
+</header>
+</body>
+</html>
+
+
+
+
+
