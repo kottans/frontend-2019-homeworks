@@ -71,6 +71,9 @@ body {
     border-radius: 50%;
     overflow: hidden;
     background: rgba(0, 0, 0, 0.55);
+    transition-property: background;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
 }
 
 .header__link--notification:focus,
@@ -91,6 +94,9 @@ body {
     height: 29px;
     fill: rgba(0, 0, 0, 0.55);
     cursor: pointer;
+    transition-property: fill;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
 }
 
 .header__link--controller {
@@ -135,7 +141,7 @@ body {
     max-width: 100%;
 }
 
-.apps__body {
+.apps {
     position: relative;
     padding-bottom: var(--button-height);
 }
@@ -189,7 +195,7 @@ body {
 }
 
 .apps__show-more:focus ~ .apps__label {
-    background: rgba(245, 245, 245, 1);
+    background: rgb(245, 245, 245);
 }
 
 .apps__show-more:checked ~ .apps__label--less {
@@ -213,6 +219,9 @@ body {
     color: rgba(0, 0, 0, 0.87);
     text-align: center;
     text-decoration: none;
+    transition-property: border;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
 }
 
 .service__link:hover,
@@ -220,7 +229,7 @@ body {
 .service__link:active {
     text-decoration: none;
     color: inherit;
-    border: 1px solid rgba(229, 229, 229, 1);
+    border: 1px solid rgb(229, 229, 229);
 }
 
 .service__img {
@@ -232,6 +241,3 @@ body {
     font-size: var(--standart-font-size);
     font-family: var(--standart-font-family);
 }
-
-
-
