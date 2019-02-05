@@ -23,7 +23,6 @@ function watch(){
 function images() {
     return gulp
         .src("app/images/**/*")
-        // .pipe(newer("./_site/assets/img"))
         .pipe(
             imagemin([
                 imagemin.gifsicle({ interlaced: true }),

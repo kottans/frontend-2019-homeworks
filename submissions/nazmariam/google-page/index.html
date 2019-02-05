@@ -8,48 +8,48 @@
 <body>
     <header>
         <nav>
-            <ul id="menu">
-                <li><a href="#">Gmail</a></li>
-                <li><a href="#">Images</a></li>
-                <li>
+            <ul id="menu" class="main-menu">
+                <li class="menu-item"><a class="submenu-link" href="#">Gmail</a></li>
+                <li class="menu-item"><a class="submenu-link" href="#">Images</a></li>
+                <li class="menu-item">
                     <input id="check01" type="checkbox" name="menu" class="button-popup"/>
-                    <label for="check01">
+                    <label for="check01" class="popup-label">
                         <span class="close-mask"></span>
                         <span class="button-icon"></span>
                     </label>
                     <div class="wrapper">
                         <ul class="submenu">
-                            <li><a href="#">Account</a></li>
-                            <li><a href="#"><span>Search</span></a></li>
-                            <li><a href="#"><span>Maps</span></a></li>
-                            <li><a href="#"><span>YouTube</span></a></li>
-                            <li><a href="#"><span>Play</span></a></li>
-                            <li><a href="#"><span>Gmail</span></a></li>
-                            <li><a href="#"><span>Contacts</span></a></li>
-                            <li><a href="#"><span>Drive</span></a></li>
-                            <li><a href="#"><span>Calendar</span></a></li>
-                            <li><a href="#"><span>Google+</span></a></li>
-                            <li><a href="#"><span>Translate</span></a></li>
-                            <li><a href="#"><span>Photos</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#">Account</a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Search</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Maps</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>YouTube</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Play</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Gmail</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Contacts</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Drive</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Calendar</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Google+</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Translate</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Photos</span></a></li>
                             <input type="checkbox" id="toggle-more" class="button-more">
                             <label for="toggle-more" class="show-more">More
                                 <div class="close-mask"></div>
                             </label>
-                            <span></span>
+                            <span class="borderline"></span>
                             <ul class="hidden-icons">
-                                <li ><a href="#"><span>Docs</span></a></li>
-                                <li ><a href="#"><span>Blogger</span></a></li>
-                                <li ><a href="#"><span>Hangouts</span></a></li>
-                                <li ><a href="#"><span>Collection</span></a></li>
-                                <li ><a href="#"><span>Jamboard</span></a></li>
-                                <li ><a href="#"><span>Classroom</span></a></li>
-                                <li ><a href="#"><span>Earth</span></a></li>
+                                <li class="submenu-item" ><a class="submenu-link" href="#"><span>Docs</span></a></li>
+                                <li class="submenu-item" ><a class="submenu-link" href="#"><span>Blogger</span></a></li>
+                                <li class="submenu-item" ><a class="submenu-link" href="#"><span>Hangouts</span></a></li>
+                                <li class="submenu-item" ><a class="submenu-link" href="#"><span>Collection</span></a></li>
+                                <li class="submenu-item" ><a class="submenu-link" href="#"><span>Jamboard</span></a></li>
+                                <li class="submenu-item" ><a class="submenu-link" href="#"><span>Classroom</span></a></li>
+                                <li class="submenu-item" ><a class="submenu-link" href="#"><span>Earth</span></a></li>
                             </ul>
                         </ul>
                     </div>
                 </li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
+                <li class="menu-item"><a class="notification" href="#"></a></li>
+                <li class="menu-item"><a class="img-profile" href="#"></a></li>
             </ul>
         </nav>
     </header>
@@ -64,8 +64,9 @@
                     </div>
                 </div>
                 <input type="submit" class="button" value="Google Search"/>
-                <input type="button" class="button" value="I'm feeling lucky"/>
+                <input type="button" class="button" id="rt" value="I'm feeling lucky"/>
             </form>
+            <!--<input type="button" class="button" id='rt' value="I'm feeling lucky"/>-->
         </section>
         <section class="result"></section>
     </main>

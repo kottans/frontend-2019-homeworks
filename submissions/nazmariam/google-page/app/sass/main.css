@@ -5,7 +5,7 @@ body {
   font-size: 13px;
 }
 
-ul#menu {
+.main-menu {
   position: absolute;
   top: 8px;
   margin: 8px;
@@ -14,12 +14,15 @@ ul#menu {
   align-items: center;
   display: flex;
 }
-ul#menu > li {
+.main-menu .menu-item > .submenu-link:hover {
+  text-decoration: underline;
+}
+.main-menu > .menu-item {
   float: left;
   list-style-type: none;
   margin: 0 10px;
 }
-ul#menu > li:nth-last-child(2) a {
+.main-menu > .menu-item .notification {
   background: #000000de url(../images/sprite.png) 23px 865px;
   width: 20px;
   height: 20px;
@@ -27,10 +30,10 @@ ul#menu > li:nth-last-child(2) a {
   border-radius: 50%;
   display: block;
 }
-ul#menu > li:nth-last-child(2) a:hover {
+.main-menu > .menu-item .notification:hover {
   opacity: 1;
 }
-ul#menu > li:nth-last-child(1) a {
+.main-menu > .menu-item .img-profile {
   background: url("../images/avatar.jpg");
   background-size: contain;
   display: block;
@@ -38,18 +41,15 @@ ul#menu > li:nth-last-child(1) a {
   width: 32px;
   height: 32px;
 }
-ul#menu > li a {
+.main-menu > .menu-item .submenu-link {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.87);
 }
-ul#menu > li a:hover {
-  text-decoration: underline;
-}
-ul#menu > li a:visited {
+.main-menu > .menu-item .submenu-link:visited {
   color: inherit;
 }
 
-label .button-icon {
+.popup-label .button-icon {
   position: relative;
   display: block;
   cursor: pointer;
@@ -58,10 +58,10 @@ label .button-icon {
   height: 17px;
   opacity: 0.65;
 }
-label .button-icon:hover {
+.popup-label .button-icon:hover {
   opacity: 1;
 }
-label .close-mask {
+.popup-label .close-mask {
   position: fixed;
   top: 0;
   left: 0;
@@ -79,18 +79,18 @@ label .close-mask {
   padding: 0;
   overflow: hidden;
   border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
+  clip: rect(0, 0, 0, 0);
 }
 
 .button-popup:checked ~ .wrapper {
   display: block;
 }
 
-.button-popup:focus ~ label .button-icon {
+.button-popup:focus ~ .popup-label .button-icon {
   outline: 2px solid #4d90fe;
 }
 
-.button-popup:checked + label > .close-mask {
+.button-popup:checked + .popup-label > .close-mask {
   display: block;
 }
 
@@ -99,9 +99,6 @@ label .close-mask {
   background: #fff;
   right: 8px;
   top: 44px;
-  -webkit-animation: gb__a 0.2s;
-  animation: gb__a 0.2s;
-  -webkit-border-radius: 2px;
   width: 320px;
   border: 1px solid #ccc;
   box-shadow: 0 0 10px #ccc;
@@ -121,7 +118,7 @@ label .close-mask {
   transform: rotate(-45deg);
 }
 
-ul.submenu {
+.submenu {
   list-style-type: none;
   overflow: overlay;
   position: relative;
@@ -132,13 +129,13 @@ ul.submenu {
   justify-content: center;
   max-height: 455px;
 }
-ul.submenu li {
+.submenu .submenu-item {
   display: block;
 }
-ul.submenu li:nth-child(1) a {
+.submenu .submenu-item:nth-child(1) a {
   width: 64px;
 }
-ul.submenu li:nth-child(1) a:before {
+.submenu .submenu-item:nth-child(1) a:before {
   background: url("../images/avatar.jpg");
   background-size: contain;
   border-radius: 50%;
@@ -146,40 +143,40 @@ ul.submenu li:nth-child(1) a:before {
   height: 50px;
   margin: 5px 0 9px;
 }
-ul.submenu li:nth-child(2) a:before {
+.submenu .submenu-item:nth-child(2) .submenu-link:before {
   background: url(../images/sprite.png) 92px 936px;
 }
-ul.submenu li:nth-child(3) a:before {
+.submenu .submenu-item:nth-child(3) .submenu-link:before {
   background: url(../images/sprite.png) 71px 1594px;
 }
-ul.submenu li:nth-child(4) a:before {
+.submenu .submenu-item:nth-child(4) .submenu-link:before {
   background: url(../images/sprite.png) 66px 519px;
 }
-ul.submenu li:nth-child(5) a:before {
+.submenu .submenu-item:nth-child(5) .submenu-link:before {
   background: url(../images/sprite.png) 92px 2497px;
 }
-ul.submenu li:nth-child(6) a:before {
+.submenu .submenu-item:nth-child(6) .submenu-link:before {
   background: url(../images/sprite.png) 92px 105px;
 }
-ul.submenu li:nth-child(7) a:before {
+.submenu .submenu-item:nth-child(7) .submenu-link:before {
   background: url(../images/sprite.png) 92px 1247px;
 }
-ul.submenu li:nth-child(8) a:before {
+.submenu .submenu-item:nth-child(8) .submenu-link:before {
   background: url(../images/sprite.png) 92px 2322px;
 }
-ul.submenu li:nth-child(9) a:before {
+.submenu .submenu-item:nth-child(9) .submenu-link:before {
   background: url(../images/sprite.png) 92px 2668px;
 }
-ul.submenu li:nth-child(10) a:before {
+.submenu .submenu-item:nth-child(10) .submenu-link:before {
   background: url(../images/sprite.png) 92px 2426px;
 }
-ul.submenu li:nth-child(11) a:before {
+.submenu .submenu-item:nth-child(11) .submenu-link:before {
   background: url(../images/sprite.png) 90px 660px;
 }
-ul.submenu li:nth-child(12) a:before {
+.submenu .submenu-item:nth-child(12) .submenu-link:before {
   background: url(../images/sprite.png) 92px 1388px;
 }
-ul.submenu li a {
+.submenu .submenu-item .submenu-link {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -189,73 +186,77 @@ ul.submenu li a {
   transition: background 0.3s;
   white-space: nowrap;
 }
-ul.submenu li a:before {
+.submenu .submenu-item .submenu-link:before {
   width: 64px;
   height: 64px;
   content: "";
 }
-ul.submenu li:hover a {
+.submenu .submenu-item:hover .submenu-link {
   border: 1px solid #e5e5e5;
   -webkit-border-radius: 2px;
   border-radius: 2px;
   margin: -1px;
 }
-ul.submenu .show-more {
+.submenu .show-more {
   width: 100%;
   background: #f5f5f5;
   padding: 12px 0;
   text-align: center;
   color: rgba(0, 0, 0, 0.87);
   opacity: 1;
+  cursor: pointer;
 }
-ul.submenu .button-more:checked ~ .hidden-icons {
+.submenu .show-more:hover {
+  background: #e0dede;
+}
+.submenu .button-more:checked ~ .hidden-icons {
   display: flex;
 }
-ul.submenu .button-more:checked ~ span {
+.submenu .button-more:checked ~ .borderline {
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   display: block;
   width: 80%;
   height: 1px;
   margin: 12px 0;
 }
-ul.submenu .button-more:checked ~ .show-more {
+.submenu .button-more:checked ~ .show-more {
   display: none;
 }
-ul.submenu .button-more:focus ~ .show-more {
+.submenu .button-more:focus ~ .show-more {
   outline: 2px solid #4d90fe;
   margin: 0 2px 2px;
 }
-ul.submenu .hidden-icons {
+.submenu .hidden-icons {
   display: none;
   flex-wrap: wrap;
   padding: 0 16px;
 }
-ul.submenu .hidden-icons a {
+.submenu .hidden-icons .submenu-link {
   padding: 12px;
 }
-ul.submenu .hidden-icons li:nth-child(1) a:before {
+.submenu .hidden-icons .submenu-item:nth-child(1) .submenu-link:before {
   background: url(../images/sprite.png) 92px 2116px;
   border-radius: unset;
   width: 64px;
   height: 64px;
   margin: auto;
 }
-ul.submenu .hidden-icons li:nth-child(2) a:before {
+.submenu .hidden-icons .submenu-item:nth-child(2) .submenu-link:before {
   background: url(../images/sprite.png) 76px 1664px;
 }
-ul.submenu .hidden-icons li:nth-child(3) a:before {
+.submenu .hidden-icons .submenu-item:nth-child(3) .submenu-link:before {
   background: url(../images/sprite.png) 92px 2740px;
 }
-ul.submenu .hidden-icons li:nth-child(4) a:before {
+.submenu .hidden-icons .submenu-item:nth-child(4) .submenu-link:before {
   background: url(../images/sprite.png) 92px 1317px;
 }
-ul.submenu .hidden-icons li:nth-child(5) a:before {
+.submenu .hidden-icons .submenu-item:nth-child(5) .submenu-link:before {
   background: url(../images/sprite.png) 92px 1005px;
 }
-ul.submenu .hidden-icons li:nth-child(6) a:before {
+.submenu .hidden-icons .submenu-item:nth-child(6) .submenu-link:before {
   background: url(../images/sprite.png) 92px 2185px;
 }
-ul.submenu .hidden-icons li:nth-child(7) a:before {
+.submenu .hidden-icons .submenu-item:nth-child(7) .submenu-link:before {
   background: url(../images/sprite.png) 92px 447px;
 }
 
