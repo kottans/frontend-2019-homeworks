@@ -1,0 +1,192 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #5e6969;
+  font-family: sans-serif;
+}
+
+header {
+  background-color: #b7c6c7;
+  position: relative;
+  height: 60px;
+  box-shadow: 0px 4px 13px #00000038;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul {
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.flex_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  position: relative;
+  height: 90%;
+  padding: 15px 25px;
+  overflow: scroll;
+}
+
+.menu_item {
+  text-align: center;
+}
+
+.menu_item:nth-child(1n+13) {
+  display: none;
+}
+
+.google_menu {
+  cursor: pointer;
+  height: 45px;
+  width: 45px;
+  background-image: url('https://ssl.gstatic.com/gb/images/v1_051523630.png');
+  background-repeat: no-repeat;
+  background-position: 8px -1794px;
+  -webkit-appearance: none;
+}
+
+.google_menu:checked ~ .popup{
+  display: flex;
+}
+
+.popup {
+  position: absolute;
+  height: 500px;
+  width: 340px;
+  top: 55px;
+  background-color: white;
+  border-radius: 5px;
+  display: none;
+  flex-direction: column;
+}
+
+.popup::before {
+  content: '';
+  border-color: transparent;
+  border-bottom-color: #fff;
+  border-style: dashed dashed solid;
+  border-width: 0 8.5px 8.5px;
+  position: absolute;
+  top: -8px;
+  left: 163px;
+}
+
+.service_logo {
+  display: flex;
+  box-sizing: border-box;
+  background-image: url('https://ssl.gstatic.com/gb/images/v1_051523630.png');
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 80px;
+}
+
+.calendar {
+  background-position: 8px -165px;
+}
+
+.gmail {
+  background-position: 8px -2726px;
+}
+
+.rip {
+  background-position: 8px -406px;
+}
+
+.news {
+  background-position: 8px -1966px;
+}
+
+.map {
+  background-position: -13px -1240px;
+}
+
+.drive {
+  background-position: 8px -513px;
+}
+
+.contacts {
+  background-position: 8px -1586px;
+}
+
+.translate {
+  background-position: 8px -2171px;
+}
+
+.youtube {
+  background-position: -18px -2316px;
+}
+
+.search {
+  background-position: 8px -1900px;
+}
+
+.photo {
+  background-position: 8px -1450px;
+}
+
+.play {
+  background-position: 11px -340px;
+}
+
+.document {
+  background-position: 11px -720px;
+}
+
+.hangouts {
+  background-position: 9px -93px;
+}
+
+.classroom {
+  background-position: 9px -647px;
+}
+
+.collection {
+  background-position: 9px -1516px;
+}
+
+.earth {
+  background-position: 8px -2384px;
+}
+
+.blogger {
+  background-position: -10px -1170px;
+}
+
+.adwords {
+  background-position: 9px -996px;
+}
+
+.show_more {
+  height: 10%;
+  text-align: center;
+  padding-top: 15px;
+  box-sizing: border-box;
+  background-color: #c3c3c3;
+  -webkit-appearance: none;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin: 0;
+  order: 1;
+}
+
+.show_more::after {
+  cursor: pointer;
+  content: 'More';
+  font-size: 12px;
+}
+
+.show_more:checked::after {
+  content: 'Less';
+}
+
+.show_more:checked ~ ul > .menu_item:nth-child(1n+13) {
+  display: block;
+}
