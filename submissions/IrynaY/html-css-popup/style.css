@@ -1,0 +1,12 @@
+#menu-container{
+  text-align: right;
+  padding: 10px 25px;
+}
+
+#products{
+  background-color: palegreen;
+  /* width: 100px; */
+  height: 100px;
+  background-repeat: no-repeat;
+  background-image: url("https://ssl.gstatic.com/gb/images/v2_abb067380.png");
+}
