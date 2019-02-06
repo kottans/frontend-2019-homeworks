@@ -1,0 +1,168 @@
+/* GENERAL STYLES */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: arial, sans-serif;
+  font-size: small;
+}
+a {
+  color: rgba(0, 0, 0, 0.87);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* MAIN MENU */
+.menu {
+  padding: 20px 30px;
+}
+.menu-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+/* Main menu items  */
+.menu-list > li {
+  display: inline-block;
+  padding-left: 15px;
+}
+.menu-list > li:nth-child(n + 3) .menu-button {
+  display: inline-block;
+  cursor: pointer;
+  margin: -30% 0;
+  background-image: url(../img/main_menu_icons.png);
+  -webkit-background-size: 528px 68px;
+  background-size: 528px 68px;
+}
+/* Main menu, products item */
+.prod-cond-holder {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.prod-button {
+  width: 30px;
+  height: 30px;
+  margin: -32% 0;
+  background-position: -132px -38px;
+  opacity: 0.55;
+}
+.prod-button:hover {
+  opacity: 1;
+}
+/* Main menu, notify item */
+.notify-button {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.55);
+  border-radius: 50%;
+  background-position: -194px -21px;
+}
+
+/* PRODUCTS MODAL WINDOW */
+.prod-cond-holder:checked ~ .products {
+  display: block;
+}
+input[type='reset'] {
+  display: none;
+  position: absolute;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  z-index: 1;
+}
+.prod-cond-holder:checked ~ input[type='reset'] {
+  display: block;
+  opacity: 0;
+}
+
+.products {
+  display: none;
+  position: absolute;
+  width: 332px;
+  max-height: 80%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  right: 25px;
+  top: 80px;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+.products-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0;
+  padding: 28px;
+  padding-right: 27px;
+}
+.item {
+  display: inline-block;
+  padding: 8px 0;
+  text-align: center;
+}
+.item a {
+  text-decoration: none;
+  display: inline-block;
+  width: 86px;
+  height: 98px;
+}
+.item a:hover {
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+.prod-icon {
+  display: inline-block;
+  height: 64px;
+  width: 64px;
+  background-image: url(../img/icons.png);
+  -webkit-background-size: 64px 2410px;
+  background-size: 64px 2410px;
+  background-position-x: 0;
+  /* I do not understand why line below doesn't work */
+  background-position-y: attr(data-pos-y px, 0);
+}
+.more-cond-holder {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.more-button {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  line-height: 40px;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+.more-cond-holder:focus ~ label > .more-button {
+  outline: auto;
+}
+.more-cond-holder:checked ~ label {
+  display: none;
+}
+.more-cond-holder:checked ~ .list-divider {
+  display: block;
+}
+.list-divider {
+  display: none;
+  border-bottom: 1px solid #ebebeb;
+  margin: 0 auto;
+  width: 264px;
+}
+.full-list {
+  display: none;
+  text-align: center;
+}
+.more-cond-holder:checked ~ .full-list {
+  display: block;
+}
+.even-more {
+  line-height: 40px;
+}
