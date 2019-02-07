@@ -19,12 +19,12 @@ a{
     height: 100%;
     margin-left: 15px;
   }
-  &-text{
-    text-decoration: none;
-    color: rgba(0,0,0,0.87);
-    &:hover{
-      text-decoration: underline;
-    }
+}
+.header-text{
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+  &:hover{
+    text-decoration: underline;
   }
 }
 .more{
@@ -32,152 +32,147 @@ a{
   text-align: center;
   width: 100%;
   cursor: pointer;
-  position: relative;
-  top: 20px;
-  &:hover:before{
-    background: #ccc;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  &:hover{
+    background: #c1c1c1;
   }
   & ~ * {
     display: none;
   }
-  &-button{
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
+}
+.more-button{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  padding-top: 30px;
+}
+.more-link{
+  width: 100%;
+  color: rgba(0, 0, 0, 0.87);
+  text-align: center;
+  margin-top: 30px;
+  &:hover{
+    text-decoration: underline;
   }
-  &-link{
-    width: 100%;
-    color: rgba(0,0,0,0.87);
-    text-align: center;
-    margin-top: 30px;
-    &:hover{
-      text-decoration: underline;
-    }
-  }
-  &-text{
-    position: relative;
-    line-height: 40px;
-    z-index: 1;
-  }
-  &:before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -30px;
-    height: 40px;
-    width: calc(100% + 60px);
-    background: #ebebeb;
-    z-index: 0;
-  }
+}
+.more-text{
+  pointer-events: none;
+  width: 100%;
+  border: none;
+  background: none;
+  position: relative;
+  line-height: 40px;
+  z-index: 1;
 }
 .block{
-  &-bell{
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    background: rgba(0, 0, 0, 0.55);
-    text-align: center;
-    padding: 3px 0;
-    &:hover{
-      background: rgba(0, 0, 0, 0.8);
-    }
+}
+.block-bell{
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.55);
+  text-align: center;
+  padding: 3px 0;
+  &:hover{
+    background: rgba(0, 0, 0, 0.8);
   }
-  &-icons{
-    display: none;
-    height: auto;
-    position: absolute;
-    top: 60px;
-    right: 15px;
-    flex-wrap: wrap;
-    justify-content: start;
-    width: 320px;
-    height: 490px;
-    padding: 20px 30px;
-    background: #fff;
+}
+.block-icons{
+  display: none;
+  height: auto;
+  position: absolute;
+  top: 60px;
+  right: 15px;
+  flex-wrap: wrap;
+  justify-content: start;
+  width: 320px;
+  height: 490px;
+  padding: 20px 30px;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.block-icons-item{
+  cursor: pointer;
+  width: calc(100% / 3);
+  text-align: center;
+  padding: 10px 5px;
+  border: 1px solid #fff;
+  &:hover{
     border: 1px solid #ccc;
-    box-shadow: 0 2px 10px rgba(0,0,0,.2);
-    &-item{
-      cursor: pointer;
-      width: calc(100% / 3);
-      text-align: center;
-      padding: 10px 5px;
-      border: 1px solid #fff;
-      &:hover{
-        border: 1px solid #ccc;
-      }
-    }
-    &-img{
-      padding: 5px;
-      width: 60px;
-      height: 60px;
-    }
-    &-title{
-      margin-top: 5px;
-    }
   }
 }
-.image{
-  &-bell{
-    width: 14px;
-  }
-  &-user{
-    display: block;
-    cursor: pointer;
-    width: 32px;
-    height: 32px;
-    border-radius: 32px;
-  }
+.block-icons-img{
+  padding: 5px;
+  width: 60px;
+  height: 60px;
 }
-.checkbox{
-  &-popup{
-    cursor: pointer;
-    position: relative;
-    background: url(../img/square.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 15px;
-    height: 25px;
-    width: 25px;
-    opacity: 0.55;
-    -webkit-appearance: none;
-    &:hover{
-      opacity: 1;
-    }
-    & ~ .block-icons-item{
-      display: none;
-    }
-    &:checked{
-      opacity: 1;
-      & ~ .arrow{
-        display: block;
-      }
-      & ~ .block-icons{
-        display: flex;
-      }
-    }
+.block-icons-title{
+  margin-top: 5px;
+}
+.image-bell{
+  width: 14px;
+}
+.image-user{
+  display: block;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+}
+
+.checkbox-popup{
+  cursor: pointer;
+  position: relative;
+  background: url(../img/square.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 15px;
+  height: 25px;
+  width: 25px;
+  opacity: 0.55;
+  -webkit-appearance: none;
+  &:hover{
+    opacity: 1;
   }
-  &-more{
+  & ~ .block-icons-item{
     display: none;
-    &:checked{
-      & ~ .block-icons{
-        .more{
-          height: 1px;
-          overflow: hidden;
-          margin-bottom: 40px;
-          width: calc(100% - 15px);
-          & ~ * {
-            display: block;
-          }
+  }
+  &:checked{
+    opacity: 1;
+    & ~ .arrow{
+      display: block;
+    }
+    & ~ .block-icons{
+      display: flex;
+    }
+  }
+}
+.checkbox-more{
+  display: none;
+  &:checked{
+    & ~ .block-icons{
+      .more{
+        height: 1px;
+        overflow: hidden;
+        margin-bottom: 40px;
+        width: calc(100% - 60px);
+        left: 50%;
+        transform: translateX(-50%);
+        & ~ * {
+          display: block;
         }
       }
-      & ~ .block-icons-item{
-        display: block;
-      }
-      & ~ .block-icons{
-        overflow-y: scroll;
-        padding: 20px 15px 20px 30px;
-      }
+    }
+    & ~ .block-icons-item{
+      display: block;
+    }
+    & ~ .block-icons{
+      overflow-y: scroll;
+      padding: 20px 15px 20px 30px;
     }
   }
 }
