@@ -29,6 +29,11 @@ a:hover {
   display: inline-block;
   padding-left: 15px;
 }
+
+.prod-cond-holder:focus ~ label {
+  outline: 1px dotted #212121;
+  outline: 5px auto -webkit-focus-ring-color;
+}
 .menu-list > li:nth-child(n + 3) .menu-button {
   display: inline-block;
   cursor: pointer;
@@ -37,6 +42,7 @@ a:hover {
   -webkit-background-size: 528px 68px;
   background-size: 528px 68px;
 }
+
 /* Main menu, products item */
 .prod-cond-holder {
   position: absolute;
@@ -70,6 +76,7 @@ a:hover {
 input[type='reset'] {
   display: none;
   position: absolute;
+  cursor: pointer;
   top: 20px;
   width: 30px;
   height: 30px;
@@ -111,9 +118,10 @@ input[type='reset'] {
   display: inline-block;
   width: 86px;
   height: 98px;
+  border: 1px solid rgba(204, 204, 204, 0);
 }
 .item a:hover {
-  border: 1px solid #ccc;
+  border: 1px solid rgba(204, 204, 204, 0.5);
   cursor: pointer;
 }
 .prod-icon {
@@ -121,11 +129,55 @@ input[type='reset'] {
   height: 64px;
   width: 64px;
   background-image: url(../img/icons.png);
-  -webkit-background-size: 64px 2410px;
-  background-size: 64px 2410px;
-  background-position-x: 0;
-  /* I do not understand why line below doesn't work */
-  background-position-y: attr(data-pos-y px, 0);
+  -webkit-background-size: 92px 2839px;
+  background-size: 92px 2839px;
+}
+
+.short-list .item:nth-child(1) .prod-icon {
+  background-position: 0 -415px;
+}
+.short-list .item:nth-child(2) .prod-icon {
+  background-position: 0 -1905px;
+}
+.short-list .item:nth-child(3) .prod-icon {
+  background-position: -25px -2323px;
+}
+.short-list .item:nth-child(4) .prod-icon {
+  background-position: -21px -1248px;
+}
+.short-list .item:nth-child(5) .prod-icon {
+  background-position: 0 -1974px;
+}
+.item:nth-child(6) .prod-icon {
+  background-position: 0 -2732px;
+}
+.short-list .item:nth-child(7) .prod-icon {
+  background-position: 0 -173px;
+}
+.short-list .item:nth-child(8) .prod-icon {
+  background-position: 0 -519px;
+}
+
+.full-list .item:nth-child(1) .prod-icon {
+  background-position: -17px -1179px;
+}
+.full-list .item:nth-child(2) .prod-icon {
+  background-position: 0 -2181px;
+}
+.full-list .item:nth-child(3) .prod-icon {
+  background-position: 0 -1594px;
+}
+.full-list .item:nth-child(4) .prod-icon {
+  background-position: 0 -726px;
+}
+.full-list .item:nth-child(5) .prod-icon {
+  background-position: 0 -2392px;
+}
+.full-list .item:nth-child(6) .prod-icon {
+  background-position: 0 -104px;
+}
+.full-list .item:nth-child(7) .prod-icon {
+  background-position: 0 -1456px;
 }
 .more-cond-holder {
   position: absolute;
