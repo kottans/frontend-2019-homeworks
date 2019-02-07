@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google search</title>
+    <link rel="stylesheet" href="dist/css/main.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul id="menu" class="main-menu">
+                <li class="menu-item"><a class="submenu-link" href="#">Gmail</a></li>
+                <li class="menu-item"><a class="submenu-link" href="#">Images</a></li>
+                <li class="menu-item">
+                    <input id="check01" type="checkbox" name="menu" class="button-popup"/>
+                    <label for="check01" class="popup-label">
+                        <span class="close-mask"></span>
+                        <span class="button-icon"></span>
+                    </label>
+                    <div class="wrapper">
+                        <ul class="submenu">
+                            <li class="submenu-item"><a class="submenu-link" href="#">Account</a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Search</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Maps</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>YouTube</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Play</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Gmail</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Contacts</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Drive</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Calendar</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Google+</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Translate</span></a></li>
+                            <li class="submenu-item"><a class="submenu-link" href="#"><span>Photos</span></a></li>
+                            <input type="checkbox" id="toggle-more" class="button-more">
+                            <label for="toggle-more" class="show-more">More
+                                <div class="close-mask"></div>
+                            </label>
+                            <span class="borderline"></span>
+                            <ul class="hidden-icons">
+                                <li class="submenu-item" ><a class="submenu-link" href="#"><span>Docs</span></a></li>
+                                <li class="submenu-item" ><a class="submenu-link" href="#"><span>Blogger</span></a></li>
+                                <li class="submenu-item" ><a class="submenu-link" href="#"><span>Hangouts</span></a></li>
+                                <li class="submenu-item" ><a class="submenu-link" href="#"><span>Collection</span></a></li>
+                                <li class="submenu-item" ><a class="submenu-link" href="#"><span>Jamboard</span></a></li>
+                                <li class="submenu-item" ><a class="submenu-link" href="#"><span>Classroom</span></a></li>
+                                <li class="submenu-item" ><a class="submenu-link" href="#"><span>Earth</span></a></li>
+                            </ul>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu-item"><a class="notification" href="#"></a></li>
+                <li class="menu-item"><a class="img-profile" href="#"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="search-form">
+            <form id="google-search" name="google-search">
+                <div class="search-block">
+                    <a href="https://www.google.com.ua/"> <img height="92px" src="dist/images/googlelogo.png" width="272px" id="hplogo" alt="Google" title="Google" onload="typeof google==='object'&amp;&amp;google.aft&amp;&amp;google.aft(this)"></a>
+                    <div class="search-line">
+                        <input type="text" name="search" id="search" placeholder="" class="searching-input"/>
+                        <span class="search-mic"></span>
+                    </div>
+                </div>
+                <input type="submit" class="button" value="Google Search"/>
+                <input type="button" class="button" id="rt" value="I'm feeling lucky"/>
+            </form>
+            <!--<input type="button" class="button" id='rt' value="I'm feeling lucky"/>-->
+        </section>
+        <section class="result"></section>
+    </main>
+<script src="dist/scripts/script.js"></script>
+</body>
+</html>
