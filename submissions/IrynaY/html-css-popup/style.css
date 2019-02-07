@@ -1,5 +1,5 @@
 body{
-  font-family: arial,sans-serif;
+  font-family: arial, sans-serif;
   font-size: 15px;
 }
 
@@ -24,11 +24,25 @@ body{
   margin: 0;
 }
 
-.hide:checked ~ .popup {
+#show-apps:checked, #show-apps:checked, #show-all {
+  width: 0;
+  height: 0;
+}
+
+#show-apps:checked ~ .popup, #show-all:checked ~ .view-more, #show-all, #show-apps:checked ~ .reset{
   display: block;
 }
 
-.products, .notifications, .account, .hide{
+#show-all:checked, .view-more, #show-all:checked ~ label, .reset{
+  display: none;
+}
+
+.reset{
+  position: absolute;
+  top: 29px;
+}
+
+.products, .notifications, .account, #show-apps, .reset{
   width: 30px;
   height: 30px;
 }
@@ -52,13 +66,21 @@ body{
 .popup {
   display: none;
   position: absolute;
-  width: 320px;  
-  /* max-height: 80%; */
+  width: 323px;
+  max-height: 600px;
   right: 25px;
-  top: 80px;
+  top: 70px;
   background: #fff;
   border: 1px solid #ccc;
   box-shadow: 0 0 1em #ccc;
+  overflow: overlay;
+}
+
+.popup-line{
+  width: 80%;
+  background-color: #ccc;
+  height: 1px;
+  border: 0;
 }
 
 .popup ul{
@@ -68,28 +90,125 @@ body{
   padding: 10px;
 }
 
-.app-list li{
-  background-color: aquamarine;
+.app-list li, .all-list li{
   color: black;
   height: 98px;
   width: 85px;
   text-align: center;
   color: black;
   font-size: 13px;
+  border: 1px solid white;
+
 }
 
-.app-list-img{
-  margin: 5px 10px;
-  vertical-align: top;  
+.app-list li:hover, .all-list li:hover{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.app-list-img, .app-list-img{
   background-image: url(./img/services.png);
-  background-position: 0 -828px;
+  margin: 5px 10px;
+  vertical-align: top;
   height: 64px;
   width: 64px;
 }
 
-.more{
+.more label a{
+  display: block;
   background-color: #ececec;
-  /* height: 35px; */
-  text-align: center;
-  padding: 15px;
+  width: auto;
+  padding: 15px 0;
+}
+
+.more label, .menu-righ li:hover, .menu-right li:hover, .menu-right li input:hover{
+  cursor: pointer;
+}
+
+.menu-right li:hover, .menu-right li input:hover{
+  text-decoration: underline;
+}
+
+.app-list li:nth-child(1) .app-list-img{
+  background-position: 0 -1448px;
+}
+
+.app-list li:nth-child(2) .app-list-img{
+  background-position: 0 -1653px;
+}
+
+.app-list li:nth-child(3) .app-list-img{
+  background-position: 0 -412px;
+}
+
+.app-list li:nth-child(4) .app-list-img{
+  background-position: 0 -1309px;
+}
+
+.app-list li:nth-child(5) .app-list-img{
+  background-position: 0 -552px;
+}
+
+.app-list li:nth-child(6) .app-list-img{
+  background-position: 0 63px;
+}
+
+.app-list li:nth-child(7) .app-list-img{
+  background-position: 0 -1106px;
+}
+
+.app-list li:nth-child(8) .app-list-img{
+  background-position: 0 407px;
+}
+
+.app-list li:nth-child(9) .app-list-img{
+  background-position: 0 -829px;
+}
+
+.app-list li:nth-child(10) .app-list-img{
+  background-position: 0 -695px;
+}
+
+.all-list li:nth-child(1) .app-list-img{
+  background-position: 0 338px;
+}
+
+.all-list li:nth-child(2) .app-list-img{
+  background-position: 0 -1519px;
+}
+
+.all-list li:nth-child(3) .app-list-img{
+  background-position: 0 -207px;
+}
+
+.all-list li:nth-child(4) .app-list-img{
+  background-position: 0 616px;
+}
+
+.all-list li:nth-child(5) .app-list-img{
+  background-position: 0 269px;
+}
+
+.all-list li:nth-child(6) .app-list-img{
+  background-position: 0 -1585px;
+}
+
+.all-list li:nth-child(7) .app-list-img{
+  background-position: 0 -765px;
+}
+
+.all-list li:nth-child(8) .app-list-img{
+  background-position: 0 -904px;
+}
+
+.all-list li:nth-child(9) .app-list-img{
+  background-position: 0 -627px;
+}
+
+.all-list li:nth-child(10) .app-list-img{
+  background-position: 0 545px;
+}
+
+.all-list li:nth-child(11) .app-list-img{
+  background-position: 0 683px;
 }

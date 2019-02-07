@@ -9,11 +9,14 @@
 </head>
 <body>
   <header>
-    <ul class="menu-right">
-      <li><a href="#">Gmail</a></li>
-      <li><a href="#">Images</a></li> 
-      <li class="products">
-        <input type="checkbox" class="hide">
+    <form>
+      <ul class="menu-right">
+        <li><a href="#">Gmail</a></li>
+        <li><a href="#">Images</a></li>
+        <li class="products">
+          <input type="checkbox" id="show-apps" class="hide">
+          <input type="reset" class="reset hide" value="">
+
           <div class="popup">
             <ul class="app-list">
               <li>
@@ -22,66 +25,144 @@
                   <span class="title">Docs</span>
                 </a>
               </li>
-
               <li>
                 <a href="#">
                   <div class="app-list-img"></div>
                   <span class="title">Translate</span>
                 </a>
               </li>
-
               <li>
                 <a href="#">
                   <div class="app-list-img"></div>
                   <span class="title">Google+</span>
                 </a>
               </li>
-
               <li>
                 <a href="#">
                   <div class="app-list-img"></div>
-                  <span class="title">Searche</span>
+                  <span class="title">Search</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="app-list-img"></div>
+                  <span class="title">Youtube</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="app-list-img"></div>
+                  <span class="title">Play</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="app-list-img"></div>
+                  <span class="title">Gmail</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="app-list-img"></div>
+                  <span class="title">Drive</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="app-list-img"></div>
+                  <span class="title">Calendar</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="app-list-img"></div>
+                  <span class="title">My Business</span>
                 </a>
               </li>
             </ul>
-            
-            <div class="more"><a href="#">More</a></div>
-            
-            <div class="all-list">
-              <ul class="app-list">
-                <li>
-                  <a href="#">
-                    <div class="app-list-img"></div>
-                    <span class="title">Docs</span>
-                  </a>
-                </li>
 
-                <li>
-                  <a href="#">
-                    <div class="app-list-img"></div>
-                    <span class="title">Translate</span>
-                  </a>
-                </li>
+            <div class="more">
+              <input type="checkbox" id="show-all" class="hide">
+              <label for="show-all"><a>More</a></label>
+              <div class="view-more">
+                <hr class="popup-line"/>
+                <ul class="all-list">
+                  <li>
+                    <a href="#">
+                      <div class="app-list-img"></div>
+                      <span class="title">Blogger</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="app-list-img"></div>
+                      <span class="title">Photos</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="app-list-img"></div>
+                      <span class="title">Maps</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="app-list-img"></div>
+                      <span class="title">Account</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="app-list-img"></div>
+                      <span class="title">Contacts</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="app-list-img"></div>
+                      <span class="title">Hangouts</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="app-list-img"></div>
+                      <span class="title">Keep</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="app-list-img"></div>
+                      <span class="title">Jamboard</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="app-list-img"></div>
+                      <span class="title">Classroom</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="app-list-img"></div>
+                      <span class="title">Earth</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="app-list-img"></div>
+                      <span class="title">Collection</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-                <li>
-                  <a href="#">
-                    <div class="app-list-img"></div>
-                    <span class="title">Google+</span>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#">
-                    <div class="app-list-img"></div>
-                    <span class="title">Searche</span>
-                  </a>
-                </li>
-              </ul>
           </div>
-      </li>
-      <li class="notifications"></li> 
-      <li class="account"></li> 
-    </ul>
+        </li>
+        <li class="notifications"></li>
+        <li class="account"></li>
+      </ul>
+    </form>
   </header>
 </body>
 </html>
