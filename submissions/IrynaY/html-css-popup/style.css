@@ -1,12 +1,95 @@
-#menu-container{
-  text-align: right;
-  padding: 10px 25px;
+body{
+  font-family: arial,sans-serif;
+  font-size: 15px;
 }
 
-#products{
-  background-color: palegreen;
-  /* width: 100px; */
-  height: 100px;
-  background-repeat: no-repeat;
-  background-image: url("https://ssl.gstatic.com/gb/images/v2_abb067380.png");
+.menu-right{
+  text-align: right;
+}
+
+.menu-right li{
+  display: inline-block;
+  margin: 7px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.menu-right a{
+  text-decoration: none;
+  color: black;
+}
+
+.hide{
+  opacity: 0;
+  margin: 0;
+}
+
+.hide:checked ~ .popup {
+  display: block;
+}
+
+.products, .notifications, .account, .hide{
+  width: 30px;
+  height: 30px;
+}
+
+.products{
+  background-image: url(./img/icons.png);
+  background-position: -132px -38px;
+}
+
+.notifications{
+  background-image: url(./img/icons.png);
+  background-position: -275px -38px;
+}
+
+.account{
+  background-image: url(https://lh3.googleusercontent.com/-egvmId9n5mM/AAAAAAAAAAI/AAAAAAAAAAA/ACevoQPKMChGX8tFI9H3ERdiAH6-rYbcLg/s32-c-mo/photo.jpg);
+  background-position: -261px -33px;
+  border-radius: 50px;
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  width: 320px;  
+  /* max-height: 80%; */
+  right: 25px;
+  top: 80px;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 1em #ccc;
+}
+
+.popup ul{
+  display: flex;
+  flex-wrap: wrap;
+  padding-inline-start: 0px;
+  padding: 10px;
+}
+
+.app-list li{
+  background-color: aquamarine;
+  color: black;
+  height: 98px;
+  width: 85px;
+  text-align: center;
+  color: black;
+  font-size: 13px;
+}
+
+.app-list-img{
+  margin: 5px 10px;
+  vertical-align: top;  
+  background-image: url(./img/services.png);
+  background-position: 0 -828px;
+  height: 64px;
+  width: 64px;
+}
+
+.more{
+  background-color: #ececec;
+  /* height: 35px; */
+  text-align: center;
+  padding: 15px;
 }
