@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Friends app</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>Friends</header>
+	<div class="row page-content">
+		<aside class="sort">
+			<div class="sort-inner">
+				<fieldset>
+					<legend>Filter by...</legend>
+					<input class="field" type="text" id="input-search" placeholder="Name">
+					<div class="row">
+						<span>Gender:</span>
+						<select class="field" id="select-gender">
+							<option selected>all</option>
+							<option>male</option>
+							<option>female</option>
+						</select>
+					</div>
+				</fieldset>
+				<fieldset id="filter-set">
+					<legend>Sort by...</legend>
+					<div class="row">
+						<label>
+							<input type="radio" name="filter" value="name-asc">
+							Name A→Z
+						</label>
+						<label>
+							<input type="radio" name="filter" value="name-desc">
+							Name Z→A
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<input type="radio" name="filter" value="age-asc">
+							Age ↑
+						</label>
+						<label>
+							<input type="radio" name="filter" value="age-desc">
+							Age ↓
+						</label>
+					</div>
+				</fieldset>
+				<button class="field btn red" id="btn-reset">🗑 Reset</button>
+			</div>
+		</aside>
+		<main>
+			<div id="content"></div>
+			<button class="field btn" id="btn-load-more">Load more</button>
+		</main>
+	</div>
+	<footer>Made for Kottans frontend course — 2019</footer>
+	<script src="js/script.js"></script>
+	<script src="js/filter.js"></script>
+</body>
+</html>

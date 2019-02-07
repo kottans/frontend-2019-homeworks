@@ -1,12 +1,12 @@
 import './Countdown.sass';
-import ApplyGameLogic from './GameLogic';
+import applyGameLogic from './GameLogic';
 
 const container = document.getElementById('container');
 
-let countdown_number = 3;
+let COUNTDOWN_NUMBER = 3;
 
-const countdown_html = () => {
-    return `<div id="countdown">${countdown_number}</div>`
+const countdownHtml = () => {
+    return `<div id="countdown">${COUNTDOWN_NUMBER}</div>`
 }
 
 const starCountdown = () => {
@@ -15,7 +15,7 @@ const starCountdown = () => {
         if (countdown.innerHTML == 1) {
             clearInterval(countdownInterval);
             countdown.remove();
-            ApplyGameLogic();
+            applyGameLogic();
         }
         else countdown.innerHTML -= 1;
     }, 1000); 
@@ -23,7 +23,7 @@ const starCountdown = () => {
 }
 
 const render = () => {
-    container.insertAdjacentHTML('beforeend', countdown_html());
+    container.insertAdjacentHTML('beforeend', countdownHtml());
     starCountdown();
 }
 
