@@ -1,0 +1,101 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible' content='ie=edge')
+    title Google-popup
+    link(rel='stylesheet' href='css/main.css')
+
+  body
+    header(class='header')
+
+      ul(class='header__menu menu')
+
+        li(class='menu__item')
+          a(class='menu__link' href='https://www.google.com/gmail/') Gmail
+
+        li(class='menu__item')
+          a(class='menu__link' href='https://www.google.com.ua/imghp?hl=ru') Images
+
+        li(class='menu__item')
+          label(for='menu__trigger')
+            div(class='icon-menu')
+          input(id='menu__trigger' type="checkbox")
+          
+          div(class='submenu')
+            input(id='submenu__check-more' type="checkbox")
+            label(for="submenu__check-more" class="submenu__label")
+              div(class='submenu__btn-more')
+                p(class='submenu__btn-text') More
+
+            div(class='submenu__wrap')
+
+              a(class='submenu__link' href="#")
+                span(class='submenu__icon sprite sprite-news')
+                h3(class='submenu__title') News
+
+              a(class='submenu__link' href="#")
+                span(class='submenu__icon sprite sprite-google')
+                h3(class='submenu__title') Caledar
+
+              a(class='submenu__link' href="#")
+                span(class='submenu__icon sprite sprite-search')
+                h3(class='submenu__title') Search
+              
+              a(class='submenu__link' href="#")
+                span(class='submenu__icon sprite sprite-youtube')
+                h3(class='submenu__title') Youtube
+
+              a(class='submenu__link' href="#")
+                span(class='submenu__icon sprite sprite-drive')
+                h3(class='submenu__title') Drive
+
+              a(class='submenu__link' href="#")
+                span(class='submenu__icon sprite sprite-gmail')
+                h3(class='submenu__title') Gmail
+
+              a(class='submenu__link' href="#")
+                span(class='submenu__icon sprite sprite-calendar')
+                h3(class='submenu__title') News
+
+              a(class='submenu__link' href="#")
+                span(class='submenu__icon sprite sprite-google-plus')
+                h3(class='submenu__title') Google+
+
+              a(class='submenu__link' href="#")
+                span(class='submenu__icon sprite sprite-business')
+                h3(class='submenu__title') Business
+
+              a(class='submenu__link' href="#")
+                span(class='submenu__icon sprite sprite-photos')
+                h3(class='submenu__title') Photos
+            
+              div(class='submenu__line')
+
+              a(class='submenu__link' href="#")
+                span(class='submenu__icon sprite sprite-adwords')
+                h3(class='submenu__title') Adwords
+
+              a(class='submenu__link' href="#")
+                span(class='submenu__icon sprite sprite-sheets')
+                h3(class='submenu__title') Sheets
+
+              a(class='submenu__link' href="#")
+                span(class='submenu__icon sprite sprite-slides')
+                h3(class='submenu__title') Slides
+              
+              a(class='submenu__link' href="#")
+                span(class='submenu__icon sprite sprite-translate')
+                h3(class='submenu__title') Translate
+              
+              a(class='submenu__link-more' href="https://about.google/intl/en/products/?tab=wh") Even more from Google
+
+        li(class='menu__item')
+          a(class='menu__link' href='#')
+            div(class='icon-circle')
+
+        li(class='menu__item')
+          a(class='menu__link' href='#')
+            div(class='icon-account')
+              p(class='icon-account__text') A
