@@ -29,16 +29,6 @@ body{
 	&_margin-both{
 		margin: 0 20px;
 	}
-	&__show-apps-btn{
-		width: 20px;
-		height: 20px;
-		background: url(../img/show-apps.png)no-repeat center;
-		position: relative;
-		&:hover{
-			background: url(../img/show-apps-act.png)no-repeat center;
-			cursor: pointer;
-		}
-	}
 	&__hidden-apps{
 		display: flex;
 		justify-content: center;
@@ -106,6 +96,9 @@ body{
 		&::after{
 			content: 'More';
 		}
+		&:focus{
+			background: rgb(136, 130, 130);
+		}
 	}
 	&__more-from-google{
 		width: 100%;
@@ -113,7 +106,6 @@ body{
 		display: none;
 		justify-content: center;
 		align-items: center;
-		font-size: 12px!important;
 		font-family: 'Open Sans', sans-serif;
 		font-weight: 400;
 		color: #444;
@@ -124,15 +116,12 @@ body{
 		-khtml-user-select: none;
 		-webkit-user-select: none;
 		user-select: none;
-		&:hover{
-			text-decoration: underline!important;
-			background: rgba(241, 240, 240, 0.753);
-		}
 		&:active{
 			color: rgb(219, 210, 210);
 		}
 		&::after{
 			content: 'Even more from Google';
+			font-size: 12px;
 		}
 	}
 	&__hidden-item{
@@ -144,6 +133,9 @@ body{
 		align-content: flex-start;
 		&:hover span{
 			color: rgb(60, 75, 161);
+		}
+		&:focus{
+			outline: none;
 		}
 	}
 	&_hidden-add-apps{
@@ -174,6 +166,10 @@ body{
 		background-size: cover;
 		border-radius: 50px;
 	}
+}
+
+.google-popup__more-from-google:hover{
+	text-decoration: underline;
 }
 
 .apps-docs-icon{
@@ -255,17 +251,29 @@ body{
 
 // Lable buttons
 
-#show-apps{
-	display: none;
+.show-apps{
+	-webkit-appearance: none;
+	width: 20px;
+	height: 20px;
+	background: url(../img/show-apps.png)no-repeat center;
+	position: relative;
+	&:hover{
+		background: url(../img/show-apps-act.png)no-repeat center;
+		cursor: pointer;
+	}
+	&:focus{
+		outline-color: rgb(60, 141, 87);
+	}
+
 }
 
-#show-apps:checked ~ .google-popup__hidden-apps{
+.show-apps:checked ~ .google-popup__hidden-apps{
 	visibility: visible;
 	transition: 1s;
 	opacity: 1;
 }
 
-#show-hidden-apps{
+.google-popup__more-btn{
 	-webkit-appearance: none;
 	margin: 0;
 	&:focus{
@@ -273,14 +281,14 @@ body{
 	}
 }
 
-#show-hidden-apps:checked ~ .google-popup__hidden-item{
+.google-popup__more-btn:checked ~ .google-popup__hidden-item{
 	display: flex;
 }
 
-#show-hidden-apps:checked{
+.google-popup__more-btn:checked{
 	display: none;
 }
-#show-hidden-apps:checked ~ .google-popup__more-from-google{
+.google-popup__more-btn:checked ~ .google-popup__more-from-google{
 	display: flex;
 }
 
