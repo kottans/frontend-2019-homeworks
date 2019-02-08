@@ -10,7 +10,7 @@ body {
   background: linear-gradient(to left, #360033, #0b8793);
 }
 :focus {
-  border: 1px solid #e27afc;
+  background-color: #fddcf3;
 }
 .container {
   width: 100%;
@@ -148,58 +148,11 @@ body {
   height: 85px;
   text-decoration: none;
   color: #360033;
+  background: linear-gradient(to left, #7e0077, #10b1c0);
 }
 .popup__item_title {
   vertical-align: middle;
   height: 25px;
-}
-.youtube-bg {
-  background: url('./img/sprite.png') -17px -2311px;
-  background-size: 110px 2839px;
-}
-.gmail-bg {
-  background: url('./img/sprite.png') 13px -2721px;
-  background-size: 100px 2839px;
-}
-.maps-bg {
-  background: url('./img/sprite.png') -13px -1235px;
-  background-size: 110px 2839px;
-}
-.translate-bg {
-  background: url('./img/sprite.png') 8px -2170px;
-  background-size: 100px 2839px;
-}
-.drive-bg {
-  background: url('./img/sprite.png') 8px -511px;
-  background-size: 100px 2839px;
-}
-.search-bg {
-  background: url('./img/sprite.png') 10px -1900px;
-  background-size: 100px 2839px;
-}
-.play-bg {
-  background: url('./img/sprite.png') 123px 2501px;
-  background-size: 115px 2839px;
-}
-.calendar-bg {
-  background: url('./img/sprite.png') 8px -165px;
-  background-size: 100px 2839px;
-}
-.googleplus-bg {
-  background: url('./img/sprite.png') 8px -403px;
-  background-size: 100px 2839px;
-}
-.news-bg {
-  background: url('./img/sprite.png') 8px -1964px;
-  background-size: 100px 2839px;
-}
-.images-bg {
-  background: url('./img/sprite.png') 8px -1446px;
-  background-size: 100px 2839px;
-}
-.contacts-bg {
-  background: url('./img/sprite.png') 106px 1251px;
-  background-size: 100px 2839px;
 }
 .more {
   display: none;
@@ -237,18 +190,6 @@ body {
   align-items: center;
   justify-content: center;
   padding: 0 15px;
-}
-.documents-bg {
-  background: url('./img/sprite.png') 8px -716px;
-  background-size: 100px 2839px;
-}
-.earth-bg {
-  background: url('./img/sprite.png') 8px -2382px;
-  background-size: 100px 2839px;
-}
-.jamboard-bg {
-  background: url('./img/sprite.png') 8px -1829px;
-  background-size: 100px 2839px;
 }
 .even-more {
   width: 100%;
