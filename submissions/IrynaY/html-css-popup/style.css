@@ -24,16 +24,24 @@ body{
   margin: 0;
 }
 
-#show-apps:checked, #show-apps:checked, #show-all {
+.show-apps:checked, 
+.show-apps:checked, 
+#show-all {
   width: 0;
   height: 0;
 }
 
-#show-apps:checked ~ .popup, #show-all:checked ~ .view-more, #show-all, #show-apps:checked ~ .reset{
+#show-all, 
+.show-apps:checked ~ .popup, 
+#show-all:checked ~ .view-more, 
+.show-apps:checked ~ .reset{
   display: block;
 }
 
-#show-all:checked, .view-more, #show-all:checked ~ label, .reset{
+.view-more, 
+#show-all:checked, 
+#show-all:checked ~ label, 
+.reset{
   display: none;
 }
 
@@ -42,7 +50,11 @@ body{
   top: 29px;
 }
 
-.products, .notifications, .account, #show-apps, .reset{
+.products, 
+.notifications, 
+.account, 
+.show-apps, 
+.reset{
   width: 30px;
   height: 30px;
 }
@@ -83,14 +95,16 @@ body{
   border: 0;
 }
 
-.popup ul{
+.popup .all-list,
+.popup .app-list{
   display: flex;
   flex-wrap: wrap;
   padding-inline-start: 0px;
   padding: 10px;
 }
 
-.app-list li, .all-list li{
+.app-list li, 
+.all-list li{
   color: black;
   height: 98px;
   width: 85px;
@@ -101,12 +115,14 @@ body{
 
 }
 
-.app-list li:hover, .all-list li:hover{
+.app-list li:hover, 
+.all-list li:hover{
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-.app-list-img, .app-list-img{
+.app-list-img, 
+.app-list-img{
   background-image: url(./img/services.png);
   margin: 5px 10px;
   vertical-align: top;
@@ -121,15 +137,19 @@ body{
   padding: 15px 0;
 }
 
-.more label, .menu-righ li:hover, .menu-right li:hover, .menu-right li input:hover{
+.more label, 
+.menu-righ li:hover, 
+.menu-right li:hover, 
+.menu-right li input:hover{
   cursor: pointer;
 }
 
-.menu-right li:hover, .menu-right li input:hover{
+.menu-right li:hover, 
+.menu-right li input:hover{
   text-decoration: underline;
 }
 
-.app-list li:nth-child(1) .app-list-img{
+.app-list li:first-child .app-list-img{
   background-position: 0 -1448px;
 }
 
@@ -169,7 +189,7 @@ body{
   background-position: 0 -695px;
 }
 
-.all-list li:nth-child(1) .app-list-img{
+.all-list li:first-child .app-list-img{
   background-position: 0 338px;
 }
 
