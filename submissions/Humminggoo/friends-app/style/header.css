@@ -1,0 +1,50 @@
+.head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0BC469;
+    height: 80px;
+}
+.head-title{
+    font-family: 'Lobster', cursive;
+    font-size: 36px;
+    color: #FFFFFF;
+    padding-left: 10px;
+}
+.head-search{
+    display: flex;
+    align-content: center;
+    background-color: #FFFFFF;
+    padding: 10px;
+    border-radius: 25px;
+    height: 48px;
+    margin-right: 10px;
+}
+.head-input-hidden{
+    border: none;
+    outline: none;
+    font-size: 20px;
+}
+.head-button{
+    width: 48px;
+    height: 48px;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.head-button.active{
+    background-color: #0c6848;
+}
+.icon{
+    color: #FFFFFF;
+    font-size: 30px;
+}
+.icon-search{
+    padding: 5px;
+    font-size: 25px;
+    color: #A5A2A9;
+}
+.icon-hidden{
+    display: none;
+}

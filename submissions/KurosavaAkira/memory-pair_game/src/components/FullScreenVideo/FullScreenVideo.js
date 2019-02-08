@@ -1,21 +1,21 @@
 import './FullScreenVideo.sass';
 
-const videoHtml = (file_name, loop) => {
+const videoHtml = (fileName, loop) => {
     return `<video autoplay muted ${loop} id="full-screen-video">
-                <source src="static/media-files/video/${file_name}" type="video/mp4">
+                <source src="static/media-files/video/${fileName}" type="video/mp4">
             </video>`
 }
 
-const renderFullScreenVideo = (file_name, loop = '') => {
+const renderFullScreenVideo = (fileName, loop = '') => {
     const container = document.getElementById('container');
-    return container.insertAdjacentHTML('beforeend', videoHtml(file_name, loop));
+    return container.insertAdjacentHTML('beforeend', videoHtml(fileName, loop));
 }
 
-const changeFullScreenVideo = (file_name, loop = '') => {
-    const full_screen_video = document.getElementById('full-screen-video');
-    full_screen_video.src = `static/media-files/video/${file_name}`;
-    full_screen_video.loop = loop == 'loop' ? true : false;
-    full_screen_video.play();
+const changeFullScreenVideo = (fileName, loop = '') => {
+    const fullScreenVideo = document.getElementById('full-screen-video');
+    fullScreenVideo.src = `static/media-files/video/${fileName}`;
+    fullScreenVideo.loop = loop == 'loop' ? true : false;
+    fullScreenVideo.play();
 }
 
 export {renderFullScreenVideo, changeFullScreenVideo};

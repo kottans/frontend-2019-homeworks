@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto&amp;subset=cyrillic"
+      rel="stylesheet"
+    />
+    <title>Gravity Falls</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1 class="main-heading" id="heading">Gravity Falls</h1>
+      <div class="container" id="parent">
+        <aside class="filter-group">
+          <div class="button-group margin-bottom-middle">
+            <div class="filter-group__sort-age">
+              <button class="main-button" id="sort-age">SORT BY AGE ↓↑</button>
+            </div>
+
+            <div class="filter-group__sort-name">
+              <button class="main-button" id="sort-name">SORT BY NAME</button>
+            </div>
+          </div>
+
+          <div class="filter-group__search-age margin-bottom-middle">
+            <input id="age-input" type="text" placeholder="" /><button
+              class="main-button"
+              id="filter-age"
+            >
+              FILTER BY AGE
+            </button>
+          </div>
+
+          <div class="filter-group__search-name margin-bottom-middle">
+            <input id="name-input" type="text" placeholder="" /><button
+              class="main-button"
+              id="filter-name"
+            >
+              FILTER BY NAME
+            </button>
+          </div>
+
+          <div class="filter-group__reset">
+            <button class="main-button" id="reset">RESET</button>
+          </div>
+        </aside>
+
+        <main class="person-list" id="main">
+          <div class="person-list__container" id="card-container"></div>
+        </main>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,352 @@
+body, * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+body{
+    background: -moz-linear-gradient(left, rgb(162,126,208) 0%, rgb(221,182,247) 100%);
+    background: -webkit-linear-gradient(left, rgb(162,126,208) 0%,rgb(221,182,247) 100%);
+    background: linear-gradient(to right, rgb(162,126,208) 0%,rgb(221,182,247) 100%);
+}
+input:focus,
+button:focus,
+label:focus{
+    outline: none;
+}
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.42);
+    padding: 10px;
+    background: -moz-linear-gradient(left, rgb(162,126,208) 0%, rgb(221,182,247) 100%);
+    background: -webkit-linear-gradient(left, rgb(162,126,208) 0%,rgb(221,182,247) 100%);
+    background: linear-gradient(to right, rgb(162,126,208) 0%,rgb(221,182,247) 100%);
+    z-index: 3;
+}
+.main{
+    padding: 100px 20px;
+}
+.filter .fa{
+    font-size: 25px;
+    padding: 5px;
+}
+.filter{
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    bottom: 0;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.42);
+    padding: 25px;
+    background: -moz-linear-gradient(left, rgb(162,126,208) 0%, rgb(221,182,247) 100%);
+    background: -webkit-linear-gradient(left, rgb(162,126,208) 0%,rgb(221,182,247) 100%);
+    background: linear-gradient(to right, rgb(162,126,208) 0%,rgb(221,182,247) 100%);
+}
+.filter > * {
+    margin-right: 25px;
+}
+.sortgender .radio-input,
+.sortage .radio-input{
+    display: none;
+}
+.sortage {
+    display: flex;
+}
+.sortgender .radio-label{
+    margin-right: 15px;
+}
+.sortgender .radio-label:last-child {
+    margin-right: 0;
+}
+.sortage .sortage-item:first-child{
+    padding-right: 20px;
+}
+.filtername{
+    padding: 5px 10px;
+    line-height: 1;
+    margin-top: 5px;
+    border: none;
+    width: 200px;
+}
+.drop{
+    padding: 10px 5px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 160px;
+    margin-top: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #8a67c1;
+    transition: 0.3s;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.drop:hover{
+    background: rgba(73, 27, 105, 0.46);
+    color: #fff;
+}
+.filter[data-gender="male"] + .main .friends .item[data-gender="female"]{
+    display: none;
+}
+.filter[data-gender="female"] + .main .friends .item[data-gender="male"]{
+    display: none;
+}
+.radio-label{
+    cursor: pointer;
+    transition: 0.3s;
+}
+.radio-label:hover{
+    color: #fff;
+}
+.radio-input:checked + .radio-label .fa,
+.radio-input:checked + .radio-label .radio-title{
+    color: #fff;
+}
+.menu-button{
+    display: none;
+}
+.friends {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.item {
+    width: 550px;
+    display: flex;
+    flex-wrap: wrap;
+    background: #fff;
+    margin: 0 15px 30px;
+    padding: 25px;
+    text-align: center;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 50px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 50px -10px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 50px -10px rgba(0,0,0,0.75);
+    transform: scale(0.95);
+    cursor: pointer;
+    transition: 0.3s;
+}
+.item:hover{
+    transform: scale(1.05);
+}
+.follow{
+    background: #8b68c1;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    width: 70%;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-weight: 400;
+}
+.info {
+    width: calc(100% - 210px);
+    text-align: left;
+}
+.image{
+    display: inline-block;
+    padding: 25px;
+    background: url('circle.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 30px;
+    width: 180px;
+}
+.image .image-item{
+    width: 128px;
+    border-radius: 50%;
+}
+.title{
+    font-weight: 400;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+.gender {
+    padding: 5px 0 15px;
+    font-size: 15px;
+}
+.description{
+    font-size: 13px;
+}
+.social {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 0;
+}
+.social .fa {
+    display: block;
+    padding-bottom: 5px;
+    text-align: center;
+}
+.result {
+    text-align: center;
+    font-size: 25px;
+    position: fixed;
+    top: 50%;
+    width: 100%;
+    left: 0;
+    transform: translateY(-50%);
+    display: none;
+}
+.result.show{
+    display: block;
+}
+@media screen and (max-width: 1250px){
+    .item {
+        width: 450px;
+    }
+}
+@media screen and (max-width: 1020px){
+    .item {
+        width: 565px;
+    }
+    .filter > * {
+        margin-right: 0;
+    }
+    .drop {
+        position: relative;
+        right: 0;
+        top: 0;
+        transform: translateY(0%);
+    }
+    .filter {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+@media screen and (max-width: 600px){
+    .item {
+        display: block;
+        width: 300px;
+        margin: 0 0 20px;
+    }
+    .image {
+        margin-right: 0;
+    }
+    .info {
+        width: 100%;
+        text-align: center;
+    }
+    .description {
+        font-size: 14px;
+    }
+    .filter{
+        padding: 10px;
+        display: none;
+    }
+    .open + .filter{
+        display: block;
+    }
+    .sortage {
+        justify-content: center;
+    }
+    .header, .filter, .result{
+        position: relative;
+        text-align: center;
+    }
+    .filtername {
+        padding: 10px;
+        width: 300px;
+    }
+    .filter > div {
+        margin-bottom: 20px;
+    }
+    .drop {
+        margin-top: 0;
+    }
+    .main {
+        padding: 20px;
+    }
+    .menu-button{
+        display: block;
+    }
+    .menu-button {
+        position: absolute;
+        top: 16px;
+        left: 20px;
+        z-index: 4;
+        margin: 0;
+        width: 30px;
+        height: 45px;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out;
+        transition: .5s ease-in-out;
+        cursor: pointer;
+    }
+
+    .menu-button span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background: #000000;
+        opacity: 1;
+        left: 0;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .25s ease-in-out;
+        -moz-transition: .25s ease-in-out;
+        -o-transition: .25s ease-in-out;
+        transition: .25s ease-in-out;
+    }
+    .menu-button span:nth-child(1) {
+        top: 0px;
+        -webkit-transform-origin: left center;
+        -moz-transform-origin: left center;
+        -o-transform-origin: left center;
+        transform-origin: left center;
+    }
+    .menu-button span:nth-child(2) {
+        top: 10px;
+        -webkit-transform-origin: left center;
+        -moz-transform-origin: left center;
+        -o-transform-origin: left center;
+        transform-origin: left center;
+    }
+    .menu-button span:nth-child(3) {
+        top: 20px;
+        -webkit-transform-origin: left center;
+        -moz-transform-origin: left center;
+        -o-transform-origin: left center;
+        transform-origin: left center;
+    }
+    .menu-button.open span:nth-child(1) {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+        top: -1px;
+        left: 4px;
+    }
+    .menu-button.open span:nth-child(2) {
+        width: 0%;
+        opacity: 0;
+    }
+    .menu-button.open span:nth-child(3) {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        top: 21px;
+        left: 4px;
+    }
+}

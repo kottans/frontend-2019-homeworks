@@ -2,7 +2,7 @@ import './BlackScreenTransition.sass';
 
 const container = document.getElementById('container');
 
-const BlackScreenTransition = {
+const blackScreenTransition = {
     blackScreenIn : '<div id="black-screen-in"></div>',
     blackScreenOut : '<div id="black-screen-out"></div>',
     toBlack : function () {
@@ -14,13 +14,13 @@ const BlackScreenTransition = {
         this.removeFromBlack();
     },
     removeToBlack : function () {
-        const black_screen = document.getElementById('black-screen-in');
-        black_screen.addEventListener('animationend', () => { black_screen.remove() });
+        const blackScreen = document.getElementById('black-screen-in');
+        blackScreen.addEventListener('animationend', () => { blackScreen.remove() });
     },
     removeFromBlack : function () {
-        const black_screen = document.getElementById('black-screen-out');
-        black_screen.addEventListener('animationend', () => { black_screen.remove() });
+        const blackScreen = document.getElementById('black-screen-out');
+        blackScreen.addEventListener('animationend', () => { blackScreen.remove() });
     }
 }
 
-export default BlackScreenTransition;
+export default blackScreenTransition;

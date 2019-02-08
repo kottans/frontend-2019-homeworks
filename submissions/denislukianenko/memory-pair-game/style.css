@@ -1,0 +1,168 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.scroll-blocked {
+  height: 100%;
+  overflow: hidden;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 40px;
+}
+
+#field {
+  width: 100%;
+  max-width: 650px;
+  display: grid;
+  grid-gap: 1vw;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+}
+#field > .card {
+  animation: fadeIn both 600ms 0ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+#field > .card:nth-of-type(2) {
+  animation-delay: 30ms;
+}
+#field > .card:nth-of-type(3) {
+  animation-delay: 60ms;
+}
+#field > .card:nth-of-type(4) {
+  animation-delay: 90ms;
+}
+#field > .card:nth-of-type(5) {
+  animation-delay: 120ms;
+}
+#field > .card:nth-of-type(6) {
+  animation-delay: 150ms;
+}
+#field > .card:nth-of-type(7) {
+  animation-delay: 180ms;
+}
+#field > .card:nth-of-type(8) {
+  animation-delay: 210ms;
+}
+#field > .card:nth-of-type(9) {
+  animation-delay: 240ms;
+}
+#field > .card:nth-of-type(10) {
+  animation-delay: 270ms;
+}
+#field > .card:nth-of-type(11) {
+  animation-delay: 300ms;
+}
+#field > .card:nth-of-type(12) {
+  animation-delay: 330ms;
+}
+
+.card {
+  height: 27vw;
+  max-height: 200px;
+  perspective: 500px;
+}
+
+.card.flipped .both-sides {
+  transform: rotateY(180deg);
+}
+
+.both-sides {
+  height: 100%;
+  width: 100%;
+  transition: 0.4s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.back,
+.front {
+  height: 100%;
+  width: 100%;
+  background-color: hsl(197, 82%, 93%);
+  border-radius: 3vmin;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 2vmin lightblue;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+  background-image: url(img/card-bg.svg);
+  background-position: 50%;
+  background-size: 50px;
+  background-repeat: repeat;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.back > img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  max-width: 70px;
+  max-height: 70px;
+}
+
+.modal {
+  margin-top: -28px;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  background-color: hsla(0, 0%, 100%, 0.8);
+  animation: fadeIn both 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.modal-isActive {
+  display: flex;
+}
+
+.modal > button {
+  background-color: lightblue;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 5px 10px;
+  transition: 150ms;
+}
+
+.modal > button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -10px hsl(195, 33%, 50%);
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

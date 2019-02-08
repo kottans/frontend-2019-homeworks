@@ -1,6 +1,6 @@
-const Settings = {
+const settings = {
     sound : false,
     fullscreen : false
 }
 
-export default Settings;
+export default settings;
