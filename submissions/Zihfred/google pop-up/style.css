@@ -14,7 +14,9 @@
 }
 .menu_item{
     position: relative;
-
+}
+.menu_item:hover{
+    cursor: pointer;
 }
 .menu_item:not(:last-child){
 
@@ -42,8 +44,7 @@
     justify-content: center;
     align-items: center;
 }
-.pop-up {
-
+.pop_up {
     display: none;
     position: absolute;
     width: 332px;;
@@ -55,15 +56,14 @@
     -moz-box-shadow: 0px 0px 38px -13px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 38px -13px rgba(0,0,0,0.75);
 }
-.pop-up-content{
+.pop_up-content{
     overflow-y: scroll;
     height: 100%;
     padding: 12px;
     top: -18px;
     position: relative;
 }
-.pop-up:before {
-
+.pop_up:before {
     background-color: white;
     display: inline-block;
     position: relative;
@@ -74,10 +74,9 @@
     width: 10px;
     height: 10px;
     transform: rotate(45deg);
-    border-left: 1px solid rgba(0,0,0,.2);
-    border-top: 1px solid rgba(0,0,0,.2);
+    border-left: 1px solid rgba(0,0,0,0.2);
+    border-top: 1px solid rgba(0,0,0,0.2);
 }
-
 a {
     color: inherit;
     text-decoration: none;
@@ -86,25 +85,23 @@ a {
     display: none;
     opacity: 0;
 }
-
 .wrapper:active .content {
     display: block;
 }
-
 .content:hover {
     display: block;
 }
-.pop-up:target{
+.pop_up:target{
     display: block;
 }
-.pop-up-content{
+.pop_up-content{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     padding: 13px;
     height: 456px;
 }
-.pop-up-item{
+.pop_up-item{
     padding: 15px 0px;
     cursor: pointer;
     width: 33%;
@@ -112,49 +109,61 @@ a {
     display: inline-block;
     border: 1px solid transparent;
 }
-.pop-up-item:hover{
+.pop_up-item:hover{
     border: 1px solid lightgrey;
 }
-.pop-up-item__img{
-    width: 40px;
-
+.pop_up-item:focus{
+    border: 1px solid lightskyblue;
 }
-input[type='checkbox']{
+.pop_up-item__img{
+    width: 40px;
+}
+.pop_up-more{
+    border: 1px solid transparent;
+}
+.pop_up-more:hover{
+    cursor: pointer;
+    border: 1px solid blue;
+}
+.pop_up-more:focus{
+    border: 1px solid lightskyblue;
+}
+#more-checkbox,.popup_checkbox{
     display: none;
     opacity: 0;
 }
-.pop-up-more{
+.pop_up-more{
     background-color: lightgrey;
     text-align: center;
     width: 100%;
     padding: 7px 16px;
 }
-:not(:checked)
-input:checked ~ .pop-up{
+input:checked ~ .pop_up{
     display: block;
 }
-
-
-
 input:checked ~ .close{
     display: block;
 }
-
-input:checked ~ .pop-up-more{
+input:checked ~ .pop_up-more{
     opacity: 0;
     display: none;
 }
-input:checked ~ .fullsize{
+input:checked ~ .fullsizepop_up{
     display: block;
     opacity: 1;
 }
-
-
-.close{display: none}
-
-.fullsizepop-up{
+.close{
+    display: none
+}
+.fullsizepop_up{
     display: none;
     text-align: center;
     width: 100%;
     text-decoration: underline;
+}
+.bell:hover, .username:hover{
+    border: 2px solid lightskyblue;
+}
+.bell:focus, .username:focus{
+    border: 2px solid lightskyblue;
 }
