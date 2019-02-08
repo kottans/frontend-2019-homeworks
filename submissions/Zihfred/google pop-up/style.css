@@ -128,7 +128,7 @@ a {
 .pop_up-more:focus{
     border: 1px solid lightskyblue;
 }
-#more-checkbox,.popup_checkbox{
+.more-checkbox,.popup_checkbox{
     display: none;
     opacity: 0;
 }
