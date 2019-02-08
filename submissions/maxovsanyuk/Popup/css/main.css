@@ -82,6 +82,7 @@ body {
         -ms-flex-line-pack: start;
             align-content: flex-start;
     margin-top: 40px;
+    padding: 4px;
     overflow: auto; }
   .google-popup__more-btn {
     width: 100%;
