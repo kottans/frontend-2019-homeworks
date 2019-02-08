@@ -69,6 +69,7 @@ body {
       right: 35%; }
   .google-popup__all-items-container {
     width: 80%;
+    padding: 4px;
     height: -webkit-calc(100% - 80px);
     height: calc(100% - 80px);
     display: -webkit-box;
@@ -81,9 +82,12 @@ body {
     -webkit-align-content: flex-start;
         -ms-flex-line-pack: start;
             align-content: flex-start;
-    margin-top: 40px;
-    padding: 4px;
-    overflow: auto; }
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-top: 20px;
+    overflow: scroll; }
   .google-popup__more-btn {
     width: 100%;
     height: 40px;
@@ -149,7 +153,8 @@ body {
       font-size: 12px; }
   .google-popup__hidden-item {
     width: 33.3%;
-    height: 25%;
+    height: -webkit-calc(25% - 20px);
+    height: calc(25% - 20px);
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -163,11 +168,13 @@ body {
             justify-content: center;
     -webkit-align-content: flex-start;
         -ms-flex-line-pack: start;
-            align-content: flex-start; }
+            align-content: flex-start;
+    margin-top: 10px;
+    padding-top: 20px; }
     .google-popup__hidden-item:hover span {
       color: #3c4ba1; }
     .google-popup__hidden-item:focus {
-      outline: none; }
+      color: #3c4ba1; }
   .google-popup_hidden-add-apps {
     display: none; }
   .google-popup__apps-icon {
