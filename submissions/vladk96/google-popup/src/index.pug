@@ -20,54 +20,54 @@ html(lang='en')
 
         li(class='menu__item')
           label(for='menu__trigger')
-            div(class='icon-menu')
-          input(id='menu__trigger' type="checkbox")
+            div(class='icon-menu' tabindex='1')
+          input(id='menu__trigger' class='menu__trigger' type="checkbox")
           
           div(class='submenu')
-            input(id='submenu__check-more' type="checkbox")
+            input(id='submenu__check-more' class='submenu__check-more' type="checkbox")
             label(for="submenu__check-more" class="submenu__label")
-              div(class='submenu__btn-more')
+              div(class='submenu__btn-more' tabindex='13')
                 p(class='submenu__btn-text') More
 
             div(class='submenu__wrap')
 
-              a(class='submenu__link' href="#")
+              a(class='submenu__link' href="#" tabindex='4')
                 span(class='submenu__icon sprite sprite-news')
                 h3(class='submenu__title') News
 
-              a(class='submenu__link' href="#")
+              a(class='submenu__link' href="#" tabindex='4')
                 span(class='submenu__icon sprite sprite-google')
                 h3(class='submenu__title') Caledar
 
-              a(class='submenu__link' href="#")
+              a(class='submenu__link' href="#" tabindex='5')
                 span(class='submenu__icon sprite sprite-search')
                 h3(class='submenu__title') Search
               
-              a(class='submenu__link' href="#")
+              a(class='submenu__link' href="#" tabindex='6')
                 span(class='submenu__icon sprite sprite-youtube')
                 h3(class='submenu__title') Youtube
 
-              a(class='submenu__link' href="#")
+              a(class='submenu__link' href="#" tabindex='7')
                 span(class='submenu__icon sprite sprite-drive')
                 h3(class='submenu__title') Drive
 
-              a(class='submenu__link' href="#")
+              a(class='submenu__link' href="#" tabindex='8')
                 span(class='submenu__icon sprite sprite-gmail')
                 h3(class='submenu__title') Gmail
 
-              a(class='submenu__link' href="#")
+              a(class='submenu__link' href="#" tabindex='9')
                 span(class='submenu__icon sprite sprite-calendar')
                 h3(class='submenu__title') News
 
-              a(class='submenu__link' href="#")
+              a(class='submenu__link' href="#" tabindex='10')
                 span(class='submenu__icon sprite sprite-google-plus')
                 h3(class='submenu__title') Google+
 
-              a(class='submenu__link' href="#")
+              a(class='submenu__link' href="#" tabindex='11')
                 span(class='submenu__icon sprite sprite-business')
                 h3(class='submenu__title') Business
 
-              a(class='submenu__link' href="#")
+              a(class='submenu__link' href="#" tabindex='12')
                 span(class='submenu__icon sprite sprite-photos')
                 h3(class='submenu__title') Photos
             
@@ -89,13 +89,13 @@ html(lang='en')
                 span(class='submenu__icon sprite sprite-translate')
                 h3(class='submenu__title') Translate
               
-              a(class='submenu__link-more' href="https://about.google/intl/en/products/?tab=wh") Even more from Google
+                a(class='submenu__link-more' href="https://about.google/intl/en/products/?tab=wh") Even more from Google
 
         li(class='menu__item')
           a(class='menu__link' href='#')
-            div(class='icon-circle')
+            div(class='icon-circle' tabindex='2')
 
         li(class='menu__item')
           a(class='menu__link' href='#')
-            div(class='icon-account')
+            div(class='icon-account' tabindex='3')
               p(class='icon-account__text') A
