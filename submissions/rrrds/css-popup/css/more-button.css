@@ -1,0 +1,144 @@
+.toggler {
+  position: relative;
+}
+
+.toggler__label {
+  cursor: pointer;
+}
+
+.toggler__checkbox {
+  pointer-events: none;
+}
+
+.toggler__content {
+  visibility: hidden;
+  display: none;
+}
+
+.toggler__checkbox:checked ~ .toggler__content {
+  visibility: visible;
+  display: block;
+}
+
+.toggler__content.toggler__content_popup {
+  border: 1px solid #ccc;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  margin: 5px;
+  position: absolute;
+  right: -100px;
+  top: 30px;
+  overflow: auto;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.toggler__arrow {
+  position: absolute;
+  right: 1px;
+  left: 1px;
+  top: 36px;
+  z-index: 1;
+  visibility: hidden;
+  display: none;
+}
+
+.toggler__checkbox:checked ~ .toggler__arrow {
+  visibility: visible;
+  display: block;
+}
+
+.toggler__arrow:after, .toggler__arrow:before {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.toggler__arrow:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #fff;
+  border-width: 9px;
+  margin-left: -9px;
+}
+
+.toggler__arrow:before {
+  border-color: rgba(204, 204, 204, 0);
+  border-bottom-color: #ccc;
+  border-width: 10px;
+  margin-left: -10px;
+}
+
+.icons-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  padding: 25px;
+}
+
+.icons-list__icon {
+  display: inline-block;
+  width: 88px;
+  height: 100px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+}
+
+.icons-list__icon:hover {
+  border-color: #e5e5e5;
+}
+
+.icon {
+  text-decoration: none;
+  color: #000000;
+  text-align: center;
+  margin: 7px 1px;
+  display: inline-block;
+  width: 100%;
+  padding: 0;
+}
+
+.icon__image {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(204, 204, 204, 0.25);
+  display: inline-block;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.icon__text {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.toggler_reordered {
+  display: flex;
+  flex-direction: column;
+}
+
+.toggler__content_first {
+  order: -1;
+}
+
+.toggler__label_button {
+  background: #f5f5f5;
+  padding: 10px;
+  text-align: center;
+}
+
+.rule {
+  border-top: 1px solid #ebebeb;
+  display: inline-block;
+  margin: 0 28px;
+}
