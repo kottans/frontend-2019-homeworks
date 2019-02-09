@@ -1,0 +1,96 @@
+html,body{
+  padding:0;
+  margin:0;
+  height: 100%;
+}
+.container {
+  opacity: 1;
+  transition: 1.8s opacity;
+}
+
+.container.fade {
+  opacity: 0;
+  transition: 1.8s opacity;
+    
+}
+
+ /* region background */
+ #bg {
+  width: 100%;
+  height: 100%;
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  
+  background: url("../img/back_1.jpg") no-repeat center center;
+  background-size: cover;
+
+}
+.container{
+  height:100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+/* endregion background */
+
+.grid {
+    margin: auto auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  
+  .card {
+    margin: 5px;
+    position: relative;
+    transition: 0.6s;
+	  transform-style: preserve-3d;
+    border: none !important;
+  }
+  .card,
+  .back,
+  .front {
+    height: 140px;
+    width: 100px;
+  }
+  
+  .back,
+  .front {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+
+  .selected {
+      transform: rotateY(180deg);
+  }
+
+  .back {
+    transform: rotateY(180deg);
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .front {
+    background: #c4ce7270;
+  }
+
+  .win{
+    display:none;
+
+  }
+
+  .active-win{
+    display: block ;
+  }
+  
+  @media screen and (min-width: 1200px){
+    .container {
+        max-width: 480px !important;
+    }
+  }
+  

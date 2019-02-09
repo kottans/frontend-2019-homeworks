@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>FRIENDS APP</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1><a href="index.html">Friends App</a></h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="#">Sign up</a>
+          </li>
+          <li>
+            <a href="#">Log in</a>
+          </li>
+          <li>
+            <a href="#">Log out</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="app-body">
+        <div class="app-sidebar">
+          <form id="form-filter">
+            <div id="user-name" class="search-box">
+              <span>Sort by name</span>
+              <label for="up-name">
+                <input id="up-name" value="up-name" name="group-name" class="input-name-up" type="radio" />
+                A-Z
+              </label>
+              <label for="down-name">
+                <input  id="down-name" value="down-name" name="group-name" class="input-name-d" type="radio"/>
+                Z-A
+              </label>
+            </div>
+            <div id="user-age" class="search-box">
+              <span>Sort by age</span>
+              <label for="up-age">
+                <input id="up-age" name="group-age" class="input-age-up" type="radio" value="up-age" />
+                1-9
+              </label>
+              <label for="down-age">
+                  <input id="down-age" name="group-age" class="input-age-d" type="radio" value="down-age"/>
+                  9-1
+              </label>
+            </div>
+            <div id="user-gender" class="search-box">
+              <span>Filter by gender</span>
+              <label for="male">
+                  <input id="male" name="group-gender" class="input-gender input-male" type="radio" value="male" />
+                  male
+              </label>
+              <label for="female">
+                  <input id="female" name="group-gender" class="input-gender input-female" type="radio" value="female" />
+                  female
+              </label>
+            </div>
+            <div class="search-name search-box">
+              <input class="search-by-name search-input" type="text" placeholder="Search by name..."></input>
+              <button type="button" class="search-name-btn search-btn">search</button>
+            </div>
+            <div class="search-age search-box">
+              <input class="search-by-age search-input" type="number" inputmode="numeric" placeholder="Search by age..."></input>
+              <button type="button" class="search-age-btn search-btn">search</button>
+            </div>
+            <div class="search-box">
+              <button type="button" class="btn-reset search-btn">Reset</button>
+            </div>
+          </form>
+
+        </div>
+        <div class="user-list">
+        </div>
+    </main>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>

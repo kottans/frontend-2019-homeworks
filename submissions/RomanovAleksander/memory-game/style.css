@@ -1,0 +1,95 @@
+h1 {
+    margin: 5px auto;
+    text-align: center;
+}
+
+.game {
+    max-width: 790px;
+    max-height: 1000px;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card {
+    position: relative;
+    transition: all .4s linear;
+    transform-style: preserve-3d;
+    margin: 5px;
+    height: 150px;
+    width: 150px;
+}
+
+.back, .front {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    cursor: pointer;
+}
+
+.front {
+    z-index: 2;
+    background: url('images/question.png') no-repeat center center / contain;
+    border-radius: 10px;
+}
+
+.back {
+    transform: rotateY(180deg);
+    background-color: inherit;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.selected {
+    transform: rotateY(180deg);
+}
+
+.pair .front {
+    display: none;
+}
+
+@media screen and (max-width: 661px) {
+    .card {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .card {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+
+@media screen and (max-width: 460px) {
+    .card {
+        width: 80px;
+        height: 80px;
+        cursor: none;
+    }
+
+    .back, .front {
+        cursor: none;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .card {
+        width: 60px;
+        height: 60px;
+        cursor: none;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .card {
+        width: 50px;
+        height: 50px;
+        cursor: none;
+    }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="apple-touch-icon" href="icon.png" />
+
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/app.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Righteous|Roboto" rel="stylesheet" />
+
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.6.3/js/all.js"
+      integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <h2 class="header__logo">Friends App</h2>
+      <input type="text" class="header__search filters__input" placeholder="Say my name" />
+    </header>
+
+    <main class="main">
+      <div class="filters">
+        <div class="filters__group">
+          <label class="filters__label">Age</label>
+          <div class="group__inline">
+            <input
+              type="number"
+              name="age_from"
+              class="filters__age-from filters__input"
+              placeholder="From"
+              min="1"
+            />
+            <input
+              type="number"
+              name="age_to"
+              class="filters__age-to filters__input"
+              placeholder="To"
+              min="1"
+            />
+          </div>
+        </div>
+        <div class="filters__group">
+          <label class="filters__label">Gender</label>
+          <select name="gender" class="filters__gender filters__input">
+            <option value="">All</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+          </select>
+        </div>
+
+        <div class="filters__group">
+          <button class="filters__button filters__button--warning">Reset</button>
+        </div>
+      </div>
+
+      <div class="users-container">
+        <div class="users-container__head">
+          <div class="users-container__total">Total: 0</div>
+          <div class="group__inline">
+            <label class="filters__label">Sort by</label>
+            <select name="sort" class="filters__sort filters__input filters__input--shrink">
+              <option value="name_asc">Name (ASC)</option>
+              <option value="name_desc">Name (DESC)</option>
+              <option value="age_asc">Age (ASC)</option>
+              <option value="age_desc">Age (Desc)</option>
+            </select>
+          </div>
+        </div>
+        <div class="users-container__body"></div>
+      </div>
+    </main>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

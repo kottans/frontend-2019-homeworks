@@ -1,0 +1,80 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-size: 15px;
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+  line-height: 1.5;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.main-content {
+  flex: 1 1 auto;
+  padding: 10px 30px;
+}
+
+.menu {
+  flex: 0 0 300px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-right: 1px solid #ccc;
+  font-size: 18px;
+  background-color: #fafafa;
+  transition: margin 0.3s ease-in;
+}
+
+.menu li {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 30px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.menu li:hover,
+.current {
+  background-color: #00b2b2;
+  color: #fff;
+}
+
+.hamburger {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 10px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/64px-Hamburger_icon.svg.png') no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 736px) {
+  .container {
+    overflow-x: hidden;
+  }
+
+  .menu {
+    margin-left: -150px;
+    flex-basis: 150px;
+    font-size: 16px;
+  }
+
+  .menu-opened {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 737px) {
+  .hamburger {
+    display: none;
+  }
+}

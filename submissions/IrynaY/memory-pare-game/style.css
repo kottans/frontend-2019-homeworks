@@ -1,0 +1,87 @@
+#field{
+	width: 680px;
+	height: 500px;
+	margin: 35px auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.flip {
+	transform: rotateY(180deg);
+}
+
+.card, .flipper, .back {
+	width: 160px;
+	height: 160px;
+}
+
+.flipper {
+	transition: 0.2s;
+	transform-style: preserve-3d;
+	position: relative;
+	margin: 3px;
+	border: 1px solid green;
+	border-radius: 10px;
+}
+
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.front {
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+
+.back {
+	transform: rotateY(180deg);
+}
+
+.hide{
+	opacity: .1;
+}
+
+#restart{
+	width: 200px;
+	height: 60px;
+	background-color: greenyellow;
+	font-weight: bold;
+	position: relative;
+	font-size: 20px;
+}
+
+.ho{
+	margin: 200px auto;
+	text-align: center
+}
+
+p{
+	font-size: 30px;
+	color: red;
+	font-weight: bold;
+}
+
+@media screen and (max-width: 799px) {
+	.card, .flipper, .back {
+		width: 120px;
+		height: 120px;
+	}
+	#field{
+		width: 520px;
+		height: auto;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.card, .flipper,.back {
+		width: 80px;
+		height: 80px;
+	}
+	#field{
+		width: 270px;
+		height: auto;
+	}
+}

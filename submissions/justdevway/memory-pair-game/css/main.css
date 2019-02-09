@@ -1,0 +1,324 @@
+:root {
+    --count: 1;
+}
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+    font-family: sans-serif;
+    font-weight: 400;
+}
+
+*, *:after, *:before {
+    box-sizing: inherit;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.is_disabled {
+    opacity: 0.7;
+    pointer-events: none;
+    transition-property: opacity;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(52,247,65,1) 0%, rgba(52,247,65,0.55) 45%, rgba(70,235,89,0.46) 54%, rgba(70,235,89,0) 100%);
+}
+
+.container {
+    width: 100%;
+    max-width: 1366px;
+    padding: 10px 15px;
+    margin: 0 auto;
+}
+
+.game {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.game__header__start {
+    display: block;
+}
+
+.game__header__start.is_active {
+    display: none;
+}
+
+.game__header__score {
+    display: none;
+}
+
+.game__header__score.is_active {
+    display: block;
+}
+
+.game__controllers {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.game__controller {
+    margin: 0 20px;
+}
+
+.game__controller:focus {
+    outline: none;
+    tab-index: 0;
+}
+
+.game__controller__text {
+    margin: 0;
+}
+
+.game__check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    margin: 0 auto;
+    border: 1px solid #333;
+    border-radius: 50%;
+}
+
+.game__check__round {
+    width: 5px;
+    height: 5px;
+    opacity: 0;
+    border-radius: 50%;
+    background: #000;
+    transition-property: opacity;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+}
+
+.game__controller.is_active .game__check > .game__check__round,
+.game__controller:focus .game__check > .game__check__round,
+.game__input:checked + .game__check > .game__check__round {
+    opacity: 1;
+}
+
+.game__time {
+    height: 14px;
+}
+
+.game__input {
+    display: none;
+}
+
+.game__buttons {
+    padding: 10px 0;
+}
+
+.game__button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    outline: none;
+    font-size: 14px;
+    transition-property: background, color;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+    cursor: pointer;
+}
+
+.game__button:focus,
+.game__button:hover {
+    background: #000;
+    color: #fff;
+}
+
+.game__lvl {
+    margin: 10px 0;
+}
+
+.game__content {
+    display: inline-block;
+}
+
+.game__content.is_disabled {
+    display: none;
+}
+
+.game__cards {
+    display: grid;
+    grid-template-columns: repeat(var(--count), 1fr);
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.game__card {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    padding: 0;
+    margin: 1px;
+}
+
+.card {
+    opacity: 1;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: sans-serif;
+    text-align: center;
+    cursor: pointer;
+    transition-property: opacity, box-shadow;
+    transition-timing-function: linear;
+    transition-duration: 0.2s, 0.175s;
+    transition-delay: 0.3s, 0s;
+}
+
+.card:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+.card:focus.is_active {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+}
+
+.card.is_hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card,
+.card__container {
+    width: 100%;
+    height: 100%;
+}
+
+.card__container {
+    perspective: 1000px;
+}
+
+.card.is_active .card__flipper  {
+    transform: rotateY(180deg);
+}
+
+.card__flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition-property: transform;
+    transition-timing-function: linear;
+    transition-duration: 0.3s;
+    transform-style: preserve-3d;
+}
+
+.card__front,
+.card__back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background: rgba(100, 200, 200, 0.4);
+    transition-property: border;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+}
+
+.card__front {
+    z-index: 2;
+    transform: rotateY(0deg);
+    background: rgba(100, 100, 100, 0.5);
+}
+
+.card__back {
+    transform: rotateY(180deg);
+    background: rgba(255, 255, 255, 1);
+}
+
+.card__img {
+    display: inline-block;
+    width: 100%;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -5;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    transition-property: opacity;
+    transition-timing-function: linear;
+    transition-duration: 0.175s;
+}
+
+.modal.is_active {
+    opacity: 1;
+    z-index: 5;
+}
+
+.modal__content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    min-height: 100px;
+    padding: 10px;
+    max-width: 100%;
+    border: 1px solid #000;
+    border-radius: 15px;
+    background: #fff;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.modal__text,
+.modal__seconds {
+    flex: 1 0 100%;
+    text-align: center;
+}
+
+@media only screen and (max-width: 480px) {
+    .game__button,
+    .game__button:focus,
+    .game__button:hover {
+        background: #fff;
+        color: inherit;
+    }
+
+    .game__card {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card:focus {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+    }
+}

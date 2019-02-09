@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#d9d9de">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="DOM with Kottans"/>
+    <meta property="og:title" content="Learn DOM"/>
+    <meta property="og:description" content="Learn, learn, Learn"/>
+    <meta property="og:image" content="img/happy.jpg"/>
+    <link rel="shortcut icon" href="img/icon.ico" type="image/x-icon"/>
+    <title>Side-menu</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <div class="menu__content">
+                <div class="toggle">
+                    <div class="toggle__content">
+                        <div class="toggle__burger__wrap">
+                            <div class="toggle__burger js-toggle__burger">
+                                <span class="toggle__line toggle__line--top"></span>
+                                <span class="toggle__line toggle__line--middle"></span>
+                                <span class="toggle__line toggle__line--bottom"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <nav class="nav js-nav">
+                    <ul class="list js-list">
+                        <li class="item js-item js-item--first">
+                            <a href="#" class="item__link  js-item__link isActive" data-link="1">популярные</a>
+                        </li>
+                    </ul>
+                </nav>
+                <main class="results js-results"></main>
+            </div>
+        </div>
+    </div>
+    <div class="modal js-modal">
+        <div class="modal__text js-modal__text">
+            <p>Извините, но это демо-версия для Коттанов :)</p>
+        </div>
+        <div class="modal__preloader js-modal__preloader">
+            Loading
+            <span>.</span>
+            <span>.</span>
+            <span>.</span>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

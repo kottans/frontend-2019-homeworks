@@ -1,0 +1,122 @@
+.header{
+  background-color: @light-grey;
+  .container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px 0;
+    @media(max-width: @md){
+      flex-direction: column;
+    }
+  }
+  &__logo{
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 200px;
+    height: 100px;
+    background-size: cover;
+    margin-right: 150px;
+    @media(max-width: @lg){
+      margin-right: auto;
+    }
+    @media(max-width: @md){
+      margin: 0 auto;
+    }
+  }
+}
+
+.form{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  @media(max-width: @sm){
+    flex-wrap: wrap;
+  }
+  &__fieldset{
+    text-align: center;
+    margin-right: 30px;
+    border: 1px solid #efabab;
+    padding: 5px;
+    @media(max-width: @sm){
+      margin: 0 auto;
+    }
+  }
+  &__title{
+    font-size: @medium;
+    color: #ec4500;
+    padding-bottom: 14px;
+    font-family: @helvetica;
+  }
+  &__text{
+    background: transparent;
+    border-style: none;
+    border-bottom: 1px solid;
+    outline: none;
+    font-size: 19px;
+    @media(max-width: @sm){
+      margin-top: 35px;
+    }
+  }
+  &__input{
+    display: none;
+    &_male:checked + label{
+      cursor: default;
+      background-image: url(../img/maleC.png);
+    }
+    &_female:checked + label{
+      cursor: default;
+      background-image: url(../img/femaleC.png);
+    }
+    &_az:checked + label{
+      cursor: default;
+      background-image: url(../img/azC.png);
+    }
+    &_za:checked + label{
+      cursor: default;
+      background-image: url(../img/zaC.png);
+    }
+    &_ageUp:checked + label{
+      cursor: default;
+      background-image: url(../img/ageUpC.png);
+    }
+    &_ageDown:checked + label{
+      cursor: default;
+      background-image: url(../img/ageDownC.png);
+    }
+  }
+  &__label{
+    transition: 0.2s;
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    &_male{
+      cursor: pointer;
+      background-image: url(../img/maleNC.png);
+    }
+    &_female{
+      cursor: pointer;
+      background-image: url(../img/femaleNC.png);
+    }
+    &_az{
+      cursor: pointer;
+      background-image: url(../img/azNC.png);
+    }
+    &_za{
+      cursor: pointer;
+      background-image: url(../img/zaNC.png);
+    }
+    &_ageUp{
+      cursor: pointer;
+      background-image: url(../img/ageUpNC.png);
+    }
+    &_ageDown{
+      cursor: pointer;
+      background-image: url(../img/ageDownNC.png);
+    }
+  }
+  }

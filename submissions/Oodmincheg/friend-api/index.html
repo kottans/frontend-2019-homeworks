@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Lonely souls</title>
+  </head>
+  <body>
+    <header>
+      <h1>Lonely souls.</h1>
+      <h2>We're so lonely that wanna get better with random partner. Really.</h2>
+    </header>
+    <main>
+      <aside id="sortPanel">
+        <form class="search">
+          <input type="text" placeholder="Search..." name="search" id="search-by-name" size="18">
+          <i class="fa fa-search"></i>
+        </form>
+        <div class="sort"><span>Gender</span>
+          <input type="radio" name="sort-by-sex" id="sort-by-male" data-sex-filter="male">M</input>
+          <input type="radio" name="sort-by-sex" id="sort-by-female" data-sex-filter="female">F</input>
+          <input type="radio" name="sort-by-sex" id="both-sexes" checked="checked" data-sex-filter=''>Both</input>
+        </div>
+        <div class="sort"><span>Name:</span> 
+          <input type="radio" name="sort-by" id="sort-by-name-asc" data-sort-by="nameAsc">↑</input>
+          <input type="radio" name="sort-by" id="sort-by-name-desc" data-sort-by="nameDesc">↓</input>
+        </div>
+        <div class="sort"><span></span>Age:</span>
+          <input type="radio" name="sort-by" id="sort-by-age-asc" data-sort-by="ageAsc">↑</input>
+          <input type="radio" name="sort-by" id="sort-by-age-desc" data-sort-by="ageDesc">↓</input>
+        </div>
+       
+        <div class="reset">
+          <button id="reset">Reset All</button>
+        </div>
+      </aside>
+      <content id="content"> </content>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>

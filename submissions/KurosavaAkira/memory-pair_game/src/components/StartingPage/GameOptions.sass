@@ -1,0 +1,142 @@
+button, input[type="submit"], input[type="reset"] 
+	background: none
+	color: inherit
+	border: none
+	padding: 0
+	font: inherit
+	cursor: pointer
+	outline: inherit
+    
+#game-options-button
+    position: fixed
+    width: 100%
+    text-align: center
+    font-family: capture-it
+    font-size: 18px
+    letter-spacing: 1px
+    color: #f4ffff
+    text-transform: uppercase
+    bottom: 50px
+    transition: opacity .3s ease-out;
+    animation: game-options-button 2s ease-in 0s 1
+
+#game-options-button:hover
+    color: #b4f9fe
+    text-shadow: 0 0 4px
+
+@keyframes game-options-button
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+
+#game-options-menu
+    position: fixed
+    display: flex
+    flex-direction: column
+    justify-content: center
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+    width: 400px
+    height: 300px
+    text-align: center
+    font-family: Arial, Helvetica, sans-serif
+    font-weight: 700
+    font-size: 16px
+    letter-spacing: 1px
+    border-radius: 3px
+    color: #f4ffff
+    background-color: #00000087
+    backdrop-filter: blur(10px)
+    opacity: 0
+    pointer-events: none
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: opacity .3s ease-out
+
+.game-options-menu-visible
+    opacity: 1 !important
+    pointer-events: all !important
+
+#game-options-menu h3
+    font-size: 18px
+    text-align: center
+    margin: 20px
+    
+.game-options-checkboxs 
+    display: flex
+    flex-direction: column
+    text-align: left
+    padding: 5px 30px
+
+input[type="checkbox"] 
+    cursor: pointer
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+    outline: 0
+    background: #adadad5e
+    height: 16px
+    width: 16px
+    border: 0.5px solid #adadad59
+    margin: 3px 10px 3px 4px;
+
+input[type="checkbox"]:checked 
+    background: #adadad5e
+
+input[type="checkbox"]:hover 
+    filter: brightness(90%)
+
+input[type="checkbox"]:disabled 
+    background: #e6e6e6
+    opacity: 0.6
+    pointer-events: none
+
+input[type="checkbox"]:after 
+    content: ''
+    position: relative
+    left: 40%
+    top: 20%
+    width: 15%
+    height: 40%
+    border: solid #fff
+    border-width: 0 2px 2px 0
+    transform: rotate(45deg)
+    display: none
+
+input[type="checkbox"]:checked:after 
+    display: block
+
+input[type="checkbox"]:disabled:after 
+     border-color: #7b7b7b
+
+.game-options-label 
+    width: 160px
+    display: flex;
+    align-items: center 
+
+.game-options-label:hover
+    color: #8f8f8f
+    cursor: pointer
+
+.game-options-label:not(:first-child) span
+    
+.game-options-info
+    padding: 5px 30px
+    margin-bottom: 40px
+
+.game-options-info p
+    font-size: 16px
+    text-align: left
+
+#game-options-menu-close
+    position: absolute
+    background-color: #c4ddea3b
+    color: #c4ddeaa6
+    width: 100%
+    height: 30px
+    bottom: 0
+
+#game-options-menu-close:hover
+    background-color: #c4ddea85
+    color: #f2fbff

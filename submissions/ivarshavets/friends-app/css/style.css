@@ -1,0 +1,160 @@
+/* General layout styles */
+html,
+body {
+  height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+  margin: 0;
+  font-size: 15px;
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+	line-height: 1.5;
+	color: #4b4b4b;
+	background: radial-gradient(100% 480px at top right, #fff6ee, rgba(255,255,255,0) 75%),radial-gradient(100% 480px at top left, #ebedff, rgba(255,255,255,0) 75%),linear-gradient(#f7fbfe 1200px, rgba(255,255,255,0) 2000px);
+}
+
+h1, h2, h3 {
+	color: inherit;
+	margin: 0
+}
+
+h2, h3 {
+	font-weight: normal;
+}
+
+h1 {
+	margin: 10px 0;
+	background: linear-gradient(45deg, #0779ec, #1a33c6, #dc1590 70%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 20px;
+}
+
+h3 {
+	font-size: 18px;
+}
+
+/* Forms */
+.button {
+	display: inline-block;
+	border-radius: 4px;
+	background: #159bd9;
+	border: none;
+	font-size: 16px;
+	padding: 8px 20px;
+	color: #fff;
+	cursor: pointer;
+}
+
+.field {
+	display: block;
+	width: 100%;
+	border: 1px solid #c7c7c7;
+	border-radius: 4px;
+	padding: 7px 5px;
+	font-size: 16px;
+}
+
+.field:focus {
+	border: 1px solid #159bd9;
+	outline: none;
+}
+
+.radio {
+	display: inline-flex;
+	align-items: center;
+	margin: 0 10px;
+}
+
+.radio__input {
+	margin-right: 5px;
+}
+
+/* Layout */
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 30px;
+}
+
+.header {
+	flex: 0 0 auto;
+	text-align: center;
+}
+
+.dashboard {
+	padding: 20px 0;
+	flex: 1 1 0;
+	overflow: scroll;
+}
+
+/* Filter styles */
+.filter {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #d7d7d7;
+	border-radius: 4px;
+	box-shadow: 0 1px 3px #0101011e;
+	padding: 10px;
+	background: #fff;
+}
+
+.filter__section {
+	display: flex;
+	align-content: center;
+	padding: 10px 20px;
+}
+
+/* Cards styles */
+.cards-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+.cards__item {
+	flex: 0 1 auto;
+	width: 200px;
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid #d7d7d7;
+	border-radius: 4px;
+	box-shadow: 0 1px 3px #0101011e;
+	background: #fff;
+}
+
+/* Friend element */
+.friend__info {
+	width: 100%;
+	margin: 0 0 5px;
+	font-size: 13px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.friend__info--name {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.friend__thumbnail {
+	display: block;
+	border-radius: 50%;
+	margin: 0 auto 20px;
+}

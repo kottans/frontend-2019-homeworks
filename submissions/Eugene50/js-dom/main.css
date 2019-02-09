@@ -1,0 +1,165 @@
+body {
+   background-color: goldenrod;
+   margin: 0;
+   padding: 0;  
+   overflow: hidden;
+   justify-content: center;
+}
+h1 {
+   text-align: center;
+   font-size: 70px;
+   color: oldlace;
+}
+p {
+   margin: 10px;
+   width : 11.5%;
+}
+.wrap {
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+}
+#container {
+   width: 20%;
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   color: royalblue;
+}
+#content {
+   display: flex;
+   flex-direction: column;
+   width: 50%;
+   font-size: 20px;
+   padding: 0;
+   color: rgb(224, 223, 223)
+}
+div {
+   padding: 27px 0 27px 27px;
+   font-size: 30px;
+   width: 10%;   
+}
+.img {
+   width: 300px;
+   height: 200px;
+   margin-top: 50px;
+   font-size: 20px;
+   padding-left: 110px;
+}
+#menu {
+   transform: translate(-300px, 0);
+   margin: 0;
+   padding: 0;
+   width: 20px;
+}
+
+@media screen and (max-width: 368px) {
+   #menu {
+      transform: translate(0, 0);
+      margin-top: -40px;
+      margin-left: -30px;
+   }
+   h1 {
+      font-size: 67px;
+      margin-left: 15px;
+      width: 100%;
+   }
+   #container {
+      display: none;
+   }
+   #container.open {
+      font-size: 15px;
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      margin-left: 20px;
+      margin-top: -55px;
+   }
+   .img {
+      width: 100%;
+      padding-left: 0;
+      
+   }
+   #content {
+      margin-top: 30px;
+      position: absolute;
+      width: 90%;
+   }
+   .wrap {
+      flex-wrap: wrap;
+      display: flex;
+   }
+   
+}
+
+@media screen and (max-width: 353px) {
+   #menu {
+      transform: translate(0, 0);
+      margin-top: -40px;
+      margin-left: -30px;
+   }
+   h1 {
+      font-size: 50px;
+      margin-left: 15px;
+      width: 100%;
+   }
+   #container {
+      display: none;
+   }
+   .img {
+      width: 100%;
+      padding-left: 0;  
+   }
+   #content {
+      margin-top: 30px;
+      position: absolute;
+      width: 80%;
+      font-size: 20px;
+      margin-left: 20px;
+   }
+   .wrap {
+      flex-wrap: wrap;
+      display: flex;
+   }
+   
+}
+@media screen and (min-width: 369px) {
+   #container {
+      font-size: 20px;
+      margin-left: -40px;
+   }
+   h1 {
+      margin-left: 10px;
+      font-size: 60px;
+   }
+   p:hover {
+      background-color: rgb(243, 118, 118);
+      width: 120px;
+      border-radius: 15%;
+} 
+   #content {
+    padding-left: 70px;
+   }
+   .img {
+      width: 160px;
+      height: 100px;
+      margin-top: 20px;
+      font-size: 20px;
+      padding-left: 0px;
+   }  
+}
+
+
+@media screen and (min-width: 600px) {   
+.img {
+   width: 300px;
+   height: 200px;
+   margin-top: 30px;
+   border-radius: 12px;
+   border: solid;
+
+   }  
+}
+
