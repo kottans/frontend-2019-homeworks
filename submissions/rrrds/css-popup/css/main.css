@@ -3,10 +3,6 @@ html {
   font-size: 13px;
 }
 
-[aria-hidden="true"] {
-  display: none;
-}
-
 .menu {
   margin-top: 15px;
   width: 100%;
@@ -17,7 +13,7 @@ html {
 
 .menu__item {
   padding: 0 10px;
-  line-height: 10px;
+  line-height: 1.0;
 }
 
 .button-text {
@@ -33,17 +29,21 @@ html {
   display: inline-block;
   height: 20px;
   width: 20px;
-  line-height: 20px;
+  line-height: 1.66667;
   font-weight: 400;
   font-size: 12px;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.button-icon:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
 .button-icon.button-icon_large {
   height: 32px;
   width: 32px;
-  line-height: 33px;
+  line-height: 2;
   font-weight: 600;
   font-size: 16px;
 }
@@ -74,6 +74,16 @@ html {
 
 .toggler__checkbox {
   pointer-events: none;
+  opacity: 0;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.toggler__checkbox:focus + .toggler__label {
+  outline: #3b99fc auto 5px;
 }
 
 .toggler__content {
@@ -141,7 +151,7 @@ html {
 
 .icons-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-items: center;
   margin: 0;
@@ -183,9 +193,7 @@ html {
 
 .icon__text {
   display: inline-block;
-  font-size: 13px;
   font-weight: 400;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .toggler_reordered {
