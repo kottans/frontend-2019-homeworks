@@ -9,12 +9,12 @@ a {
     color: black;
     text-decoration: none;
     margin-right: 20px;
+    outline: none;
 }
 
-a:hover {
-    text-decoration: underline
+a:hover, a:focus {
+    opacity: 0.5;
 }
-
 
 .hidden-input {
     opacity: 0;
@@ -37,6 +37,7 @@ a:hover {
 
 .bell {
     background-color: black;
+    margin-left: 15px;
     height: 18px;
     width: 18px;
     background-position: center;
@@ -68,14 +69,14 @@ a:hover {
     background-image: url(./img/menu.png);
     width: 30px;
     height: 30px;
-    margin-right: 20px;
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
 }
 
-.popup__icon-menu:hover {
+.popup__icon-menu:hover, .popup-input:focus ~ label {
     opacity: 0.5;
+    transition: all 0.3s;
 }
 
 .popup-wrapper {
@@ -107,9 +108,10 @@ a:hover {
     margin: 5px 10px;
     cursor: pointer;
     max-width: 65px;
+    outline: none;
 }
 
-.popup-wrapper__service:hover {
+.popup-wrapper__service:hover, .popup-wrapper__service:focus {
     border: 1px solid rgba(0, 0, 0, .2);
     border-radius: 2px;
 }
@@ -127,6 +129,12 @@ a:hover {
     padding: 10px 0;
     display: block;
     cursor: pointer;
+}
+
+.popup-more-btn:hover, .popup-more-input:focus ~ .popup-more-btn {
+    transition: all 0.3s;
+    background-color: grey;
+    color: white;
 }
 
 .popup-wrapper__more {
