@@ -304,10 +304,11 @@ a {
     }
 }
 
-.more-services-checkbox:focus {
-    .more-services-label {
-        outline: -webkit-focus-ring-color auto 5px;
-    }
+.more-services-checkbox:focus + .more-services-label {
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.more-services-checkbox:-moz-focusring + .more-services-label {
+    outline: 1px dotted;
 }
 
 .more-services-label {
