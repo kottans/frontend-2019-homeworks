@@ -67,7 +67,6 @@ a {
     cursor: pointer;
     height: 0;
     width: 0;
-    outline: none;
 }
 
 .navigation-panel-input {
@@ -87,7 +86,6 @@ a {
 
 .navigation-panel-label {
     cursor: pointer;
-    outline: none;
 
     &-icon {
         background: url("#{$defaulImagePath}/menu.svg");
@@ -264,7 +262,6 @@ a {
         border: 1px solid #e5e5e5;
     }
     &:focus {
-        outline: none;
         text-decoration: underline;
     }
 }
@@ -304,6 +301,12 @@ a {
     }
     .more-services-divider {
         display: block;
+    }
+}
+
+.more-services-checkbox:focus {
+    .more-services-label {
+        outline: -webkit-focus-ring-color auto 5px;
     }
 }
 
