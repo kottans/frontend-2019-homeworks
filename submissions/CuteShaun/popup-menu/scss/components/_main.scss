@@ -5,7 +5,7 @@
   top: 24%;
   left: 0;
   right: 0;
-  z-index: 12;
+  z-index: 9;
 
   &__text {
     position: relative;
@@ -26,7 +26,7 @@
   margin-bottom: 0.8em;
   margin-top: -1.25em;
 
-  &__img {
+  .logo__img {
     background-image: url(../img/logo.svg);
     background-size: 250px 200px;
     width: 250px;
@@ -84,32 +84,24 @@
   }
 
   &__button-input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
     appearance: none;
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
     box-sizing: content-box;
-    font-family: "ddg-serp-icons" !important;
+    font-family: "ddg-serp-icons";
     speak: none;
     font-style: normal;
-    font-weight: normal !important;
+    font-weight: normal;
     font-variant: normal;
     text-transform: none;
-    text-decoration: none !important;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+    font-smoothing: antialiased;
+    osx-font-smoothing: grayscale;
+    tap-highlight-color: transparent;
     width: 1em;
     display: block;
     cursor: pointer;
     background: transparent;
     text-align: center;
     border: none;
-    height: 2.45em;
-    line-height: 2.45em;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -132,7 +124,7 @@
     background-color: transparent;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    -webkit-font-smoothing: subpixel-antialiased;
+    font-smoothing: subpixel-antialiased;
 
     &:hover {
       background-color: #66ad57;

@@ -1,198 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>DuckDuckGo</title>
-    <style>
-      *{-webkit-box-sizing:border-box;box-sizing:border-box}body,input{font-family:DDG_ProximaNova,DDG_ProximaNova_UI_0,DDG_ProximaNova_UI_1,DDG_ProximaNova_UI_2,DDG_ProximaNova_UI_3,DDG_ProximaNova_UI_4,DDG_ProximaNova_UI_5,DDG_ProximaNova_UI_6,"Proxima Nova","Helvetica Neue",Helvetica,"Segoe UI","Nimbus Sans L","Liberation Sans","Open Sans",FreeSans,Arial,sans-serif;color:#333}body{background-color:#f7f7f7}li{list-style-type:none}a{text-decoration:none}.ddg{font-family:ddg-serp-icons!important;color:#aaa;speak:none;font-style:normal;font-weight:400!important;font-variant:normal;text-transform:none;text-decoration:none!important;-webkit-font-smoothing:antialiased}.link{color:#4495d4;text-decoration:none}@font-face{font-family:ddg-serp-icons;src:url(/font/ddg-serp-icons.eot?v=0.9250390538945794);font-weight:400;font-style:normal}@font-face{font-family:DDG_ProximaNova;src:url(css/font/ProximaNova-Sbold-webfont.eot);src:url(css/font/ProximaNova-Sbold-webfont.eot?#iefix) format("embedded-opentype"),url(css/font/ProximaNova-Sbold-webfont.woff) format("woff"),url(css/font/ProximaNova-Sbold-webfont.ttf) format("truetype"),url(css/font/ProximaNova-Sbold-webfont.svg#proxima_nova_ltsemibold) format("svg");font-weight:600;font-style:normal}@font-face{font-family:DDG_ProximaNova;src:url(css/font/ProximaNova-Reg-webfont.eot);src:url(css/font/ProximaNova-Reg-webfont.eot?#iefix) format("embedded-opentype"),url(css/font/ProximaNova-Reg-webfont.woff) format("woff"),url(css/font/ProximaNova-Reg-webfont.ttf) format("truetype"),url(css/font/ProximaNova-Reg-webfont.svg#proxima_nova_rgregular) format("svg");font-weight:400;font-style:normal}@font-face{font-family:DDG_ProximaNova;src:url(css/font/ProximaNova-RegIt-webfont.eot);src:url(css/font/ProximaNova-RegIt-webfont.eot?#iefix) format("embedded-opentype"),url(css/font/ProximaNova-RegIt-webfont.woff) format("woff"),url(css/font/ProximaNova-RegIt-webfont.ttf) format("truetype"),url(css/font/ProximaNova-RegIt-webfont.svg#proxima_novaregular_italic) format("svg");font-weight:400;font-style:italic}@font-face{font-family:DDG_ProximaNova;src:url(css/font/ProximaNova-Light-webfont.eot);src:url(css/font/ProximaNova-Light-webfont.eot?#iefix) format("embedded-opentype"),url(css/font/ProximaNova-Light-webfont.woff) format("woff"),url(css/font/ProximaNova-Light-webfont.ttf) format("truetype"),url(css/font/ProximaNova-Light-webfont.svg#proxima_nova_ltlight) format("svg");font-weight:300;font-style:normal}.header .showcase,.header__aside{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}.header__aside{-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;margin:22px auto auto 16px;height:44px;right:20px;position:absolute;bottom:0;top:0;z-index:199}.header .no-google{width:292px;height:92px;-webkit-transform:rotateZ(-17deg);-ms-transform:rotate(-17deg);transform:rotateZ(-17deg);position:absolute;top:150px;left:100px}.header .showcase__text{color:#aaa;font-size:13px}.header .showcase__icon{margin-left:5px}.header .showcase__icon:before{content:"\76"}.header .social{margin-left:25px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}.header .social__icon--1{font-size:20px}.header .social__icon--1:before{content:"\74"}.header .social__icon--2{margin-left:5px}.header .social__icon--2:before{content:"\76"}.header .navigation{margin-left:20px;width:33px;height:33px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-border-radius:5px;border-radius:5px;position:relative}.header .navigation__checkbox{display:none}.header .navigation .vidgets,.header .navigation__triangle{display:none;position:absolute}.header .navigation__triangle--1,.header .navigation__triangle--2{border-style:dashed dashed solid;border-width:0 8.5px 8.5px;left:6.5px;z-index:1;height:0;width:0}.header .navigation__triangle--1{-webkit-animation:gb__a .2s;animation:gb__a .2s;border-bottom-color:rgba(0,0,0,.2);border-color:transparent transparent #ccc;top:36px}.header .navigation__triangle--2{border-color:transparent transparent #fff;top:37px}.header .navigation .vidgets{min-height:196px;right:0;top:44px;width:322px;max-height:876px;height:500px;background-color:#000;border:1px solid #ccc;border-color:rgba(0,0,0,.2);-webkit-border-radius:2px;border-radius:2px;overflow:overlay}.header .navigation .vidgets__inner{margin:0;padding:28px 26px}.header .navigation .vidgets__inner--2{display:none}.header .navigation .vidgets__list-item{padding:1px;display:inline-block;vertical-align:top;color:#000;z-index:999;height:98px;width:86px;text-align:center}.header .navigation .vidgets__link{display:inline-block;font-size:13px;margin:8px 2px;text-align:center;outline:0;border:1px solid transparent}.header .navigation .vidgets__img{display:inline-block;vertical-align:top;height:64px;width:64px;background-image:url(css/img/sprite.png)}.header .navigation .vidgets__img--1{background-position-y:1102px}.header .navigation .vidgets__img--2{background-position-y:-203px}.header .navigation .vidgets__img--3{background-position-y:-547px}.header .navigation .vidgets__img--4{background-position-y:65px}.header .navigation .vidgets__img--5{background-position-y:1376px}.header .navigation .vidgets__img--6{background-position-y:1309px}.header .navigation .vidgets__img--7{background-position-y:275px}.header .navigation .vidgets__img--8{background-position-y:-825px}.header .navigation .vidgets__img--9{background-position-y:414px}.header .navigation .vidgets__img--10{background-position-y:-409px}.header .navigation .vidgets__img--11{background-position-y:759px}.header .navigation .vidgets__img--12{background-position-y:897px}.header .navigation .vidgets__img--13{background-position-y:963px}.header .navigation .vidgets__img--14{background-position-y:343px}.header .navigation .vidgets__img--15{background-position-y:828px}.header .navigation .vidgets__img--16{background-position-y:-135px}.header .navigation .vidgets__img--17{background-position-y:-895px}.header .navigation .vidgets__img--18{background-position-y:-616px}.header .navigation .vidgets__img--19{background-position-y:549px}.header .navigation .vidgets__img--20{background-position-y:687px}.header .navigation .vidgets__text{line-height:20px;font-size:13px;overflow:hidden;white-space:nowrap;width:84px;display:block;-o-text-overflow:ellipsis;text-overflow:ellipsis;color:rgba(0,0,0,.87)}.header .navigation .vidgets__more-input{display:none}.header .navigation .vidgets__more-label{width:100%;background:#f5f5f5;padding:14.7px 0;text-align:center;color:rgba(0,0,0,.87);opacity:1;display:block}.header .navigation .vidgets__line{position:relative;display:none;border-bottom:1px solid #ebebeb;left:28px;width:264px}@media screen and (min-device-width:250px) and (max-device-width:800px){.header .no-google{-webkit-transform:rotateZ(-17deg) scale(.4);-ms-transform:rotate(-17deg) scale(.4);transform:rotateZ(-17deg) scale(.4);left:5px}}.main-info{position:absolute;margin:auto;width:100%;top:24%;left:0;right:0;z-index:12}.main-info__text{position:relative;line-height:1.4;font-size:18px;padding:0 15px;margin:.5em auto;text-align:center;color:#9a9a9a}.logo,.logo__img{display:block;position:relative}.logo{max-width:300px;margin:-1.25em auto .8em}.logo__img{background-image:url(/img/logo.svg);-webkit-background-size:250px 200px;background-size:250px 200px;width:250px;height:200px;background-position:50% 50%;background-repeat:no-repeat;margin:auto;text-align:center;color:transparent;text-indent:-9999px;font-size:0}.search{padding:1.3em .8em 1em;max-width:590px;margin-left:auto;margin-right:auto;display:block;float:none;width:70%}.search__form{font-size:1.14em;padding-right:3.5em;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-border-radius:3px;border-radius:3px;display:block;position:relative;height:2.8em;background-color:#fff;border:1px solid rgba(0,0,0,.15);-webkit-box-shadow:0 2px 3px rgba(0,0,0,.06);box-shadow:0 2px 3px rgba(0,0,0,.06);padding-left:.75em}.search__button-input,.search__text-input{font-size:1.1em;font-weight:400;color:#333;display:block;width:100%;background:0 0;outline:0;border:0;padding:0;height:2.54545em;z-index:1;position:relative;top:-1px}.search__button-input{-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;-webkit-box-sizing:content-box;box-sizing:content-box;font-family:ddg-serp-icons!important;speak:none;font-style:normal;font-weight:400!important;font-variant:normal;text-transform:none;text-decoration:none!important;-moz-osx-font-smoothing:grayscale;width:1em;text-align:center;position:absolute;top:0;bottom:0;right:2px;left:auto;z-index:2;-webkit-border-radius:0 2px 2px 0;border-radius:0 2px 2px 0;min-width:26px;color:#999;font-size:1.25em;padding:0 .64em;height:auto;min-height:1.8em;margin:-1px -3px -1px auto;line-height:1.5;background-color:transparent;background-position:50% 50%;background-repeat:no-repeat;-webkit-font-smoothing:subpixel-antialiased}.search-result{position:relative;margin:20px 0}.copyright{margin:15px auto;text-align:center;color:#9a9a9a}.copyright__link{color:#4495d4}
-    </style>
-    <style>
-      *{-webkit-box-sizing:border-box;box-sizing:border-box}body,input{font-family:DDG_ProximaNova,DDG_ProximaNova_UI_0,DDG_ProximaNova_UI_1,DDG_ProximaNova_UI_2,DDG_ProximaNova_UI_3,DDG_ProximaNova_UI_4,DDG_ProximaNova_UI_5,DDG_ProximaNova_UI_6,"Proxima Nova","Helvetica Neue",Helvetica,"Segoe UI","Nimbus Sans L","Liberation Sans","Open Sans",FreeSans,Arial,sans-serif;color:#333}body{background-color:#f7f7f7}li{list-style-type:none}a{text-decoration:none}.ddg{font-family:ddg-serp-icons!important;color:#aaa;speak:none;font-style:normal;font-weight:400!important;font-variant:normal;text-transform:none;text-decoration:none!important;-webkit-font-smoothing:antialiased}.link{color:#4495d4;text-decoration:none}@font-face{font-family:ddg-serp-icons;src:url(/font/ddg-serp-icons.eot?v=0.9250390538945794);font-weight:400;font-style:normal}@font-face{font-family:DDG_ProximaNova;src:url(css/font/ProximaNova-Sbold-webfont.eot);src:url(css/font/ProximaNova-Sbold-webfont.eot?#iefix) format("embedded-opentype"),url(css/font/ProximaNova-Sbold-webfont.woff) format("woff"),url(css/font/ProximaNova-Sbold-webfont.ttf) format("truetype"),url(css/font/ProximaNova-Sbold-webfont.svg#proxima_nova_ltsemibold) format("svg");font-weight:600;font-style:normal}@font-face{font-family:DDG_ProximaNova;src:url(css/font/ProximaNova-Reg-webfont.eot);src:url(css/font/ProximaNova-Reg-webfont.eot?#iefix) format("embedded-opentype"),url(css/font/ProximaNova-Reg-webfont.woff) format("woff"),url(css/font/ProximaNova-Reg-webfont.ttf) format("truetype"),url(css/font/ProximaNova-Reg-webfont.svg#proxima_nova_rgregular) format("svg");font-weight:400;font-style:normal}@font-face{font-family:DDG_ProximaNova;src:url(css/font/ProximaNova-RegIt-webfont.eot);src:url(css/font/ProximaNova-RegIt-webfont.eot?#iefix) format("embedded-opentype"),url(css/font/ProximaNova-RegIt-webfont.woff) format("woff"),url(css/font/ProximaNova-RegIt-webfont.ttf) format("truetype"),url(css/font/ProximaNova-RegIt-webfont.svg#proxima_novaregular_italic) format("svg");font-weight:400;font-style:italic}@font-face{font-family:DDG_ProximaNova;src:url(css/font/ProximaNova-Light-webfont.eot);src:url(css/font/ProximaNova-Light-webfont.eot?#iefix) format("embedded-opentype"),url(css/font/ProximaNova-Light-webfont.woff) format("woff"),url(css/font/ProximaNova-Light-webfont.ttf) format("truetype"),url(css/font/ProximaNova-Light-webfont.svg#proxima_nova_ltlight) format("svg");font-weight:300;font-style:normal}.header .showcase,.header__aside{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}.header__aside{-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;margin:22px auto auto 16px;height:44px;right:20px;position:absolute;bottom:0;top:0;z-index:199}.header .no-google{width:292px;height:92px;-webkit-transform:rotateZ(-15deg);-ms-transform:rotate(-15deg);transform:rotateZ(-15deg);position:absolute;top:150px;left:100px}.header .showcase__text{color:#aaa;font-size:13px}.header .showcase__icon{margin-left:5px}.header .showcase__icon:before{content:"\76"}.header .social{margin-left:25px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
-    </style>
-    <link rel="preload" href="css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/styles.min.css"></noscript>
-    <script>!function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);</script>
+    <link rel="stylesheet" href="css/styles.min.css" />
   </head>
   <body>
     <div class="wrapper">
 
       <header class="header">
-    <aside class="header__aside">
-      <div class="showcase" tabindex="0">
-        <span class="showcase__text">Проще говоря, приватность.</span>
-        <span class="showcase__icon ddg"></span>
-      </div>
+  <aside class="header__aside">
+    <div class="showcase" tabindex="0">
+      <span class="showcase__text">Проще говоря, приватность.</span>
+      <span class="showcase__icon ddg"></span>
+    </div>
 
-      <div class="social" tabindex="0">
-        <span class="social__icon social__icon--1 ddg"></span>
-        <span class="social__icon social__icon--2 ddg"></span>
-      </div>
+    <div class="social" tabindex="0">
+      <span class="social__icon social__icon--1 ddg"></span>
+      <span class="social__icon social__icon--2 ddg"></span>
+    </div>
 
-      <div class="navigation" tabindex="0">
-        <input type="checkbox" class="navigation__checkbox" id="navigation__toggle">
-        <label role="button" for="navigation__toggle" class="navigation__button ddg">
-          ⇶
+    <div class="navigation">
+      <input
+        type="checkbox"
+        class="navigation__checkbox"
+        id="navigation__toggle"
+        tabindex="0"
+      />
+      <label
+        role="button"
+        for="navigation__toggle"
+        class="navigation__button ddg"
+      >
+        &#9776;
+      </label>
+
+      <div class=" navigation__triangle navigation__triangle--1"></div>
+      <div class=" navigation__triangle navigation__triangle--2"></div>
+
+      <div class="vidgets">
+        <ul class="vidgets__inner vidgets__inner--1">
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--1"></span>
+              <span class="vidgets__text">Поиск</span>
+            </a>
+          </li>
+
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--2"></span>
+              <span class="vidgets__text">Карты</span>
+            </a>
+          </li>
+
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--3"></span>
+              <span class="vidgets__text">Youtube</span>
+            </a>
+          </li>
+
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--4"></span>
+              <span class="vidgets__text">Play</span>
+            </a>
+          </li>
+
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--5"></span>
+              <span class="vidgets__text">Новости</span>
+            </a>
+          </li>
+
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--6"></span>
+              <span class="vidgets__text">Почта</span>
+            </a>
+          </li>
+
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--7"></span>
+              <span class="vidgets__text">Контакты</span>
+            </a>
+          </li>
+
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--8"></span>
+              <span class="vidgets__text">Календарь</span>
+            </a>
+          </li>
+
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--9"></span>
+              <span class="vidgets__text">Диск</span>
+            </a>
+          </li>
+
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--10"></span>
+              <span class="vidgets__text">Google+</span>
+            </a>
+          </li>
+
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--11"></span>
+              <span class="vidgets__text">Переводчик</span>
+            </a>
+          </li>
+
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--12"></span>
+              <span class="vidgets__text">Фото</span>
+            </a>
+          </li>
+        </ul>
+
+        <input type="checkbox" id="more" class="vidgets__more-input" />
+        <label role="button" for="more" class="vidgets__more-label">
+          Ещё
         </label>
+        <span class="vidgets__line"></span>
 
-        <div class=" navigation__triangle navigation__triangle--1"></div>
-        <div class=" navigation__triangle navigation__triangle--2"></div>
+        <ul class="vidgets__inner vidgets__inner--2">
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--13"></span>
+              <span class="vidgets__text">Документы</span>
+            </a>
+          </li>
 
-        <div class="vidgets">
-          <ul class="vidgets__inner vidgets__inner--1">
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--1"></span>
-                <span class="vidgets__text">Поиск</span>
-              </a>
-            </li>
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--14"></span>
+              <span class="vidgets__text">Blogger</span>
+            </a>
+          </li>
 
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--2"></span>
-                <span class="vidgets__text">Карты</span>
-              </a>
-            </li>
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--15"></span>
+              <span class="vidgets__text">Hangouts</span>
+            </a>
+          </li>
 
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--3"></span>
-                <span class="vidgets__text">Youtube</span>
-              </a>
-            </li>
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--16"></span>
+              <span class="vidgets__text">Google Keep</span>
+            </a>
+          </li>
 
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--4"></span>
-                <span class="vidgets__text">Play</span>
-              </a>
-            </li>
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--17"></span>
+              <span class="vidgets__text">Jamboard</span>
+            </a>
+          </li>
 
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--5"></span>
-                <span class="vidgets__text">Новости</span>
-              </a>
-            </li>
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--18"></span>
+              <span class="vidgets__text">Класс</span>
+            </a>
+          </li>
 
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--6"></span>
-                <span class="vidgets__text">Почта</span>
-              </a>
-            </li>
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--19"></span>
+              <span class="vidgets__text">Планета Земля</span>
+            </a>
+          </li>
 
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--7"></span>
-                <span class="vidgets__text">Контакты</span>
-              </a>
-            </li>
-
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--8"></span>
-                <span class="vidgets__text">Календарь</span>
-              </a>
-            </li>
-
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--9"></span>
-                <span class="vidgets__text">Диск</span>
-              </a>
-            </li>
-
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--10"></span>
-                <span class="vidgets__text">Google+</span>
-              </a>
-            </li>
-
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--11"></span>
-                <span class="vidgets__text">Переводчик</span>
-              </a>
-            </li>
-
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--12"></span>
-                <span class="vidgets__text">Фото</span>
-              </a>
-            </li>
-          </ul>
-
-          <input type="checkbox" id="more" class="vidgets__more-input">
-          <label role="button" for="more" class="vidgets__more-label">Ещё</label>
-          <span class="vidgets__line"></span>
-
-          <ul class="vidgets__inner vidgets__inner--2">
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--13"></span>
-                <span class="vidgets__text">Документы</span>
-              </a>
-            </li>
-
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--14"></span>
-                <span class="vidgets__text">Blogger</span>
-              </a>
-            </li>
-
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--15"></span>
-                <span class="vidgets__text">Hangouts</span>
-              </a>
-            </li>
-
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--16"></span>
-                <span class="vidgets__text">Google Keep</span>
-              </a>
-            </li>
-
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--17"></span>
-                <span class="vidgets__text">Jamboard</span>
-              </a>
-            </li>
-
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--18"></span>
-                <span class="vidgets__text">Класс</span>
-              </a>
-            </li>
-
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--19"></span>
-                <span class="vidgets__text">Планета Земля</span>
-              </a>
-            </li>
-
-            <li class="vidgets__list-item" tabindex="0">
-              <a href="#" class="vidgets__link">
-                <span class="vidgets__img vidgets__img--20"></span>
-                <span class="vidgets__text">Подборки</span>
-              </a>
-            </li>
-          </ul>
-        </div>
+          <li class="vidgets__list-item">
+            <a href="#" class="vidgets__link">
+              <span class="vidgets__img vidgets__img--20"></span>
+              <span class="vidgets__text">Подборки</span>
+            </a>
+          </li>
+        </ul>
       </div>
-    </aside>
+    </div>
+  </aside>
 
-    <img class="no-google" src="img/googlelogo.png">
-  </header> 
+  <img class="header__img" alt="no-google" src="img/googlelogo.png" />
+</header>
+ 
       
       <main class="main-info">
     <div class="logo">
@@ -200,15 +204,27 @@
     </div>
 
     <div class="search">
-      <form name="x" id="search__form" class="search__form" action="/" method="GET">
-        <input class="search__text-input" type="text"><input class="search__button-input" type="submit" value="S">
+      <form
+        name="x"
+        id="search__form"
+        class="search__form"
+        action="/"
+        method="GET"
+      >
+        <input class="search__text-input" type="text" /><input
+          class="search__button-input"
+          type="submit"
+          value="S"
+        />
       </form>
     </div>
 
     <p class="main-info__text">
       Поисковая система, которая не отслеживает вас, в отличие от сами
       знаете кого.
-      <a class="link" href="https://duckduckgo.com/">Помогите распространить DuckDuckGo!</a>
+      <a class="link" href="https://duckduckgo.com/"
+        >Помогите распространить DuckDuckGo!</a
+      >
     </p>
 
     <div id="search-result" class="search-result"></div>
@@ -217,7 +233,7 @@
       &copy; With power of
       <a class="copyright__link" href="http://kottans.org/">kottans</a>
     </p>
-  </main>;
+  </main>
       
     </div>
 
