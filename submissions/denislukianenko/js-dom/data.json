@@ -1,0 +1,14 @@
+[
+  {
+    "header": "Git and GitHub",
+    "content": "<p>Ok, I finally got familiar with Git basics. I heard about it for few years, but used for 0 years. Well, I used git clone, git init. Since last month had used commit, push and pull, but never understood how it really works. Course from Udacity, though looked too long for such topic, helped me to understand commits, branching, collaboration via forking and pull requests. Finally helped me to understand that there exists such thing as stage area and why it exists :)</p><p>Reflections writing during the course helped to even strengthen the understanding. It's like preparing answers for the interview, but it's you who interviews youreself! Useful thing, shortly.</p><p>I also, wish that lections for the couse were even more interective and maybe had animations for different concepts, which really helps me to understand the material –&nbsp;<em>see how it work, moves visually</em>.</p><p>Hexlet's \"Как учиться и справляться с негативными мыслями\" is also very interesting in terms of combining,\"zipping\" many techinques for optimal thinking, that we all might have heard before and good to refresh.</p>"
+  },
+  {
+    "header": "Linux, Command Line, HTTP Tools",
+    "content": "After Udacity's courese I got knowledge about combining command options, like -alt; work of cp command, and its ability to work with multiple files, and choose files to copy with wildcards. Now I also know that move (mv) can be used to rename files. I got knowledge about input/output, rewriting and appending to files, piping with \"|\", commands sort, uniq and grep (wow, we can search matches in files from commandline). Also I learned sed command and it's usage for outputing results with \"filter\". I also learned nano text editor; how to setup aliases and variables in .bash_profile; environment variables that contain info about environment."
+  },
+  {
+    "header": "Git for Team Collaboration",
+    "content": "This course as for me mostly repeats content on first course on Git and Github, so I run though it briefly, searching for new info. Here is what I found new: <code>git tag</code>, \"?\" in .gitignore, <code>git log --oneline --graph --all</code>, <code>git commit --amend</code>, Relative Commit References, Reverting changes, <code>git shortlog</code>, <code>git rebase</code> isn't that scary.</p><p>I didn't understand why to put in curriculum a course which mostly repeats content of one of the previous courses, but tells it in a slightly different (as for me in a better) way. Glory to the branches' animated visualizations!</p>"
+  }
+]

@@ -1,0 +1,336 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url('https://image.ibb.co/i3hjVy/geometry2.png');
+  font-family: 'Coda', sans-serif;
+  font-size: 16px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  margin: 0.3em 0 0 0;
+}
+
+.left-span {
+  float: left;
+}
+
+.right-span {
+  float: right;
+}
+
+.card-deck {
+  background: #a6a2a2;
+  padding: 0.6rem;
+  border-radius: 4px;
+  box-shadow: 8px 9px 26px 0 rgba(46, 61, 73, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 0 3em;
+}
+
+.card {
+  background: #d6d6d6;
+  color: #fff;
+  border-radius: 4px;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card > img {
+  visibility: hidden;
+}
+
+.card.open {
+  background: #1db9f2;
+  animation-name: flipInY;
+  animation-duration: 0.5s;
+}
+
+.card.show > img {
+  visibility: visible;
+}
+
+.card.matching {
+  background: #2eb82e;
+  font-size: 33px;
+  animation-name: rubberBand;
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible;
+  animation-duration: 0.5s;
+}
+
+.card.matching > img {
+  visibility: visible;
+}
+
+.card.not-matching {
+  animation-name: pulse;
+  animation-duration: 0.5s;
+  background: #cf205d;
+}
+
+.card.disabled {
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.score-panel {
+  text-align: left;
+  margin: 0.4em 0 0.4em;
+}
+
+.stars {
+  padding: 0;
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+
+.stars li {
+  list-style: none;
+  display: inline-block;
+}
+
+.restart {
+  cursor: pointer;
+  color: #2eb82e;
+}
+
+.timer {
+  margin: 0 0.5em;
+}
+.fa-star.active {
+  display: inline;
+  color: #ffd700;
+}
+
+.fa-star.hidden {
+  display: none;
+}
+.modal.show,
+.cart.show {
+  visibility: visible;
+  opacity: 100;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.62);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal-content {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  text-align: center;
+  border-radius: 5px;
+  width: 85%;
+  position: relative;
+  transition: all 2s ease-in-out;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.close:hover {
+  color: #1db9f2;
+}
+
+.modal-content .congrats-message,
+.info-message {
+  max-height: 30%;
+  overflow: auto;
+  text-align: center;
+}
+
+.congrats-message {
+  margin-top: 0.9em;
+}
+
+.star-rating li {
+  display: inline-block;
+  list-style: none;
+}
+
+.play-again {
+  cursor: pointer;
+  background-color: #1db9f2;
+  border: none;
+  padding: 0.7rem 1rem;
+  font-size: 1.1rem;
+  display: block;
+  margin: 0 auto;
+  width: 40%;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.card > img {
+  max-width: 100%;
+}
+
+/* Animations */
+
+@keyframes flipInY {
+  from {
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+  }
+
+  to {
+    transform: perspective(400px);
+  }
+}
+
+@keyframes rubberBand {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.2, 1.2, 1.2);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 320px) {
+  body {
+    overflow: visible;
+  }
+
+  h2 {
+    margin: 0.5em 0 0.3em 0;
+  }
+
+  .score-panel {
+    width: 93%;
+  }
+
+  .card-deck {
+    width: 93%;
+  }
+
+  .card-deck .card {
+    height: 70px;
+    width: 70px;
+    margin: 4px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    font-size: 18px;
+  }
+
+  .score-panel {
+    width: 550px;
+  }
+
+  .card-deck {
+    width: 550px;
+    height: 530px;
+  }
+
+  .card-deck .card {
+    height: 110px;
+    width: 110px;
+  }
+
+  .modal-content {
+    width: 45%;
+  }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Friends App</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+			<h1>Friends App</h1>
+			<div class="filter dashboard__filter">
+				<h2>Filter:</h2>
+
+				<section class="filter__section">
+					<input class="field search_input" type="search" placeholder="Search by name">
+				</section>
+
+				<div class="filter__section">
+					<label class="radio">
+						<input class="radio__input filter_input" type="radio" name="gender" value="all" checked>
+						<span class="radio__label">
+							<i class="fas fa-male"></i>
+							<i class="fas fa-female"></i>
+						</span>
+					</label>
+					<label class="radio">
+						<input class="radio__input filter_input" type="radio" name="gender" value="male">
+						<span class="radio__label">
+							<i class="fas fa-male"></i>
+						</span>
+					</label>
+					<label class="radio">
+						<input class="radio__input filter_input" type="radio" name="gender" value="female">
+						<span>
+							<i class="fas fa-female"></i>
+						</span>
+					</label>
+				</div>
+
+				<div class="filter__section">
+					<h3 class="filter__title">by name:</h3>
+					<label class="radio">
+						<input class="radio__input order_input" type="radio" name="order" value="nameAsc">
+						<span class="radio__label">
+							<i class="fas fa-sort-alpha-down"></i>
+						</span>
+					</label>
+					<label class="radio">
+						<input class="radio__input order_input" type="radio" name="order" value="nameDesc">
+						<span class="radio__label">
+								<i class="fas fa-sort-alpha-up"></i>
+						</span>
+					</label>
+				</div>
+
+				<div class="filter__section">
+					<h3 class="filter__title">by age:</h3>
+					<label class="radio">
+						<input class="radio__input order_input" type="radio" name="order" value="ageAsc">
+						<span class="radio__label">
+							<i class="fas fa-sort-numeric-down"></i>
+						</span>
+					</label>
+					<label class="radio">
+						<input class="radio__input order_input" type="radio" name="order" value="ageDesc">
+						<span class="radio__label">
+							<i class="fas fa-sort-numeric-up"></i>
+						</span>
+					</label>
+				</div>
+
+				<div class="filter__section">
+					<button class="button reset_button">Reset</button>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<main class="dashboard">
+		<div class="container">
+			<ul class="friends_list cards-list"></ul>
+    </div>
+	</main>
+	<script src="js/app.js"></script>
+</body>
+</html>

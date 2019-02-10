@@ -1,0 +1,155 @@
+body{
+    background-color: #feffeb;
+    margin: 0;
+    background-color: hsla(320, 38%, 75%, 0.18);
+}
+header{
+    background-color: #30d5c8;
+    color: white;
+    font-size: 40px;
+    padding: 5px 30px;
+    font-family: 'Monoton', cursive;
+    letter-spacing: 15px;
+}
+#container, #content{
+    display: flex;
+    flex-wrap: wrap;
+}
+.user-card, nav, form{
+    text-align: center;
+}
+aside{
+    position: sticky;
+    width: 250px;
+    height: 310px;
+    top: 10px;
+    margin: 20px 0 0 30px;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: #30d5c8;
+}
+#content{
+    margin: 10px auto;
+    width: 900px;
+	height: auto;
+}
+.user-card{
+    width: 250px;
+    height: 320px;
+    box-shadow: 0 0 10px silver;
+    border: 2px solid silver;
+    margin: 10px;
+    padding-top: 20px;
+    background-color: white;
+    border-radius: 15px;
+    color: gray
+}
+.user-card:hover{
+    border: 2px solid rgba(192, 192, 192, 0.185);
+    box-shadow: 0 0 10px #30d5c8;
+}
+.user-img{
+    width: 150px;
+    height: 150px;
+    border-radius: 445px;
+}
+.user-name{
+    font-family: 'Concert One', cursive;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.user-city{
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.male{
+    color: mediumblue;
+}
+.female{
+    color: #E51298;
+}
+.male-shadow{
+    box-shadow: 0 0 10px mediumblue;
+}
+.female-shadow{
+    box-shadow: 0 0 15px #E51298;
+}
+nav{
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    align-items: center;
+}
+nav div{
+    margin: 25px 10px;
+    font-size: 25px;
+    font-weight: bold;
+    width: 25px;
+    height: 25px;
+}
+nav a{
+    color: #04036b;
+    font-family: 'Concert One', cursive;
+    text-decoration: none;
+}
+form{
+    padding: 10px 0;
+    vertical-align: middle;
+}
+form hr{
+    width: 250px;
+    margin: 17px 0;
+}
+form img{
+    width: 32px;
+    height: 32px;
+    margin: 0 10px;
+}
+.active{
+    border-radius: 45px;
+    box-shadow: 0 0 25px rgb(245, 0, 82);
+}
+
+@media screen and (min-width: 2000px) {
+    #content{
+        width: 2000px
+    }
+}
+
+@media screen and (max-width: 1024px) {
+	aside {
+        position: static;
+        margin: 10px auto;
+        width: 350px;
+        height: 330px;
+    }
+    aside form {
+        margin: 10px 45px;
+        font-size: 20px;
+    }
+    #content{
+        width: 1000px
+    }
+    .user-card{
+        width: 225px;
+        height: 310px;
+    }
+}
+@media screen and (max-width: 768px) {
+    #content{
+        width: 750px
+    }
+}
+@media screen and (max-width: 425px) {
+    #content, .user-card, aside {
+        width: 300px
+    }
+    aside {
+        margin: 5px auto;
+    }
+    aside form{
+        padding: 3px 18px;
+        margin: 0 auto;
+    }
+}

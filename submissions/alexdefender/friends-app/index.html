@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Friends App</title>
+    <link href='css/style.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <h1>Friends App</h1>
+    <div class="container">
+        <div id="container-filters">
+            <div class="text">Search:
+                <input type="text" id="search" size="20" placeholder="Search">
+            </div>
+            <div class="text">Sort by age:
+                <input id="sort-age-up" class="sort-button" type="button" value="0-9">
+                <input id="sort-age-down" class="sort-button" type="button" value="9-0">
+            </div>
+            <div class="text">Sort by name:
+                <input id="sort-name-up" class="sort-button" type="button" value="A-Z">
+                <input id="sort-name-down" class="sort-button" type="button" value="Z-A">
+            </div>
+            <div class="sort-gender">
+                <input id="gender-all" class="sort-button" type="button" value="All">
+                <input id="gender-male" class="sort-button" type="button" value="Male">
+                <input id="gender-female" class="sort-button" type="button" value="Female">
+                <input id="reset-button" class="sort-button" type="button" value="Reset">
+            </div>
+            <div></div>
+        </div>
+        <div id="container-cards">
+        </div>
+    </div>
+    <script src="js/js.js"></script>
+</body>
+</html>
