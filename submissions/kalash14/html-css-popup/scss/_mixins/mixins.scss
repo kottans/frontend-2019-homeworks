@@ -1,0 +1,3 @@
+@mixin transition($param) {
+    transition: $param 0.2s ease-in-out;
+}
