@@ -10,7 +10,7 @@ body {
   background: linear-gradient(to left, #360033, #0b8793);
 }
 :focus {
-  background-color: #fddcf3;
+  border:1px solid #ff00b3;
 }
 .container {
   width: 100%;
@@ -154,7 +154,17 @@ body {
   height: 25px;
 }
 .more {
-  display: none;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+.more:focus + .popup__more{
+  border:1px solid #ff00b3;
 }
 .popup__more {
   height: 40px;
