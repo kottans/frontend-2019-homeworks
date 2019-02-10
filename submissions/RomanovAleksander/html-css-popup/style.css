@@ -160,6 +160,10 @@ a:hover, a:focus {
     display: block;
 }
 
+.popup-input:checked ~ label {
+   opacity: 0.5;
+}
+
 .popup-more-input:checked ~ .popup-wrapper__more {
     display: flex;
     flex-wrap: wrap;
