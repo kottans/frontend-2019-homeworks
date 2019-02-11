@@ -71,6 +71,7 @@ a {
 
 .navigation-panel-input {
     &:focus + .navigation-panel-label {
+        outline: -webkit-focus-ring-color auto 5px;
         .navigation-panel-label-icon {
             opacity: 1;
         }
@@ -81,6 +82,12 @@ a {
             display: block;
             user-select: none;
         }
+    }
+}
+
+.navigation-panel-input {
+    &:-moz-focusring + .navigation-panel-label {
+        outline: 1px dotted;
     }
 }
 
