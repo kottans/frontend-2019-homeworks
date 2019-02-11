@@ -1,0 +1,73 @@
+.show-popup:not(:checked) + .popup
+	display none
+.show-more:checked ~ .btn-more-box .btn-more
+	display none
+.show-more:not(:checked) ~ .btn-more-box .show-even-more
+	display none
+.show-more:not(:checked) ~ .popup-box .popup-item:nth-child(n + 11)
+	display none
+.show-more:checked ~ .popup-box
+	height 450px
+	padding-right 5px
+	overflow-y auto
+
+.popup
+	position absolute
+	top 50px
+	right -100px
+	width 350px
+	cursor default
+	box-shadow 0 2px 10px rgba(0,0,0,.2)
+	cursor default
+	&::before
+		content ''
+		position absolute
+		display block
+		square(20px)
+		border 0 solid rgba(0,0,0,.1)
+		border-width 1px 0 0 1px
+		background-color #fff
+		transform translate(230px, -50%) rotate(45deg)
+	&-box
+		padding 25px
+		box-sizing border-box
+		font-size 0
+		line-height 0
+	&-item
+		display inline-block
+		width 90px
+		min-height 90px
+		padding 5px
+		text-align center
+		line-height 0
+		&-logo
+			display inline-block
+			square(75px)
+			background-image url(../img/sprite.png)
+			background-size cover
+			background-repeat no-repeat
+		&-text
+			margin-top 10px
+			font-size 14px
+		&:hover:not(:focus)
+			outline 1px solid gray(229)
+		&:focus
+			outline none
+		&:focus &-logo
+			outline 3px solid rgb(174,181,255)
+
+.btn-more-box
+	width 100%
+	height 50px
+	text-align center
+	cursor pointer
+.btn-more
+	square(100%)
+	align-center()
+	background-color gray(245)
+	cursor pointer
+	&:hover, &:focus
+		background-color darken(gray(245), 2%)
+.show-even-more
+	align-center()
+	text-decoration underline

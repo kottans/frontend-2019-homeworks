@@ -1,0 +1,237 @@
+body {
+  margin: 0;
+  font: 16px/1.5em sans-serif;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+.visually-hidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+.top-nav {
+  width: 100%;
+  height: 50px;
+  margin: 15px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  letter-spacing: 1em;
+}
+.top-nav > * {
+  letter-spacing: normal;
+  margin: 0 15px;
+}
+.nav-link {
+  color: #000;
+  font-size: 14px;
+  text-decoration: none;
+}
+.nav-link:hover,
+.nav-link:focus {
+  text-decoration: underline;
+}
+.nav-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url("../img/icons.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+.grid-icon {
+  position: relative;
+}
+.bell-icon {
+  border-radius: 50%;
+  background-color: #737373;
+  background-position: 0 -20px;
+}
+.bell-icon:hover,
+.bell-icon:focus {
+  filter: brightness(1.25);
+}
+.account-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #8e00a2;
+  color: #fff;
+  font-size: 1.5em;
+  text-decoration: none;
+  text-align: center;
+}
+.account-placeholder::after {
+  content: 'A';
+}
+.show-popup:not(:checked) + .popup {
+  display: none;
+}
+.show-more:checked ~ .btn-more-box .btn-more {
+  display: none;
+}
+.show-more:not(:checked) ~ .btn-more-box .show-even-more {
+  display: none;
+}
+.show-more:not(:checked) ~ .popup-box .popup-item:nth-child(n + 11) {
+  display: none;
+}
+.show-more:checked ~ .popup-box {
+  height: 450px;
+  padding-right: 5px;
+  overflow-y: auto;
+}
+.popup {
+  position: absolute;
+  top: 50px;
+  right: -100px;
+  width: 350px;
+  cursor: default;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  cursor: default;
+}
+.popup::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 0 solid rgba(0,0,0,0.1);
+  border-width: 1px 0 0 1px;
+  background-color: #fff;
+  transform: translate(230px, -50%) rotate(45deg);
+}
+.popup-box {
+  padding: 25px;
+  box-sizing: border-box;
+  font-size: 0;
+  line-height: 0;
+}
+.popup-item {
+  display: inline-block;
+  width: 90px;
+  min-height: 90px;
+  padding: 5px;
+  text-align: center;
+  line-height: 0;
+}
+.popup-item-logo {
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  background-image: url("../img/sprite.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.popup-item-text {
+  margin-top: 10px;
+  font-size: 14px;
+}
+.popup-item:hover:not(:focus) {
+  outline: 1px solid #e5e5e5;
+}
+.popup-item:focus {
+  outline: none;
+}
+.popup-item:focus .popup-item-logo {
+  outline: 3px solid #aeb5ff;
+}
+.btn-more-box {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+.btn-more {
+  width: 100%;
+  height: 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+.btn-more:hover,
+.btn-more:focus {
+  background-color: #f0f0f0;
+}
+.show-even-more {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: underline;
+}
+.logo-docs {
+  background-position: 0 0%;
+}
+.logo-translate {
+  background-position: 0 5.263157894736842%;
+}
+.logo-plus {
+  background-position: 0 10.526315789473683%;
+}
+.logo-search {
+  background-position: 0 15.789473684210526%;
+}
+.logo-yt {
+  background-position: 0 21.052631578947366%;
+}
+.logo-play {
+  background-position: 0 26.31578947368421%;
+}
+.logo-calendar {
+  background-position: 0 31.57894736842105%;
+}
+.logo-drive {
+  background-position: 0 36.84210526315789%;
+}
+.logo-calendar {
+  background-position: 0 42.10526315789473%;
+}
+.logo-blogger {
+  background-position: 0 47.368421052631575%;
+}
+.logo-photos {
+  background-position: 0 52.63157894736842%;
+}
+.logo-maps {
+  background-position: 0 57.89473684210527%;
+}
+.logo-account {
+  background-position: 0 63.1578947368421%;
+}
+.logo-contacts {
+  background-position: 0 68.42105263157895%;
+}
+.logo-hangouts {
+  background-position: 0 73.68421052631578%;
+}
+.logo-keep {
+  background-position: 0 78.94736842105263%;
+}
+.logo-jamboard {
+  background-position: 0 84.21052631578947%;
+}
+.logo-classroom {
+  background-position: 0 89.47368421052632%;
+}
+.logo-earth {
+  background-position: 0 94.73684210526315%;
+}
+.logo-collections {
+  background-position: 0 100%;
+}
