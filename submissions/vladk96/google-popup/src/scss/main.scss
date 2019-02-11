@@ -38,12 +38,16 @@ body {
   text-decoration: underline;
 }
 
-.menu__trigger, .submenu { 
+.submenu { 
   display: none;
 }
+.menu__trigger {
+  width: 0;
+  height: 0;
+}
 
-.menu__trigger:checked + .submenu { 
-  display: flex;
+.menu__trigger:checked ~ .submenu { 
+  display: block;
 }
 
 .menu__item {
@@ -53,6 +57,7 @@ body {
 
 .icon-menu {
   vertical-align: middle;
+  margin-top: -15px;
   width: 15px;
   height: 15px;
   background: url(../images/menu.svg) no-repeat center top;
@@ -102,14 +107,20 @@ body {
    color: #fff;
 }
 
-.icon-menu:focus,
-.icon-circle:focus,
-.icon-account:focus,
+.menu__link:focus,
+.menu__trigger:focus + label > .icon-menu,
+.menu__link:focus .icon-circle,
+.menu__link:focus .icon-account,
 .submenu__link:focus .submenu__icon {
-  outline: 1px solid rgba(62, 62, 212, 0.38);
+  outline: 2px solid rgba(62, 62, 212, 0.38);
+}
+
+.submenu__check-more:focus + .submenu__label .submenu__btn-more {
+  border-color: rgba(62, 62, 212, 0.38);
 }
 
 .submenu {
+  overflow-y: auto;
   position: absolute;
   top: 35px;
   right: -80px;
@@ -121,25 +132,13 @@ body {
   box-shadow: 0 2px 10px rgba(0,0,0,.2);
 }
 
-.submenu__wrap {
+.submenu__wrap-before {
   display: flex;
   flex-wrap: wrap;
-  overflow-y: hidden;
 }
 
-.submenu::before,
-.submenu::after {
-  content: ''; 
-  position: absolute;
-  right: 25%;
-  top: -20px;
-  border: 10px solid transparent;
-  border-bottom: 10px solid #ccc;
-}
-
-.submenu::after {
-  border-bottom: 10px solid white;
-  top: -19px; 
+.submenu__wrap-after {
+  display: none;
 }
 
 .submenu__link {
@@ -180,6 +179,8 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
+  box-sizing: border-box;
+  border: 2px solid transparent;
   background-color: $light-black;
 }
 
@@ -200,7 +201,7 @@ body {
 }
 
 .submenu__link-more:focus {
-  outline: 5px solid rgba(62, 62, 212, 0.38);
+  outline: 1px solid rgba(62, 62, 212, 0.38);
 }
 
 .submenu__link-more:hover {
@@ -208,11 +209,14 @@ body {
 }
 
 .submenu__check-more {
-  display: none;
+  position: absolute;
+  width: 0;
+  height: 0;
 }
 
-.submenu__check-more:checked ~ .submenu__wrap {
-  overflow-y: scroll;
+.submenu__check-more:checked ~ .submenu__wrap-after {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .submenu__check-more:checked ~ .submenu__label {
