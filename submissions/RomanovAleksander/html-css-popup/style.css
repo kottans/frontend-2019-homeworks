@@ -13,7 +13,7 @@ a {
 
 a:nth-child(1):focus, a:nth-child(1):hover {
     color: blue;
-    text-decoration: underlineж
+    text-decoration: underline;
 
 }
 
