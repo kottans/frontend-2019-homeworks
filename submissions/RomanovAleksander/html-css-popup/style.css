@@ -9,12 +9,11 @@ a {
     color: black;
     text-decoration: none;
     margin-right: 20px;
-    outline: none;
 }
 
 a:nth-child(1):focus, a:nth-child(1):hover {
     color: blue;
-    text-decoration: underline
+    text-decoration: underlineж
 
 }
 
@@ -55,7 +54,7 @@ a:nth-child(2):focus, a:nth-child(2):hover {
 }
 
 .bell:focus, .bell:hover {
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 1px;
     background-color: blue;
     transition: all 0.2s;
@@ -72,7 +71,7 @@ a:nth-child(2):focus, a:nth-child(2):hover {
 }
 
 .user:focus, .user:hover {
-    border-radius: 6px;
+    border-radius: 8px;
     border: 1.5px solid greenyellow;
     transition: all 0.2s;
 }
@@ -87,12 +86,12 @@ a:nth-child(2):focus, a:nth-child(2):hover {
 }
 
 .popup-input:focus ~ label {
-    border: 1px solid orange;
+    border: 2px solid orange;
 }
 
 .popup-input:hover ~ label {
     opacity: 0.5;
-    border: 1px solid orange;
+    border: 2px solid orange;
 }
 
 .popup-wrapper {
@@ -124,7 +123,6 @@ a:nth-child(2):focus, a:nth-child(2):hover {
     margin: 5px 10px;
     cursor: pointer;
     max-width: 65px;
-    outline: none;
 }
 
 .popup-wrapper__service:hover, .popup-wrapper__service:focus {
@@ -147,10 +145,15 @@ a:nth-child(2):focus, a:nth-child(2):hover {
     cursor: pointer;
 }
 
-.popup-more-btn:hover, .popup-more-input:focus ~ .popup-more-btn {
+.popup-more-btn:hover {
     transition: all 0.3s;
     background-color: grey;
     color: white;
+}
+
+.popup-more-input:focus ~ .popup-more-btn {
+    width: 99.5%;
+    border: 1px solid rgb(77, 144, 254);
 }
 
 .popup-wrapper__more {
