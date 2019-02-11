@@ -67,7 +67,7 @@
   }
 
   &__text-input {
-    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
     font-size: 1.1em;
     font-weight: normal;
     color: #333;
@@ -86,22 +86,9 @@
   &__button-input {
     appearance: none;
     box-sizing: content-box;
-    font-family: "ddg-serp-icons";
     speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    text-decoration: none;
-    font-smoothing: antialiased;
-    osx-font-smoothing: grayscale;
-    tap-highlight-color: transparent;
     width: 1em;
     display: block;
-    cursor: pointer;
-    background: transparent;
-    text-align: center;
-    border: none;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -109,22 +96,36 @@
     left: auto;
     margin: auto;
     z-index: 2;
-    outline: none;
-    border-radius: 0 2px 2px 0;
     min-width: 26px;
-    color: #999;
-    font-size: 1.25em;
     padding: 0 0.64em;
     height: auto;
     min-height: 1.8em;
     margin-top: -1px;
     margin-bottom: -1px;
     margin-right: -3px;
-    line-height: 1.5;
+  }
+
+  &__button-input--duckduckgo-style {
     background-color: transparent;
     background-position: 50% 50%;
     background-repeat: no-repeat;
+    border: none;
+    border-radius: 0 2px 2px 0;
+    outline: none;
+    line-height: 1.5;
+    color: #999;
+    font-family: "ddg-serp-icons";
+    font-size: 1.25em;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-decoration: none;
     font-smoothing: subpixel-antialiased;
+    osx-font-smoothing: grayscale;
+    tap-highlight-color: transparent;
+    cursor: pointer;
 
     &:hover {
       background-color: #66ad57;
