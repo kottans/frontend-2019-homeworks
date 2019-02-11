@@ -25,11 +25,11 @@ $nav-apps-more-hover: #e0dede
 .nav-list-item a:hover
     opacity: .8
 
-.nav-list-item-apps
+.nav-list-item-apps-icon
     content: url(../img/apps.jpg)
     padding-top: 5px
     cursor: pointer
-    
+
 .nav-list-item-bell
     content: url(../img/bell.jpg)
     padding-top: 5px
@@ -38,11 +38,19 @@ $nav-apps-more-hover: #e0dede
     content: url(../img/avatar.jpg)
     padding-top: 5px
 
-.nav-input-apps,
 .nav-apps-menu,
-.nav-menu-input,
-.nav-input-apps-more
+.nav-menu-input
     display: none
+
+.nav-input-apps, .nav-input-apps-more
+    cursor: pointer
+    height: 0
+    width: 0
+    margin-right: -5px
+
+.nav-input-apps:focus + .nav-list-item-apps 
+    .nav-list-item-apps-icon
+        opacity: .7
 
 .nav-input-apps:checked ~ .nav-apps-menu
     display: block
@@ -139,6 +147,9 @@ $nav-apps-more-hover: #e0dede
 
 .nav-list-item-apps-more::before
     content: 'More'
+
+.nav-input-apps-more:focus + .nav-list-item-apps-more
+    background-color: #e0dede
 
 .nav-input-apps-more:checked ~ .nav-list-item-apps-more
     display: none
