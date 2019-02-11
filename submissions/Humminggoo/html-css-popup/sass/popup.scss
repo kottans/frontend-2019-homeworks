@@ -1,0 +1,122 @@
+$lightblue: #AEB5FF;
+$whitesmoke: #F5F5F5;
+
+$menuOffsetTop: 40px;
+$menuOffsetRight: -50px;
+
+$maxTabHeight: 510px;
+$tabWidth: 300px;
+$tabPadding: 20px;
+$tabRowGap: 10px;
+
+$itemPadding: 10px;
+$itemHeight: 100px;
+$itemSize: 50px;
+
+$showMoreWidth: 100%;
+$showMorePadding: 10px;
+
+@mixin hide(){
+  display: none;
+}
+@mixin shadow($x, $y, $blur, $spread, $color, $opacity){
+  box-shadow: $x $y $blur $spread rgba($color, $color, $color, $opacity);
+}
+@mixin arrow($left, $bottom, $offset, $size, $color){
+  content: '';
+  display: inline-block;
+  position: absolute;
+  left: $left;
+  bottom: $bottom;
+  margin-left: $offset;
+  border: $size solid transparent;
+  border-bottom-color: $color;
+}
+
+.icon-popup {
+  position: relative;
+  display: inline-block;
+}
+
+.outer {
+  @include shadow(0, 0, 7px, 2px, 184, 1);
+  display: none;
+  position: absolute;
+  top: $menuOffsetTop;
+  right: $menuOffsetRight;
+  z-index: 10;
+}
+
+.tab{
+  max-height: $maxTabHeight;
+  overflow-y: auto;
+}
+
+.popup{
+  display: grid;
+  grid-row-gap: $tabRowGap;
+  grid-template-columns: repeat(3, 33%);
+  width: $tabWidth;
+  padding: $tabPadding;
+
+  .popup-item{
+    padding: $itemPadding;
+    height: $itemHeight;
+    border-radius: 5px;
+
+    .service-icon{
+      display: block;
+      width: $itemSize;
+      height: $itemSize;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .service-title{
+      padding-top: 10px;
+      text-align: center;
+    }
+    &:hover{
+      @include shadow(0, 0, 7px, 2px, 184, 1);
+    }
+    &:focus{
+      outline: 1px solid $lightblue;
+    }
+  }
+}
+#popupCheck{
+  display: none;
+  &:checked + .outer{
+    display: block;
+  }
+  &:checked + .outer:before {
+    @include arrow(50%, 100%, 86px, 10px, black);
+  }
+  &:checked + .outer:after{
+    @include arrow(50%, 100%, 86px, 10px, white);
+  }
+}
+
+#scrollCheck{
+  @include hide();
+  &:checked ~ .popup-extended{
+    display: grid;
+  }
+  &:checked + .more-visible{
+    @include hide();
+  }
+  &:checked ~ .more-hidden{
+    display: inline-block;
+  }
+}
+
+.popup-more-items{
+  display: inline-block;
+  width: $showMoreWidth;
+  text-align: center;
+  background-color: $whitesmoke;
+  padding: $showMorePadding;
+}
+
+.popup-extended, .more-hidden{
+  @include hide();
+}
