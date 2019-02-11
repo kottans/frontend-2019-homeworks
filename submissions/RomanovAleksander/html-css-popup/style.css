@@ -12,8 +12,15 @@ a {
     outline: none;
 }
 
-a:hover, a:focus {
-    opacity: 0.5;
+a:nth-child(1):focus, a:nth-child(1):hover {
+    color: blue;
+    text-decoration: underline
+
+}
+
+a:nth-child(2):focus, a:nth-child(2):hover {
+    color: red;
+    text-decoration: underline
 }
 
 .hidden-input {
@@ -47,8 +54,11 @@ a:hover, a:focus {
     background-image: url(./img/bell.png);
 }
 
-.bell:hover {
-    background-color: grey;
+.bell:focus, .bell:hover {
+    border-radius: 6px;
+    padding: 1px;
+    background-color: blue;
+    transition: all 0.2s;
 }
 
 .user {
@@ -61,8 +71,10 @@ a:hover, a:focus {
     background-position: center;
 }
 
-.user:hover {
-    opacity: 0.5;
+.user:focus, .user:hover {
+    border-radius: 6px;
+    border: 1.5px solid greenyellow;
+    transition: all 0.2s;
 }
 
 .popup__icon-menu {
@@ -74,9 +86,13 @@ a:hover, a:focus {
     cursor: pointer;
 }
 
-.popup__icon-menu:hover, .popup-input:focus ~ label {
+.popup-input:focus ~ label {
+    border: 1px solid orange;
+}
+
+.popup-input:hover ~ label {
     opacity: 0.5;
-    transition: all 0.3s;
+    border: 1px solid orange;
 }
 
 .popup-wrapper {
@@ -161,7 +177,7 @@ a:hover, a:focus {
 }
 
 .popup-input:checked ~ label {
-   opacity: 0.5;
+    border: 1px solid orange;
 }
 
 .popup-more-input:checked ~ .popup-wrapper__more {
