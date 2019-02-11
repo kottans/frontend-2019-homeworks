@@ -1,0 +1,21 @@
+.toggle__input-more {
+    opacity: 0;
+    position: absolute;
+    top: -10000px;
+
+    &:checked ~ .toggle__show-more {
+        display: none;
+    }
+    
+    &:checked ~ .apps__item_state_hidden {
+        display: inline-block;
+    }
+
+    &:checked ~ .toggle__hidden-block-wrap {
+        display: block;
+    }
+
+    &:focus ~ .toggle__show-more {
+        text-decoration: underline;
+    }
+}

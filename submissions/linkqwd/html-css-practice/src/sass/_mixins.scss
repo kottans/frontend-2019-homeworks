@@ -1,6 +1,5 @@
-@mixin media($width) {
-	@media screen and (max-width: $width) {
-		@content;
-	}
+@mixin icon-position($x, $y) {
+	&::before {
+        background: url(../img/v1_051523630.png) $x $y;
+    }
 }
-

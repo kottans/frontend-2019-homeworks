@@ -1,0 +1,24 @@
+.apps__link {
+    display: block;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 13px;
+    color: $text-color;
+    min-width: 75px;
+    min-height: 75px;
+    line-height: 1.2;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+
+    &:hover {
+        border-color: #ddd;
+    }
+
+    &::before {
+        display: block;
+        content: '';
+        width: 55px;
+        height: 60px;
+        margin: auto;
+    }
+}
