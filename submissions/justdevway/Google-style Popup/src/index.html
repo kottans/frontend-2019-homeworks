@@ -6,7 +6,6 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Google-style Popup</title>
-    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <header class="header cf">
@@ -21,10 +20,7 @@
         </label>
         <div class="header__link header__link--menu">
             <div class="apps">
-                <input type="checkbox" class="apps__show-more" id="apps__show-more" type="checkbox">
-                <label for="apps__show-more" class="apps__label apps__label--more">More</label>
-                <label for="apps__show-more" class="apps__label apps__label--less">Less</label>
-                <ul class="apps__list">
+                <ul class="apps__list apps__list--main">
                     <li class="apps__item">
                         <div class="service">
                             <a href="#" class="service__link">
@@ -89,71 +85,78 @@
                             </a>
                         </div>
                     </li>
-                    <li class="apps__item">
-                        <div class="service">
-                            <a href="#" class="service__link">
-                                <img src="./img/google/google-plus.svg" alt="your google plus" class="service__img">
-                                <div class="service__name">Google+</div>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="apps__item">
-                        <div class="service">
-                            <a href="#" class="service__link">
-                                <img src="./img/google/translate.svg" alt="your translate" class="service__img">
-                                <div class="service__name">Translate</div>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="apps__item">
-                        <div class="service">
-                            <a href="#" class="service__link">
-                                <img src="./img/google/photos.svg" alt="your google photos" class="service__img">
-                                <div class="service__name">Photos</div>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="apps__item">
-                        <div class="service">
-                            <a href="#" class="service__link">
-                                <img src="./img/google/docs.svg" alt="your docs" class="service__img">
-                                <div class="service__name">Docs</div>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="apps__item">
-                        <div class="service">
-                            <a href="#" class="service__link">
-                                <img src="./img/google/business.svg" alt="your business" class="service__img">
-                                <div class="service__name">Business</div>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="apps__item">
-                        <div class="service">
-                            <a href="#" class="service__link">
-                                <img src="./img/google/account.svg" alt="your security account" class="service__img">
-                                <div class="service__name">Security</div>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="apps__item">
-                        <div class="service">
-                            <a href="#" class="service__link">
-                                <img src="./img/google/sheets.svg" alt="your sheets" class="service__img">
-                                <div class="service__name">Sheets</div>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="apps__item">
-                        <div class="service">
-                            <a href="#" class="service__link">
-                                <img src="./img/google/slides.svg" alt="your slides" class="service__img">
-                                <div class="service__name">Slides</div>
-                            </a>
-                        </div>
-                    </li>
                 </ul>
+                <input type="checkbox" class="apps__show-more" id="apps__show-more" type="checkbox">
+                <label for="apps__show-more" class="apps__label">More</label>
+                <hr class="apps__divide">
+                <div class="apps__list-container">
+                    <ul class="apps__list apps__list--addition">
+                        <li class="apps__item">
+                            <div class="service">
+                                <a href="#" class="service__link">
+                                    <img src="./img/google/google-plus.svg" alt="your google plus" class="service__img">
+                                    <div class="service__name">Google+</div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="apps__item">
+                            <div class="service">
+                                <a href="#" class="service__link">
+                                    <img src="./img/google/translate.svg" alt="your translate" class="service__img">
+                                    <div class="service__name">Translate</div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="apps__item">
+                            <div class="service">
+                                <a href="#" class="service__link">
+                                    <img src="./img/google/photos.svg" alt="your google photos" class="service__img">
+                                    <div class="service__name">Photos</div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="apps__item">
+                            <div class="service">
+                                <a href="#" class="service__link">
+                                    <img src="./img/google/docs.svg" alt="your docs" class="service__img">
+                                    <div class="service__name">Docs</div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="apps__item">
+                            <div class="service">
+                                <a href="#" class="service__link">
+                                    <img src="./img/google/business.svg" alt="your business" class="service__img">
+                                    <div class="service__name">Business</div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="apps__item">
+                            <div class="service">
+                                <a href="#" class="service__link">
+                                    <img src="./img/google/account.svg" alt="your security account" class="service__img">
+                                    <div class="service__name">Security</div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="apps__item">
+                            <div class="service">
+                                <a href="#" class="service__link">
+                                    <img src="./img/google/sheets.svg" alt="your sheets" class="service__img">
+                                    <div class="service__name">Sheets</div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="apps__item">
+                            <div class="service">
+                                <a href="#" class="service__link">
+                                    <img src="./img/google/slides.svg" alt="your slides" class="service__img">
+                                    <div class="service__name">Slides</div>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         <a href="#" class="header__link header__link--notification">
@@ -166,5 +169,6 @@
         </a>
     </div>
 </header>
+<script src="./index.js"></script>
 </body>
 </html>

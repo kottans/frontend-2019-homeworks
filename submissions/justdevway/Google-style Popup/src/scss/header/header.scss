@@ -1,0 +1,117 @@
+.header {
+  padding: 15px 22px;
+
+  &__list {
+    float: right;
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__link {
+    display: block;
+    padding: 7.5px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: var(--standart-font-size);
+    font-family: var(--standart-font-family);
+    text-decoration: none;
+
+    &--apps {
+      display: block;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
+
+    &:focus,
+    &:active {
+      border: 1px solid #000;
+    }
+
+    &--notification {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      margin: 5px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.55);
+      transition-property: background;
+      transition-duration: 0.175s;
+      transition-timing-function: linear;
+    }
+
+    &--notification:focus,
+    &--notification:active,
+    &--notification:hover {
+      background: rgba(0, 0, 0, 1);
+    }
+
+    &--notification img {
+      width: 10px;
+      height: 10px;
+      fill: #fff;
+    }
+
+    &--controller {
+      position: absolute;
+      z-index: -5;
+      opacity: 0;
+    }
+
+    &--menu {
+      position: absolute;
+      top: 44px;
+      right: 0;
+      display: none;
+      width: 322px;
+      min-height: 196px;
+      margin: 0;
+      border: 1px solid rgba(204, 204, 204, 0.2);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+      &:hover,
+      &:focus,
+      &:active {
+        border: 1px solid rgba(0, 0, 0, 0);
+      }
+    }
+  }
+
+  &__link--controller:focus ~ .header__link > .header__apps,
+  &:hover  .header__apps {
+    fill: rgba(0, 0, 0, 1);
+  }
+
+  &__link--controller:checked ~ .header__link--menu {
+    display: block;
+  }
+
+  &__apps {
+    padding: 6.5px;
+    width: 29px;
+    height: 29px;
+    fill: rgba(0, 0, 0, 0.55);
+    cursor: pointer;
+    transition-property: fill;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+
+    &-controller {
+      display: none;
+    }
+  }
+}

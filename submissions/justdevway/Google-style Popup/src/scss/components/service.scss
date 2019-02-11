@@ -1,0 +1,36 @@
+.service {
+  display: inline-block;
+
+  &__link {
+    display: block;
+    padding: 5px 14px;
+    outline: none;
+    border: 1px solid rgba(229, 229, 229, 0);
+    border-radius: 2.5px;
+    color: rgba(0, 0, 0, 0.87);
+    text-align: center;
+    text-decoration: none;
+    transition-property: border;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+  }
+
+  &__link:hover,
+  &__link:focus,
+  &__link:active {
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid rgb(0, 0, 0);
+  }
+
+  &__img {
+    width: calc(var(--icon-size) * 1.5);
+    height: calc(var(--icon-size) * 1.5);
+  }
+
+  &__name {
+    font-size: var(--standart-font-size);
+    font-family: var(--standart-font-family);
+  }
+
+}
