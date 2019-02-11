@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="sass/index.sass">
     <link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
@@ -17,8 +16,8 @@
                         <ul class="nav-list">
                             <li class="nav-list-item"><a href="#">Gmail</a></li>
                             <li class="nav-list-item"><a href="#">Images</a></li>
-                            <li class="nav-list-item">
-                                <input type="checkbox" class="nav-input-apps" id="nav-apps" tabindex="1">
+                            <li class="nav-list-item" tabindex="0" role="button">
+                                <input type="checkbox" class="nav-input-apps" id="nav-apps">
                                 <label for="nav-apps" class="nav-list-item-apps"></label>
                                 <div class="nav-apps-menu">
                                     <ul class="nav-list-apps" id="test">
@@ -70,8 +69,8 @@
                                             <span class="nav-list-icon nav-icon-document"></span>
                                             <span>document</span>
                                         </li>
-                                        <input type="checkbox" class="nav-input-apps-more" id="nav-apps-more" tabindex="14">
-                                        <label for="nav-apps-more" class="nav-list-item-apps-more"></label>
+                                        <input type="checkbox" class="nav-input-apps-more" id="nav-apps-more">
+                                        <label for="nav-apps-more" class="nav-list-item-apps-more" tabindex="14" role="button"></label>
                                         <hr class="hr-nav-apps-more">
                                         <ul class="nav-list-apps-hidden">
                                             <li class="nav-list-apps-item" tabindex="15">
@@ -111,7 +110,7 @@
                         </ul>
                     </nav>
                 </header>
-                <main>
+                <main class="main-container">
                     <section class="search-form">
                         <form id="google-search" name="google-search">
                             <div class="search-block">
