@@ -44,13 +44,20 @@ $nav-apps-more-hover: #e0dede
 
 .nav-input-apps, .nav-input-apps-more
     cursor: pointer
-    height: 0
-    width: 0
-    margin-right: -5px
+
+.visually-hidden
+    position: absolute
+    overflow: hidden
+    clip: rect(0 0 0 0)
+    height: 1px
+    width: 1px
+    margin: -1px
+    padding: 0
+    border: 0
 
 .nav-input-apps:focus + .nav-list-item-apps 
     .nav-list-item-apps-icon
-        opacity: .7
+        outline: -webkit-focus-ring-color auto 5px
 
 .nav-input-apps:checked ~ .nav-apps-menu
     display: block
@@ -150,6 +157,7 @@ $nav-apps-more-hover: #e0dede
 
 .nav-input-apps-more:focus + .nav-list-item-apps-more
     background-color: #e0dede
+    outline: -webkit-focus-ring-color auto 5px
 
 .nav-input-apps-more:checked ~ .nav-list-item-apps-more
     display: none
