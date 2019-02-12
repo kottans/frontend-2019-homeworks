@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font: 16px/1.5em sans-serif;
+  overflow-x: hidden;
 }
 a {
   color: #000;
@@ -49,13 +50,16 @@ a {
 .grid-icon {
   position: relative;
 }
+.grid-icon:focus,
+.show-popup:focus + .grid-icon {
+  outline: 3px solid #aeb5ff;
+}
 .bell-icon {
   border-radius: 50%;
   background-color: #737373;
   background-position: 0 -20px;
 }
-.bell-icon:hover,
-.bell-icon:focus {
+.bell-icon:hover {
   filter: brightness(1.25);
 }
 .account-placeholder {
@@ -74,22 +78,23 @@ a {
 .account-placeholder::after {
   content: 'A';
 }
-.show-popup:not(:checked) + .popup {
+.show-popup:not(:checked) + label[for=show-popup] .popup {
+  display: none;
+}
+.show-more:checked {
   display: none;
 }
 .show-more:checked ~ .btn-more-box .btn-more {
-  display: none;
-}
-.show-more:not(:checked) ~ .btn-more-box .show-even-more {
-  display: none;
-}
-.show-more:not(:checked) ~ .popup-box .popup-item:nth-child(n + 11) {
   display: none;
 }
 .show-more:checked ~ .popup-box {
   height: 450px;
   padding-right: 5px;
   overflow-y: auto;
+}
+.show-more:not(:checked) ~ .btn-more-box .show-even-more,
+.show-more:not(:checked) ~ .popup-box .popup-item:nth-child(n + 11) {
+  display: none;
 }
 .popup {
   position: absolute;
@@ -125,6 +130,15 @@ a {
   text-align: center;
   line-height: 0;
 }
+.popup-item:hover:not(:focus) {
+  outline: 1px solid #e5e5e5;
+}
+.popup-item:focus {
+  outline: none;
+}
+.popup-item:focus .popup-item-logo {
+  outline: 3px solid #aeb5ff;
+}
 .popup-item-logo {
   display: inline-block;
   width: 75px;
@@ -136,15 +150,6 @@ a {
 .popup-item-text {
   margin-top: 10px;
   font-size: 14px;
-}
-.popup-item:hover:not(:focus) {
-  outline: 1px solid #e5e5e5;
-}
-.popup-item:focus {
-  outline: none;
-}
-.popup-item:focus .popup-item-logo {
-  outline: 3px solid #aeb5ff;
 }
 .btn-more-box {
   width: 100%;
@@ -164,8 +169,12 @@ a {
   cursor: pointer;
 }
 .btn-more:hover,
-.btn-more:focus {
+.btn-more:focus,
+.show-more:focus ~ .btn-more-box .btn-more {
   background-color: #f0f0f0;
+}
+.show-more:focus ~ .btn-more-box .btn-more {
+  outline: 3px solid #aeb5ff;
 }
 .show-even-more {
   width: 100%;

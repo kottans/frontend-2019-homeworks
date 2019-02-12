@@ -1,15 +1,18 @@
-.show-popup:not(:checked) + .popup
+.show-popup:not(:checked) + label[for=show-popup] .popup
 	display none
-.show-more:checked ~ .btn-more-box .btn-more
+
+.show-more:checked
 	display none
-.show-more:not(:checked) ~ .btn-more-box .show-even-more
-	display none
-.show-more:not(:checked) ~ .popup-box .popup-item:nth-child(n + 11)
-	display none
-.show-more:checked ~ .popup-box
-	height 450px
-	padding-right 5px
-	overflow-y auto
+	& ~ .btn-more-box .btn-more
+		display none
+	& ~ .popup-box
+		height 450px
+		padding-right 5px
+		overflow-y auto
+.show-more:not(:checked)
+	& ~ .btn-more-box .show-even-more,
+	& ~ .popup-box .popup-item:nth-child(n + 11)
+		display none
 
 .popup
 	position absolute
@@ -28,33 +31,33 @@
 		border-width 1px 0 0 1px
 		background-color #fff
 		transform translate(230px, -50%) rotate(45deg)
-	&-box
-		padding 25px
-		box-sizing border-box
-		font-size 0
-		line-height 0
-	&-item
-		display inline-block
-		width 90px
-		min-height 90px
-		padding 5px
-		text-align center
-		line-height 0
-		&-logo
-			display inline-block
-			square(75px)
-			background-image url(../img/sprite.png)
-			background-size cover
-			background-repeat no-repeat
-		&-text
-			margin-top 10px
-			font-size 14px
-		&:hover:not(:focus)
-			outline 1px solid gray(229)
-		&:focus
-			outline none
-		&:focus &-logo
-			outline 3px solid rgb(174,181,255)
+.popup-box
+	padding 25px
+	box-sizing border-box
+	font-size 0
+	line-height 0
+.popup-item
+	display inline-block
+	width 90px
+	min-height 90px
+	padding 5px
+	text-align center
+	line-height 0
+	&:hover:not(:focus)
+		outline 1px solid gray(229)
+	&:focus
+		outline none
+	&:focus .popup-item-logo
+		default-outline()
+.popup-item-logo
+	display inline-block
+	square(75px)
+	background-image url(../img/sprite.png)
+	background-size cover
+	background-repeat no-repeat
+.popup-item-text
+	margin-top 10px
+	font-size 14px
 
 .btn-more-box
 	width 100%
@@ -66,8 +69,11 @@
 	align-center()
 	background-color gray(245)
 	cursor pointer
-	&:hover, &:focus
+	&:hover, &:focus,
+	.show-more:focus ~ .btn-more-box &
 		background-color darken(gray(245), 2%)
+	.show-more:focus ~ .btn-more-box &
+		default-outline()
 .show-even-more
 	align-center()
 	text-decoration underline

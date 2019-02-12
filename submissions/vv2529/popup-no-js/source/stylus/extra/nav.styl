@@ -27,12 +27,15 @@
 
 .grid-icon
 	position relative
+	&:focus,
+	.show-popup:focus + &
+		default-outline()
 
 .bell-icon
 	border-radius 50%
 	background-color gray(115)
 	background-position 0 -20px
-	&:hover, &:focus
+	&:hover
 		filter brightness(1.25)
 
 .account-placeholder
