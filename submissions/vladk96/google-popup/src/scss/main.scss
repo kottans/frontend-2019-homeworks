@@ -42,8 +42,14 @@ body {
   display: none;
 }
 .menu__trigger {
-  width: 0;
-  height: 0;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
 }
 
 .menu__trigger:checked ~ .submenu { 
@@ -57,7 +63,6 @@ body {
 
 .icon-menu {
   vertical-align: middle;
-  margin-top: -15px;
   width: 15px;
   height: 15px;
   background: url(../images/menu.svg) no-repeat center top;
@@ -112,7 +117,7 @@ body {
 .menu__link:focus .icon-circle,
 .menu__link:focus .icon-account,
 .submenu__link:focus .submenu__icon {
-  outline: 2px solid rgba(62, 62, 212, 0.38);
+  outline: 4px solid rgba(62, 62, 212, 0.38);
 }
 
 .submenu__check-more:focus + .submenu__label .submenu__btn-more {
@@ -180,7 +185,7 @@ body {
   bottom: 0;
   width: 100%;
   box-sizing: border-box;
-  border: 2px solid transparent;
+  border: 4px solid transparent;
   background-color: $light-black;
 }
 
@@ -201,7 +206,7 @@ body {
 }
 
 .submenu__link-more:focus {
-  outline: 1px solid rgba(62, 62, 212, 0.38);
+  outline: 4px solid rgba(62, 62, 212, 0.38);
 }
 
 .submenu__link-more:hover {
@@ -210,8 +215,13 @@ body {
 
 .submenu__check-more {
   position: absolute;
-  width: 0;
-  height: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
 }
 
 .submenu__check-more:checked ~ .submenu__wrap-after {
