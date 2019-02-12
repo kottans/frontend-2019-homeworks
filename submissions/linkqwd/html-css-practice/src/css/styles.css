@@ -374,6 +374,10 @@ img {
   visibility: visible;
 }
 
+.toggle__drop-down:focus + .toggle__label {
+  box-shadow: 0px 0px 0px 2px #a5c7fe;
+}
+
 .toggle__label {
   display: block;
   width: 20px;
@@ -433,7 +437,7 @@ img {
 }
 
 .toggle__input-more:focus ~ .toggle__show-more {
-  text-decoration: underline;
+  box-shadow: inset 0px 0px 0px 2px #a5c7fe;
 }
 
 .toggle__hidden-block-wrap {

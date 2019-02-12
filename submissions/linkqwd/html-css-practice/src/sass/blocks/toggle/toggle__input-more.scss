@@ -16,6 +16,6 @@
     }
 
     &:focus ~ .toggle__show-more {
-        text-decoration: underline;
+        box-shadow: inset 0px 0px 0px 2px #a5c7fe;
     }
 }
