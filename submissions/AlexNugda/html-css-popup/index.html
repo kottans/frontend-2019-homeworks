@@ -1,56 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
-  <title>Document</title>
-</head>
-<body>
-  <div class="google-menu-container">
-    <ul class="google-menu-list-main">
-      <li class="g-menu-item-main"><a href="#" class="g-link">Gmail</a></li>
-      <li class="g-menu-item-main"><a href="#" class="g-link">Images</a></li>
-      <li class="g-menu-item-main expand">
-        <div class="google-menu-wrapper">
-          <input type="checkbox" class="toggle-menu" name="toggle-menu" id="toggle">
-          <label for="toggle" class="toggle-menu-label"></label>
-          <div class="toggle-menu-expand">
-            <div class="flex-scroll-wrap">
-              <input type="checkbox" class="more-apps" name="more-apps" id="more-apps">
-              <label for="more-apps" class="show-more-label">more</label>
-              <ul class="google-menu-list">
-                <li class="google-menu-item"><a href="#" class="apps-link app-docs"><div class="app-title">docs</div></a></li>
-                <li class="google-menu-item"><a href="#" class="apps-link app-translate"><div class="app-title">translate</div></a></li>
-                <li class="google-menu-item"><a href="#" class="apps-link app-google-plus"><div class="app-title">google+</div></a></li>
-                <li class="google-menu-item"><a href="#" class="apps-link app-google"><div class="app-title">search</div></a></li>
-                <li class="google-menu-item"><a href="#" class="apps-link app-youtube"><div class="app-title">youtube</div></a></li>
-                <li class="google-menu-item"><a href="#" class="apps-link app-play"><div class="app-title">play</div></a></li>
-                <li class="google-menu-item"><a href="#" class="apps-link app-gmail"><div class="app-title">gmail</div></a></li>
-                <li class="google-menu-item"><a href="#" class="apps-link app-drive"><div class="app-title">drive</div></a></li>
-                <li class="google-menu-item"><a href="#" class="apps-link app-calendar"><div class="app-title">calendar</div></a></li>
-                <li class="google-menu-item"><a href="#" class="apps-link app-blogger"><div class="app-title">blogger</div></a></li>
-              
-                <li class="google-menu-item drop-down"><a href="#" class="apps-link app-docs"><div class="app-title">docs</div></a></li>
-                <li class="google-menu-item drop-down"><a href="#" class="apps-link app-translate"><div class="app-title">translate</div></a></li>
-                <li class="google-menu-item drop-down"><a href="#" class="apps-link app-google-plus"><div class="app-title">google+</div></a></li>
-                <li class="google-menu-item drop-down"><a href="#" class="apps-link app-google"><div class="app-title">search</div></a></li>
-                <li class="google-menu-item drop-down"><a href="#" class="apps-link app-youtube"><div class="app-title">youtube</div></a></li>
-                <li class="google-menu-item drop-down"><a href="#" class="apps-link app-blogger"><div class="app-title">blogger</div></a></li>
-                <li class="google-menu-item drop-down"><a href="#" class="apps-link app-docs"><div class="app-title">docs</div></a></li>
-                <li class="google-menu-item drop-down"><a href="#" class="apps-link app-translate"><div class="app-title">translate</div></a></li>
-              </ul>
-              <div class="another-links"><a href="#">Even more from Google</a></div>
-            </div>
-          </div>
-          <span class="triangle-pointer"></span>
-        </div>
-      </li>
-      <li class="g-menu-item-main"><div class="bell"></div></li>
-      <li class="g-menu-item-main account-item"><div class="account"></div></li>
-    </ul>
-  </div>
-</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="google-menu-container">
+      <ul class="google-menu-list-main">
+        <li class="g-menu-item-main">
+          <a href="#" class="g-link" tabindex="1">Gmail</a>
+        </li>
+        <li class="g-menu-item-main">
+          <a href="#" class="g-link" tabindex="2">Images</a>
+        </li>
+        <li class="g-menu-item-main expand">
+          <div class="google-menu-wrapper">
+            <input
+              type="checkbox"
+              class="toggle-menu"
+              name="toggle-menu"
+              id="toggle"
+              tabindex="3"
+            />
+            <div class="toggle-menu-expand">
+              <div class="flex-scroll-wrap">
+                <input
+                  type="checkbox"
+                  class="more-apps"
+                  name="more-apps"
+                  id="more-apps"
+                  tabindex="30"
+                />
+                <label for="more-apps" class="show-more-label">more</label>
+                <ul class="google-menu-list">
+                  <li class="google-menu-item" tabindex="4">
+                    <a href="#" class="apps-link app-docs"
+                      ><div class="app-title">docs</div></a
+                    >
+                  </li>
+                  <li class="google-menu-item" tabindex="5">
+                    <a href="#" class="apps-link app-translate"
+                      ><div class="app-title">translate</div></a
+                    >
+                  </li>
+                  <li class="google-menu-item" tabindex="6">
+                    <a href="#" class="apps-link app-google-plus"
+                      ><div class="app-title">google+</div></a
+                    >
+                  </li>
+                  <li class="google-menu-item" tabindex="7">
+                    <a href="#" class="apps-link app-google"
+                      ><div class="app-title">search</div></a
+                    >
+                  </li>
+                  <li class="google-menu-item" tabindex="8">
+                    <a href="#" class="apps-link app-youtube"
+                      ><div class="app-title">youtube</div></a
+                    >
+                  </li>
+                  <li class="google-menu-item" tabindex="9">
+                    <a href="#" class="apps-link app-play"
+                      ><div class="app-title">play</div></a
+                    >
+                  </li>
+                  <li class="google-menu-item" tabindex="10">
+                    <a href="#" class="apps-link app-gmail"
+                      ><div class="app-title">gmail</div></a
+                    >
+                  </li>
+                  <li class="google-menu-item" tabindex="11">
+                    <a href="#" class="apps-link app-drive"
+                      ><div class="app-title">drive</div></a
+                    >
+                  </li>
+                  <li class="google-menu-item" tabindex="12">
+                    <a href="#" class="apps-link app-calendar"
+                      ><div class="app-title">calendar</div></a
+                    >
+                  </li>
+                  <li class="google-menu-item" tabindex="13">
+                    <a href="#" class="apps-link app-blogger"
+                      ><div class="app-title">blogger</div></a
+                    >
+                  </li>
 
+                  <li class="google-menu-item drop-down" tabindex="14">
+                    <a href="#" class="apps-link app-docs"
+                      ><div class="app-title">docs</div></a
+                    >
+                  </li>
+                  <li class="google-menu-item drop-down" tabindex="15">
+                    <a href="#" class="apps-link app-translate"
+                      ><div class="app-title">translate</div></a
+                    >
+                  </li>
+                  <li class="google-menu-item drop-down" tabindex="16">
+                    <a href="#" class="apps-link app-google-plus"
+                      ><div class="app-title">google+</div></a
+                    >
+                  </li>
+                  <li class="google-menu-item drop-down" tabindex="17">
+                    <a href="#" class="apps-link app-google"
+                      ><div class="app-title">search</div></a
+                    >
+                  </li>
+                  <li class="google-menu-item drop-down" tabindex="18">
+                    <a href="#" class="apps-link app-youtube"
+                      ><div class="app-title">youtube</div></a
+                    >
+                  </li>
+                  <li class="google-menu-item drop-down" tabindex="19">
+                    <a href="#" class="apps-link app-blogger"
+                      ><div class="app-title">blogger</div></a
+                    >
+                  </li>
+                  <li class="google-menu-item drop-down" tabindex="20">
+                    <a href="#" class="apps-link app-docs"
+                      ><div class="app-title">docs</div></a
+                    >
+                  </li>
+                  <li class="google-menu-item drop-down" tabindex="21">
+                    <a href="#" class="apps-link app-translate"
+                      ><div class="app-title">translate</div></a
+                    >
+                  </li>
+                </ul>
+                <div class="another-links">
+                  <a href="#" class="more-links">Even more from Google</a>
+                </div>
+              </div>
+            </div>
+            <span class="triangle-pointer"></span>
+          </div>
+        </li>
+        <li class="g-menu-item-main"><div class="bell" tabindex="0"></div></li>
+        <li class="g-menu-item-main account-item">
+          <div class="account" tabindex="0"></div>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
