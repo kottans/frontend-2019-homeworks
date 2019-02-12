@@ -1,0 +1,240 @@
+body{
+  font-family: arial, sans-serif;
+  font-size: 15px;
+}
+
+.menu-right{
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.menu-right .menu-item{
+  margin: 0 5px;
+  text-decoration: none;
+  color: black;
+}
+
+.menu-item:hover{
+  text-decoration: underline;
+}
+
+.menu-item:active{
+  color: blue;
+}
+
+.menu-item:focus{
+  color: blue;
+}
+
+.products, 
+.notifications, 
+.account{
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.notifications{
+  background-image: url(./img/icons.png);
+  background-position: -275px -38px;
+  border: none;
+}
+
+.account{
+  background-image: url(https://lh3.googleusercontent.com/-egvmId9n5mM/AAAAAAAAAAI/AAAAAAAAAAA/ACevoQPKMChGX8tFI9H3ERdiAH6-rYbcLg/s32-c-mo/photo.jpg);
+  background-position: -261px -33px;
+  border-radius: 50px;
+}
+
+.products, .reset{
+  background-image: url(./img/icons.png);
+  background-position: -132px -38px;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.reset{
+  background-color: white;
+  border: none;
+  padding: 0;
+}
+
+.products,
+.reset{
+  width: 30px;
+  height: 30px;
+}
+
+#show-all:focus ~ label{
+  border: 1px solid #2C79ED;
+}
+
+.view-more,
+#show-all:checked, 
+#show-all:checked ~ label,
+.products:checked,
+.reset,
+.popup{
+  display: none;
+}
+
+.popup {
+  position: absolute;
+  width: 323px;
+  max-height: 600px;
+  right: 25px;
+  top: 70px;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 1em #ccc;
+  overflow: overlay;
+}
+
+.popup a{
+  text-decoration: none;
+}
+
+#show-all:checked ~ .view-more,
+.products:checked ~ .popup,
+.products:checked ~ .reset{
+  display: block;
+}
+
+.popup-line{
+  width: 80%;
+  background-color: #ccc;
+  height: 1px;
+  border: 0;
+}
+
+.more{
+  text-align: center;
+}
+
+.more label{
+  display: block;
+  background-color: #ececec;
+  width: auto;
+  padding: 15px 0;
+}
+
+.hide{
+  opacity: 0;
+  margin: 0;
+}
+
+.popup .all-list,
+.popup .app-list{
+  display: flex;
+  flex-wrap: wrap;
+  padding-inline-start: 0px;
+  padding: 10px 10px;
+  margin: 0;
+}
+
+.app-list li, 
+.all-list li{
+  color: black;
+  height: 98px;
+  width: 85px;
+  text-align: center;
+  color: black;
+  font-size: 13px;
+  border: 1px solid white;
+  display: inline-block;
+  margin: 7px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.app-list li:hover, 
+.all-list li:hover{
+  border: 1px solid #ccc;
+}
+
+.app-list li:focus, 
+.all-list li:focus{
+  border: 1px solid blue;
+}
+
+.app-list li:active, 
+.all-list li:active{
+  border: 1px solid pink;
+}
+
+.app-list-img, 
+.app-list-img{
+  background-image: url(./img/services.png);
+  margin: 5px 10px;
+  vertical-align: top;
+  height: 64px;
+  width: 64px;
+}
+
+.app-list li:first-child .app-list-img{
+  background-position: 0 -1448px;
+}
+.app-list li:nth-child(2) .app-list-img{
+  background-position: 0 -1653px;
+}
+.app-list li:nth-child(3) .app-list-img{
+  background-position: 0 -412px;
+}
+.app-list li:nth-child(4) .app-list-img{
+  background-position: 0 -1309px;
+}
+.app-list li:nth-child(5) .app-list-img{
+  background-position: 0 -552px;
+}
+.app-list li:nth-child(6) .app-list-img{
+  background-position: 0 63px;
+}
+.app-list li:nth-child(7) .app-list-img{
+  background-position: 0 -1106px;
+}
+.app-list li:nth-child(8) .app-list-img{
+  background-position: 0 407px;
+}
+.app-list li:nth-child(9) .app-list-img{
+  background-position: 0 -829px;
+}
+.app-list li:nth-child(10) .app-list-img{
+  background-position: 0 -695px;
+}
+
+.all-list li:first-child .app-list-img{
+  background-position: 0 338px;
+}
+.all-list li:nth-child(2) .app-list-img{
+  background-position: 0 -1519px;
+}
+.all-list li:nth-child(3) .app-list-img{
+  background-position: 0 -207px;
+}
+.all-list li:nth-child(4) .app-list-img{
+  background-position: 0 616px;
+}
+.all-list li:nth-child(5) .app-list-img{
+  background-position: 0 269px;
+}
+.all-list li:nth-child(6) .app-list-img{
+  background-position: 0 -1585px;
+}
+.all-list li:nth-child(7) .app-list-img{
+  background-position: 0 -765px;
+}
+.all-list li:nth-child(8) .app-list-img{
+  background-position: 0 -904px;
+}
+.all-list li:nth-child(9) .app-list-img{
+  background-position: 0 -627px;
+}
+.all-list li:nth-child(10) .app-list-img{
+  background-position: 0 545px;
+}
+.all-list li:nth-child(11) .app-list-img{
+  background-position: 0 683px;
+}
