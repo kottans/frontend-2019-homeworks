@@ -16,11 +16,16 @@
   }
 
   &__link:hover,
-  &__link:focus,
-  &__link:active {
+  &__link:focus {
     text-decoration: none;
     color: inherit;
     border: 1px solid rgb(0, 0, 0);
+  }
+
+  &__link:active {
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid blue;
   }
 
   &__img {

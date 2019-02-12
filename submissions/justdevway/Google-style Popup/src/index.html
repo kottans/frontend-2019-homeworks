@@ -13,7 +13,7 @@
         <a href="#" class="header__link" title="Google mail">Gmail</a>
         <a href="#" class="header__link" title="Google images">Images</a>
         <input type="checkbox" class="header__link header__link--controller" id="apps-controller" type="checkbox">
-        <label for="apps-controller" class="header__link">
+        <label for="apps-controller" class="header__link header__link--apps">
             <svg class="header__apps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 408 408">
                 <path d="M0 102h102V0H0v102zm153 306h102V306H153v102zM0 408h102V306H0v102zm0-153h102V153H0v102zm153 0h102V153H153v102zM306 0v102h102V0H306zM153 102h102V0H153v102zm153 153h102V153H306v102zm0 153h102V306H306v102z"/>
             </svg>
@@ -160,7 +160,9 @@
             </div>
         </div>
         <a href="#" class="header__link header__link--notification">
-            <img src="./img/google/notification.svg" alt="your notification">
+            <div class="header__notification">
+                <img src="./img/google/notification.svg" alt="your notification">
+            </div>
         </a>
         <a href="#" class="header__link" title="Your name">
             <div class="login">
