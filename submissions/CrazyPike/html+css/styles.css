@@ -1,0 +1,179 @@
+.menu{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 140px;
+}
+
+.menu__item{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.menu__popup-service-from{
+    height: 35px;
+    width: 35px;
+}
+
+.menu__popup-icon{
+    background: url("img/menu.png") no-repeat center;
+    display: block;
+    height: 35px;
+    width: 35px;
+}
+
+
+.menu__open-popup-visible{
+    visibility: visible;
+    position: absolute;
+    opacity: 0;
+    top:20px;
+    left:20px;
+}
+
+.menu__open-popup-visible:focus + .menu__popup-icon{
+    outline: 1px dotted red;
+
+}
+
+.menu__open-popup-visible:checked ~ .popup{
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    margin-top: -20px;
+    margin-left: -160px;
+    z-index: 4;
+    width: 370px;
+    height: 450px;
+    border: 1px solid grey;
+    justify-content: flex-start;
+    overflow-y:scroll;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.menu__open-popup-visible:checked ~ .menu__arrow-to-popup{
+    display: block;
+    z-index: 6;
+}
+
+.menu__close-popup-button{
+    display: none;
+    visibility: hidden;
+
+}
+.menu__open-popup-visible:checked ~ .menu__close-popup-button{
+    display: block;
+    visibility: visible;
+    position: relative;
+    width: 35px;
+    height: 35px;
+    border-color: transparent;
+    top:-35px;
+    left: 5px;
+    z-index: 2;
+    background-color: transparent;
+}
+
+.menu__arrow-to-popup{
+    width: 20px;
+    height: 20px;
+    border-top: 1px solid grey;
+    border-left: 1px solid grey;
+    transform: rotate(45deg);
+    position: relative;
+    left: 0px;
+    top: -10px;
+    background-color: white;
+    display: none;
+
+}
+
+
+.popup{
+    display: none;
+}
+
+.popup__item
+{
+    margin: 20px;
+    width: 82px;
+    height: 82px;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup__item:focus{
+    outline: 1px dotted red;
+}
+
+.popup__item:hover{
+    outline: 1px dotted red;
+}
+
+.popup__label{
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+}
+
+.popup__img{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.popup__checkbox-more{
+    visibility: visible;
+    position: relative;
+    opacity: 0;
+}
+
+.popup__checkbox-more ~ .popup__item{
+    display: none;
+}
+
+.popup__checkbox-more:checked{
+    display: none;
+}
+.popup__checkbox-more:checked ~ .popup__item{
+    display: flex;
+    flex-wrap: wrap;
+    width: 82px;
+    height: 82px;
+}
+
+.popup__checkbox-more:checked ~ .popup__label-more-items{
+    display: none;
+}
+
+.popup__checkbox-more ~ .popup__label-more-items {
+    width: 400px;
+    background-color: lightgray;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.popup__checkbox-more:focus ~ .popup__label-more-items {
+    outline: 2px dotted red;
+}
+
+.menu__notification-item{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: url("img/Bell.png") center;
+    background-size: auto;
+    border: 1px solid black;
+
+}
+
+.menu__account-item{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: indianred;
+    text-align: center;
+    line-height: 40px;
+
+}
