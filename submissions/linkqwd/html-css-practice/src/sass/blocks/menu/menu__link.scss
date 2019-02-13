@@ -1,9 +1,9 @@
 .menu__link {
-    color: $text-color;
-    text-decoration: none;
-    transition: all 225ms ease-in-out;
-    &:hover {
-        text-decoration: underline;
-        color: $text-hover;
-    }
+  color: $text-color;
+  text-decoration: none;
+  transition: all 225ms ease-in-out;
+  &:hover {
+    text-decoration: underline;
+    color: $text-hover;
+  }
 }

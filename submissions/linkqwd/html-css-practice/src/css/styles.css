@@ -1,15 +1,72 @@
-html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var,
-b, i,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -22,10 +79,23 @@ time, mark, audio, video {
 body {
   line-height: 1;
   font-family: arial, sans-serif;
+  max-width: 960px;
+  padding: 40px;
+  background: #fefefe;
+  margin: 0 auto;
 }
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
@@ -33,13 +103,16 @@ nav ul {
   list-style: none;
 }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
   content: none;
 }
 
@@ -67,7 +140,8 @@ del {
   text-decoration: line-through;
 }
 
-abbr[title], dfn[title] {
+abbr[title],
+dfn[title] {
   border-bottom: 1px dotted;
   cursor: help;
 }
@@ -86,7 +160,8 @@ hr {
   padding: 0;
 }
 
-input, select {
+input,
+select {
   vertical-align: middle;
 }
 
@@ -117,7 +192,7 @@ img {
 
 .apps__link::before {
   display: block;
-  content: '';
+  content: "";
   width: 55px;
   height: 60px;
   margin: auto;
@@ -231,13 +306,6 @@ img {
   display: none;
 }
 
-.layout {
-  max-width: 960px;
-  padding: 40px;
-  background: #fefefe;
-  margin: 0 auto;
-}
-
 .menu {
   text-align: right;
   position: relative;
@@ -274,7 +342,7 @@ img {
   min-height: 20px;
   min-width: 20px;
   display: block;
-  content: '';
+  content: "";
   margin-top: -20px;
   background: #fbfbfb;
   opacity: 0.4;
@@ -296,7 +364,7 @@ img {
 
 .menu__item_type_bell::after {
   display: block;
-  content: '';
+  content: "";
   background: url(../img/v1_051523630.png) -69px 865px;
   height: 20px;
   width: 20px;
@@ -319,7 +387,7 @@ img {
 }
 
 .menu__item_type_profile::after {
-  content: 'A';
+  content: "A";
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -332,7 +400,8 @@ img {
   width: 32px;
 }
 
-.menu__item_type_profile .menu__item-decoration-triangle:after, .menu__item_type_profile .menu__item-decoration-triangle:before {
+.menu__item_type_profile .menu__item-decoration-triangle::after,
+.menu__item_type_profile .menu__item-decoration-triangle::before {
   right: 8px;
 }
 
@@ -343,7 +412,7 @@ img {
 }
 
 .menu__item-decoration-triangle::after, .menu__item-decoration-triangle::before {
-  content: '';
+  content: "";
   position: absolute;
   top: calc(100% + 5px);
   border-style: solid;
@@ -369,7 +438,8 @@ img {
   top: -10000px;
 }
 
-.toggle__drop-down:checked ~ .toggle__content-wrapper, .toggle__drop-down:checked ~ .menu__item-decoration-triangle {
+.toggle__drop-down:checked ~ .toggle__content-wrapper,
+.toggle__drop-down:checked ~ .menu__item-decoration-triangle {
   opacity: 1;
   visibility: visible;
 }

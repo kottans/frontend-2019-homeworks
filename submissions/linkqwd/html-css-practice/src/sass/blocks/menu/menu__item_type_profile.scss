@@ -1,27 +1,28 @@
 .menu__item_type_profile {
-    height: 32px;
-    width: 32px;
-    background: $accent;
-    border-radius: 50%;
-    text-align: center;
-    cursor: pointer;
-    position: relative;
+  height: 32px;
+  width: 32px;
+  background: $accent;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
 
-    &::after {
-        content: 'A';
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        color: #fff;
-        pointer-events: none;
-    }
+  &::after {
+    content: "A";
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    pointer-events: none;
+  }
 }
 
 .menu__item_type_profile .toggle__label {
-    height: 32px; 
-    width: 32px;
- }
+  height: 32px;
+  width: 32px;
+}
 
-.menu__item_type_profile .menu__item-decoration-triangle:after, .menu__item_type_profile .menu__item-decoration-triangle:before {
-    right: 8px;
+.menu__item_type_profile .menu__item-decoration-triangle::after,
+.menu__item_type_profile .menu__item-decoration-triangle::before {
+  right: 8px;
 }
