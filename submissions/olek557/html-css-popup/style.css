@@ -9,14 +9,11 @@ body {
 }
 
 .visually-hidden {
-  position: absolute !important;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
-  padding:0 !important;
-  border:0 !important;
-  height: 1px !important; 
-  width: 1px !important; 
+  position: absolute;
   overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
 }
 
 *:focus {
@@ -27,6 +24,7 @@ body {
 input:focus ~ label {
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.6);
 }
+
 input:focus ~ .icon {
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.6);
 
@@ -60,9 +58,7 @@ input:focus ~ .icon {
   position: relative;
 }
 
-.nav__item {}
-
-.nav__item+.nav__item {
+.nav__item + .nav__item {
   margin-left: 15px;
 }
 
