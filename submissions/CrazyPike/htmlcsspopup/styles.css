@@ -10,7 +10,6 @@
     margin-right: 10px;
 }
 
-
 .menu__popup-service-from{
     height: 35px;
     width: 35px;
@@ -23,7 +22,6 @@
     width: 35px;
 }
 
-
 .menu__open-popup-visible{
     visibility: visible;
     position: absolute;
@@ -34,7 +32,6 @@
 
 .menu__open-popup-visible:focus + .menu__popup-icon{
     outline: 1px dotted red;
-
 }
 
 .menu__open-popup-visible:checked ~ .popup{
@@ -45,13 +42,13 @@
     margin-left: -160px;
     z-index: 4;
     width: 370px;
-    height: 450px;
+    height: 520px;
     border: 1px solid grey;
     justify-content: flex-start;
     overflow-y:scroll;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
+
 .menu__open-popup-visible:checked ~ .menu__arrow-to-popup{
     display: block;
     z-index: 6;
@@ -60,8 +57,8 @@
 .menu__close-popup-button{
     display: none;
     visibility: hidden;
-
 }
+
 .menu__open-popup-visible:checked ~ .menu__close-popup-button{
     display: block;
     visibility: visible;
@@ -86,16 +83,13 @@
     top: -10px;
     background-color: white;
     display: none;
-
 }
-
 
 .popup{
     display: none;
 }
 
-.popup__item
-{
+.popup__item {
     margin: 20px;
     width: 82px;
     height: 82px;
@@ -135,6 +129,7 @@
 .popup__checkbox-more:checked{
     display: none;
 }
+
 .popup__checkbox-more:checked ~ .popup__item{
     display: flex;
     flex-wrap: wrap;
@@ -165,7 +160,6 @@
     background: url("img/Bell.png") center;
     background-size: auto;
     border: 1px solid black;
-
 }
 
 .menu__account-item{
@@ -175,5 +169,4 @@
     background-color: indianred;
     text-align: center;
     line-height: 40px;
-
 }

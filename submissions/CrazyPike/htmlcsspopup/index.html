@@ -2,54 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Popup Task</title>
     <link href="styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
-          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <body>
 
 <nav class="menu">
-    <div class="menu__item">Gmail</div>
-    <div class="menu__item">Images</div>
+    <div class="menu__item" tabindex="0">Gmail</div>
+    <div class="menu__item" tabindex="0">Images</div>
     <div class="menu__item">
-    <form id="menuform" class="menu__popup-service-from">
-    <input type="checkbox" form="menuform" class='menu__open-popup-visible' id="menu__popup__visible"/>
-        <label  class="menu__popup-icon"  for="menu__popup__visible"></label>
-    <button form="menuform" type="reset" class="menu__close-popup-button" tabindex="1"></button>
-    <div class="menu__arrow-to-popup"></div>
-    <div class="popup">
-
-        <div class="popup__item" tabindex="0"><img class="popup__img" src="img/docs.png"><span class='popup__label'>Docs</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img" src="img/translate.png"><span class='popup__label'>Translate</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img" src="img/gplus.png"><span class='popup__label'>Google+</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img" src="img/search.png"><span class='popup__label'>Search</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img" src="img/youtube.png"><span class='popup__label'>Youtube</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img" src="img/play.png"><span class='popup__label'>Play</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img" src="img/gmail.png"><span class='popup__label'>Gmail</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img" src="img/drive.png"><span class='popup__label'>Drive</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img" src="img/calendar.png"><span class='popup__label'>Calendar</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img" src="img/mybusiness.png"><span class='popup__label'>My <br>Business</span></div>
-        <input type="checkbox" form="menuform" class="popup__checkbox-more" id="popup__checkbox-more">
-        <label class="popup__label-more-items" for="popup__checkbox-more"> More </label>
-        <div class="popup__item" tabindex="0"><img class="popup__img"src="img/blogger.png"><span class='popup__label'>Blogger</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img"src="img/account.png"><span class='popup__label'>Account</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img"src="img/classroom.png"><span class='popup__label'>Classroom</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img"src="img/collections.png"><span class='popup__label'>Collections</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img"src="img/earth.png"><span class='popup__label'>Earth</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img"src="img/hangouts.png"><span class='popup__label'>Hangouts</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img"src="img/jamboard.png"><span class='popup__label'>Jamboard</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img"src="img/keep.png"><span class='popup__label'>Keep</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img"src="img/contacts.png"><span class='popup__label'>Contacts</span></div>
-        <div class="popup__item" tabindex="0"><img class="popup__img"src="img/maps.png"><span class='popup__label'>Maps</span></div>
+        <form id="menuform" class="menu__popup-service-from">
+            <input type="checkbox" form="menuform" class='menu__open-popup-visible' id="menu__popup__visible"/>
+            <label  class="menu__popup-icon"  for="menu__popup__visible"></label>
+            <button form="menuform" type="reset" class="menu__close-popup-button" tabindex="1"></button>
+            <div class="menu__arrow-to-popup"></div>
+            <div class="popup">
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/docs.png" alt="docs"><span class='popup__label'>Docs</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/translate.png" alt="translate"><span class='popup__label'>Translate</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/gplus.png" alt="gplus"><span class='popup__label'>Google+</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/search.png" alt="search"><span class='popup__label'>Search</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/youtube.png" alt="youtube"><span class='popup__label'>Youtube</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/play.png" alt="play"><span class='popup__label'>Play</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/gmail.png" alt="gmail"><span class='popup__label'>Gmail</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/drive.png" alt="drive"><span class='popup__label'>Drive</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/calendar.png" alt="calendar"><span class='popup__label'>Calendar</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/mybusiness.png" alt="mybusiness"><span class='popup__label'>My <br>Business</span></div>
+                <input type="checkbox" form="menuform" class="popup__checkbox-more" id="popup__checkbox-more">
+                <label class="popup__label-more-items" for="popup__checkbox-more"> More </label>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/blogger.png" alt="blogger"><span class='popup__label'>Blogger</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/account.png" alt="account"><span class='popup__label'>Account</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/classroom.png" alt="classroom"><span class='popup__label'>Classroom</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/collections.png" alt="collections"><span class='popup__label'>Collections</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/earth.png" alt="earth"><span class='popup__label'>Earth</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/hangouts.png" alt="hangouts"><span class='popup__label'>Hangouts</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/jamboard.png" alt="jamboard"><span class='popup__label'>Jamboard</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/keep.png" alt="keep"><span class='popup__label'>Keep</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/contacts.png" alt="contacts"><span class='popup__label'>Contacts</span></div>
+                <div class="popup__item" tabindex="0"><img class="popup__img" src="img/maps.png" alt="maps"><span class='popup__label'>Maps</span></div>
+            </div>
+        </form>
     </div>
-    </label>
-    </form>
-</div>
-    <div class="menu__item menu__notification-item">
-
+    <div class="menu__item menu__notification-item" tabindex="0">
     </div>
-    <div class="menu__item menu__account-item">
+    <div class="menu__item menu__account-item" tabindex="0">
         A
     </div>
 </nav>
