@@ -10,6 +10,9 @@
     margin-right: 10px;
 }
 
+.menu__item:focus{
+    outline: 1px solid red;
+}
 
 .menu__popup-service-from{
     height: 35px;
@@ -33,8 +36,7 @@
 }
 
 .menu__open-popup-visible:focus + .menu__popup-icon{
-    outline: 1px dotted red;
-
+    outline: 1px solid red;
 }
 
 .menu__open-popup-visible:checked ~ .popup{
@@ -45,13 +47,14 @@
     margin-left: -160px;
     z-index: 4;
     width: 370px;
-    height: 450px;
+    height: 520px;
     border: 1px solid grey;
     justify-content: flex-start;
     overflow-y:scroll;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
+
 .menu__open-popup-visible:checked ~ .menu__arrow-to-popup{
     display: block;
     z-index: 6;
@@ -60,8 +63,8 @@
 .menu__close-popup-button{
     display: none;
     visibility: hidden;
-
 }
+
 .menu__open-popup-visible:checked ~ .menu__close-popup-button{
     display: block;
     visibility: visible;
@@ -82,13 +85,10 @@
     border-left: 1px solid grey;
     transform: rotate(45deg);
     position: relative;
-    left: 0px;
     top: -10px;
     background-color: white;
     display: none;
-
 }
-
 
 .popup{
     display: none;
@@ -104,11 +104,11 @@
 }
 
 .popup__item:focus{
-    outline: 1px dotted red;
+    outline: 1px solid red;
 }
 
 .popup__item:hover{
-    outline: 1px dotted red;
+    outline: 1px solid grey;
 }
 
 .popup__label{
@@ -135,6 +135,7 @@
 .popup__checkbox-more:checked{
     display: none;
 }
+
 .popup__checkbox-more:checked ~ .popup__item{
     display: flex;
     flex-wrap: wrap;
@@ -148,14 +149,14 @@
 
 .popup__checkbox-more ~ .popup__label-more-items {
     width: 400px;
-    background-color: lightgray;
+    background: rgba(0,250,120,0.3);
     height: 30px;
     text-align: center;
     line-height: 30px;
 }
 
 .popup__checkbox-more:focus ~ .popup__label-more-items {
-    outline: 2px dotted red;
+    outline: 1px solid red;
 }
 
 .menu__notification-item{
@@ -165,7 +166,6 @@
     background: url("img/Bell.png") center;
     background-size: auto;
     border: 1px solid black;
-
 }
 
 .menu__account-item{
@@ -175,5 +175,4 @@
     background-color: indianred;
     text-align: center;
     line-height: 40px;
-
 }
