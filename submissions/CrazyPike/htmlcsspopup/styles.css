@@ -10,10 +10,15 @@
     margin-right: 10px;
 }
 
+<<<<<<< HEAD
 .menu__item:focus{
     outline: 1px solid red;
 }
 
+||||||| merged common ancestors
+
+=======
+>>>>>>> htmlcsspopup
 .menu__popup-service-from{
     height: 35px;
     width: 35px;
@@ -26,7 +31,6 @@
     width: 35px;
 }
 
-
 .menu__open-popup-visible{
     visibility: visible;
     position: absolute;
@@ -36,7 +40,14 @@
 }
 
 .menu__open-popup-visible:focus + .menu__popup-icon{
+<<<<<<< HEAD
     outline: 1px solid red;
+||||||| merged common ancestors
+    outline: 1px dotted red;
+
+=======
+    outline: 1px dotted red;
+>>>>>>> htmlcsspopup
 }
 
 .menu__open-popup-visible:checked ~ .popup{
@@ -52,7 +63,6 @@
     justify-content: flex-start;
     overflow-y:scroll;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 .menu__open-popup-visible:checked ~ .menu__arrow-to-popup{
@@ -94,8 +104,7 @@
     display: none;
 }
 
-.popup__item
-{
+.popup__item {
     margin: 20px;
     width: 82px;
     height: 82px;
