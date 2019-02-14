@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  list-style: none;
+  font-size:14px;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.list-item {
+  margin-left: 20px;
+}
+
+.nav-link {
+  color: rgb(112, 108, 108);
+}
+
+.list-item>nav-link:visited {
+  color: rgb(54, 52, 52);
+}
+
+.box-image {
+  margin-top: 2px;
+  margin-left: 20px;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.box-image:hover {
+  opacity: 1;
+}
+
+.hidden {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.application-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 50px;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .15),
+    0 6px 20px 0 rgba(0, 0, 0, .14);
+}
+
+
+.application-menu::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  right: 50px;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-top: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  transform: rotate(-45deg);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 14px;
+}
+
+.main-apps {
+  padding-bottom: 14px;
+}
+
+.app-img {
+  background: url(img/google-apps.png);
+  width: 80px;
+  height: 78px;
+}
+
+.service:visited {
+  color: rgb(54, 52, 52);
+}
+
+.bell {
+  background: url(img/notification.png);
+  background-size: 40%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(27, 26, 26);
+  opacity: 0.7;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.bell:hover{
+  opacity: 1;
+}
+
+.avatar {
+  background: url(img/cat.png);
+  background-color: cornflowerblue;
+  background-size: 40%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 13px;
+}
+
+.services-label {
+  cursor: pointer;
+}
+
+.label-apps-more {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 14px;
+  background-color: #F5F5F5;
+}
+
+.additional-apps {
+  display: none;
+}
+
+.input-services-box:checked~.application-menu {
+  display: block;
+}
+
+.input-more-apps:checked~.additional-apps {
+  display: block;
+}
+
+
+
+
+/* positions for icons */
+.service-maps {
+  background-position: -13px -1240px;
+}
+
+.service-youtube {
+  background-position: -18px -2316px;
+}
+
+.service-play {
+  background-position: 11px -340px;
+}
+
+.service-calendar {
+  background-position: 8px -165px;
+}
+
+.service-search {
+  background-position: 8px -1900px;
+}
+
+.service-translator {
+  background-position: 8px -2171px;
+}
+
+.service-drive {
+  background-position: 8px -513px;
+}
+
+.service-gmail {
+  background-position: 8px -2726px;
+}
+
+.service-photo {
+  background-position: 8px -1450px;
+}
