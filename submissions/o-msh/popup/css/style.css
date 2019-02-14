@@ -53,11 +53,12 @@ a {
 }
 
 :focus {
-  outline: 1px solid #aeb5ff;
+  outline: 3px solid #aeb5ff;
 }
 
 .header {
-  font: small arial,sans-serif;
+  font-family: arial,sans-serif;
+  font-size: small;
   display: flex;
   justify-content: flex-end;
 }
@@ -93,7 +94,7 @@ a {
 
 .nav-apps__input:focus ~ .nav-apps__label,
 .app__input-more:focus ~ .app__label-more {
-  outline: -webkit-focus-ring-color auto 5px;
+  outline: 3px solid #aeb5ff;
 }
 
 .nav-apps__label,
@@ -106,7 +107,7 @@ a {
   position: absolute;
   width: 400px;
   top: 55px;
-  right: 12px;
+  right: 17px;
   border: 1px solid #cccccc;
   animation-name: nav-apps;
   animation-timing-function: linear;
@@ -146,7 +147,7 @@ a {
 }
 
 .app__item:hover {
-  outline: 1px solid #aeb5ff;
+  outline: 3px solid #aeb5ff;
 }
 
 .app__icon {
@@ -268,9 +269,9 @@ a {
 
 .nav__item_icon_apps {
   display: flex;
-  background: url("../img/icons.png") no-repeat -139px -45px;
-  width: 16px;
-  height: 16px;
+  background: url("../img/icons.png") no-repeat -135px -40px;
+  width: 25px;
+  height: 25px;
   opacity: 0.5;
 }
 
@@ -295,4 +296,15 @@ a {
   height: 44px;
   zoom: 0.7;
   -moz-transform: scale(0.7);
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
 }
