@@ -1,0 +1,32 @@
+square($size)
+	width $size
+	height $size
+gray($value)
+	rgb($value, $value, $value)
+align-center()
+	square(100%)
+	display flex
+	justify-content center
+	align-items center
+default-outline()
+	outline 3px solid rgb(174,181,255)
+
+body
+	margin 0
+	font 16px/1.5em sans-serif
+	overflow-x hidden
+a
+	color #000
+	text-decoration none
+.visually-hidden
+	position: absolute;
+	clip: rect(1px, 1px, 1px, 1px);
+	padding:0;
+	border:0;
+	height: 1px; 
+	width: 1px; 
+	overflow: hidden;
+
+@require('extra/nav')
+@require('extra/popup')
+@require('extra/logo')

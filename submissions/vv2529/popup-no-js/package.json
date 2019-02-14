@@ -1,0 +1,41 @@
+{
+	"name": "popup-no-js",
+	"version": "1.0.0",
+	"description": "Popup using no JS",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"keywords": [],
+	"author": "vv2529",
+	"license": "ISC",
+	"devDependencies": {
+		"eslint": "^5.13.0",
+		"eslint-config-airbnb-base": "^13.1.0",
+		"eslint-plugin-import": "^2.16.0",
+		"gulp": "^4.0.0",
+		"gulp-stylus": "^2.7.0",
+		"gulp-watch": "^5.0.1"
+	},
+	"eslintConfig": {
+		"extends": "airbnb-base",
+		"rules": {
+			"indent": [
+				"error",
+				"tab"
+			],
+			"no-tabs": "off",
+			"no-unused-vars": "warn"
+		}
+	},
+	"prettier": {
+		"tabWidth": 2,
+		"useTabs": true,
+		"singleQuote": true
+	},
+	"dependencies": {}
+}
