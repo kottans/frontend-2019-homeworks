@@ -88,7 +88,15 @@
 
   .link {
     margin: 2px 8px;
+    padding: 2px 0;
     display: block;
+    border: 1px solid transparent;
+    transition: border .2s ease-in-out;
+  }
+
+  .link:hover {
+    border: 1px solid lightgray;
+    border-radius: 3px;
   }
 
   .img-wrap {
@@ -124,8 +132,16 @@
     display: none;
   }
 
-  .input-more {
-    visibility: hidden;
+  .visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+  }
+
+  .input-more:focus + .btn-more {
+    outline: auto;
   }
 
   .input-more:checked ~ .list-more {
@@ -218,3 +234,4 @@
   opacity: 1;
 }
   
+
