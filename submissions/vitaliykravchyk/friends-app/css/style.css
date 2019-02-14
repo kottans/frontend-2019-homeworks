@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    background-color: rgb(214, 214, 214);
+}
+nav {
+    width: 20%;
+    margin: 0;
+}
+main {
+    width: 79%;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.profile {
+    margin: 10px 0 0 0;
+    width: 24%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(252, 239, 215);
+}
+h4, span, body, p, #sex, #name, #age {
+    display: flex;
+    justify-content: center;
+}
+figcaption {
+    width: 100%;
+    font-size: 15px;
+    margin: 10px 0 10px 0;
+    text-align: center; 
+}
+h4 {
+    width: 100%;
+    background-color: rgb(181, 238, 214);
+    margin: 0 0 15px 0;
+    padding: 5px 0 5px 0;
+}
+img {
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+}
+#sex, #name, #age {
+    width: 90%;
+    padding: 0;
+    margin: 0;
+}
+#search {
+    width: 90%;
+    margin: 10px 0 10px 0;
+}
+button {
+    border: 0px solid wheat;
+    width: 30%;
+    padding: 5px;
+    margin: 5px;
+}
+#age-increase::after {
+    content: url(../img/sort-age-up.png);
+}
+#age-reduce::after {
+    content: url(../img/sort-age-down.png)
+}
+#name-reduce::after {
+    content: url(../img/sort-name-down.png)
+}
+#name-increase::after {
+    content: url(../img/sort-name-up.png)
+}
+span {
+    padding: 0;
+    width: 40%;
+    align-items: center;
+}
+figcaption span {
+    width: 100%;
+    font-weight: bold;
+}
+#gender {
+    font-size: 13px;
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid rgb(214, 214, 214);
+}
+section {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+label {
+    margin: 5px;
+}
+#filter, #sort {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#filter {
+    background-color: pink;
+}
+#sort {
+    background-color: rgb(181, 238, 214);
+    margin-bottom: 5px;
+}
+#name {
+   margin-bottom: 5px;
+}
+#age, #sex {
+    margin-top: 5px;
+}
+.female {
+    background-color: pink;
+}
+
+@media (max-width: 1050px){
+    figcaption {
+        font-size: 12px;
+    }
+}
+@media (max-width: 900px){
+    .profile {
+        width: 30%;
+    }
+    main {
+        width: 70%;
+    }
+    nav {
+        width: 25%;
+    }
+}
+@media (max-width: 750px){
+    .profile {
+        width: 45%;
+    }
+    main {
+        width: 70%;
+    }
+    nav {
+        width: 30%;
+    }
+}
+@media (min-width: 300px) and (max-width: 500px){
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    main {
+        width: 90%;
+    }
+    nav {
+        width: 70%;
+    }
+    .profile {
+        width: 80%;
+    }
+}

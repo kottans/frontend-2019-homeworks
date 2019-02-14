@@ -1,0 +1,105 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+
+.wrapper {
+    width: auto; 
+    padding: 0 5px;
+}
+
+.main-header {
+    margin: 0px;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #d8d8d8;
+}
+
+.second-heading {
+    font-size: 1.5em;
+}
+
+.main-heading {
+    font-weight: bold;
+    font-size: 1.6em;
+    margin: 0px;
+}
+
+.menu {
+    background-image: linear-gradient(to bottom, #ff0037, #ff2a2a);
+    font-size: 1.3em;
+    padding: 10px 0;
+}
+
+.menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.menu-item {
+    line-height: 1.7em;
+}
+
+.menu-item:hover {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.main-footer {
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+    background-color: #000000;
+    padding: 10px 0 10px 0;
+    font-size: 2.5em;
+    color: #ffffff;
+    height: 50px;
+}
+
+.footer-logo:hover {
+    color: #ff0037;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 800px) {
+    .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+
+    .main-heading {
+        display: none;
+    }
+
+    .main-header {
+        width: 100%;
+        background-image: url(img/milan.jpg);
+        height: 200px;
+    }
+
+    .menu {
+        width: 25%;
+        padding-top: 15px;
+        margin-top: 15px;
+    }
+
+    .content-column {
+        width: 69%;
+        justify-content: space-between;
+        margin-left: 2%;
+        padding: 0 2% 0 2%;;
+        margin-top: 15px;
+        background-image: linear-gradient(to bottom, #ff0037, #ff2a2a);
+    }
+}
+
+
+@media screen and (min-width: 900px) {
+    .wrapper {
+        width: 900px;
+        margin: 0 auto;
+    }
+}

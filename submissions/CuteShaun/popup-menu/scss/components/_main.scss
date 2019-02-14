@@ -1,0 +1,194 @@
+.main-info {
+  position: absolute;
+  margin: auto;
+  width: 100%;
+  top: 24%;
+  left: 0;
+  right: 0;
+  z-index: 9;
+
+  &__text {
+    position: relative;
+    line-height: 1.4;
+    font-size: 18px;
+    padding: 0 15px;
+    margin: 0.5em auto;
+    text-align: center;
+    color: #9a9a9a;
+  }
+}
+
+.logo {
+  position: relative;
+  display: block;
+  max-width: 300px;
+  margin: auto;
+  margin-bottom: 0.8em;
+  margin-top: -1.25em;
+
+  .logo__img {
+    background-image: url(../img/logo.svg);
+    background-size: 250px 200px;
+    width: 250px;
+    height: 200px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    margin: auto;
+    display: block;
+    position: relative;
+    text-align: center;
+    color: transparent;
+    text-indent: -9999px;
+    font-size: 0px;
+  }
+}
+
+.search {
+  padding: 1.3em 0.8em 1em;
+  max-width: 590px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  float: none;
+  width: 70%;
+
+  &__form {
+    font-size: 1.14em;
+    padding-right: 3.5em;
+    box-sizing: border-box;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    height: 2.8em;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.06);
+    padding-left: 0.75em;
+  }
+
+  &__text-input {
+    tap-highlight-color: transparent;
+    font-size: 1.1em;
+    font-weight: normal;
+    color: #333;
+    display: block;
+    width: 100%;
+    background: none;
+    outline: none;
+    border: none;
+    padding: 0;
+    height: 2.54545em;
+    z-index: 1;
+    position: relative;
+    top: -1px;
+  }
+
+  &__button-input {
+    appearance: none;
+    box-sizing: content-box;
+    speak: none;
+    width: 1em;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 2px;
+    left: auto;
+    margin: auto;
+    z-index: 2;
+    min-width: 26px;
+    padding: 0 0.64em;
+    height: auto;
+    min-height: 1.8em;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    margin-right: -3px;
+  }
+
+  &__button-input--duckduckgo-style {
+    background-color: transparent;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 0 2px 2px 0;
+    outline: none;
+    line-height: 1.5;
+    color: #999;
+    font-family: "ddg-serp-icons";
+    font-size: 1.25em;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-decoration: none;
+    font-smoothing: subpixel-antialiased;
+    osx-font-smoothing: grayscale;
+    tap-highlight-color: transparent;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #66ad57;
+      color: white;
+    }
+  }
+}
+
+.search-result {
+  position: relative;
+  margin: 20px 0;
+  &__wrapper {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(150, 150, 150, 0.3);
+    padding: 20px 22px;
+    max-width: 573px;
+    min-height: 200px;
+    max-height: 521px;
+    margin: 10px auto;
+  }
+
+  &__title {
+    margin: 0;
+    color: #333;
+    font-size: 1.67em;
+    font-weight: 600;
+    line-height: 1em;
+    display: block;
+    word-wrap: break-word;
+    padding: 0;
+  }
+
+  &__text {
+    font-size: 0.9176em;
+    line-height: 1.38em;
+    color: #666;
+    padding-top: 10px;
+    word-wrap: break-word;
+  }
+
+  &__img {
+    float: right;
+    max-width: 120px;
+    max-height: 160px;
+    padding-left: 25px;
+    padding-bottom: 25px;
+  }
+
+  &__link {
+    cursor: pointer;
+  }
+}
+
+.copyright {
+  margin: 15px auto;
+  text-align: center;
+  color: #9a9a9a;
+
+  &__link {
+    color: #4495d4;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
