@@ -1,0 +1,679 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+body
+	margin: 0
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	box-sizing: border-box
+	color: $text
+	input, textarea
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+b, strong
+	font-weight: bold
+
+.container
+	background-color: #eceef4
+	padding-bottom: 120px
+
+.header
+	width: 80%
+	margin: 0 auto
+	display: flex
+	justify-content: space-between
+	align-items: center
+	padding: 80px 0
+	.fa
+		font-size: 140px
+	.main-button
+		display: flex
+		align-items: center
+		justify-content: center
+		background-color: #eceef4
+		width: 190px
+		border: none
+		box-shadow: 0 0 2px 1px $bordercolor
+		&:hover
+			background-color: #fff
+		.fa
+			margin-right: 30px
+			font-size: 20px
+
+.form__wrapper
+	width: 80%
+	margin: 0 auto
+	border: 1px solid $bordercolor
+	border-radius: 5px
+	background-color: #fff
+
+.form_header
+	border-bottom: 1px solid $bordercolor
+	h3
+		text-transform: uppercase
+
+.order
+	display: flex
+	//padding: 30px 50px
+
+.order__table
+	flex-basis: 50%
+	margin-left: 30px
+	padding: 30px 0 30px 50px
+	tr, th, td
+		padding-right: 50px
+		text-align: left
+	th
+		padding-top: 30px
+	.fa
+		margin: 0 15px 0 -30px
+		font-size: 22px
+	h3
+		display: inline-block
+		margin: 0
+
+.order__buttons
+	flex-basis: 20%
+	border-right: 1px solid $bordercolor
+	padding: 30px
+	//align-self: center
+
+
+
+.main-button
+	display: block
+	text-transform: uppercase
+	width: 220px
+	height: 65px
+	border-radius: 5px
+	border: 1px solid $bordercolor
+	font-weight: bold
+	cursor: pointer
+	transition: background-color .25s ease
+
+.order-button
+	background-color: $accent
+	color: #ffffff
+	margin-bottom: 30px
+	&:hover
+		background-color: darken($accent, 10%)
+
+.print-button
+	background-color: #F7F7FA
+	color: $text-light
+	margin-bottom: 0
+	&:hover
+		background-color: darken(#F7F7FA, 3%)
+
+.help-center
+	flex-basis: 30%
+	padding: 30px 50px 30px 50px
+	.fa
+		font-size: 23px
+	h3
+		display: inline-block
+		margin: 0
+		padding-left: 28px
+	p
+		color: $text-light
+		padding-left: 55px
+
+.contacts
+	font-weight: bold
+	padding-left: 55px
+
+.contacts__phone
+	padding-right: 20px
+	display: inline-block
+
+.form__main
+	h3
+		font-size: 16px
+
+.form__body
+	width: 80%
+	margin: auto
+	margin-top: 120px
+	text-align: center
+	h2
+		margin: 0 0 50px 0
+		border-bottom: 1px solid $bordercolor
+		display: inline-block
+		padding: 0 15px 10px 15px
+		text-transform: uppercase
+
+
+.visually__hidden
+		position: absolute
+		overflow: hidden
+		clip: rect(0 0 0 0)
+		height: 1px
+		width: 1px
+		margin: -1px
+		padding: 0
+		border: 0
+
+/**********custom radio start ***********/
+
+.translate__wrapper
+		margin: 30px auto 120px
+		display: flex
+		flex-direction: row
+		justify-content: space-between
+
+.label
+		display: block
+		border: 5px solid $bordercolor
+		border-radius: 5px
+		cursor: pointer
+		position: relative
+		box-sizing: border-box
+		box-shadow: 0 0 0 1px $bordercolor
+
+.label--size-translate
+		width: 340px
+		height: 260px
+
+.label__image-wrapper
+	position: absolute
+	top: -5px
+	left: -5px
+	text-align: center
+	font-size: 20px
+	display: flex
+	flex-direction: column
+	justify-content: center
+	border: 5px solid transparent
+	border-radius: 5px
+	box-sizing: border-box
+	background-color: #F7F7FA
+	transition: background-color .25s ease
+	.fa
+		font-size: 120px
+		color: $text-light
+		margin-bottom: 20px
+	&:hover
+		background-color: darken(#F7F7FA, 2%)
+
+	.label__image
+			margin: 0 auto
+			display: block
+
+.label__text
+	color: $text-light
+
+input[type=radio]:checked + .label__image-wrapper
+	border-color: #7DA8E3
+
+input[type=radio]:checked + .label__image-wrapper
+	&::before
+		content: '\f058'
+		font-family: fontawesome
+		font-size: 30px
+		position: absolute
+		top: -15px
+		right: -15px
+		background-color: #fff
+		color: #7da8e3
+		z-index: 10
+		line-height: 25px
+
+/**********custom radio end ***********/
+
+.upload__wrapper
+	text-align: left
+
+.step__number
+	text-align: center
+	width: 50px
+	height: 50px
+	border-radius: 50%
+	border: 1.5px solid $text
+	display: inline-block
+	line-height: 50px
+	font-size: 20px
+	margin-left: -70px
+	font-weight: bold
+
+.step__title
+	font-size: 24px
+	margin: 0 10px
+	display: inline-block
+
+.step__desc
+	color: $text-light
+
+
+.upload_input
+	margin: 50px 0
+
+.checkbox-label
+	cursor: pointer
+	padding-left: 50px
+	display: block
+	position: relative
+
+.form-wrapper
+	margin: 50px auto
+	width: 460px
+
+.file-label
+	cursor: pointer
+	border: 1px solid $bordercolor
+	border-radius: 5px
+	padding: 20px 55px
+	padding-left: 80px
+	color: $text-light
+	position: relative
+	background-color: #f7f7fa
+	transition: background-color .25s ease
+	font-size: 18px
+
+.file-label:hover
+	background-color: darken(#f7f7fa, 2%)
+
+
+.file-label::before
+	content: '\f0ee'
+	font-family: fontawesome
+	display: block
+	position: absolute
+	top: 5px
+	left: 25px
+	font-size: 30px
+	color: $text-light
+
+.input:focus + .file-label
+	box-shadow: 0 0 2px 2px #7da8e3
+	border-color: transparent
+
+.upload__table-body
+	border: 1px solid $bordercolor
+	padding: 30px 50px
+	width: 100%
+	border-radius: 5px
+	color: $text-light
+	th, td
+		padding-bottom: 20px
+	td, th
+		&:last-child
+			text-align: center
+	.fa
+		cursor: pointer
+		font-size: 20px
+
+.upload__table-file
+	margin-left: 20px
+
+.languages-pairing__wrapper
+	text-align: left
+	margin-top: 120px
+
+
+.select__item
+	width: 100%
+	height: 100%
+	font-size: 20px
+	padding: 0 70px
+	cursor: pointer
+	border: 1px solid $bordercolor
+	border-radius: 5px
+	background-color: #F7F7FA
+	appearance: none
+	color: $text-light
+	transition: background-color .25s ease
+	&:hover
+		background-color: darken(#F7F7FA, 2%)
+
+.select__wrapper
+	width: 325px
+	height: 60px
+	margin: 30px 30px 30px 0
+	display: flex
+	position: relative
+	overflow: hidden
+
+.select__text
+	align-self: center
+	margin-right: 20px
+	font-weight: bold
+	&-to
+		margin-right: 40px
+
+.select__wrapper::before
+	content: ''
+	display: block
+	background-color: $bordercolor
+	width: 1px
+	height: 60px
+	position: absolute
+	top: 0
+	right: 60px
+	pointer-events: none
+
+.select__wrapper::after
+	content: '\f0d7'
+	font-family: fontawesome
+	display: block
+	position: absolute
+	top: 15px
+	right: 25px
+	pointer-events: none
+	font-size: 20px
+	color: $text-light
+
+.selects__block
+	display: flex
+	align-items: center
+
+.language__delete
+	.fa
+		color: $text-light
+		font-size: 20px
+		margin-right: 10px
+
+.language__add
+	border-radius: 5px
+	border: none
+	box-shadow: 0 0 0 1px $bordercolor
+	background-color: #F7F7FA
+	padding: 19px 50px
+	margin-left: 30px
+	color: $text-light
+	font-size: 15px
+	text-transform: uppercase
+	cursor: pointer
+	transition: background-color .25s ease
+	&:hover
+		background-color: darken(#F7F7FA, 2%)
+
+.tone-and-time__wrapper
+	text-align: left
+	margin-top: 120px
+	display: flex
+
+.label--size-tone
+		width: 305px
+		height: 85px
+
+.desire-tone__wrapper
+	flex-basis: 45%
+	.label
+		margin-bottom: 25px
+	.label__image-wrapper
+		flex-direction: row
+		align-items: center
+		justify-content: flex-start
+		.fa
+			font-size: 30px
+			margin: 0 30px 5px 40px
+
+.desire-tone__wrapper-inner
+	margin-top: 50px
+
+.how-urgent__wrapper
+	flex-basis: 55%
+	.step__number
+		margin-left: 0
+
+/*************** custom range start ****************/
+.range__wrapper
+	margin: 50px 0 64px 0
+
+.range__body
+	text-align: center
+	margin-bottom: 20px
+	margin-top: 20px
+
+.range__text
+	display: flex
+	justify-content: space-between
+	font-weight: bold
+	color: $text-light
+	font-size: 15px
+
+.range__input::-webkit-slider-runnable-track
+	appearance: none
+	width: 100%
+	background: #EFF0F5
+	height: 10px
+	border-radius: 5px
+
+.range__input
+	width: 85%
+	position: relative
+	appearance: none
+
+.range__input::before,
+.range__input::after
+	content: ''
+	display: block
+	width: 10px
+	height: 10px
+	position: absolute
+	background-color: #D6D8E2
+	border-radius: 100%
+
+.range__input::before
+	left: 0
+
+.range__input::after
+	right: 0
+
+.range__input::-webkit-slider-thumb
+	appearance: none
+	height: 20px
+	width: 20px
+	background-color: #E9BD71
+	margin-top: -5px
+	box-sizing: border-box
+	z-index: 2
+	position: relative
+	border-radius: 100%
+.orange
+	color: #e9bd71
+
+/******** custom range end ***************/
+
+.timeline__info
+	padding: 30px 30px 30px 40px
+	border: 1px solid $bordercolor
+	border-radius: 5px
+	h3
+		margin-left: 20px
+	.fa
+		font-size: 30px
+	p
+		padding-left: 50px
+		margin: 0
+		color: $text-light
+	span
+		color: #e9bd71
+		font-weight: bold
+
+.timeline__info-title
+	display: flex
+	align-items: center
+
+.paymant__wrapper
+	text-align: left
+
+.sign-in
+	padding: 30px 0
+
+.sign-up__inputs
+	display: flex
+	flex-wrap: wrap
+
+.sign-up__name
+	flex-basis: 100%
+
+.input__auth
+	height: 60px
+	width: 320px
+	border-radius: 5px
+	border: none
+	box-shadow: 0 0 2px 1px $bordercolor
+	margin-right: 40px
+	padding-left: 25px
+	font-size: 18px
+
+
+.sign-up__item
+	position: relative
+	i
+		position: absolute
+		left: 290px
+		bottom: 15px
+		font-size: 34px
+		color: #7da8e3
+
+.sign-up__mail
+	i
+		color: #da7674
+
+.label--size-payment
+	width: 280px
+	height: 130px
+	.label__image-wrapper
+		flex-direction: row
+		align-items: center
+		justify-content: space-around
+		.fa
+			font-size: 60px
+			margin: 0
+
+.payment-methods__wrapper
+	margin-top: 70px
+
+.credit__card-item
+	position: relative
+	i
+		position: absolute
+		top: 47px
+		right: 55px
+		font-size: 40px
+		color: $text-light
+
+.credit__card
+	display: flex
+	margin-bottom: 120px
+	label
+		display: block
+		margin: 0 0 10px 10px
+		font-weight: bold
+		color: $text-light
+	.input__auth
+		text-align: center
+		padding: 0
+
+.input__card-number
+	width: 490px
+
+.input__card-expires
+	width: 220px
+
+.input__card-code
+	width: 135px
+
+
+.form__footer
+	display: flex
+	justify-content: flex-end
+	align-items: center
+	margin-bottom: 120px
+	.order-button
+		margin: 0
+	.main-button
+		margin-left: 30px
+
+
+
+/***********page  footer start ***********/
+
+.footer__main
+	font-size: 14px
+	background-color: #454a63
+	color: $text-light
+
+.footer__main-container
+	display: flex
+	justify-content: space-around
+	align-items: center
+	height: 375px
+	width: 80%
+	margin: 0 auto
+
+.footer__main-header
+	display: flex
+	align-items: center
+	font-weight: bold
+	.fa
+		font-size: 30px
+		margin-right: 30px
+
+.footer__main-item
+	flex-basis: 25%
+	width: 300px
+	max-width: 300px
+	height: 150px
+
+.what-we-do
+	width: 300px
+	p
+		font-style: italic
+		margin: 5px 0 0 55px
+
+.location
+	p
+		margin: 5px 0 0 55px
+
+.logo
+	text-align: center
+	.fa
+		font-size: 130px
+
+.social
+	margin: 5px 0 0 55px
+	i
+		border-radius: 50%
+		width: 25px
+		height: 25px
+		line-height: 25px
+		text-align: center
+		background-color: #B4B9D8
+		margin-right: 15px
+	.fa
+		color: #454a63
+	a
+		color: $text-light
+		text-decoration: none
+		&:hover
+			text-decoration: underline
+/***********page  footer end ***********/
