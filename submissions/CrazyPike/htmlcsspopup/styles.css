@@ -10,15 +10,11 @@
     margin-right: 10px;
 }
 
-<<<<<<< HEAD
+
 .menu__item:focus{
     outline: 1px solid red;
 }
 
-||||||| merged common ancestors
-
-=======
->>>>>>> htmlcsspopup
 .menu__popup-service-from{
     height: 35px;
     width: 35px;
@@ -40,14 +36,7 @@
 }
 
 .menu__open-popup-visible:focus + .menu__popup-icon{
-<<<<<<< HEAD
     outline: 1px solid red;
-||||||| merged common ancestors
-    outline: 1px dotted red;
-
-=======
-    outline: 1px dotted red;
->>>>>>> htmlcsspopup
 }
 
 .menu__open-popup-visible:checked ~ .popup{
@@ -57,7 +46,7 @@
     margin-top: -20px;
     margin-left: -160px;
     z-index: 4;
-    width: 370px;
+    width: 390px;
     height: 520px;
     border: 1px solid grey;
     justify-content: flex-start;
