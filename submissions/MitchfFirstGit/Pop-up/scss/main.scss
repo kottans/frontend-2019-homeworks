@@ -1,17 +1,6 @@
 $nav-border-color: #ccc;
 $btn-bg-color:#ebebeb;
 
-@mixin visually-hidden {
-    position: absolute !important;
-    clip: rect(1px 1px 1px 1px);
-    clip: rect(1px, 1px, 1px, 1px);
-    padding: 0 !important;
-    border: 0 !important;
-    height: 1px !important;
-    width: 1px !important;
-    overflow: hidden;
-}
-
 .nav {
     display: flex;
     justify-content: flex-end;
@@ -20,267 +9,253 @@ $btn-bg-color:#ebebeb;
         list-style: none;
         margin: 0 5px;
 
-        .show-hide-container {
-            @include visually-hidden;
-
-            &:hover+.show-hide-container-btn {
-                opacity: 1;
-            }
-
-            &:checked~.container {
-                display: block;
-            }
-
-            &:focus+.show-hide-container-btn {
-                outline: 2px solid $nav-border-color;
-            }
-        }
-
-        .show-hide-container-btn {
-            background: url('../img/icons_sprite.png') no-repeat -7px -1808px;
-            height: 16px;
-            width: 16px;
-            display: inline-block;
-            cursor: pointer;
-            opacity: 0.55;
-        }
-
-        .container {
-            display: none;
-            border: 1px solid $nav-border-color;
-            position: absolute;
-            top: 55px;
-            right: 75px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, .2);
-            border-radius: 3px;
-
-            &:before {
-                content: "";
-                position: absolute;
-                top: -8px;
-                right: 32px;
-                width: 15px;
-                height: 15px;
-                background-color: white;
-                border-top: 1px solid $nav-border-color;
-                border-right: 1px solid $nav-border-color;
-                transform: rotate(-45deg);
-            }
-
-            .items-container {
-                overflow-y: auto;
-                width: 330px;
-                height: 417px;
-
-                .main-items {
-                    display: flex;
-                    flex-wrap: wrap;
-                    text-align: center;
-                    justify-content: space-around;
-                    padding: 0;
-                    margin-top: 10px;
-                }
-
-                .show-additional-items {
-                    @include visually-hidden;
-
-                    &:checked+.show-additional-items-btn {
-                        @include visually-hidden;
-                    }
-
-                    &:checked~.hr-line {
-                        display: block;
-                    }
-
-                    &:checked~.additional-items {
-                        display: flex;
-                        align-content: space-around;
-                        flex-wrap: wrap;
-                        text-align: center;
-                        justify-content: space-around;
-                        padding: 0;
-                        margin-top: 10px;
-                    }
-
-                    &:focus+.show-additional-items-btn {
-                        outline: 2px solid $nav-border-color;
-                    }
-                }
-
-                .show-additional-items-btn {
-                    background-color: #ebebeb;
-                    text-align: center;
-                    padding: 10px;
-                    margin-top: 14px;
-                    display: block;
-                    cursor: pointer;
-                }
-
-                .hr-line {
-                    display: none;
-                    width: 90%;
-                    border-bottom: 1px solid #ebebeb;
-                    margin-top: 50px;
-                }
-
-                .additional-items {
-                    display: none;
-
-                    .even-more-link {
-                        margin: 30px 0 10px 0;
-                        text-decoration: underline;
-                        font-size: 1.1rem;
-                    }
-                }
-
-                .main-items li,
-                .additional-items li {
-                    width: 80px;
-                    margin: 10px;
-                    cursor: pointer;
-                    z-index: 1;
-
-                    &:hover {
-                        outline: 1px solid $nav-border-color;
-                    }
-
-                    .item {
-                        background: url('../img/icons_sprite.png') no-repeat;
-                        width: 50px;
-                        height: 50px;
-                        display: block;
-                        margin: 0 auto;
-                    }
-
-                    .translate {
-                        background-position: -10px -2191px;
-                    }
-
-                    .google {
-                        background-position: -10px -425px;
-                    }
-
-                    .search {
-                        background-position: -10px -1915px;
-                    }
-
-                    .youtube {
-                        background-position: -32px -2338px;
-                    }
-
-                    .play {
-                        background-position: -13px -356px;
-                    }
-
-                    .gmail {
-                        background-position: -8px -2751px;
-                    }
-
-                    .drive {
-                        background-position: -8px -530px;
-                    }
-
-                    .calendar {
-                        background-position: -11px -184px;
-                    }
-
-                    .blogger {
-                        background-position: -28px -1190px;
-                    }
-
-                    .photos {
-                        background-position: -8px -1464px;
-                    }
-
-                    .maps {
-                        background-position: -34px -1257px;
-                    }
-
-                    .contacts {
-                        background-position: -10px -1604px;
-                    }
-
-                    .hangouts {
-                        background-position: -13px -114px;
-                    }
-
-                    .news {
-                        background-position: -10px -1988px;
-                    }
-
-                    .jamboard {
-                        background-position: -18px -1849px;
-                    }
-
-                    .classroom {
-                        background-position: -10px -670px;
-                    }
-
-                    .earth {
-                        background-position: -10px -2402px;
-                    }
-
-                    .collections {
-                        background-position: -15px -1535px;
-                    }
-                }
-            }
-        }
-
         a {
-            &:focus {
-                outline: 2px solid $nav-border-color;
-            }
-
             text-decoration: none;
             display: block;
         }
     }
+}
 
-    .bell {
-        background-color: black;
-        border-radius: 50%;
-        width: 30px;
-        height: 29px;
-        opacity: 0.55;
+.container {
+    display: none;
+    border: 1px solid $nav-border-color;
+    position: absolute;
+    top: 55px;
+    right: 75px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .2);
+    border-radius: 3px;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: -8px;
+        right: 32px;
+        width: 15px;
+        height: 15px;
+        background-color: white;
+        border-top: 1px solid $nav-border-color;
+        border-right: 1px solid $nav-border-color;
+        transform: rotate(-45deg);
+    }
+}
+
+.items-container {
+    overflow-y: auto;
+    width: 330px;
+    height: 417px;
+
+    .main-items {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        bottom: 5px;
-
-        &:hover {
-            opacity: 1;
-        }
-
-        a {
-            background: url('../img/icons_sprite.png') no-repeat -35px -1356px;
-            width: 23px;
-            height: 26px;
-        }
+        flex-wrap: wrap;
+        text-align: center;
+        justify-content: space-around;
+        padding: 0;
+        margin-top: 10px;
     }
 
-    .account {
-        background-color: #8E00A2;
-        font-size: 1.5rem;
-        border-radius: 50%;
-        width: 45px;
-        height: 45px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        bottom: 12px;
-        opacity: 0.55;
-
-        &:hover {
-            opacity: 1;
-        }
-
-        a {
-            color: white;
-            font-weight: bold;
-            font-family: sans-serif;
-        }
+    .additional-items {
+        display: none;
     }
+}
+
+.main-items li,
+.additional-items li {
+    width: 80px;
+    margin: 10px;
+    cursor: pointer;
+    z-index: 1;
+
+    &:hover {
+        outline: 1px solid $nav-border-color;
+    }
+}
+
+.item {
+    background: url('../img/icons_sprite.png') no-repeat;
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+}
+
+.show-additional-items,
+.show-hide-container,
+.show-additional-items:checked+.show-additional-items-btn {
+    position: absolute;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+.show-hide-container-btn {
+    background: url('../img/icons_sprite.png') no-repeat -7px -1808px;
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    cursor: pointer;
+    opacity: .55;
+}
+
+.show-hide-container:hover+.show-hide-container-btn,
+.bell:hover,
+.account:hover {
+    opacity: 1;
+}
+
+.show-hide-container:checked~.container,
+.show-additional-items:checked~.hr-line {
+    display: block;
+}
+
+.show-additional-items-btn {
+    background-color: #ebebeb;
+    text-align: center;
+    padding: 10px;
+    margin-top: 14px;
+    display: block;
+    cursor: pointer;
+}
+
+.show-additional-items:checked~.additional-items {
+    display: flex;
+    align-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-around;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.hr-line {
+    display: none;
+    width: 90%;
+    border-bottom: 1px solid $btn-bg-color;
+    margin-top: 50px;
+}
+
+.additional-items .even-more-link {
+    margin: 30px 0 10px 0;
+    text-decoration: underline;
+    font-size: 1.1rem;
+}
+
+.show-additional-items:focus+.show-additional-items-btn,
+.show-hide-container:focus+.show-hide-container-btn,
+.nav a:focus {
+    outline: 2px solid $nav-border-color;
+}
+
+.bell {
+    background-color: black;
+    border-radius: 50%;
+    width: 30px;
+    height: 29px;
+    opacity: 0.55;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 5px;
+
+    a {
+        background: url('../img/icons_sprite.png') no-repeat -35px -1356px;
+        width: 23px;
+        height: 26px;
+    }
+}
+
+.account {
+    background-color: #8E00A2;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 12px;
+    opacity: 0.55;
+
+    a {
+        color: white;
+        font-weight: bold;
+        font-family: sans-serif;
+    }
+}
+
+.translate {
+    background-position: -10px -2191px;
+}
+
+.google {
+    background-position: -10px -425px;
+}
+
+.search {
+    background-position: -10px -1915px;
+}
+
+.youtube {
+    background-position: -32px -2338px;
+}
+
+.play {
+    background-position: -13px -356px;
+}
+
+.gmail {
+    background-position: -8px -2751px;
+}
+
+.drive {
+    background-position: -8px -530px;
+}
+
+.calendar {
+    background-position: -11px -184px;
+}
+
+.blogger {
+    background-position: -28px -1190px;
+}
+
+.photos {
+    background-position: -8px -1464px;
+}
+
+.maps {
+    background-position: -34px -1257px;
+}
+
+.contacts {
+    background-position: -10px -1604px;
+}
+
+.hangouts {
+    background-position: -13px -114px;
+}
+
+.news {
+    background-position: -10px -1988px;
+}
+
+.jamboard {
+    background-position: -18px -1849px;
+}
+
+.classroom {
+    background-position: -10px -670px;
+}
+
+.earth {
+    background-position: -10px -2402px;
+}
+
+.collections {
+    background-position: -15px -1535px;
 }

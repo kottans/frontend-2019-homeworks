@@ -1,11 +1,11 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
-const nano = require('gulp-cssnano');
+// const nano = require('gulp-cssnano');
 const watch = require('gulp-watch');
 gulp.task('sass-compile', function() {
     return gulp.src('./scss/main.scss')
         .pipe(sass())
-        .pipe(nano())
+        // .pipe(nano())
         .pipe(gulp.dest('./css/'))
 })
 
