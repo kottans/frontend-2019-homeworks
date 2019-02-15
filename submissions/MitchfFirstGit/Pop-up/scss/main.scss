@@ -82,8 +82,7 @@ $btn-bg-color:#ebebeb;
 .show-hide-container,
 .show-additional-items:checked+.show-additional-items-btn {
     position: absolute;
-    clip: rect(1px 1px 1px 1px);
-    clip: rect(1px, 1px, 1px, 1px);
+    clip: rect(0 0 0 0);
     padding: 0;
     border: 0;
     height: 1px;
@@ -101,8 +100,8 @@ $btn-bg-color:#ebebeb;
 }
 
 .show-hide-container:hover+.show-hide-container-btn,
-.bell:hover,
-.account:hover {
+.bell-background:hover,
+.account-background:hover {
     opacity: 1;
 }
 
@@ -149,7 +148,7 @@ $btn-bg-color:#ebebeb;
     outline: 2px solid $nav-border-color;
 }
 
-.bell {
+.bell-background {
     background-color: black;
     border-radius: 50%;
     width: 30px;
@@ -160,15 +159,15 @@ $btn-bg-color:#ebebeb;
     align-items: center;
     position: relative;
     bottom: 5px;
-
-    a {
-        background: url('../img/icons_sprite.png') no-repeat -35px -1356px;
-        width: 23px;
-        height: 26px;
-    }
 }
 
-.account {
+.bell-icon {
+    background: url('../img/icons_sprite.png') no-repeat -35px -1356px;
+    width: 23px;
+    height: 26px;
+}
+
+.account-background {
     background-color: #8E00A2;
     font-size: 1.5rem;
     border-radius: 50%;
@@ -180,12 +179,12 @@ $btn-bg-color:#ebebeb;
     position: relative;
     bottom: 12px;
     opacity: 0.55;
+}
 
-    a {
-        color: white;
-        font-weight: bold;
-        font-family: sans-serif;
-    }
+.account-icon {
+    color: white;
+    font-weight: bold;
+    font-family: sans-serif;
 }
 
 .translate {
