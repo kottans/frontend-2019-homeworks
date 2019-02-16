@@ -6,11 +6,11 @@
     <meta name="description" content="description" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body>
-    <header>
+  <body class="document">
+    <header class="document__header">
       <nav>
         <ul class="header-nav">
           <li>
@@ -78,24 +78,24 @@
             <fieldset class="translate__field">
               <label class="translate__select">
                 <input required type="radio" name="translate-type" class="visually-hidden translate__input" value="website" />
-                <figure class="translate__figure">
+                <span class="translate__img-wrapper">
                   <img src="img/translate-1.jpg" alt="translate website" class="translate__img" />
-                  <figcaption class="translate__text">Website</figcaption>
-                </figure>
+                  <span class="translate__text">Website</span>
+                </span>
               </label>
               <label class="translate__select">
                 <input required type="radio" name="translate-type" class="visually-hidden translate__input" value="documents" />
-                <figure class="translate__figure">
+                <span class="translate__img-wrapper">
                   <img src="img/translate-2.jpg" alt="translate documents" class="translate__img" />
-                  <figcaption class="translate__text">Documents</figcaption>
-                </figure>
+                  <span class="translate__text">Documents</span>
+                </span>
               </label>
               <label class="translate__select">
                 <input required type="radio" name="translate-type" class="visually-hidden translate__input" value="social-account" />
-                <figure class="translate__figure">
+                <span class="translate__img-wrapper">
                   <img src="img/translate-3.jpg" alt="translate social-account" class="translate__img" />
-                  <figcaption class="translate__text">Social account</figcaption>
-                </figure>
+                  <span class="translate__text">Social account</span>
+                </span>
               </label>
             </fieldset>
           </section>
@@ -192,10 +192,9 @@
                 <button class="lang__btn-trash" type="button">
                   <span class="fa fa-trash fa-lg lang__trash" aria-hidden="true"></span>
                 </button>
-                <button class="lang__btn-add" type="button">
-                  <span class="fa fa-plus lang__btn-add_ic" aria-hidden="true"></span> ADD
-                </button>
-              <br />
+
+                <button class="lang__btn-add" type="button"><span class="fa fa-plus lang__btn-add_ic" aria-hidden="true"></span>ADD</button>
+              </div>
             </fieldset>
           </section>
 
@@ -212,14 +211,14 @@
                     </label>
                   </div>
                   <div class="tone-buttons__btn">
-                    <input required id="select-2" type="radio" name="translate-tone" value="pro" class="visually-hidden tone__input"  />
+                    <input required id="select-2" type="radio" name="translate-tone" value="pro" class="visually-hidden tone__input" />
                     <label class="tone-buttons__label" for="select-2">
                       <span class="fa fa-suitcase tone-buttons__label_ic" aria-hidden="true"></span>
                       <span>Corporate / Pro</span>
                     </label>
                   </div>
                   <div class="tone-buttons__btn">
-                    <input required id="select-3" type="radio" name="translate-tone" value="formal" class="visually-hidden tone__input"  />
+                    <input required id="select-3" type="radio" name="translate-tone" value="formal" class="visually-hidden tone__input" />
                     <label class="tone-buttons__label" for="select-3">
                       <span class="fa fa-bullhorn tone-buttons__label_ic" aria-hidden="true"></span>
                       <span>Media / Formal</span>
@@ -233,16 +232,25 @@
               <h2 class="urgent__h2">Tell us how urgent this job is</h2>
               <fieldset>
                 <div class="urgent-timeline">
-                  <input required name="urgency" type="range" min="0" max="100" step="25" value="50" id="urgent-timeline__range" class="urgent-timeline__range" />
-                  <label class="urgent-timeline__label padding_fix" for="urgent-timeline__range">i got time</label>
-                  <label class="urgent-timeline__label" for="urgent-timeline__range orange">avarage</label>
+                  <input
+                    name="urgency"
+                    type="range"
+                    min="0"
+                    max="100"
+                    step="25"
+                    value="50"
+                    id="urgent-timeline__range"
+                    class="urgent-timeline__range"
+                  />
+                  <label class="urgent-timeline__label" for="urgent-timeline__range">i got time</label>
+                  <label class="urgent-timeline__label urgent-timeline__label_emphasized" for="urgent-timeline__range">avarage</label>
                   <label class="urgent-timeline__label" for="urgent-timeline__range">yesterday</label>
                 </div>
                 <details open class="timeline-info">
                   <summary class="timeline-info__h4">timeline info</summary>
                   <p class="timeline-info__p">
-                    With an <span class="orange">AVARAGE</span> timeline set up, our expert translator can take a reasonable amount of time
-                    perfecting y our translation
+                    With an <span class="timeline-info__emphasized">AVARAGE</span> timeline set up, our expert translator can take a
+                    reasonable amount of time perfecting y our translation
                   </p>
                 </details>
               </fieldset>
@@ -257,46 +265,75 @@
 
               <div class="payment__relative-input">
                 <label class="payment__label" for="form_full-name">Full name</label>
-                  <input
-                    placeholder="Vasya pupkin"
-                    required
-                    name="full-name"
-                    class="payment__input"
-                    type="text"
-                    id="form_full-name"
-                    pattern="^[a-zA-Z ,.'-]+$"
-                    minlength="2"
-                  />
-                  <span aria-hidden="true" class="payment__vaild-status"></span>
+                <input
+                  placeholder="Vasya pupkin"
+                  required
+                  name="full-name"
+                  class="payment__input"
+                  type="text"
+                  id="form_full-name"
+                  pattern="^[a-zA-Z ,.'-]+$"
+                  minlength="2"
+                />
+                <span aria-hidden="true" class="payment__vaild-status"></span>
               </div>
 
               <div class="payment__info-wrapper">
                 <div class="payment__relative-input">
                   <label class="payment__label" for="form_email">Email adress</label>
-                    <input required class="payment__input" placeholder="example@google.com" name="email" type="email" id="form_email" />
-                    <span aria-hidden="true" class="payment__vaild-status"></span>
+                  <input required class="payment__input" placeholder="example@google.com" name="email" type="email" id="form_email" />
+                  <span aria-hidden="true" class="payment__vaild-status"></span>
                 </div>
 
                 <div class="payment__relative-input">
                   <label class="payment__label" for="form_passw">Choose a password</label>
-                    <input required class="payment__input" name="password" placeholder="password" type="password" id="form_passw" minlength="6" />
-                    <span aria-hidden="true" class="payment__vaild-status"></span>
+                  <input
+                    required
+                    class="payment__input"
+                    name="password"
+                    placeholder="password"
+                    type="password"
+                    id="form_passw"
+                    minlength="6"
+                  />
+                  <span aria-hidden="true" class="payment__vaild-status"></span>
                 </div>
               </div>
 
               <div class="payment__variant-type">
-                <input required type="radio" name="payment-variant" value="visa\mastercard" id="payment-btn-1" class="required-input visually-hidden" />
+                <input
+                  required
+                  type="radio"
+                  name="payment-variant"
+                  value="visa\mastercard"
+                  id="payment-btn-1"
+                  class="required-input visually-hidden"
+                />
                 <label class="payment__variant-type-btn" for="payment-btn-1">
                   visa\mastercard
                   <img src="img/mastercard.jpg" alt="mastercard" />
                   <img src="img/visa.jpg" alt="visa" />
                 </label>
-                <input required type="radio" name="payment-variant" value="paypal" id="payment-btn-2" class="required-input visually-hidden" />
+                <input
+                  required
+                  type="radio"
+                  name="payment-variant"
+                  value="paypal"
+                  id="payment-btn-2"
+                  class="required-input visually-hidden"
+                />
                 <label class="payment__variant-type-btn" for="payment-btn-2">
                   paypal
                   <img src="img/paypal.jpg" alt="paypal" />
                 </label>
-                <input required type="radio" name="payment-variant" value="amazon" id="payment-btn-3" class="required-input visually-hidden" />
+                <input
+                  required
+                  type="radio"
+                  name="payment-variant"
+                  value="amazon"
+                  id="payment-btn-3"
+                  class="required-input visually-hidden"
+                />
                 <label class="payment__variant-type-btn" for="payment-btn-3">
                   amazon
                   <img src="img/amazon.jpg" alt="amazon" />
@@ -306,46 +343,45 @@
               <div class="payment__card">
                 <div class="payment__relative-input">
                   <label class="payment__label" for="card-number">Card number</label>
-                    <input
-                      required
-                      class="payment__input"
-                      id="card-number"
-                      name="card-number"
-                      type="text"
-                      minlength="9"
-                      maxlength="19"
-                      pattern="\d{1,19}"
-                    />
-                    <span aria-hidden="true" class="payment__vaild-status"></span>
+                  <input
+                    required
+                    class="payment__input"
+                    id="card-number"
+                    name="card-number"
+                    type="text"
+                    minlength="9"
+                    maxlength="19"
+                    pattern="\d{1,19}"
+                  />
+                  <span aria-hidden="true" class="payment__vaild-status"></span>
                 </div>
 
                 <div class="payment__relative-input">
                   <label class="payment__label" for="card-date">Expiry date</label>
-                    <input
-                      required
-                      class="payment__input payment-form__input_date"
-                      id="card-date"
-                      type="date"
-                      name="exp-date"
-                      placeholder="DD/MM/YY"
-                      max="2025-12-31"
-                      min="2018-02-01"
-                    />
-                    <span aria-hidden="true" class="payment__vaild-status"></span>
+                  <input
+                    required
+                    class="payment__input payment-form__input_date"
+                    id="card-date"
+                    type="date"
+                    name="exp-date"
+                    max="2025-12-31"
+                    min="2018-02-01"
+                  />
+                  <span aria-hidden="true" class="payment__vaild-status"></span>
                 </div>
 
                 <div class="payment__relative-input">
                   <label class="payment__label" for="card-code">Code</label>
-                    <input
-                      required
-                      class="payment__input payment__input_code"
-                      id="card-code"
-                      name="card-code"
-                      type="text"
-                      minlength="3"
-                      maxlength="3"
-                    />
-                    <span aria-hidden="true" class="payment__vaild-status"></span>
+                  <input
+                    required
+                    class="payment__input payment__input_code"
+                    id="card-code"
+                    name="card-code"
+                    type="text"
+                    minlength="3"
+                    maxlength="3"
+                  />
+                  <span aria-hidden="true" class="payment__vaild-status"></span>
                 </div>
               </div>
 
@@ -365,8 +401,8 @@
       </div>
     </main>
 
-    <footer>
-      <div class="footer-wrapper">
+    <footer class="document__footer">
+      <div class="document__footer-wrapper">
         <section class="what-we-do">
           <h4 class="footer__h4">
             <span class="fa fa-heart fa-lg fa-footer" aria-hidden="true"></span>
@@ -383,9 +419,9 @@
             Our main office
           </h4>
           <address class="footer__content">
-            Dubai, UAE <br />
-            P.O. Box: 502735 <br />
-            Phone: +971(0) 44278128
+            <p>Dubai, UAE</p>
+            <p>P.O. Box: 502735</p>
+            <p>Phone: +971(0) 44278128</p>
           </address>
         </section>
         <section class="social">
@@ -412,6 +448,6 @@
         </div>
       </div>
     </footer>
-    <script> </script>
+    <script></script>
   </body>
 </html>
