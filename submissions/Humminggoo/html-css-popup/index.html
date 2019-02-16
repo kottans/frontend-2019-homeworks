@@ -1,105 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Title</title>
-    <link rel="stylesheet" href="dist/css/style.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-</head>
-<body>
-<div class="header">
-    <div>
-        <a href="" class="nav-item link">Gmail</a>
-    </div>
-    <div>
-        <a href="" class="nav-item link">Images</a>
-    </div>
-    <div class="nav-item icon"><i class="fas fa-bell"></i></div>
-    <div class="nav-item icon icon-popup">
-        <label class="fas fa-caret-square-down" for="popupCheck"></label>
-        <input type="checkbox" id="popupCheck"/>
+    <link rel="stylesheet" href="dist/css/style.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <div>
+        <a href="" class="nav-item link" tabindex="1">Gmail</a>
+      </div>
+      <div>
+        <a href="" class="nav-item link" tabindex="1">Images</a>
+      </div>
+      <div class="nav-item icon" tabindex="1"><i class="fas fa-bell"></i></div>
+      <label class="nav-item icon icon-popup" for="popupCheck">
+        <input
+          type="checkbox"
+          id="popupCheck"
+          required
+          name="input"
+          value="input1"
+          tabindex="1"
+        />
+        <i class="fas fa-caret-square-down"></i>
         <div class="outer">
-            <div class="tab">
-                <div class="popup">
-                    <div class="popup-item">
-                        <img src="dist/images/g-plus.svg" alt="" class="service-icon" tabindex="1">
-                        <div class="service-title">Google+</div>
-                    </div>
-                    <div class="popup-item">
-                        <img src="dist/images/g-search.svg" alt="" class="service-icon" tabindex="1">
-                        <div class="service-title">Search</div>
-                    </div>
-                    <div class="popup-item">
-                        <img src="dist/images/g-youtube.svg" alt="" class="service-icon" tabindex="1">
-                        <div class="service-title">Youtube</div>
-                    </div>
-                    <div class="popup-item">
-                        <img src="dist/images/g-maps.svg" alt="" class="service-icon" tabindex="1">
-                        <div class="service-title">Maps</div>
-                    </div>
-                    <div class="popup-item">
-                        <img src="dist/images/g-news.svg" alt="" class="service-icon" tabindex="1">
-                        <div class="service-title">News</div>
-                    </div>
-                    <div class="popup-item">
-                        <img src="dist/images/g-mail.svg" alt="" class="service-icon" tabindex="1">
-                        <div class="service-title">Gmail</div>
-                    </div>
-                    <div class="popup-item">
-                        <img src="dist/images/g-disk.svg" alt="" class="service-icon" tabindex="1">
-                        <div class="service-title">Drive</div>
-                    </div>
-                    <div class="popup-item">
-                        <img src="dist/images/g-calendar.svg" alt="" class="service-icon" tabindex="1">
-                        <div class="service-title">Calendar</div>
-                    </div>
-                    <div class="popup-item">
-                        <img src="dist/images/g-translate.svg" alt="" class="service-icon" tabindex="1">
-                        <div class="service-title">Translate</div>
-                    </div>
-                    <div class="popup-item">
-                        <img src="dist/images/g-business.svg" alt="" class="service-icon" tabindex="1">
-                        <div class="service-title">Business</div>
-                    </div>
-                </div>
-                <input type="checkbox" id="scrollCheck"/>
-                <label class="popup-more-items more-visible" for="scrollCheck">More</label>
-                <div class="popup popup-extended">
-                    <div class="popup-item">
-                        <img src="dist/images/g-account.svg" alt="" class="service-icon" tabindex="1">
-                        <div class="service-title">Account</div>
-                    </div>
-                    <div class="popup-item">
-                        <img src="dist/images/g-hangouts.svg" alt="" class="service-icon" tabindex="1">
-                        <div class="service-title">Hangout</div>
-                    </div>
-                    <div class="popup-item">
-                        <img src="dist/images/g-docs.svg" alt="" class="service-icon" tabindex="1">
-                        <div class="service-title">Documents</div>
-                    </div>
-                    <div class="popup-item">
-                        <img src="dist/images/g-photos.svg" alt="" class="service-icon" tabindex="1">
-                        <div class="service-title">Photos</div>
-                    </div>
-                    <div class="popup-item">
-                        <img src="dist/images/g-sheets.svg" alt="" class="service-icon" tabindex="1">
-                        <div class="service-title">Sheets</div>
-                    </div>
-                    <div class="popup-item">
-                        <img src="dist/images/g-slides.svg" alt="" class="service-icon" tabindex="1">
-                        <div class="service-title">Slides</div>
-                    </div>
-                </div>
-                <a href="" class="popup-more-items more-hidden">Even more from Google</a>
+          <div class="tab">
+            <div class="popup">
+              <div class="popup-item">
+                <img
+                  src="dist/images/g-plus.svg"
+                  alt=""
+                  class="service-icon"
+                  tabindex="1"
+                />
+                <div class="service-title">Google+</div>
+              </div>
+              <div class="popup-item">
+                <img
+                  src="dist/images/g-search.svg"
+                  alt=""
+                  class="service-icon"
+                  tabindex="1"
+                />
+                <div class="service-title">Search</div>
+              </div>
+              <div class="popup-item">
+                <img
+                  src="dist/images/g-youtube.svg"
+                  alt=""
+                  class="service-icon"
+                  tabindex="1"
+                />
+                <div class="service-title">Youtube</div>
+              </div>
+              <div class="popup-item">
+                <img
+                  src="dist/images/g-maps.svg"
+                  alt=""
+                  class="service-icon"
+                  tabindex="1"
+                />
+                <div class="service-title">Maps</div>
+              </div>
+              <div class="popup-item">
+                <img
+                  src="dist/images/g-news.svg"
+                  alt=""
+                  class="service-icon"
+                  tabindex="1"
+                />
+                <div class="service-title">News</div>
+              </div>
+              <div class="popup-item">
+                <img
+                  src="dist/images/g-mail.svg"
+                  alt=""
+                  class="service-icon"
+                  tabindex="1"
+                />
+                <div class="service-title">Gmail</div>
+              </div>
+              <div class="popup-item">
+                <img
+                  src="dist/images/g-disk.svg"
+                  alt=""
+                  class="service-icon"
+                  tabindex="1"
+                />
+                <div class="service-title">Drive</div>
+              </div>
+              <div class="popup-item">
+                <img
+                  src="dist/images/g-calendar.svg"
+                  alt=""
+                  class="service-icon"
+                  tabindex="1"
+                />
+                <div class="service-title">Calendar</div>
+              </div>
+              <div class="popup-item">
+                <img
+                  src="dist/images/g-translate.svg"
+                  alt=""
+                  class="service-icon"
+                  tabindex="1"
+                />
+                <div class="service-title">Translate</div>
+              </div>
+              <div class="popup-item">
+                <img
+                  src="dist/images/g-business.svg"
+                  alt=""
+                  class="service-icon"
+                  tabindex="1"
+                />
+                <div class="service-title">Business</div>
+              </div>
             </div>
+            <button
+              class="popup-more-items more-visible"
+              id="scrollCheck"
+              tabindex="1"
+            >
+              More
+            </button>
+            <div class="popup popup-extended">
+              <div class="popup-item">
+                <img
+                  src="dist/images/g-account.svg"
+                  alt=""
+                  class="service-icon"
+                  tabindex="1"
+                />
+                <div class="service-title">Account</div>
+              </div>
+              <div class="popup-item">
+                <img
+                  src="dist/images/g-hangouts.svg"
+                  alt=""
+                  class="service-icon"
+                  tabindex="1"
+                />
+                <div class="service-title">Hangout</div>
+              </div>
+              <div class="popup-item">
+                <img
+                  src="dist/images/g-docs.svg"
+                  alt=""
+                  class="service-icon"
+                  tabindex="1"
+                />
+                <div class="service-title">Documents</div>
+              </div>
+              <div class="popup-item">
+                <img
+                  src="dist/images/g-photos.svg"
+                  alt=""
+                  class="service-icon"
+                  tabindex="1"
+                />
+                <div class="service-title">Photos</div>
+              </div>
+              <div class="popup-item">
+                <img
+                  src="dist/images/g-sheets.svg"
+                  alt=""
+                  class="service-icon"
+                  tabindex="1"
+                />
+                <div class="service-title">Sheets</div>
+              </div>
+              <div class="popup-item">
+                <img
+                  src="dist/images/g-slides.svg"
+                  alt=""
+                  class="service-icon"
+                  tabindex="1"
+                />
+                <div class="service-title">Slides</div>
+              </div>
+            </div>
+            <button class="popup-more-items more-hidden" tabindex="1">
+              Even more from Google
+            </button>
+          </div>
         </div>
-
+      </label>
+      <div class="nav-item icon-lg">
+        <i class="fas fa-user-circle" tabindex="1"></i>
+      </div>
     </div>
-    <div class="nav-item icon-lg"><i class="fas fa-user-circle"></i></div>
-</div>
-
-<script id="__bs_script__">//<![CDATA[
-document.write("<script async src='http://HOST:8080/browser-sync/browser-sync-client.js?v=2.26.3'><\/script>".replace("HOST", location.hostname));
-//]]></script>
-</body>
+    <script id="__bs_script__">
+      //<![CDATA[
+      document.write(
+        "<script async src='http://HOST:8080/browser-sync/browser-sync-client.js?v=2.26.3'><\/script>".replace(
+          "HOST",
+          location.hostname
+        )
+      );
+      //]]>
+    </script>
+  </body>
 </html>

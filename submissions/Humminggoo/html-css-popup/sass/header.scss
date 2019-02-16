@@ -6,13 +6,13 @@ $itemMargin: 15px;
 $iconSizeSmall: 20px;
 $iconSizeLarge: 30px;
 
-@mixin icon($size, $color1, $color2){
+@mixin icon($size, $color1, $color2) {
   width: $size;
   height: $size;
-  .fas{
+  .fas {
     font-size: $size;
     color: $color1;
-    &:hover{
+    &:hover {
       color: $color2;
     }
   }
@@ -27,20 +27,20 @@ $iconSizeLarge: 30px;
   padding: $headerPadding;
 }
 
-  .nav-item{
-    margin-right: $itemMargin;
-  }
+.nav-item {
+  margin-right: $itemMargin;
+}
 
-  .link{
-    color: $darkgray;
-      &:hover{
-        color: $lightgray;
-      }
+.link {
+  color: $darkgray;
+  &:hover {
+    color: $lightgray;
   }
-  .icon{
-    @include icon($iconSizeSmall, $lightgray, $darkgray)
-  }
+}
+.icon {
+  @include icon($iconSizeSmall, $lightgray, $darkgray);
+}
 
-  .icon-lg{
-    @include icon($iconSizeLarge, $lightgray, $darkgray)
-  }
+.icon-lg {
+  @include icon($iconSizeLarge, $lightgray, $darkgray);
+}

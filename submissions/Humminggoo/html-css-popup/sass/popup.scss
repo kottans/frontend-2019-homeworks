@@ -1,5 +1,7 @@
-$lightblue: #AEB5FF;
-$whitesmoke: #F5F5F5;
+$lightblue: #aeb5ff;
+$whitesmoke: #f5f5f5;
+
+$iconSize: 20px;
 
 $menuOffsetTop: 40px;
 $menuOffsetRight: -50px;
@@ -16,14 +18,14 @@ $itemSize: 50px;
 $showMoreWidth: 100%;
 $showMorePadding: 10px;
 
-@mixin hide(){
+@mixin hide() {
   display: none;
 }
-@mixin shadow($x, $y, $blur, $spread, $color, $opacity){
+@mixin shadow($x, $y, $blur, $spread, $color, $opacity) {
   box-shadow: $x $y $blur $spread rgba($color, $color, $color, $opacity);
 }
-@mixin arrow($left, $bottom, $offset, $size, $color){
-  content: '';
+@mixin arrow($left, $bottom, $offset, $size, $color) {
+  content: "";
   display: inline-block;
   position: absolute;
   left: $left;
@@ -31,6 +33,10 @@ $showMorePadding: 10px;
   margin-left: $offset;
   border: $size solid transparent;
   border-bottom-color: $color;
+}
+@mixin g-outline() {
+  outline-offset: -2px;
+  outline: rgb(77, 144, 254) auto 5px;
 }
 
 .icon-popup {
@@ -47,76 +53,84 @@ $showMorePadding: 10px;
   z-index: 10;
 }
 
-.tab{
+.tab {
   max-height: $maxTabHeight;
   overflow-y: auto;
 }
 
-.popup{
+.popup {
   display: grid;
   grid-row-gap: $tabRowGap;
   grid-template-columns: repeat(3, 33%);
   width: $tabWidth;
   padding: $tabPadding;
 
-  .popup-item{
+  .popup-item {
     padding: $itemPadding;
     height: $itemHeight;
     border-radius: 5px;
 
-    .service-icon{
+    .service-icon {
       display: block;
       width: $itemSize;
       height: $itemSize;
       margin-left: auto;
       margin-right: auto;
     }
-    .service-title{
+    .service-title {
       padding-top: 10px;
       text-align: center;
     }
-    &:hover{
+    &:hover {
       @include shadow(0, 0, 7px, 2px, 184, 1);
     }
-    &:focus{
+    &:focus {
       outline: 1px solid $lightblue;
     }
   }
 }
-#popupCheck{
-  display: none;
-  &:checked + .outer{
+#popupCheck {
+  position: absolute;
+  z-index: -1;
+  width: $iconSize;
+  height: $iconSize;
+  clip: rect(0, 0, 0, 0);
+  &:focus ~ .fas {
+    @include g-outline;
+  }
+  &:checked ~ .outer {
     display: block;
   }
-  &:checked + .outer:before {
+  &:checked ~ .outer:before {
     @include arrow(50%, 100%, 86px, 10px, black);
   }
-  &:checked + .outer:after{
+  &:checked ~ .outer:after {
     @include arrow(50%, 100%, 86px, 10px, white);
   }
 }
 
-#scrollCheck{
-  @include hide();
-  &:checked ~ .popup-extended{
+#scrollCheck {
+  &:active ~ .popup-extended {
     display: grid;
   }
-  &:checked + .more-visible{
+  &:active {
     @include hide();
   }
-  &:checked ~ .more-hidden{
+  &:active ~ .more-hidden {
     display: inline-block;
   }
 }
 
-.popup-more-items{
+.popup-more-items {
   display: inline-block;
   width: $showMoreWidth;
   text-align: center;
+  border: none;
   background-color: $whitesmoke;
   padding: $showMorePadding;
 }
 
-.popup-extended, .more-hidden{
+.popup-extended,
+.more-hidden {
   @include hide();
 }
