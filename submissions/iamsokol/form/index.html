@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML & CSS Form</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <header class="header">
+    <button class="header-back sm-button" type="button" name="button">
+      <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+      Go back
+    </button>
+    <img class="header-logo" src="assets/img/logo.png" alt="logo">
+    <button class="header-sign sm-button" type="button" name="button">
+      <i class="fa fa-user" aria-hidden="true"></i>
+      Sign in
+    </button>
+  </header>
+  <main class="main">
+    <form action="#" method="POST" class="form">
+      <section class="main-head">
+        <div class="order">
+          <div class="order-in">
+            <h3 class="order-title">Your order</h3>
+            <ul class="order-list">
+              <li class="order-item">
+                <h5 class="order-item-title">Item</h5>
+                <p class="order-item-text">2 documents</p>
+              </li>
+              <li class="order-item">
+                <h5 class="order-item-title">Details</h5>
+                <p class="order-item-text">2 languages</p>
+              </li>
+              <li class="order-item">
+                <h5 class="order-item-title">Price</h5>
+                <p class="order-item-text">$ 696.06</p>
+              </li>
+              <li class="order-item">
+                <h5 class="order-item-title">Delivery</h5>
+                <p class="order-item-text">48 hours*</p>
+              </li>
+            </ul>
+          </div>
+          <div class="order-button">
+            <button class="order-button-order sm-button" type="submit" name="button">Place order</button>
+            <button class="order-button-print sm-button" type="button" name="button">Print a quote</button>
+          </div>
+        </div>
+        <div class="help">
+          <h3 class="order-title">Help center</h3>
+          <p class="help-description">If you need assistance while placing your order, contact one of our beloved Project Manager by phone or email.</p>
+          <div class="help-in">
+            <a href="tel:+9710555555" class="help-number">+971 (0) 555 555</a>
+            <a href="mailto:help@qtest.com" class="help-mail">help@qtest.com</a>
+          </div>
+        </div>
+      </section>
+      <section class="select">
+        <h1 class="select-title">Select what you want to translate</h1>
+        <fieldset>
+          <div class="select-type">
+            <input type="radio" id="website" name="selectType">
+            <label for="website">
+              <img src="assets/img/website.png" alt="website">
+              Website
+            </label>
+            <input type="radio" id="documents" name="selectType" checked>
+            <label for="documents">
+              <img src="assets/img/documents.png" alt="documents">
+              Documents
+            </label>
+            <input type="radio" id="social" name="selectType">
+            <label for="social">
+              <img src="assets/img/social.png" alt="social">
+              Social Account
+            </label>
+          </div>
+        </fieldset>
+      </section>
+      <section class="document">
+        <h2 class="title">Upload your documents</h2>
+        <p class="subtitle">(Doc, Docx, Text, PDF, Markdown)</p>
+        <fieldset>
+          <label for="file" class="sm-button">
+            <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+            Upload a new file
+          </label>
+          <input class="file" type="file" id="file" name="file" title="download file">
+        </fieldset>
+        <div class="document-in">
+          <div class="document-in-head">
+            <p>File name</p>
+            <p>File size</p>
+            <p>Number of worlds</p>
+            <p>Remove</p>
+          </div>
+          <div class="document-in-item">
+            <p>
+              <i class="fa fa-file-word-o" aria-hidden="true"></i>
+              bussiness_operations.docx
+            </p>
+            <p>78kb</p>
+            <p>842</p>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </div>
+          <div class="document-in-item">
+            <p>
+              <i class="fa fa-file-word-o" aria-hidden="true"></i>
+              bussiness_financial.docx
+            </p>
+            <p>26kb</p>
+            <p>2.326</p>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </div>
+        </div>
+      </section>
+      <section class="language">
+        <h2 class="title">Choose your languages pairings</h2>
+        <fieldset>
+          <label>From</label>
+          <div class="select-wrapper languageFrom">
+            <select name="languageFrom" id="languageFrom" class="selectElement sm-button">
+              <option value="English">English</option>
+              <option value="Ukraine">Ukraine</option>
+              <option value="German">Germane</option>
+            </select>
+          </div>
+        </fieldset>
+        <fieldset>
+          <label>To</label>
+          <div class="select-wrapper languageTo1">
+            <select name="languageTo1" id="languageTo1" class="selectElement sm-button">
+              <option value="Arabic">Arabic</option>
+              <option value="France">France</option>
+              <option value="Russian">Russian</option>
+            </select>
+          </div>
+          <div class="select-wrapper languageTo2">
+            <select name="languageTo2" id="languageTo2" class="selectElement sm-button">
+              <option value="France">France</option>
+              <option value="Arabic">Arabic</option>
+              <option value="Russian">Russian</option>
+            </select>
+          </div>
+          <i class="fa fa-trash" aria-hidden="true"></i>
+          <button class="sm-button" type="button" name="button">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            Add
+          </button>
+        </fieldset>
+      </section>
+      <section class="tone">
+        <h2 class="title">Select your desired tone</h2>
+        <input type="checkbox" id="friendly" name="toneType">
+        <label for="friendly" class="sm-button">
+          <i class="fa fa-weixin" aria-hidden="true"></i>
+          Friendly / Casual
+        </label>
+        <input type="checkbox" id="corporate" name="toneType" checked>
+        <label for="corporate" class="sm-button">
+          <i class="fa fa-medkit" aria-hidden="true"></i>
+          Corporate / Pro
+        </label>
+        <input type="checkbox" id="media" name="toneType">
+        <label for="media" class="sm-button">
+          <i class="fa fa-users" aria-hidden="true"></i>
+          Media / Formal
+        </label>
+      </section>
+      <section class="job">
+        <h2 class="title">Tell us how urgent this job is</h2>
+        <fieldset>
+          <input type="range" step="10" value="50" name="range" min="0" max="100" id="range" class="range">
+          <div class="range-label">
+            <label for="range">I got time</label>
+            <label for="range">Avarage</label>
+            <label for="range">Yesterday</label>
+          </div>
+        </fieldset>
+        <div class="range-info">
+          <h3 class="range-info-title">Timeline info</h3>
+          <p class="range-info-description">With an <a href="#">avarage</a> timeline set up, our expert translator can take a reasonable amount of time perfecting y our translation</p>
+        </div>
+      </section>
+      <section class="payment">
+        <h2 class="title">Sign up and choose a payment method</h2>
+        <p class="payment-description">Already have account with us? <a href="#">Sign in</a></p>
+        <fieldset class="full-width">
+          <legend>Full name</legend>
+          <input type="text" pattern="[A-Za-zА-Яа-яЁё]{1,}" placeholder="Full name" value="Mathieu Mayer" class="sm-input validate">
+        </fieldset>
+        <fieldset>
+          <legend>Email adress</legend>
+          <input type="email" pattern="[A-Za-zА-Яа-яЁё]{1,}" placeholder="Email adress" value="mathieu.mm@me.com" class="sm-input validate">
+        </fieldset>
+        <fieldset>
+          <legend>Choose a password</legend>
+          <input type="password" pattern="[A-Za-zА-Яа-яЁё]{1,}" placeholder="Choose a password" value="" class="sm-input validate">
+        </fieldset>
+        <fieldset class="full-width">
+          <div class="payment-type">
+            <input type="radio" id="visa" name="payment" checked>
+            <label for="visa">
+              <img src="assets/img/visa.png" alt="visa">
+            </label>
+            <input type="radio" id="paypal" name="payment">
+            <label for="paypal">
+              <img src="assets/img/paypal.png" alt="paypal">
+            </label>
+            <input type="radio" id="amazon" name="payment">
+            <label for="amazon">
+              <img src="assets/img/amazon.png" alt="amazon">
+            </label>
+          </div>
+        </fieldset>
+        <fieldset class="payment-card">
+          <legend>Card number</legend>
+          <input type="number" placeholder="Card number" value="" class="sm-input">
+        </fieldset>
+        <fieldset class="payment-expiry">
+          <legend>Expiry date</legend>
+          <input type="date" placeholder="DD / MM / YY" value="" class="sm-input">
+        </fieldset>
+        <fieldset class="payment-code">
+          <legend>Code</legend>
+          <input type="password" placeholder="Code" value="" class="sm-input">
+        </fieldset>
+        <div class="payment-submit">
+          <input type="checkbox" name="terms" id="terms">
+          <label for="terms">I agree to the</label><a href="#">Terms & Conditions</a>
+          <button class="order-button-order sm-button" type="submit" name="button">Place order</button>
+          <button class="order-button-print sm-button" type="button" name="button">Print a quote</button>
+        </div>
+      </section>
+    </form>
+  </main>
+  <footer class="footer">
+    <div class="footer-in">
+      <div class="footer-item description">
+        <h3 class="footer-item-title">What we do</h3>
+        <p class="footer-item-description">We provide a full range of language services including content development, document, website and social media accounts translations.</p>
+      </div>
+      <div class="footer-item contact">
+        <h3 class="footer-item-title">Our main office</h3>
+        <p class="footer-item-description">Dubai, UAE</p>
+        <p class="footer-item-description">P.O. Box: 502735</p>
+        <p class="footer-item-description">Phone: +971(0)44278128</p>
+      </div>
+      <div class="footer-item social">
+        <h3 class="footer-item-title">Connect with us</h3>
+        <a href="#" class="footer-item-description"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</p>
+        <a href="#" class="footer-item-description"><i class="fa fa-twitter" aria-hidden="true"></i> Twiter</a>
+        <a href="#" class="footer-item-description"><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+      </div>
+      <img src="assets/img/logo2.png" alt="logo2">
+    </div>
+  </footer>
+</body>
+</html>
