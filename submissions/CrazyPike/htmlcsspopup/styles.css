@@ -10,6 +10,10 @@
     margin-right: 10px;
 }
 
+.menu__item:focus{
+    outline: 1px solid red;
+}
+
 .menu__popup-service-from{
     height: 35px;
     width: 35px;
@@ -31,7 +35,7 @@
 }
 
 .menu__open-popup-visible:focus + .menu__popup-icon{
-    outline: 1px dotted red;
+    outline: 1px solid red;
 }
 
 .menu__open-popup-visible:checked ~ .popup{
@@ -98,11 +102,11 @@
 }
 
 .popup__item:focus{
-    outline: 1px dotted red;
+    outline: 1px solid red;
 }
 
 .popup__item:hover{
-    outline: 1px dotted red;
+    outline: 1px solid red;
 }
 
 .popup__label{
@@ -150,7 +154,7 @@
 }
 
 .popup__checkbox-more:focus ~ .popup__label-more-items {
-    outline: 2px dotted red;
+    outline: 1px solid red;
 }
 
 .menu__notification-item{
