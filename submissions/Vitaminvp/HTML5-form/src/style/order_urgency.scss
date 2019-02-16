@@ -1,0 +1,30 @@
+
+.order__urgency {
+  flex: 1;
+
+  & h3:before {
+    content: '4';
+  }
+
+  &_info {
+    border-radius: 5px;
+    border: 1px solid $border-color;
+    margin-top: 50px;
+    line-height: 1.5em;
+    padding: 20px 40px 20px 60px;
+
+    & h4 {
+      text-transform: uppercase;
+      position: relative;
+
+      &:before {
+        position: absolute;
+        top: 0;
+        right: calc(100% + 15px);
+        font-size: 1.5em;
+        font-family: FontAwesome, sans-serif;
+        content: "\f05a";
+      }
+    }
+  }
+}

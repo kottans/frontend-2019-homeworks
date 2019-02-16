@@ -8,8 +8,8 @@
 </head>
 <body>
 <div class="wrapper">
-    <form action="" class="order">
-        <div class="order__top">
+    <form action="#" class="order">
+        <header class="order__top">
             <div class="order__top_dashboard">
                 <div class="order__top_dashboard-title">
                     <i class="fa fa-clipboard"></i>
@@ -51,8 +51,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="order__wrapper">
+        </header>
+        <section class="order__wrapper">
             <div class="order__radio">
                 <h2>Select what your want to translate</h2>
 
@@ -64,10 +64,10 @@
                                value="chrome"
                                class="visually__hidden"
                                required>
-                        <div class="label__image-wrapper label--size-browsers">
+                        <span class="label__image-wrapper label--size-browsers">
                             <img class="label__image" src="src/assets/img/website.png" alt="website">
                             <span class="label__text">Website</span>
-                        </div>
+                        </span>
                     </label>
                     <label class="label label--size-browsers">
                         <input type="radio"
@@ -76,10 +76,10 @@
                                value="firefox"
                                class="visually__hidden"
                                checked>
-                        <div class="label__image-wrapper label--size-browsers">
+                        <span class="label__image-wrapper label--size-browsers">
                             <img class="label__image" src="src/assets/img/documents.png" alt="documents">
                             <span class="label__text">Documents</span>
-                        </div>
+                        </span>
                     </label>
                     <label class="label label--size-browsers">
                         <input type="radio"
@@ -87,10 +87,10 @@
                                id="browsers_edge"
                                value="edge"
                                class="visually__hidden">
-                        <div class="label__image-wrapper label--size-browsers">
+                        <span class="label__image-wrapper label--size-browsers">
                             <img class="label__image" src="src/assets/img/account.png" alt="account">
                             <span class="label__text">Social account</span>
-                        </div>
+                        </span>
                     </label>
                 </div>
             </div>
@@ -132,10 +132,11 @@
             <div class="select">
                 <span>From</span>
                 <div class="select__wrapper">
-                    <select name="languange"
+                    <select name="language"
                             id="select"
                             class="select__item"
                             required>
+                        <option value="" disabled>&nbsp;</option>
                         <option value="english" selected>English</option>
                         <option value="arabic">Arabic</option>
                         <option value="kurdish">Kurdish</option>
@@ -145,19 +146,21 @@
             <div class="select">
                 <span>To</span>
                 <div class="select__wrapper">
-                    <select name="languange"
+                    <select name="language"
                             id="select2"
                             class="select__item"
                             required>
+                        <option value="" disabled>&nbsp;</option>
                         <option value="english">English</option>
                         <option value="arabic" selected>Arabic</option>
                         <option value="kurdish">Kurdish</option>
                     </select>
                 </div>
                 <div class="select__wrapper">
-                    <select name="languange"
+                    <select name="language"
                             id="select3"
                             class="select__item">
+                        <option value="" disabled>&nbsp;</option>
                         <option value="english">English</option>
                         <option value="arabic">Arabic</option>
                         <option value="kurdish" selected>Kurdish</option>
@@ -178,9 +181,9 @@
                                    value="casual"
                                    class="visually__hidden"
                                    required>
-                            <div class="label__image-wrapper label--size-tone">
+                            <span class="label__image-wrapper label--size-tone">
                                 <span class="label__text casual">Friendly/Casual</span>
-                            </div>
+                            </span>
                         </label>
                         <label class="label label--size-tone">
                             <input type="radio"
@@ -189,9 +192,9 @@
                                    value="pro"
                                    class="visually__hidden"
                                    checked>
-                            <div class="label__image-wrapper label--size-tone">
+                            <span class="label__image-wrapper label--size-tone">
                                 <span class="label__text pro">Corporate/Pro</span>
-                            </div>
+                            </span>
                         </label>
                         <label class="label label--size-tone">
                             <input type="radio"
@@ -199,9 +202,9 @@
                                    id="formal"
                                    value="formal"
                                    class="visually__hidden">
-                            <div class="label__image-wrapper label--size-tone">
+                            <span class="label__image-wrapper label--size-tone">
                                 <span class="label__text formal">Medial/Formal</span>
-                            </div>
+                            </span>
                         </label>
                     </div>
                 </div>
@@ -284,9 +287,9 @@
                                value="visa"
                                class="visually__hidden"
                                required>
-                        <div class="label__image-wrapper label--size-payment">
+                        <span class="label__image-wrapper label--size-payment">
                             <img class="label__image" src="src/assets/img/visa.jpg" alt="website">
-                        </div>
+                        </span>
                     </label>
                     <label class="label label--size-payment">
                         <input type="radio"
@@ -295,9 +298,9 @@
                                value="paypal"
                                class="visually__hidden"
                                checked>
-                        <div class="label__image-wrapper label--size-payment">
+                        <span class="label__image-wrapper label--size-payment">
                             <img class="label__image" src="src/assets/img/paypal.jpg" alt="documents">
-                        </div>
+                        </span>
                     </label>
                     <label class="label label--size-payment">
                         <input type="radio"
@@ -305,24 +308,25 @@
                                id="amazon"
                                value="amazon"
                                class="visually__hidden">
-                        <div class="label__image-wrapper label--size-payment">
+                        <span class="label__image-wrapper label--size-payment">
                             <img class="label__image" src="src/assets/img/amazon.jpg" alt="account">
-                        </div>
+                        </span>
                     </label>
                 </div>
             </div>
             <div class="order__payment_input">
                 <div class="order__payment_card-number">
                     <span>Card number</span>
-                    <input type="number"
+                    <input type="text"
                            id="cardNumber"
                            inputmode="numeric"
                            class="number"
                            name="text"
                            placeholder=""
+                           pattern="[0-9 ]{15,19}"
                            title="Input card number. Min lenght 4 and max length 18"
-                           minlength="20"
-                           maxlength="20"
+                           minlength="15"
+                           maxlength="19"
                            required>
                     <span></span>
                 </div>
@@ -331,23 +335,21 @@
                     <span>Expiry date</span>
                     <input type="date"
                            id="cardDate"
-                           inputmode="numeric"
                            class="date"
                            name="text"
                            placeholder="DD/MM/YY"
                            title="Input expiry card date."
-                           minlength="20"
-                           maxlength="20"
                            required>
                 </div>
                 <div class="order__payment_card-code">
                     <span>Code</span>
-                    <input type="number"
+                    <input type="text"
                            id="cardCode"
                            inputmode="numeric"
                            class="code"
                            name="text"
                            placeholder=""
+                           pattern="[0-9]{3}"
                            title="Input card cod. 3 digits"
                            minlength="3"
                            maxlength="3"
@@ -371,7 +373,7 @@
                 <button type="submit" class="submit">Place order</button>
                 <button type="button" class="submit gray">Print a quote</button>
             </div>
-        </div>
+        </section>
 
     </form>
 </div>

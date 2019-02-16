@@ -1,0 +1,41 @@
+.order__tone {
+  flex: 1;
+  margin-right: 50px;
+
+  & h3:before {
+    content: '3';
+  }
+
+  .order__tone_buttons {
+    & label:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    & .label__text:before {
+      display: block;
+      position: absolute;
+      content: "";
+      font-family: FontAwesome, sans-serif;
+      background-repeat: no-repeat;
+      background-size: 30px;
+      font-size: 2em;
+      top: 15px;
+      left: 15px;
+      width: 60px;
+      height: 60px;
+    }
+
+    & .casual:before {
+      content: "\f086";
+    }
+
+    & .pro:before {
+      content: "\f0f2";
+    }
+
+    & .formal:before {
+      content: "\f0a1";
+    }
+  }
+}
+
