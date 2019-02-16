@@ -10,7 +10,6 @@
     margin-right: 10px;
 }
 
-
 .menu__item:focus{
     outline: 1px solid red;
 }
@@ -106,7 +105,7 @@
 }
 
 .popup__item:hover{
-    outline: 1px solid grey;
+    outline: 1px solid red;
 }
 
 .popup__label{
