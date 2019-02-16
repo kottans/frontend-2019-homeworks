@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTML5 Form</title>
+    <meta name="description" content="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="header-nav">
+          <li>
+            <a href="#" class="go-back header-btn"><span class="fa fa-long-arrow-left ic-h-btn" aria-hidden="true"></span>GO BACK</a>
+          </li>
+          <li class="header-home">
+            <a href="/index.html">
+              <img class="header-logo" src="img/logo.jpg" alt="logo" />
+            </a>
+          </li>
+          <li>
+            <a href="#" class="sign-in header-btn"><span class="fa fa-user ic-h-btn" aria-hidden="true"></span>SIGN IN</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <div class="layout__wrapper">
+        <div class="order">
+          <section class="order__wrapper">
+            <table class="order__table">
+              <caption class="order__caption">
+                <h2 class="order__header">Your order</h2>
+              </caption>
+              <tr>
+                <th class="order__th">items</th>
+                <th class="order__th">details</th>
+                <th class="order__th">price</th>
+                <th class="order__th">delivery</th>
+              </tr>
+              <tr>
+                <td class="order__td">2 documents</td>
+                <td class="order__td">2 languages</td>
+                <td class="order__td">$ 696.06</td>
+                <td class="order__td">48 hours*</td>
+              </tr>
+            </table>
+          </section>
+
+          <div class="action-buttons">
+            <button type="submit" form="translate-data" class="action-buttons__btn action-buttons__btn_colored">
+              Place order
+            </button>
+            <button type="button" class="action-buttons__btn">Print a quote</button>
+          </div>
+
+          <section class="help">
+            <h2 class="help__h2"><span class="fa fa-life-ring help__ic" aria-hidden="true"></span>Help center</h2>
+            <p class="help__text">
+              if you need assistance while placing your order, contact one of our beloved Project Manager by phone or email.
+            </p>
+            <address class="help__adress">
+              <a href="tel:+971(0)555555">+971(0)555 555</a>
+              <a href="mailto:help@qtest.com">help@qtest.com</a>
+            </address>
+          </section>
+        </div>
+
+        <form id="translate-data" method="POST" action="https://webhook.site/9f86ffda-62e0-498b-97aa-fe5d72f5888b" class="layout__form">
+          <section class="translate layout__row">
+            <h1 class="translate__h1">
+              Select what you want to translate
+            </h1>
+            <fieldset class="translate__field">
+              <label class="translate__select">
+                <input required type="radio" name="translate-type" class="visually-hidden translate__input" value="website" />
+                <figure class="translate__figure">
+                  <img src="img/translate-1.jpg" alt="translate website" class="translate__img" />
+                  <figcaption class="translate__text">Website</figcaption>
+                </figure>
+              </label>
+              <label class="translate__select">
+                <input required type="radio" name="translate-type" class="visually-hidden translate__input" value="documents" />
+                <figure class="translate__figure">
+                  <img src="img/translate-2.jpg" alt="translate documents" class="translate__img" />
+                  <figcaption class="translate__text">Documents</figcaption>
+                </figure>
+              </label>
+              <label class="translate__select">
+                <input required type="radio" name="translate-type" class="visually-hidden translate__input" value="social-account" />
+                <figure class="translate__figure">
+                  <img src="img/translate-3.jpg" alt="translate social-account" class="translate__img" />
+                  <figcaption class="translate__text">Social account</figcaption>
+                </figure>
+              </label>
+            </fieldset>
+          </section>
+
+          <section class="upload layout__row">
+            <h2 class="upload__header">Upload your documents</h2>
+            <span class="upload__header-text">{Doc, Docx, Text, PDF, Markdown}</span>
+
+            <div class="upload__btn-wrapper">
+              <input id="file-picker" type="file" class="visually-hidden upload__input" />
+              <label class="upload__file-btn" for="file-picker">
+                <span class="fa fa-cloud-upload"></span>
+                Upload a new file
+              </label>
+            </div>
+
+            <div class="upload-table">
+              <table class="upload-table__form">
+                <tr>
+                  <th class="upload-table__th">file name</th>
+                  <th class="upload-table__th upload-table__th_hidden">file size</th>
+                  <th class="upload-table__th upload-table__td_hidden">number of words</th>
+                  <th class="upload-table__th">remove</th>
+                </tr>
+                <tr>
+                  <td class="upload-table__td">
+                    <span class="fa fa-file-text" aria-hidden="true"></span>
+                    business_operations.docx
+                  </td>
+                  <td class="upload-table__td upload-table__td_hidden">78kb</td>
+                  <td class="upload-table__td upload-table__td_hidden">2,326</td>
+                  <td class="upload-table__td upload-table_td-btn">
+                    <button class="upload-table__btn" type="button">
+                      <span class="fa fa-trash" aria-hidden="true"></span>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="upload-table__td">
+                    <span class="fa fa-file-text" aria-hidden="true"></span>
+                    business_financial.docx
+                  </td>
+                  <td class="upload-table__td upload-table__td_hidden">26kb</td>
+                  <td class="upload-table__td upload-table__td_hidden">842</td>
+                  <td class="upload-table__td upload-table_td-btn">
+                    <button class="upload-table__btn" type="button">
+                      <span class="fa fa-trash" aria-hidden="true"></span>
+                    </button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </section>
+
+          <section class="lang layout__row">
+            <h2>Choose your languages pairings</h2>
+            <fieldset class="lang__field">
+              <div class="lang__row-wrapper">
+                <label class="lang__label" for="lang__select">From</label>
+                <div class="lang__select-wrapper">
+                  <select name="translate-from" class="lang__select" id="lang__select">
+                    <option selected value="english">English</option>
+                    <option value="arabic">Arabic</option>
+                    <option value="kurdish">Kurdish</option>
+                    <option value="russian">Russian</option>
+                    <option value="spanisch">Spanisch</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="lang__row-wrapper lang__row-wrapper_indent">
+                <label class="lang__label" for="select-lang">To</label>
+
+                <div class="lang__select-wrapper">
+                  <select name="translate-to" class="lang__select" id="select-lang">
+                    <option value="english">English</option>
+                    <option selected value="arabic">Arabic</option>
+                    <option value="kurdish">Kurdish</option>
+                    <option value="russian">Russian</option>
+                    <option value="spanisch">Spanisch</option>
+                  </select>
+                </div>
+
+                <div class="lang__select-wrapper">
+                  <select name="translate-to-second" class="lang__select">
+                    <option value="english">English</option>
+                    <option value="arabic">Arabic</option>
+                    <option selected value="kurdish">Kurdish</option>
+                    <option value="russian">Russian</option>
+                    <option value="spanisch">Spanisch</option>
+                  </select>
+                </div>
+
+                <button class="lang__btn-trash" type="button">
+                  <span class="fa fa-trash fa-lg lang__trash" aria-hidden="true"></span>
+                </button>
+                <button class="lang__btn-add" type="button">
+                  <span class="fa fa-plus lang__btn-add_ic" aria-hidden="true"></span> ADD
+                </button>
+              <br />
+            </fieldset>
+          </section>
+
+          <div class="layout__row layout__row_flex">
+            <section class="tone">
+              <h2 class="tone__header">Select your desired tone</h2>
+              <fieldset>
+                <div class="tone-buttons">
+                  <div class="tone-buttons__btn">
+                    <input required id="select-1" type="radio" name="translate-tone" value="casual" class="visually-hidden tone__input" />
+                    <label class="tone-buttons__label" for="select-1">
+                      <span class="fa fa-comments tone-buttons__label_ic" aria-hidden="true"></span>
+                      <span>Friendly / Casual</span>
+                    </label>
+                  </div>
+                  <div class="tone-buttons__btn">
+                    <input required id="select-2" type="radio" name="translate-tone" value="pro" class="visually-hidden tone__input"  />
+                    <label class="tone-buttons__label" for="select-2">
+                      <span class="fa fa-suitcase tone-buttons__label_ic" aria-hidden="true"></span>
+                      <span>Corporate / Pro</span>
+                    </label>
+                  </div>
+                  <div class="tone-buttons__btn">
+                    <input required id="select-3" type="radio" name="translate-tone" value="formal" class="visually-hidden tone__input"  />
+                    <label class="tone-buttons__label" for="select-3">
+                      <span class="fa fa-bullhorn tone-buttons__label_ic" aria-hidden="true"></span>
+                      <span>Media / Formal</span>
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+
+            <section class="urgent">
+              <h2 class="urgent__h2">Tell us how urgent this job is</h2>
+              <fieldset>
+                <div class="urgent-timeline">
+                  <input required name="urgency" type="range" min="0" max="100" step="25" value="50" id="urgent-timeline__range" class="urgent-timeline__range" />
+                  <label class="urgent-timeline__label padding_fix" for="urgent-timeline__range">i got time</label>
+                  <label class="urgent-timeline__label" for="urgent-timeline__range orange">avarage</label>
+                  <label class="urgent-timeline__label" for="urgent-timeline__range">yesterday</label>
+                </div>
+                <details open class="timeline-info">
+                  <summary class="timeline-info__h4">timeline info</summary>
+                  <p class="timeline-info__p">
+                    With an <span class="orange">AVARAGE</span> timeline set up, our expert translator can take a reasonable amount of time
+                    perfecting y our translation
+                  </p>
+                </details>
+              </fieldset>
+            </section>
+          </div>
+
+          <section class="payment layout__row">
+            <h2 class="payment__h2">Sign up and choose a payment method</h2>
+
+            <fieldset class="payment__fieldset">
+              <legend class="payment__legend">Already have account with us? <a href="#">Sign in.</a></legend>
+
+              <div class="payment__relative-input">
+                <label class="payment__label" for="form_full-name">Full name</label>
+                  <input
+                    placeholder="Vasya pupkin"
+                    required
+                    name="full-name"
+                    class="payment__input"
+                    type="text"
+                    id="form_full-name"
+                    pattern="^[a-zA-Z ,.'-]+$"
+                    minlength="2"
+                  />
+                  <span aria-hidden="true" class="payment__vaild-status"></span>
+              </div>
+
+              <div class="payment__info-wrapper">
+                <div class="payment__relative-input">
+                  <label class="payment__label" for="form_email">Email adress</label>
+                    <input required class="payment__input" placeholder="example@google.com" name="email" type="email" id="form_email" />
+                    <span aria-hidden="true" class="payment__vaild-status"></span>
+                </div>
+
+                <div class="payment__relative-input">
+                  <label class="payment__label" for="form_passw">Choose a password</label>
+                    <input required class="payment__input" name="password" placeholder="password" type="password" id="form_passw" minlength="6" />
+                    <span aria-hidden="true" class="payment__vaild-status"></span>
+                </div>
+              </div>
+
+              <div class="payment__variant-type">
+                <input required type="radio" name="payment-variant" value="visa\mastercard" id="payment-btn-1" class="required-input visually-hidden" />
+                <label class="payment__variant-type-btn" for="payment-btn-1">
+                  visa\mastercard
+                  <img src="img/mastercard.jpg" alt="mastercard" />
+                  <img src="img/visa.jpg" alt="visa" />
+                </label>
+                <input required type="radio" name="payment-variant" value="paypal" id="payment-btn-2" class="required-input visually-hidden" />
+                <label class="payment__variant-type-btn" for="payment-btn-2">
+                  paypal
+                  <img src="img/paypal.jpg" alt="paypal" />
+                </label>
+                <input required type="radio" name="payment-variant" value="amazon" id="payment-btn-3" class="required-input visually-hidden" />
+                <label class="payment__variant-type-btn" for="payment-btn-3">
+                  amazon
+                  <img src="img/amazon.jpg" alt="amazon" />
+                </label>
+              </div>
+
+              <div class="payment__card">
+                <div class="payment__relative-input">
+                  <label class="payment__label" for="card-number">Card number</label>
+                    <input
+                      required
+                      class="payment__input"
+                      id="card-number"
+                      name="card-number"
+                      type="text"
+                      minlength="9"
+                      maxlength="19"
+                      pattern="\d{1,19}"
+                    />
+                    <span aria-hidden="true" class="payment__vaild-status"></span>
+                </div>
+
+                <div class="payment__relative-input">
+                  <label class="payment__label" for="card-date">Expiry date</label>
+                    <input
+                      required
+                      class="payment__input payment-form__input_date"
+                      id="card-date"
+                      type="date"
+                      name="exp-date"
+                      placeholder="DD/MM/YY"
+                      max="2025-12-31"
+                      min="2018-02-01"
+                    />
+                    <span aria-hidden="true" class="payment__vaild-status"></span>
+                </div>
+
+                <div class="payment__relative-input">
+                  <label class="payment__label" for="card-code">Code</label>
+                    <input
+                      required
+                      class="payment__input payment__input_code"
+                      id="card-code"
+                      name="card-code"
+                      type="text"
+                      minlength="3"
+                      maxlength="3"
+                    />
+                    <span aria-hidden="true" class="payment__vaild-status"></span>
+                </div>
+              </div>
+
+              <div class="payment-submit">
+                <div class="payment-agree-link payment-submit__indent">
+                  <input required type="checkbox" class="payment-agree-link__checkbox" id="payment-agree-link" />
+                  <label for="payment-agree-link">I agree to the <a href="#">Terms & Conditions</a></label>
+                </div>
+                <div class="payment-submit__buttons">
+                  <button type="submit" class="action-buttons__btn action-buttons__btn_colored">Place order</button>
+                  <button type="button" class="action-buttons__btn ">Print a quote</button>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-wrapper">
+        <section class="what-we-do">
+          <h4 class="footer__h4">
+            <span class="fa fa-heart fa-lg fa-footer" aria-hidden="true"></span>
+            What we do
+          </h4>
+          <p class="footer__content">
+            We provide a full range of language services including content development, document, website and social media accounts
+            translations.
+          </p>
+        </section>
+        <section class="office">
+          <h4 class="footer__h4">
+            <span class="fa fa-compass fa-lg fa-footer" aria-hidden="true"></span>
+            Our main office
+          </h4>
+          <address class="footer__content">
+            Dubai, UAE <br />
+            P.O. Box: 502735 <br />
+            Phone: +971(0) 44278128
+          </address>
+        </section>
+        <section class="social">
+          <h4 class="footer__h4">
+            <span class="fa fa-share-alt fa-lg fa-footer" aria-hidden="true"></span>
+            Connect with us
+          </h4>
+          <ul class="footer__list">
+            <li>
+              <a href="#"><span class="fa fa-facebook fa-footer-list" aria-hidden="true"></span> Facebook</a>
+            </li>
+            <li>
+              <a href="#"><span class="fa fa-twitter fa-footer-list" aria-hidden="true"></span> Twitter</a>
+            </li>
+            <li>
+              <a href="#"><span class="fa fa-linkedin fa-footer-list" aria-hidden="true"></span> Linkedin</a>
+            </li>
+          </ul>
+        </section>
+        <div class="dark-logo">
+          <a href="#" class="dark-logo__link">
+            <img src="img/logo-dark.jpg" alt="logo" class="dark-logo__img" />
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script> </script>
+  </body>
+</html>
