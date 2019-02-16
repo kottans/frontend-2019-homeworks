@@ -1,0 +1,111 @@
+.radio-input {
+  position: relative;
+
+  &__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    margin: 15px 0;
+    background: #fff;
+    border: 1px solid var(--darkgray);
+    border-radius: 2.5px;
+    outline: none;
+    color: var(--gray);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    transition-property: background, color;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+      background: var(--lightgreen);
+
+      @media only screen and (max-width: $mobile) {
+        color: inherit;
+        background: inherit;
+      }
+    }
+  }
+
+  &__input {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    bottom: 0;
+    left: 18px;
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+  }
+
+  &--card {
+    .radio-input__icon {
+      width: 45px;
+      height: 45px;
+
+      @media only screen and (max-width: $mobile) {
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+    .radio-input__button {
+
+      @media only screen and (max-width: $mobile) {
+        padding: 10px 0;
+      }
+    }
+  }
+
+  &__status {
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    width: 30px;
+    height: 30px;
+    opacity: 0;
+    fill: var(--lightgreen);
+    transition-property: opacity;
+    transition-timing-function: linear;
+    transition-duration: 0.175s;
+  }
+
+  &__input:focus + .radio-input__button {
+    color: #fff;
+    background: var(--lightgreen);
+
+    @media only screen and (max-width: $mobile) {
+      color: inherit;
+      background: inherit;
+    }
+  }
+
+  &__input:checked + .radio-input__button {
+    border: 1px solid var(--lightgreen);
+  }
+
+  &__input:checked:focus + .radio-input__button {
+    background: #fff;
+    color: var(--lightgreen);
+  }
+
+  &__input:checked + .radio-input__button .radio-input__status {
+    opacity: 1;
+  }
+}

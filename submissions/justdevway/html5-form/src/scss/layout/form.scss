@@ -1,0 +1,332 @@
+$number-size: 35px;
+
+.form {
+  background: #fff;
+
+  &__header {
+    border: 1px solid var(--lightgray);
+    border-radius: 2px;
+  }
+
+  &__body {
+    border-right: 1px solid var(--lightgray);
+    border-left: 1px solid var(--lightgray);
+
+    @media only screen and (max-width: $tablet) {
+      padding: 0 15px;
+    }
+  }
+
+  &__content {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  &__docs {
+    padding: 60px 0;
+
+    @media only screen and (max-width: $tablet) {
+      padding: 30px 0;
+    }
+
+    @media only screen and (max-width: $mobile) {
+      padding: 15px 0;
+    }
+
+    &__item {
+      @media only screen and (max-width: $mobile) {
+        margin: 20px 0;
+      }
+    }
+
+    &__head {
+      text-align: center;
+
+      p {
+        display: inline-block;
+        padding: 0 2.5px 10px 2.5px;
+        margin: 0;
+        border-bottom: 1px solid var(--lightgray);
+        color: var(--darkgray);
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: center;
+      }
+    }
+
+    &__list {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 0 30px;
+      margin: 0;
+      list-style-type: none;
+
+      @media only screen and (max-width: $mobile) {
+        padding: 30px 0 10px;
+      }
+    }
+  }
+
+  &__helper {
+    margin: 0;
+    color: var(--darkgray);
+    font-size: 14px;
+    text-align: left;
+    transition-property: opacity;
+    transition-timing-function: linear;
+    transition-duration: 0.175s;
+
+    &--block {
+      padding: 15px 0 30px;
+    }
+
+    @media only screen and (max-width: $tablet) {
+      display: none;
+    }
+  }
+
+  &__steps {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+
+  &__step {
+    position: relative;
+    padding-bottom: 30px;
+
+    &--small {
+      width: 50%;
+      float: left;
+
+      @media only screen and (max-width: $mobile) {
+        width: 100%;
+      }
+    }
+
+    &__name {
+      margin: 0 0 30px;
+      color: var(--darkgray);
+      font-size: 18px;
+      font-weight: 400;
+
+      @media only screen and (max-width: $mobile) {
+        margin: 0 0 10px;
+      }
+
+      span {
+        color: var(--lightgray);
+        font-size: 12px;
+      }
+    }
+
+    &__number {
+      position: absolute;
+      top: -$number-size / 4;
+      left: -$number-size * 1.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: $number-size;
+      height: $number-size;
+      border: 1px solid var(--darkgray);
+      border-radius: 50%;
+      color: var(--darkgray);
+      font-size: 18px;
+
+      @media only screen and (max-width: $tablet) {
+        position: static;
+        margin: 0 auto 10px;
+      }
+    }
+  }
+
+  &__upload {
+    width: 240px;
+
+    @media only screen and (max-width: $mobile) {
+      width: 100%;
+    }
+  }
+
+  &__documents {
+    padding: 20px 40px;
+    margin-top: 25px;
+    border: 1px solid var(--lightgray);
+    border-radius: 2.5px;
+
+    @media only screen and (max-width: $mobile) {
+      padding: 10px;
+    }
+  }
+
+  &__selects {
+    display: flex;
+    margin: 10px 0;
+
+    @media only screen and (max-width: $mobile) {
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    &__name {
+      width: 40px;
+      font-size: 14px;
+      text-align: right;
+      text-transform: uppercase;
+
+      @media only screen and (max-width: $mobile) {
+        text-align: center;
+      }
+    }
+  }
+
+  &__select {
+    width: 170px;
+    margin: 0 10px;
+
+    &--remove {
+      width: 50px;
+    }
+
+    @media only screen and (max-width: $mobile) {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+
+  &__desire {
+    width: 265px;
+
+    @media only screen and (max-width: $mobile) {
+      width: 100%;
+    }
+  }
+
+  &__urgency {
+
+    &__range {
+      max-width: 85%;
+
+      @media only screen and (max-width: $mobile) {
+        max-width: 100%;
+      }
+    }
+
+    &__info {
+      position: relative;
+      padding: 15px 60px;
+      margin-top: 25px;
+      border: 1px solid var(--lightgray);
+      border-radius: 2.5px;
+
+      @media only screen and (max-width: $mobile) {
+        padding: 10px 20px;
+      }
+    }
+
+    &__head {
+      color: var(--darkgray);
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    &__text {
+      padding-top: 15px;
+      font-size: 14px;
+      color: var(--lightgray);
+
+      span {
+        color: var(--lightgreen);
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    }
+
+    &__icon {
+      position: absolute;
+      top: 11px;
+      left: 25px;
+      width: 20px;
+      height: 20px;
+
+      @media only screen and (max-width: $mobile) {
+        display: none;
+      }
+    }
+  }
+
+  &__footer {
+    padding-bottom: 60px;
+    border: 1px solid var(--lightgray);
+    border-top: none;
+    border-radius: 2px;
+
+    &__content {
+      float: right;
+      display: flex;
+      align-items: center;
+
+      @media only screen and (max-width: $mobile) {
+        float: none;
+        flex-flow: column wrap;
+        align-items: flex-start;
+        padding: 0 15px;
+      }
+    }
+
+    &__button {
+      margin: 0 7.5px;
+
+      @media only screen and (max-width: $mobile) {
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+
+    .form__footer__button {
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__rules {
+    outline: none;
+    font-size: 12px;
+    cursor: pointer;
+
+    @media only screen and (max-width: $mobile) {
+      padding-left: 40px;
+    }
+
+    &__link {
+      &:active,
+      &:visited {
+        color: var(--blue);
+      }
+
+      &:hover,
+      &:focus {
+        outline: none;
+        color: var(--lightgreen);
+
+        @media only screen and (max-width: $mobile) {
+          color: inherit;
+        }
+      }
+    }
+  }
+}
