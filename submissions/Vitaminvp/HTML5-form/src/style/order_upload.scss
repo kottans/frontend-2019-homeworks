@@ -4,7 +4,7 @@
 .order__upload {
   margin-top: 50px;
 
-  & h3 {
+  & .order__header {
     &:before {
       content: "1";
     }
@@ -13,6 +13,9 @@
       color: $font-color-light;
       font-size: 0.5em;
       font-weight: normal;
+      @include mobile{
+        white-space: nowrap;
+      }
     }
   }
 
@@ -20,7 +23,8 @@
     margin: 40px 0 50px;
     padding: 30px 50px;
     @include tablet {
-      padding: 5px 5px;
+      padding: 15px 25px;
+      margin: 40px auto;
     }
     width: calc(100% - 100px);
     border: 1px solid $border-color;

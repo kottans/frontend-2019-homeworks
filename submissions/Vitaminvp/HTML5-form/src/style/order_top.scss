@@ -38,6 +38,9 @@
     .order__top_dashboard-body {
       margin-top: 15px;
       color: $font-color-light;
+      @include mobile{
+        margin-bottom: 20px;
+      }
     }
   }
 
@@ -55,6 +58,9 @@
     flex: 4;
     padding: 40px 50px;
     border-left: 2px solid $border-color;
+    @include mobile{
+      border-left: none;
+    }
 
     & i {
       margin-right: 15px;
@@ -94,6 +100,9 @@
 
         &:hover {
           text-decoration: underline;
+        }
+        @include mobile{
+          margin-bottom: 10px;
         }
       }
     }

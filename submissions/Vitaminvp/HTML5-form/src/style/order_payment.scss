@@ -2,7 +2,7 @@
 @import 'mixins';
 
 .order__payment {
-  & h3 {
+  .order__header {
     &:before {
       content: '5';
     }
@@ -15,6 +15,11 @@
     & a {
       color: $font-color;
       text-decoration: underline;
+      @include transition;
+      &:hover{
+        color: $font-color-light;
+        text-decoration: none;
+      }
     }
   }
 
@@ -48,7 +53,6 @@
 }
 
 .order__payment_input {
-
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -59,7 +63,7 @@
     justify-content: center;
   }
 
-  & span {
+  & label {
     margin-top: 20px;
     font-size: 0.9em;
     padding-left: 10px;
@@ -72,7 +76,8 @@
   .order__payment_input-text,
   .order__payment_input-email {
     position: relative;
-    display: grid;
+    display: flex;
+    flex-direction: column;
   }
 
   .order__payment_input-email {
@@ -88,6 +93,9 @@
     display: flex;
     flex-direction: column;
     margin-right: 40px;
+    @include mobile{
+      margin-right: 0;
+    }
     position: relative;
   }
 }
@@ -122,6 +130,11 @@
   & .terms {
     text-decoration: underline;
     color: $font-color;
+    @include transition;
+    &:hover{
+      color: $font-color-light;
+      text-decoration: none;
+    }
   }
 }
 

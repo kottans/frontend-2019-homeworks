@@ -64,7 +64,7 @@
                                value="chrome"
                                class="visually__hidden"
                                required>
-                        <span class="label__image-wrapper label--size-browsers">
+                        <span class="label__image-wrapper label__image-wrapper--size-browsers">
                             <img class="label__image" src="src/assets/img/website.png" alt="website">
                             <span class="label__text">Website</span>
                         </span>
@@ -76,7 +76,7 @@
                                value="firefox"
                                class="visually__hidden"
                                checked>
-                        <span class="label__image-wrapper label--size-browsers">
+                        <span class="label__image-wrapper label__image-wrapper--size-browsers">
                             <img class="label__image" src="src/assets/img/documents.png" alt="documents">
                             <span class="label__text">Documents</span>
                         </span>
@@ -87,15 +87,15 @@
                                id="browsers_edge"
                                value="edge"
                                class="visually__hidden">
-                        <span class="label__image-wrapper label--size-browsers">
+                        <span class="label__image-wrapper label__image-wrapper--size-browsers">
                             <img class="label__image" src="src/assets/img/account.png" alt="account">
                             <span class="label__text">Social account</span>
                         </span>
                     </label>
                 </div>
             </div>
-            <div class="order__upload">
-                <h3>Upload your documents <span>(Doc, Docx, Text, PDF, Markdown)</span></h3>
+            <section class="order__upload">
+                <h3 class="order__header">Upload your documents <span>(Doc, Docx, Text, PDF, Markdown)</span></h3>
                 <label class="file-label-wrapper ">
                     <input type="file"
                            class="visually__hidden input"
@@ -125,53 +125,53 @@
                         <div class="order__upload_table-row"><i class="fa fa-trash" aria-hidden="true"></i></div>
                     </div>
                 </div>
-            </div>
-            <div class="order__languages">
-                <h3>Choose your languages pairings</h3>
-            </div>
-            <div class="select">
-                <span>From</span>
-                <div class="select__wrapper">
-                    <select name="language"
-                            id="select"
-                            class="select__item"
-                            required>
-                        <option value="" disabled>&nbsp;</option>
-                        <option value="english" selected>English</option>
-                        <option value="arabic">Arabic</option>
-                        <option value="kurdish">Kurdish</option>
-                    </select>
+            </section>
+            <section class="order__languages">
+                <h3 class="order__header">Choose your languages pairings</h3>
+                <div class="select">
+                    <label for="selectFrom">From</label>
+                    <div class="select__wrapper">
+                        <select name="language"
+                                id="selectFrom"
+                                class="select__item"
+                                required>
+                            <option value="" disabled>&nbsp;</option>
+                            <option value="english" selected>English</option>
+                            <option value="arabic">Arabic</option>
+                            <option value="kurdish">Kurdish</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <div class="select">
-                <span>To</span>
-                <div class="select__wrapper">
-                    <select name="language"
-                            id="select2"
-                            class="select__item"
-                            required>
-                        <option value="" disabled>&nbsp;</option>
-                        <option value="english">English</option>
-                        <option value="arabic" selected>Arabic</option>
-                        <option value="kurdish">Kurdish</option>
-                    </select>
+                <div class="select">
+                    <label for="selectTo">To</label>
+                    <div class="select__wrapper">
+                        <select name="language"
+                                id="selectTo"
+                                class="select__item"
+                                required>
+                            <option value="" disabled>&nbsp;</option>
+                            <option value="english">English</option>
+                            <option value="arabic" selected>Arabic</option>
+                            <option value="kurdish">Kurdish</option>
+                        </select>
+                    </div>
+                    <div class="select__wrapper">
+                        <select name="language"
+                                class="select__item">
+                            <option value="" disabled>&nbsp;</option>
+                            <option value="english">English</option>
+                            <option value="arabic">Arabic</option>
+                            <option value="kurdish" selected>Kurdish</option>
+                        </select>
+                    </div>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                    <button type="button" class="submit gray">+ ADD</button>
                 </div>
-                <div class="select__wrapper">
-                    <select name="language"
-                            id="select3"
-                            class="select__item">
-                        <option value="" disabled>&nbsp;</option>
-                        <option value="english">English</option>
-                        <option value="arabic">Arabic</option>
-                        <option value="kurdish" selected>Kurdish</option>
-                    </select>
-                </div>
-                <i class="fa fa-trash" aria-hidden="true"></i>
-                <button type="button" class="submit gray">+ ADD</button>
-            </div>
+            </section>
+
             <div class="wrapper__urgency_tone">
-                <div class="order__tone">
-                    <h3>Select your desired tone</h3>
+                <section class="order__tone">
+                    <h3 class="order__header">Select your desired tone</h3>
 
                     <div class="order__tone_buttons">
                         <label class="label label--size-tone">
@@ -181,7 +181,7 @@
                                    value="casual"
                                    class="visually__hidden"
                                    required>
-                            <span class="label__image-wrapper label--size-tone">
+                            <span class="label__image-wrapper label__image-wrapper--size-tone">
                                 <span class="label__text casual">Friendly/Casual</span>
                             </span>
                         </label>
@@ -192,7 +192,7 @@
                                    value="pro"
                                    class="visually__hidden"
                                    checked>
-                            <span class="label__image-wrapper label--size-tone">
+                            <span class="label__image-wrapper label__image-wrapper--size-tone">
                                 <span class="label__text pro">Corporate/Pro</span>
                             </span>
                         </label>
@@ -202,14 +202,14 @@
                                    id="formal"
                                    value="formal"
                                    class="visually__hidden">
-                            <span class="label__image-wrapper label--size-tone">
+                            <span class="label__image-wrapper label__image-wrapper--size-tone">
                                 <span class="label__text formal">Medial/Formal</span>
                             </span>
                         </label>
                     </div>
-                </div>
-                <div class="order__urgency">
-                    <h3>Tell us how urgent this job is</h3>
+                </section>
+                <section class="order__urgency">
+                    <h3 class="order__header">Tell us how urgent this job is</h3>
                     <div class="range">
                         <input type="range"
                                name="urgent"
@@ -229,15 +229,15 @@
                         <h4>Timeline info</h4>
                         <p>Lorem ipsum dolor sit amet, <span class="orange">Average</span> consectetur adipisicing elit. Autem ducimus et eum expedita iusto optio.</p>
                     </div>
-                </div>
+                </section>
             </div>
-            <div class="order__payment">
-                <h3>Sign up and choose a payment method</h3>
+            <section class="order__payment">
+                <h3  class="order__header">Sign up and choose a payment method</h3>
                 <p class="order__payment_signin">Already have account with us? <a href="#">Sign in</a></p>
                 <div class="order__payment_inputs">
                     <div class="order__payment_input">
                         <div class="order__payment_input-text">
-                            <span>Full name</span>
+                            <label for="text">Full name</label>
                             <input type="text"
                                    id="text"
                                    class="text"
@@ -246,13 +246,13 @@
                                    title="Write some text. Min lenght 4 and max length 18"
                                    minlength="4"
                                    maxlength="18"
+                                   autocomplete="on"
                                    required>
-                            <span></span>
                         </div>
                     </div>
                     <div class="order__payment_input">
                         <div class="order__payment_input-email">
-                            <span>Email adress</span>
+                            <label for="email">Email adress</label>
                             <input type="email"
                                    id="email"
                                    class="email"
@@ -260,11 +260,11 @@
                                    placeholder="example@domaine.com"
                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                                    title="name@domain.etc"
+                                   autocomplete="on"
                                    required>
-                            <span></span>
                         </div>
                         <div class="order__payment_input-pass">
-                            <span>Choose your password</span>
+                            <label for="password">Choose your password</label>
                             <input type="password"
                                    id="password"
                                    class="password"
@@ -274,7 +274,6 @@
                                    title="Minimum 8 characters, UPPERCASE, lowercase and Number"
                                    minlength="6"
                                    required>
-                            <span></span>
                         </div>
                     </div>
                 </div>
@@ -313,10 +312,10 @@
                         </span>
                     </label>
                 </div>
-            </div>
+            </section>
             <div class="order__payment_input">
                 <div class="order__payment_card-number">
-                    <span>Card number</span>
+                    <label for="cardNumber">Card number</label>
                     <input type="text"
                            id="cardNumber"
                            inputmode="numeric"
@@ -327,22 +326,23 @@
                            title="Input card number. Min lenght 4 and max length 18"
                            minlength="15"
                            maxlength="19"
+                           autocomplete="on"
                            required>
-                    <span></span>
                 </div>
 
                 <div class="order__payment_card-date">
-                    <span>Expiry date</span>
+                    <label for="cardDate">Expiry date</label>
                     <input type="date"
                            id="cardDate"
                            class="date"
                            name="text"
                            placeholder="DD/MM/YY"
                            title="Input expiry card date."
+                           autocomplete="on"
                            required>
                 </div>
                 <div class="order__payment_card-code">
-                    <span>Code</span>
+                    <label for="cardCode">Code</label>
                     <input type="text"
                            id="cardCode"
                            inputmode="numeric"
@@ -353,8 +353,8 @@
                            title="Input card cod. 3 digits"
                            minlength="3"
                            maxlength="3"
+                           autocomplete="on"
                            required>
-                    <span></span>
 
                 </div>
             </div>

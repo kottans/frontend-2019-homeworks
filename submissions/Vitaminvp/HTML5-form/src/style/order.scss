@@ -29,12 +29,15 @@
   margin: 50px auto;
   color: $font-color;
 
-  & h3 {
+  .order__header {
     font-size: 2em;
     color: $font-color;
     font-weight: normal;
     position: relative;
     margin-bottom: 60px;
+    @include mobile{
+      text-align: center;
+    }
 
     &:before {
       position: absolute;
@@ -54,7 +57,7 @@
 
 
   &__languages {
-    & h3 {
+    & .order__header {
       &:before {
         content: "2";
       }
@@ -109,6 +112,10 @@
 
   &-wrapper {
     line-height: 1.4;
+    @include mobile{
+      text-align: center;
+      display: block;
+    }
   }
 }
 
@@ -150,6 +157,12 @@
   & i {
     font-size: 1.5em;
     cursor: pointer;
+    &:hover{
+      color: $font-color-light;
+    }
+    @include mobile{
+      margin: 15px;
+    }
   }
 
   & .submit.gray {
@@ -163,7 +176,7 @@
     margin-top: 20px;
   }
 
-  & span {
+  & label {
     margin-right: 10px;
     width: 50px;
     font-size: 0.9em;
@@ -266,26 +279,6 @@
     }
   }
 
-  &--size-second {
-    width: 250px;
-    height: 500px;
-  }
-
-  &--size-browsers {
-    width: 300px;
-    height: 200px;
-  }
-
-  &--size-tone {
-    width: 300px;
-    height: 80px;
-  }
-
-  &--size-payment {
-    width: 280px;
-    height: 120px;
-  }
-
   &__image {
     margin: 0 auto;
     display: block;
@@ -311,6 +304,30 @@
   }
 }
 
+.label__image-wrapper--size-second,
+.label--size-second{
+  width: 250px;
+  height: 500px;
+}
+
+.label__image-wrapper--size-browsers,
+.label--size-browsers {
+  width: 280px;
+  height: 200px;
+}
+
+.label__image-wrapper--size-tone,
+.label--size-tone {
+  width: 280px;
+  height: 80px;
+}
+
+.label__image-wrapper--size-payment,
+.label--size-payment {
+  width: 280px;
+  height: 120px;
+}
+
 input[type=radio]:checked + .label__image-wrapper {
   border: 5px solid $selected;
 
@@ -320,7 +337,7 @@ input[type=radio]:checked + .label__image-wrapper {
     width: 30px;
     height: 34px;
     font-size: 2em;
-    color: #76a7e1;
+    color: $selected;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -340,16 +357,22 @@ input[type=radio]:checked + .label__image-wrapper {
   position: relative;
   max-width: 350px;
   min-width: 320px;
+  @include mobile{
+    min-width: 280px;
+  }
   margin-top: 5px;
   width: 100%;
   height: 50px;
-  padding: 5px 40px 5px 15px;
+  padding: 5px 15px 5px 15px;
   box-sizing: border-box;
   border-radius: 5px;
   border: 1px solid $border-color;
   font-size: 15px;
   outline: transparent;
   background-color: transparent;
+  &:hover{
+    border-color: $selected;
+  }
 }
 
 .code {
@@ -364,18 +387,25 @@ input[type=radio]:checked + .label__image-wrapper {
 
 input[type="date"]:before {
   content: attr(placeholder);
-  color: $font-color;
-  margin-right: 2em;
+  color: $font-color-light;
+  margin-left: 3em;
+  background-color: #fff;
+  width: 90px;
 }
 
 input[type="date"]:focus:before,
 input[type="date"]:valid:before {
   content: "";
+  width: 0;
+  margin-left: 0;
 }
 
 .number {
   max-width: 400px;
   min-width: 320px;
+  @include mobile{
+    min-width: 280px;
+  }
 }
 
 .text::-webkit-input-placeholder,
@@ -397,7 +427,6 @@ input[type="date"]:valid:before {
 .text:valid,
 .email:valid {
   border-color: #0f0;
-  //box-shadow: 0 0 2px 1px #0f0;
   background-color: transparent;
 
 }
@@ -407,67 +436,48 @@ input[type="date"]:valid:before {
 .password:focus:invalid,
 .code:focus:invalid,
 .number:focus:invalid,
-.date:focus:invalid
-  //.text:invalid,
-  //.password:invalid,
-  //.email:invalid
-{
+.date:focus:invalid {
   border-color: #f00;
   background: transparent;
 }
 
-.text:focus:invalid ~ span,
-.code:focus:invalid ~ span,
-.password:focus:invalid ~ span,
-.email:focus:invalid ~ span {
-  &:after {
-    position: absolute;
-    content: "\f057";
-    color: red;
-    font-family: FontAwesome, sans-serif;
-    font-size: 2em;
-    top: 55px;
-    right: 10px;
-  }
+.text:focus:invalid,
+.code:focus:invalid,
+.password:focus:invalid,
+.email:focus:invalid {
+  background-position: 96% center;
+  background-image: url(../assets/img/times-circle.svg);
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+
 }
 
-.number ~ span {
-  &:after {
-    position: absolute;
-    content: "\f1f0";
-    color: $border-button-color;
-    font-family: FontAwesome, sans-serif;
-    font-size: 2em;
-    top: 55px;
-    right: 10px;
-  }
+.number{
+  background-position: 95% center;
+  background-image: url(../assets/img/visa_payment.svg);
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
 }
 
-.number:focus:invalid ~ span {
-  &:after {
-    color: red;
-  }
+.number:focus:invalid {
+  background-position: 95% center;
+  background-image: url(../assets/img/visa_payment_invalid.svg);
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
 }
 
-.number:focus:valid ~ span {
-  &:after {
-    color: $selected;
-  }
+.number:focus:valid{
+  background-image: url(../assets/img/visa_payment_selected.svg);
 }
 
-.text:valid ~ span,
-.code:valid ~ span,
-.password:valid ~ span,
-.email:valid ~ span {
-  &:after {
-    position: absolute;
-    content: "\f13a";
-    color: $selected;
-    font-family: FontAwesome, sans-serif;
-    font-size: 2em;
-    top: 55px;
-    right: 10px;
-  }
+.text:valid,
+.code:valid,
+.password:valid,
+.email:valid {
+  background-position: 96% center;
+  background-image: url(../assets/img/check-circle.svg);
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
 }
 
 .submit {
@@ -519,10 +529,6 @@ input[type="date"]:valid:before {
   margin-top: 20px;
 }
 
-.range__input:focus {
-  //outline: none;
-}
-
 .range__text {
   display: flex;
   justify-content: space-between;
@@ -545,6 +551,9 @@ input[type="date"]:valid:before {
   position: relative;
   -webkit-appearance: none;
   appearance: none;
+  &:hover{
+    cursor: pointer
+  }
 }
 
 .range__input::before,
@@ -573,7 +582,7 @@ input[type="date"]:valid:before {
   width: 30px;
   border-radius: 50%;
   background-color: $range;
-  margin-top: -12px;
+  margin-top: -10px;
   box-sizing: border-box;
   border: 2px solid $range;
   z-index: 2;
@@ -583,6 +592,9 @@ input[type="date"]:valid:before {
 .checkbox-label-wrapper {
   cursor: pointer;
   margin-left: 50px;
+  @include mobile{
+    margin-left: 0;
+  }
   display: flex;
   position: relative;
 }
@@ -596,6 +608,7 @@ input[type="date"]:valid:before {
 
 .checkbox-label {
   padding-left: 50px;
+  @include transition;
 }
 
 .checkbox-label::before {
@@ -609,7 +622,9 @@ input[type="date"]:valid:before {
   bottom: -4px;
   left: 0;
 }
-
+.checkbox-label:hover::before{
+  border-color: $selected;
+}
 .checkbox-label::after {
   content: '';
   display: block;

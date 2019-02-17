@@ -2,7 +2,7 @@
 .order__urgency {
   flex: 1;
 
-  & h3:before {
+  & .order__header:before {
     content: '4';
   }
 
