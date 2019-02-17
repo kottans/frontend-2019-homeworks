@@ -3,6 +3,16 @@
     padding: 0;
     box-sizing: border-box;
 }
+.visually__hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
 .wrapper{
     padding: 27px;
 }
@@ -22,6 +32,9 @@
 
     vertical-align: baseline;
     margin-right: 20px;
+}
+.popup_label{
+    cursor: pointer;
 }
 .username{
     font-weight: bold;
@@ -81,10 +94,7 @@ a {
     color: inherit;
     text-decoration: none;
 }
-.content {
-    display: none;
-    opacity: 0;
-}
+
 .wrapper:active .content {
     display: block;
 }
@@ -128,10 +138,7 @@ a {
 .pop_up-more:focus{
     border: 1px solid lightskyblue;
 }
-.more-checkbox,.popup_checkbox{
-    display: none;
-    opacity: 0;
-}
+
 .pop_up-more{
     background-color: lightgrey;
     text-align: center;
@@ -161,9 +168,22 @@ input:checked ~ .fullsizepop_up{
     width: 100%;
     text-decoration: underline;
 }
-.bell:hover, .username:hover{
-    border: 2px solid lightskyblue;
-}
 .bell:focus, .username:focus{
-    border: 2px solid lightskyblue;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.popup_checkbox:focus ~ label {
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.more-checkbox:focus ~ label{
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.username__p{
+    text-align: center;
+    width: 32px;
+    line-height: 32px;
+}
+.bell__icon{
+    text-align: center;
+    width: 32px;
+    line-height: 32px;
 }

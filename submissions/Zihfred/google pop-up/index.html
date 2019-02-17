@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Google pop-up</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="wrapper">
@@ -17,92 +17,92 @@
             <a href="#"><p>Images</p></a>
         </div>
         <div class="menu_item">
-            <input type="checkbox" class="popup_checkbox" id="check">
-            <label for="check">
+            <input type="checkbox" class="popup_checkbox visually__hidden" id="check">
+            <label for="check" class="popup_label" >
                 <i class="fas fa-th"></i>
             </label>
             <div class="pop_up" id="popup">
                 <div class="pop_up-content">
-                    <input type="checkbox" id="more" class="more-checkbox">
-                    <div class="pop_up-item">
+                    <input type="checkbox" id="more" class="more-checkbox visually__hidden">
+                    <div class="pop_up-item" tabindex="1">
                         <img src="img/google_docs.png" class="pop_up-item__img" alt="Docs">
                         <p class="pop_up-item__text">Docs</p>
                     </div>
-                    <div class="pop_up-item">
+                    <div class="pop_up-item" tabindex="1">
                         <img src="img/Google_Translate_Icon.png" class="pop_up-item__img" alt="Translate">
                         <p class="pop_up-item__text">Translate</p>
                     </div>
-                    <div class="pop_up-item">
+                    <div class="pop_up-item" tabindex="1">
                         <img src="img/1024px-Google+_icon.svg.png" class="pop_up-item__img" alt="Google">
                         <p class="pop_up-item__text">Google+</p>
                     </div>
-                    <div class="pop_up-item">
+                    <div class="pop_up-item" tabindex="1">
                         <img src="img/google-png-5a3554027e9924.3682726615134443545186.jpg" class="pop_up-item__img"
                              alt="Search">
-                        <p class="pop_up-item__text">Search</p>
+                        <p class="pop_up-item__text" tabindex="2">Search</p>
                     </div>
-                    <div class="pop_up-item">
+                    <div class="pop_up-item" tabindex="1">
                         <img src="img/1280px-YouTube_full-color_icon_(2017).svg.png" class="pop_up-item__img"
                              alt="Youtube">
                         <p class="pop_up-item__text">Youtube</p>
                     </div>
-                    <div class="pop_up-item">
+                    <div class="pop_up-item" tabindex="1">
                         <img src="img/google_play.png" class="pop_up-item__img" alt="Play">
                         <p class="pop_up-item__text">Play</p>
                     </div>
-                    <div class="pop_up-item">
+                    <div class="pop_up-item" tabindex="1">
                         <img src="img/gmail.png" class="pop_up-item__img" alt="Gmail">
                         <p class="pop_up-item__text">Gmail</p>
                     </div>
-                    <div class="pop_up-item">
+                    <div class="pop_up-item" tabindex="1">
                         <img src="img/Drive.png" class="pop_up-item__img" alt="Drive">
                         <p class="pop_up-item__text">Drive</p>
                     </div>
-                    <div class="pop_up-item">
+                    <div class="pop_up-item" tabindex="1">
                         <img src="img/google_calendar.png" class="pop_up-item__img" alt="Calendar">
                         <p class="pop_up-item__text">Calendar</p>
                     </div>
-                    <div class="pop_up-item">
+                    <div class="pop_up-item" tabindex="1">
                         <img src="img/Google My Business-icon.png" class="pop_up-item__img" alt="Business">
                         <p class="pop_up-item__text">My <br>Business</p>
                     </div>
-                    <div class="pop_up-item close">
+                    <div class="pop_up-item close" tabindex="1">
                         <img src="img/Blogger.jpg" class="pop_up-item__img" alt="Blogger">
                         <p class="pop_up-item__text">Blogger</p>
                     </div>
-                    <div class="pop_up-item close">
+                    <div class="pop_up-item close" tabindex="1">
                         <img src="img/1024px-Google_Photos_icon.svg.png" class="pop_up-item__img" alt="Photos">
                         <p class="pop_up-item__text">Photos</p>
                     </div>
-                    <div class="pop_up-item close">
+                    <div class="pop_up-item close" tabindex="1">
                         <img src="img/Map.jpg" class="pop_up-item__img" alt="Map">
                         <p class="pop_up-item__text">Map</p>
                     </div>
-                    <div class="pop_up-item close">
+                    <div class="pop_up-item close" tabindex="1">
                         <img src="img/Contacts.jpg" class="pop_up-item__img" alt="Contacts">
                         <p class="pop_up-item__text">Contacts</p>
                     </div>
-                    <div class="pop_up-item close">
+                    <div class="pop_up-item close" tabindex="1">
                         <img src="img/Hangouts_Icon.png" class="pop_up-item__img" alt="Hangouts">
                         <p class="pop_up-item__text">Hangouts</p>
                     </div>
-                    <div class="pop_up-item close">
+                    <div class="pop_up-item close" tabindex="1">
                         <img src="img/Keep.png" class="pop_up-item__img" alt="Keep">
                         <p class="pop_up-item__text">Keep</p>
                     </div>
-                    <div class="pop_up-item close">
+                    <div class="pop_up-item close" tabindex="1">
                         <img src="img/unnamed.png" class="pop_up-item__img" alt="Jamboard">
                         <p class="pop_up-item__text">Jamboard</p>
                     </div>
-                    <div class="pop_up-item close">
+                    <div class="pop_up-item close" tabindex="1">
                         <img src="img/Classrom.png" class="pop_up-item__img" alt="Classrom">
                         <p class="pop_up-item__text">Classrom</p>
                     </div>
-                    <div class="pop_up-item close">
+                    <div class="pop_up-item close" tabindex="1">
                         <img src="img/Google_Earth_Logo.svg.png" class="pop_up-item__img" alt="Earth">
                         <p class="pop_up-item__text">Earth</p>
                     </div>
-                    <label class="pop_up-more" for="more">More</label>
+                    <label class="pop_up-more" for="more" tabindex="0">More</label>
                     <div class="fullsizepop_up">
                         Even more from Google
                     </div>
@@ -110,10 +110,10 @@
             </div>
         </div>
         <div class="menu_item bell">
-            <a href="#"><i class="fas fa-bell"></i></a>
+            <a href="#"><i class="fas fa-bell bell__icon"></i></a>
         </div>
         <div class="menu_item username">
-            <a href="#"><p>A</p></a>
+            <a href="#"><p class="username__p">A</p></a>
         </div>
     </div>
 </div>
