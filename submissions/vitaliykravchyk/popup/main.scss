@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+
+ul, input {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(53, 53, 53)
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.app-list {
+  display: flex;
+  align-items: center;
+}
+
+.account {
+  width: 32px;
+  height: 32px;
+  border-radius: 15px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 2;
+  background-color: rgba(105, 105, 245, 0.986)
+}
+
+.mail, .images, .notification, .popup, .account {
+  margin: 10px 15px;
+}
+
+.popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../img/popup_icon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  .popup__checkbox {
+
+    &:checked ~ .wrapper .drop-menu {
+      display: flex;
+    }
+
+    width: 30px;
+    height: 30px;
+  }
+
+}
+
+.wrapper {
+
+  &::before {
+    content: '';
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-color: rgba(0,0,0,.2);
+    width: 15px;
+    background-color: white;
+    height: 15px;
+    position: absolute;
+    left: 143px;
+    top: -8px;
+    transform: rotate(45deg);
+  }
+
+  position: absolute;
+  top: 70px;
+}
+
+.drop-menu {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 384px;
+  border: 1px solid rgba(0,0,0,.2);
+  box-shadow: 0 2px 10px rgba(0,0,0,.2);
+  overflow-y: auto;
+
+  .drop-menu__more-items {
+    display: none;
+  }
+
+  .drop-menu__more-items-checkbox {
+
+    &:checked {
+      width: 80%;
+      height: 2px;
+      outline: 0px solid white;
+    }
+
+    margin-top: 20px;
+    width: 100%;
+    height: 40px;
+    background-color:#ddd;
+  }
+  
+}
+
+.drop-menu__more-items-checkbox:checked ~ .drop-menu__more-items {
+  display: block;
+}
+
+.drop-menu li {
+  
+  &:hover {
+    border-color:  #e5e5e5;
+  }
+
+  border: 1px solid white;
+  margin: 10px;
+}
+
+.more-items-label {
+  margin-top: -35px;
+}
+
+.drop-menu__more-items-checkbox:checked ~ .more-items-label {
+  display: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .item__icon {
+    margin: 10px;
+    width: 49px;
+    height: 49px;
+  }
+  
+}
+
+.item--even-more {
+  text-decoration: underline;
+}
+
+.drop-menu__more-items-checkbox, .item--even-more {
+  cursor: pointer;
+}
