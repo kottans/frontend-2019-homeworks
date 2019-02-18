@@ -3,17 +3,18 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Google Style Popup</title>
     <link href='css/style.css' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
     <div class="container">
-        <div class="post"><a class="link" href="#">Gmail</a></div>
-        <div class="pictures"><a class="link" href="#">Pictures</a></div>
-
-        <label for="hider" class="menu-popup"></label>
-        <input type="checkbox" id="hider">
+        <div class="post"><a class="link" href="#" tabindex="1">Gmail</a></div>
+        <div class="pictures"><a class="link" href="#" tabindex="2">Pictures</a></div>
+        
+        <label for="id-hider" class="menu-popup"></label>
+        <input type="checkbox" id="id-hider" class="hider" tabindex="3">
 
         <ul class="nav-items">
             <li class="nav-item">
@@ -77,8 +78,8 @@
                 </a>
             </li>
 
-            <input type="checkbox" id="hider-2" class="more">
-            <label for="hider-2" class="more-menu-popup"></label>
+            <input type="checkbox" id="id-hider-2" class="more hider-2">
+            <label for="id-hider-2" class="more-menu-popup"></label>
 
             <li class="more-nav-item">
                 <a class="link-item" href="#">
@@ -122,8 +123,8 @@
                 </a>
             </li>
         </ul>
-        <div class="ring"></div>
-        <div class="avatar">Avatar</div>
+        <div class="ring" tabindex="4"></div>
+        <div class="avatar" tabindex="5">Avatar</div>
     </div>
 </body>
 

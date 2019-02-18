@@ -1,120 +1,132 @@
 .container {
-    display: flex;
-    justify-content: flex-end;
-    margin: 10px;
-    font: small arial,sans-serif;
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px;
+  font: small arial, sans-serif;
 }
 
 /*----------- Горизонтальное меню - начало ----------- */
 
-.post, .pictures, .menu-popup, .checkbox, .ring, .avatar {
-    padding: 10px;
+.post,
+.pictures,
+.menu-popup,
+.checkbox,
+.ring,
+.avatar {
+  padding: 10px;
 }
 
 .menu-popup {
-    position: relative;
-    width: 10px;
-    height: 10px;
-    background: url(../img/google-icons.png);
-    background-size: 92px 2838px;
-    background-position: 0 -1801px; 
-    margin-top: 3px;
-    cursor: pointer;
-    opacity: 0.6;
+  position: relative;
+  width: 10px;
+  height: 10px;
+  background: url(../img/google-icons.png);
+  background-size: 92px 2838px;
+  background-position: 0 -1801px;
+  margin-top: 3px;
+  cursor: pointer;
+  opacity: 0.6;
 }
 
 .menu-popup:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .ring {
-    margin: 7px 5px 0 20px;
-    width: 1px;
-    height: 1px;
-    background: url(../img/google-icons.png);
-    background-color: grey;
-    background-size: 92px 2838px;
-    background-position: -69px -1973px; 
-    border-radius: 30px;
-    cursor: pointer;
-    opacity: 0.9;
+  margin: 7px 5px 0 20px;
+  width: 1px;
+  height: 1px;
+  background: url(../img/google-icons.png);
+  background-color: grey;
+  background-size: 92px 2838px;
+  background-position: -69px -1973px;
+  border-radius: 30px;
+  cursor: pointer;
+  opacity: 0.9;
 }
 
 .ring:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 /*----------- Горизонтальное меню - конец ----------- */
 
-#hider, #hider-2 {
-    display: none;
+.hider, .hider-2 {
+  opacity: 0.0;
+  height: 0;
+  width: 0;
+  margin: -1px;
 }
 
-#hider:checked ~ .nav-items {
-    display: flex;
+.hider:checked ~ .nav-items {
+  display: flex;
 }
 
-#hider-2:checked ~ .more-nav-item {
-    display: block;
+.hider-2:checked ~ .more-nav-item {
+  display: block;
 }
 
-#hider-2:checked ~ .more-menu-popup {
-    display: none;
+.hider-2:checked ~ .more-menu-popup {
+  display: none;
 }
 
 /*----------- Первая часть иконок - начало ----------- */
 
 .nav-items {
-    position: absolute;
-    display: none;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    width: 280px;
-    min-height: 420px;
-    max-height: 490px;
-    top: 44px;
-    right: 10px;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 10px rgba(0,0,0,.2);
-    border-radius: 2px;
-    list-style-type: none;
-    overflow-y: auto;
+  position: absolute;
+  display: none;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 280px;
+  min-height: 420px;
+  max-height: 490px;
+  top: 44px;
+  right: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  list-style-type: none;
+  overflow-y: auto;
 }
 
-.nav-item, .more-nav-item {
-    border: 1px solid #ffffff;
-    margin-top: 10px;
+.nav-item,
+.more-nav-item {
+  border: 1px solid #ffffff;
+  margin-top: 10px;
 }
 
-.nav-item:hover, .more-nav-item:hover {
-    border: 1px solid #ccc;
+.nav-item:hover,
+.more-nav-item:hover {
+  border: 1px solid #ccc;
 }
 
 .title {
-    text-align: center;
+  text-align: center;
 }
 
-.link-item, .link {
-    text-decoration: none;
-    color: black;
+.link-item,
+.link {
+  text-decoration: none;
+  color: black;
 }
 
 .link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-.more-menu-popup, .other-services {
-    position: absolute;
-    background-color: #f5f5f5;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    padding: 13px;
-    text-align: center;
+.more-menu-popup,
+.other-services {
+  position: absolute;
+  background-color: #f5f5f5;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 13px;
+  text-align: center;
 }
 
 .more ~ .more-menu-popup::before {
-    content: "Ещё";
+  content: "Ещё";
 }
 
 /*----------- Первая часть иконок - конец ----------- */
@@ -122,64 +134,64 @@
 /*----------- Вторая часть иконок - начало ----------- */
 
 .more-nav-item {
-    display: none;
+  display: none;
 }
 
 .other-services {
-    bottom: -130px;
-    background-color: #ffffff;
+  bottom: -130px;
+  background-color: #ffffff;
 }
 
 .other-services:hover {
-    border: 1px solid #ffffff;
+  border: 1px solid #ffffff;
 }
 
 /*----------- Вторая часть иконок - конец ----------- */
 
 .icon {
-    width: 64px;
-    height: 64px;
-    background: url(../img/google-icons.png);
-    background-size: 92px 2839px;
-    margin: 0 10px 0 10px;
+  width: 64px;
+  height: 64px;
+  background: url(../img/google-icons.png);
+  background-size: 92px 2839px;
+  margin: 0 10px 0 10px;
 }
 
 #gmail {
-    background-position: 0 -2737px; 
+  background-position: 0 -2737px;
 }
 
 #disk {
-    background-position: 0 -519px; 
+  background-position: 0 -519px;
 }
 
 #photo {
-    background-position: 0 -1456px; 
+  background-position: 0 -1456px;
 }
 
 #hangouts {
-    background-position: 0 -104px; 
+  background-position: 0 -104px;
 }
 
 #calendar {
-    background-position: 0 -173px; 
+  background-position: 0 -173px;
 }
 
 #play {
-    background-position: 0 -346px; 
+  background-position: 0 -346px;
 }
 
 #youtube {
-    background-position: -25px -2323px; 
+  background-position: -25px -2323px;
 }
 
 #contacts {
-    background-position: 0 -1594px;
+  background-position: 0 -1594px;
 }
 
 #maps {
-    background-position: -21px -1248px; 
+  background-position: -21px -1248px;
 }
 
 #news {
-    background-position: 0 -1974px;
+  background-position: 0 -1974px;
 }
