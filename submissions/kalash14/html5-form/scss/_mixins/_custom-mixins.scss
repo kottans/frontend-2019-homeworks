@@ -1,0 +1,37 @@
+@import "vars";
+
+@mixin visuallyHidden() {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+//Mixin for media rules
+@mixin mediaQuery($width) {
+    @media only screen and (max-width: $width+ "px") {
+        @content;
+    }
+}
+
+@mixin transition($arg) {
+    transition: 0.2s $arg ease-in-out;
+}
+
+@mixin checkedItem() {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    z-index: 2;
+    background-image: url("#{$imagePath}/checked.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 30px;
+    height: 30px;
+}

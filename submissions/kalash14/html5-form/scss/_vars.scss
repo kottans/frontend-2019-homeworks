@@ -1,0 +1,36 @@
+$default-font: "HelveticaNeue", sans-serif;
+
+/* colors */
+
+$accent: orange;
+$text: #6e768f;
+$greyMain: #eceef4;
+$borderColor: #d6dbe8;
+$blueColor: #5fcac6;
+$footerColor: #444a62;
+$footerText: #c6ccea;
+$mainBlue: #76a7e1;
+$customYellow: #edbe76;
+$lightGrey: #a5abc5;
+$blocksGrey: #f7f7fa;
+
+/* measurements units */
+
+$borderRadius: 4px;
+
+/* fonts */
+
+$smallerFont: 0.857em; // 12px
+$biggerFont: 1.143em; // 16px
+
+/* paths */
+
+$imagePath: "../img";
+
+// Customization Bootstrap vars from "app/libs/bootstrap/scss/_variables.scss"
+// $grid-gutter-width: 30px;
+// $grid-columns: 12;
+// $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px);
+// $container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1140px);
+
+// $gutter: $grid-gutter-width;

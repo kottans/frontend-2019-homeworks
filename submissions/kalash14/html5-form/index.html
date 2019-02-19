@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Form</title>
+        <meta name="description" content="" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+
+        <!-- Template Basic Images Start -->
+        <meta property="og:image" content="path/to/image.jpg" />
+        <link rel="icon" href="img/favicon/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="img/favicon/apple-touch-icon-180x180.png"
+        />
+        <!-- Template Basic Images End -->
+
+        <!-- Custom Browsers Color Start -->
+        <meta name="theme-color" content="#000" />
+        <!-- Custom Browsers Color End -->
+
+        <link rel="stylesheet" href="css/main.min.css" />
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="container">
+                <div class="header-row">
+                    <a href="" class="standard-button standard-button-back"
+                        >go back</a
+                    >
+                    <a href="" class="logo-link">
+                        <figure>
+                            <img src="./img/logo-header.png" alt="logo" />
+                        </figure>
+                    </a>
+                    <button class="standard-button standard-button-signin">
+                        sign in
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="container">
+                <section class="main-section">
+                    <section class="order-section">
+                        <section class="order-section__main">
+                            <div class="order-section-table">
+                                <h3
+                                    class="order-section__title order-section__title-order"
+                                >
+                                    your order
+                                </h3>
+                                <div class="order-items-row">
+                                    <div class="order-items-cell">
+                                        <h5 class="order-items-cell__title">
+                                            items
+                                        </h5>
+                                        <p class="order-items-cell__content">
+                                            <span class="order-items-count"
+                                                >2</span
+                                            >
+                                            documents
+                                        </p>
+                                    </div>
+                                    <div class="order-items-cell">
+                                        <h5 class="order-items-cell__title">
+                                            details
+                                        </h5>
+                                        <p class="order-items-cell__content">
+                                            <span class="order-items-count"
+                                                >2</span
+                                            >
+                                            languages
+                                        </p>
+                                    </div>
+                                    <div class="order-items-cell">
+                                        <h5 class="order-items-cell__title">
+                                            price
+                                        </h5>
+                                        <p class="order-items-cell__content">
+                                            $
+                                            <span class="order-items-count">
+                                                696.06</span
+                                            >
+                                        </p>
+                                    </div>
+                                    <div class="order-items-cell">
+                                        <h5 class="order-items-cell__title">
+                                            delivery
+                                        </h5>
+                                        <p class="order-items-cell__content">
+                                            <span class="order-items-count"
+                                                >48</span
+                                            >
+                                            hours*
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-section-controls">
+                                <button
+                                    class="standard-button standard-button-blue"
+                                >
+                                    place order
+                                </button>
+                                <button class="standard-button">
+                                    print a quote
+                                </button>
+                            </div>
+                        </section>
+                        <section class="order-section__help">
+                            <h3
+                                class="order-section__title order-section__title-help"
+                            >
+                                help center
+                            </h3>
+                            <div class="order-section__textitem">
+                                <p class="order-section-subitem">
+                                    Lorem ipsum dolor sit, amet consectetur
+                                    adipisicing elit. Nemo ex ab, pariatur harum
+                                    fugit, architecto totam.
+                                </p>
+                            </div>
+                            <ul class="order-section__contactslist">
+                                <li class="order-contactslist-listitem">
+                                    <a
+                                        href="tel:971044278128"
+                                        class="order-contactslist-item"
+                                        >+971 (0) 44278128</a
+                                    >
+                                </li>
+                                <li class="order-contactslist-listitem">
+                                    <a
+                                        href="mailto:help@qtest.com"
+                                        class="order-contactslist-item"
+                                        >help@qtest.com</a
+                                    >
+                                </li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section class="main-form-section">
+                        <div class="form-container">
+                            <form action="POST" class="main-form">
+                                <section class="translation-type-selection">
+                                    <div class="translation-title-wrap">
+                                        <h2 class="translation-type-title">
+                                            select what you want to translate
+                                        </h2>
+                                    </div>
+                                    <section class="translate-types">
+                                        <label class="translate-type-label">
+                                            <input
+                                                type="radio"
+                                                name="translate-type"
+                                                id="input-website"
+                                                value="Website"
+                                                class="translate-type-input hidden-input"
+                                                required
+                                            />
+                                            <div
+                                                class="translate-type-img-wrap"
+                                            >
+                                                <img
+                                                    class="translate-type-img-thumb"
+                                                    src="./img/website-icon.png"
+                                                    alt="Website"
+                                                />
+                                                <span
+                                                    class="translate-type-name"
+                                                    >Website</span
+                                                >
+                                            </div>
+                                        </label>
+
+                                        <label class="translate-type-label">
+                                            <input
+                                                type="radio"
+                                                name="translate-type"
+                                                id="input-documents"
+                                                value="Documents"
+                                                class="translate-type-input hidden-input"
+                                                checked
+                                            />
+                                            <div
+                                                class="translate-type-img-wrap"
+                                            >
+                                                <img
+                                                    class="translate-type-img-thumb"
+                                                    src="./img/documents-icon.png"
+                                                    alt="Documents"
+                                                />
+                                                <span
+                                                    class="translate-type-name"
+                                                    >Documents</span
+                                                >
+                                            </div>
+                                        </label>
+
+                                        <label class="translate-type-label">
+                                            <input
+                                                type="radio"
+                                                name="translate-type"
+                                                id="input-social-account"
+                                                value="Social Account"
+                                                class="translate-type-input hidden-input"
+                                            />
+                                            <div
+                                                class="translate-type-img-wrap"
+                                            >
+                                                <img
+                                                    class="translate-type-img-thumb"
+                                                    src="./img/social-icon.png"
+                                                    alt="Social Account"
+                                                />
+                                                <span
+                                                    class="translate-type-name"
+                                                    >Social Account</span
+                                                >
+                                            </div>
+                                        </label>
+                                    </section>
+                                </section>
+                                <section class="steps-main-section">
+                                    <section class="steps-main-section__upload">
+                                        <h2
+                                            class="steps-main-section__title"
+                                            data-number="1"
+                                        >
+                                            Upload your documents
+                                            <span class="title-additional-text"
+                                                >(Doc, Docx, Text, PDF,
+                                                Markdown)</span
+                                            >
+                                        </h2>
+                                        <div class="upload-input-wrap">
+                                            <label class="file-label-wrapper">
+                                                <input
+                                                    type="file"
+                                                    class="file-upload-input hidden-input"
+                                                    id="file-upload"
+                                                    name="file"
+                                                    accept="image/*,.pdf"
+                                                    multiple
+                                                />
+                                                <span class="file-label">
+                                                    Upload your files
+                                                </span>
+                                            </label>
+                                        </div>
+                                        <div class="uploaded-files-wrap">
+                                            <table class="uploaded-files-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>File name</th>
+                                                        <th>File size</th>
+                                                        <th>Number of words</th>
+                                                        <th>Remove</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr data-file="file0">
+                                                        <td data-title="File name">
+                                                            <span
+                                                                class="uploaded-file-name"
+                                                                >business_operations.docx</span
+                                                            >
+                                                        </td>
+                                                        <td data-title="File size">
+                                                            <span
+                                                                class="uploaded-file-size-num"
+                                                                >78</span
+                                                            ><span
+                                                                class="uploaded-file-size-measurements"
+                                                                >kb</span
+                                                            >
+                                                        </td>
+                                                        <td data-title="Number of words">
+                                                            <span
+                                                                class="uploaded-file-words-num"
+                                                                >842</span
+                                                            >
+                                                        </td>
+                                                        <td data-title="Remove">
+                                                            <button
+                                                                type="button"
+                                                                class="uploaded-file-remove remove-button"
+                                                                data-id="file0"
+                                                            ></button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr data-file="file1">
+                                                        <td data-title="File name">
+                                                            <span
+                                                                class="uploaded-file-name"
+                                                                >business_operations.docx</span
+                                                            >
+                                                        </td>
+                                                        <td data-title="File size">
+                                                            <span
+                                                                class="uploaded-file-size-num"
+                                                                >23</span
+                                                            ><span
+                                                                class="uploaded-file-size-measurements"
+                                                                >kb</span
+                                                            >
+                                                        </td>
+                                                        <td data-title="Number of words"> 
+                                                            <span
+                                                                class="uploaded-file-words-num"
+                                                                >2,326</span
+                                                            >
+                                                        </td> 
+                                                        <td data-title="Remove">
+                                                            <button
+                                                                type="button"
+                                                                class="uploaded-file-remove remove-button"
+                                                                data-id="file1"
+                                                            ></button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+                                    <section
+                                        class="steps-main-section__langpairings"
+                                    >
+                                        <h2
+                                            class="steps-main-section__title"
+                                            data-number="2"
+                                        >
+                                            Choose your language pairings
+                                        </h2>
+                                        <div class="langpair-item">
+                                            <span class="langpair-item__title"
+                                                >from</span
+                                            >
+                                            <div
+                                                class="langpair-item__selectitem"
+                                            >
+                                                <div class="select-wrap">
+                                                    <select
+                                                        name="lang-pair-from"
+                                                        id="lang-pair-from"
+                                                        class="select-item"
+                                                        required
+                                                    >
+                                                        <option
+                                                            value="0"
+                                                            disabled
+                                                        ></option>
+                                                        <option value="1"
+                                                            >English</option
+                                                        >
+                                                        <option value="2"
+                                                            >Spanish</option
+                                                        >
+                                                        <option value="3"
+                                                            >German</option
+                                                        >
+                                                        <option value="4"
+                                                            >Chinese</option
+                                                        >
+                                                        <option value="5"
+                                                            >Arabic</option
+                                                        >
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="langpair-item">
+                                            <span class="langpair-item__title"
+                                                >to</span
+                                            >
+                                            <div
+                                                class="langpair-item__selectitem langpair-item__selectitem-to"
+                                            > 
+                                                <div class="select-wrap">
+                                                    <select
+                                                        name="lang-pair-to"
+                                                        id="lang-pair-to" 
+                                                        class="select-item"
+                                                        required
+                                                    >
+                                                        <option
+                                                            value="0"
+                                                            disabled
+                                                        ></option>
+                                                        <option value="1"
+                                                            >English</option
+                                                        >
+                                                        <option value="2"
+                                                            >Spanish</option
+                                                        >
+                                                        <option value="3"
+                                                            >German</option
+                                                        >
+                                                        <option value="4"
+                                                            >Chinese</option
+                                                        >
+                                                        <option value="5"
+                                                            >Arabic</option
+                                                        >
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="langpair-item__selectitem langpair-item__selectitem-selected"
+                                            >
+                                                <div class="select-wrap">
+                                                    <select
+                                                        name="lang-pair-selected-0"
+                                                        id="lang-pair-selected-0"
+                                                        class="select-item"
+                                                    >
+                                                        <option
+                                                            value="0"
+                                                            disabled
+                                                        ></option>
+                                                        <option value="1"
+                                                            >Kurdish</option
+                                                        >
+                                                        <option value="2"
+                                                            >Spanish</option
+                                                        >
+                                                        <option value="3"
+                                                            >German</option
+                                                        >
+                                                        <option value="4"
+                                                            >Chinese</option
+                                                        >
+                                                        <option value="5"
+                                                            >Arabic</option
+                                                        >
+                                                    </select>
+                                                </div>
+                                                <button
+                                                    type="button"
+                                                    class="remove-button"
+                                                ></button>
+                                            </div>
+                                            <div
+                                                class="langpair-item__selectitem-selected"
+                                            >
+                                                <button
+                                                    type="button"
+                                                    class="add-button"
+                                                >
+                                                    add
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <div class="section-row">
+                                        <section class="tone-section">
+                                            <h2
+                                                class="steps-main-section__title"
+                                                data-number="3"
+                                            >
+                                                Select your desired tone
+                                            </h2>
+                                            <div class="tones-wrap">
+                                                <label class="tone-item">
+                                                    <input
+                                                        type="radio"
+                                                        name="tone-item"
+                                                        id="tone-item-friendly"
+                                                        value="friendly"
+                                                        class="tone-item-radio-input hidden-input"
+                                                        checked
+                                                        required
+                                                    />
+                                                    <div
+                                                        class="tone-item-text-wrap tone-item-text-wrap-friendly"
+                                                    >
+                                                        <span
+                                                            class="tone-item-text-item"
+                                                            >Friendly /
+                                                            Casual</span
+                                                        >
+                                                    </div>
+                                                </label>
+
+                                                <label class="tone-item">
+                                                    <input
+                                                        type="radio"
+                                                        name="tone-item"
+                                                        id="tone-item-corporate"
+                                                        value="corporate/pro"
+                                                        class="tone-item-radio-input hidden-input"
+                                                    />
+                                                    <div
+                                                        class="tone-item-text-wrap tone-item-text-wrap-corporate"
+                                                    >
+                                                        <span
+                                                            class="tone-item-text-item"
+                                                            >Corporate /
+                                                            Pro</span
+                                                        >
+                                                    </div>
+                                                </label>
+
+                                                <label class="tone-item">
+                                                    <input
+                                                        type="radio"
+                                                        name="tone-item"
+                                                        id="tone-item-media"
+                                                        value="media/formal"
+                                                        class="tone-item-radio-input hidden-input"
+                                                    />
+                                                    <div
+                                                        class="tone-item-text-wrap tone-item-text-wrap-media"
+                                                    >
+                                                        <span
+                                                            class="tone-item-text-item"
+                                                            >Media /
+                                                            Formal</span
+                                                        >
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </section>
+                                        <section class="urgency-section">
+                                            <h2
+                                                class="steps-main-section__title steps-main-section__title-margin"
+                                                data-number="4"
+                                            >
+                                                Tell us how urgent this job is
+                                            </h2>
+
+                                            <div class="urgency-range-wrap">
+                                                <input
+                                                    type="range"
+                                                    name="urgent"
+                                                    min="0"
+                                                    max="2"
+                                                    step="1"
+                                                    value="1"
+                                                    id="urgency-range-input"
+                                                    class="urgency-range-input"
+                                                />
+                                            </div>
+                                            <div class="urgency-range-text">
+                                                <span
+                                                    class="urgency-range-text__item"
+                                                    >More</span
+                                                >
+                                                <span
+                                                    class="urgency-range-text__item urgency-range-text__item-center"
+                                                    >Current</span
+                                                >
+                                                <span
+                                                    class="urgency-range-text__item"
+                                                    >Enough</span
+                                                >
+                                            </div>
+
+                                            <!-- <input type="range" id="urgency-range-input"> -->
+                                            <div class="info-block">
+                                                <h4 class="info-block__title">
+                                                    timeline info
+                                                </h4>
+                                                <p class="info-block__text">
+                                                    Lorem ipsum,
+                                                    <span class="text-yellow"
+                                                        >average</span
+                                                    >
+                                                    sit amet consectetur
+                                                    adipisicing elit. Eum
+                                                    facilis totam eaque
+                                                    recusandae itaque, suscipit
+                                                    vitae neque aspernatur saepe
+                                                </p>
+                                            </div>
+                                        </section>
+                                    </div>
+
+                                    <section class="payment-section">
+                                        <h2
+                                            class="steps-main-section__title"
+                                            data-number="5"
+                                        >
+                                            Sign up and choose payment method
+                                        </h2>
+                                        <p class="payment-section-text">
+                                            Already have an account with us?
+                                            <a
+                                                href="#"
+                                                class="text-link text-link-sign"
+                                                role="button"
+                                                >Sign in</a
+                                            >
+                                        </p>
+                                        <div class="text-form-item">
+                                            <label
+                                                for="full-name-input"
+                                                class="form-text-label"
+                                                >full name</label
+                                            >
+                                            <input
+                                                type="text"
+                                                id="full-name-input"
+                                                class="form-text-input"
+                                                title="Write some text. Min lenght 4"
+                                                minlength="4"
+                                                maxlength="20"
+                                                required
+                                            />
+                                            <span
+                                                class="validation-circle"
+                                            ></span>
+                                        </div>
+                                        <div class="payment-section-form-row">
+                                            <div class="text-form-item">
+                                                <label
+                                                    for="email-input"
+                                                    class="form-text-label"
+                                                    >email address</label
+                                                >
+                                                <input
+                                                    type="email"
+                                                    id="email-input"
+                                                    class="form-text-input"
+                                                    placeholder="example@domain.com"
+                                                    required
+                                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                                    title="name@domain.etc"
+                                                />
+                                                <span
+                                                    class="validation-circle"
+                                                ></span>
+                                            </div>
+                                            <div class="text-form-item">
+                                                <label
+                                                    for="password-input"
+                                                    class="form-text-label"
+                                                    >choose a password</label
+                                                >
+                                                <input
+                                                    type="password"
+                                                    id="password-input"
+                                                    class="form-text-input"
+                                                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                                                    title="Minimum 8 characters, UPPERCASE, lowercase and Number"
+                                                    minlength="6"
+                                                    required
+                                                />
+                                                <span
+                                                    class="validation-circle"
+                                                ></span>
+                                            </div>
+                                        </div>
+                                        <div class="payment-section-methods">
+                                            <label class="payment-item">
+                                                <input
+                                                    type="radio"
+                                                    name="payment-type"
+                                                    id="visa-mastercard-input"
+                                                    value="visa/master-card"
+                                                    class="payment-input hidden-input"
+                                                    required
+                                                />
+                                                <span
+                                                    class="payment-item-thumb-wrap"
+                                                >
+                                                    <img
+                                                        src="./img/visa.svg"
+                                                        alt="visa-logo"
+                                                        width="100px"
+                                                        height="60px"
+                                                        class="payment-item-thumb"
+                                                    />
+                                                </span>
+                                            </label>
+                                            <label class="payment-item">
+                                                <input
+                                                    type="radio"
+                                                    name="payment-type"
+                                                    id="paypal-input"
+                                                    value="paypal"
+                                                    class="payment-input hidden-input"
+                                                    checked
+                                                />
+                                                <span
+                                                    class="payment-item-thumb-wrap"
+                                                >
+                                                    <img
+                                                        src="./img/paypal.svg"
+                                                        alt="paypal-logo"
+                                                        width="100px"
+                                                        height="60px"
+                                                        class="payment-item-thumb"
+                                                    />
+                                                </span>
+                                            </label>
+                                            <label class="payment-item">
+                                                <input
+                                                    type="radio"
+                                                    name="payment-type"
+                                                    id="amazon-input"
+                                                    value="amazon"
+                                                    class="payment-input hidden-input"
+                                                />
+                                                <span
+                                                    class="payment-item-thumb-wrap"
+                                                >
+                                                    <img
+                                                        src="./img/amazon.svg"
+                                                        alt="amazon-logo"
+                                                        width="100px"
+                                                        height="60px"
+                                                        class="payment-item-thumb"
+                                                    />
+                                                </span>
+                                            </label>
+                                        </div>
+                                        <div class="card-information-row">
+                                            <div class="card-information-item">
+                                                <div class="text-form-item">
+                                                    <label
+                                                        for="card-number-input"
+                                                        class="form-text-label"
+                                                        >card number</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        id="card-number-input"
+                                                        class="form-text-input card-number-input"
+                                                        pattern="[0-9 ]{15,19}"
+                                                        minlength="15"
+                                                        maxlength="19"
+                                                        inputmode="numeric"
+                                                        required
+                                                    />
+                                                    <span
+                                                        class="validation-circle"
+                                                    ></span>
+                                                </div>
+                                            </div>
+                                            <div class="card-information-item">
+                                                <div class="text-form-item">
+                                                    <label
+                                                        for="expiration-input"
+                                                        class="form-text-label"
+                                                        >expirity date</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        id="expiration-input"
+                                                        class="form-text-input"
+                                                        placeholder="DD/MM/YY"
+                                                        required
+                                                    />
+                                                    <span
+                                                        class="validation-circle"
+                                                    ></span>
+                                                </div>
+                                                <div class="text-form-item">
+                                                    <label
+                                                        for="code-input"
+                                                        class="form-text-label"
+                                                        >code</label
+                                                    >
+                                                    <input
+                                                        type="password"
+                                                        id="code-input"
+                                                        class="form-text-input form-text-input-small"
+                                                        pattern="[0-9]{3}"
+                                                        inputmode="numeric"
+                                                        minlength="3"
+                                                        minlength="3"
+                                                        required
+                                                    />
+                                                    <span
+                                                        class="validation-circle"
+                                                    ></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </section>
+                                <section class="submit-section">
+                                    <div class="submit-section__item">
+                                        <p class="submit-section-row">
+                                            <span class="agree-checkbox-wrap">
+                                                <input
+                                                    type="checkbox"
+                                                    id="agree-checkbox"
+                                                    class="agree-checkbox hidden-input"
+                                                    checked
+                                                /><label
+                                                    for="agree-checkbox"
+                                                    class="agree-checkbox-label"
+                                                ></label>
+                                            </span>
+                                            <span>I agree to the &nbsp;</span
+                                            ><a href="#" class="text-link-small"
+                                                >Terms & Conditions</a
+                                            >
+                                        </p>
+                                    </div>
+                                    <div class="submit-section__item">
+                                        <button
+                                            type="submit"
+                                            class="standard-button standard-button-blue"
+                                        >
+                                            place order
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="standard-button"
+                                        >
+                                            print a quote
+                                        </button>
+                                    </div>
+                                </section>
+                            </form>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-row">
+                    <div class="footer-item">
+                        <h4 class="footer-item__title footer-item__title-heart">
+                            what we do
+                        </h4>
+                        <section class="footer-item__text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Odit eum quia vitae, labore, tenetur vero enim
+                            et minima iure voluptas.
+                        </section>
+                    </div>
+                    <div class="footer-item">
+                        <h4
+                            class="footer-item__title footer-item__title-compass"
+                        >
+                            our main office
+                        </h4>
+                        <ul class="footer-item__list">
+                            <li class="footer-item-contacts">Dubai, UAE</li>
+                            <li class="footer-item-contacts">
+                                P.O. Box: 502735
+                            </li>
+                            <li class="footer-item-contacts">
+                                <a
+                                    href="tel:971044278128"
+                                    class="footer-item-contacts__link"
+                                    >+971 (0) 44278128</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-item">
+                        <h4
+                            class="footer-item__title footer-item__title-connect"
+                        >
+                            connect with us
+                        </h4>
+                        <ul class="footer-item__list">
+                            <li class="footer-item-contacts">
+                                <a
+                                    href="#"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="footer-item-contacts-link"
+                                    ><span
+                                        class="footer-item-contacts__socials footer-item-contacts__socials-facebook"
+                                    ></span></a
+                                ><span>Facebook</span>
+                            </li>
+                            <li class="footer-item-contacts">
+                                <a
+                                    href="#"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="footer-item-contacts-link"
+                                    ><span
+                                        class="footer-item-contacts__socials footer-item-contacts__socials-twitter"
+                                    ></span></a
+                                ><span>Twitter</span>
+                            </li>
+                            <li class="footer-item-contacts">
+                                <a
+                                    href="#"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="footer-item-contacts-link"
+                                    ><span
+                                        class="footer-item-contacts__socials footer-item-contacts__socials-linkedin"
+                                    ></span></a
+                                ><span>Linkedin</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-item">
+                        <figure>
+                            <img
+                                src="./img/logo-footer.png"
+                                alt="logo-footer"
+                            />
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
