@@ -155,7 +155,7 @@
             <fieldset class="lang__field">
               <div class="lang__row-wrapper">
                 <label class="lang__label" for="lang__select">From</label>
-                <div class="lang__select-wrapper">
+                <div class="lang__select-wrapper lang__item">
                   <select name="translate-from" class="lang__select" id="lang__select">
                     <option selected value="english">English</option>
                     <option value="arabic">Arabic</option>
@@ -168,32 +168,36 @@
 
               <div class="lang__row-wrapper lang__row-wrapper_indent">
                 <label class="lang__label" for="select-lang">To</label>
+                <div class="lang__selects">
+                  <div class="lang__select-wrapper lang__item">
+                    <select name="translate-to" class="lang__select" id="select-lang">
+                      <option value="english">English</option>
+                      <option selected value="arabic">Arabic</option>
+                      <option value="kurdish">Kurdish</option>
+                      <option value="russian">Russian</option>
+                      <option value="spanisch">Spanisch</option>
+                    </select>
+                  </div>
 
-                <div class="lang__select-wrapper">
-                  <select name="translate-to" class="lang__select" id="select-lang">
-                    <option value="english">English</option>
-                    <option selected value="arabic">Arabic</option>
-                    <option value="kurdish">Kurdish</option>
-                    <option value="russian">Russian</option>
-                    <option value="spanisch">Spanisch</option>
-                  </select>
+                  <div class="lang__select-wrapper lang__item">
+                    <select name="translate-to-second" class="lang__select">
+                      <option value="english">English</option>
+                      <option value="arabic">Arabic</option>
+                      <option selected value="kurdish">Kurdish</option>
+                      <option value="russian">Russian</option>
+                      <option value="spanisch">Spanisch</option>
+                    </select>
+                  </div>
+
+                  <button class="lang__btn-trash lang__item" type="button">
+                    <span class="fa fa-trash fa-lg lang__trash" aria-hidden="true"></span>
+                  </button>
+
+                  <button class="lang__btn-add lang__item" type="button">
+                    <span class="fa fa-plus lang__btn-add_ic" aria-hidden="true"></span>
+                    ADD
+                  </button>
                 </div>
-
-                <div class="lang__select-wrapper">
-                  <select name="translate-to-second" class="lang__select">
-                    <option value="english">English</option>
-                    <option value="arabic">Arabic</option>
-                    <option selected value="kurdish">Kurdish</option>
-                    <option value="russian">Russian</option>
-                    <option value="spanisch">Spanisch</option>
-                  </select>
-                </div>
-
-                <button class="lang__btn-trash" type="button">
-                  <span class="fa fa-trash fa-lg lang__trash" aria-hidden="true"></span>
-                </button>
-
-                <button class="lang__btn-add" type="button"><span class="fa fa-plus lang__btn-add_ic" aria-hidden="true"></span>ADD</button>
               </div>
             </fieldset>
           </section>
@@ -263,19 +267,21 @@
             <fieldset class="payment__fieldset">
               <legend class="payment__legend">Already have account with us? <a href="#">Sign in.</a></legend>
 
-              <div class="payment__relative-input">
-                <label class="payment__label" for="form_full-name">Full name</label>
-                <input
-                  placeholder="Vasya pupkin"
-                  required
-                  name="full-name"
-                  class="payment__input"
-                  type="text"
-                  id="form_full-name"
-                  pattern="^[a-zA-Z ,.'-]+$"
-                  minlength="2"
-                />
-                <span aria-hidden="true" class="payment__vaild-status"></span>
+              <div class="payment__info-wrapper">
+                <div class="payment__relative-input">
+                  <label class="payment__label" for="form_full-name">Full name</label>
+                  <input
+                    placeholder="Vasya pupkin"
+                    required
+                    name="full-name"
+                    class="payment__input"
+                    type="text"
+                    id="form_full-name"
+                    pattern="^[a-zA-Z ,.'-]+$"
+                    minlength="2"
+                  />
+                  <span aria-hidden="true" class="payment__vaild-status"></span>
+                </div>
               </div>
 
               <div class="payment__info-wrapper">
@@ -351,7 +357,7 @@
                     type="text"
                     minlength="9"
                     maxlength="19"
-                    pattern="\d{1,19}"
+                    pattern="^[0-9]+$"
                   />
                   <span aria-hidden="true" class="payment__vaild-status"></span>
                 </div>
@@ -380,6 +386,7 @@
                     type="text"
                     minlength="3"
                     maxlength="3"
+                    pattern="^[0-9]+$"
                   />
                   <span aria-hidden="true" class="payment__vaild-status"></span>
                 </div>

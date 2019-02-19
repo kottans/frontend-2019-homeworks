@@ -251,6 +251,8 @@
 	border: 1px solid darken($gray-color, 10)
 	margin: 15px
 	+respond()
+	+media(600px)
+		padding: 10px 50px
 
 .translate__input:checked + .translate__img-wrapper
 	border: 1px solid red
@@ -330,7 +332,15 @@
 
 .upload-table__td
 	padding: 10px 0
-	word-break: break-all
+	word-break: break-word
+
+.upload-table__td_hidden
+	+media(600px)
+		position: absolute
+		clip: rect(0 0 0 0)
+		width: 1px
+		height: 1px
+		margin: -1px
 
 .upload-table__btn
 	background: none
@@ -353,32 +363,36 @@
 
 .lang__field
 	margin-top: 50px
+	+media(440px)
+		transform: translateX(-20px)
 	
+.lang__item
+	margin: 5px
 
 .lang__row-wrapper
 	color: $light-color
 	display: flex
 	align-items: center
-	flex-wrap: wrap
 	& + & 
 		margin-top: 35px
 
 .lang__row-wrapper_indent
 	padding-left: 20px
-	
 
 .lang__label
 	text-transform: uppercase
 	font-weight: bold
 	font-size: 13px
-	margin-right: 15px
+	margin-right: 20px
+
+.lang__selects
+	display: flex
+	flex-wrap: wrap
+
 
 .lang__select-wrapper
-	margin-bottom: 5px
 	+select-wrapper()
-	& + &
-		margin-left: 20px
-		
+
 .lang__select
 	+select()
 
@@ -388,7 +402,6 @@
 	line-height: 20px
 	transition: .3s
 	color: #8f98b7
-	margin-left: 6px
 	&:focus
 		outline: none
 		box-shadow: 0 0 0px 1.5px $accent-color
@@ -404,8 +417,6 @@
 	font-weight: 500
 	transition: .3s
 	font-size: 13px
-	margin-left: 15px
-	margin-bottom: 5px
 	&:focus
 		outline: none
 		box-shadow: 0 0 0px 1.5px $accent-color
