@@ -1,0 +1,310 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none;
+}
+
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+@keyframes nav-apps {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+:focus {
+  outline: 3px solid #aeb5ff;
+}
+
+.header {
+  font-family: arial,sans-serif;
+  font-size: small;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+}
+
+.nav__item {
+  margin: 15px;
+}
+
+.nav__link {
+  cursor: pointer;
+}
+
+.nav__link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.nav-apps__input,
+.app__input-more {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.nav-apps__input:checked ~ .nav-apps__wrapper {
+  display: block;
+}
+
+.nav-apps__input:focus ~ .nav-apps__label,
+.app__input-more:focus ~ .app__label-more {
+  outline: 3px solid #aeb5ff;
+}
+
+.nav-apps__label,
+.app__label-more {
+  cursor: pointer;
+}
+
+.nav-apps__wrapper {
+  display: none;
+  position: absolute;
+  width: 400px;
+  top: 55px;
+  right: 17px;
+  border: 1px solid #cccccc;
+  animation-name: nav-apps;
+  animation-timing-function: linear;
+  animation-duration: 0.3s;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav-apps__wrapper::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 115px;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  background-color: #ffffff;
+  transform: rotate(-45deg);
+}
+
+.app {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: auto;
+  height: 650px;
+}
+
+.app__item {
+  width: 60px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 25px;
+}
+
+.app__item:hover {
+  outline: 3px solid #aeb5ff;
+}
+
+.app__icon {
+  display: flex;
+  background: url("../img/services.png") no-repeat;
+  width: 60px;
+  height: 60px;
+}
+
+.app__icon-drive {
+  background-position: 0 -2012px;
+}
+
+.app__icon-maps {
+  background-position: 0 -216px;
+}
+
+.app__icon-youtube {
+  background-position: 0 -567px;
+}
+
+.app__icon-gmail {
+  background-position: 0 -1118px;
+}
+
+.app__icon-translate {
+  background-position: 0 -1666px;
+}
+
+.app__icon-search {
+  background-position: 0 -1321px;
+}
+
+.app__icon-news {
+  background-position: 0 -1049px;
+}
+
+.app__icon-photo {
+  background-position: 0 -1526px;
+}
+
+.app__icon-plus {
+  background-position: 0 -424px;
+}
+
+.app__icon-calendar {
+  background-position: 0 -839px;
+}
+
+.app__icon-documents {
+  background-position: 0 -1459px;
+}
+
+.app__icon-hangouts {
+  background-position: 0 -1597px;
+}
+
+.app__icon-play {
+  background-position: 0 -2356px;
+}
+
+.app__icon-earth {
+  background-position: 0 -1873px;
+}
+
+.app__icon-blogger {
+  background-position: 0 -2081px;
+}
+
+.app__icon-jamboard {
+  background-position: 0 -910px;
+}
+
+.app__icon-collections {
+  background-position: 0 -1735px;
+}
+
+.app__icon-class {
+  background-position: 0 -634px;
+}
+
+.app__label-more {
+  margin: 3px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.app-more__divider {
+  width: 80%;
+  display: none;
+}
+
+.app-more__wrapper {
+  display: none;
+}
+
+.app__label-more:hover {
+  opacity: 0.8;
+  background-color: #f0eeee;
+}
+
+.app__input-more:checked ~ .app__label-more {
+  display: none;
+}
+
+.app__input-more:checked ~ .app-more__divider {
+  display: block;
+}
+
+.app__input-more:checked ~ .app-more__wrapper {
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav__item_icon_apps {
+  display: flex;
+  background: url("../img/icons.png") no-repeat -135px -40px;
+  width: 25px;
+  height: 25px;
+  opacity: 0.5;
+}
+
+.nav__item_icon_apps:hover {
+  opacity: 1;
+}
+
+.nav__item_icon_notification {
+  display: flex;
+  background: url("../img/icons.png") no-repeat -194px -21px;
+  width: 20px;
+  height: 20px;
+  background-color: #000000;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.nav__item_icon_user {
+  display: flex;
+  background: url("../img/services.png") no-repeat -10px -2149px;
+  width: 44px;
+  height: 44px;
+  zoom: 0.7;
+  -moz-transform: scale(0.7);
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}

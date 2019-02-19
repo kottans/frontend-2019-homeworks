@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML&CSS: Form layout</title>
+</head>
+<body>
+<div class="wrapper">
+    <form action="#" class="order">
+        <header class="order__top">
+            <div class="order__top_dashboard">
+                <div class="order__top_dashboard-title">
+                    <i class="fa fa-clipboard"></i>
+                    <span>Your order</span>
+                </div>
+                <div class="order__top_dashboard-table">
+                    <div>
+                        <div class="order__top_dashboard-head">Items</div>
+                        <div class="order__top_dashboard-body">2 documents</div>
+                    </div>
+                    <div>
+                        <div class="order__top_dashboard-head">Details</div>
+                        <div class="order__top_dashboard-body">2 languages</div>
+                    </div>
+                    <div>
+                        <div class="order__top_dashboard-head">Price</div>
+                        <div class="order__top_dashboard-body">$ 696.06</div>
+                    </div>
+                    <div>
+                        <div class="order__top_dashboard-head">Delivery</div>
+                        <div class="order__top_dashboard-body">48 hours<sup>*</sup></div>
+                    </div>
+                </div>
+            </div>
+            <div class="order__top_buttons">
+                <button type="submit" class="submit">Place order</button>
+                <button type="button" class="submit gray">Print a quote</button>
+            </div>
+            <div class="order__top_help">
+                <i class="fa fa-life-ring" aria-hidden="true"></i>
+                <div class="order__top_help-info">
+                    <div class="order__top_help-title">Help center</div>
+                    <div class="order__top_help-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Corporis, quae!
+                    </div>
+                    <div class="order__top_help-contacts">
+                        <a href="tel:+9710555555" title="phone">+971(0) 555 555</a>
+                        <a href="mailto:help@qtest.com">help@qtest.com</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="order__wrapper">
+            <div class="order__radio">
+                <h2>Select what your want to translate</h2>
+
+                <div class="order__radio_buttons">
+                    <label class="label label--size-browsers">
+                        <input type="radio"
+                               name="browsers"
+                               id="browsers_chrome"
+                               value="chrome"
+                               class="visually__hidden"
+                               required>
+                        <span class="label__image-wrapper label__image-wrapper--size-browsers">
+                            <img class="label__image" src="src/assets/img/website.png" alt="website">
+                            <span class="label__text">Website</span>
+                        </span>
+                    </label>
+                    <label class="label label--size-browsers">
+                        <input type="radio"
+                               name="browsers"
+                               id="browsers_firefox"
+                               value="firefox"
+                               class="visually__hidden"
+                               checked>
+                        <span class="label__image-wrapper label__image-wrapper--size-browsers">
+                            <img class="label__image" src="src/assets/img/documents.png" alt="documents">
+                            <span class="label__text">Documents</span>
+                        </span>
+                    </label>
+                    <label class="label label--size-browsers">
+                        <input type="radio"
+                               name="browsers"
+                               id="browsers_edge"
+                               value="edge"
+                               class="visually__hidden">
+                        <span class="label__image-wrapper label__image-wrapper--size-browsers">
+                            <img class="label__image" src="src/assets/img/account.png" alt="account">
+                            <span class="label__text">Social account</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <section class="order__upload">
+                <h3 class="order__header">Upload your documents <span>(Doc, Docx, Text, PDF, Markdown)</span></h3>
+                <label class="file-label-wrapper ">
+                    <input type="file"
+                           class="visually__hidden input"
+                           id="file"
+                           name="file"
+                           accept="image/*,.pdf"
+                           multiple>
+                    <span class="file-label">Upload а new file</span>
+                </label>
+                <div class="order__upload_table">
+                    <div class="order__upload_table-line head">
+                        <div class="order__upload_table-row">File name</div>
+                        <div class="order__upload_table-row">File size</div>
+                        <div class="order__upload_table-row">Number of words</div>
+                        <div class="order__upload_table-row">Remove</div>
+                    </div>
+                    <div class="order__upload_table-line">
+                        <div class="order__upload_table-row"><i class="fa fa-file-text" aria-hidden="true"></i>business_operations.docx</div>
+                        <div class="order__upload_table-row">78kb</div>
+                        <div class="order__upload_table-row">842</div>
+                        <div class="order__upload_table-row"><i class="fa fa-trash" aria-hidden="true"></i></div>
+                    </div>
+                    <div class="order__upload_table-line">
+                        <div class="order__upload_table-row"><i class="fa fa-file-text" aria-hidden="true"></i>business_operations.docx</div>
+                        <div class="order__upload_table-row">26kb</div>
+                        <div class="order__upload_table-row">2.326</div>
+                        <div class="order__upload_table-row"><i class="fa fa-trash" aria-hidden="true"></i></div>
+                    </div>
+                </div>
+            </section>
+            <section class="order__languages">
+                <h3 class="order__header">Choose your languages pairings</h3>
+                <div class="select">
+                    <label for="selectFrom">From</label>
+                    <div class="select__wrapper">
+                        <select name="language"
+                                id="selectFrom"
+                                class="select__item"
+                                required>
+                            <option value="" disabled>&nbsp;</option>
+                            <option value="english" selected>English</option>
+                            <option value="arabic">Arabic</option>
+                            <option value="kurdish">Kurdish</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="select">
+                    <label for="selectTo">To</label>
+                    <div class="select__wrapper">
+                        <select name="language"
+                                id="selectTo"
+                                class="select__item"
+                                required>
+                            <option value="" disabled>&nbsp;</option>
+                            <option value="english">English</option>
+                            <option value="arabic" selected>Arabic</option>
+                            <option value="kurdish">Kurdish</option>
+                        </select>
+                    </div>
+                    <div class="select__wrapper">
+                        <select name="language"
+                                class="select__item">
+                            <option value="" disabled>&nbsp;</option>
+                            <option value="english">English</option>
+                            <option value="arabic">Arabic</option>
+                            <option value="kurdish" selected>Kurdish</option>
+                        </select>
+                    </div>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                    <button type="button" class="submit gray">+ ADD</button>
+                </div>
+            </section>
+
+            <div class="wrapper__urgency_tone">
+                <section class="order__tone">
+                    <h3 class="order__header">Select your desired tone</h3>
+
+                    <div class="order__tone_buttons">
+                        <label class="label label--size-tone">
+                            <input type="radio"
+                                   name="tone"
+                                   id="casual"
+                                   value="casual"
+                                   class="visually__hidden"
+                                   required>
+                            <span class="label__image-wrapper label__image-wrapper--size-tone">
+                                <span class="label__text casual">Friendly/Casual</span>
+                            </span>
+                        </label>
+                        <label class="label label--size-tone">
+                            <input type="radio"
+                                   name="tone"
+                                   id="pro"
+                                   value="pro"
+                                   class="visually__hidden"
+                                   checked>
+                            <span class="label__image-wrapper label__image-wrapper--size-tone">
+                                <span class="label__text pro">Corporate/Pro</span>
+                            </span>
+                        </label>
+                        <label class="label label--size-tone">
+                            <input type="radio"
+                                   name="tone"
+                                   id="formal"
+                                   value="formal"
+                                   class="visually__hidden">
+                            <span class="label__image-wrapper label__image-wrapper--size-tone">
+                                <span class="label__text formal">Medial/Formal</span>
+                            </span>
+                        </label>
+                    </div>
+                </section>
+                <section class="order__urgency">
+                    <h3 class="order__header">Tell us how urgent this job is</h3>
+                    <div class="range">
+                        <input type="range"
+                               name="urgent"
+                               min="0"
+                               max="2"
+                               step="1"
+                               value="1"
+                               id="range__input"
+                               class="range__input">
+                    </div>
+                    <div class="range__text">
+                        <span>I got time</span>
+                        <span class="orange">Average</span>
+                        <span>Yesterday</span>
+                    </div>
+                    <div class="order__urgency_info">
+                        <h4>Timeline info</h4>
+                        <p>Lorem ipsum dolor sit amet, <span class="orange">Average</span> consectetur adipisicing elit. Autem ducimus et eum expedita iusto optio.</p>
+                    </div>
+                </section>
+            </div>
+            <section class="order__payment">
+                <h3  class="order__header">Sign up and choose a payment method</h3>
+                <p class="order__payment_signin">Already have account with us? <a href="#">Sign in</a></p>
+                <div class="order__payment_inputs">
+                    <div class="order__payment_input">
+                        <div class="order__payment_input-text">
+                            <label for="text">Full name</label>
+                            <input type="text"
+                                   id="text"
+                                   class="text"
+                                   name="text"
+                                   placeholder="Mikluho Maklay"
+                                   title="Write some text. Min lenght 4 and max length 18"
+                                   minlength="4"
+                                   maxlength="18"
+                                   autocomplete="on"
+                                   required>
+                        </div>
+                    </div>
+                    <div class="order__payment_input">
+                        <div class="order__payment_input-email">
+                            <label for="email">Email adress</label>
+                            <input type="email"
+                                   id="email"
+                                   class="email"
+                                   name="email"
+                                   placeholder="example@domaine.com"
+                                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                   title="name@domain.etc"
+                                   autocomplete="on"
+                                   required>
+                        </div>
+                        <div class="order__payment_input-pass">
+                            <label for="password">Choose your password</label>
+                            <input type="password"
+                                   id="password"
+                                   class="password"
+                                   name="password"
+                                   placeholder="Enter your password"
+                                   pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                                   title="Minimum 8 characters, UPPERCASE, lowercase and Number"
+                                   minlength="6"
+                                   required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order__payment_buttons">
+                    <label class="label label--size-payment">
+                        <input type="radio"
+                               name="payment"
+                               id="visa"
+                               value="visa"
+                               class="visually__hidden"
+                               required>
+                        <span class="label__image-wrapper label--size-payment">
+                            <img class="label__image" src="src/assets/img/visa.jpg" alt="website">
+                        </span>
+                    </label>
+                    <label class="label label--size-payment">
+                        <input type="radio"
+                               name="payment"
+                               id="paypal"
+                               value="paypal"
+                               class="visually__hidden"
+                               checked>
+                        <span class="label__image-wrapper label--size-payment">
+                            <img class="label__image" src="src/assets/img/paypal.jpg" alt="documents">
+                        </span>
+                    </label>
+                    <label class="label label--size-payment">
+                        <input type="radio"
+                               name="payment"
+                               id="amazon"
+                               value="amazon"
+                               class="visually__hidden">
+                        <span class="label__image-wrapper label--size-payment">
+                            <img class="label__image" src="src/assets/img/amazon.jpg" alt="account">
+                        </span>
+                    </label>
+                </div>
+            </section>
+            <div class="order__payment_input">
+                <div class="order__payment_card-number">
+                    <label for="cardNumber">Card number</label>
+                    <input type="text"
+                           id="cardNumber"
+                           inputmode="numeric"
+                           class="number"
+                           name="text"
+                           placeholder=""
+                           pattern="[0-9 ]{15,19}"
+                           title="Input card number. Min lenght 4 and max length 18"
+                           minlength="15"
+                           maxlength="19"
+                           autocomplete="on"
+                           required>
+                </div>
+
+                <div class="order__payment_card-date">
+                    <label for="cardDate">Expiry date</label>
+                    <input type="date"
+                           id="cardDate"
+                           class="date"
+                           name="text"
+                           placeholder="DD/MM/YY"
+                           title="Input expiry card date."
+                           autocomplete="on"
+                           required>
+                </div>
+                <div class="order__payment_card-code">
+                    <label for="cardCode">Code</label>
+                    <input type="text"
+                           id="cardCode"
+                           inputmode="numeric"
+                           class="code"
+                           name="text"
+                           placeholder=""
+                           pattern="[0-9]{3}"
+                           title="Input card cod. 3 digits"
+                           minlength="3"
+                           maxlength="3"
+                           autocomplete="on"
+                           required>
+
+                </div>
+            </div>
+            <div class="order__payment_submit">
+                <label class="checkbox-label-wrapper">
+                    <input type="checkbox" required
+                           name="input"
+                           id="input1"
+                           value="input1"
+                           class="visually__hidden input">
+                    <span class="checkbox-label">
+                        I agree to the &nbsp;
+                    </span>
+                </label>
+                <a href="#" class="terms">Term & Conditions</a>
+                <button type="submit" class="submit">Place order</button>
+                <button type="button" class="submit gray">Print a quote</button>
+            </div>
+        </section>
+
+    </form>
+</div>
+</body>
+</html>
+
+
+
+
+
