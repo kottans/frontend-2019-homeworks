@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="css/main.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+
+        </nav>
+    </header>
+    <div class="wrapper">
+        <div class="form-container">
+            <form action="send.php" method="post" enctype="multipart/form-data">
+                <header class="form-header">
+                    <nav class="order-nav">
+                        <div class="order-info">
+                            <h3 class="your-order">Your order</h3>
+                            <ul class="order-list">
+                                <li class="order-item">
+                                    <span class="order-item-header">Items</span>
+                                    <span class="order-item-info">2 documents</span>
+                                </li>
+                                <li class="order-item">
+                                    <span class="order-item-header">Details</span>
+                                    <span class="order-item-info">2 languages</span>
+                                </li>
+                                <li class="order-item">
+                                    <span class="order-item-header">Price</span>
+                                    <span class="order-item-info">$ 696.06</span>
+                                </li>
+                                <li class="order-item">
+                                    <span class="order-item-header">Delivery</span>
+                                    <span class="order-item-info">48 hours*</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="buttons">
+                            <input type="submit"
+                                   class="order form-button"
+                                   value="Place order">
+                            <button class="print form-button">Print a quote</button>
+                        </div>
+                    </nav>
+                    <div class="help-center">
+                        <h3 class="help-title">Help center</h3>
+                        <p class="help-text">If you need assistance while placing your order, contact one of our beloved Project Manager by phone or email.</p>
+                        <div class="help-links">
+                            <a href="tel:+9710555555">+971 (0) 555 555</a>
+                            <a href="mailto:help@qtest.com">help@qtest.com</a>
+                        </div>
+                    </div>
+                </header>
+                <main class="main-form">
+                    <div class="container">
+                        <h1 class="main-title">Select what you want to translate</h1>
+                    </div>
+                    <div class="first-area">
+                        <fieldset>
+                            <div class="container">
+                                <label class="type-label">
+                                    <input type="radio"
+                                           class="inp-type visually-hidden"
+                                           name="doc-type"
+                                           value="website">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span class="type-button">
+                                    <img class="type-img" src="images/website.png" alt="website type">
+                                    <span>Website</span>
+                                </span>
+                                </label>
+                                <label class="type-label">
+                                    <input type="radio"
+                                           class="inp-type visually-hidden"
+                                           name="doc-type"
+                                           value="documents"
+                                           checked>
+                                    <i class="fas fa-check-circle"></i>
+                                    <span class="type-button">
+                                    <img class="type-img" src="images/documents.png" alt="document type">
+                                    <span>Documents</span>
+                                </span>
+                                </label>
+                                <label class="type-label">
+                                    <input type="radio"
+                                           class="inp-type visually-hidden"
+                                           name="doc-type"
+                                           value="social account">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span class="type-button">
+                                    <img class="type-img" src="images/social.png" alt="social account type">
+                                    <span>Social Account</span>
+                                </span>
+                                </label>
+                            </div>
+                        </fieldset>
+
+                    </div>
+                    <div class="second-area">
+                        <h2 class="area-title"><span class="title-number">1</span>Upload your documents <span>(Doc, Docx, Text, PDF, Markdown)</span></h2>
+                        <div class="container">
+                            <label class="file-label">
+                                <input type="file"
+                                       class="visually-hidden"
+                                       name="file"
+                                       accept=".doc, .docx, .txt, .pdf, .md"
+                                       multiple
+                                       required>
+                                <span class="file-button form-button">Upload a new file</span>
+                            </label>
+                            <div class="file-list">
+                                <div class="list-header">
+                                    <div class="file-name">
+                                        File name
+                                    </div>
+                                    <div class="file-size">
+                                        File size
+                                    </div>
+                                    <div class="file-words">
+                                        Number of words
+                                    </div>
+                                    <div class="file-remove">
+                                        Remove
+                                    </div>
+                                </div>
+                                <div class="file-row">
+                                    <div class="file-name doc">
+                                        business_operations.docx
+                                    </div>
+                                    <div class="file-size">
+                                        78kb
+                                    </div>
+                                    <div class="file-words">
+                                        842
+                                    </div>
+                                    <div class="file-remove">
+                                        <button class="del"></button>
+                                    </div>
+                                </div>
+                                <div class="file-row">
+                                    <div class="file-name doc">
+                                        business_financial.docx
+                                    </div>
+                                    <div class="file-size">
+                                        26kb
+                                    </div>
+                                    <div class="file-words">
+                                        2,326
+                                    </div>
+                                    <div class="file-remove">
+                                        <button class="del"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    <div class="third-area">
+                        <h2 class="area-title"><span class="title-number">2</span>Choose your languages pairings</h2>
+                        <div class="container">
+                            <div class="from-lang">
+                                <span class="list-header">From</span>
+                                <label>
+                                    <select name="from-lang"
+                                            class="form-button sel-but"
+                                            required>
+                                        <option value=""
+                                                disabled
+                                                selected>
+                                            Select language
+                                        </option>
+                                        <option value="english">English</option>
+                                        <option value="arabic">Arabic</option>
+                                        <option value="kurdish">Kurdish</option>
+                                    </select>
+                                </label>
+                            </div>
+                           <div class="to-lang">
+                               <span class="list-header">to</span>
+                               <label class="to-lang-label">
+                                   <select name="to-lang"
+                                           class="form-button sel-but"
+                                           required>
+                                       <option value=""
+                                               disabled
+                                               selected>
+                                           Select language
+                                       </option>
+                                       <option value="english">English</option>
+                                       <option value="arabic">Arabic</option>
+                                       <option value="kurdish">Kurdish</option>
+                                   </select>
+                               </label>
+                               <label class="second-lang">
+                                   <select name="to-lang"
+                                           class="form-button sel-but"
+                                           required>
+                                       <option value=""
+                                               disabled
+                                               selected>
+                                           Select language
+                                       </option>
+                                       <option value="english">English</option>
+                                       <option value="arabic">Arabic</option>
+                                       <option value="kurdish">Kurdish</option>
+                                   </select>
+
+                               </label>
+                               <button class="del"></button>
+                               <button class="form-button add">+ add</button>
+                           </div>
+
+                        </div>
+
+                    </div>
+                    <section class="fourth-fifth">
+                        <div class="fourth-area">
+                            <h2 class="area-title"><span class="title-number">3</span>Select your desired tone</h2>
+                            <div class="container">
+                                <fieldset class="fourth-fieldset">
+                                    <label class="type-label">
+                                        <input type="radio"
+                                               class="inp-type visually-hidden"
+                                               name="desired-tone">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span class="type-button fourth-but fourth-but-casual">Friendly&nbsp;&sol;&nbsp;Casual</span>
+                                    </label>
+                                    <label class="type-label">
+                                        <input type="radio"
+                                               class="inp-type visually-hidden"
+                                               name="desired-tone"
+                                               checked>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span class="type-button fourth-but fourth-but-pro">Corporate&nbsp;&sol;&nbsp;Pro</span>
+                                    </label>
+                                    <label class="type-label">
+                                        <input type="radio"
+                                               class="inp-type visually-hidden"
+                                               name="desired-tone">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span class="type-button fourth-but fourth-but-formal">Media&nbsp;&sol;&nbsp;Formal</span>
+                                    </label>
+                                </fieldset>
+                            </div>
+
+                        </div>
+                        <div class="fifth-area">
+                            <fieldset>
+                                <h2 class="area-title"><span class="title-number">4</span>Tell us how urgent this job is</h2>
+                                <label class="range-label">
+                                    <input type="range"
+                                           class="urgent"
+                                           name="urgent"
+                                           min="0"
+                                           max="2"
+                                           step="1"
+                                           value="1">
+                                </label>
+                                <div class="urgent-titles">
+                                    <span>I got time</span>
+                                    <span class="orange">Average</span>
+                                    <span>Yesterday</span>
+                                </div>
+                                <div class="timeline-info">
+                                    <h4 class="info-title">Timeline info</h4>
+                                    <p>With an <span class="orange">AVERAGE</span>  timeline set up, our expert translator can take a reasonable amount of time perfecting your translation</p>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                    </section>
+
+                    <section class="sixth-area">
+                        <h2 class="area-title"><span class="title-number">5</span>Sign up and choose a payment method</h2>
+                        <div class="container">
+                            <h5 class="signin">Already have an account with us? <a class="signin-link" href="#">Sign in</a>.</h5>
+                            <div class="username">
+                                <label class="username-label">
+                                    <span class="list-header">Full name</span>
+                                    <input type="text"
+                                           name="user-name"
+                                           class="text"
+                                           id="user-name"
+                                           placeholder="Your name"
+                                           title="Write your name. Min length 2"
+                                           minlength="2"
+                                           required>
+                                    <i class="fas fa-window-close"></i>
+                                    <i class="fas fa-check-circle"></i>
+                                </label>
+                            </div>
+                            <div class="email-address">
+                                <label class="email-label">
+                                    <span class="list-header">Email address</span>
+                                    <input type="email"
+                                           class="email"
+                                           id="user-email"
+                                           name="user-email"
+                                           placeholder="example@domaine.com"
+                                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                           title="name@domain.etc"
+                                           required>
+                                    <i class="fas fa-window-close"></i>
+                                    <i class="fas fa-check-circle"></i>
+                                </label>
+                            </div>
+                            <div class="users-password">
+                                <label class="password-label">
+                                    <span class="list-header">Choose a password</span>
+                                    <input type="password"
+                                           class="password"
+                                           id="user-password"
+                                           name="user-password"
+                                           placeholder="Enter your password"
+                                           pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                                           title="Minimum 8 characters, UPPERCASE, lowercase and Number"
+                                           minlength="8"
+                                           required>
+                                    <i class="fas fa-window-close"></i>
+                                    <i class="fas fa-check-circle"></i>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="payment-method">
+                            <fieldset>
+                                <div class="container">
+                                    <label class="type-label">
+                                        <input type="radio"
+                                               class="inp-type visually-hidden"
+                                               name="payment">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span class="type-button">
+                                            <img class="type-img" src="images/visa.jpg" alt="">
+                                        </span>
+                                    </label>
+                                    <label class="type-label">
+                                        <input type="radio"
+                                               class="inp-type visually-hidden"
+                                               name="payment"
+                                               checked>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span class="type-button">
+                                        <img class="type-img" src="images/paypal.jpg" alt="">
+                                    </span>
+
+                                    </label>
+                                    <label class="type-label">
+                                        <input type="radio"
+                                               class="inp-type visually-hidden"
+                                               name="payment">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span class="type-button">
+                                        <img class="type-img" src="images/amazon.jpg" alt="">
+                                    </span>
+                                    </label>
+
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="card-data">
+                            <div class="container">
+                                <div class="payment-card">
+                                    <label class="card-label">
+                                        <span class="card-number-title list-header">Card number</span>
+                                        <input type="text"
+                                               inputmode="numeric"
+                                               name="card-number"
+                                               class="card-number"
+                                               id="card-number"
+                                               placeholder="0123-4567-8910-1112"
+                                               pattern="\b\d{4}(| |-)\d{4}\1\d{4}\1\d{4}\b"
+                                               minlength="16"
+                                               maxlength="16"
+                                               title="16 digits"
+                                               required>
+                                        <i class="fas fa-window-close"></i>
+                                        <i class="fas fa-check-circle"></i>
+                                    </label>
+
+
+                                </div>
+                                <div class="card-date">
+                                    <label class="date-label">
+                                        <span class="list-header">Expiry date</span>
+                                        <input type="date"
+                                               name="date"
+                                               class="date"
+                                               id="date"
+                                               placeholder="Please, enter date"
+                                               title="Please, enter date"
+                                               required >
+                                    </label>
+                                </div>
+                                <div class="card-code">
+                                    <label class="code-label">
+                                        <span class="list-header">Code</span>
+                                        <input type="text"
+                                               inputmode="numeric"
+                                               name="code"
+                                               class="code"
+                                               id="code"
+                                               placeholder="123"
+                                               pattern="\b\d{3}"
+                                               minlength="3"
+                                               maxlength="3"
+                                               title="Your CVV code"
+                                               required>
+                                        <i class="fas fa-window-close"></i>
+                                        <i class="fas fa-check-circle"></i>
+
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                    <div class="accept">
+                        <div class="container">
+
+                                <input type="checkbox"
+                                       name="agreement"
+                                       class="agreement"
+                                       id="agreement"
+                                       required>
+
+                            <label for="agreement"  class="checkbox-label"><span>I agree to the <a class="terms" href="#">Terms & Conditions</a></span></label>
+                            <div class="buttons">
+                                <input type="submit"
+                                       class="form-button order"
+                                       value="Place order">
+                                <button class="form-button print">Print a quote</button>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
