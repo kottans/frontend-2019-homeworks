@@ -1,0 +1,171 @@
+@import "vars"
+
+
+//Mixin for media rules
+=r($width)
+  @media only screen and (max-width: $width+ "px")
+    @content
+
+
++r(1200)
+  .container
+    padding-bottom: 0
+  .header
+    padding-left: 15px
+    padding-right: 15px
+  .order
+    flex-direction: column
+  .order__buttons
+    border: none
+  .order__inner
+    justify-content: space-between
+    border-bottom: 1px solid $bordercolor
+  .step__number
+    margin-left: 15px
+  .upload_input
+    margin-left: 15px
+  .upload__table
+    margin: 0 15px
+  .select__wrapper
+    margin-left: 15px
+  .label
+    margin-left: 15px
+  .sign-up__inputs
+    margin: 0 15px
+  .sign-in
+    margin-left: 85px
+  .credit__card
+    margin: 0 15px
+  .credit__card-item
+    margin: 15px 25px
+
+
++r(992)
+  .order__table
+    margin: 0
+    .fa
+      margin-left: 0
+  .how-urgent__wrapper
+    margin: 0 15px
+  .tone-and-time__wrapper
+    margin-top: 50px
+  .credit__card
+    justify-content: center
+    .input__auth
+      margin: 0
+  .form__footer
+    justify-content: center
+  .form__footer .main-button
+    margin: 15px
+  .credit__card-item i
+    right: 20px
+
++r(768)
+  .order__inner
+    flex-direction: column
+  .order__buttons
+    flex-direction: row
+    justify-content: space-around
+    padding: 25px 0
+  .form__body
+    margin-top: 50px
+  .translate-h2
+    margin-bottom: 25px
+  .translate__wrapper
+    margin-bottom: 40px
+  .upload__table-body
+    padding: 30px 15px
+  .select__wrapper-more
+    margin-left: 55px
+  .how-urgent__wrapper
+    max-width: 100%
+  .desire-tone__wrapper
+    min-width: 100%
+  .tone-and-time__wrapper
+    justify-content: center
+  .desire-tone__wrapper-inner
+    .label
+      margin: 15px auto
+  .how-urgent__wrapper
+    .section__title
+      margin-top: 30px
+  .sign-up__inputs
+    justify-content: space-around
+  .sign-up__name
+	  min-width: auto
+  .sign-in
+    padding: 0
+  .footer__main-container
+    justify-content: space-around
+  .footer__main-item
+    max-width: 50%
+    padding: 25px
+
+
+
+
++r(640)
+  .order__table-body
+    .order__table-tr, .order__table-th, .order__table-td
+      padding-right: 15px
+  .translate-h2
+    margin-bottom: 0
+    font-size: 16px
+  .upload__wrapper
+    text-align: center
+  .step__desc
+    display: block
+    margin-left: 85px
+  .upload_input
+    margin-left: 0
+  .upload__table
+	  overflow-x: scroll
+  .section__title
+    margin: 0 auto
+  .footer__main-item
+    max-width: 100%
+
++r(670)
+  .sign-up__inputs
+    .input__auth
+      margin-right: 0
+
++r(460)
+  .language__add
+    margin-left: 15px
+  .form__footer .main-button
+    padding: 0
+    margin: 15px 15px 10px 15px
+  .header
+    .header__logo
+      display: none
+  .header
+    padding: 30px 15px
+
++r(400)
+  .header .main-button
+    width: 130px
+  .order__buttons
+    flex-direction: column
+  .main-button
+    align-self: center
+  .order__table
+    padding-left: 15px
+    padding-bottom: 0
+  .order__table-body
+    margin: 0
+    .order__table-tr, .order__table-th, .order__table-td
+      font-size: 12px
+      padding-right: 10px
+  .help__center
+    padding-left: 15px
+  .translate-h2
+    border: none
+  .how-urgent__wrapper
+    .step__title
+      margin-left: 20px
+  .input__card-number
+    width: 220px
+  .credit__card-item
+    i
+      display: none

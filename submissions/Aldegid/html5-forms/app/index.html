@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
 
@@ -36,7 +36,9 @@
 				<i class="fa fa-long-arrow-left" aria-hidden="true"></i>
 				<span>Go Back</span>
 			</button>
-			<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+			<a href="#" class="header__logo">
+				<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+			</a>
 			<button type="button" class="main-button print-button">
 				<i class="fa fa-user" aria-hidden="true"></i>
 				<span>sign in</span>
@@ -46,21 +48,22 @@
 			<form class="form__main">
 				<div class="form_header">
 					<div class="order">
+						<div class="order__inner">
 						<div class="order__table">
 							<i class="fa fa-shopping-bag" aria-hidden="true"></i>
-							<h3>your order</h3>
-							<table>
-								<tr>
-									<th>ITEMS</th>
-									<th>DETAILS</th>
-									<th>PRICE</th>
-									<th>DELIVERY</th>
+							<h3 class="form__main-h3">your order</h3>
+							<table class="order__table-body">
+								<tr class="order__table-tr">
+									<th class="order__table-th">ITEMS</th>
+									<th class="order__table-th">DETAILS</th>
+									<th class="order__table-th">PRICE</th>
+									<th class="order__table-th">DELIVERY</th>
 								</tr>
-								<tr>
-									<td>2 documants</td>
-									<td>2 languages</td>
-									<td>$ 696.06</td>
-									<td>48 hours*</td>
+								<tr class="order__table-tr">
+									<td class="order__table-td">2 documents</td>
+									<td class="order__table-td">2 languages</td>
+									<td class="order__table-td">$ 696.06</td>
+									<td class="order__table-td">48 hours*</td>
 								</tr>
 							</table>
 
@@ -69,14 +72,16 @@
 							<button class="main-button order-button">Place order</button>
 							<button type="button" class="main-button print-button">Print a quote</button>
 						</div>
-						<div class="help-center">
+						</div>
+
+						<div class="help__center">
 							<span class="fa fa-life-ring" aria-hidden="true"></span>
-							<h3>HELP CENTER</h3>
-							<p>If you need assistance while placing your order, contact one of our beloved Project Manager by phone or
+							<h3 class="help__center-h3">HELP CENTER</h3>
+							<p class="help__center-p">If you need assistance while placing your order, contact one of our beloved Project Manager by phone or
 								email.</p>
 							<div class="contacts">
-								<span class="contacts__phone">+971(0) 555 555</span>
-								<span>help@qtest.com</span>
+								<a href="tel: +9710555555" class="contacts__phone">+971(0) 555 555</a>
+								<a href="mailto:help@qtest.com" class="contacts__mail">help@qtest.com</a>
 							</div>
 						</div>
 					</div>
@@ -84,31 +89,31 @@
 
 				<div class="form__body">
 					<section class="translate">
-						<h2>SELECT WHAT YOU WANT TO TRANSLATE</h2>
+						<h2 class="translate-h2">SELECT WHAT YOU WANT TO TRANSLATE</h2>
 						<div class="translate__wrapper">
 							<label class="label label--size-translate">
 								<input type="radio" name="translate" id="website" value="website"
 									class="visually__hidden translate__input" required>
-								<div class="label__image-wrapper label--size-translate">
+								<span class="label__image-wrapper label--size-translate">
 									<i class="fa fa-file-code-o" aria-hidden="true"></i>
 									<span class="label__text">Website</span>
-								</div>
+								</span>
 							</label>
 
 							<label class="label label--size-translate">
 								<input type="radio" name="translate" id="documents" value="documents" class="visually__hidden" checked>
-								<div class="label__image-wrapper label--size-translate">
+								<span class="label__image-wrapper label--size-translate">
 									<i class="fa fa-file-text-o" aria-hidden="true"></i>
 									<span class="label__text">Documents</span>
-								</div>
+								</span>
 
 							</label>
 							<label class="label label--size-translate">
 								<input type="radio" name="translate" id="social" value="social" class="visually__hidden">
-								<div class="label__image-wrapper label--size-translate">
+								<span class="label__image-wrapper label--size-translate">
 									<i class="fa fa-id-badge" aria-hidden="true"></i>
 									<span class="label__text">Social Accaunts</span>
-								</div>
+								</span>
 							</label>
 						</div>
 					</section>
@@ -116,9 +121,14 @@
 
 
 					<section class="upload__wrapper">
-						<span class="step__number">1</span>
-						<h3 class="step__title">Upload your documents</h3>
-						<span class="step__desc">(Doc, Docx, text, PDF, Markdown)</span>
+						<div class="section__title">
+							<div class="step__number">
+								<span class="step__number-inner">1</span>
+							</div>
+							<h3 class="step__title">Upload your documents</h3>
+							<span class="step__desc">(Doc, Docx, text, PDF, Markdown)</span>
+						</div>
+
 						<div class="upload_input">
 							<label class="file-label-wrapper ">
 								<input type="file" class="visually__hidden input" id="file" name="file" accept="image/*,.pdf" multiple>
@@ -140,26 +150,30 @@
 											class="upload__table-file">business_operations.docx</span></td>
 									<td>78kb</td>
 									<td>872</td>
-									<td><i class="fa fa-trash" aria-hidden="true"></i></td>
+									<td><i class="fa fa-trash delete-icon" aria-hidden="true" tabindex="0"></i></td>
 								</tr>
 								<tr class="some">
 									<td><i class="fa fa-file-text" aria-hidden="true"></i><span
 											class="upload__table-file">business_operations.docx</span></td>
 									<td>78kb</td>
 									<td>872</td>
-									<td><i class="fa fa-trash" aria-hidden="true"></i></td>
+									<td><i class="fa fa-trash delete-icon" aria-hidden="true" tabindex="0"></i></td>
 								</tr>
 							</table>
 						</div>
 					</section>
 
 					<section class="languages-pairing__wrapper">
-						<span class="step__number">2</span>
-						<h3 class="step__title">Choose your language pairings</h3>
+							<div class="section__title">
+									<div class="step__number">
+										<span class="step__number-inner">2</span>
+									</div>
+									<h3 class="step__title">Choose your language pairings</h3>
+								</div>
 						<div class="select__wrapper">
 							<div class="select__text">From</div>
 							<select name="languange" id="select-from" class="select__item" required>
-								<option value="english" selected>English</option>
+								<option value="english">English</option>
 								<option value="arabic">Arabic</option>
 								<option value="kurdish">Kurdish</option>
 							</select>
@@ -168,66 +182,75 @@
 							<div class="select__wrapper">
 								<div class="select__text select__text-to">To</div>
 								<select name="languange" id="select-to" class="select__item" required>
-									<option value="english" selected>English</option>
+									<option value="english">English</option>
 									<option value="arabic">Arabic</option>
 									<option value="kurdish">Kurdish</option>
 								</select>
 							</div>
-							<div class="select__wrapper">
-								<select name="languange" id="select-other" class="select__item">
-									<option value="english" selected>English</option>
-									<option value="arabic">Arabic</option>
-									<option value="kurdish">Kurdish</option>
-								</select>
-							</div>
+							<div class="select__wrapper-more">
+								<div class="select__wrapper">
+									<select name="languange" id="select-to-2" class="select__item select__item-more" required>
+										<option value="english">English</option>
+										<option value="arabic">Arabic</option>
+										<option value="kurdish">Kurdish</option>
+									</select>
+								</div>
 							<div class="language__delete">
-								<i class="fa fa-trash" aria-hidden="true"></i>
+								<i class="fa fa-trash delete-icon" aria-hidden="true" tabindex="0"></i>
 							</div>
-
 							<button class="language__add" type="button">
 								<i class="fa fa-plus" aria-hidden="true"></i> &nbsp;
 								add
 							</button>
+							</div>
 						</div>
 					</section>
 
 					<section class="tone-and-time__wrapper">
 						<div class="desire-tone__wrapper">
-							<span class="step__number">3</span>
-							<h3 class="step__title">Select your desired tone</h3>
+							<div class="section__title">
+								<div class="step__number">
+									<span class="step__number-inner">3</span>
+								</div>
+								<h3 class="step__title">Select your desired tone</h3>
+							</div>
 							<div class="desire-tone__wrapper-inner">
 								<label class="label label--size-tone">
 									<input type="radio" name="translate-tone" id="friendly-casual" value="friendly-casual"
 										class="visually__hidden" required>
-									<div class="label__image-wrapper label--size-tone">
+									<span class="label__image-wrapper label--size-tone">
 										<i class="fa fa-comments" aria-hidden="true"></i>
 										<span class="label__text">Friendly / Casual</span>
-									</div>
+									</span>
 
 								</label>
 								<label class="label label--size-tone">
 									<input type="radio" name="translate-tone" id="corporate-pro" value="corporate-pro"
 										class="visually__hidden" checked>
-									<div class="label__image-wrapper label--size-tone">
+									<span class="label__image-wrapper label--size-tone">
 										<i class="fa fa-briefcase" aria-hidden="true"></i>
 										<span class="label__text">Corporate / Pro</span>
-									</div>
+									</span>
 
 								</label>
 								<label class="label label--size-tone">
 									<input type="radio" name="translate-tone" id="media-formal" value="media-formal"
 										class="visually__hidden">
-									<div class="label__image-wrapper label--size-tone">
+									<span class="label__image-wrapper label--size-tone">
 										<i class="fa fa-bullhorn" aria-hidden="true"></i>
 										<span class="label__text">Media / Formal</span>
-									</div>
+									</span>
 
 								</label>
 							</div>
 						</div>
 						<div class="how-urgent__wrapper">
-							<span class="step__number">4</span>
-							<h3 class="step__title">Tell us how urgent this job is</h3>
+							<div class="section__title">
+								<div class="step__number">
+									<span class="step__number-inner">4</span>
+								</div>
+								<h3 class="step__title">Tell us how urgent this job is</h3>
+							</div>
 							<div class="range__wrapper">
 								<div class="range__body">
 									<input type="range" name="urgent" min="0" max="2" step="1" value="1" id="range__input"
@@ -243,20 +266,24 @@
 							<div class="timeline__info">
 								<div class="timeline__info-title">
 									<i class="fa fa-info-circle" aria-hidden="true"></i>
-									<h3>TIMELINE INFO</h3>
+									<h3 class="timeline__info-h3">TIMELINE INFO</h3>
 								</div>
-								<p>With an <span>AVERAGE</span> timeline set up, our expert translator can take a reasonable amount of
+								<p class="timeline__info-p">With an <span>AVERAGE</span> timeline set up, our expert translator can take a reasonable amount of
 									time perfecting you translation</p>
 							</div>
 						</div>
 					</section>
 
 					<section class="paymant__wrapper">
-						<span class="step__number">5</span>
-						<h3 class="step__title">Sign up and choose payment method</h3>
+							<div class="section__title">
+								<div class="step__number">
+									<span class="step__number-inner">5</span>
+								</div>
+								<h3 class="step__title">Sign up and choose payment method</h3>
+							</div>
 						<div class="sign-in">
 							<span>Already have an account with us?</span>
-							<a href="#">Sign in</a>
+							<a href="#" class="sign-in-link">Sign in</a>
 						</div>
 						<div class="sign-up__inputs">
 							<div class="sign-up__item sign-up__name">
@@ -270,7 +297,7 @@
 									title="Write your name. Min lenght 3"
 									minlength="3"
 									required>
-								<i class="fa fa-check-circle" aria-hidden="true"></i>
+								<span class="validation" aria-hidden="true"></span>
 							</div>
 							<div class="sign-up__item">
 								<p>EMAIL ADRESS</p>
@@ -280,10 +307,10 @@
 									id="sign-up-email"
 									class="input__auth input__mail"
 									placeholder="pupkin@mail.com"
-									title="name@domain.etc"
+									title="add email in format: name@domain.etc"
 									pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
 									required>
-								<i class="fa fa-check-circle" aria-hidden="true"></i>
+									<span class="validation" aria-hidden="true"></span>
 							</div>
 							<div class="sign-up__item sign-up__mail">
 								<p>CHOOSE A PASSWORD</p>
@@ -294,9 +321,8 @@
 									class="input__auth input__pass"
 									pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
 									title="Minimum 8 characters, UPPERCASE, lowercase and Number"
-									placeholder="● ● ● ● ● ● ● ● ● ● ● ●"
 									required>
-								<i class="fa fa-times-circle" aria-hidden="true"></i>
+									<span class="validation" aria-hidden="true"></span>
 
 							</div>
 						</div>
@@ -309,24 +335,24 @@
 									value="visa-mastercard"
 									class="visually__hidden translate__input"
 									required>
-								<div class="label__image-wrapper label--size-payment">
-									<img src="img/svg-visa-logo-icon-1.svg" alt="visa-logo" width="60px">
-									<img src="img/MasterCard_Logo.svg" alt="mastercard-logo" width="60px">
-								</div>
+								<span class="label__image-wrapper label--size-payment">
+									<img src="img/svg-visa-logo-icon-1.svg" alt="visa-logo" class="svg-card">
+									<img src="img/MasterCard_Logo.svg" alt="mastercard-logo" class="svg-card">
+								</span>
 
 							</label>
 							<label class="label label--size-payment">
 								<input type="radio" name="payment-methods" id="paypal" value="paypal" class="visually__hidden" checked>
-								<div class="label__image-wrapper label--size-payment">
-									<img src="img/PayPal_logo.svg" alt="paypal-logo" width="100px">
-								</div>
+								<span class="label__image-wrapper label--size-payment">
+									<img src="img/PayPal_logo.svg" alt="paypal-logo" class="svg-paypal">
+								</span>
 
 							</label>
 							<label class="label label--size-payment">
 								<input type="radio" name="payment-methods" id="amazon" value="amazon" class="visually__hidden">
-								<div class="label__image-wrapper label--size-payment">
-									<img src="img/Amazon_logo_plain.svg" alt="amazon-logo" width="100px">
-								</div>
+								<span class="label__image-wrapper label--size-payment">
+									<img src="img/Amazon_logo_plain.svg" alt="amazon-logo" class="svg-amazon">
+								</span>
 
 							</label>
 						</div>
@@ -339,8 +365,9 @@
 									id="cardNumber"
 									class="input__auth input__card-number"
 									pattern="\d*"
-									maxlength="19"
-									title="enter your card number"
+									maxlength="16"
+									minlength="16"
+									title="enter your card number: max length 16, ONLY NUMBERS"
 									required>
 								<i class="fa fa-cc-visa" aria-hidden="true"></i>
 							</div>
@@ -351,8 +378,12 @@
 									name="credit-expires"
 									id="cardExpires"
 									pattern="\d*"
-									title="enter card expires date"
-									maxlength="7" placeholder="MM / YY" class="input__auth input__card-expires" required>
+									title="enter card expires date in format: MM  YY"
+									min="6"
+									maxlength="6"
+									placeholder="MM  YY"
+									class="input__auth input__card-expires"
+									required>
 							</div>
 							<div class="credit__card-item">
 								<label for="cardCode">CODE</label>
@@ -361,7 +392,8 @@
 									name="credit-code"
 									id="cardCode"
 									pattern="\d*"
-									title="enter cvv code"
+									title="enter cvv code: max length 3, ONLY NUMBERS"
+									minlength="3"
 									maxlength="3"
 									class="input__auth input__card-code"
 									required>
@@ -371,10 +403,10 @@
 
 					<section class="form__footer">
 						<div class="accept__terms">
-							<input type="checkbox" name="accept-terms" id="accept-terms" required>
+							<input type="checkbox" name="accept-terms" id="accept-terms" class="form__footer-accept" required>
 							<label for="accept-terms">
 								I agree to the
-								<a href="#">Terms & Conditions</a>
+								<a href="#" class="accept__terms-link">Terms & Conditions</a>
 							</label>
 						</div>
 						<button class="main-button order-button">Place order</button>
@@ -392,8 +424,7 @@
 					<i class="fa fa-heart-o" aria-hidden="true"></i>
 					<span>WHAT WE DO</span>
 				</div>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta alias id aut quia dignissimos nostrum aliquid
-					que.</p>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta alias id aut quia dignissimos nostrum.</p>
 			</div>
 
 			<address class="footer__main-item location">
@@ -401,9 +432,9 @@
 					<i class="fa fa-compass" aria-hidden="true"></i>
 					<span>OUR MAIN OFFICE</span>
 				</div>
-				<p>Dubay, UAE</p>
-				<p>P.O/ Box: 502735</p>
-				<p>Phone: +971(0)44278128</p>
+				<p class="location-p">Dubay, UAE</p>
+				<p class="location-p">P.O/ Box: 502735</p>
+				<p class="location-p"><a href="tel:+971044278128" class="contacts__phone">Phone: +971(0)44278128</a></p>
 			</address>
 
 			<div class="footer__main-item connect">
@@ -412,26 +443,29 @@
 					<span>CONTACT WITH AS</span>
 				</div>
 				<div class="social">
-					<a href="#">
+					<a href="#" class="social__link">
 						<i class="fa fa-facebook" aria-hidden="true"></i>
-						<span>Facebook</span>
+						<span class="social__link-text">Facebook</span>
 					</a>
 				</div>
 				<div class="social">
-					<a href="#">
-						<i class="fa fa-twitter" aria-hidden="true"></i>
-						<span>Twitter</span>
+					<a href="#" class="social__link">
+						<span class="fa fa-twitter" aria-hidden="true"></span>
+						<span class="social__link-text">Twitter</span>
 					</a>
 				</div>
 				<div class="social">
-					<a href="#">
+					<a href="#"class="social__link">
 						<i class="fa fa-linkedin" aria-hidden="true"></i>
-						<span>Linkedin</span>
+						<span class="social__link-text">Linkedin</span>
 					</a>
 				</div>
 			</div>
 			<div class="footer__main-item logo">
-				<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+				<a href="#" class="header__logo">
+						<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+				</a>
+
 			</div>
 		</div>
 
