@@ -1,0 +1,355 @@
+.order-form{
+    @include defaultBorder();
+    margin: auto;
+    max-width: $orderMaxWidth;
+    background-color: white;
+}
+
+.order-btn{
+    @extend %order-button;
+    @include defaultBorder(darken($green, 10%));
+    background-color: $green;
+    color: white;
+    text-transform: uppercase;
+
+    &:hover{
+        background-color: darken($green, 10%);
+        cursor: pointer;
+    }
+}
+
+.quote-btn{
+    @extend %order-button;
+    @include defaultButton();
+    text-transform: uppercase;
+}
+
+.table-title th {
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.title-wrapper{
+    display: flex;
+    margin-top: 50px;
+}
+
+.translate-title{
+    @extend %title;
+    font-size: 18px;
+    letter-spacing: 4px;
+    border-bottom: 1px solid $gray1;
+    margin: auto;
+    padding-bottom: 13px;
+    text-transform: uppercase;
+}
+
+.translate-type-wrapper{
+    padding-top: 50px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.translate-type{
+    @include defaultRadioLabel(280px, 200px);
+}
+
+input[name="translate-type"],
+input[name="tone-type"],
+input[name="payment-system"]{
+    @include defaultRadioButton();
+
+}
+
+input[name="translate-type"]:checked + label {
+    @include defaultChecked(-10px, 260px);
+}
+
+
+.translate-type img{
+    width: 100px;
+    margin: 0 auto 20px auto;
+}
+
+.section-title{
+    @extend %title;
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+
+.file-format{
+    color: $gray2;
+    font-size: 15px;
+}
+
+.file-container{
+    @include defaultButton();
+    padding: 15px 35px 16px 60px;
+}
+
+#file-upload{
+    display: block;
+    opacity: 0;
+}
+
+.file-container{
+    position: relative;
+}
+.file-container .icon{
+    @include defaultIcon(10px, 20px, "../img/upload.png")
+}
+.file-table {
+    @include defaultBorder();
+    width: 100%;
+    padding: 40px;
+    margin: 30px 0;
+
+}
+
+.file-table td{
+    padding: 8px 0;
+}
+
+.file-cell {
+    position: relative;
+}
+
+.file-name{
+    padding-left: 40px;
+}
+
+.file-cell .icon {
+    @include defaultIcon(9px, 3px, "../img/file.png")
+}
+
+.remove-cell{
+    text-align: center;
+}
+
+.language-wrapper{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.lang-title{
+    text-transform: uppercase;
+}
+.languages-section .custom-select{
+    margin-left: 20px;
+}
+
+.add-btn{
+    @include defaultButton();
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px 25px;
+    margin-left: 20px;
+}
+
+.tone-section{
+    display: block;
+}
+.tone-type{
+    @include defaultRadioLabel(200px);
+    padding: 25px;
+    position: relative;
+}
+
+input[name="tone-type"]:checked + label {
+    @include defaultChecked(-10px, 230px);
+}
+
+.casual .icon{
+    @include defaultIcon(20px, 20px, "../img/chat.png")
+}
+
+.pro .icon{
+    @include defaultIcon(20px, 20px, "../img/suitcase.png")
+}
+
+.formal .icon{
+    @include defaultIcon(20px, 20px, "../img/horn.png")
+}
+
+
+.payment-section .link{
+    @extend %defaultLink;
+}
+
+.payments-wrapper{
+    display: flex;
+    margin: 50px 0;
+    flex-wrap: wrap;
+}
+
+.payment-system{
+    @include defaultRadioLabel(180px);
+    padding: 0 15px;
+}
+
+input[name="payment-system"]:checked + label {
+    @include defaultChecked(-10px, 190px);
+}
+
+.order-row-wrapper{
+    display: flex;
+    flex-direction: row;
+        @media screen and (max-width: 768px) {
+            flex-wrap: wrap;
+        }
+}
+
+.urgent-section{
+    padding-left: 65px;
+}
+
+.urgent-section .section-title{
+    padding-left: 65px;
+}
+.urgent-section .section-title::before{
+    left: 60px;
+}
+
+.urgent-wrapper{
+    text-align: center;
+}
+
+
+.urgent-slider {
+    width: 90%;
+    position: relative;
+    -webkit-appearance: none;
+    height: 10px;
+    background: #ECEEF3;
+    border-radius: 15px;
+    margin-top: 25px;
+  }
+
+.urgent-slider:before, .urgent-slider:after {
+    content: "";
+    position: absolute;
+    height: 10px;
+    background: #d3d5dd;
+    width: 10px;
+    border-radius: 50%;
+}
+
+.urgent-slider:after {
+    right: 0;
+}
+
+.urgent-slider::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+    background: $orange;
+    cursor: pointer;
+    z-index: 1;
+    -webkit-appearance: none;
+    border-radius: 50%;
+    position: relative;
+}
+
+.urgent-slider::-moz-range-thumb {
+    z-index: 10;
+    background: $orange;
+    cursor: pointer;
+}
+
+.urgent-row {
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+  }
+
+
+.timeline-info-wrapper{
+    @include defaultBorder();
+    padding: 30px 30px 20px 70px;
+    text-align: justify;
+    position: relative;
+    margin: 40px 0;
+}
+
+.slider-title .icon{
+    @include defaultIcon(25px, 30px, "../img/icon.png")
+}
+
+.slider-title{
+    @extend %title;
+    text-transform: uppercase;
+}
+
+.active{
+    color: $orange;
+    text-transform: uppercase;
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+}
+
+.paypal,
+.amazone {
+    width: 90px;
+}
+
+.signin-label{
+    margin-top: 45px;
+    margin-bottom: 45px;
+}
+
+.user-info,
+.card-info{
+   display: flex;
+   flex-direction: column;
+}
+
+.user-info .title,
+.card-info .title{
+    text-transform: uppercase;
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+.user-info-row,
+.card-info-row{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+
+    @media screen and (max-width: 1024px) {
+        flex-direction: column;
+    }
+}
+
+#full-name,
+#email,
+#password{
+    @include defaultInput();
+    @include defaultInputValidation();
+}
+
+#card-number{
+    @include defaultInput(340px);
+    text-align: center;
+    letter-spacing: 2px;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px);
+    background-size: 35px 33px;
+    background-image: url("../img/card.png");
+
+}
+
+#expiry-date{
+    @include defaultInput(140px);
+    text-align: center;
+}
+
+#code{
+    @include defaultInput(80px);
+    text-align: center;
+}

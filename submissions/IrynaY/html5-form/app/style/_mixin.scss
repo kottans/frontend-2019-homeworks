@@ -1,0 +1,100 @@
+@mixin defaultBorder($color: $borderColor){
+    border: 1px solid $color;
+    border-radius: $borderRadius;
+}
+
+@mixin defaultHover(){
+    border: 1px solid $gray2;
+    cursor: pointer;
+}
+
+@mixin defaultRadioLabel($width, $height: auto){
+    @include defaultBorder();
+    margin: 15px 15px 15px 0;
+    width: $width;
+    height: $height;
+    color: $gray2;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 15px;
+    background-color: $gray1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &:hover{
+        @include defaultHover();
+    }
+}
+
+@mixin defaultRadioButton(){
+    -webkit-appearance: none;
+    position: absolute;
+}
+
+@mixin defaultButton(){
+    @include defaultBorder();
+    color: $gray2;
+    background-color: $gray1;
+
+    &:hover{
+        @include defaultHover()
+    }
+}
+
+@mixin defaultInput($width: 270px){
+    @include defaultBorder();
+    width: $width;
+    margin: 10px 15px 10px 0;
+    padding: 10px 15px;
+    font-size: 14px;
+    &:hover{
+        @include defaultHover()
+    }
+}
+
+@mixin defaultInputValidation(){
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px);
+    background-size: 15px;
+
+    &:valid {
+        background-image: url("../img/success.png");
+    }
+    &:invalid {
+        background-image: url("../img/fail.png");
+    }
+}
+
+@mixin defaultIcon($top, $left, $src){
+    display: block;
+    width: 22px;
+    height: 22px;
+    top: $top;
+    left: $left;
+    background-size: 22px;
+    background-image: url($src);
+    position: absolute;
+}
+
+@mixin defaultChecked($top, $left){
+    outline: 6px solid $blue;
+    outline-offset: -5px;
+    position: relative;
+
+    &:before{
+        top: $top;
+        left: $left;
+        width: 32px;
+        height: 32px;
+        content: '';
+        border-radius: 50%;
+        background-color: $blue;
+        background-image: url(../img/check-mark.png);
+        background-repeat: no-repeat;
+        background-size: 18px;
+        background-position: center;
+        position: absolute;
+    }
+}
