@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Order form</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.min.css">
+  </head>
+  <body>
+
+    <header class="header">
+      <div class="wrapper header__flex">
+        <button class="button" type="button">
+          <span class="button__icon icon-left"></span>
+          <p class="button__text">Go back</p>
+        </button>
+        <a class="header__logo" href="index.html">
+          <img src="images/logo-h.png" alt="logo">
+        </a>
+        <button class="button" type="button">
+          <span class="button__icon icon-user"></span>
+          <p class="button__text">Sign in</p>
+        </button>
+      </div>
+    </header>
+
+    <form class="order-form" id="order-form">
+      <div class="container-row">
+
+        <section class="checkout">
+          <div class="container">
+            <header class="head">
+              <span class="head__icon icon-compass"></span>
+              <h3 class="head__title">Your order</h3>
+            </header>
+            <div class="table">
+              <div class="table__col">
+                <h4 class="table__title">Items</h4>
+                <p class="table__value">2 documents</p>
+              </div>
+              <div class="table__col">
+                <h4 class="table__title">Details</h4>
+                <p class="table__value">2 languages</p>
+              </div>
+              <div class="table__col">
+                <h4 class="table__title">Price</h4>
+                <p class="table__value">$ 696.06</p>
+              </div>
+              <div class="table__col">
+                <h4 class="table__title">Delivery</h4>
+                <p class="table__value">48 hours*</p>
+              </div>
+            </div>
+          </div>
+          <div class="container-btn">
+            <button class="checkout__button button button--cyan" type="submit">
+              <p class="button__text">Place order</p>
+            </button>
+            <button class="checkout__button button button--grey" type="button">
+              <p class="button__text">Print a quote</p>
+            </button>
+          </div>
+        </section>
+
+        <section class="help-info">
+          <header class="head">
+            <span class="head__icon icon-lifebuoy"></span>
+            <h3 class="head__title">Help center</h3>
+          </header>
+          <p class="help-info__text">If you need assistance while placing your order, contact one of our beloved Project Manager by phone or email</p>
+          <address class="help-info__address">
+            <a class="help-info__tel" href="tel:+971044278128">+971 (0) 44278128</a>
+            <a class="help-info__mail" href="mailto:help@qtest.com">help@qtest.com</a>
+          </address>
+        </section>
+
+      </div>
+
+      <section class="choosing-translation">
+        <h2 class="choosing-translation__title">Select what you want to translate</h2>
+        <ul class="translation-list">
+          <label for="website">
+            <input class="choosing-translation__input" type="radio" name="translation" id="website" required>
+            <li class="translation-list__item">
+              <img src="images/website.png" alt="website">
+              <h3 class="translation-list__title">Website</h3>
+              <div class="translation-list__circle">
+                <span class="icon-ok"></span>
+              </div>
+            </li>
+          </label>
+          <label for="documents">
+            <input class="choosing-translation__input" type="radio" name="translation" id="documents" required>
+            <li class="translation-list__item">
+              <img src="images/document.png" alt="document">
+              <h3 class="translation-list__title">Documents</h3>
+              <div class="translation-list__circle">
+                <span class="icon-ok"></span>
+              </div>
+            </li>
+          </label>
+          <label for="account">
+            <input class="choosing-translation__input" type="radio" name="translation" id="account" required>
+            <li class="translation-list__item">
+              <img src="images/account.png" alt="account">
+              <h3 class="translation-list__title">Account</h3>
+              <div class="translation-list__circle">
+                <span class="icon-ok"></span>
+              </div>
+            </li>            
+          </label>
+        </ul>
+      </section>
+
+      <section class="uploading-documents">
+        <header class="heading">
+          <div class="heading__circle">1</div>
+          <h2 class="heading__title">Upload your documents</h2>
+          <p class="heading__desc">(Doc, Docx, Text, PDF, Markdown)</p>
+        </header>
+        <input type="file" name="file" id="file" class="uploading-documents__file-input">
+        <label for="file">
+          <div class="uploading-documents__btn">
+            <span class="icon-upload-cloud"></span>
+            <p class="uploading-documents__btn-text">Upload a new file</p>
+          </div>
+        </label>
+        <table class="file-table">
+          <thead class="file-table__head">
+            <tr class="file-table__row">
+              <th>File name</th>
+              <th>File size</th>
+              <th>Number of words</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody class="file-table__body">
+            <tr class="file-table__row">
+              <td class="file-table__cell" data-label="File name:">
+                <span class="file-table__icon icon-clipboard"></span>
+                business_operations.docx
+              </td>
+              <td class="file-table__cell" data-label="File size:">
+                78kb
+              </td>
+              <td class="file-table__cell" data-label="Number of words:">
+                842
+              </td>
+              <td class="file-table__cell" data-label="Remove:">
+                <button type="button" class="file-table__btn">
+                  <span class="icon-trash"></span>
+                </button>
+              </td>
+            </tr>
+            <tr class="file-table__row">
+              <td class="file-table__cell"  data-label="File name:">
+                <span class="file-table__icon icon-clipboard"></span>
+                business_financial.docx
+              </td>
+              <td class="file-table__cell" data-label="File size:">
+                26kb
+              </td>
+              <td class="file-table__cell" data-label="Number of words:">
+                2.326
+              </td>
+              <td class="file-table__cell" data-label="Remove">
+                <button type="button" class="file-table__btn">
+                  <span class="icon-trash"></span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="chosing-lang-pairings">
+        <header class="heading">
+          <div class="heading__circle">2</div>
+          <h2 class="heading__title">Choose your languages pairings</h2>
+        </header>
+        <div class="chosing-lang-pairings__from">
+          <p class="chosing-lang-pairings__text">from</p>
+          <select class="chosing-lang-pairings__select">
+            <option>English</option>
+            <option>Arabic</option>
+            <option>Kurdish</option>
+            <option>Ukrainian</option>
+          </select>
+        </div>
+        <div class="chosing-lang-pairings__to">
+            <p class="chosing-lang-pairings__text1">to</p>
+            <select class="chosing-lang-pairings__select">
+              <option>Arabic</option>
+              <option>English</option>
+              <option>Kurdish</option>
+              <option>Ukrainian</option>
+            </select>
+            <div class="chosing-lang-pairings__container">
+              <select class="chosing-lang-pairings__select">
+                <option>Kurdish</option>
+                <option>English</option>
+                <option>Arabic</option>
+                <option>Ukrainian</option>
+              </select>
+              <button type="button" class="chosing-lang-pairings__remove-btn">
+                <span class="icon-trash"></span>
+              </button>
+            </div>
+            <button type="button" class="chosing-lang-pairings__add-btn">
+              <span class="icon-plus"></span>
+              Add
+            </button>
+        </div>
+      </section>
+
+      <div class="section-wrap">
+        <section class="selecting-tone">
+          <header class="heading">
+            <div class="heading__circle">3</div>
+            <h2 class="heading__title">Select your desired tone</h2>
+          </header>
+          <ul class="tone-list">
+            <label for="tone-casual">
+              <input type="radio" id="tone-casual" name="tone" class="tone-list__input" required>
+              <li class="tone-list__item">
+                <span class="icon-chat"></span>
+                <p class="tone-list__text">Friendly / Casual</p>
+                <div class="tone-list__circle">
+                  <span class="icon-ok"></span>
+                </div>
+              </li>
+            </label>
+            <label for="tone-pro">
+              <input type="radio" id="tone-pro" name="tone" class="tone-list__input" required>
+              <li class="tone-list__item">  
+                <span class="icon-suitcase"></span>
+                <p class="tone-list__text">Corporate / Pro</p>
+                <div class="tone-list__circle">
+                  <span class="icon-ok"></span>
+                </div>
+              </li>
+            </label>
+            <label for="tone-formal">
+              <input type="radio" id="tone-formal" name="tone" class="tone-list__input" required>
+              <li class="tone-list__item">  
+                <span class="icon-megaphone"></span>
+                <p class="tone-list__text">Media / Formal</p>
+                <div class="tone-list__circle">
+                  <span class="icon-ok"></span>
+                </div>
+              </li>
+            </label>
+          </ul>
+        </section>
+        <section class="job-urgency">
+          <header class="heading">
+            <div class="heading__circle">4</div>
+            <h2 class="heading__title">Tell us how urgent this work is</h2>
+          </header>
+          <div class="job-urgency__range">
+            <input type="range" min="0" max="2" step="1" value="1">
+            <p class="job-urgency__not-urgency">I got time</p>
+            <p class="job-urgency__average">Average</p>
+            <p class="job-urgency__urgency">Yesterday</p> 
+          </div>
+          <figure class="timeline-info">
+            <header class="timeline-info__head head">
+              <span class="head__icon icon-info"></span>
+              <h3 class="head__title">Timeline info</h3>
+            </header>
+            <p class="timeline-info__text">
+              With an <span class="timeline-info--yellow">Average</span> timeline set up, our expert translator can take a reesobable amount of time perfecting your translation.
+            </p>
+          </figure>
+        </section>
+      </div>
+
+      <section class="sign-up">
+        <header class="heading">
+          <div class="heading__circle">5</div>
+          <h2 class="heading__title">Sign up and choose a payment method</h2>
+        </header>
+        <p class="sign-up__text">
+          Already have an account with us?
+          <a href="#" class="sign-up__link">Sign in.</a>
+        </p>
+        <label for="full-name" class="sign-up__label">
+          <p class="sign-up__title">Full name</p>
+          <input 
+            type="text" 
+            name="full-name" 
+            id="full-name" 
+            class="sign-up__input" 
+            placeholder="Mathieu Mayer"
+            pattern="^[A-Za-z_]{1,20}$" 
+            required
+          >
+        </label>
+        <div class="sign-up__container">
+          <label for="email" class="sign-up__label">
+            <p class="sign-up__title">Email address</p>
+            <input 
+              type="mail" 
+              name="email" 
+              id="email" 
+              class="sign-up__input" 
+              placeholder="mathieu.mm@me.com"
+              required
+            >
+            </label>
+          <label for="password" class="sign-up__label">
+            <p class="sign-up__title">Choose a password</p>
+            <input 
+              type="password" 
+              name="password" 
+              id="password" 
+              class="sign-up__input"
+              pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+              placeholder="Must be (A-Z, a-z and 0-9)"
+              required
+            >
+          </label>
+        </div>
+        <ul class="card-list">
+          <label for="visa">
+            <input 
+              class="card-list__input" 
+              type="radio" 
+              name="card" 
+              id="visa"
+              required
+            >
+            <li class="card-list__item">
+              <img src="images/visa.png" alt="visa">
+              <div class="card-list__circle">
+                <span class="icon-ok"></span>
+              </div>
+            </li>
+          </label>
+          <label for="paypal">
+            <input 
+              class="card-list__input" 
+              type="radio" 
+              name="card"
+              id="paypal"
+              required
+            >
+            <li class="card-list__item">
+              <img src="images/paypal.png" alt="paypal">
+              <div class="card-list__circle">
+                <span class="icon-ok"></span>
+              </div>
+            </li>
+          </label>
+          <label for="amazon">
+            <input 
+              class="card-list__input" 
+              type="radio" 
+              name="card" 
+              id="amazon"
+              required
+            >
+            <li class="card-list__item">
+              <img src="images/amazon.png" alt="amazon">
+              <div class="card-list__circle">
+                <span class="icon-ok"></span>
+              </div>
+            </li>            
+          </label>
+        </ul>
+        <div class="sign-up__container">
+            <label for="card-number" class="sign-up__label">
+              <p class="sign-up__title">Card number</p>
+              <input 
+                type="text" 
+                name="card-number" 
+                id="card-number" 
+                class="sign-up__input"
+                pattern="[0-9]{13,16}"
+                placeholder="Must be 13-16 digits"
+                required
+              >
+              </label>
+            <label for="card-date" class="sign-up__label">
+              <p class="sign-up__title">Expiry date</p>
+              <input 
+                type="date" 
+                name="card-date" 
+                id="card-date" 
+                class="sign-up__input sign-up__input--middle"
+                required
+              >
+            </label>
+            <label for="card-code" class="sign-up__label">
+              <p class="sign-up__title">code</p>
+              <input 
+              type="text" 
+              name="card-code" 
+              id="card-code" 
+              class="sign-up__input sign-up__input--small"
+              size="4"
+              pattern="[0-9]{3}"
+              placeholder="Must be 3 digits"
+              required>
+            </label>
+          </div>
+      </section>
+
+      <section class="accept">
+        <input type="checkbox" class="accept__checkbox" required>
+        <p class="accept__text">
+          I agree to the
+          <a href="#" class="sign-up__link">Terms & Conditions</a>
+        </p>
+        <div class="accept-container">
+          <button class="accept__button button button--cyan" type="submit">
+            <p class="button__text">Place order</p>
+          </button>
+          <button class="accept__button button button--grey" type="button">
+            <p class="button__text">Print a quote</p>
+          </button>
+        </div>
+    
+      </section>
+    </form>
+
+    <footer class="footer">
+      <div class="wrapper footer__flex">
+        <section class="about">
+          <header class="head">
+            <span class="head__icon icon-heart-empty"></span>
+            <h3 class="head__title">What we do</h3>
+          </header>
+          <p class="about__text">We provide a full range of language services including content development, document, website and social media eccounts translations.</p>
+        </section>
+        <address class="address">
+          <header class="head">
+            <span class="head__icon icon-compass"></span>
+            <h3 class="head__title">Our main office</h3>
+          </header>
+          <a class="address__location" href="#">Dubai, UAE</a>
+          <a class="address__location" href="#">P.P. Box: 502735</a>
+          <a class="address__tel" href="tel:+971044278128">Phone: +971 (0) 44278128</a>
+        </address>
+        <section class="social">
+          <header class="head">
+              <span class="head__icon icon-share"></span>
+              <h3 class="head__title">Connect with us</h3>
+          </header>
+          <ul class="social-list">
+            <li class="social-list__item">
+              <a href="#" class="social-list__link">
+                <span class="social-list__circle icon-facebook"></span>
+                Facebook
+              </a>
+            </li>
+            <li class="social-list__item">
+              <a href="#" class="social-list__link">
+                <span class="social-list__circle icon-twitter"></span>
+                Twitter
+              </a>
+            </li>
+            <li class="social-list__item">
+              <a href="#" class="social-list__link">
+                <span class="social-list__circle icon-linkedin"></span>
+                Linkedin
+              </a>
+            </li>
+          </ul>
+        </section>
+        <a class="footer__logo" href="index.html">
+          <img src="images/logo-f.png" alt="logo">
+        </a>
+      </div>
+    </footer>
+
+  </body>
+</html>

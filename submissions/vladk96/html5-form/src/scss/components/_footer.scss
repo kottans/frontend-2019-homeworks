@@ -1,0 +1,97 @@
+.footer {
+  margin-top: 7rem;
+  padding: 6rem 0;
+  background-color: #444a62;
+  color: #b9ccea;
+}
+
+.footer__flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.about,
+.address,
+.social {
+  padding-left: 50px;
+  flex-basis: 250px;
+}
+
+.head {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+
+.head__icon {
+  position: absolute;
+  top: -6px;
+  left: -50px;
+  font-size: 1.5rem;
+}
+
+.head__title {
+  margin: 0;
+  font-size: .9rem;
+  text-transform: uppercase;
+}
+
+.about__text {
+  font-size: .9rem;
+  font-style: italic;
+  line-height: 1.3;
+}
+
+.address {
+  font-style: normal;
+}
+
+.address__location,
+.address__tel {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: .9rem;
+  text-decoration: none;
+  color: #b9ccea;
+  transition: color .2s ease-in-out;
+}
+
+.social-list {
+  margin: 0;
+  padding: 0;
+}
+
+.social-list__item {
+  list-style: none;
+  margin-bottom: .9rem;
+}
+
+.social-list__link {
+  font-size: .9rem;
+  text-decoration: none;
+  color: #b9ccea;
+  transition: color .2s ease-in-out;
+}
+
+.address__location:hover,
+.address__tel:hover,
+.social-list__link:hover {
+  color: #5fcac6;
+}
+
+.social-list__link:hover .social-list__circle {
+  background-color: #5fcac6;
+}
+
+.social-list__circle {
+  padding: 2px;
+  background-color: #b9ccea;
+  border-radius: 50%;
+  color: #444a62;
+  transition: background-color .2s ease-in-out;
+}
+
+.footer__logo {
+  padding-left: 50px;
+  align-self: center;
+}

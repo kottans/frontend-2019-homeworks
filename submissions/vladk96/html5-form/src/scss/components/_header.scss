@@ -1,0 +1,28 @@
+.header {
+  padding: 4rem 0;
+
+  @media screen and (max-width: 1140px) {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+  @media screen and (max-width: 576px) {
+    padding: 2rem 0;
+  }
+}
+
+.header__flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (max-width: 576px) {
+    flex-direction: column;
+  }
+}
+
+.header__logo {
+
+  @media screen and (max-width: 576px) {
+    margin: 1rem 0;
+  }
+}
