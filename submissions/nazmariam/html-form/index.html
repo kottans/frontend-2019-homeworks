@@ -10,7 +10,10 @@
 <body>
     <header>
         <nav>
-
+            <div class="header-container">
+                <button class="form-button top-back">go back</button>
+                <button class="form-button top-sign">sign in</button>
+            </div>
         </nav>
     </header>
     <div class="wrapper">
@@ -40,27 +43,27 @@
                             </ul>
                         </div>
 
-                        <div class="buttons">
+                        <div class="process-order-buttons">
                             <input type="submit"
                                    class="order form-button"
                                    value="Place order">
-                            <button class="print form-button">Print a quote</button>
+                            <button class="print form-button"><span>Print a quote</span></button>
                         </div>
                     </nav>
-                    <div class="help-center">
+                    <address class="help-center">
                         <h3 class="help-title">Help center</h3>
                         <p class="help-text">If you need assistance while placing your order, contact one of our beloved Project Manager by phone or email.</p>
                         <div class="help-links">
                             <a href="tel:+9710555555">+971 (0) 555 555</a>
                             <a href="mailto:help@qtest.com">help@qtest.com</a>
                         </div>
-                    </div>
+                    </address>
                 </header>
                 <main class="main-form">
                     <div class="container">
                         <h1 class="main-title">Select what you want to translate</h1>
                     </div>
-                    <div class="first-area">
+                    <section class="first-area">
                         <fieldset>
                             <div class="container">
                                 <label class="type-label">
@@ -100,9 +103,9 @@
                             </div>
                         </fieldset>
 
-                    </div>
-                    <div class="second-area">
-                        <h2 class="area-title"><span class="title-number">1</span>Upload your documents <span>(Doc, Docx, Text, PDF, Markdown)</span></h2>
+                    </section>
+                    <section class="second-area">
+                        <h2 class="area-title"><span class="title-number">1</span>Upload your documents <span class="doc-types">(Doc, Docx, Text, PDF, Markdown)</span></h2>
                         <div class="container">
                             <label class="file-label">
                                 <input type="file"
@@ -113,8 +116,8 @@
                                        required>
                                 <span class="file-button form-button">Upload a new file</span>
                             </label>
-                            <div class="file-list">
-                                <div class="list-header">
+                            <ul class="file-list">
+                                <li class="list-header">
                                     <div class="file-name">
                                         File name
                                     </div>
@@ -127,8 +130,8 @@
                                     <div class="file-remove">
                                         Remove
                                     </div>
-                                </div>
-                                <div class="file-row">
+                                </li>
+                                <li class="file-row">
                                     <div class="file-name doc">
                                         business_operations.docx
                                     </div>
@@ -139,10 +142,10 @@
                                         842
                                     </div>
                                     <div class="file-remove">
-                                        <button class="del"></button>
+                                        <button class="del">delete</button>
                                     </div>
-                                </div>
-                                <div class="file-row">
+                                </li>
+                                <li class="file-row">
                                     <div class="file-name doc">
                                         business_financial.docx
                                     </div>
@@ -153,13 +156,13 @@
                                         2,326
                                     </div>
                                     <div class="file-remove">
-                                        <button class="del"></button>
+                                        <button class="del">delete</button>
                                     </div>
-                                </div>
-                            </div>
+                                </li>
+                            </ul>
                         </div>
-                        </div>
-                    <div class="third-area">
+                        </section>
+                    <section class="third-area">
                         <h2 class="area-title"><span class="title-number">2</span>Choose your languages pairings</h2>
                         <div class="container">
                             <div class="from-lang">
@@ -210,15 +213,15 @@
                                    </select>
 
                                </label>
-                               <button class="del"></button>
+                               <button class="del">delete</button>
                                <button class="form-button add">+ add</button>
                            </div>
 
                         </div>
 
-                    </div>
+                    </section>
                     <section class="fourth-fifth">
-                        <div class="fourth-area">
+                        <section class="fourth-area">
                             <h2 class="area-title"><span class="title-number">3</span>Select your desired tone</h2>
                             <div class="container">
                                 <fieldset class="fourth-fieldset">
@@ -247,8 +250,8 @@
                                 </fieldset>
                             </div>
 
-                        </div>
-                        <div class="fifth-area">
+                        </section>
+                        <section class="fifth-area">
                             <fieldset>
                                 <h2 class="area-title"><span class="title-number">4</span>Tell us how urgent this job is</h2>
                                 <label class="range-label">
@@ -270,7 +273,7 @@
                                     <p>With an <span class="orange">AVERAGE</span>  timeline set up, our expert translator can take a reasonable amount of time perfecting your translation</p>
                                 </div>
                             </fieldset>
-                        </div>
+                        </section>
 
                     </section>
 
@@ -420,7 +423,7 @@
                         </div>
 
                     </section>
-                    <div class="accept">
+                    <section class="accept">
                         <div class="container">
 
                                 <input type="checkbox"
@@ -430,17 +433,20 @@
                                        required>
 
                             <label for="agreement"  class="checkbox-label"><span>I agree to the <a class="terms" href="#">Terms & Conditions</a></span></label>
-                            <div class="buttons">
+                            <div class="process-order-buttons">
                                 <input type="submit"
                                        class="form-button order"
                                        value="Place order">
                                 <button class="form-button print">Print a quote</button>
                             </div>
                         </div>
-                    </div>
+                    </section>
                 </main>
             </form>
         </div>
     </div>
 </body>
+<footer>
+    <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+</footer>
 </html>

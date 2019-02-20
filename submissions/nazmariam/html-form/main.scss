@@ -13,9 +13,50 @@
 }
 body{
   color: $mainColor;
-}
-.wrapper{
   background-color: #d1d1d1;
+}
+.header-container{
+  padding: 32px 72px;
+  display: flex;
+  justify-content: space-between;
+  .form-button{
+    background-color: transparent;
+    border-color: $mainColorLight;
+    &:hover, :active{
+      background-color: rgba(178, 185, 212, 0.62);
+    }
+    &:focus{
+      border-color: $mainColor;
+    }
+  }
+}
+.top-back {
+  position: relative;
+  &::before {
+    position: absolute;
+    content: '';
+    top: 13px;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    background-color: $mainColorLight;
+    -webkit-mask-image: url(../images/left-arrow.svg);
+    mask-image: url(../images/left-arrow.svg);
+  }
+}
+.top-sign{
+  position: relative;
+  &::before {
+    position: absolute;
+    content: '';
+    top: 14px;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    background-color: $mainColorLight;
+    -webkit-mask-image: url(../images/user-silhouette.svg);
+    mask-image: url(../images/user-silhouette.svg);
+  }
 }
 a{
   color:$mainColor;
@@ -91,7 +132,7 @@ fieldset{
 .order-item-info{
   color: $mainColorLight;
 }
-.buttons{
+.process-order-buttons{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -133,12 +174,17 @@ fieldset{
   text-transform: uppercase;
   position: relative;
 }
-
 .help-links a{
   text-decoration: none;
   color: $mainColor;
   font-weight: 600;
   margin-right: 24px;
+  &:hover,:active{
+    color: $mainColorLight;
+  }
+  &:focus{
+    text-decoration: underline;
+  }
 }
 .help-title::before{
   position: absolute;
@@ -190,7 +236,9 @@ fieldset{
 .inp-type:checked ~ .type-button {
   border: 8px solid #75a7e1;
   border-radius: 4px;
-  margin: -7px;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 25px 89px;
 }
 .inp-type:checked ~ .fa-check-circle{
   display: inline;
@@ -220,6 +268,10 @@ fieldset{
   padding: 10px 18px;
   border-radius: 50%;
   margin: 0 15px 0 0;
+}
+.doc-types{
+  color: $mainColorLight;
+  font-size: 0.6em;
 }
 .file-button{
   text-transform: inherit;
@@ -280,6 +332,7 @@ fieldset{
   -webkit-mask-image: url(../images/003-trash.svg);
   mask-image: url(../images/003-trash.svg);
   align-items: center;
+  color: transparent;
 }
 .doc{
   position: relative;
@@ -570,7 +623,7 @@ input[type="date"]:valid:before {
   justify-content: flex-end;
   align-items: center;
 }
-.accept .buttons{
+.accept .process-order-buttons{
   flex-direction: row;
 }
 .print{
@@ -656,6 +709,12 @@ input[type="date"]:valid:before {
 }
 .fa, .fas{
   display: none;
+}
+
+footer{
+  display: flex;
+  justify-content: center;
+  margin: 32px;
 }
 //----------------------------------sixth area END----------------------
 @import 'media';
