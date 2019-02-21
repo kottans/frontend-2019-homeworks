@@ -1,0 +1,89 @@
+.btn {
+  padding: 20px 35px;
+  border: 1px solid $lightSteel;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:focus,
+  &:hover {
+    box-shadow: 0 0 0 2px $blue;
+    color: $blue;
+  }
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.btn-grey-upper-text {
+  text-transform: uppercase;
+  background-color: $whiteSmoke2;
+  color: $lightSteel;
+  transition: 0.3s;
+
+  &:focus,
+  &:hover {
+    box-shadow: 0 0 0 2px $blue;
+    color: $blue;
+  }
+}
+
+.btn-grey-normal-text {
+  color: $lightSteel;
+  background-color: $whiteSmoke;
+
+  &:focus,
+  &:hover {
+    box-shadow: 0 0 0 2px $blue;
+    color: $blue;
+  }
+}
+
+.btn-turq {
+  text-transform: uppercase;
+  background-color: $turq;
+  color: $white;
+  border: 1px solid $turq;
+  transition: 0.3s;
+
+  &:focus,
+  &:hover {
+    box-shadow: 0 0 0 2px $darkCyan;
+  }
+}
+
+.trash-btn {
+  appearance: none;
+  padding: 0;
+  border: 0;
+  display: inline-block;
+  background-color: $white;
+  display: inline-block;
+  color: $text-color;
+  font-size: 1.6rem;
+}
+
+.language__button {
+  appearance: none;
+  border: 1px solid $lightSteel;
+  text-transform: uppercase;
+  color: $text-color;
+  font-size: 1.4rem;
+  padding-right: 30px;
+  padding-left: 30px;
+  height: 50px;
+  border-radius: 3px;
+  background-color: $whiteSmoke;
+  cursor: pointer;
+  outline: 0;
+  transition: 0.3s;
+
+  &:focus,
+  &:hover {
+    box-shadow: 0 0 0 2px $blue;
+    color: $blue;
+  }
+}

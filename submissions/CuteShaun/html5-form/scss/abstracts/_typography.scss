@@ -1,0 +1,83 @@
+.main-heading {
+  display: inline-block;
+  margin: 0 auto;
+  padding-bottom: 7px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 6.5rem;
+  line-height: 1.2;
+  letter-spacing: 3px;
+  text-align: center;
+  color: $slate;
+  border-bottom: 1px solid $lightSteel;
+}
+
+.text {
+  color: $text-color;
+  font-size: 1.4rem;
+
+  &--no-mrg-btm {
+    margin-bottom: 0;
+  }
+
+  &__link {
+      text-decoration: underline;
+  }
+}
+
+.secondary-heading {
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: $slate;
+}
+
+.tertiary-heading {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: $slate;
+
+  &--no-mrg-top {
+    margin-top: 0;
+  }
+}
+
+.fourth-heading {
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: $slate;
+  margin-bottom: 35px;
+}
+
+.fifth-heading {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 10px;
+  opacity: 0.6;
+  color: $slate;
+
+  &--yellow {
+    color: $yellow;
+  }
+
+  &--no-mrg {
+    margin-bottom: 0;
+  }
+
+  &--payment {
+    margin-bottom: 8px;
+    display: block;
+  }
+}
+
+.add-heading {
+  font-size: 1.3rem;
+  opacity: 0.7;
+  margin-left: 10px;
+  font-weight: 300;
+  color: $slate;
+}

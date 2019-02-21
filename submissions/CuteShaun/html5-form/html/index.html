@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="fonts/css/font-awesome.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.min.css" />
+    <title>Form</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        @@include('./header.html')
+
+        <main class="inner-wrapper">
+          <section class="section order-detail">
+            <div class="order">
+              <h2 class="order__title secondary-heading">your order</h2>
+              <ul class="order__list">
+                <li class="order__list-item order__list-item--docs">
+                  <h3 class="tertiary-heading">items</h3>
+                  <span class="order__text">2 documents</span>
+                </li>
+                <li class="order__list-item order__list-item--lang">
+                  <h3 class="tertiary-heading">details</h3>
+                  <span class="order__text">2 languages</span>
+                </li>
+                <li class="order__list-item order__list-item--price">
+                  <h3 class="tertiary-heading">price</h3>
+                  <span class="order__text">$ 696.06</span>
+                </li>
+                <li class="order__list-item order__list-item--time">
+                  <h3 class="tertiary-heading">delivery</h3>
+                  <span class="order__text">48 hours*</span>
+                </li>
+              </ul>
+            </div>
+            <div class="button-box">
+              <button
+                class="btn btn-turq button-box__item--1"
+                form="translate"
+                type="submit"
+              >
+                place order
+              </button>
+              <button
+                class="btn btn-grey-upper-text button-box__item--2"
+                type="button"
+              >
+                print a quote
+              </button>
+            </div>
+            <div class="help">
+              <h2 class="help__title secondary-heading">
+                <span class="help__icon fa fa-life-ring"></span>help center
+              </h2>
+              <p class="help__text">
+                if you need assistance while placing your order, contact one of
+                our beloved Project Manager by phone or email.
+              </p>
+              <div class="help__link-box">
+                <a class="help__link" href="tel:+9710555555">+971(0)555 555</a>
+                <a class="help__link" href="mailto:help@qtest.com"
+                  >help@qtest.com</a
+                >
+              </div>
+            </div>
+          </section>
+
+          <form id="translate">
+            <div class="inner-container">
+              <section class="section translate-selection">
+                <h1 class="main-heading">SELECT WHAT YOU WANT TO TRANSLATE</h1>
+
+                <div class="service" role="group">
+                  <label for="web" class="service__select">
+                    <input
+                      id="web"
+                      type="radio"
+                      class="visually-hidden service__input"
+                      name="service-type"
+                      value="website"
+                      required
+                    />
+                    <span class="service__img-wrapper"
+                      ><img
+                        class="service__img"
+                        src="img/translate-1.jpg"
+                        alt="website"
+                      />
+                      <span class="service__text">Website</span>
+                    </span>
+                  </label>
+
+                  <label for="doc" class="service__select">
+                    <input
+                      id="doc"
+                      type="radio"
+                      class="visually-hidden service__input"
+                      name="service-type"
+                      value="documents"
+                      required
+                    />
+                    <span class="service__img-wrapper"
+                      ><img
+                        class="service__img"
+                        src="img/translate-2.jpg"
+                        alt="documents"
+                      />
+                      <span class="service__text">Documents</span>
+                    </span>
+                  </label>
+
+                  <label for="social" class="service__select">
+                    <input
+                      id="social"
+                      type="radio"
+                      class="visually-hidden service__input"
+                      name="service-type"
+                      value="social-account"
+                      required
+                    />
+                    <span class="service__img-wrapper"
+                      ><img
+                        class="service__img"
+                        src="img/translate-3.jpg"
+                        alt="social account"
+                      />
+                      <span class="service__text">Social account</span>
+                    </span>
+                  </label>
+                </div>
+              </section>
+
+              <section class="section documents">
+                <h4 class="fourth-heading">
+                  Upload your documents
+                  <span class="add-heading"
+                    >(Doc, Docx, Text, PDF, Markdown)</span
+                  >
+                </h4>
+
+                <div class="documents__button-wrapper">
+                  <input
+                    class="documents__input visually-hidden"
+                    type="file"
+                    name="file-upload"
+                    id="upload"
+                  />
+                  <label
+                    for="upload"
+                    class="documents__button btn btn-grey-normal-text"
+                  >
+                    <span class="fa fa-cloud-upload"></span>
+                    Upload a new file
+                  </label>
+                </div>
+
+                <div class="documents__table">
+                  <div class="documents__name">
+                    <h5 class="fifth-heading">
+                      File name
+                    </h5>
+
+                    <span class="documents__text">
+                      <span class="documents__icon fa fa-file-text"></span>
+                      business_operations.docx
+                    </span>
+
+                    <span class="documents__text">
+                      <span class="documents__icon fa fa-file-text"></span>
+                      business_financial.docx
+                    </span>
+                  </div>
+
+                  <div class="documents__size">
+                    <h5 class="fifth-heading">
+                      File size
+                    </h5>
+
+                    <span class="documents__text">
+                      78kb
+                    </span>
+
+                    <span class="documents__text">
+                      26kb
+                    </span>
+                  </div>
+
+                  <div class="documents__words">
+                    <h5 class="fifth-heading">
+                      Number of words
+                    </h5>
+
+                    <span class="documents__text">
+                      2,326
+                    </span>
+
+                    <span class="documents__text">
+                      842
+                    </span>
+                  </div>
+
+                  <div class="documents__remove">
+                    <h5 class="fifth-heading">
+                      Remove
+                    </h5>
+
+                    <button class="trash-btn documents__button" type="button">
+                      <span
+                        class="documents__text trash-icon documents__icon fa fa-trash"
+                      >
+                      </span>
+                    </button>
+
+                    <button class="trash-btn documents__button" type="button">
+                      <span
+                        class="documents__text trash-icon documents__icon fa fa-trash"
+                      >
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section language">
+                <h4 class="fourth-heading">Choose your languages pairings</h4>
+                <div class="language__row">
+                  <label
+                    for="from"
+                    class="fifth-heading fifth-heading--no-mrg language__label language__label--from"
+                    >from</label
+                  >
+                  <div class="language__select-wrapper language__item">
+                    <select
+                      class="text language__select"
+                      name="language-1"
+                      id="from"
+                    >
+                      <option value="english">English</option>
+                      <option value="ukrainian">Ukrainian</option>
+                      <option value="kurdish">Kurdish</option>
+                      <option value="russian">Russian</option>
+                      <option value="french">French</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="language__row">
+                  <label
+                    for="to"
+                    class="fifth-heading fifth-heading--no-mrg language__label language__label--to"
+                    >to</label
+                  >
+                  <div class="language__selects">
+                    <div
+                      class="language__item language__item--1 language__select-wrapper"
+                    >
+                      <select
+                        class="text language__select"
+                        name="language-2"
+                        id="to"
+                      >
+                        <option value="kurdish">Kurdish</option>
+                        <option value="ukrainian">Ukrainian</option>
+                        <option value="russian">Russian</option>
+                        <option value="french">French</option>
+                      </select>
+                    </div>
+                    <div
+                      class="language__item language__item--2 language__select-wrapper"
+                    >
+                      <select
+                        class="text language__select"
+                        name="language-3"
+                        id="additional-language"
+                      >
+                        <option value="ukrainian">Ukrainian</option>
+                        <option value="kurdish">Kurdish</option>
+                        <option value="russian">Russian</option>
+                        <option value="french">French</option>
+                      </select>
+                    </div>
+                    <button
+                      class="trash-btn language__item language__item--3"
+                      type="button"
+                    >
+                      <span class="trash-icon fa fa-trash"></span>
+                    </button>
+                    <button
+                      class="language__item language__item--4 language__button"
+                      type="button"
+                    >
+                      <span class="fa fa-plus language__plus"></span>add
+                    </button>
+                  </div>
+                </div>
+              </section>
+              <section class="section section-group">
+                <div class="tone">
+                  <h4 class="tone__title fourth-heading">
+                    Select your desired tone
+                  </h4>
+                  <div class="tone__buttons">
+                    <input
+                      type="radio"
+                      name="tone__radio"
+                      id="friend"
+                      value="friendly-casual"
+                      class="visually-hidden tone__input"
+                      required
+                    />
+                    <label class="tone__label" for="friend">
+                      <span class="tone__icon fa fa-comments"></span>
+                      Friendly / Casual
+                    </label>
+                  </div>
+                  <div class="tone__buttons">
+                    <input
+                      type="radio"
+                      name="tone__radio"
+                      id="corporate"
+                      value="corporate-pro"
+                      class="visually-hidden tone__input"
+                      required
+                    />
+                    <label class="tone__label" for="corporate">
+                      <span class="tone__icon fa fa-suitcase"></span>
+                      Corporate / Pro
+                    </label>
+                  </div>
+                  <div class="tone__buttons">
+                    <input
+                      type="radio"
+                      name="tone__radio"
+                      id="media"
+                      value="media-formal"
+                      class="visually-hidden tone__input"
+                      required
+                    />
+                    <label class="tone__label" for="media">
+                      <span class="tone__icon fa fa-bullhorn"> </span>
+                      Media / Formal
+                    </label>
+                  </div>
+                </div>
+                <div class="urgent">
+                  <h4 class="urgent__title fourth-heading">
+                    Tell us how urgent this job is
+                  </h4>
+
+                  <div class="urgent-timeline">
+                    <input
+                      type="range"
+                      name="range-slider"
+                      id="urgent-timeline__range"
+                      min="0"
+                      max="100"
+                      step="25"
+                      value="50"
+                      class="urgent-timeline__input"
+                    />
+
+                    <label
+                      for="urgent-timeline__range"
+                      class=" urgent-timeline__label fifth-heading"
+                      >i got time</label
+                    >
+                    <label
+                      for="urgent-timeline__range"
+                      class="urgent-timeline__label fifth-heading fifth-heading--yellow"
+                      >average</label
+                    >
+                    <label
+                      for="urgent-timeline__range"
+                      class="urgent-timeline__label fifth-heading"
+                      >yesterday</label
+                    >
+                  </div>
+
+                  <div class="urgent-info">
+                    <h3
+                      class="urgent-info__title tertiary-heading tertiary-heading--no-mrg-top"
+                    >
+                      timeline info
+                    </h3>
+
+                    <p class="urget-info__text text text--no-mrg-btm">
+                      With an
+                      <span class="fifth-heading fifth-heading--yellow"
+                        >average</span
+                      >
+                      timeline set up, our expert translator can take a
+                      reasonable amount of time perfecting y our translation
+                    </p>
+                  </div>
+                </div>
+              </section>
+              <section class="section user">
+                <h4 class="user__title fourth-heading">
+                  Sign up and choose a payment method
+                </h4>
+
+                <span class="user__text text"
+                  >Already have account with us?
+                  <a href="#" class="text text__link">Sign in.</a></span
+                >
+
+                <div class="user__input-wrapper-outer">
+                  <div class="user__input-wrapper-inner">
+                    <label
+                      class="fifth-heading fifth-heading--payment user__label"
+                      for="full-name"
+                      >Full name</label
+                    >
+                    <input
+                      class="user__input"
+                      type="text"
+                      placeholder="Kottan Kottanko"
+                      name="name-surname"
+                      id="full-name"
+                      pattern="^[a-zA-Z ,.'-]+$"
+                      minlength="3"
+                      required
+                    />
+
+                    <span class="status-icon"></span>
+                  </div>
+                </div>
+
+                <div class="user__input-wrapper-outer">
+                  <div class="user__input-wrapper-inner">
+                    <label
+                      class="fifth-heading fifth-heading--payment user__label"
+                      for="email-input"
+                      >Email adress</label
+                    >
+                    <input
+                      class="user__input"
+                      type="text"
+                      placeholder="example@gmail.com"
+                      name="email"
+                      id="email-input"
+                      required
+                    />
+
+                    <span class="status-icon"></span>
+                  </div>
+
+                  <div class="user__input-wrapper-inner">
+                    <label
+                      class="fifth-heading fifth-heading--payment user__label"
+                      for="input-password"
+                      >Choose a password</label
+                    >
+                    <input
+                      class="user__input"
+                      type="password"
+                      placeholder="password"
+                      name="input-pass"
+                      id="input-password"
+                      minlength="6"
+                      required
+                    />
+
+                    <span class="status-icon"></span>
+                  </div>
+                </div>
+
+                <div class="user__payment">
+                  <input
+                    class="visually-hidden user__payment-input"
+                    type="radio"
+                    name="choose-payment"
+                    id="cards"
+                    required
+                  />
+
+                  <label class="user__payment-label" for="cards">
+                    <img src="img/visa.jpg" alt="visa" />
+                    <img src="img/mastercard.jpg" alt="mastercard" />
+                  </label>
+
+                  <input
+                    class="visually-hidden user__payment-input"
+                    type="radio"
+                    name="choose-payment"
+                    id="paypal"
+                    required
+                  />
+
+                  <label class="user__payment-label" for="paypal">
+                    <img src="img/paypal.jpg" alt="paypal" />
+                  </label>
+
+                  <input
+                    class="visually-hidden user__payment-input"
+                    type="radio"
+                    name="choose-payment"
+                    id="amazon"
+                    required
+                  />
+
+                  <label class="user__payment-label" for="amazon">
+                    <img src="img/amazon.jpg" alt="amazon" />
+                  </label>
+                </div>
+
+                <div class="user__card">
+                  <div class="user__input-wrapper-inner">
+                    <label
+                      class="fifth-heading fifth-heading--payment user__label"
+                      for="card-number"
+                      >Card number</label
+                    >
+                    <input
+                      class="user__input"
+                      type="text"
+                      placeholder=""
+                      name="input-card-num"
+                      id="card-number"
+                      pattern="^[0-9]+$"
+                      minlength="10"
+                      maxlength="20"
+                      required
+                    />
+
+                    <span class="status-icon"></span>
+                  </div>
+
+                  <div class="user__input-wrapper-inner">
+                    <label
+                      class="fifth-heading fifth-heading--payment user__label"
+                      for="date-picker"
+                      >Expiry date</label
+                    >
+                    <input
+                      class="user__input"
+                      type="date"
+                      name="input-date"
+                      id="date-picker"
+                      min="2018-01-01"
+                      max="2030-01-01"
+                      required
+                    />
+
+                    <span class="status-icon"></span>
+                  </div>
+
+                  <div class="user__input-wrapper-inner">
+                    <label
+                      class="fifth-heading fifth-heading--payment user__label"
+                      for="code"
+                      >Code</label
+                    >
+                    <input
+                      class="user__input"
+                      type="text"
+                      placeholder=""
+                      name="card-code"
+                      id="code"
+                      minlength="3"
+                      maxlength="9"
+                      pattern="^[0-9]+$"
+                      required
+                    />
+
+                    <span class="status-icon"></span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section terms">
+                <input
+                  class="terms__input "
+                  type="checkbox"
+                  name="rules"
+                  id="conditions"
+                  required
+                />
+                <label class="terms__label" for="conditions">
+                  I agree to the
+                  <a class="terms__link" href="#">Terms & Conditions</a>
+                </label>
+
+                <button
+                  class="terms__btn terms__btn--1 btn btn-turq"
+                  form="translate"
+                  type="submit"
+                >
+                  place order
+                </button>
+                <button
+                  class="terms__btn terms__btn--2 btn btn-grey-upper-text"
+                  type="button"
+                >
+                  print a quote
+                </button>
+              </section>
+            </div>
+          </form>
+        </main>
+      </div>
+    </div>
+
+    @@include('./footer.html')
+  </body>
+</html>

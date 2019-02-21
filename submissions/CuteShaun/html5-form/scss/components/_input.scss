@@ -1,0 +1,55 @@
+.status-icon {
+  display: block;
+  width: 0;
+  height: 0;
+
+  &:after {
+    font-size: 14px;
+    color: $white;
+    position: absolute;
+    font-family: FontAwesome;
+    font-weight: 900;
+    top: 50%;
+    right: 12px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    width: 24px;
+    line-height: 24px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+  }
+}
+
+
+.user__input {
+  min-height: 53px;
+  min-width: 250px;
+  padding: 15px 50px 15px 15px;
+  border: 1px solid $lightSteel;
+  border-radius: 3px;
+  font-size: 1.4rem;
+  color: $slate;
+
+  &::placeholder {
+    color: $slate;
+  }
+
+  &:focus {
+    &:invalid {
+      & + .status-icon:after {
+        content: "\f00d";
+        background: $red;
+      }
+    }
+  }
+
+  &:valid {
+    & + .status-icon:after {
+      content: "\f058";
+      background: $white;
+      color: $blue;
+      font-size: 25px;
+    }
+  }
+}
