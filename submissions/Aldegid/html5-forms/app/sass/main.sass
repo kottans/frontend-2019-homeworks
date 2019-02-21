@@ -21,6 +21,9 @@ body
 	box-sizing: border-box
 	color: $text
 
+.text-uppercase
+	text-transform: uppercase
+
 .container
 	background-color: #eceef4
 	padding-bottom: 120px
@@ -169,7 +172,7 @@ body
 
 .form__body
 	max-width: 900px
-	margin: auto
+	margin: 0 auto
 	margin-top: 100px
 	text-align: center
 
@@ -197,8 +200,10 @@ body
 		margin: 30px auto 100px
 		display: flex
 		flex-direction: row
-		justify-content: space-around
+		justify-content: space-between
 		flex-wrap: wrap
+		width: 100%
+
 
 .label
 		display: block
@@ -208,7 +213,7 @@ body
 		position: relative
 		box-sizing: border-box
 		box-shadow: 0 0 2px 1px $bordercolor
-		margin: 0 10px 25px 0
+		margin-bottom: 25px
 
 .label--size-translate
 		width: 280px
@@ -294,9 +299,8 @@ input[type=radio]:checked + .label__image-wrapper
 
 .step__title
 	font-size: 24px
-	margin-left: 25px
+	margin: 0 15px 0 25px
 	display: inline-block
-	margin-right: 15px
 
 .step__desc
 	color: $text-light
@@ -367,7 +371,7 @@ input[type=radio]:checked + .label__image-wrapper
 .upload__table-file
 	margin-left: 20px
 
-.languages-pairing__wrapper
+.languages__pairing-wrapper
 	text-align: left
 	margin-top: 120px
 
@@ -436,6 +440,17 @@ input[type=radio]:checked + .label__image-wrapper
 	align-items: center
 	flex-wrap: wrap
 
+.languages__pairing-inner
+	display: flex
+	align-items: center
+	flex-wrap: wrap
+
+.languages__pairing-item
+	&:first-child
+		width: 100%
+
+.select__wrapper-more
+	width: 183px
 .language__delete
 	.fa
 		color: $text-light
@@ -445,10 +460,18 @@ input[type=radio]:checked + .label__image-wrapper
 	cursor: pointer
 	display: block
 	padding: 3px
-	&:hover
-		color: $text
+	border: none
+	padding: 0
+	margin: 0
+	background-color: #fff
 	&:focus
-		box-shadow: 0px 0px 2px 1px #83A8E5
+		outline: none
+		box-shadow: 0 0 2px 3px #7da8e3
+	.fa
+		&:hover
+			color: $text
+		&:focus
+			box-shadow: 0px 0px 2px 1px #83A8E5
 
 .language__add
 	border-radius: 5px
@@ -524,6 +547,7 @@ input[type=radio]:checked + .label__image-wrapper
 	width: 85%
 	position: relative
 	appearance: none
+	cursor: pointer
 
 .range__input::before,
 .range__input::after
@@ -668,6 +692,7 @@ input[type=radio]:checked + .label__image-wrapper
 		font-size: 30px
 		color: $text-light
 
+
 .credit__card
 	display: flex
 	flex-wrap: wrap
@@ -705,11 +730,74 @@ input[type=radio]:checked + .label__image-wrapper
 .form__footer-accept
 	cursor: pointer
 
+.accept__terms
+	display: flex
+	align-items: center
+
+.accept__terms-label
+	padding-left: 7px
+
 .accept__terms-link
 	color: $text
 	&:hover, &:active
 		color: #000000
 
+/*********** custom checkbox start***********/
+
+.checkbox-label-wrapper
+	cursor: pointer
+	display: flex
+	position: relative
+
+.checkbox-label-wrapper:hover
+	text-decoration: underline
+
+.checkbox-wrapper
+	width: 250px
+	margin: 50px auto
+	line-height: 1.4
+	font-size: 50px
+
+.checkbox-label
+	margin-right: 5px
+
+.checkbox-label::before
+	content: ''
+	display: block
+	width: 18px
+	height: 18px
+	box-shadow: 0 0 2px 1px #cad0e2
+	position: absolute
+	bottom: 2px
+	left: 15px
+	border-radius: 3px
+
+.checkbox-label::after
+	content: ''
+	display: block
+	width: 0
+	height: 0
+	border: 3px solid transparent
+	border-top: none
+	border-right: none
+	position: absolute
+	top: 6px
+	left: 14px
+	transform: rotate(-45deg)
+	transform-origin: top left
+	will-change: width, height
+	box-sizing: border-box
+
+input[type=checkbox]:checked + .checkbox-label::after
+	border-color: $text
+	width: 21px
+	height: 15px
+	transition: height 0.25s ease-out, width 0.25s ease-out 0.25s
+
+.input:focus + .checkbox-label::before
+	box-shadow: 0 0 3px 2px #7DA7E3
+
+/*********** custom checkbox end***********/
 
 /***********page  footer start ***********/
 
@@ -717,27 +805,29 @@ input[type=radio]:checked + .label__image-wrapper
 	background-color: #454a63
 	color: $text-light
 	box-sizing: border-box
+	font-size: 12px
 
 .footer__main-container
 	display: flex
 	flex-wrap: wrap
-	justify-content: space-around
+	justify-content: space-between
 	align-items: center
 	max-width: 1200px
 	margin: 0 auto
-	padding: 10% 15px 5% 15px
+	padding: 10% 0 5% 0
 
 .footer__main-header
 	display: flex
+	align-items: center
 	font-weight: bold
 	.fa
 		font-size: 30px
-		margin-right: 30px
+		margin-right: 25px
 
 .footer__main-item
 	max-width: 25%
 	min-height: 150px
-	width: 200px
+	width: 250px
 
 .what-we-do
 	p
@@ -749,20 +839,20 @@ input[type=radio]:checked + .label__image-wrapper
 	.contacts__phone
 		color: #b5b9d9
 	.location-p
-		margin: 5px 0 0 55px
+		margin: 5px 0 0 51px
 
 .logo
-	text-align: center
+	text-align: right
 	.fa
 		font-size: 130px
 
 .social
-	margin: 5px 0 0 55px
+	margin: 5px 0 0 50px
 	position: relative
 	.fa
-		padding: 8px
-		font-size: 12px
-		width: 12px
+		padding: 6px
+		font-size: 10px
+		width: 10px
 		text-align: center
 		text-decoration: none
 		border-radius: 50%
