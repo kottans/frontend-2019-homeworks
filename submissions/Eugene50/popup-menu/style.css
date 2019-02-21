@@ -53,6 +53,14 @@ img {
    margin-left: 0px;
 }
 
+#main-checkbox {
+   position: absolute;
+   clip: rect(0 0 0 0);
+   width: 1px;
+   height: 1px;
+   margin: -1px;
+  }
+
 #main-checkbox:checked ~ label {
    display: block;
    width: 20px;
@@ -68,8 +76,11 @@ img {
 }
 
 #sub-checkbox {
-   opacity: 0;
-   margin-top: -30px;
+   position: absolute;
+   clip: rect(0 0 0 0);
+   width: 1px;
+   height: 1px;
+   margin: -1px;
 }
 
 #sub-checkbox:focus ~ .more-label p {
@@ -134,10 +145,6 @@ img {
    border-radius: 180px;
 }
 
-#main-checkbox {
-   opacity: 0;
-}
- 
 .menu-icon {
    cursor: pointer;
    margin-top: -10px;
@@ -145,10 +152,6 @@ img {
 
 .menu-item a:hover {
    text-decoration: underline;
-}
-
-.blog {
-   margin-right: -40px;
 }
 
 .more-label p {
