@@ -451,7 +451,7 @@ body:not(:-moz-handler-blocked) fieldset {
   padding: 0;
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .header-nav {
     justify-content: center;
   }
@@ -462,7 +462,7 @@ body:not(:-moz-handler-blocked) fieldset {
   height: 100px;
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .header-home {
     order: -1;
     flex-basis: 100%;
@@ -486,7 +486,7 @@ body:not(:-moz-handler-blocked) fieldset {
   display: block;
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .header-btn {
     margin: 5px 10px;
   }
@@ -519,7 +519,7 @@ body:not(:-moz-handler-blocked) fieldset {
   border-radius: 5px;
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .layout__wrapper {
     margin-top: 50px;
   }
@@ -529,7 +529,7 @@ body:not(:-moz-handler-blocked) fieldset {
   padding: 60px 105px;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .layout__form {
     padding: 60px 40px;
   }
@@ -539,7 +539,7 @@ body:not(:-moz-handler-blocked) fieldset {
   margin-top: 80px;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .layout__row + .layout__row {
     margin-top: 120px;
   }
@@ -549,7 +549,7 @@ body:not(:-moz-handler-blocked) fieldset {
   display: flex;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .layout__row_flex {
     flex-wrap: wrap;
     justify-content: center;
@@ -569,7 +569,7 @@ body:not(:-moz-handler-blocked) fieldset {
   margin: 20px 0 20px 30px;
 }
 
-@media screen and (max-width: 1200px) {
+@media (max-width: 1200px) {
   .order__wrapper {
     flex-grow: 1;
   }
@@ -580,7 +580,7 @@ body:not(:-moz-handler-blocked) fieldset {
   padding-left: 48px;
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .order__table {
     padding-left: 0;
   }
@@ -619,7 +619,7 @@ body:not(:-moz-handler-blocked) fieldset {
   margin: 20px;
 }
 
-@media screen and (max-width: 1200px) {
+@media (max-width: 1200px) {
   .action-buttons {
     order: 1;
     display: flex;
@@ -644,7 +644,7 @@ body:not(:-moz-handler-blocked) fieldset {
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
-  transition: all 275ms ease-in-out;
+  transition: all 225ms ease-in-out;
 }
 
 .action-buttons__btn:hover {
@@ -665,7 +665,7 @@ body:not(:-moz-handler-blocked) fieldset {
   border-left: 1px solid #c9d0e1;
 }
 
-@media screen and (max-width: 1200px) {
+@media (max-width: 1200px) {
   .help {
     border-left: none;
     flex-grow: 1;
@@ -754,67 +754,57 @@ body:not(:-moz-handler-blocked) fieldset {
   padding: 20px 80px;
   border: 1px solid #dadae3;
   margin: 15px;
-  cursor: pointer;
-  transition: all 275ms ease-in-out;
+  position: relative;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 0 transparent, 2px 2px 15px -4px transparent;
+  transition: all 225ms ease-in-out;
 }
 
 .translate__img-wrapper:hover {
-  box-shadow: 2px 2px 15px -4px #6e768f;
+  box-shadow: inset 0 0 0 0 transparent, 1px 1px 10px -3px #6e768f;
 }
 
-@media screen and (max-width: 600px) {
+.translate__img-wrapper::after {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  color: #76a7e1;
+  font-size: 30px;
+  z-index: 2;
+  font-family: "FontAwesome";
+  content: '\f058';
+  background: white;
+  line-height: 15px;
+  width: 22px;
+  height: 15px;
+  border-radius: 50%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 225ms ease-in-out;
+}
+
+@media (max-width: 600px) {
   .translate__img-wrapper {
     padding: 10px 50px;
   }
 }
 
 .translate__input:checked + .translate__img-wrapper {
-  border: 1px solid red;
-  box-shadow: inset 0px 0px 0px 6px #76a7e1;
-  border-radius: 4px;
-  border: 1px solid transparent;
-  position: relative;
-  transition: all 275ms ease-in-out;
+  box-shadow: inset 0 0 0 6px #76a7e1;
 }
 
-.translate__input:checked + .translate__img-wrapper:after {
-  position: absolute;
-  top: -4px;
-  right: -6px;
-  color: #76a7e1;
-  font-size: 30px;
-  z-index: 2;
-  font-family: "FontAwesome";
-  content: '\f058';
-  background: white;
-  line-height: 15px;
-  width: 22px;
-  height: 15px;
-  border-radius: 50%;
+.translate__input:checked + .translate__img-wrapper::after {
+  opacity: 1;
+  visibility: visible;
 }
 
 .translate__input:focus + .translate__img-wrapper {
-  box-shadow: inset 0px 0px 0px 6px #76a7e1;
-  border-radius: 4px;
-  border: 1px solid transparent;
-  position: relative;
-  transition: all 275ms ease-in-out;
+  box-shadow: inset 0 0 0 6px #76a7e1;
 }
 
-.translate__input:focus + .translate__img-wrapper:after {
-  position: absolute;
-  top: -4px;
-  right: -6px;
-  color: #76a7e1;
-  font-size: 30px;
-  z-index: 2;
-  font-family: "FontAwesome";
-  content: '\f058';
-  background: white;
-  line-height: 15px;
-  width: 22px;
-  height: 15px;
-  border-radius: 50%;
+.translate__input:focus + .translate__img-wrapper::after {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* === END OF === BLOCK TRANSLATE === */
@@ -823,7 +813,7 @@ body:not(:-moz-handler-blocked) fieldset {
   position: relative;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .upload {
     text-align: center;
     display: block;
@@ -832,7 +822,7 @@ body:not(:-moz-handler-blocked) fieldset {
 
 .upload:focus-within::before {
   border-color: #fff;
-  box-shadow: 0px 0px 11px 1px #416ea3;
+  box-shadow: 0 0 11px 1px #416ea3;
 }
 
 .upload::before {
@@ -854,10 +844,10 @@ body:not(:-moz-handler-blocked) fieldset {
   font-size: 20px;
   transition: all 225ms ease-in-out;
   transition-delay: 100ms;
-  box-shadow: 0px 0px 11px 1px transparent;
+  box-shadow: 0 0 11px 1px transparent;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .upload::before {
     top: -50px;
     left: 50%;
@@ -878,7 +868,7 @@ body:not(:-moz-handler-blocked) fieldset {
   color: #9fa3c4;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .upload__header-text {
     text-align: center;
     display: block;
@@ -886,7 +876,7 @@ body:not(:-moz-handler-blocked) fieldset {
 }
 
 .upload__input:focus + .upload__file-btn {
-  box-shadow: 0 0 0px 1.5px #76a7e1;
+  box-shadow: 0 0 0 1.5px #76a7e1;
 }
 
 .upload__btn-wrapper {
@@ -905,7 +895,7 @@ body:not(:-moz-handler-blocked) fieldset {
   letter-spacing: 0.8px;
   color: #9fa3c4;
   cursor: pointer;
-  transition: all 275ms ease-in-out;
+  transition: all 225ms ease-in-out;
 }
 
 .upload__file-btn:hover {
@@ -931,7 +921,7 @@ body:not(:-moz-handler-blocked) fieldset {
   padding: 10px 0;
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .upload-table__th_hidden {
     position: absolute;
     clip: rect(0 0 0 0);
@@ -946,7 +936,7 @@ body:not(:-moz-handler-blocked) fieldset {
   word-break: break-word;
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .upload-table__td_hidden {
     position: absolute;
     clip: rect(0 0 0 0);
@@ -974,7 +964,7 @@ body:not(:-moz-handler-blocked) fieldset {
   position: relative;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .lang {
     text-align: center;
     display: block;
@@ -983,7 +973,7 @@ body:not(:-moz-handler-blocked) fieldset {
 
 .lang:focus-within::before {
   border-color: #fff;
-  box-shadow: 0px 0px 11px 1px #416ea3;
+  box-shadow: 0 0 11px 1px #416ea3;
 }
 
 .lang::before {
@@ -1005,10 +995,10 @@ body:not(:-moz-handler-blocked) fieldset {
   font-size: 20px;
   transition: all 225ms ease-in-out;
   transition-delay: 100ms;
-  box-shadow: 0px 0px 11px 1px transparent;
+  box-shadow: 0 0 11px 1px transparent;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .lang::before {
     top: -50px;
     left: 50%;
@@ -1022,7 +1012,7 @@ body:not(:-moz-handler-blocked) fieldset {
   margin-top: 50px;
 }
 
-@media screen and (max-width: 440px) {
+@media (max-width: 440px) {
   .lang__field {
     transform: translateX(-20px);
   }
@@ -1063,14 +1053,14 @@ body:not(:-moz-handler-blocked) fieldset {
   position: relative;
 }
 
-.lang__select-wrapper:after {
+.lang__select-wrapper::after {
   position: absolute;
   font-size: 18px;
   top: 0;
   right: 0;
   font-family: "FontAwesome";
   content: "\f0dd";
-  border-left: 1px solid #dedfe4;
+  border-left: 1px solid #dadae3;
   line-height: 44px;
   text-align: right;
   width: 50px;
@@ -1080,7 +1070,7 @@ body:not(:-moz-handler-blocked) fieldset {
 }
 
 .lang__select {
-  border: 1px solid #dedfe4;
+  border: 1px solid #dadae3;
   border-radius: 5px;
   background: #f7f7f9;
   -webkit-appearance: none;
@@ -1088,14 +1078,18 @@ body:not(:-moz-handler-blocked) fieldset {
   appearance: none;
   height: 50px;
   padding: 0 75px 0 40px;
-  color: #8f98b7;
-  transition: all 275ms ease-in-out;
+  color: #6e768f;
+  transition: all 225ms ease-in-out;
   cursor: pointer;
+}
+
+.lang__select:hover {
+  box-shadow: 1px 1px 10px -3px #6e768f;
 }
 
 .lang__select:focus {
   outline: none;
-  box-shadow: 0 0 0px 1.5px #76a7e1;
+  box-shadow: 0 0 0 2px #76a7e1;
 }
 
 .lang__btn-trash {
@@ -1103,30 +1097,37 @@ body:not(:-moz-handler-blocked) fieldset {
   background: none;
   line-height: 20px;
   transition: .3s;
-  color: #8f98b7;
+  color: #6e768f;
+  cursor: pointer;
 }
 
 .lang__btn-trash:focus {
   outline: none;
-  box-shadow: 0 0 0px 1.5px #76a7e1;
+  box-shadow: 0 0 0 2px #76a7e1;
 }
 
 .lang__btn-add {
   background: #f7f7f9;
-  border: 1px solid #dedfe4;
+  border: 1px solid #dadae3;
   height: 50px;
   padding: 0 30px;
   border-radius: 5px;
-  color: #8f98b7;
+  color: #6e768f;
   font-family: "Nunito Sans";
   font-weight: 500;
   transition: .3s;
   font-size: 13px;
+  cursor: pointer;
+  box-shadow: 1px 1px 10px -3px transparent;
+}
+
+.lang__btn-add:hover {
+  box-shadow: 1px 1px 10px -3px #6e768f;
 }
 
 .lang__btn-add:focus {
   outline: none;
-  box-shadow: 0 0 0px 1.5px #76a7e1;
+  box-shadow: inset 0 0 0 2px #76a7e1;
 }
 
 .lang__btn-add_ic {
@@ -1140,7 +1141,7 @@ body:not(:-moz-handler-blocked) fieldset {
   min-width: 250px;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .tone {
     text-align: center;
     display: block;
@@ -1149,7 +1150,7 @@ body:not(:-moz-handler-blocked) fieldset {
 
 .tone:focus-within::before {
   border-color: #fff;
-  box-shadow: 0px 0px 11px 1px #416ea3;
+  box-shadow: 0 0 11px 1px #416ea3;
 }
 
 .tone::before {
@@ -1171,10 +1172,10 @@ body:not(:-moz-handler-blocked) fieldset {
   font-size: 20px;
   transition: all 225ms ease-in-out;
   transition-delay: 100ms;
-  box-shadow: 0px 0px 11px 1px transparent;
+  box-shadow: 0 0 11px 1px transparent;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .tone::before {
     top: -50px;
     left: 50%;
@@ -1195,7 +1196,7 @@ body:not(:-moz-handler-blocked) fieldset {
   padding-left: 1px;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .tone-buttons {
     flex-direction: row;
     flex-wrap: wrap;
@@ -1211,17 +1212,37 @@ body:not(:-moz-handler-blocked) fieldset {
 
 .tone-buttons__label {
   display: inline-block;
+  position: relative;
   background: #f7f7f9;
-  border: 1px solid #d6d9e0;
+  border: 1px solid #dadae3;
   padding: 25px 50px;
   border-radius: 8px;
   min-width: 232px;
-  cursor: pointer;
-  transition: all 275ms ease-in-out;
+  box-shadow: inset 0 0 0 0 transparent, 2px 2px 15px -4px transparent;
+  transition: all 225ms ease-in-out;
 }
 
 .tone-buttons__label:hover {
-  box-shadow: 2px 2px 15px -4px #6e768f;
+  box-shadow: inset 0 0 0 0 transparent, 1px 1px 10px -3px #6e768f;
+}
+
+.tone-buttons__label::after {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  color: #76a7e1;
+  font-size: 30px;
+  z-index: 2;
+  font-family: "FontAwesome";
+  content: '\f058';
+  background: white;
+  line-height: 15px;
+  width: 22px;
+  height: 15px;
+  border-radius: 50%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 200ms ease-in-out;
 }
 
 .tone-buttons__label_ic {
@@ -1229,62 +1250,32 @@ body:not(:-moz-handler-blocked) fieldset {
 }
 
 .tone__input:checked + label {
-  box-shadow: inset 0px 0px 0px 6px #76a7e1;
-  border-radius: 4px;
-  border: 1px solid transparent;
-  position: relative;
-  transition: all 275ms ease-in-out;
+  box-shadow: inset 0 0 0 5px #76a7e1;
 }
 
-.tone__input:checked + label:after {
-  position: absolute;
-  top: -4px;
-  right: -6px;
-  color: #76a7e1;
-  font-size: 30px;
-  z-index: 2;
-  font-family: "FontAwesome";
-  content: '\f058';
-  background: white;
-  line-height: 15px;
-  width: 22px;
-  height: 15px;
-  border-radius: 50%;
+.tone__input:checked + label::after {
+  opacity: 1;
+  visibility: visible;
 }
 
 .tone__input:focus + label {
-  box-shadow: inset 0px 0px 0px 6px #76a7e1;
-  border-radius: 4px;
-  border: 1px solid transparent;
-  position: relative;
-  transition: all 275ms ease-in-out;
+  box-shadow: inset 0 0 0 5px #76a7e1;
 }
 
-.tone__input:focus + label:after {
-  position: absolute;
-  top: -4px;
-  right: -6px;
-  color: #76a7e1;
-  font-size: 30px;
-  z-index: 2;
-  font-family: "FontAwesome";
-  content: '\f058';
-  background: white;
-  line-height: 15px;
-  width: 22px;
-  height: 15px;
-  border-radius: 50%;
+.tone__input:focus + label::after {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* === END OF BLOCK === tone === */
 /* === BLOCK urgent === */
 .urgent {
   position: relative;
-  margin: 0 0 0px 100px;
+  margin: 0 0 0 100px;
   flex-grow: 1;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .urgent {
     text-align: center;
     display: block;
@@ -1293,7 +1284,7 @@ body:not(:-moz-handler-blocked) fieldset {
 
 .urgent:focus-within::before {
   border-color: #fff;
-  box-shadow: 0px 0px 11px 1px #416ea3;
+  box-shadow: 0 0 11px 1px #416ea3;
 }
 
 .urgent::before {
@@ -1315,10 +1306,10 @@ body:not(:-moz-handler-blocked) fieldset {
   font-size: 20px;
   transition: all 225ms ease-in-out;
   transition-delay: 100ms;
-  box-shadow: 0px 0px 11px 1px transparent;
+  box-shadow: 0 0 11px 1px transparent;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .urgent::before {
     top: -50px;
     left: 50%;
@@ -1328,9 +1319,9 @@ body:not(:-moz-handler-blocked) fieldset {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .urgent {
-    margin: 120px 0 0px 0;
+    margin: 120px 0 0 0;
   }
 }
 
@@ -1338,7 +1329,7 @@ body:not(:-moz-handler-blocked) fieldset {
   transform: translateX(50px);
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .urgent::before {
     transform: translateX(-50%);
   }
@@ -1350,7 +1341,7 @@ body:not(:-moz-handler-blocked) fieldset {
   transform: translateX(50px);
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .urgent__h2 {
     transform: translateX(0);
   }
@@ -1465,7 +1456,7 @@ body:not(:-moz-handler-blocked) fieldset {
 }
 
 .urgent-timeline__range:focus, .urgent-timeline__range:hover {
-  box-shadow: 0px 0px 10px 0 #edbe76;
+  box-shadow: 0 0 10px 0 #edbe76;
 }
 
 .urgent-timeline__range:before {
@@ -1546,7 +1537,7 @@ body:not(:-moz-handler-blocked) fieldset {
   position: relative;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .payment {
     text-align: center;
     display: block;
@@ -1555,7 +1546,7 @@ body:not(:-moz-handler-blocked) fieldset {
 
 .payment:focus-within::before {
   border-color: #fff;
-  box-shadow: 0px 0px 11px 1px #416ea3;
+  box-shadow: 0 0 11px 1px #416ea3;
 }
 
 .payment::before {
@@ -1577,10 +1568,10 @@ body:not(:-moz-handler-blocked) fieldset {
   font-size: 20px;
   transition: all 225ms ease-in-out;
   transition-delay: 100ms;
-  box-shadow: 0px 0px 11px 1px transparent;
+  box-shadow: 0 0 11px 1px transparent;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .payment::before {
     top: -50px;
     left: 50%;
@@ -1604,7 +1595,7 @@ body:not(:-moz-handler-blocked) fieldset {
   margin-bottom: 30px;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .payment__legend {
     text-align: center;
   }
@@ -1614,7 +1605,7 @@ body:not(:-moz-handler-blocked) fieldset {
   color: #9fa3c4;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .payment__full-name {
     text-align: center;
   }
@@ -1626,7 +1617,7 @@ body:not(:-moz-handler-blocked) fieldset {
   margin: 32px 0;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .payment__info-wrapper {
     justify-content: center;
   }
@@ -1647,7 +1638,7 @@ body:not(:-moz-handler-blocked) fieldset {
   margin: 6px 20px 0 0;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .payment__relative-input {
     margin: 6px 8px;
   }
@@ -1713,7 +1704,7 @@ body:not(:-moz-handler-blocked) fieldset {
   margin: -12px;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .payment__variant-type {
     justify-content: center;
   }
@@ -1721,31 +1712,23 @@ body:not(:-moz-handler-blocked) fieldset {
 
 .payment__variant-type-btn {
   max-width: 220px;
+  position: relative;
   margin: 12px;
   text-align: center;
   background: #f7f7f9;
-  border: 1px solid #d4d7de;
+  border: 1px solid #dadae3;
   border-radius: 6px;
   padding: 35px 10px;
   flex-grow: 1;
-  cursor: pointer;
-  transition: all 275ms ease-in-out;
+  box-shadow: inset 0 0 0 0 transparent, 2px 2px 15px -4px transparent;
+  transition: all 225ms ease-in-out;
 }
 
 .payment__variant-type-btn:hover {
-  box-shadow: 2px 2px 15px -4px #6e768f;
+  box-shadow: inset 0 0 0 0 transparent, 1px 1px 10px -3px #6e768f;
 }
 
-.required-input:checked + label {
-  box-shadow: inset 0px 0px 0px 6px #76a7e1;
-  border-radius: 4px;
-  border: 1px solid transparent;
-  position: relative;
-  transition: all 275ms ease-in-out;
-  border: 1px solid #d4d7de;
-}
-
-.required-input:checked + label:after {
+.payment__variant-type-btn::after {
   position: absolute;
   top: -4px;
   right: -6px;
@@ -1759,6 +1742,18 @@ body:not(:-moz-handler-blocked) fieldset {
   width: 22px;
   height: 15px;
   border-radius: 50%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 225ms ease-in-out;
+}
+
+.required-input:checked + label {
+  box-shadow: inset 0 0 0 6px #76a7e1;
+}
+
+.required-input:checked + label::after {
+  opacity: 1;
+  visibility: visible;
 }
 
 .payment__card {
@@ -1767,7 +1762,7 @@ body:not(:-moz-handler-blocked) fieldset {
   margin: 20px 0 85px 0;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .payment__card {
     justify-content: center;
     margin: 20px 0 55px 0;
@@ -1795,7 +1790,7 @@ body:not(:-moz-handler-blocked) fieldset {
   align-items: center;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .payment-submit {
     justify-content: center;
     flex-wrap: wrap;
@@ -1812,7 +1807,7 @@ body:not(:-moz-handler-blocked) fieldset {
   justify-content: center;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   .payment-agree-link {
     justify-content: center;
     margin-right: 10px;
@@ -1849,7 +1844,7 @@ body:not(:-moz-handler-blocked) fieldset {
   padding: 0 20px;
 }
 
-@media screen and (max-width: 1200px) {
+@media (max-width: 1200px) {
   .document__footer-wrapper {
     justify-content: center;
   }
@@ -1892,14 +1887,14 @@ body:not(:-moz-handler-blocked) fieldset {
   margin-right: 16px;
 }
 
-@media screen and (max-width: 1200px) {
+@media (max-width: 1200px) {
   .office {
     flex-grow: 1;
     margin: 15px;
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media (max-width: 1200px) {
   .social {
     flex-grow: 1;
     margin: 15px;
@@ -1910,7 +1905,7 @@ body:not(:-moz-handler-blocked) fieldset {
   flex-basis: 300px;
 }
 
-@media screen and (max-width: 1200px) {
+@media (max-width: 1200px) {
   .what-we-do {
     flex-grow: 1;
     margin: 15px;
@@ -1922,7 +1917,7 @@ body:not(:-moz-handler-blocked) fieldset {
   text-align: center;
 }
 
-@media screen and (max-width: 1200px) {
+@media (max-width: 1200px) {
   .dark-logo {
     flex-grow: 1;
     margin: 15px;

@@ -7,9 +7,8 @@
 .document__header
 	max-width: 1140px
 	margin: 40px auto 0 auto
-	padding: 0 15px 
+	padding: 0 15px
 	box-sizing: content-box
-
 
 .header-nav
 	display: flex
@@ -18,7 +17,7 @@
 	align-items: center
 	list-style: none
 	padding: 0
-	+media(600px)
+	+max-screen-width(600px)
 		justify-content: center
 
 .header-logo
@@ -26,7 +25,7 @@
 	height: 100px
 
 .header-home
-	+media(600px)
+	+max-screen-width(600px)
 		order: -1
 		flex-basis: 100%
 		text-align: center
@@ -45,7 +44,7 @@
 	transition: all 225ms ease-in-out
 	text-transform: uppercase
 	display: block
-	+media(600px)
+	+max-screen-width(600px)
 		margin: 5px 10px
 	&:hover
 		border: 2px solid #677aab
@@ -70,23 +69,23 @@
 	color: $base-color
 	border: 1px solid $light-blue
 	border-radius: 5px
-	+media(600px)
+	+max-screen-width(600px)
 		margin-top: 50px
 
 .layout__form
 	padding: 60px 105px
-	+media(800px)
+	+max-screen-width(800px)
 		padding: 60px 40px
 
 .layout__row
 	& + &
 		margin-top: 80px
-		+media(800px)
+		+max-screen-width(800px)
 			margin-top: 120px
 
 .layout__row_flex
 	display: flex
-	+media(800px)
+	+max-screen-width(800px)
 		flex-wrap: wrap
 		justify-content: center
 
@@ -103,13 +102,13 @@
 .order__wrapper
 	flex-basis: 568px
 	margin: 20px 0 20px 30px
-	+media(1200px)
+	+max-screen-width(1200px)
 		flex-grow: 1
 
 .order__table
 	width: 100%
 	padding-left: 48px
-	+media(600px)
+	+max-screen-width(600px)
 		padding-left: 0
 
 .order__header
@@ -142,14 +141,14 @@
 .action-buttons
 	flex-basis: 170px
 	margin: 20px
-	+media(1200px)
+	+max-screen-width(1200px)
 		order: 1
 		display: flex
 		flex-wrap: wrap
 		align-items: center
 		justify-content: center
 		flex-basis: 100%
-		
+
 .action-buttons__btn
 	display: block
 	min-width: 170px
@@ -172,14 +171,14 @@
 
 /* === END OF BLOCK === action-buttons === */
 
- 
+
 /* === BLOCK help === */
 
 .help
 	flex-basis: 320px
 	padding: 15px 20px 20px 20px
 	border-left: 1px solid $light-blue
-	+media(1200px)
+	+max-screen-width(1200px)
 		border-left: none
 		flex-grow: 1
 		margin-left: 10px
@@ -250,16 +249,44 @@
 	padding: 20px 80px
 	border: 1px solid darken($gray-color, 10)
 	margin: 15px
-	+respond()
-	+media(600px)
+	position: relative
+	border-radius: 4px
+	box-shadow: inset 0 0 0 0 transparent, 2px 2px 15px -4px transparent
+	transition: all 225ms ease-in-out
+	&:hover
+		box-shadow: inset 0 0 0 0 transparent, 1px 1px 10px -3px $base-color
+
+	&::after
+		position: absolute
+		top: -4px
+		right: -6px
+		color: $accent-color
+		font-size: 30px
+		z-index: 2
+		font-family: "FontAwesome"
+		content: '\f058'
+		background: white
+		line-height: 15px
+		width: 22px
+		height: 15px
+		border-radius: 50%
+		opacity: 0
+		visibility: hidden
+		transition: all 225ms ease-in-out
+	+max-screen-width(600px)
 		padding: 10px 50px
 
 .translate__input:checked + .translate__img-wrapper
-	border: 1px solid red
-	+picker()
+	box-shadow: inset 0 0 0 6px $accent-color
+	&::after
+		opacity: 1
+		visibility: visible
 
 .translate__input:focus + .translate__img-wrapper
-	+picker()
+	box-shadow: inset 0 0 0 6px $accent-color
+	&::after
+		opacity: 1
+		visibility: visible
 
 /* === END OF === BLOCK TRANSLATE === */
 
@@ -268,9 +295,9 @@
 /*  === BLOCK UPLOAD === */
 
 .upload
-	
+
 	position: relative
-	+counter() 
+	+counter()
 
 .upload__header
 	color: $base-color
@@ -280,12 +307,12 @@
 .upload__header-text
 	display: inline-block
 	color: $light-color
-	+media(800px)
+	+max-screen-width(800px)
 		text-align: center
 		display: block
 
 .upload__input:focus + .upload__file-btn
-	box-shadow: 0 0 0px 1.5px $accent-color
+	box-shadow: 0 0 0 1.5px $accent-color
 
 .upload__btn-wrapper
 	margin-top: 30px
@@ -319,11 +346,11 @@
 	width: 100%
 
 .upload-table__th
-	text-transform: uppercase 
+	text-transform: uppercase
 	padding: 10px 0
 
 .upload-table__th_hidden
-	+media(600px)
+	+max-screen-width(600px)
 		position: absolute
 		clip: rect(0 0 0 0)
 		width: 1px
@@ -335,7 +362,7 @@
 	word-break: break-word
 
 .upload-table__td_hidden
-	+media(600px)
+	+max-screen-width(600px)
 		position: absolute
 		clip: rect(0 0 0 0)
 		width: 1px
@@ -356,16 +383,16 @@
 
 
 /* === BLOCK lang  === */
-	
+
 .lang
 	position: relative
 	+counter()
 
 .lang__field
 	margin-top: 50px
-	+media(440px)
+	+max-screen-width(440px)
 		transform: translateX(-20px)
-	
+
 .lang__item
 	margin: 5px
 
@@ -373,7 +400,7 @@
 	color: $light-color
 	display: flex
 	align-items: center
-	& + & 
+	& + &
 		margin-top: 35px
 
 .lang__row-wrapper_indent
@@ -389,7 +416,6 @@
 	display: flex
 	flex-wrap: wrap
 
-
 .lang__select-wrapper
 	+select-wrapper()
 
@@ -401,25 +427,30 @@
 	background: none
 	line-height: 20px
 	transition: .3s
-	color: #8f98b7
+	color: $base-color
+	cursor: pointer
 	&:focus
 		outline: none
-		box-shadow: 0 0 0px 1.5px $accent-color
+		box-shadow: 0 0 0 2px $accent-color
 
 .lang__btn-add
 	background: $gray-color
-	border: 1px solid #dedfe4
+	border: 1px solid darken($gray-color, 10)
 	height: 50px
 	padding: 0 30px
 	border-radius: 5px
-	color: #8f98b7
+	color: $base-color
 	font-family: "Nunito Sans"
 	font-weight: 500
 	transition: .3s
 	font-size: 13px
+	cursor: pointer
+	box-shadow: 1px 1px 10px -3px transparent
+	&:hover
+		box-shadow: 1px 1px 10px -3px $base-color
 	&:focus
 		outline: none
-		box-shadow: 0 0 0px 1.5px $accent-color
+		box-shadow: inset 0 0 0 2px $accent-color
 
 .lang__btn-add_ic
 	padding-right: 8px
@@ -436,13 +467,13 @@
 
 .tone__header
 	margin: 0 0 35px 0
-	
+
 .tone-buttons
 	display: flex
 	flex-direction: column
 	border: 1.5px solid transparent
 	padding-left: 1px
-	+media(800px)
+	+max-screen-width(800px)
 		flex-direction: row
 		flex-wrap: wrap
 		justify-content: center
@@ -454,21 +485,48 @@
 
 .tone-buttons__label
 	display: inline-block
+	position: relative
 	background: $gray-color
-	border: 1px solid #d6d9e0
+	border: 1px solid darken($gray-color, 10)
 	padding: 25px 50px
 	border-radius: 8px
 	min-width: 232px
-	+respond()
+	box-shadow: inset 0 0 0 0 transparent, 2px 2px 15px -4px transparent
+	transition: all 225ms ease-in-out
+	&:hover
+		box-shadow: inset 0 0 0 0 transparent, 1px 1px 10px -3px $base-color
+	&::after
+		position: absolute
+		top: -4px
+		right: -6px
+		color: $accent-color
+		font-size: 30px
+		z-index: 2
+		font-family: "FontAwesome"
+		content: '\f058'
+		background: white
+		line-height: 15px
+		width: 22px
+		height: 15px
+		border-radius: 50%
+		opacity: 0
+		visibility: hidden
+		transition: all 200ms ease-in-out
 
 .tone-buttons__label_ic
 	margin-right: 8px
 
 .tone__input:checked + label
-	+picker()
+	box-shadow: inset 0 0 0 5px $accent-color
+	&::after
+		opacity: 1
+		visibility: visible
 
 .tone__input:focus + label
-	+picker()
+	box-shadow: inset 0 0 0 5px $accent-color
+	&::after
+		opacity: 1
+		visibility: visible
 
 /* === END OF BLOCK === tone === */
 
@@ -477,21 +535,21 @@
 
 .urgent
 	position: relative
-	margin: 0 0 0px 100px
+	margin: 0 0 0 100px
 	flex-grow: 1
 	+counter()
-	+media(800px)
-		margin: 120px 0 0px 0
+	+max-screen-width(800px)
+		margin: 120px 0 0 0
 	&::before
 		transform: translateX(50px)
-		+media(800px)
+		+max-screen-width(800px)
 			transform: translateX(-50%)
 
 .urgent__h2
 	display: inline-block
 	margin: 0 0 35px 0
 	transform: translateX(50px)
-	+media(800px)
+	+max-screen-width(800px)
 		transform: translateX(0)
 
 .urgent-timeline
@@ -506,7 +564,7 @@
 	z-index: 1
 	transition: 275ms ease-in-out
 	&:focus, &:hover
-		box-shadow: 0px 0px 10px 0 $orange
+		box-shadow: 0 0 10px 0 $orange
 	&:before
 		content: ""
 		position: absolute
@@ -531,7 +589,7 @@
 .urgent-timeline__label
 	margin-top: 10px
 	text-transform: uppercase
-	font-weight: 700 
+	font-weight: 700
 	color: $light-color
 	letter-spacing: .8px
 
@@ -589,20 +647,20 @@
 	color: $light-color
 	font-size: 16px
 	margin-bottom: 30px
-	+media(800px)
+	+max-screen-width(800px)
 		text-align: center
 	a
 		color: $light-color
 
 .payment__full-name
-	+media(800px)
+	+max-screen-width(800px)
 		text-align: center
 
 .payment__info-wrapper
 	display: flex
 	flex-wrap: wrap
 	margin: 32px 0
-	+media(800px)
+	+max-screen-width(800px)
 		justify-content: center
 
 .payment__label
@@ -617,7 +675,7 @@
 	position: relative
 	display: inline-block
 	margin: 6px 20px 0 0
-	+media(800px)
+	+max-screen-width(800px)
 		margin: 6px 8px
 
 .payment__input
@@ -667,29 +725,52 @@
 	flex-wrap: wrap
 	position: relative
 	margin: -12px
-	+media(800px)
+	+max-screen-width(800px)
 		justify-content: center
 
 .payment__variant-type-btn
 	max-width: 220px
+	position: relative
 	margin: 12px
 	text-align: center
 	background: $gray-color
-	border: 1px solid #d4d7de
+	border: 1px solid darken($gray-color, 10)
 	border-radius: 6px
 	padding: 35px 10px
 	flex-grow: 1
-	+respond()
-	
+	box-shadow: inset 0 0 0 0 transparent, 2px 2px 15px -4px transparent
+	transition: all 225ms ease-in-out
+	&:hover
+		box-shadow: inset 0 0 0 0 transparent, 1px 1px 10px -3px $base-color
+	&::after
+		position: absolute
+		top: -4px
+		right: -6px
+		color: $accent-color
+		font-size: 30px
+		z-index: 2
+		font-family: "FontAwesome"
+		content: '\f058'
+		background: white
+		line-height: 15px
+		width: 22px
+		height: 15px
+		border-radius: 50%
+		opacity: 0
+		visibility: hidden
+		transition: all 225ms ease-in-out
+
 .required-input:checked + label
-	+picker()
-	border: 1px solid #d4d7de
+	box-shadow: inset 0 0 0 6px $accent-color
+	&::after
+		opacity: 1
+		visibility: visible
 
 .payment__card
 	display: flex
 	flex-wrap: wrap
 	margin: 20px 0 85px 0
-	+media(800px)
+	+max-screen-width(800px)
 		justify-content: center
 		margin: 20px 0 55px 0
 
@@ -708,7 +789,7 @@
 	display: flex
 	justify-content: flex-end
 	align-items: center
-	+media(800px)
+	+max-screen-width(800px)
 		justify-content: center
 		flex-wrap: wrap
 
@@ -721,7 +802,7 @@
 	justify-content: center
 
 .payment-agree-link
-	+media(800px)
+	+max-screen-width(800px)
 		justify-content: center
 		margin-right: 10px
 
@@ -740,7 +821,7 @@
 /* === BLOCK footer === */
 
 .document__footer
-	color: #c7ccea	
+	color: #c7ccea
 	background: #444a62
 	padding: 40px 0
 
@@ -751,7 +832,7 @@
 	flex-wrap: wrap
 	justify-content: space-between
 	padding: 0 20px
-	+media(1200px)
+	+max-screen-width(1200px)
 		justify-content: center
 
 .footer__h4
@@ -788,24 +869,24 @@
 	margin-right: 16px
 
 .office
-	+media(1200px)
+	+max-screen-width(1200px)
 		flex-grow: 1
 		margin: 15px
 
 .social
-	+media(1200px)
+	+max-screen-width(1200px)
 		flex-grow: 1
 		margin: 15px
 
 .what-we-do
 	flex-basis: 300px
-	+media(1200px)
+	+max-screen-width(1200px)
 		flex-grow: 1
 		margin: 15px
 
 .dark-logo
 	align-self: center
 	text-align: center
-	+media(1200px)
+	+max-screen-width(1200px)
 		flex-grow: 1
 		margin: 15px
