@@ -27,7 +27,7 @@
       color: #fff;
       background: var(--lightgreen);
 
-      @media only screen and (max-width: $mobile) {
+      @media only screen and (max-width: $tablet) {
         color: inherit;
         background: inherit;
       }
@@ -90,7 +90,7 @@
     color: #fff;
     background: var(--lightgreen);
 
-    @media only screen and (max-width: $mobile) {
+    @media only screen and (max-width: $tablet) {
       color: inherit;
       background: inherit;
     }
@@ -100,9 +100,10 @@
     border: 1px solid var(--lightgreen);
   }
 
+  &__input:checked:hover + .radio-input__button,
   &__input:checked:focus + .radio-input__button {
     background: #fff;
-    color: var(--lightgreen);
+    color: inherit;
   }
 
   &__input:checked + .radio-input__button .radio-input__status {

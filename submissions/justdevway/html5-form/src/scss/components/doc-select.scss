@@ -43,8 +43,7 @@ $status-position: -8px;
     &:focus {
       border: 3px solid var(--lightgreen);
 
-
-      @media only screen and (max-width: $mobile) {
+      @media only screen and (max-width: $tablet) {
         border: inherit;
       }
     }

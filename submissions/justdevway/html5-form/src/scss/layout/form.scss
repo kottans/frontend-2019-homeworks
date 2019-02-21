@@ -70,24 +70,6 @@ $number-size: 35px;
     }
   }
 
-  &__helper {
-    margin: 0;
-    color: var(--darkgray);
-    font-size: 14px;
-    text-align: left;
-    transition-property: opacity;
-    transition-timing-function: linear;
-    transition-duration: 0.175s;
-
-    &--block {
-      padding: 15px 0 30px;
-    }
-
-    @media only screen and (max-width: $tablet) {
-      display: none;
-    }
-  }
-
   &__steps {
     padding: 0;
     margin: 0;
@@ -197,7 +179,11 @@ $number-size: 35px;
     margin: 0 10px;
 
     &--remove {
-      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      margin: 0 20px 0 0;
     }
 
     @media only screen and (max-width: $mobile) {
@@ -218,6 +204,7 @@ $number-size: 35px;
 
     &__range {
       max-width: 85%;
+      margin: 0 auto;
 
       @media only screen and (max-width: $mobile) {
         max-width: 100%;
@@ -313,6 +300,10 @@ $number-size: 35px;
     }
 
     &__link {
+      transition-property: color;
+      transition-duration: 0.175s;
+      transition-timing-function: linear;
+      
       &:active,
       &:visited {
         color: var(--blue);
@@ -323,7 +314,7 @@ $number-size: 35px;
         outline: none;
         color: var(--lightgreen);
 
-        @media only screen and (max-width: $mobile) {
+        @media only screen and (max-width: $tablet) {
           color: inherit;
         }
       }

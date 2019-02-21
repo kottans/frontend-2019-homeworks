@@ -35,9 +35,47 @@
     background: var(--blue);
   }
 
-  &__body {
-    display: flex;
-    align-items: center;
+  &--submit {
+    background: var(--lightgreen);
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      background: var(--blue);
+      @media only screen and (max-width: $tablet) {
+        color: inherit;
+        background: inherit;
+      }
+    }
+
+    &:active {
+      color: #fff;
+      background: var(--blue);
+    }
+  }
+
+  &--like-icon {
+    padding: 10px;
+    height: auto;
+    border: 1px solid rgba(0, 0, 0, 0);
+    transition-property: border;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+
+    &:hover,
+    &:focus {
+      background: none;
+      color: inherit;
+      border: 1px solid var(--darkgray);
+      @media only screen and (max-width: $tablet) {
+        border: 1px solid rgba(0, 0, 0, 0);
+      }
+    }
+
+    &:active {
+      color: #fff;
+      background: var(--blue);
+    }
   }
 
   &__icon {
@@ -45,5 +83,9 @@
     width: 15px;
     height: 15px;
     margin: 0 5px;
+  }
+
+  &--like-icon .button__icon {
+    margin: 0;
   }
 }

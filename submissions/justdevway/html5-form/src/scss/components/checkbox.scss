@@ -24,6 +24,11 @@ $checkbox-size: 15px;
     width: $checkbox-size;
     height: $checkbox-size;
     border: 2px solid var(--darkgray);
+    outline: none;
+    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+    transition-property: box-shadow;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
 
     &:after {
       content: "";
@@ -38,13 +43,23 @@ $checkbox-size: 15px;
       border-bottom: none;
       transform: rotate(130deg);
     }
+
+    &:hover,
+    &:focus {
+      box-shadow: inset 0px 0px 5px 1.5px rgba(#56cac6, 0.65);
+      @media only screen and (max-width: $tablet) {
+        box-shadow: none;
+      }
+    }
   }
 
   &__input:checked + .checkbox__phantom-box:after {
     border-color: var(--darkgray);
     width: $checkbox-size;
     height: $checkbox-size / 3;
-    transition: height 0.125s ease-out, width 0.125s ease-out 0.125s;
+    transition-property: height, width;
+    transition-duration: 0.125s;
+    transition-timing-function: ease-out;
   }
 
   &__input:focus + .checkbox__phantom-box,

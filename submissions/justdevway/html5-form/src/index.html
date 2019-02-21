@@ -32,29 +32,19 @@
                                 <td>$ 696.06</td>
                                 <td>48 hours<sup>*</sup></td>
                             </tr>
-                            <tr>
-                                <td>2 documents</td>
-                                <td>2 languages</td>
-                                <td>$ 696.06</td>
-                                <td>48 hours<sup>*</sup></td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="order__right">
                         <div class="order__buttons">
                             <div class="order__button">
-                                <button class="button" type="submit">
-                                    <span class="button__body">
-                                        <span class="button__text">Place order</span>
-                                    </span>
+                                <button class="button button--submit" type="submit">
+                                    <span class="button__text">Place order</span>
                                 </button>
                             </div>
                             <div class="order__button">
                                 <button class="button" type="button">
-                                    <span class="button__body">
-                                        <span class="button__text">Print a quote</span>
-                                    </span>
+                                    <span class="button__text">Print a quote</span>
                                 </button>
                             </div>
                         </div>
@@ -87,8 +77,13 @@
                     <ul class="form__docs__list">
                         <li class="form__docs__item">
                             <div class="doc-select">
-                                <input id="doc-select-web" class="doc-select__radio" type="radio" value="website"
-                                       name="translate-type" required>
+                                <input id="doc-select-web"
+                                       class="doc-select__radio"
+                                       type="radio"
+                                       value="website"
+                                       name="translate-type"
+                                       checked
+                                       required>
                                 <label for="doc-select-web" class="doc-select__item">
                                     <span class="doc-select__description">
                                         <img class="doc-select__img" src="img/html.svg" alt="website">
@@ -103,8 +98,13 @@
                         </li>
                         <li class="form__docs__item">
                             <div class="doc-select">
-                                <input id="doc-select-documents" class="doc-select__radio" type="radio" value="document"
-                                       name="translate-type" required>
+                                <input
+                                        id="doc-select-documents"
+                                        class="doc-select__radio"
+                                        type="radio"
+                                        value="document"
+                                        name="translate-type"
+                                        required>
                                 <label for="doc-select-documents" class="doc-select__item">
                                     <span class="doc-select__description">
                                         <img class="doc-select__img" src="img/document.svg" alt="document">
@@ -119,7 +119,10 @@
                         </li>
                         <li class="form__docs__item">
                             <div class="doc-select">
-                                <input id="doc-select-soc" class="doc-select__radio" type="radio" name="translate-type"
+                                <input id="doc-select-soc"
+                                       class="doc-select__radio"
+                                       type="radio"
+                                       name="translate-type"
                                        value="social account"
                                        required>
                                 <label for="doc-select-soc" class="doc-select__item">
@@ -135,8 +138,6 @@
                             </div>
                         </li>
                     </ul>
-                    <p class="form__helper">If you focus on this, you can use your keyboard's arrow to select one of
-                        items</p>
                 </div>
                 <ul class="form__steps">
                     <li class="form__step">
@@ -145,7 +146,10 @@
                         </p>
                         <div class="form__upload">
                             <div class="upload">
-                                <input id="file" type="file" class="upload__input" required>
+                                <input
+                                        id="file"
+                                        type="file"
+                                        class="upload__input">
                                 <label class="upload__button" for="file">
                                     <span class="upload__button__body">
                                         <img class="upload__button__icon" src="./img/upload.svg" alt="decor"
@@ -253,27 +257,20 @@
                                 </div>
                             </div>
                             <div class="form__select form__select--remove">
-                                <button class="button" type="button">
-                                    <span class="button__body">
-                                        <img src="./img/trash.svg" alt="decor" class="button__icon" aria-hidden="true">
-                                    </span>
+                                <button class="button button--like-icon" type="button">
+                                    <img src="./img/trash.svg" alt="decor" class="button__icon" aria-hidden="true">
                                 </button>
                             </div>
                             <div class="form__select">
                                 <div class="form__button">
                                     <button type="button" class="button">
-                                        <span class="button__body">
-                                            <span class="button__text">+ Add</span>
-                                        </span>
+                                        <span class="button__text">+ Add</span>
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </li>
                 </ul>
-                <div class="form__helper form__helper--block">If you focus on one of inputs below, you can use your
-                    keyboard's arrow to select one of them
-                </div>
                 <ul class="form__steps">
                     <li class="form__step form__step--small">
                         <div class="form__step__number">3</div>
@@ -281,8 +278,13 @@
                         <div class="form__desires">
                             <div class="form__desire">
                                 <div class="radio-input">
-                                    <input type="radio" class="radio-input__input" id="radio-input__frendly"
-                                           name="select_casual_desire" value="frendly/casual" required>
+                                    <input
+                                            type="radio"
+                                            class="radio-input__input"
+                                            id="radio-input__frendly"
+                                            name="select_casual_desire"
+                                            value="frendly/casual"
+                                            required>
                                     <label for="radio-input__frendly" class="radio-input__button">
                                         <img class="radio-input__icon" src="./img/comment.svg" alt="decor"
                                              aria-hidden="true">
@@ -296,8 +298,14 @@
                             </div>
                             <div class="form__desire">
                                 <div class="radio-input">
-                                    <input type="radio" class="radio-input__input" id="radio-input__corporate"
-                                           name="select_casual_desire" value="corporate/pro" required>
+                                    <input
+                                            type="radio"
+                                            class="radio-input__input"
+                                            id="radio-input__corporate"
+                                            name="select_casual_desire"
+                                            value="corporate/pro"
+                                            checked
+                                            required>
                                     <label for="radio-input__corporate" class="radio-input__button">
                                         <img class="radio-input__icon" src="./img/suitcase.svg" alt="decor"
                                              aria-hidden="true">
@@ -311,8 +319,13 @@
                             </div>
                             <div class="form__desire">
                                 <div class="radio-input">
-                                    <input type="radio" class="radio-input__input" id="radio-input__media"
-                                           name="select_casual_desire" value="media/formal" required>
+                                    <input
+                                            type="radio"
+                                            class="radio-input__input"
+                                            id="radio-input__media"
+                                            name="select_casual_desire"
+                                            value="media/formal"
+                                            required>
                                     <label for="radio-input__media" class="radio-input__button">
                                         <img class="radio-input__icon" src="./img/megaphone.svg" alt="decor"
                                              aria-hidden="true">
@@ -332,8 +345,14 @@
                         <div class="form__urgency">
                             <div class="form__urgency__range">
                                 <div class="range">
-                                    <input class="range__input" type="range" min="-1" max="1" step="1"
-                                           value="0" name="timeline-data">
+                                    <input
+                                            class="range__input"
+                                            type="range"
+                                            min="-1"
+                                            max="1"
+                                            step="1"
+                                            value="0"
+                                            name="timeline-data">
                                     <div class="range__signatures">
                                         <div class="range__signature">I got time</div>
                                         <div class="range__signature range__signature--selected">Average</div>
@@ -372,8 +391,12 @@
                                         <div class="login__field__input">
                                             <div class="main-input">
                                                 <div class="main-input__body">
-                                                    <input type="text" class="main-input__input" placeholder="Full name"
-                                                           minlength="2" required>
+                                                    <input
+                                                            type="text"
+                                                            class="main-input__input"
+                                                            placeholder="Full name"
+                                                            minlength="2"
+                                                            required>
                                                     <div class="main-input__status main-input__status"></div>
                                                 </div>
                                             </div>
@@ -384,7 +407,8 @@
                                         <div class="login__field__input">
                                             <div class="main-input">
                                                 <div class="main-input__body">
-                                                    <input type="email" class="main-input__input"
+                                                    <input type="email"
+                                                           class="main-input__input"
                                                            placeholder="Email"
                                                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                                                            title="Please enter email like your-email@your-domain"
@@ -399,9 +423,12 @@
                                         <div class="login__field__input">
                                             <div class="main-input">
                                                 <div class="main-input__body">
-                                                    <input type="password" class="main-input__input"
-                                                           placeholder="Password" minlength="6"
-                                                           title="Please set password more than 6 letters" required>
+                                                    <input type="password"
+                                                           class="main-input__input"
+                                                           placeholder="Password"
+                                                           minlength="6"
+                                                           title="Please set password more than 6 letters"
+                                                           required>
                                                     <div class="main-input__status main-input__status"></div>
                                                 </div>
                                             </div>
@@ -415,8 +442,13 @@
                                 <ul class="login__card-types">
                                     <li class="login__card-type">
                                         <div class="radio-input radio-input--card">
-                                            <input type="radio" class="radio-input__input" id="viza_master-card"
-                                                   name="select_payment_method" value="viza/master-card" required>
+                                            <input
+                                                    type="radio"
+                                                    class="radio-input__input"
+                                                    id="viza_master-card"
+                                                    name="select_payment_method"
+                                                    value="viza/master-card"
+                                                    required>
                                             <label for="viza_master-card" class="radio-input__button">
                                                 <img class="radio-input__icon" src="./img/cards/visa.svg"
                                                      alt="visa-master-cards">
@@ -431,8 +463,13 @@
                                     </li>
                                     <li class="login__card-type">
                                         <div class="radio-input radio-input--card">
-                                            <input type="radio" class="radio-input__input" id="paypal"
-                                                   name="select_payment_method" value="paypal" required>
+                                            <input
+                                                    type="radio"
+                                                    class="radio-input__input"
+                                                    id="paypal"
+                                                    name="select_payment_method"
+                                                    value="paypal"
+                                                    required>
                                             <label for="paypal" class="radio-input__button">
                                                 <img class="radio-input__icon" src="./img/cards/paypal.svg"
                                                      alt="paypal">
@@ -445,8 +482,13 @@
                                     </li>
                                     <li class="login__card-type">
                                         <div class="radio-input radio-input--card">
-                                            <input type="radio" class="radio-input__input" id="amazon"
-                                                   name="select_payment_method" value="amazon" required>
+                                            <input
+                                                    type="radio"
+                                                    class="radio-input__input"
+                                                    id="amazon"
+                                                    name="select_payment_method"
+                                                    value="amazon"
+                                                    required>
                                             <label for="amazon" class="radio-input__button">
                                                 <img class="radio-input__icon" src="./img/cards/amazon.svg"
                                                      alt="visa-master-cards">
@@ -465,9 +507,15 @@
                                             <div class="login__field__input">
                                                 <div class="main-input">
                                                     <div class="main-input__body">
-                                                        <input type="text" class="main-input__input" minlength="16"
-                                                               pattern="\d{16}" title="Please enter real card's numbers"
-                                                               name="card-name" required>
+                                                        <input type="text"
+                                                               class="main-input__input"
+                                                               minlength="16"
+                                                               maxlength="16"
+                                                               pattern="\d{16}"
+                                                               title="Please enter real card's numbers like 1111222233334444"
+                                                               name="card-name"
+                                                               placeholder="1111222233334444"
+                                                               required>
                                                         <div class="main-input__status main-input__status"></div>
                                                     </div>
                                                 </div>
@@ -478,10 +526,13 @@
                                             <div class="login__field__input">
                                                 <div class="main-input">
                                                     <div class="main-input__body">
-                                                        <input type="date"
-                                                               class="main-input__input main-input__input--date"
-                                                               name="card-expire" min="2018-02-14" max="2099-12-31"
-                                                               required>
+                                                        <input
+                                                                type="date"
+                                                                class="main-input__input main-input__input--date"
+                                                                name="card-expire"
+                                                                min="2018-02-14"
+                                                                max="2099-12-31"
+                                                                required>
                                                         <div class="main-input__status main-input__status"></div>
                                                     </div>
                                                 </div>
@@ -492,9 +543,16 @@
                                             <div class="login__field__input">
                                                 <div class="main-input">
                                                     <div class="main-input__body">
-                                                        <input type="text" class="main-input__input" minlength="3"
-                                                               pattern="\d{3}" title="Please enter real code"
-                                                               name="card-code" required>
+                                                        <input
+                                                                type="text"
+                                                                class="main-input__input"
+                                                                minlength="3"
+                                                                maxlength="3"
+                                                                pattern="\d{3}"
+                                                                title="Please enter real code"
+                                                                name="card-code"
+                                                                placeholder="123"
+                                                                required>
                                                         <div class="main-input__status main-input__status"></div>
                                                     </div>
                                                 </div>
@@ -513,25 +571,26 @@
                 <div class="form__footer__content">
                     <label for="form__rules" class="form__rules" tabindex="0">
                         <span class="checkbox">
-                            <input class="checkbox__input" type="checkbox" id="form__rules" value="rules accept"
-                                   title="Please select if your agree with our policy" required>
+                            <input
+                                    class="checkbox__input"
+                                    type="checkbox"
+                                    id="form__rules"
+                                    value="rules accept"
+                                    title="Please select if your agree with our policy"
+                                    required>
                             <span class="checkbox__phantom-box"></span>
                         </span>
                         <span>I agree to the <a class="form__rules__link" href="#" title="Terms & Conditions"
                                                 target="_blank">Terms & Conditions</a></span>
                     </label>
                     <div class="form__footer__button">
-                        <button class="button" type="submit">
-                            <span class="button__body">
-                                <span class="button__text">Place order</span>
-                            </span>
+                        <button class="button button--submit" type="submit">
+                            <span class="button__text">Place order</span>
                         </button>
                     </div>
                     <div class="form__footer__button">
                         <button class="button" type="button">
-                        <span class="button__body">
                             <span class="button__text">Print a quote</span>
-                        </span>
                         </button>
                     </div>
                 </div>
