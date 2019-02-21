@@ -54,10 +54,14 @@ body
 			font-size: 20px
 
 .header__logo
+	display: inline-block
 	color: $text-light
 	transition: all .25s ease
 	&:hover, &:active
 		color: $accent
+	&:focus, &:active
+		outline: none
+		box-shadow: 0 0 3px 3px #83A8E5
 
 .form__wrapper
 	max-width: 1200px
@@ -158,12 +162,16 @@ body
 	display: inline-block
 	&:hover
 		text-decoration: underline
+	&:focus, &:active
+		box-shadow: 0 0 3px 3px #83A8E5
 
 .contacts__mail
 	color: $text
 	text-decoration: none
 	&:hover
 		text-decoration: underline
+	&:focus, &:active
+		box-shadow: 0 0 3px 3px #83A8E5
 
 .form__main
 	h3
@@ -185,14 +193,14 @@ body
 
 
 .visually__hidden
-		position: absolute
-		overflow: hidden
-		clip: rect(0 0 0 0)
-		height: 1px
-		width: 1px
-		margin: -1px
-		padding: 0
-		border: 0
+	position: absolute
+	overflow: hidden
+	clip: rect(0 0 0 0)
+	height: 1px
+	width: 1px
+	margin: -1px
+	padding: 0
+	border: 0
 
 /**********custom radio start ***********/
 
@@ -612,8 +620,11 @@ input[type=radio]:checked + .label__image-wrapper
 
 .sign-in-link
 	color: $text
-	&:hover, &:active
+	&:hover
 		color: #000000
+	&:focus, &:active
+		outline: none
+		box-shadow: 0 0 3px 3px #83A8E5
 
 .sign-up__inputs
 	display: flex
@@ -640,6 +651,11 @@ input[type=radio]:checked + .label__image-wrapper
 
 .sign-up__item
 	position: relative
+
+.sign-up-label
+	display: block
+	margin: 15px 0 10px 0
+	padding-left: 10px
 
 .validation::before
 	content: ''
@@ -741,6 +757,8 @@ input[type=radio]:checked + .label__image-wrapper
 	color: $text
 	&:hover, &:active
 		color: #000000
+	&:focus, &:active
+		box-shadow: 0 0 3px 3px #83A8E5
 
 /*********** custom checkbox start***********/
 
@@ -866,6 +884,8 @@ input[type=checkbox]:checked + .checkbox-label::after
 	text-decoration: none
 	&:hover, &:active
 		color: $accent
+	&:focus, &:active
+		box-shadow: 0 0 3px 3px #83A8E5
 
 .social__link-text
 	margin-left: 10px
