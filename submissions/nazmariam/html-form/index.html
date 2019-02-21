@@ -11,8 +11,8 @@
     <header>
         <nav>
             <div class="header-container">
-                <button class="form-button top-back">go back</button>
-                <button class="form-button top-sign">sign in</button>
+                <button type="button" class="form-button top-back">go back</button>
+                <button type="button" class="form-button top-sign">sign in</button>
             </div>
         </nav>
     </header>
@@ -47,7 +47,7 @@
                             <input type="submit"
                                    class="order form-button"
                                    value="Place order">
-                            <button class="print form-button"><span>Print a quote</span></button>
+                            <button type="button" class="print form-button"><span>Print a quote</span></button>
                         </div>
                     </nav>
                     <address class="help-center">
@@ -60,10 +60,11 @@
                     </address>
                 </header>
                 <main class="main-form">
-                    <div class="container">
-                        <h1 class="main-title">Select what you want to translate</h1>
-                    </div>
+
                     <section class="first-area">
+                        <div class="container">
+                            <h1 class="main-title">Select what you want to translate</h1>
+                        </div>
                         <fieldset>
                             <div class="container">
                                 <label class="type-label">
@@ -109,10 +110,11 @@
                         <div class="container">
                             <label class="file-label">
                                 <input type="file"
-                                       class="visually-hidden"
+                                       class="file-input visually-hidden"
                                        name="file"
                                        accept=".doc, .docx, .txt, .pdf, .md"
                                        multiple
+                                       role="table"
                                        required>
                                 <span class="file-button form-button">Upload a new file</span>
                             </label>
@@ -186,8 +188,7 @@
                                <span class="list-header">to</span>
                                <label class="to-lang-label">
                                    <select name="to-lang"
-                                           class="form-button sel-but"
-                                           required>
+                                           class="form-button sel-but">
                                        <option value=""
                                                disabled
                                                selected>
@@ -200,8 +201,7 @@
                                </label>
                                <label class="second-lang">
                                    <select name="to-lang"
-                                           class="form-button sel-but"
-                                           required>
+                                           class="form-button sel-but">
                                        <option value=""
                                                disabled
                                                selected>
@@ -213,8 +213,8 @@
                                    </select>
 
                                </label>
-                               <button class="del">delete</button>
-                               <button class="form-button add">+ add</button>
+                               <button type="button" class="del">delete</button>
+                               <button type="button" class="form-button add">+ add</button>
                            </div>
 
                         </div>
@@ -280,7 +280,7 @@
                     <section class="sixth-area">
                         <h2 class="area-title"><span class="title-number">5</span>Sign up and choose a payment method</h2>
                         <div class="container">
-                            <h5 class="signin">Already have an account with us? <a class="signin-link" href="#">Sign in</a>.</h5>
+                            <p class="signin">Already have an account with us? <a class="signin-link" href="#">Sign in</a>.</p>
                             <div class="username">
                                 <label class="username-label">
                                     <span class="list-header">Full name</span>
@@ -425,19 +425,21 @@
                     </section>
                     <section class="accept">
                         <div class="container">
-
+                            <label class="checkbox-label">
                                 <input type="checkbox"
                                        name="agreement"
                                        class="agreement"
                                        id="agreement"
                                        required>
-
-                            <label for="agreement"  class="checkbox-label"><span>I agree to the <a class="terms" href="#">Terms & Conditions</a></span></label>
+                                <span class="checkbox"></span>
+                                <span class="agreement-link">I agree to the</span>
+                            </label>
+                            <a class="terms" href="#">Terms & Conditions</a>
                             <div class="process-order-buttons">
                                 <input type="submit"
                                        class="form-button order"
                                        value="Place order">
-                                <button class="form-button print">Print a quote</button>
+                                <button type="button" class="form-button print">Print a quote</button>
                             </div>
                         </div>
                     </section>

@@ -16,7 +16,7 @@ body{
   background-color: #d1d1d1;
 }
 .header-container{
-  padding: 32px 72px;
+  padding: 32px 73px;
   display: flex;
   justify-content: space-between;
   .form-button{
@@ -26,7 +26,7 @@ body{
       background-color: rgba(178, 185, 212, 0.62);
     }
     &:focus{
-      border-color: $mainColor;
+      box-shadow: 0 0 0 0.1em $mainColor;
     }
   }
 }
@@ -126,7 +126,7 @@ fieldset{
 }
 .order-item-header{
   margin: 8px 0;
-  font-weight: bolder;
+  font-weight: 600;
   text-transform: uppercase;
 }
 .order-item-info{
@@ -168,6 +168,7 @@ fieldset{
   flex: 0 0 35%;
   padding: 32px 32px 32px 54px;
   box-sizing: border-box;
+  font-style: normal;
 }
 .help-title{
   font-weight: bolder;
@@ -210,7 +211,7 @@ fieldset{
   padding: 32px;
 }
 .main-title{
-  text-align: center;
+  margin: 16px auto;
   text-transform: uppercase;
   font-size: 24px;
 }
@@ -231,9 +232,11 @@ fieldset{
   cursor: pointer;
   border: 1px solid $mainColorLighter;
   border-radius: 4px;
+  box-sizing: border-box;
+  justify-content: center;
 }
 .type-button:hover,
-.inp-type:checked ~ .type-button {
+.inp-type:checked ~ .type-button{
   border: 8px solid #75a7e1;
   border-radius: 4px;
   margin: 0;
@@ -246,10 +249,13 @@ fieldset{
   color: #75a7e1;
   font-size: 1.6em;
   top: -12px;
-  right: -14px;
+  right: -8px;
   background-color: #fff;
   border-radius: 50%;
   z-index: 2;
+}
+.inp-type:focus ~ .type-button{
+  box-shadow: 0 0 0 0.1em $mainColor;
 }
 .type-img{
   width: 96px;
@@ -278,17 +284,26 @@ fieldset{
   margin: 24px 0;
   position: relative;
   padding-left: 56px;
+  &:hover{
+    background-color: rgba(178,185,212,.62);
+  }
+  &:before{
+    position: absolute;
+    content: '';
+    top: 13px;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    background-color: $mainColorLight;
+    -webkit-mask-image: url(../images/002-upload.svg);
+    mask-image: url(../images/002-upload.svg);
+  }
 }
-.file-button::before{
-  position: absolute;
-  content: '';
-  top: 13px;
-  left: 20px;
-  width: 20px;
-  height: 20px;
-  background-color: $mainColorLight;
-  -webkit-mask-image: url(../images/002-upload.svg);
-  mask-image: url(../images/002-upload.svg);
+.file-input:focus ~ .file-button{
+  box-shadow: 0 0 0 0.1em $mainColor;
+}
+.file-input:active ~ .file-button{
+  border-color: #5f667b;
 }
 .file-list{
   display: flex;
@@ -333,6 +348,9 @@ fieldset{
   mask-image: url(../images/003-trash.svg);
   align-items: center;
   color: transparent;
+  &:focus{
+    background-color: $mainColor;
+  }
 }
 .doc{
   position: relative;
@@ -378,7 +396,9 @@ fieldset{
   background: #f7f7fa url(../images/test.svg) 100% 50% no-repeat;
   background-size: contain;
 }
-
+.add{
+  min-width: 136px;
+}
 //----------------------------------third area END----------------------
 //----------------------------------fourth area-------------------------
 .fourth-fifth{
@@ -389,20 +409,18 @@ fieldset{
   display: flex;
   flex-direction: column;
 }
-.fourth-area .fourth-but{
-  padding: 32px 40px 32px 72px;
-  margin: 0 0 24px;
+.fourth-area .type-label{
+  margin: 16px 0;
 }
 .fourth-but{
   position: relative;
+  flex-direction: row;
   &:before{
-    position: absolute;
     content: '';
-    top: 28px;
-    left: 26px;
     width: 20px;
     height: 20px;
-    background-color: #a4abc5;
+    background: #a4abc5 0 50% no-repeat;
+    margin-right: 16px;
   }
 }
 .fourth-but-casual::before{
@@ -418,10 +436,6 @@ fieldset{
   mask-image: url(../images/010-megaphone.svg);
 }
 
-.fourth-area .fourth-but:hover,
-.fourth-area .inp-type:checked ~ .type-button.fourth-but{
-  margin: -7px -7px 17px;
-}
 .fifth-area{
   max-width: 50%;
 }
@@ -430,9 +444,6 @@ fieldset{
   position: relative;
   -webkit-appearance: none;
   appearance: none;
-  background-color: #e7e8ed;
-  height: 6px;
-  z-index: 0;
   margin: 24px 16px 16px 32px;
 }
 .urgent::before {
@@ -444,24 +455,33 @@ fieldset{
 .urgent::before, .urgent::after {
   content: '';
   display: block;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   position: absolute;
-  top: -1px;
   background-color: #c4cbe8;
-  z-index: -1;
+}
+.urgent::-webkit-slider-runnable-track{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: #eff0f5;
+  height: 10px;
+  border-radius: 5px;
+
 }
 .urgent::-webkit-slider-thumb {
   -webkit-appearance: none;
   background-color: #edbe76;
-  width:16px;
-  height: 16px;
+  width:20px;
+  height: 20px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  z-index: 2;
   cursor: pointer;
+  z-index: 2;
+  position: relative;
+  top: -4px;
 }
 
 .urgent-titles{
@@ -506,10 +526,20 @@ fieldset{
 
 
 //----------------------------------fifth area------------------------
+.username-label{
+  width: 231px;
+  display: inline-block;
+}
 .email-address,
 .users-password{
   display: inline-block;
   margin: 24px 24px 0 0;
+}
+.sixth-area .container{
+  padding: 0 64px 32px;
+}
+.signin{
+  margin: 56px 0 32px;
 }
 .signin, .signin-link, .signin-link:visited{
   color: $mainColorLight;
@@ -517,7 +547,6 @@ fieldset{
 .text, .email, .password{
   min-width: 300px;
 }
-.text:focus:invalid ~ .fa-window-close,
 .email:focus:invalid ~ .fa-window-close,
 .password:focus:invalid ~ .fa-window-close{
   display: inline;
@@ -529,11 +558,19 @@ fieldset{
   background: 0 0;
   top: unset;
 }
-.text:focus:valid ~ .fa-check-circle,
+.text:focus:invalid ~ .fa-window-close{
+  display: inline;
+  position: absolute;
+  color: red;
+  font-size: 1.4em;
+  bottom: 13px;
+  right: 9px;
+  background: 0 0;
+  top: unset;
+}
 .email:focus:valid ~ .fa-check-circle,
 .password:focus:valid ~ .fa-check-circle,
 .password:valid ~ .fa-check-circle,
-.text:valid ~ .fa-check-circle,
 .email:valid ~ .fa-check-circle {
   display: inline;
   position: absolute;
@@ -544,6 +581,17 @@ fieldset{
   background-color: transparent;
   bottom: 1px;
 }
+.text:valid ~ .fa-check-circle,
+.text:focus:valid ~ .fa-check-circle{
+  display: inline;
+  position: absolute;
+  color: green;
+  font-size: 1.2em;
+  top: unset;
+  right: 9px;
+  background-color: transparent;
+  bottom: 15px;
+}
 //----------------------------------fifth area END--------------------
 //----------------------------------sixth area------------------------
 input::-webkit-input-placeholder{
@@ -552,6 +600,9 @@ input::-webkit-input-placeholder{
 .payment-method .container{
   display: flex;
   justify-content: space-between;
+}
+.payment-method .type-button{
+  min-height: 94px;
 }
 .card-data .container{
   display: flex;
@@ -589,8 +640,11 @@ input::-webkit-input-placeholder{
   outline: transparent;
   background-color: transparent;
   color: $mainColor;
-  &:hover{
-    border: 1px solid #5f9ea0;
+  &:hover, :active{
+    border: 1px solid $mainColor;
+  }
+  &:focus{
+    border: 1px solid $mainColor;
   }
 }
 select{
@@ -633,47 +687,40 @@ input[type="date"]:valid:before {
   margin: 0 24px;
 }
 .checkbox-label {
-  display: block;
-  margin: 0.2em;
-  cursor: pointer;
-  padding: 0.2em;
+  padding-left: 1.2em;
 }
 .agreement {
-  display: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
 }
-.checkbox-label:before {
-  content: "\2714";
-  border: 0.1em solid $mainColorLight;
-  border-radius: 0.2em;
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  padding-left: 0.2em;
-  padding-bottom: 0.3em;
-  margin-right: 1.2em;
-  vertical-align: bottom;
-  color: transparent;
-  transition: .2s;
+.checkbox {
+  position: absolute;
+  margin-top: 0.2em;
+  margin-left: -1em;
+  width: 0.6em;
+  height: 0.6em;
+  overflow: hidden;
+  border-radius: 0.05em;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  box-shadow: 0 0 0 0.1em $mainColor;
 }
-.checkbox-label:active:before {
-  transform: scale(0);
-}
-.agreement:checked + .checkbox-label:before {
-  background-color: #fff;
-  border-color: $mainColorLight;
-  color: $mainColor;
-}
-.agreement:disabled ~ .checkbox-label:before {
-  transform: scale(1);
-  border-color: #aaa;
+.agreement:checked + .checkbox {
+  background-color: #4A90E2;
+  background-image: url(https://cdn.glitch.com/d6162378-5823-4160-a555-3d9789bd2b92%2Fcheck.svg?1550563475518);
 }
 
-.agreement:checked:disabled ~ .checkbox-label:before {
-  transform: scale(1);
-  background-color: #bfb;
-  border-color: #bfb;
+.agreement:focus + .checkbox {
+  box-shadow:
+          0 0 0 0.1em #4A90E2,
+          0 0 0 0.2em #7ED321;
 }
-
+.agreement-link{
+  margin-right: 0.2em;
+}
 .code:focus:invalid ~ .fa-window-close,
 .card-number:focus:invalid ~ .fa-window-close,
 .date:focus:invalid~ .fa-window-close {
