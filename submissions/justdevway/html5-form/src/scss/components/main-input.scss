@@ -69,4 +69,12 @@
       opacity: 1;
     }
   }
+
+  &__name {
+    padding: 0 5px 10px 5px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
 }

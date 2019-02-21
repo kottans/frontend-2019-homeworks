@@ -387,25 +387,27 @@
                                 </div>
                                 <ul class="login__fields">
                                     <li class="login__field">
-                                        <div class="login__field__name">Full name</div>
-                                        <div class="login__field__input">
-                                            <div class="main-input">
-                                                <div class="main-input__body">
-                                                    <input
-                                                            type="text"
-                                                            class="main-input__input"
-                                                            placeholder="Full name"
-                                                            minlength="2"
-                                                            required>
-                                                    <div class="main-input__status main-input__status"></div>
-                                                </div>
+                                        <label class="main-input">
+                                            <div class="main-input__header">
+                                                <div class="main-input__name">Full name</div>
                                             </div>
-                                        </div>
+                                            <div class="main-input__body">
+                                                <input
+                                                        type="text"
+                                                        class="main-input__input"
+                                                        placeholder="Full name"
+                                                        minlength="2"
+                                                        required>
+                                                <div class="main-input__status main-input__status"></div>
+                                            </div>
+                                        </label>
                                     </li>
                                     <li class="login__field login__field--inline">
-                                        <div class="login__field__name">Email address</div>
                                         <div class="login__field__input">
-                                            <div class="main-input">
+                                            <label class="main-input">
+                                                <div class="main-input__header">
+                                                    <div class="main-input__name">Email address</div>
+                                                </div>
                                                 <div class="main-input__body">
                                                     <input type="email"
                                                            class="main-input__input"
@@ -415,13 +417,15 @@
                                                            required>
                                                     <div class="main-input__status main-input__status"></div>
                                                 </div>
-                                            </div>
+                                            </label>
                                         </div>
                                     </li>
                                     <li class="login__field login__field--inline">
-                                        <div class="login__field__name">Choose a password</div>
                                         <div class="login__field__input">
-                                            <div class="main-input">
+                                            <label class="main-input">
+                                                <div class="main-input__header">
+                                                    <div class="main-input__name">Choose a password</div>
+                                                </div>
                                                 <div class="main-input__body">
                                                     <input type="password"
                                                            class="main-input__input"
@@ -431,14 +435,10 @@
                                                            required>
                                                     <div class="main-input__status main-input__status"></div>
                                                 </div>
-                                            </div>
+                                            </label>
                                         </div>
                                     </li>
                                 </ul>
-                                <div class="login__helper login__helper--up">If you focus on one of inputs below, you
-                                    can use your
-                                    keyboard's arrow to select one of them
-                                </div>
                                 <ul class="login__card-types">
                                     <li class="login__card-type">
                                         <div class="radio-input radio-input--card">
@@ -448,6 +448,7 @@
                                                     id="viza_master-card"
                                                     name="select_payment_method"
                                                     value="viza/master-card"
+                                                    checked
                                                     required>
                                             <label for="viza_master-card" class="radio-input__button">
                                                 <img class="radio-input__icon" src="./img/cards/visa.svg"
@@ -502,29 +503,31 @@
                                 </ul>
                                 <div class="login__card-details">
                                     <ul class="login__fields login__fields--card-data">
-                                        <li class="login__field login__field--card-name">
-                                            <div class="login__field__name">Card number</div>
-                                            <div class="login__field__input">
-                                                <div class="main-input">
-                                                    <div class="main-input__body">
-                                                        <input type="text"
-                                                               class="main-input__input"
-                                                               minlength="16"
-                                                               maxlength="16"
-                                                               pattern="\d{16}"
-                                                               title="Please enter real card's numbers like 1111222233334444"
-                                                               name="card-name"
-                                                               placeholder="1111222233334444"
-                                                               required>
-                                                        <div class="main-input__status main-input__status"></div>
-                                                    </div>
+                                        <li class="login__field">
+                                            <label class="main-input">
+                                                <div class="main-input__header">
+                                                    <div class="main-input__name">Card number</div>
                                                 </div>
-                                            </div>
+                                                <div class="main-input__body">
+                                                    <input type="text"
+                                                           class="main-input__input"
+                                                           minlength="16"
+                                                           maxlength="16"
+                                                           pattern="\d{16}"
+                                                           title="Please enter real card's numbers like 1111222233334444"
+                                                           name="card-name"
+                                                           placeholder="1111222233334444"
+                                                           required>
+                                                    <div class="main-input__status main-input__status"></div>
+                                                </div>
+                                            </label>
                                         </li>
                                         <li class="login__field login__field--date">
-                                            <div class="login__field__name">Expire date</div>
                                             <div class="login__field__input">
-                                                <div class="main-input">
+                                                <label class="main-input">
+                                                    <div class="main-input__header">
+                                                        <div class="main-input__name">Expire date</div>
+                                                    </div>
                                                     <div class="main-input__body">
                                                         <input
                                                                 type="date"
@@ -535,13 +538,15 @@
                                                                 required>
                                                         <div class="main-input__status main-input__status"></div>
                                                     </div>
-                                                </div>
+                                                </label>
                                             </div>
                                         </li>
                                         <li class="login__field login__field--code">
-                                            <div class="login__field__name">Code</div>
                                             <div class="login__field__input">
-                                                <div class="main-input">
+                                                <label class="main-input">
+                                                    <div class="main-input__header">
+                                                        <div class="main-input__name">Code</div>
+                                                    </div>
                                                     <div class="main-input__body">
                                                         <input
                                                                 type="text"
@@ -555,7 +560,7 @@
                                                                 required>
                                                         <div class="main-input__status main-input__status"></div>
                                                     </div>
-                                                </div>
+                                                </label>
                                             </div>
                                         </li>
                                     </ul>
