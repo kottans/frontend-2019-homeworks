@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<body>
+    <div class="wrapper">
+        <form >
+            <section class="header">
+                <table class="order">
+                    <caption class="table_header">Your order</caption>
+                    <tr>
+                        <th class="order_sum">Items</th>
+                        <th class="order_sum">Details</th>
+                        <th class="order_sum">Price</th>
+                        <th class="order_sum">Delivery</th>
+                    </tr>
+                    <tr>
+                        <td>2 documents</td>
+                        <td>2 languages</td>
+                        <td>$696.06</td>
+                        <td>48 hours*</td>
+                    </tr>
+                    </table>
+                    <div class="header_buttons" >
+                        <button class="place_order" type="submit">
+                            Place order
+                        </button>
+                        <button class="print_quote" type="button">
+                            Print a quote
+                        </button>
+                    </div>
+                    <section class="help">
+                        <h5 class="help_header">Help center</h5>
+                        <p>If you need assistance while placing your order, contact one of our beloved Project Manager by phone or email</p>
+                        <a class="contacts" href="tel:+9710555555">+971(0)555 555</a>
+                        <a class="contacts" href="mailto:help@qtest.com">help@qtest.com</a>
+                    </section>
+            </section>
+            <div class="main_form">
+                <section class="main_menu">
+                    <h3 class="main_header">Select what you want to translate</h3>
+                    <div class="main_choice">
+                        <input class="radio_website" type="radio" id="website" name="translate" value="website" required>
+                        <label class="label_website" for="website">Website</label>
+                        <input class="radio_document" type="radio" id="document" name="translate" value="document">
+                        <label class="label_document" for="document">Document</label>
+                        <input class="radio_account" type="radio" id="account" name="translate" value="account">
+                        <label class="label_account" for="account">Account</label>
+                    </div>
+                </section>
+                <section class="first_step">
+                    <div class="upload_file"> 
+                        <h3 class="first_header">Upload your documents</h3>
+                        <p class="docs_types">(Doc, Docs, Text, PDF, Markdown)</p>
+                    </div>
+                    <input class="upload_button" type="file"  id="upload"  accept=".doc,.docx,.txt,.pdf,.md">
+                    <label for="upload">Upload a new file</label>
+                    <table class="upload_table">
+                        <tr>
+                            <th class="upload_table_headers">File name</th>
+                            <th class="upload_table_headers">File size</th>
+                            <th class="upload_table_headers">Number of words</th>
+                            <th class="upload_table_headers">Remove</th>
+                        </tr>
+                        <tr class="upload_doc1">
+                            <td class="docs name">business_operations.docx</td>
+                            <td class="docs">78kb</td>
+                            <td class="docs">842</td>
+                            <td><input class="remove" type="checkbox"></td> 
+                        </tr>
+                        <tr class="upload_doc2">
+                            <td class="docs name">business_financial.docx</td>
+                            <td class="docs">26kb</td>
+                            <td class="docs">2,326</td>
+                            <td><input class="remove" type="checkbox"></td> 
+                        </tr>
+                    </table>
+                </section>
+                <section class="second_step">
+                    <h3 class="second_header">Choose your languages pairings</h3>
+                    <label class="label_from_lang" for="from_lang">From</label><br>
+                    <select class="from_lang" id="from_lang" name="from" >
+                        <optgroup label="Choose language">
+                            <option value="english">English</option>
+                            <option value="spanish">Spanish</option>
+                            <option value="italian">Italian</option>
+                            <option value="ukrainian">Ukrainian</option>
+                            <option value="indian">Indian</option>
+                            <option value="arabic">Arabic</option>
+                            <option value="kurdish">Kurdish</option>
+                        </optgroup>
+                    </select>
+                    <div class="to_languages">
+                        <label class="label_to_lang" for="to_lang">To</label><br>
+                        <select class="to_lang" id="to_lang" name="to">
+                            <optgroup label="Choose language">
+                                <option value="arabic">Arabic</option>
+                                <option value="english">English</option>
+                                <option value="spanish">Spanish</option>
+                                <option value="italian">Italian</option>
+                                <option value="ukrainian">Ukrainian</option>
+                                <option value="indian">Indian</option>
+                                <option value="kurdish">Kurdish</option>
+                            </optgroup>
+                        </select>
+                        <select class="to_lang2" name="and_to">
+                            <optgroup label="Choose language">
+                                <option value="kurdish">Kurdish</option>
+                                <option value="arabic">Arabic</option>
+                                <option value="english">English</option>
+                                <option value="spanish">Spanish</option>
+                                <option value="italian">Italian</option>
+                                <option value="ukrainian">Ukrainian</option>
+                                <option value="indian">Indian</option>
+                            </optgroup>
+                        </select>
+                        <span><input class="remove_lang" type="checkbox"></span>
+                        <button class="add_lang" type="button">
+                            +&ensp;Add
+                        </button> 
+                    </div>
+                </section>
+                <section class="third_fourth_steps">
+                    <section class="third_step">
+                        <h3 class="third_header">Select your desired tone</h3>
+                        <label class="tones"><input class="tone_friend" type="radio" name="tone" value="friendly" required/><span class="tone_friendly">Friendly/Casual</span></label>
+                        <label class="tones"><input class="tone_corp" type="radio" name="tone" value="corporate" /><span class="tone_corporate">Corporate/Pro</span></label>
+                        <label class="tones"><input class="tone_formal" type="radio" name="tone" value="media" /><span class="tone_media">Media/Formal</span></label>
+                    </section>
+                    <section class="fourth_step">
+                        <h3 class="fourth_header">Tell us how urgent this job is</h3>
+                        <input class="timeline" type="range" min="0" max="2" step="1" name="urgent" value="1" >
+                        <div class="timeline_text">
+                            <span>I got time</span>
+                            <span class="orange">Average</span>
+                            <span>Yesterday</span>
+                        </div>
+                        <div class="timeline_info">
+                            <h5 class="timeline_info_header">Timeline info</h5>
+                            <p class="timeline_info_text">With an <span class="orange">average</span> timeline set up, our expert translator can take a reasonable amount of time perfecting your translation  </p>
+                        </div>
+                        </section>
+                </section>
+                <section class="fifth_step">
+                    <h3 class="fifth_header">Sign up and choose a payment method</h3>
+                    <p class="sign">Already have an account with us? <a class="sign_link" href="#">Sign in</a></p>
+                        <label class="label_name"  for="name">Full name</label>
+                        <input class="enter_name" type="text" id="name"  placeholder="e.g. Aria Stark" autocomplete="off" title="Enter your name and surname" name="name" value="" minlength="4"  maxlength="25" required>
+                        <span class="hidden"></span>
+                    <div class="email">
+                        <div class="email_adress">
+                            <label class="label_email"  for="email">Email adress</label>
+                            <input class="enter_email" type="email" id="email" autocomplete="off" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="e.g. aria@gmail.com" title="example@gmail.com" name="email" value="" required>
+                            <span class="hidden"></span>
+                        </div>
+                        <div class="choose_password">
+                            <label class="label_password"  for="password">Choose a password</label>
+                            <input class="enter_password" type="password" id="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*" placeholder="e.g. AriaStark13" title="Minimum 8 characters, UPPERCASE, lowercase and Number" name="pass" value="" minlength="8" required>
+                            <span class="hidden"></span>
+                        </div>  
+                    </div>
+                    <div class="payment">
+                        <input class="radio_visa" type="radio" id="visa" name="payment" value="visa" required>
+                        <label class="label_visa" for="visa">Visa/Mastercard</label>
+                        <input class="radio_paypal" type="radio" id="paypal" name="payment" value="paypal" >
+                        <label class="label_paypal" for="paypal">Paypal</label>
+                        <input class="radio_amazon" type="radio" id="amazon" name="payment" value="amazon">
+                        <label class="label_amazon" for="amazon">Amazon</label>
+                    </div>
+                    <div class="card">
+                        <div class="number">
+                            <label class="label_number"  for="card_number">Card number</label>
+                            <input class="card_number" type="text"  inputmode="numeric" id="card_number" autocomplete="off" pattern="[0-9]*" minlength="16" maxlength="16" title="Enter your card number" name="card_number" value="" required>
+                            <span class="visa_icon"></span>
+                        </div>
+                        <div class="date">
+                            <label class="label_date"  for="date">Expiry date</label>
+                            <input class="card_date" type="text"  inputmode="numeric" id="date" autocomplete="off" placeholder="DD/MM/YY" pattern="\d{1,2}/\d{1,2}/\d{2}" title="Enter card expiry date" name="card_date" value=""  required>
+                        </div>
+                        <div class="code">
+                            <label class="label_code"  for="code">Code</label>
+                            <input class="card_code" type="password" id="code" pattern="[0-9]*"  title="Enter CVV code" minlength="3"  maxlength="4" name="card_cvv" value="" required>
+                        </div>
+                    </div>
+                    <div class="bottom_buttons" >
+                        <input class="agreements" type="checkbox"  id="agreement" name="agree" value="yes" required>
+                        <label class="label_agreement" for="agreement">I agree to the <a href="#">Terms and Conditionals</a></label>
+                        <button class="place_order place" type="submit">
+                            Place order
+                        </button>
+                        <button class="print_quote quote" type="button">
+                            Print a quote
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </form>
+    </div> 
+</body>
+</html>
