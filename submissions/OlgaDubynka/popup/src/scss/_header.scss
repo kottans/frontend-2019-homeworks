@@ -1,0 +1,237 @@
+@import 'vars';
+.header {
+  width: 100%;
+  text-align: right;
+  position: relative;
+}
+
+.nav .list {
+  margin: 0 0 0 auto;
+  padding: 30px ;
+  width: 100%;
+  max-width: 270px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  .kmail:hover,
+  .kmail:focus,
+  .kmail:active,
+  .images:hover,
+  .images:focus,
+  .images:active {
+    color: $black;
+    text-decoration: underline;
+  }
+
+  .menu-btn-img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .notification-img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .user {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    background-color: lightpink;
+    text-align: center;
+  }
+
+  .user-pic {
+    color: $grey;
+  }
+}
+
+.popup {
+
+  .box {
+    position: relative;
+    max-width: 320px;
+    max-height: 480px;
+    margin: 85px 50px 0 auto;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0,0,0,.2);
+    border-radius: 3px;
+    color: $black;
+    background-color: $white;
+    overflow-y: auto;
+  }
+
+  .list {
+    padding-top: 28px;
+    max-width: 320px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  } 
+
+  .light {
+    border-color: #aaa;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  }
+
+  .item {
+    width: 88px;
+    height: 100px;
+  }
+
+  .link {
+    margin: 2px 8px;
+    padding: 2px 0;
+    display: block;
+    border: 1px solid transparent;
+    transition: border .2s ease-in-out;
+  }
+
+  .link:hover {
+    border: 1px solid lightgray;
+    border-radius: 3px;
+  }
+
+  .img-wrap {
+    width: 64px;
+    height: 64px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .img {
+    width: 65%;
+  }
+
+  .title {
+    display: block;
+    color: rgba(0,0,0,.87);
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .btn-more {
+    display: block;
+    text-align: center;
+    color: $black;
+    bottom: 0;
+    padding: 10px 0;
+    width: 100%;
+    background-color: lightgray;
+  }
+
+  .list-more {
+    display: none;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+  }
+
+  .input-more:focus + .btn-more {
+    outline: auto;
+  }
+
+  .input-more:checked ~ .list-more {
+    display: flex;
+    position: relative;
+    top: 0;
+  }
+
+  .input-more:checked,
+  .input-more:checked ~ .btn-more {
+    display: none;
+  }
+
+  .line {
+    display: block;
+    height: 1px;
+    width: 85%;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, .1);
+  }
+
+  .more-links {
+    display: none;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .more-links:hover {
+    text-decoration: underline;
+  }
+
+  .input-more:checked ~ .more-links {
+    display: block;
+  }
+
+}
+
+.popup:before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.2);
+  position: absolute;
+  top: 78px;
+  right: 145px;
+  z-index: -1;
+  background-color: $white;
+  transform: rotate(-45deg);
+}
+
+.popup:after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 78px;
+  right: 145px;
+  z-index: 10;
+  background-color: $white;
+  transform: rotate(-45deg);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,.5);
+  transition: opacity 200ms;
+  visibility: hidden;
+  opacity: 0;
+
+  .cancel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+  }
+
+}
+
+.overlay.light {
+  background: rgba(255,255,255,.5);
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+  
+

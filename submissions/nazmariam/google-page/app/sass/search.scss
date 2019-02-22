@@ -1,0 +1,113 @@
+body {
+  font-family: arial,sans-serif;
+}
+
+main {
+  width: 592px;
+  margin: auto;
+}
+
+.search-form {
+  margin: 34% auto 20px;
+}
+
+.search-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  text-align: center;
+}
+
+.search-line {
+  display: flex;
+  height: 28px;
+  width: 81%;
+  border: 1px solid #f1f3f4;
+  margin: 15px 0;
+  padding: 5px 0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+}
+
+.searching-input {
+  padding: 12px;
+  background-color: transparent;
+  border: none;
+  color: rgba(0, 0, 0, 0.87);
+  word-wrap: break-word;
+  outline: none;
+  display: flex;
+  flex: 100%;
+  -webkit-tap-highlight-color: transparent;
+  margin-top: -5px;
+  width: 80%;
+}
+.searching-input:active {
+  background-color: transparent;
+}
+
+.search-mic {
+  background: url("../images/mic.png") 0 0 no-repeat;
+  height: 24px;
+  width: 8px;
+  background-size: 24px;
+  vertical-align: middle;
+  padding: 0 12px 0;
+}
+.button {
+  background-color: #f2f2f2;
+  border: 1px solid #f2f2f2;
+  border-radius: 2px;
+  color: #757575;
+  cursor: pointer;
+  font-family: arial,sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 26px 6px;
+  min-width: 54px;
+  padding: 10px 16px;
+  text-align: center;
+  &:hover {
+    background-color: #f8f8f8;
+    background-image: linear-gradient(top, #f8f8f8, #f1f1f1);
+    background-image: -o-linear-gradient(top, #f8f8f8, #f1f1f1);
+    border: 1px solid #c6c6c6;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    color: #222;
+  }
+}
+.full-height {
+  margin: 20px auto;
+}
+.result .siteURL{
+  color:  #006621;
+}
+.result {
+  line-height: 1.4;
+  word-wrap: break-word;
+  color: #545454;
+}
+.result h3 {
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    color: #1a0dab;
+    margin: 5px 0;
+  }
+.result  a {
+  text-decoration: none;}
+.result  a:hover {
+  text-decoration: underline;}
+.result  a:visited {
+  text-decoration: none;
+  color: #609;
+}
+  .content li {
+    margin: 10px 0;}
+  ul h4{
+    text-align: center;
+    font-size: 20px;
+  }

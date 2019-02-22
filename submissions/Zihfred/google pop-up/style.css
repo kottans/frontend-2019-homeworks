@@ -1,0 +1,196 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+.visually__hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+.wrapper{
+    padding: 27px;
+}
+.menu{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.menu_item{
+    position: relative;
+    cursor: pointer;
+}
+
+.menu_item:not(:last-child){
+
+    vertical-align: baseline;
+    margin-right: 20px;
+}
+.popup_label{
+    cursor: pointer;
+}
+.username{
+    font-weight: bold;
+    color: white;
+    width: 32px;
+    height: 32px;
+    background-color: purple;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bell {
+    color: white;
+    width: 30px;
+    height: 30px;
+    background-color: gray;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pop_up {
+    display: none;
+    position: absolute;
+    width: 332px;;
+    left: -220px;
+    border: 1px solid lightgrey;
+    top: 31px;
+    height: 458px;
+    -webkit-box-shadow: 0px 0px 38px -13px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 38px -13px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 38px -13px rgba(0,0,0,0.75);
+}
+.pop_up-content{
+    overflow-y: scroll;
+    height: 100%;
+    padding: 12px;
+    top: -18px;
+    position: relative;
+}
+.pop_up:before {
+    background-color: white;
+    display: inline-block;
+    position: relative;
+    content: "";
+    top: -9px;
+    right: -216px;
+    margin-left: 4px;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    border-left: 1px solid rgba(0,0,0,0.2);
+    border-top: 1px solid rgba(0,0,0,0.2);
+}
+.wrapper:active .content {
+    display: block;
+}
+.content:hover {
+    display: block;
+}
+.pop_up:target{
+    display: block;
+}
+.pop_up-content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 13px;
+    height: 456px;
+}
+.pop_up-item{
+    padding: 15px 0px;
+    cursor: pointer;
+    width: 33%;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid transparent;
+}
+.pop_up-item:hover{
+    border: 1px solid lightgrey;
+}
+.pop_up-item:focus{
+    border: 1px solid lightskyblue;
+}
+.pop_up-item__img{
+    width: 40px;
+}
+.pop_up-more{
+    border: 1px solid transparent;
+}
+.pop_up-more:hover{
+    cursor: pointer;
+    border: 1px solid blue;
+}
+.pop_up-more:focus{
+    border: 1px solid lightskyblue;
+}
+
+.pop_up-more{
+    background-color: lightgrey;
+    text-align: center;
+    width: 100%;
+    padding: 7px 16px;
+}
+input:checked ~ .pop_up{
+    display: block;
+}
+input:checked ~ .close{
+    display: block;
+}
+
+input:checked ~ .fullsizepop_up{
+    display: block;
+    opacity: 1;
+}
+
+
+input:checked ~ .pop_up-more{
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+.close{
+    display: none;
+}
+.fullsizepop_up{
+    display: none;
+    text-align: center;
+    width: 100%;
+    text-decoration: underline;
+}
+.bell:focus, .username:focus{
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.popup_checkbox:focus ~ label {
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.more-checkbox:focus ~ label{
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.username__p{
+    text-align: center;
+    width: 32px;
+    line-height: 32px;
+}
+.bell__icon{
+    text-align: center;
+    width: 32px;
+    line-height: 32px;
+}
