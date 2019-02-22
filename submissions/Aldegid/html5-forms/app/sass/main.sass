@@ -2,6 +2,10 @@
 @import "fonts"
 @import "libs"
 
+=button-bg($bg, $procent)
+	&:hover
+		background-color: darken($bg, $procent)
+		transition: all .25s ease
 
 ::placeholder
 	color: #666
@@ -57,11 +61,13 @@ body
 	display: inline-block
 	color: $text-light
 	transition: all .25s ease
-	&:hover, &:active
+	&:hover
 		color: $accent
-	&:focus, &:active
+	&:focus
 		outline: none
 		box-shadow: 0 0 3px 3px #83A8E5
+	&:active
+		color: #da7674
 
 .form__wrapper
 	max-width: 1200px
@@ -118,24 +124,21 @@ body
 	border: 1px solid $bordercolor
 	font-weight: bold
 	cursor: pointer
-	transition: background-color .25s ease
 	&:focus
 		outline: none
 		box-shadow: 0 0 3px 3px #83A8E5
 
 .order-button
-	background-color: $accent
 	color: #ffffff
 	margin-bottom: 15px
-	&:hover
-		background-color: darken($accent, 10%)
+	background-color: $accent
+	+button-bg($accent, 10%)
 
 .print-button
 	background-color: $background
 	color: $text-light
 	margin-bottom: 0
-	&:hover
-		background-color: darken($background, 3%)
+	+button-bg($background, 4%)
 
 .help__center
 	padding: 25px
@@ -158,20 +161,26 @@ body
 .contacts__phone
 	color: $text
 	text-decoration: none
-	padding-right: 20px
+	margin-right: 20px
 	display: inline-block
 	&:hover
 		text-decoration: underline
-	&:focus, &:active
+	&:focus
+		outline: none
 		box-shadow: 0 0 3px 3px #83A8E5
+	&:active
+		color: #da7674
 
 .contacts__mail
 	color: $text
 	text-decoration: none
 	&:hover
 		text-decoration: underline
-	&:focus, &:active
+	&:focus
+		outline: none
 		box-shadow: 0 0 3px 3px #83A8E5
+	&:active
+		color: #DA7674
 
 .form__main
 	h3
@@ -244,8 +253,7 @@ body
 		font-size: 90px
 		color: $text-light
 		margin-bottom: 20px
-	&:hover
-		background-color: darken($background, 2%)
+	+button-bg($background, 3%)
 
 	.svg-card
 		width: 60px
@@ -337,9 +345,7 @@ input[type=radio]:checked + .label__image-wrapper
 	position: relative
 	background-color: $background
 	transition: background-color .25s ease
-
-.file-label:hover
-	background-color: darken($background, 2%)
+	+button-bg($background, 3%)
 
 .file-label::before
 	content: '\f0ee'
@@ -395,8 +401,7 @@ input[type=radio]:checked + .label__image-wrapper
 	appearance: none
 	color: $text-light
 	transition: background-color .25s ease
-	&:hover
-		background-color: darken($background, 2%)
+	+button-bg($background, 3%)
 	&:focus
 		box-shadow: 0 0 3px 3px #83A8E5
 
@@ -472,6 +477,9 @@ input[type=radio]:checked + .label__image-wrapper
 	padding: 0
 	margin: 0
 	background-color: #fff
+	transition: all .25s ease
+	&:hover
+		color: $text
 	&:focus
 		outline: none
 		box-shadow: 0 0 2px 3px #7da8e3
@@ -493,8 +501,7 @@ input[type=radio]:checked + .label__image-wrapper
 	text-transform: uppercase
 	cursor: pointer
 	transition: background-color .25s ease
-	&:hover
-		background-color: darken($background, 2%)
+	+button-bg($background, 3%)
 	&:focus
 		box-shadow: 0 0 3px 3px #83A8E5
 		outline: none
@@ -622,9 +629,11 @@ input[type=radio]:checked + .label__image-wrapper
 	color: $text
 	&:hover
 		color: #000000
-	&:focus, &:active
+	&:focus
 		outline: none
 		box-shadow: 0 0 3px 3px #83A8E5
+	&:active
+		color: #da7674
 
 .sign-up__inputs
 	display: flex
@@ -643,6 +652,8 @@ input[type=radio]:checked + .label__image-wrapper
 	box-shadow: 0 0 2px 1px $bordercolor
 	margin-right: 40px
 	padding-left: 25px
+	font-size: 15px
+	+button-bg($background, 3%)
 	&:focus
 		outline: none
 		box-shadow: 0px 0px 3px 3px #83A8E5
@@ -755,10 +766,13 @@ input[type=radio]:checked + .label__image-wrapper
 
 .accept__terms-link
 	color: $text
-	&:hover, &:active
+	&:hover
 		color: #000000
-	&:focus, &:active
+	&:focus
+		outline: none
 		box-shadow: 0 0 3px 3px #83A8E5
+	&:active
+		color: #da7674
 
 /*********** custom checkbox start***********/
 
@@ -876,16 +890,19 @@ input[type=checkbox]:checked + .checkbox-label::after
 		border-radius: 50%
 		background-color: #B4B9D8
 		color: #454a63
-		&:hover, &:active
+		&:hover
 			background-color: $accent
 
 .social__link
 	color: #B4B9D8
 	text-decoration: none
-	&:hover, &:active
+	&:hover
 		color: $accent
-	&:focus, &:active
+	&:focus
+		outline: none
 		box-shadow: 0 0 3px 3px #83A8E5
+	&:active
+		color: #da7674
 
 .social__link-text
 	margin-left: 10px
