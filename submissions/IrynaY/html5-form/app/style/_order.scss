@@ -94,6 +94,12 @@ input[name="translate-type"]:checked + label {
     opacity: 0;
 }
 
+#file-upload:focus + label{
+    outline-color: -webkit-focus-ring-color;
+    outline-style: auto;
+    outline-width: 5px;
+}
+
 .file-container{
     position: relative;
 }

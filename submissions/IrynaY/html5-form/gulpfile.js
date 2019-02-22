@@ -2,6 +2,7 @@ const browserSync = require('browser-sync');
 const del = require('del');
 const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
+const cleanCSS = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
 const sass = require('gulp-sass');
 
@@ -21,6 +22,7 @@ gulp.task('sass', () =>
   gulp.src(['./app/style/**/*.scss'])
     .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(autoprefixer({browsers: ['last 2 versions'], cascade: false}))
+    .pipe(cleanCSS())
     .pipe(gulp.dest('./build/style'))
     .pipe(browserSync.reload({stream: true}))
 );

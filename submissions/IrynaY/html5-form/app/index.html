@@ -82,11 +82,11 @@
             <fieldset class="upload-section">
                 <h2 class="section-title">Upload your documents <span class="file-format">(Doc, Docx, Text, PDF, Markdown)</span></h2>
 
-                <label for="file-upload" class="file-container" tabindex="0"><i class="icon"></i> Upload a new file</label>
                 <input type="file"
                         name="file-upload"
                         id="file-upload"
                         accept=".doc, .docx, .txt, .pdf, .md">
+                <label for="file-upload" class="file-container"><i class="icon"></i> Upload a new file</label>
 
                 <table class="file-table">
                     <tr class="table-title">
@@ -284,10 +284,10 @@
                     </div>
                     <div class="card-info">
                         <label for="expiry-date" class="title">Expiry date</label>
-                        <input type="text"
+                        <input type="date"
                                 id="expiry-date"
                                 name="expiry-date"
-                                pattern="\d{2}/\d{2}/\d{2}"
+                                pattern="([1-9]|[12][0-9]|3[01])[/]([1-9]|1[012])[/]\d{2}"
                                 minlength="8"
                                 maxlength="8"
                                 placeholder="DD / MM / YY"
