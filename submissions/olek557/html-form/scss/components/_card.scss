@@ -1,0 +1,76 @@
+.card {
+  border-radius: 5px;
+  border: 1px solid $border-color;
+  background-color: $white;
+}
+
+.card__header {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid $border-color;
+  @include bp(large) {
+    flex-direction: row;
+  }
+}
+
+.header-card__info {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  @include bp(medium) {
+    flex-direction: row;
+    padding: 30px 30px 25px 75px;
+  }
+}
+
+.header-card__details {
+  .table {
+    margin-top: 15px;
+  }
+}
+
+.header-card__action {
+  @include bp(small) {
+    margin-top: 20px;
+  }
+  @include bp(medium) {
+    display: flex;
+    flex-direction: column;
+  }
+  .btn + .btn {
+    margin-top: 10px;
+  }
+}
+
+.header-card__help {
+  padding: 10px;
+  @include bp(medium) {
+    padding: 25px 30px 25px 70px;
+    border-top: 1px solid $border-color;
+  }
+  @include bp(large) {
+    border-top: none;
+    border-left: 1px solid $border-color;
+    min-width: 350px;
+  }
+}
+
+.card__content {
+  padding: 10px;
+  @include bp(medium) {
+    padding: 0 70px 0 70px;
+  }
+  @include bp(large) {
+    padding: 0 100px 0 130px;
+  }
+}
+
+.card__footer {
+  padding: 10px;
+  @include bp(medium) {
+    padding: 0 50px 50px;
+  }
+  @include bp(large) {
+    padding: 0 100px 70px 130px;
+  }
+}

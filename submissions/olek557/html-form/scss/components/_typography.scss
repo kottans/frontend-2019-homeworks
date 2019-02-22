@@ -1,0 +1,74 @@
+h1 {
+  color: $text-light;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.h2 {
+  display: inline-block;
+  color: $text-dark;
+  font-size: 19px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 15px;
+  border-bottom: 1px solid $border-color;
+  margin-top: 100px;
+  margin-bottom: 70px;
+}
+
+.h3 {
+  font-size: 22px;
+  color: $text-dark;
+  font-weight: 300;
+  margin-bottom: 50px;
+  display: inline-block;
+  @include bp(small) {
+    padding-left: 50px;
+  }
+}
+
+.h3__additional {
+  font-size: 13px;
+  color: $text-light;
+  font-weight: 300;
+  letter-spacing: normal;
+}
+
+.h5 {
+  display: inline-block;
+  position: relative;
+  color: $text-dark;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 15px;
+  @include bp(small) {
+    padding-left: 30px;
+  }
+}
+
+.h5__icon {
+  position: absolute;
+  font-size: 20px;
+  top: -5px;
+  left: 0;
+  @include bp(medium) {
+    left: -35px;
+  }
+}
+
+.text-block {
+  color: $text-light;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.4;
+  margin: 0;
+  & + * {
+    margin-top: 20px;
+  }
+}
