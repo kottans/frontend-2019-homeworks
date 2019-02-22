@@ -1,8 +1,18 @@
 $fontSmall: 15px;
 $colorBold: #6e768f;
 $colorText: #a5abc5;
+$placeholderText: #d7d9e0;
 $colorFooter: #c6ccea;
 $sectionCount: 8;
+
+$desktop: 1370px;
+$tablet: 770px;
+$mobile: 480px;
+
+
+// @media (max-width: $desktop) {
+//    display: none;
+// }
 
 @mixin border($borderColor, $textColor) {
   border-radius: 5px;
@@ -16,6 +26,7 @@ $sectionCount: 8;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 body, *{
@@ -28,30 +39,21 @@ body, *{
 }
 body{
   background: #eceef4;
+  overflow-x: hidden;
 }
-h1{
-  font-size: 25px;
-  padding: 0 10px 20px;
-  font-weight: 300;
-  text-transform: uppercase;
-  margin: 0 0 80px;
-  position: relative;
-  display: inline-block;
-  &:after{
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 1px;
-    background: #dbe0eb;
-  }
-}
+
 h2{
   font-weight: 300;
   font-size: 25px;
   position: relative;
   padding-bottom: 50px;
+  @media (max-width: $desktop) {
+    font-size: 20px;
+    margin-left: 50px;
+  }
+  @media (max-width: $tablet) {
+    margin-left: 80px;
+  }
   &:after{
     content: '1';
     position: absolute;
@@ -76,10 +78,71 @@ h3, h4, h5, h6{
   color: $colorBold;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=radio]:focus + label {
+    filter: grayscale(1);
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+::-webkit-input-placeholder{
+  color:$placeholderText;
+}
+::-moz-placeholder{
+  color:$placeholderText;
+}
+:-moz-placeholder{
+  color:$placeholderText;
+}
+:-ms-input-placeholder{
+  color:$placeholderText;
+}
+
 fieldset{
   border: none;
   padding: 0;
+  @media (max-width: $tablet) {
+    width: 100%;
+  }
 }
+
+.visually-hidden{
+  display: none;
+}
+.visually-radio{
+  position: absolute;
+  z-index: -1;
+}
+
+.select-title{
+  font-size: 25px;
+  padding: 0 10px 20px;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 0 0 80px;
+  position: relative;
+  display: inline-block;
+  &:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: #dbe0eb;
+  }
+}
+
 .select-wrapper{
   position: relative;
   pointer-events: none;
@@ -111,11 +174,17 @@ select.sm-button{
   appearance:none;
   text-transform: none;
   pointer-events: auto;
+  @media (max-width: $mobile) {
+    min-width: 180px;
+  }
 }
 select::-ms-expand {
     display: none;
 }
-input:checked + label{
+a{
+  color: inherit;
+}
+input:checked + label:not(.agree){
   position: relative;
   opacity: 1;
   &:before{
@@ -145,13 +214,27 @@ input:checked + label{
 p{
   color: $colorText;
 }
-
+h1{
+  @media (max-width: $tablet) {
+    order: 1;
+    margin: 20px auto;
+  }
+}
 .header{
   @include container();
   padding: 80px 0;
+  @media (max-width: $desktop) {
+    padding: 0;
+  }
 }
 .header button{
   background: none;
+  @media (max-width: $tablet) {
+    order: 2;
+    width: 85%;
+    min-width: 250px;
+    margin: 0 auto 20px;
+  }
 }
 .sm-button{
   display: inline-block;
@@ -168,7 +251,7 @@ p{
   opacity: 0.6;
   transition: 0.2s;
   padding: 0 30px;
-  font-size: 15px;
+  font-size: $fontSmall;
   @include border(#6e768f, #6e768f);
   &:hover{
     opacity: 1;
@@ -176,6 +259,13 @@ p{
   .fa{
     padding-right: 15px;
     font-size: 17px;
+  }
+  &.add-button{
+    min-width: 160px;
+    @media (max-width: $desktop) {
+      display: block;
+      margin: 20px 0 0 70px;
+    }
   }
 }
 .sm-input{
@@ -186,62 +276,98 @@ p{
   background: none;
   box-shadow: none;
   transition: 0.2s;
-  padding: 0 50px 0 20px;
-  font-size: 15px;
+  padding: 0 20px;
+  font-size: $fontSmall;
   @include border(#d7d9e0, #7489ab);
   margin: 0 40px 50px 0;
   position: relative;
-  &.validate:valid{
-    &:after{
-      content: '\f00c';
-      position: absolute;
-      top: 50%;
-      right: 15px;
-      transform: translateY(-50%);
-      height: 30px;
-      width: 30px;
-      line-height: 30px;
-      text-align: center;
-      background: #76a7e1;
-      color: #fff;
-      border-radius: 30px; 
-      font: normal normal normal 20px/30px FontAwesome;
-    }
+  @media (max-width: $tablet) {
+    margin: 0 0 20px 0;
+    width: 100%;
   }
-  &.validate:invalid{
-    &:after{
-      content: '\f00d';
-      position: absolute;
-      top: 50%;
-      right: 15px;
-      transform: translateY(-50%);
-      height: 30px;
-      width: 30px;
-      line-height: 30px;
-      text-align: center;
-      background: #e17776;
-      color: #fff;
-      border-radius: 30px; 
-      font: normal normal normal 20px/30px FontAwesome;
-    }
+  opacity: 0.5;
+  &:hover,
+  &:active,
+  &:focus{
+    opacity: 1;
   }
   .fa{
     padding-right: 15px;
     font-size: 17px;
   }
 }
+.input-result{
+  position: absolute;
+  display: block;
+  width: 30px;
+  height: 30px;
+  top: 45px;
+  right: 55px;
+  @media (max-width: $tablet) {
+    right: 20px;
+  }
+}
+.validate{
+  position: relative;
+}
+.validate input:valid + .input-result{
+  &:after{
+    content: '\f00c';
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #76a7e1;
+    color: #fff;
+    border-radius: 30px;
+    font: normal normal normal 20px/30px FontAwesome;
+  }
+}
+.validate input:invalid + .input-result{
+  &:after{
+    content: '\f00d';
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #e17776;
+    color: #fff;
+    border-radius: 30px;
+    font: normal normal normal 20px/30px FontAwesome;
+  }
+}
 .full-width{
-  width: 100%;
+  margin-right: 50%;
+  @media (max-width: $mobile) {
+    margin-right: 0;
+  }
 }
 .main{
   @include container();
   @include border(#c9d0e1, #6e768f);
   background: #ffffff;
   margin-bottom: 170px;
+  @media (max-width: $desktop) {
+    margin-bottom: 50px;
+  }
+  @media (max-width: $mobile) {
+    width: 100%;
+    border-radius: 0;
+    border: none;
+  }
 }
 .main-head{
   display: flex;
   border-bottom: 1px solid #dbe0eb;
+  flex-wrap: wrap;
 }
 .order{
   padding: 35px 50px 35px 100px;
@@ -249,9 +375,30 @@ p{
   display: flex;
   flex-wrap: wrap;
   border-right: 1px solid #dbe0eb;
+  @media (max-width: $desktop) {
+    width: 100%;
+    padding: 50px 50px 0;
+    border: none;
+  }
+  @media (max-width: $mobile) {
+    padding: 20px 20px 0;
+  }
 }
 .order-in{
   width: calc(100% - 220px);
+  @media (max-width: $desktop) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+.order-button{
+  @media (max-width: $desktop) {
+    display: flex;
+    justify-content: space-around;
+  }
+  @media (max-width: $tablet) {
+    flex-wrap: wrap;
+  }
 }
 .order-button > *{
   display: block;
@@ -266,6 +413,9 @@ p{
     left: -40px;
     top: -5px;
     font: normal normal normal 25px/1 FontAwesome;
+    @media (max-width: $mobile) {
+      display: none;
+    }
   }
 }
 .order-list{
@@ -275,16 +425,36 @@ p{
 .order-item{
   width: 25%;
   list-style: none;
+  @media (max-width: $tablet) {
+    width: 50%;
+    margin-bottom: 25px;
+  }
+  @media (max-width: $mobile) {
+    width: 100%;
+  }
 }
 .order-item-title{
   margin-bottom: 20px;
 }
-
+.payment-submit-agree{
+  display: inline-block;
+  @media (max-width: $desktop) {
+    display: block;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
 .order-button-order{
   border: 1px solid #58b6b3;
   margin-bottom: 15px;
   background: #5fcac6;
   color: #fff;
+  @media (max-width: $desktop) {
+    margin-right: 30px;
+  }
+  @media (max-width: $tablet) {
+    margin: 0 auto 20px;
+  }
 }
 .help-description{
   line-height: 1.2;
@@ -296,13 +466,25 @@ p{
   .order-title:after{
     content: '\f1cd';
   }
+  @media (max-width: $desktop) {
+    width: 100%;
+    padding: 50px;
+  }
+  @media (max-width: $mobile) {
+    padding: 50px 20px;
+  }
 }
 .help-in{
   display: flex;
+  flex-wrap: wrap;
   & > a{
     width: 50%;
     color: $colorBold;
     text-decoration: none;
+    @media (max-width: $mobile) {
+      width: 100%;
+      margin-top: 20
+    }
   }
 }
 .form{
@@ -313,13 +495,28 @@ p{
     &.tone,
     &.job{
       width: 50%;
+      @media (max-width: $desktop) {
+         width: 100%;
+      }
     }
   }
   section:not(:first-child){
     padding: 0 10% 10%;
+    @media (max-width: $desktop) {
+       padding: 0 50px 50px;
+    }
+    @media (max-width: $tablet) {
+       padding: 0 20px 50px;
+    }
   }
   section:nth-child(6){
     padding: 0 10% 10% 0;
+    @media (max-width: $desktop) {
+       padding: 0 50px 50px;
+    }
+    @media (max-width: $tablet) {
+       padding: 0 20px 50px;
+    }
   }
 }
 .form section.select{
@@ -331,9 +528,6 @@ p{
   flex-wrap: wrap;
   justify-content: space-between;
   font-weight: bold;
-  input{
-    display: none;
-  }
   img{
     width: 30%;
     display: block;
@@ -346,16 +540,28 @@ p{
     padding: 40px 10px;
     cursor: pointer;
     @include border(#d7d9e0, #6e768f);
+    opacity: 0.5;
+    transition: 0.2s;
+    &:hover,
+    &:focus{
+      opacity: 1;
+    }
+    @media (max-width: $tablet) {
+      width: 100%;
+      margin-bottom: 30px;
+    }
   }
 }
 .title,
 .title + .subtitle{
   display: inline-block;
 }
-.document{
-  .file{
+.title + .subtitle{
+  @media (max-width: $tablet) {
     display: none;
   }
+}
+.document{
   .sm-button{
     margin-bottom: 50px;
   }
@@ -363,12 +569,28 @@ p{
     padding: 20px 60px;
     border: 1px solid #eef0f4;
     border-radius: 5px;
+    @media (max-width: $tablet) {
+      padding: 0 20px;
+    }
+    @media (max-width: $mobile) {
+      width: 100%;
+      border: none;
+      padding: 0;
+    }
     div{
       display: flex;
       flex-wrap: wrap;
       padding: 20px 0;
       p{
         line-height: 25px;
+      }
+      & > *{
+        @media (max-width: $tablet) {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding-right: 5px;
+        }
       }
       & > *:nth-child(1){
         width: 40%;
@@ -388,6 +610,17 @@ p{
       }
       .fa{
         font-size: 25px;
+        color: #a5abc5;
+      }
+      .trash{
+        opacity: 0.5;
+        border: none;
+        background: none;
+        &:hover,
+        &:focus,
+        &:active{
+          opacity: 1;
+        }
       }
     }
     .document-in-head p{
@@ -406,12 +639,26 @@ p{
     text-align: right;
     display: inline-block;
     padding-right: 25px;
+    @media (max-width: $mobile) {
+      padding-right: 10px;
+    }
   }
   .languageFrom{
     margin-bottom: 50px;
+    @media (max-width: $desktop) {
+      margin-bottom: 20px;
+    }
   }
   .languageTo1{
     margin-right: 30px;
+    @media (max-width: $mobile) {
+      margin-right: 0;
+    }
+  }
+  .languageTo2{
+    @media (max-width: $desktop) {
+      margin: 20px 0 0 70px;
+    }
   }
   .fa-trash{
     width: 30px;
@@ -419,17 +666,26 @@ p{
     font-size: 20px;
     text-align: center;
     margin-right: 30px;
+    @media (max-width: $mobile) {
+      margin-right: 0px;
+    }
   }
 }
 .tone{
-  input{
-    display: none;
+  h2{
+    display: block;
   }
   label{
     width: 310px;
+    display: block;
     margin-bottom: 35px;
     &:last-child{
       margin-bottom: 0;
+    }
+    @media (max-width: $mobile) {
+      width: 90%;
+      margin: 0 auto 20px;
+      font-size: 12px;
     }
   }
 }
@@ -488,12 +744,19 @@ p{
     font-weight: bold;
     text-transform: uppercase;
     color: #a6acc5;
+    @media (max-width: $mobile) {
+      font-size: 12px;
+    }
   }
 }
 .range-info{
   margin-top: 80px;
   @include border(#e6e8ee, #6e768f);
   padding: 40px 40px 40px 90px;
+  @media (max-width: $mobile) {
+    margin-top: 20px;
+    padding: 20px 20px 20px 60px;
+  }
 }
 .range-info-title{
   position: relative;
@@ -518,12 +781,12 @@ p{
   }
 }
 
-
-
-
 .footer{
   background: #444a62;
   padding: 130px 0;
+  @media (max-width: $desktop) {
+    padding: 50px 0 20px;
+  }
 }
 .footer-in{
   @include container();
@@ -533,6 +796,18 @@ p{
 .footer-item{
   width: 25%;
   padding: 0 5% 0 80px;
+  @media (max-width: $desktop) {
+     width: 50%;
+     margin-bottom: 30px;
+  }
+  @media (max-width: $tablet) {
+    width: 100%;
+    padding: 0 50px 0;
+    img{
+      display: block;
+      margin: 0 auto;
+    }
+  }
   .footer-item-title{
     margin-bottom: 25px;
     color: $colorFooter;
@@ -549,6 +824,7 @@ p{
   }
   .footer-item-description{
     color: $colorFooter;
+    text-decoration: none;
   }
 }
 .description{
@@ -592,11 +868,13 @@ p{
   }
 }
 .payment{
+  label,
   legend{
     color: $colorText;
     margin: 0 0 15px 15px;
     font-weight: bold;
     text-transform: uppercase;
+    display: block;
   }
   fieldset{
     display: inline-block;
@@ -604,14 +882,30 @@ p{
 }
 .payment-description{
   margin-bottom: 70px;
+  @media (max-width: $desktop) {
+    margin-bottom: 40px;
+  }
   a{
     color: $colorText;
+    transition: 0.2s;
+    &:hover{
+      color: $colorBold;
+    }
   }
+}
+.payment-way{
+  width: 100%;
 }
 .payment-type{
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 100px;
+  @media (max-width: $desktop) {
+    margin-bottom: 30px;
+  }
+  @media (max-width: $tablet) {
+    justify-content: space-between;
+  }
   input{
     display: none;
   }
@@ -623,6 +917,24 @@ p{
     background: #f7f7fa;
     @include border(#d7d9e0, #7489ab);
     position: relative;
+    opacity: 0.5;
+    &:hover,
+    &:focus,
+    &:active{
+      opacity: 1;
+    }
+    @media (max-width: $desktop) {
+      margin-left: 0px;
+      margin-right: 30px;
+    }
+    @media (max-width: $tablet) {
+      width: calc(100% / 3 - 30px);
+      margin: 0;
+    }
+    @media (max-width: $mobile) {
+      width: 90%;
+      margin: 10px auto 20px;
+    }
   }
   img{
     max-height: 35px;
@@ -630,16 +942,42 @@ p{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    @media (max-width: $desktop) {
+      max-height: 20px;
+    }
   }
 }
 .payment-card{
+  position: relative;
   input{
     width: 500px;
+    padding: 0 100px 0 20px;
+    @media (max-width: $tablet) {
+      width: 100%;
+    }
+  }
+  &:after{
+    content: 'visa';
+    position: absolute;
+    top: 43px;
+    right: 55px;
+    padding: 10px 15px;
+    background: #d7d9e0;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    @media (max-width: $tablet) {
+      right: 20px;
+    }
   }
 }
 .payment-expiry{
   input{
     width: 230px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $placeholderText;
   }
 }
 .payment-code{
@@ -651,9 +989,26 @@ p{
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  flex-wrap: wrap;
+  @media (max-width: $desktop) {
+    justify-content: flex-start;
+  }
+  @media (max-width: $tablet) {
+    padding: 30px;
+    text-align: center;
+  }
+  @media (max-width: $mobile) {
+    padding: 0;
+  }
   button{
     margin-left: 40px;
     margin-bottom: 0;
+    @media (max-width: $desktop) {
+      margin: 0 40px 0 0;
+    }
+    @media (max-width: $tablet) {
+      margin: 20px auto 0;
+    }
   }
   label{
     margin: 0 5px;
