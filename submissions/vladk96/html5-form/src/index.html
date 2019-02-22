@@ -12,17 +12,17 @@
 
     <header class="header">
       <div class="wrapper header__flex">
-        <button class="button" type="button">
+        <a class="header__btn button" href="#">
           <span class="button__icon icon-left"></span>
           <p class="button__text">Go back</p>
-        </button>
+        </a>
         <a class="header__logo" href="index.html">
           <img src="images/logo-h.png" alt="logo">
         </a>
-        <button class="button" type="button">
+        <a class="header__btn button" href="#">
           <span class="button__icon icon-user"></span>
           <p class="button__text">Sign in</p>
-        </button>
+        </a>
       </div>
     </header>
 
@@ -294,7 +294,7 @@
             id="full-name" 
             class="sign-up__input" 
             placeholder="Mathieu Mayer"
-            pattern="^[A-Za-z_]{1,20}$" 
+            pattern="^[A-Za-z\s]{1,50}$"
             required
           >
         </label>
@@ -302,7 +302,7 @@
           <label for="email" class="sign-up__label">
             <p class="sign-up__title">Email address</p>
             <input 
-              type="mail" 
+              type="email" 
               name="email" 
               id="email" 
               class="sign-up__input" 
@@ -378,7 +378,9 @@
                 name="card-number" 
                 id="card-number" 
                 class="sign-up__input"
-                pattern="[0-9]{13,16}"
+                pattern="\d*"
+                minlength="13"
+                maxlength="16"
                 placeholder="Must be 13-16 digits"
                 required
               >
@@ -400,8 +402,8 @@
               name="card-code" 
               id="card-code" 
               class="sign-up__input sign-up__input--small"
-              size="4"
-              pattern="[0-9]{3}"
+              pattern="\d{3}"
+              maxlength="3"
               placeholder="Must be 3 digits"
               required>
             </label>
@@ -409,11 +411,11 @@
       </section>
 
       <section class="accept">
-        <input type="checkbox" class="accept__checkbox" required>
-        <p class="accept__text">
+        <label for="accept" class="accept__label">
+          <input type="checkbox" id="accept" class="accept__checkbox" required>
           I agree to the
-          <a href="#" class="sign-up__link">Terms & Conditions</a>
-        </p>
+          <a href="#" class="accept__link">Terms & Conditions</a>
+        </label>
         <div class="accept-container">
           <button class="accept__button button button--cyan" type="submit">
             <p class="button__text">Place order</p>
@@ -470,9 +472,11 @@
             </li>
           </ul>
         </section>
-        <a class="footer__logo" href="index.html">
-          <img src="images/logo-f.png" alt="logo">
-        </a>
+        <section class="footer__logo">
+          <a class="footer__logo-link" href="index.html">
+            <img src="images/logo-f.png" alt="logo">
+          </a>
+        </section>
       </div>
     </footer>
 

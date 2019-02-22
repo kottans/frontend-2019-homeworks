@@ -201,6 +201,10 @@
   margin: -5px 0 0 1.5rem;
   font-size: .9rem;
   color: #9fa5b8;
+
+  @media screen and (max-width: 350px) {
+    margin: 6px 0 0 -20px;
+  }
 }
 
 .uploading-documents {
@@ -361,12 +365,9 @@
 }
 
 .chosing-lang-pairings__select {
+  min-width: 190px;
   margin-top: 1.5rem;
   margin-right: 1.4rem;
-}
-
-.chosing-lang-pairings__select {
-  min-width: 190px;
   padding: 1.1rem 1.3rem;
   font-weight: 600;
   background-color: #f7f7fa;
@@ -388,7 +389,7 @@
 .chosing-lang-pairings__add-btn {
   font-weight: 600;
   margin-top: 1.5rem;
-  padding: 1.3rem 1.3rem;
+  padding: 1.288rem 1.3rem;
   background-color: #f7f7fa;
   color: #9098b7;
   border: 1px solid #d7d8e0;
@@ -673,9 +674,14 @@
   margin-right: 1rem;
 }
 
-.accept__text {
+.accept__label {
   color: #6d82c0;
   margin-right: 2rem;
+  line-height: 1.5;
+}
+
+.accept__link {
+  @extend .sign-up__link;
 }
 
 .accept__button {

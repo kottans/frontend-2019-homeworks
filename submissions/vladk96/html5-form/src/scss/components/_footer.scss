@@ -1,21 +1,40 @@
 .footer {
   margin-top: 7rem;
-  padding: 6rem 0;
+  padding: 4.7rem 0;
   background-color: #444a62;
   color: #b9ccea;
+
+  @media screen and (max-width: 1140px) {
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+  }
+  
+  @media screen and (max-width: 768px) {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
 }
 
 .footer__flex {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  @media screen and (max-width: 807px) {
+    justify-content: space-around;
+  }
 }
 
 .about,
 .address,
 .social {
+  margin-top: 1.3rem;
   padding-left: 50px;
-  flex-basis: 250px;
+  flex-basis: 200px;
+
+  @media screen and (max-width: 557px) {
+    flex-basis: 100%;
+  }
 }
 
 .head {
@@ -92,6 +111,16 @@
 }
 
 .footer__logo {
-  padding-left: 50px;
-  align-self: center;
+  margin-top: 1rem;
+  flex-basis: 200px;
+  text-align: right;
+
+  @media screen and (max-width: 807px) {
+    text-align: left;
+  }
+
+  @media screen and (max-width: 557px) {
+    flex-basis: 100%;
+    text-align: center;
+  }
 }
