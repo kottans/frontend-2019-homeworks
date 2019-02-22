@@ -5,15 +5,18 @@ footer {
 }
 footer > .one-col-wrapper {
   margin: 0 20px;
-  padding: 95px 0 95px 35px;
+  padding: 95px 0 65px 35px;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
 }
-.footer-logo {
+.footer-logo-wrapper {
   width: 100px;
   height: 100px;
+}
+.footer-logo {
+  width: 100%;
 }
 .footer-col {
   flex: 0 0 220px;

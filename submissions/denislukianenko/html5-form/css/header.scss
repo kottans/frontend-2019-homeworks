@@ -29,7 +29,10 @@ header > .one-col-wrapper {
   background-color: #dee4f3;
 }
 
-.header-logo {
+.header-logo-wrapper {
   width: 30%;
   max-width: 102px;
+}
+.header-logo {
+  width: 100%;
 }
