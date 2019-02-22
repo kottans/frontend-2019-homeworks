@@ -1,0 +1,134 @@
+.upload-section {
+  padding: 0 110px 102px 130px;
+}
+
+.numbered-header {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  margin-left: -71px;
+}
+
+.numbered-header > .number {
+  flex: 0 0 43px;
+  height: 43px;
+  border-radius: 50%;
+  border: 1px solid #707891;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6e768f;
+}
+
+.numbered-header > h2 {
+  margin: 0 10px 0 30px;
+  font-weight: 300;
+  color: #6e768f;
+}
+
+.numbered-header > p {
+  margin: 0 0 0 10px;
+  color: #9fa5b8;
+  font-size: 12px;
+}
+
+.upload-input-hidden {
+  @include visually-hidden;
+}
+
+.upload-input-hidden:focus-within + .document-upload-label {
+  box-shadow: $focus-outline;
+}
+
+.document-upload-label {
+  margin-top: 45px;
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #f7f7fa;
+  border: 1px solid #d7d9e0;
+  border-radius: 5px;
+  color: #9098b8;
+  font-size: 15px;
+}
+.document-upload-label:hover {
+  background-color: #fafaff;
+}
+
+.uploaded-files-table {
+  margin-top: 40px;
+  border: 1px solid #e6e8ee;
+  border-radius: 3px;
+  width: 100%;
+  padding: 15px 43px 24px 33px;
+}
+
+.files-row {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #a5abc5;
+  font-weight: 300;
+  height: 39px;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+
+.files-row:hover {
+  background-color: #f7f7fa;
+}
+
+.files-row-header {
+  text-transform: uppercase;
+  color: #a5abc5;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.files-row-header:hover {
+  background-color: transparent;
+}
+
+.file-name-col {
+  flex: 1 1 330px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.file-size-col {
+  flex: 0 1 180px;
+}
+.file-words-col {
+  flex: 0 1 240px;
+}
+.file-remove-col {
+  flex: 0 1 60px;
+  text-align: center;
+}
+button.file-remove-col {
+  height: 100%;
+  border-radius: 5px;
+  border: none;
+  background-color: transparent;
+}
+button.file-remove-col:hover {
+  background-color: rgb(255, 223, 223);
+}
+
+@media (max-width: 900px) {
+  .files-table-pc-only {
+    display: none;
+  }
+  .file-name-col {
+    flex: 1 1 120px;
+  }
+  .upload-section {
+    padding: 0 60px 103px 60px;
+  }
+  .uploaded-files-table {
+    margin: 40px -60px 0 -60px;
+    width: auto;
+  }
+  .numbered-header > .number {
+    border-radius: 0 50% 50% 0;
+  }
+}

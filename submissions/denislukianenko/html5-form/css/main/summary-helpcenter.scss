@@ -1,0 +1,148 @@
+.summary-helpcenter {
+  min-height: 165px;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #c9d0e1;
+  overflow: hidden;
+}
+
+.order-summary {
+  flex: 1 1 580px;
+  min-height: 165px;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 35px 23px 70px;
+}
+.helpcenter {
+  border-left: 1px solid #c9d0e1;
+  padding: 25px 35px 23px 70px;
+  flex: 0 0 353px;
+}
+
+.order-info {
+  height: 100%;
+  padding-top: 5px;
+  padding-bottom: 23px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 390px;
+}
+
+.shifted-header {
+  margin-left: -30px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6e768f;
+}
+
+.shifted-icon {
+  display: inline-block;
+  width: 30px;
+}
+
+.order-info-items {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40px;
+  flex: 1 0 70px;
+}
+
+.info-item > b {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #6e759d;
+}
+.info-item > p {
+  margin: 0;
+  font-size: 12px;
+  color: #a5abc5;
+}
+
+.order-buttons {
+  display: flex;
+  flex: 0 0 171px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.order-button {
+  height: 53px;
+  min-width: 120px;
+  border-radius: 5px;
+  border: 1px solid black;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 500;
+}
+.order-button:focus {
+  box-shadow: $focus-outline;
+}
+
+.place-button {
+  background-color: #5fcac6;
+  border-color: #46a4a0;
+  color: white;
+}
+.print-button {
+  background-color: #f7f7fa;
+  border-color: #d7d8e0;
+  color: #a5abc5;
+}
+
+.place-button:hover {
+  background-color: #50d6d2;
+}
+.print-button:hover {
+  background-color: #f9f9ff;
+}
+
+.helpcenter > p {
+  font-size: 12px;
+  font-weight: 300;
+  color: #a0a6b8;
+  line-height: 1.4;
+}
+.helpcenter > b > a {
+  font-size: 12px;
+  color: #6e768f;
+  text-decoration: none;
+  box-shadow: 0 1px 0 #6e768f5d;
+  margin-right: 10px;
+  display: inline-block;
+}
+.helpcenter > b > a:hover {
+  color: #4e70d4;
+  box-shadow: 0 1px 0 #4e70d45d;
+}
+
+.helpcenter > b > a:focus {
+  box-shadow: $focus-outline;
+}
+
+@media (max-width: 630px) {
+  .order-summary {
+    flex-wrap: wrap;
+    padding: 25px 35px 23px 50px;
+  }
+  .order-info {
+    height: 100px;
+  }
+  .helpcenter {
+    padding: 25px 35px 23px 50px;
+  }
+  .order-buttons {
+    flex-direction: row;
+  }
+  .order-button {
+    margin-right: 10px;
+  }
+}

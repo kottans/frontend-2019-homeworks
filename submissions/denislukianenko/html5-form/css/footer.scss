@@ -1,0 +1,37 @@
+footer {
+  background-color: #444a62;
+  display: flex;
+  justify-content: center;
+}
+footer > .one-col-wrapper {
+  margin: 0 20px;
+  padding: 95px 0 95px 35px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.footer-logo {
+  width: 100px;
+  height: 100px;
+}
+.footer-col {
+  flex: 0 0 220px;
+  font-size: 11px;
+  color: #b3b9d7;
+  font-weight: 300;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+.footer-col > i {
+  display: block;
+  margin-top: 15px;
+}
+.footer-col > .shifted-header {
+  color: #c6ccea;
+}
+.footer-col > p > a {
+  margin-left: 5px;
+  color: #b3b9d7;
+  text-decoration: none;
+}

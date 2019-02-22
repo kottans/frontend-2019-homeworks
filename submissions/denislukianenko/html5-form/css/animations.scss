@@ -1,0 +1,76 @@
+@keyframes fadeInMove {
+  0% {
+    transform: translate(0, 100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.header-logo,
+.header-button,
+.shifted-header,
+.info-item,
+.place-button,
+.print-button,
+.helpcenter > p,
+.helpcenter > b > a,
+.choose-type > h2,
+.doc-type-label {
+  animation: fadeInMove 600ms cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+.header-button {
+  animation-delay: 100ms;
+}
+.shifted-header {
+  animation-delay: 200ms;
+}
+.info-item:nth-of-type(1) {
+  animation-delay: 300ms;
+}
+.info-item:nth-of-type(2) {
+  animation-delay: 350ms;
+}
+.info-item:nth-of-type(3) {
+  animation-delay: 400ms;
+}
+.info-item:nth-of-type(4) {
+  animation-delay: 450ms;
+}
+.place-button {
+  animation-delay: 500ms;
+}
+.print-button {
+  animation-delay: 550ms;
+}
+.helpcenter > p {
+  animation-delay: 250ms;
+}
+.helpcenter > b > a {
+  animation-delay: 300ms;
+}
+.choose-type > h2 {
+  animation-delay: 600ms;
+}
+.doc-type-label:nth-of-type(1) {
+  animation-delay: 650ms;
+}
+.doc-type-label:nth-of-type(2) {
+  animation-delay: 700ms;
+}
+.doc-type-label:nth-of-type(3) {
+  animation-delay: 750ms;
+}
+
+form > .one-col-wrapper {
+  animation: fadeInMove 600ms 200ms cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.scss" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="one-col-wrapper">
+        <button type="button" class="header-button">🔙 Go Back</button>
+        <img class="header-logo" src="./img/logo.png" alt="Main Logo" />
+        <button type="button" class="header-button">👤 Sign in</button>
+      </div>
+    </header>
+    <form action="#">
+      <div class="one-col-wrapper">
+        <section class="summary-helpcenter">
+          <div class="order-summary">
+            <div class="order-info">
+              <div class="shifted-header">
+                <span class="shifted-icon">📋</span>Your order
+              </div>
+              <div class="order-info-items">
+                <div class="info-item">
+                  <b>Items</b>
+                  <p>2 docs</p>
+                </div>
+                <div class="info-item">
+                  <b>Details</b>
+                  <p>2 langs</p>
+                </div>
+                <div class="info-item">
+                  <b>Price</b>
+                  <p>$ 696.06</p>
+                </div>
+                <div class="info-item">
+                  <b>Delivery</b>
+                  <p>6 hours*</p>
+                </div>
+              </div>
+            </div>
+            <div class="order-buttons">
+              <button type="submit" class="order-button place-button">
+                Place Order
+              </button>
+              <button type="button" class="order-button print-button">
+                Print Queue
+              </button>
+            </div>
+          </div>
+          <div class="helpcenter">
+            <div class="shifted-header">
+              <span class="shifted-icon">🔅</span>Help Center
+            </div>
+            <p>
+              If you need assistance with placing your order, contact one of our
+              beloved Project Manager by phone or email.
+            </p>
+            <b
+              ><a href="tel:+9710555555">+971 (0) 555 555</a>
+              <a href="email:help@qtest.com">help@qtest.com</a></b
+            >
+          </div>
+        </section>
+        <section class="choose-type">
+          <h2>Select what you want to translate</h2>
+          <div class="doc-type-radio-group">
+            <input
+              class="hidden-checkbox doc-type-radio"
+              type="radio"
+              name="document-type"
+              id="type-website"
+            />
+            <label class="doc-type-label" for="type-website"
+              ><img
+                src="img/type-website.png"
+                alt="Document Type Website Icon"
+              />
+              <p>Website</p>
+            </label>
+            <input
+              checked
+              class="hidden-checkbox doc-type-radio"
+              type="radio"
+              name="document-type"
+              id="type-document"
+            />
+            <label class="doc-type-label" for="type-document"
+              ><img
+                src="img/type-documents.png"
+                alt="Document Type Website Icon"
+              />
+              <p>Documents</p>
+            </label>
+            <input
+              class="hidden-checkbox doc-type-radio"
+              type="radio"
+              name="document-type"
+              id="type-social"
+            />
+            <label class="doc-type-label" for="type-social"
+              ><img
+                src="img/type-social.png"
+                alt="Document Type Website Icon"
+              />
+              <p>Social Account</p>
+            </label>
+          </div>
+        </section>
+        <section class="upload-section">
+          <div class="numbered-header">
+            <span class="number">1</span>
+            <h2>Upload your documents</h2>
+            <p>(Doc, Docx, Text, PDF, Markdown)</p>
+          </div>
+          <input
+            class="upload-input-hidden"
+            type="file"
+            name="document-file"
+            id="document-upload-input"
+          />
+          <label class="document-upload-label" for="document-upload-input"
+            >☁️Upload a new file</label
+          >
+          <div class="uploaded-files-table">
+            <div class="files-row files-row-header">
+              <span class="file-name-col">File name</span>
+              <span class="file-size-col files-table-pc-only">File size</span>
+              <span class="file-words-col files-table-pc-only"
+                >Number of words</span
+              >
+              <span class="file-remove-col">Remove</span>
+            </div>
+            <div class="files-row">
+              <span class="file-name-col">📄 business_operaions.docx </span>
+              <span class="file-size-col files-table-pc-only">78kb</span>
+              <span class="file-words-col files-table-pc-only">842</span>
+              <button type="button" class="file-remove-col">🗑</button>
+            </div>
+            <div class="files-row">
+              <span class="file-name-col">📄 ugrad_recommendation.pdf </span>
+              <span class="file-size-col files-table-pc-only">1.5Mb</span>
+              <span class="file-words-col files-table-pc-only">524</span>
+              <button type="button" class="file-remove-col">🗑</button>
+            </div>
+          </div>
+        </section>
+        <section class="pairings-section">
+          <div class="numbered-header">
+            <span class="number">2</span>
+            <h2>Choose your language pairings</h2>
+          </div>
+          <div class="from-to-rows">
+            <div class="from-to-row">
+              <p>From</p>
+              <div class="from-to-select-wrapper">
+                <select
+                  class="from-to-select"
+                  required
+                  name="language-from"
+                  id="lang-from-input"
+                >
+                  <option disabled value=""></option>
+                  <option value="">English</option>
+                  <option value="">Russian</option>
+                  <option value="">French</option>
+                  <option value="">Korean</option>
+                </select>
+              </div>
+            </div>
+            <div class="from-to-row">
+              <p>To</p>
+              <div class="from-to-select-wrapper">
+                <select
+                  class="from-to-select"
+                  required
+                  name="language-to"
+                  id="lang-to-input"
+                >
+                  <option disabled value=""></option>
+                  <option value="">Ukrainian</option>
+                  <option value="">English</option>
+                  <option value="">Russian</option>
+                  <option value="">French</option>
+                  <option value="">Korean</option>
+                </select>
+              </div>
+              <div class="from-to-select-wrapper">
+                <select
+                  class="from-to-select"
+                  name="language-to-2"
+                  id="lang-to-input-2"
+                >
+                  <option disabled value=""></option>
+                  <option value="">English</option>
+                  <option value="">Russian</option>
+                  <option value="">French</option>
+                  <option value="">Korean</option>
+                </select>
+              </div>
+              <button type="button" class="delete-lang">🗑</button>
+              <button type="button" class="add-lang">+ Add</button>
+            </div>
+          </div>
+        </section>
+        <section class="tone-urgency-section">
+          <section class="tone-urgency-column tone-column">
+            <div class="numbered-header">
+              <span class="number">3</span>
+              <h2>Select your desired tone</h2>
+            </div>
+            <div class="tone-radio-group">
+              <input
+                checked
+                required
+                class="hidden-checkbox tone-radio"
+                type="radio"
+                name="tone"
+                id="tone-friendly"
+              />
+              <label class="tone-label" for="tone-friendly"
+                ><img
+                  src="img/tone-friendly.png"
+                  alt="Document Type Website Icon"
+                />
+                <p>Friendly / Casual</p>
+              </label>
+              <input
+                class="hidden-checkbox tone-radio"
+                type="radio"
+                name="tone"
+                id="tone-corporate"
+              />
+              <label class="tone-label" for="tone-corporate"
+                ><img
+                  src="img/tone-corporate.png"
+                  alt="Document Type Website Icon"
+                />
+                <p>Corporate / Pro</p>
+              </label>
+              <input
+                class="hidden-checkbox tone-radio"
+                type="radio"
+                name="tone"
+                id="tone-media"
+              />
+              <label class="tone-label" for="tone-media"
+                ><img
+                  src="img/tone-media.png"
+                  alt="Document Type Website Icon"
+                />
+                <p>Media / Formal</p>
+              </label>
+            </div>
+          </section>
+          <section class="tone-urgency-column urgency-column">
+            <div class="numbered-header unshifted-numbered-header">
+              <span class="number">4</span>
+              <h2>Tell us how urgent this job is</h2>
+            </div>
+            <div class="urgency-info">
+              <div class="urgency-range-wrapper">
+                <div class="dots">
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                </div>
+                <input
+                  type="range"
+                  id="urgency-range"
+                  class="urgency-range"
+                  name="urgency"
+                  min="0"
+                  max="2"
+                  step="1"
+                />
+              </div>
+              <div class="range-labels">
+                <p>I got time</p>
+                <p class="label-yellow">Average</p>
+                <p>Yesterday</p>
+              </div>
+              <div class="timeline-info-box">
+                <div class="shifted-header">
+                  <span class="shifted-icon">ℹ️</span>Timeline info
+                </div>
+                <p>
+                  With an <span class="label-yellow">AVERAGE</span> timeline
+                  setup, our expert translator can take a reasonable amount of
+                  time perfecting your translation
+                </p>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section class="signup-payment">
+          <div class="numbered-header">
+            <span class="number">5</span>
+            <h2>Sign up and choose a payment method</h2>
+          </div>
+          <p class="sign-in-text">
+            Already have an account with us? <a href="#">Sign In</a>.
+          </p>
+          <div class="payment-inputs-row">
+            <label class="payment-label" for="payment-name-input">
+              <p>Full Name</p>
+              <input
+                required
+                value="George Milch"
+                name="fullname"
+                id="payment-name-input"
+                class="payment-text-input"
+                type="text"
+                minlength="2"
+                title="Should contain at least two letters"
+              />
+              <div class="input-valid">✓</div>
+              <div class="input-invalid">×</div>
+            </label>
+          </div>
+          <div class="payment-inputs-row">
+            <label class="payment-label" for="payment-email-input">
+              <p>Email address</p>
+              <input
+                required
+                value="meh@meh.meh"
+                name="email"
+                id="payment-email-input"
+                class="payment-text-input"
+                type="email"
+                minlength="2"
+                title="Should be of type email@domain.etc"
+              />
+              <div class="input-valid">✓</div>
+              <div class="input-invalid">×</div>
+            </label>
+            <label class="payment-label" for="payment-pass-input">
+              <p>Choose a password</p>
+              <input
+                required
+                value="QazWsx1234"
+                type="password"
+                name="password"
+                id="payment-pass-input"
+                class="payment-text-input"
+                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                title="Minimum 8 characters, UPPERCASE, lowercase and Number"
+                minlength="6"
+              />
+              <div class="input-valid">✓</div>
+              <div class="input-invalid">×</div>
+            </label>
+          </div>
+          <div class="payment-type-radio-group">
+            <input
+              checked
+              class="hidden-checkbox payment-type-radio"
+              type="radio"
+              name="payment-type"
+              id="type-card"
+            />
+            <label class="payment-type-label" for="type-card"
+              ><img
+                src="img/payment-card.png"
+                alt="Document Type Website Icon"
+              />
+            </label>
+            <input
+              class="hidden-checkbox payment-type-radio"
+              type="radio"
+              name="payment-type"
+              id="type-paypal"
+            />
+            <label class="payment-type-label" for="type-paypal"
+              ><img
+                src="img/payment-paypal.png"
+                alt="Document Type Website Icon"
+              />
+            </label>
+            <input
+              class="hidden-checkbox payment-type-radio"
+              type="radio"
+              name="payment-type"
+              id="type-amazon"
+            />
+            <label class="payment-type-label" for="type-amazon"
+              ><img
+                src="img/payment-amazon.png"
+                alt="Document Type Website Icon"
+              />
+            </label>
+          </div>
+          <div class="payment-inputs-row">
+            <label
+              class="payment-label payment-card-number-label"
+              for="payment-card-bumber-input"
+            >
+              <p>Card Number</p>
+              <input
+                required
+                name="card-number"
+                id="payment-card-number-input"
+                class="payment-text-input card-number"
+                type="text"
+                pattern="\d*"
+                inputmode="numeric"
+                minlength="16"
+                maxlength="16"
+                title="Should contain at least two letters"
+              />
+            </label>
+            <label
+              class="payment-label payment-card-date-label"
+              for="payment-card-date-input"
+            >
+              <p>Expiry Date</p>
+              <input
+                required
+                name="fullname"
+                id="payment-card-date-input"
+                class="payment-text-input card-date"
+                type="date"
+              />
+            </label>
+            <label
+              class="payment-label payment-card-code-label"
+              for="payment-card-code-input"
+            >
+              <p>Code</p>
+              <input
+                required
+                name="fullname"
+                id="payment-card-code-input"
+                class="payment-text-input card-code"
+                type="text"
+                inputmode="numeric"
+                minlength="3"
+                maxlength="3"
+                pattern="\d*"
+              />
+            </label>
+          </div>
+        </section>
+        <section class="form-submit">
+          <label class="terms-agree-label">
+            <input required type="checkbox" name="termsagree" id="termsagree" />
+            I agree to the <a href="#">Terms & Conditions</a>
+          </label>
+          <button type="submit" class="order-button place-button">
+            Place Order
+          </button>
+          <button type="button" class="order-button print-button">
+            Print Queue
+          </button>
+        </section>
+      </div>
+    </form>
+    <footer>
+      <div class="one-col-wrapper">
+        <div class="footer-col">
+          <div class="shifted-header">
+            <span class="shifted-icon">💖</span>What we do
+          </div>
+          <i>
+            We provide a full range of language services including content
+            development, document, website and social media account translations
+          </i>
+        </div>
+        <div class="footer-col">
+          <div class="shifted-header">
+            <span class="shifted-icon">🗺️</span>Out main office
+          </div>
+          <p>
+            Dubai UAE
+          </p>
+          <p>
+            P.O. Box: 502735
+          </p>
+          <p>
+            Phone: +971 (0) 44278128
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <div class="shifted-header">
+            <span class="shifted-icon">✌️</span>Connect with us
+          </div>
+          <p>🇫 <a href="#">Facebook</a></p>
+          <p>🐦 <a href="#">Twitter</a></p>
+          <p>💼 <a href="#">LinkedIn</a></p>
+        </div>
+        <img
+          class="footer-logo"
+          src="./img/footer-logo.png"
+          alt="Footer logo"
+        />
+      </div>
+    </footer>
+  </body>
+</html>

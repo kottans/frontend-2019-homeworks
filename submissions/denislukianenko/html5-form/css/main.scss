@@ -1,0 +1,21 @@
+form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 125px;
+  background-color: #eceef4;
+}
+
+form > .one-col-wrapper {
+  border-radius: 5px;
+  border: 1px solid #c9d0e1;
+  background-color: white;
+}
+
+@import "css/main/summary-helpcenter";
+@import "css/main/choose-type";
+@import "css/main/upload-section";
+@import "css/main/pairings-section";
+@import "css/main/tone-urgency-section";
+@import "css/main/signup-payment-section";
+@import "css/main/form-submit-section";
