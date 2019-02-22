@@ -53,3 +53,11 @@
 .mission {
   flex-basis: 300px;
 }
+
+.footer__logo {
+  border-radius: 50%;
+
+  &:hover {
+    box-shadow: 0 0 0 5px $footerText;
+  }
+}

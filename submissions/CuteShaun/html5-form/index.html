@@ -545,11 +545,12 @@
                       class="user__input"
                       type="text"
                       placeholder=""
+                      title="Write your payment card number"
                       name="input-card-num"
                       id="card-number"
                       pattern="^[0-9]+$"
-                      minlength="10"
-                      maxlength="20"
+                      minlength="16"
+                      maxlength="16"
                       required
                     />
 
@@ -584,11 +585,12 @@
                     <input
                       class="user__input"
                       type="text"
+                      title="Write your payment card CCV code"
                       placeholder=""
                       name="card-code"
                       id="code"
                       minlength="3"
-                      maxlength="9"
+                      maxlength="4"
                       pattern="^[0-9]+$"
                       required
                     />
@@ -655,7 +657,11 @@
         <address class="footer__adress">
           <p class="footer__text">Dubai, UAE</p>
           <p class="footer__text">P.O. Box: 502735</p>
-          <p class="footer__text "><a class="footer__text" href="tel:+971044278128">Phone: +971(0) 44278128</a></p>
+          <p class="footer__text ">
+            <a class="footer__text" href="tel:+971044278128"
+              >Phone: +971(0) 44278128</a
+            >
+          </p>
         </address>
       </section>
       <section class="footer__section contact">
@@ -689,8 +695,10 @@
         </ul>
       </section>
 
-      <div class="footer__section footer__logo">
-        <img src="img/logo-dark.jpg" alt="dark-logo" />
+      <div class="footer__section">
+        <a href="#">
+          <img class="footer__logo" src="img/logo-dark.jpg" alt="dark-logo" />
+        </a>
       </div>
     </div>
   </div>

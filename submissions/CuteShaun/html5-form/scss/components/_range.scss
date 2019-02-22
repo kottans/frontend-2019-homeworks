@@ -4,11 +4,11 @@
   margin: 28px 0 15px 0;
   z-index: 1;
   width: 100%;
-  transition: .2s;
+  transition: 0.2s;
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 10px 0 #yellow;
+    box-shadow: 0 0 10px 0 $yellow;
   }
 
   &:before {

@@ -35,3 +35,12 @@ a {
   position: relative;
   margin-bottom: 100px;
 }
+
+input[type="radio"],
+input[type="file"] {
+  &:focus {
+    & + label {
+      @include defaultFocus;
+    }
+  }
+}

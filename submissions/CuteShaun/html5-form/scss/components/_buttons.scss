@@ -66,6 +66,12 @@
   font-size: 1.6rem;
 }
 
+.trash-icon {
+  &:hover {
+    color: $blue;
+  }
+}
+
 .language__button {
   appearance: none;
   border: 1px solid $lightSteel;
