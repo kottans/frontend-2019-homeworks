@@ -1,0 +1,130 @@
+/* MAIN */
+.container {
+  counter-reset: section;
+}
+main .container {
+  margin-bottom: 8vw;
+  border-radius: 5px;
+  border: 2px solid #e0e4ee;
+  background-color: #fff;
+}
+main .button {
+  background-color: #f7f7fa;
+}
+
+/* Order section */
+.order {
+  display: flex;
+  border-bottom: 2px solid #e2e6ef;
+  font-size: 0.9em;
+}
+.order h5 {
+  margin: 0.6em 0;
+  line-height: 1em;
+}
+.order-details {
+  flex-grow: 1;
+}
+.order-details-items {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.order p {
+  margin: 0;
+}
+
+/* Help section */
+.help,
+.order {
+  font-size: 0.9em;
+}
+.help-phone > a,
+.help-email > a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #75768f;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Translate section */
+.translate-group {
+  display: flex;
+  flex-direction: column;
+}
+.translate h1 {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Upload Documents section */
+.doc-icon {
+  display: none;
+  width: 20px;
+  height: 23px;
+  margin: 0px 1em 0 -0.5em;
+}
+.uploaded-table {
+  width: 100%;
+  margin-top: 33px;
+  padding: 27px 40px;
+  text-align: left;
+  color: #b7b6ca;
+}
+.uploaded-table th {
+  padding-bottom: 18px;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 0.7em;
+}
+.uploaded-table td {
+  padding: 6px;
+  text-align: left;
+}
+
+/* Tone section */
+/* - */
+
+/* Languages sections */
+.lang-to,
+.lang-from {
+  margin-top: 42px;
+}
+.lang-to {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* Timeline section */
+.timeline-info {
+  max-width: 630px;
+  margin-top: 30px;
+  border-radius: 4px;
+}
+.timeline-info p {
+  max-width: 480px;
+  margin: 0;
+  padding: 0;
+}
+.timeline-info h4 {
+  margin: 0.7em;
+  margin-left: 0;
+}
+.timeline-info-setup {
+  color: #edbe76;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.info-icon {
+  margin: 0 15px 0 0px;
+}
+
+/* Payment section */
+.payment-method {
+  display: flex;
+  margin: 3vw 0 4vw 0;
+}

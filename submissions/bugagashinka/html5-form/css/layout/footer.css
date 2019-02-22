@@ -1,0 +1,26 @@
+/* FOOTER */
+footer {
+  background: #444a62;
+  color: #c6ccea;
+}
+footer h4 {
+  color: #c6ccea;
+  margin-top: 0;
+}
+footer .container {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+}
+.container > div {
+  margin-top: 20px;
+}
+.list {
+  padding-left: 0;
+}
+.list > li {
+  list-style-type: none;
+}
+footer .logo {
+  align-self: center;
+}
