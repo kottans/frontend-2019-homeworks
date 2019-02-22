@@ -1,0 +1,183 @@
+.card-info-section {
+  grid-area: card-info;
+}
+
+.selection-card {
+  grid-area: selection-card;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0px 100px;
+  padding-top: 20px;
+  width: 70%;
+}
+
+.card-detail-section {
+  grid-area: card-detail;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 55px 40px;
+  margin-right: 60px;
+}
+
+.card-heading-section {
+  display: flex;
+  padding-top: 60px;
+  padding-left: 62px;
+}
+
+.card-heading {
+  align-self: center;
+  font-size: 22px;
+  color: rgb(99, 92, 100);
+}
+
+.card-sub-heading {
+  padding-top: 32px;
+  padding-left: 62px;
+  margin-left: 70px;
+  font-size: 14px;
+}
+
+.card-link {
+  color: #a8aac2;
+}
+
+.card-link:hover {
+  opacity: 0.8;
+}
+
+.card-fields {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 38px;
+  justify-items: center;
+  padding-top: 30px;
+  margin-left: 115px;
+  padding-bottom: 30px;
+}
+
+.card-email {
+  grid-column: 1/2;
+  grid-row: 2;
+}
+
+.card-password {
+  grid-column: 2/3;
+  grid-row: 2;
+}
+
+.card-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+
+}
+
+.card-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-input {
+  width: 290px;
+  height: 40px;
+  background: none;
+  color: rgb(105, 109, 132);
+  border-radius: 6px;
+  border: 1px solid rgb(218, 218, 218);
+  padding: 5px 10px;
+  margin-top: 10px;
+}
+
+.card-radio-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  min-width: 180px;
+  width: 30%;
+  height: 80px;
+  margin-bottom: 20px;
+  padding: 10px;
+
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid rgb(221, 221, 228);
+  background-color: rgb(247, 247, 250);
+}
+
+.card-radio-label>* {
+  width: 50%;
+}
+
+.card-radio-label:hover {
+  opacity: 0.8;
+}
+
+.card-radio-input:checked~.card-radio-label {
+  box-shadow: inset 0px 0px 0px 5px #74a4e1;
+  -moz-box-shadow: inset 0px 0px 0px 5px #74a4df;
+  position: relative;
+}
+
+.card-radio-input:checked~.card-radio-label::before {
+  content: "✔";
+  font-size: 1.8em;
+  position: absolute;
+  background: #76a7e1;
+  right: -9px;
+  top: -8px;
+  width: 30px;
+  height: 30px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+}
+
+.input-name {
+  width: 360px;
+}
+
+.input-date {
+  width: 80%;
+}
+
+.input-code {
+  width: 60%;
+}
+
+.button-group-down {
+  grid-area: button;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 30px;
+  padding-top: 70px;
+  padding-bottom: 90px;
+}
+
+.footer-label {
+  font-size: 12px;
+}
+
+.footer-link {
+  font-size: 12px;
+  color: rgb(168, 170, 194);
+}
+
+.footer-button {
+  width: 250px;
+  padding: 20px 40px;
+  margin: 10px;
+  flex-basis: 10%;
+}
+
+.footer-input{
+  box-shadow:none;
+}

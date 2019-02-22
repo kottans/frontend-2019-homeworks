@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous" />
+    <link rel="stylesheet" href="/dist/checkout-page.b19f721f.css">
+  <title>Checkout Page</title>
+</head>
+
+<body>
+  <div class="outer-section">
+    <nav class="nav-top">
+      <a class="back-button" tabindex="0">
+        <i class="fas fa-arrow-left button-icon"></i>
+        GO BACK</a>
+      <a class="sign-button" tabindex="0">
+        <i class="fas fa-user button-icon"></i>
+        SIGN IN</a>
+    </nav>
+
+    <form class="inner-section">
+      <header class="header">
+        <div class="header-heading">
+          <i class="fas fa-clipboard-list"></i>
+          <b class="order-heading">YOUR ORDER</b>
+        </div>
+        <table class="header-table">
+          <tr class="thead">
+            <th class="order-th">items</th>
+            <th class="order-th">details</th>
+            <th class="order-th">price</th>
+            <th class="order-th">delivery</th>
+          </tr>
+          <tr>
+            <td class="order-td">2 documents</td>
+            <td class="order-td">2 languages</td>
+            <td class="order-td">$ 696.06</td>
+            <td class="order-td">48 hours*</td>
+          </tr>
+        </table>
+        <div class="header-buttons">
+          <label for="submit-button" class=" button order-button" tabindex="0">
+            <input type="submit" value="" id="submit-button" class="submit-input visually-hidden">
+            Place order
+          </label>
+          <label for="print-button" class="button quote-button" tabindex="0">
+            <input type="button" value="" id="print-button" class="submit-input visually-hidden">
+            Print a quote
+          </label>
+        </div>
+      </header>
+
+      <div class="help-center">
+        <div class="help-heading-section">
+          <i class="far fa-question-circle"></i>
+          <b class="help-heading">help center</b>
+        </div>
+        <p class="help-info"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          Voluptas qui vel provident ipsam consequatur nulla? Dolores quas quod a excepturi.</p>
+        <div class="help-links">
+          <a href="tel:+971 (0) 555 555" class="help-link"> +971 (0) 555 555</a>
+          <a href="mailto:help@qtest.com" class="help-link mail-link">help@qtest.com</a>
+        </div>
+      </div>
+
+      <div class="heading-selection-section">
+        <h2 class="heading-selection">select what you want to translate</h2>
+      </div>
+
+      <fieldset class="selection-radio">
+        <div class="radio-group">
+          <div class="radio-button">
+            <input type="radio" name="group1" id="website" class="radio-input visually-hidden" required />
+            <label for="website" class="radio-label label-website" tabindex="0">
+              <img src="/img/website.png" alt="page icon" class="radio-img" />
+              <span class="heading ">Website</span>
+            </label>
+          </div>
+
+          <div class="radio-button">
+            <input type="radio" name="group1" id="document" class="radio-input visually-hidden" />
+            <label for="document" tabindex="0" class="radio-label label-document">
+              <img src="/img/documents.png" alt="page icon" class="radio-img" />
+              <span class="heading">Document</span>
+            </label>
+          </div>
+
+          <div class="radio-button">
+            <input type="radio" name="group1" id="account" class="radio-input visually-hidden" />
+            <label for="account" class="radio-label label-account" tabindex="0">
+              <img src="/img/account.png" alt="page icon" class="radio-img" />
+              <span class="heading">Social Account</span>
+            </label>
+          </div>
+
+        </div>
+      </fieldset>
+
+      <div class="upload-document-section">
+        <div class="upload-heading-section">
+          <span class="circle"> 1</span>
+          <b class="upload-heading">Upload your documents</b>
+        </div>
+        <input type="file" name="upload" id="input-file" class=" upload-input visually-hidden" />
+        <label for="input-file" class="upload-label-file" tabindex="0">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <b class="upload-label-text">Upload a new file</b>
+        </label>
+
+        <div class="upload-table-section">
+          <table class="upload-table">
+            <tr class="thead">
+              <th class="upload-table-th">file name</th>
+              <th class="upload-table-th ">file size</th>
+              <th class="upload-table-th  ">number of words</th>
+              <th class="upload-table-th">remove</th>
+            </tr>
+            <tr>
+              <td class="upload-table-td">
+                <span class="fas fa-file" aria-hidden="true"></span>
+                business_operations.docx
+              </td>
+              <td class="upload-table-td  ">78kb</td>
+              <td class="upload-table-td  ">842</td>
+              <td class="upload-table-td upload-table-td-button">
+                <button class="upload-table-button" type="button">
+                  <span class="fa fa-trash" aria-hidden="true"></span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td class="upload-table-td">
+                <span class="fas fa-file" aria-hidden="true"></span>
+                business_financial.docx
+              </td>
+              <td class="upload-table-td  ">26kb</td>
+              <td class="upload-table-td  ">2,326</td>
+              <td class="upload-table-td upload-table-td-button">
+                <button class="upload-table-button" type="button">
+                  <span class="fa fa-trash" aria-hidden="true"></span>
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="language-section">
+        <div class="language-heading-section">
+          <span class="circle"> 2</span>
+          <b class="language-heading">Choose your language pairings</b>
+        </div>
+        <div class="select-group">
+
+          <div class="language-select-button language-from">
+            <label class="select-lable" for="language-option">From</label>
+            <select name="translate-from" class="select select-button" id="language-option" tabindex="0">
+              <option selected value="english">English</option>
+              <option value="arabic">Arabic</option>
+              <option value="kurdish">Kurdish</option>
+              <option value="russian">Russian</option>
+              <option value="spanish">Spanish</option>
+            </select>
+          </div>
+
+          <div class="language-select-button language-to">
+            <label class="select-lable" for="language-option">To</label>
+            <select name="translate-to" class="select select-button" id="language-option" tabindex="0">
+              <option selected value="english">English</option>
+              <option value="arabic">Arabic</option>
+              <option value="kurdish">Kurdish</option>
+              <option value="russian">Russian</option>
+              <option value="spanish">Spanish</option>
+            </select>
+          </div>
+
+          <div class="language-select-button language-second">
+            <select name="translate-to-secons" class="select select-button " id="language-option" tabindex="0">
+              <option selected value="english">English</option>
+              <option value="arabic">Arabic</option>
+              <option value="kurdish">Kurdish</option>
+              <option value="russian">Russian</option>
+              <option value="spanish">Spanish</option>
+            </select>
+          </div>
+
+          <button type="button" class="add-button select-button">
+            <i class="fas fa-plus"></i>
+            ADD
+          </button>
+        </div>
+
+      </div>
+
+      <fieldset class="tone-section">
+
+        <div class="tone-heading-section">
+          <span class="circle"> 3</span>
+          <b class="tone-heading">Select your desired tone</b>
+        </div>
+
+        <fieldset class="tone-radio">
+          <div class="tone-radio-button">
+            <input type="radio" name="group2" id="casual" class="tone-radio-input visually-hidden" required />
+            <label for="casual" class="tone-radio-label " tabindex="0">
+              <i class="fas fa-comments"></i>
+              <span class="tone-span ">Friendly / Cassual</span>
+            </label>
+          </div>
+
+          <div class="tone-radio-button">
+            <input type="radio" name="group2" id="pro" class="tone-radio-input visually-hidden" />
+            <label for="pro" tabindex="0" class="tone-radio-label ">
+              <i class="fas fa-briefcase"></i>
+              <span class="tone-span">Corporate / Pro</span>
+            </label>
+          </div>
+
+          <div class="tone-radio-button">
+            <input type="radio" name="group2" id="formal" class="tone-radio-input visually-hidden" />
+            <label for="formal" class="tone-radio-label " tabindex="0">
+              <i class="fas fa-bullhorn"></i>
+              <span class="tone-span">Media / Formal</span>
+            </label>
+          </div>
+        </fieldset>
+
+
+
+      </fieldset>
+
+      <div class="range-section">
+        <div class="range-heading-section">
+          <span class="circle"> 4</span>
+          <b class="range-heading">Tell how urgent the job is</b>
+        </div>
+
+        <div class="range-container">
+          <input type="range" step="10" value="50" name="range" min="0" max="100" id="range" class="range-input">
+          <div class="range-label-group">
+            <label for="range">I got time</label>
+            <label for="range">Average</label>
+            <label for="range">Yesterday</label>
+          </div>
+        </div>
+        <div class="range-info">
+          <h3 class="range-info-title"> <i class="fas fa-info-circle"></i>Timeline info</h3>
+          <p class="range-info-text">With an <a href="#" class="range-link">average</a> timeline set up,
+            our expert translator can take a
+            reasonable amount of time perfecting your translation</p>
+        </div>
+      </div>
+
+      <div class="card-info-section">
+
+        <div class="card-heading-section">
+          <span class="circle">5</span>
+          <b class="card-heading">Sign up and choose a payment method</b>
+        </div>
+
+        <p class="card-sub-heading"> Already have an account with us? <a href="#" class="card-link">Sign in</a>.</p>
+        <div class="card-fields">
+
+          <div class="card-field card-name">
+            <label for="full-name" class="card-label">Full Name</label>
+            <input type="text" pattern="[A-Za-zА-Яа-яЁё]{1,}" name="full name" id="full-name" placeholder="Mathieu Mayer"
+              class="card-input " required>
+          </div>
+
+          <div class="card-field card-email">
+            <label for="email-address" class="card-label">Email Address</label>
+            <input type="email" pattern="[A-Za-zА-Яа-яЁё]{1,}" name="email" id="femail-address" placeholder="kottans@me.com"
+              class="card-input " required>
+          </div>
+
+          <div class="card-field card-password">
+            <label for="password" class="card-label">Choose a password</label>
+            <input type="password" pattern="[A-Za-zА-Яа-яЁё]{1,}" name="password" id="password" class="card-input "
+              minlength="6" placeholder="•••••••" required>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="selection-card">
+
+        <div class="card-radio-button">
+          <input type="radio" name="group3" id="visa" class="card-radio-input visually-hidden" required />
+          <label for="visa" class="card-radio-label " tabindex="0">
+            <img src="/img/visa.png" alt="visa logo">
+          </label>
+        </div>
+
+        <div class="card-radio-button">
+          <input type="radio" name="group3" id="paypal" class="card-radio-input visually-hidden" />
+          <label for="paypal" tabindex="0" class="card-radio-label ">
+            <img src="/img/paypal.png" alt="paypal logo">
+          </label>
+        </div>
+
+        <div class="card-radio-button">
+          <input type="radio" name="group3" id="amazon" class="card-radio-input visually-hidden" />
+          <label for="amazon" class="card-radio-label " tabindex="0">
+            <img src="/img/amazon.png" alt="amazon logo">
+          </label>
+        </div>
+
+
+      </div>
+
+      <div class="card-detail-section">
+
+        <div class="card-field card-number">
+          <label for="number" class="card-label">Card number</label>
+          <input type="text"  name="card number" id="number" 
+            minlength="16" maxlength="16" class="card-input input-name " required>
+        </div>
+
+        <div class="card-field card-date">
+          <label for="date" class="card-label">Expiry Date</label>
+          <input type="text" pattern="\d{2}/\d{2}/\d{2}" name="date" id="date" placeholder="DD / MM / YY"
+            class="card-input input-date " required>
+        </div>
+        
+        <div class="card-field card-code">
+          <label for="code" class="card-label">Code</label>
+          <input type="text"  name="password" id="code" class="card-input input-code" minlength="3"
+            pattern="^[0-9]+$" required>
+        </div>
+
+
+
+      </div>
+
+      <footer class="button-group-down">
+        <input type="checkbox" name="agreement" id="agreement" class="footer-input" checked required />
+        <label for="agreement" class="footer-label">
+          I agree to the 
+          <a href="#" class="footer-link">Terms & Conditions</a>
+        </label>
+
+          <label for="submit-button-footer" class=" button order-button footer-button" tabindex="0">
+            <input type="submit" value="" id="submit-button-footer" class="submit-input visually-hidden">
+            Place order
+          </label>
+          <label for="print-button-footer" class="button quote-button footer-button" tabindex="0">
+            <input type="button" value="" id="print-button-footer" class="submit-input visually-hidden">
+            Print a quote
+          </label>
+
+      </footer>
+
+
+    </form>
+
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>

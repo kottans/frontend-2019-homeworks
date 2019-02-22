@@ -1,0 +1,121 @@
+.upload-document-section {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-row-gap: 42px;
+  grid-area: upload;
+  padding-bottom: 90px;
+}
+
+.upload-heading-section {
+  display: flex;
+  padding-top: 45px;
+  padding-left: 61px;
+}
+
+.circle {
+  display: inline-block;
+  margin-right: 24px;
+  padding: 10px;
+  width: 20px;
+  height: 20px;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  border: 1px solid rgb(99, 92, 100);
+  border-radius: 50%;
+  color: rgb(99, 92, 100);
+  text-align: center;
+}
+
+.upload-heading {
+  align-self: center;
+  font-size: 22px;
+  color: rgb(99, 92, 100);
+}
+
+.upload-heading::after {
+  content: "(Doc, Docx, Text, PDF, Markdown)";
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-align: center;
+  margin-left: 15px;
+  color: rgb(157, 163, 180);
+}
+
+.upload-label-file {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17%;
+  padding: 14px;
+  margin-left: 129px;
+  border: 1px solid rgb(230, 231, 236);
+  border-radius: 6px;
+  background-color: rgb(247, 247, 250);
+  color: rgb(99, 92, 100);
+}
+
+.upload-label-file:hover {
+  opacity: 0.7;
+}
+
+.upload-label-text {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.fa-cloud-upload-alt {
+  font-size: 14px;
+  margin-right: 7px;
+}
+
+.upload-table-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-table {
+  width: 77%;
+  padding: 30px 35px;
+  border-radius: 6px;
+  border: 1px solid rgb(218, 218, 218);
+  border-spacing: 12px;
+}
+
+.upload-table-th {
+  width: auto;
+  letter-spacing: 0.14em;
+  font-size: 10px;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.upload-table-td {
+
+  font-size: 14px;
+  block-size: 10%;
+}
+
+.fa-file {
+  font-size: 18px;
+  margin-right: 2em;
+}
+
+.fa-trash {
+  font-size: 14px;
+  color: rgb(168, 170, 194);
+
+}
+
+.upload-table-button:hover {
+  opacity: 0.8;
+}
+
+.upload-table-button {
+  border: none;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  margin-left: 1em;
+}
