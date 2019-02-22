@@ -42,6 +42,11 @@
     margin: auto;
     padding-bottom: 13px;
     text-transform: uppercase;
+    @media screen and (max-width: 425px) {
+        font-size: 10px;
+        border: none;
+        text-align: center;
+    }
 }
 
 .translate-type-wrapper{
@@ -111,11 +116,21 @@ input[name="translate-type"]:checked + label {
     width: 100%;
     padding: 40px;
     margin: 30px 0;
+    @media screen and (max-width: 768px) {
+        padding: 10px;
 
+    }
+    @media screen and (max-width: 425px) {
+        padding: 0;
+        border: none;
+    }
 }
 
 .file-table td{
     padding: 8px 0;
+    @media screen and (max-width: 425px) {
+        padding: 0;
+    }
 }
 
 .file-cell {
@@ -127,35 +142,70 @@ input[name="translate-type"]:checked + label {
 }
 
 .file-cell .icon {
-    @include defaultIcon(9px, 3px, "../img/file.png")
+    @include defaultIcon(9px, 3px, "../img/file.png");
+    @media screen and (max-width: 425px) {
+        background: none;
+    }
 }
 
 .remove-cell{
     text-align: center;
+    @media screen and (max-width: 425px) {
+        text-align: right;
+    }
 }
 
 .language-wrapper{
-    margin-top: 10px;
-    margin-left: 20px;
+    padding-left: 22px;
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    @media screen and (max-width: 425px) {
+        padding-left: 15px;
+        text-align: center;
+        align-content: space-between;
+    }
+}
+
+.language-wrapper  .lang:nth-child(2){
+    padding-left: 25px;
+    @media screen and (max-width: 425px) {
+        margin-top: 10px;
+    }
+}
+
+.language-wrapper  .lang:nth-child(2){
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.language-wrapper .add-btn{
+    margin-left: 35px;
+    padding-top: 10px;
+    @media screen and (max-width: 425px) {
+        margin-left: 28px;
+    }
 }
 
 .lang-title{
     text-transform: uppercase;
-}
-.languages-section .custom-select{
-    margin-left: 20px;
+    padding-right: 10px;
 }
 
 .add-btn{
     @include defaultButton();
     text-transform: uppercase;
     font-weight: bold;
-    padding: 20px 25px;
+    padding: 0 25px;
+    height: 60px;
     margin-left: 20px;
 }
 
 .tone-section{
     display: block;
+    @media screen and (max-width: 425px) {
+        margin: auto;
+    }
 }
 .tone-type{
     @include defaultRadioLabel(200px);
@@ -188,6 +238,9 @@ input[name="tone-type"]:checked + label {
     display: flex;
     margin: 50px 0;
     flex-wrap: wrap;
+    @media screen and (max-width: 425px) {
+        justify-content: center;
+    }
 }
 
 .payment-system{
@@ -209,19 +262,39 @@ input[name="payment-system"]:checked + label {
 
 .urgent-section{
     padding-left: 65px;
+
+    @media screen and (max-width: 768px) {
+        padding-left: 130px;
+        padding-right: 90px;
+    }
+
+    @media screen and (max-width: 425px) {
+        margin: auto;
+        padding: 0;
+    }
 }
 
 .urgent-section .section-title{
     padding-left: 65px;
+    @media screen and (max-width: 425px) {
+        padding: 0;
+    }
 }
 .urgent-section .section-title::before{
     left: 60px;
+    @media screen and (max-width: 425px) {
+        position: relative;
+        left: 0;
+        top: 0;
+    }
 }
 
 .urgent-wrapper{
     text-align: center;
+    @media screen and (max-width: 425px) {
+        padding: 0 30px;
+    }
 }
-
 
 .urgent-slider {
     width: 90%;
@@ -277,6 +350,10 @@ input[name="payment-system"]:checked + label {
     text-align: justify;
     position: relative;
     margin: 40px 0;
+    @media screen and (max-width: 425px) {
+        margin: 10px;
+        padding-right: 10px;
+    }
 }
 
 .slider-title .icon{
@@ -296,6 +373,7 @@ input[name="payment-system"]:checked + label {
 .cards{
     display: flex;
     flex-direction: row;
+    min-height: 90px
 }
 
 .paypal,
@@ -342,7 +420,6 @@ input[name="payment-system"]:checked + label {
 #card-number{
     @include defaultInput(340px);
     text-align: center;
-    letter-spacing: 2px;
     background-repeat: no-repeat;
     background-position: calc(100% - 10px);
     background-size: 35px 33px;
@@ -353,6 +430,7 @@ input[name="payment-system"]:checked + label {
 #expiry-date{
     @include defaultInput(140px);
     text-align: center;
+    background-color: white;
 }
 
 #code{

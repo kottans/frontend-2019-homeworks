@@ -13,18 +13,22 @@
             <div class="order-details">
                 <p class="title"><i class="icon"></i> Your order</p>
                 <table class="order-summary">
-                    <tr class="table-title">
-                        <th>items</th>
-                        <th>details</th>
-                        <th>price</th>
-                        <th>delivery</th>
-                    </tr>
-                    <tr>
-                        <td>2 documents</td>
-                        <td>2 languages</td>
-                        <td>$ 696.06</td>
-                        <td>48 hours*</td>
-                    </tr>
+                    <thead  class="table-title">
+                        <tr>
+                            <th>items</th>
+                            <th>details</th>
+                            <th>price</th>
+                            <th>delivery</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Items">2 documents</td>
+                            <td data-label="Details">2 languages</td>
+                            <td data-label="Price">$ 696.06</td>
+                            <td data-label="Delivery">48 hours*</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
 
@@ -89,63 +93,73 @@
                 <label for="file-upload" class="file-container"><i class="icon"></i> Upload a new file</label>
 
                 <table class="file-table">
-                    <tr class="table-title">
-                        <th>File name</th>
-                        <th>File size</th>
-                        <th>Number of words</th>
-                        <th class="remove-cell">Remove</th>
-                    </tr>
-                    <tr>
-                        <td class="file-cell">
-                            <span class="file-name"><i class="icon"></i>business_operations.docx</span>
-                        </td>
-                        <td>78kb</td>
-                        <td>842</td>
-                        <td class="remove-cell">
-                            <button type="button" class="remove-button"></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="file-cell">
-                            <span class="file-name"><i class="icon"></i> business_financial.docx</span>
-                        </td>
-                        <td>26kb</td>
-                        <td>2,326</td>
-                        <td class="remove-cell">
-                            <button type="button" class="remove-button"></button>
-                        </td>
-                    </tr>
+                    <thead>
+                        <tr class="table-title">
+                            <th>File name</th>
+                            <th>File size</th>
+                            <th>Number of words</th>
+                            <th class="remove-cell">Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="file-cell" data-label="File name">
+                                <span class="file-name"><i class="icon"></i>business_operations.docx</span>
+                            </td>
+                            <td data-label="File size">78kb</td>
+                            <td data-label="Number of words">842</td>
+                            <td class="remove-cell" data-label="Remove">
+                                <button type="button" class="remove-button"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="file-cell" data-label="File name">
+                                <span class="file-name"><i class="icon"></i> business_financial.docx</span>
+                            </td>
+                            <td data-label="File size">26kb</td>
+                            <td data-label="Number of words">2,326</td>
+                            <td class="remove-cell" data-label="Remove">
+                                <button type="button" class="remove-button"></button>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </fieldset>
 
             <fieldset class="languages-section">
                 <h2 class="section-title">Choose your languages pairings</h2>
 
-                <label for="from" class="lang-title">From</label>
-                <div class="custom-select">
-                    <select id="from" name="from" class="language-selector">
-                        <option value="en" selected>English</option>
-                        <option value="ar">Arabic</option>
-                        <option value="ku">Kurdish</option>
-                    </select>
-                </div>
-
-                <div class="language-wrapper">
-                    <label for="lang-1" class="lang-title">To</label>
+                <div class="lang">
+                    <label for="from" class="lang-title">From</label>
                     <div class="custom-select">
-                        <select id="lang-1" name="lang-1" class="language-selector">
-                            <option value="en">English</option>
-                            <option value="ar" selected>Arabic</option>
+                        <select id="from" name="from" class="language-selector">
+                            <option value="en" selected>English</option>
+                            <option value="ar">Arabic</option>
                             <option value="ku">Kurdish</option>
                         </select>
                     </div>
+                </div>
 
-                    <div class="custom-select">
-                        <select id="lang-2" name="lang-2" class="language-selector">
-                            <option value="en">English</option>
-                            <option value="ar">Arabic</option>
-                            <option value="ku" selected>Kurdish</option>
-                        </select>
+                <div class="language-wrapper">
+                    <div class="lang">
+                        <label for="lang-1" class="lang-title">To</label>
+                        <div class="custom-select">
+                            <select id="lang-1" name="lang-1" class="language-selector">
+                                <option value="en">English</option>
+                                <option value="ar" selected>Arabic</option>
+                                <option value="ku">Kurdish</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="lang">
+                        <div class="custom-select">
+                            <select id="lang-2" name="lang-2" class="language-selector">
+                                <option value="en">English</option>
+                                <option value="ar">Arabic</option>
+                                <option value="ku" selected>Kurdish</option>
+                            </select>
+                        </div>
                     </div>
 
                     <button type="button" class="remove-button"></button>

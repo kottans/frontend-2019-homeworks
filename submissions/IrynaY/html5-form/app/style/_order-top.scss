@@ -14,10 +14,17 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    @media screen and (max-width: 425px) {
+        padding: 10px;
+        min-width: 200px;
+    }
 }
 
 .order-details .icon{
-    @include defaultIcon(30px, 40px, "../img/bag.png")
+    @include defaultIcon(30px, 40px, "../img/bag.png");
+    @media screen and (max-width: 425px) {
+        background: none;
+    }
 }
 
 .order-buttons{
@@ -27,6 +34,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width: 425px) {
+        padding: 10px;
+    }
 }
 
 .order-help{
@@ -37,10 +47,20 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    @media screen and (max-width: 768px) {
+        border: none;
+    }
+    @media screen and (max-width: 425px) {
+        margin: 0;
+        padding: 10px;
+    }
 }
 
 .order-help .icon{
-    @include defaultIcon(30px, 40px, "../img/help.png")
+    @include defaultIcon(30px, 40px, "../img/help.png");
+    @media screen and (max-width: 425px) {
+        background: none;
+    }
 }
 
 .order-summary{
@@ -62,4 +82,3 @@
     color: darken($gray2, 20%);
     text-decoration: none;
 }
-
