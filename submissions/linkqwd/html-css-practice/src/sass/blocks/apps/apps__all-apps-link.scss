@@ -1,0 +1,11 @@
+.apps__all-apps-link {
+  width: 100%;
+  margin-top: 30px;
+  font-size: 14px;
+  color: $text-color;
+  transition: color 225ms ease-in-out;
+
+  &:hover {
+    color: black;
+  }
+}
