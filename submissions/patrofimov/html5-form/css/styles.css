@@ -1035,9 +1035,6 @@ summary {
     align-items: center;
 }
 
-#lang_select_to_second {
-  margin-right: 20px;
-}
 
 .lang_btn:first-child {
   margin-left: 52px;
@@ -1055,8 +1052,21 @@ summary {
     color: #76a7e1;
     position: absolute;
     z-index: 1;
-    
-}
+ }
+ 
+ .tone_input:checked + label:after {
+	top: -5px;
+    right: -6px;
+    content: '\2611';
+   	font-size: 30px;
+	background: #fff;
+	line-height: 15px;
+	width: 22px;
+	height: 15px;
+    color: #76a7e1;
+    position: absolute;
+    z-index: 1;
+ }
 
 @media screen and (max-width: 1200px) {
   .order_wrapper {
