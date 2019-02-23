@@ -160,7 +160,9 @@ body {
     color: $text;
     font-weight: 600;
     @include transition(color);
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
         color: $blueColor;
     }
 }
@@ -263,30 +265,33 @@ body {
 
 .translate-types {
     display: flex;
-    justify-content: space-around;
-    margin-left: -3%;
-    @include mediaQuery(600) {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include mediaQuery(992) {
         flex-direction: column;
-        margin-right: 0;
     }
 }
 
 .translate-type-img-wrap {
+    width: 300px;
+    height: 250px;
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    top: -5px;
+    left: -5px;
     text-align: center;
     font-size: 1.429em;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     border-radius: $borderRadius;
-    box-sizing: border-box;
     background-color: $blocksGrey;
-    border: 6px solid transparent;
-    z-index: 1;
+    border: 1px solid $borderColor;
+    @include mediaQuery(1200) {
+        width: 240px;
+    }
+    @include mediaQuery(992) {
+        width: 300px;
+    }
 }
 
 .hidden-input {
@@ -294,23 +299,27 @@ body {
 }
 
 .translate-type-label {
-    flex: 1 1 30.33%;
-    margin-left: 3%;
     cursor: pointer;
     position: relative;
-    box-sizing: border-box;
+    width: 300px;
     height: 250px;
     border-radius: $borderRadius;
-    border: 1px solid $borderColor;
-    @include mediaQuery(600) {
-        flex: 1 1 100%;
-        margin-right: 0;
+    border: 5px solid $borderColor;
+    @include mediaQuery(1200) {
+        width: 240px;
         margin-bottom: 2em;
+    }
+    @include mediaQuery(992) {
+        width: 300px;
+        margin: 0 auto 2em;
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 }
 
 .translate-type-input:checked + .translate-type-img-wrap {
-    border: 6px solid $mainBlue;
+    border: 5px solid $mainBlue;
     &:before {
         @include checkedItem();
     }
@@ -352,10 +361,11 @@ body {
     font-size: 1.7142em;
     &::before {
         content: attr(data-number);
-        display: inline-block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 2em;
         height: 2em;
-        line-height: 2em;
         border-radius: 50%;
         border: 1px solid #717991;
         position: absolute;
@@ -637,12 +647,12 @@ body {
 }
 
 .tone-item {
-    width: 15em;
-    height: 5em;
+    width: 15rem;
+    height: 5rem;
     display: flex;
     margin-bottom: 2em;
     position: relative;
-    border: 1px solid $borderColor;
+    border: 5px solid transparent;
     border-radius: $borderRadius;
     background-color: $blocksGrey;
     &:last-child {
@@ -651,16 +661,16 @@ body {
 }
 
 .tone-item-text-wrap {
+    width: 15rem;
+    height: 5rem;
     position: absolute;
-    top: -4px;
-    left: -4px;
-    bottom: -4px;
-    right: -4px;
+    top: -5px;
+    left: -5px;
     display: flex;
     align-items: center;
     cursor: pointer;
     border-radius: $borderRadius;
-    border: 6px solid transparent;
+    border: 1px solid $borderColor;
     font-size: $biggerFont;
     background-repeat: no-repeat;
     background-size: 1.5rem;
@@ -681,7 +691,7 @@ body {
 }
 
 .tone-item-radio-input:checked + .tone-item-text-wrap {
-    border-color: $mainBlue;
+    border: 5px solid $mainBlue;
     &:before {
         @include checkedItem();
     }
@@ -802,7 +812,7 @@ body {
     background-color: $customYellow;
     z-index: 2;
     position: relative;
-    top: -6px;
+    top: -4px;
 }
 
 .urgency-range-text {
@@ -835,6 +845,7 @@ body {
     text-transform: uppercase;
     position: relative;
     margin-bottom: 1em;
+    font-size: $biggerFont;
     &:before {
         content: "";
         display: inline-block;
@@ -845,7 +856,7 @@ body {
         height: 1.5em;
         position: absolute;
         top: 0;
-        left: -32px;
+        left: -36px;
     }
 }
 
@@ -885,9 +896,6 @@ body {
     @include mediaQuery(600) {
         width: 100%;
         max-width: 100%;
-        &:last-child .form-text-input {
-            max-width: 8em;
-        }
     }
 }
 
@@ -936,7 +944,7 @@ body {
             margin-right: 0;
         }
         .text-form-item:last-of-type {
-            max-width: 8em;
+            max-width: 100%;
         }
     }
 }
@@ -944,14 +952,14 @@ body {
 .payment-section-methods {
     margin-bottom: 5em;
     display: flex;
-    @include mediaQuery(600) {
+    @include mediaQuery(768) {
         flex-direction: column;
     }
 }
 
 .payment-item {
     border-radius: $borderRadius;
-    border: 1px solid $borderColor;
+    border: 5px solid $borderColor;
     cursor: pointer;
     position: relative;
     box-sizing: border-box;
@@ -964,9 +972,7 @@ body {
     &:last-child {
         margin-right: 0;
     }
-    @include mediaQuery(600) {
-        width: 100%;
-        margin-right: 0;
+    @include mediaQuery(768) {
         margin-bottom: 1em;
         &:last-child {
             margin-bottom: 0;
@@ -975,7 +981,7 @@ body {
 }
 
 .payment-input:checked + .payment-item-thumb-wrap {
-    border-color: $mainBlue;
+    border: 5px solid $mainBlue;
     &:before {
         @include checkedItem();
         @include mediaQuery(600) {
@@ -997,15 +1003,15 @@ body {
 
 .payment-item-thumb-wrap {
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    top: -5px;
+    left: -5px;
+    width: 15em;
+    height: 7em;
     justify-content: center;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    border: 6px solid transparent;
+    border: 1px solid $borderColor;
     border-radius: $borderRadius;
     box-sizing: border-box;
     background-color: $blocksGrey;
@@ -1020,34 +1026,13 @@ body {
     flex-direction: column;
 }
 
-.card-information-row,
-.card-information-item {
-    display: flex;
-}
-
 .card-information-row {
+    display: flex;
     margin-bottom: 5em;
     .text-form-item {
         margin-right: 2em;
-    }
-    @include mediaQuery(768) {
-        flex-direction: column;
-    }
-    @include mediaQuery(600) {
-        margin-bottom: 3em;
-        .text-form-item {
-            margin-right: 0;
-            &:last-of-type {
-                width: 8em;
-            }
-        }
-    }
-}
 
-.card-information-item {
-    &:first-child {
-        width: 34%;
-        .text-form-item {
+        &:first-child {
             max-width: 22em;
             &:after {
                 content: "visa";
@@ -1065,12 +1050,25 @@ body {
                     bottom: 8px;
                 }
             }
+
+            @include mediaQuery(600) {
+                width: 100%;
+                max-width: 100%;
+                margin-right: 0;
+                &:last-of-type {
+                    width: 8em;
+                }
+            }
+        }
+
+        &:last-child {
+            margin-right: 0;
         }
     }
-    &:last-child {
-        @include mediaQuery(600) {
-            flex-direction: column;
-        }
+
+    @include mediaQuery(768) {
+        flex-direction: column;
+        margin-bottom: 3em;
     }
 }
 
@@ -1101,6 +1099,7 @@ body {
     align-items: center;
     @include mediaQuery(768) {
         margin-right: 0;
+        margin-bottom: 2em;
     }
 }
 
@@ -1117,45 +1116,38 @@ body {
 }
 
 .agree-checkbox-wrap {
+    display: flex;
+    align-items: center;
     position: relative;
-    display: inline-block;
-    width: 1.5em;
-    height: 1.5em;
-    margin-right: 1em;
 }
 
 .agree-checkbox-label {
-    position: absolute;
-    border: 1px solid $greyMain;
-    border-radius: $borderRadius;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     cursor: pointer;
+    padding-left: 2em;
+    display: flex;
+    align-items: center;
+    &:before {
+        content: "";
+        display: inline-block;
+        margin-right: 1em;
+        width: 1.5em;
+        height: 1.5em;
+        border: 1px solid $greyMain;
+        border-radius: $borderRadius;
+    }
 }
 
-.agree-checkbox:checked + .agree-checkbox-label {
+.agree-checkbox:checked + .agree-checkbox-label:before {
     background: url("#{$imagePath}/checkbox.svg") center no-repeat;
     background-size: 100%;
 }
 
-.agree-checkbox:focus + .agree-checkbox-label {
+.agree-checkbox:focus + .agree-checkbox-label:before {
     outline: -webkit-focus-ring-color auto 5px;
 }
 
-.agree-checkbox:-moz-focusring + .agree-checkbox-label {
+.agree-checkbox:-moz-focusring + .agree-checkbox-label:before {
     outline: 1px dotted;
-}
-
-.submit-section-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0;
-    color: $text;
-    @include mediaQuery(768) {
-        margin-bottom: 2em;
-    }
 }
 
 /* footer */
@@ -1193,6 +1185,7 @@ body {
     text-transform: uppercase;
     margin-bottom: 1.5em;
     position: relative;
+    font-weight: 600;
     &:before {
         content: "";
         width: 1.5em;
@@ -1224,38 +1217,45 @@ body {
     }
 }
 
+.footer-item__address {
+    font-style: normal;
+}
 .footer-item-contacts {
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
     display: flex;
     &:last-child {
         margin-bottom: 0;
     }
 }
 
-.footer-item-contacts__link {
+.footer-item-contacts__link,
+.footer-item-contacts__textlink {
     color: $footerText;
-    @include transition(color);
-    &:hover {
+    @include transition(all);
+    &:hover,
+    &:focus,
+    &:active {
         color: #fff;
+        opacity: 0.8;
     }
+}
+
+.footer-item-contacts__link {
+    display: flex;
+}
+
+.footer-item-contacts__textlink {
+    display: inline-block;
 }
 
 .footer-item-contacts__socials {
     display: inline-block;
     width: 1.5em;
     height: 1.5em;
+    margin-right: 1em;
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
-}
-
-.footer-item-contacts-link {
-    display: inline-block;
-    margin-right: 1.5em;
-    @include transition(opacity);
-    &:hover {
-        opacity: 0.8;
-    }
 }
 
 .footer-item-contacts__socials-facebook {
