@@ -84,8 +84,20 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
+input[type=checkbox]:not(.terms):focus + label,
 input[type=radio]:focus + label {
     filter: grayscale(1);
+    position: relative;
+    &:before{
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      border: 8px solid #76a7e1;
+      border-radius: 8px;
+      width: calc(100% - 8px);
+      height: calc(100% - 8px);
+    }
 }
 input[type=number] {
     -moz-appearance:textfield;
@@ -253,6 +265,8 @@ h1{
   padding: 0 30px;
   font-size: $fontSmall;
   @include border(#6e768f, #6e768f);
+  &:active,
+  &:focus,
   &:hover{
     opacity: 1;
   }
@@ -562,6 +576,14 @@ h1{
   }
 }
 .document{
+  .file{
+    width: 0px;
+  }
+  .file:focus + label{
+    border: 1px solid #76a7e1;
+    background: #fff;
+    opacity: 1;
+  }
   .sm-button{
     margin-bottom: 50px;
   }
@@ -616,6 +638,7 @@ h1{
         opacity: 0.5;
         border: none;
         background: none;
+        cursor: pointer;
         &:hover,
         &:focus,
         &:active{
@@ -627,6 +650,17 @@ h1{
       font-weight: bold;
       text-transform: uppercase;
     }
+  }
+}
+.select-trash{
+  background: none;
+  border: none;
+  color: $colorBold;
+  opacity: 0.5;
+  &:hover,
+  &:active,
+  &:focus{
+    opacity: 1;
   }
 }
 .language fieldset{
@@ -905,9 +939,6 @@ h1{
   }
   @media (max-width: $tablet) {
     justify-content: space-between;
-  }
-  input{
-    display: none;
   }
   label{
     width: 25%;

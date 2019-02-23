@@ -14,7 +14,11 @@
       <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
       Go back
     </button>
-    <h1><img class="header-logo" src="assets/img/logo.png" alt="logo"></h1>
+    <h1>
+      <a href="#">
+        <img class="header-logo" src="assets/img/logo.png" alt="logo">
+      </a>
+    </h1>
     <button class="header-sign sm-button" type="button" name="button">
       <i class="fa fa-user" aria-hidden="true"></i>
       Sign in
@@ -85,11 +89,11 @@
         <h2 class="title">Upload your documents</h2>
         <p class="subtitle">(Doc, Docx, Text, PDF, Markdown)</p>
         <fieldset>
+          <input class="file" type="file" id="file" name="file" title="download file">
           <label for="file" class="sm-button">
             <i class="fa fa-cloud-upload" aria-hidden="true"></i>
             Upload a new file
           </label>
-          <input class="file visually-hidden" type="file" id="file" name="file" title="download file">
         </fieldset>
         <div class="document-in">
           <div class="document-in-head">
@@ -146,7 +150,9 @@
               <option value="Russian">Russian</option>
             </select>
           </div>
-          <i class="fa fa-trash" aria-hidden="true"></i>
+          <button class="select-trash" name="button" type="button">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
           <button class="sm-button add-button" type="button" name="button">
             <i class="fa fa-plus" aria-hidden="true"></i>
             Add
@@ -190,18 +196,18 @@
         <h2 class="title">Sign up and choose a payment method</h2>
         <p class="payment-description">Already have account with us? <a href="#">Sign in</a></p>
         <fieldset class="full-width validate">
-          <label>Full name</label>
-          <input type="text" placeholder="Full name" minlength="3" title="Set name more than 3 letters"  value="Dmytro Ivanov" class="sm-input" required>
+          <label for="input-name">Full name</label>
+          <input id="input-name" type="text" placeholder="Full name" minlength="3" title="Set name more than 3 letters"  value="Dmytro Ivanov" class="sm-input" required>
           <span class="input-result"></span>
         </fieldset>
         <fieldset class="validate">
-          <label>Email adress</label>
-          <input type="email" placeholder="Email adress" value="dmytroivanov@gmail.com" class="sm-input" required>
+          <label for="input-mail">Email adress</label>
+          <input id="input-mail" type="email" placeholder="Email adress" value="dmytroivanov@gmail.com" class="sm-input" required>
           <span class="input-result"></span>
         </fieldset>
         <fieldset class="validate">
-          <label>Choose a password</label>
-          <input type="password" placeholder="Choose a password" minlength="6" title="Set password more than 6 letters" class="sm-input" required>
+          <label for="input-password">Choose a password</label>
+          <input id="input-password" type="password" placeholder="Choose a password" minlength="6" title="Set password more than 6 letters" class="sm-input" required>
           <span class="input-result"></span>
         </fieldset>
         <fieldset class="payment-way">
@@ -236,7 +242,7 @@
       <section class="submit-block">
         <div class="payment-submit">
           <div class="payment-submit-agree">
-            <input type="checkbox" name="terms" id="terms">
+            <input type="checkbox" name="terms" class="terms" id="terms">
             <label for="terms" class="agree">I agree to the</label><a href="#">Terms & Conditions</a>
           </div>
           <button class="order-button-order sm-button" type="submit" name="button">Place order</button>
