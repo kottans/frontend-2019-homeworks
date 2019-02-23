@@ -4,17 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Google Popup</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Ggl Popup</title>
   </head>
   <body>
     <nav class="main-nav">
       <ul class="nav-list">
-        <li class="nav-list-item">Gmail</li>
-        <li class="nav-list-item">Images</li>
+        <li class="nav-list-item" tabindex="0">Gmail</li>
+        <li class="nav-list-item" tabindex="0">Images</li>
         <li class="nav-list-item">
-          <input type="checkbox" id="open-modal" />
-          <label for="open-modal" id="open-modal-label">
+          <input
+            type="checkbox"
+            id="open-modal"
+            class="open-modal"
+            tabindex="0"
+          />
+          <label for="open-modal" class="open-modal-label">
             <img src="img/3x3-grid.svg" alt="menu icon" class="menu-icon" />
           </label>
           <div class="modal-container">
@@ -80,11 +85,15 @@
                 tabindex="0"
               />
             </div>
-            <input type="checkbox" id="open-modal-second" />
-            <label for="open-modal-second" id="open-modal-second-label"
+            <input
+              type="checkbox"
+              id="open-modal-second"
+              class="open-modal-second"
+            />
+            <label for="open-modal-second" class="open-modal-second-label"
               >More</label
             >
-            <div class="modal" id="modal-second">
+            <div class="modal modal-second" id="modal-second">
               <img
                 class="icon"
                 src="img/drive.svg"
