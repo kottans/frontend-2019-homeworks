@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <title>HTML5 Order Form</title>
+  </head>
+  <body>
+    <header class="document__header">
+      <nav>
+        <ul class="header__nav__items">
+          <li class="header__back">
+            <button class="btn">
+              <span class="icon icon__back"></span>Go back
+            </button>
+          </li>
+          <li>
+            <img src="img/logo.jpg">
+          </li>
+          <li class="header__sing-in">
+            <button class="btn">
+              <span class="icon icon__sing-in"></span>Sing in
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="wrapper">
+      <form id="form__wrapper" method="POST">
+        <div class="order__wrapper">
+          <section class="order">
+            <table class="table">
+              <caption class="order__caption">
+                <h3 class="order__header">Your order</h3>
+              </caption>
+              <tbody>
+                <tr>
+                  <th class="th">Items</th>
+                  <th class="th">Details</th>
+                  <th class="th">Price</th>
+                  <th class="th">Delivery</th>
+                </tr>
+                <tr>
+                  <td class="td">2 documents</td>
+                  <td class="td">2 languages</td>
+                  <td class="td">$ 696.06</td>
+                  <td class="td">48 hours*</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section class="order__btns">
+            <button class="btn order__btn order__btn__active" type="button">
+              Place order
+            </button>
+            <button class="btn order__btn" type="button">Print a quote</button>
+          </section>
+          <section class="order__help">
+            <h4 class="help__h4"><span class="icon-help"></span>Help center</h4>
+            <p class="help__text">
+              If you need assistance while placing your order, contact one of
+              our beloved Project Manager by phone or email.
+            </p>
+            <address class="help__address">
+              <a href="+971(0)555 555">+971(0)555 555</a>
+              <a href="mailto:help@qtest.com">help@qtest.com</a>
+            </address>
+          </section>
+        </div>
+
+        <section class="translate">
+          <h2 class="translate__h2">Select what you want to translate</h2>
+          <div class="translate__field">
+            <label>
+              <input
+                type="radio"
+                name="translate-type"
+                value="website"
+                class="translate__input"
+                required
+              />
+              <div class="translate__img-wrapper">
+                <img src="img/translate-1.jpg" />
+                <span class="translate__text">Website</span>
+              </div>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="translate-type"
+                value="document"
+                class="translate__input"
+                required
+              />
+              <div class="translate__img-wrapper">
+                <img src="img/translate-2.jpg" />
+                <span class="translate__text">Documents</span>
+              </div>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="translate-type"
+                value="social-account"
+                class="translate__input"
+                required
+              />
+              <div class="translate__img-wrapper">
+                <img src="img/translate-3.jpg" />
+                <span class="translate__text">Social Account</span>
+              </div>
+            </label>
+          </div>
+        </section>
+
+        <section class="upload">
+          <h2 class="upload__header header__number">
+            Upload you documents
+            <span class="upload__doc-format"
+              >(Doc, Docx, Text, PDF, Markdown)</span
+            >
+          </h2>
+          <label>
+            <input
+              type="file"
+              name="file"
+              class="upload__file-hidden"
+              accept=".pdf"
+            />
+            <span class="upload__file"
+              ><span class="icon upload__icon"></span>Upload new file</span
+            >
+          </label>
+          <table class="table upload__table">
+            <tbody>
+              <tr>
+                <th class="th">File name</th>
+                <th class="th">File size</th>
+                <th class="th">Number of words</th>
+                <th class="th">Remove</th>
+              </tr>
+              <tr>
+                <td class="td upload__td__doc">
+                  <span class="icon upload__icon__doc"></span
+                  >business_operations.docx
+                </td>
+                <td class="td">78kb</td>
+                <td class="td">842</td>
+                <td class="td">
+                  <button class="btn__remove" type="button"></button>
+                </td>
+              </tr>
+              <tr>
+                <td class="td upload__td__doc">
+                  <span class="icon upload__icon__doc"></span
+                  >business_financial.docx
+                </td>
+                <td class="td">26kb</td>
+                <td class="td">2,326</td>
+                <td class="td">
+                  <button class="btn__remove" type="button"></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="language">
+          <h2 class="language__header header__number">
+            Choose your languages pairings
+          </h2>
+          <div class="language__wrapper">
+            <label for="language-select">FROM</label>
+            <div class="language-select__wrapper">
+              <select
+                name="languange"
+                id="language-select"
+                class="language-select"
+                required
+              >
+                <option value="">Language</option>
+                <option value="english">English</option>
+                <option value="arabic">Arabic</option>
+                <option value="kurdish">Kurdish</option>
+              </select>
+            </div>
+          </div>
+          <div class="language__wrapper">
+            <label class="language__label__to" for="language-select-2"
+              >TO</label
+            >
+            <div class="language-select__wrapper">
+              <select
+                name="languange"
+                id="language-select-2"
+                class="language-select"
+                required
+              >
+                <option value="">Language</option>
+                <option value="english">English</option>
+                <option value="arabic">Arabic</option>
+                <option value="kurdish">Kurdish</option>
+              </select>
+            </div>
+            <div class="language-select__wrapper">
+              <select
+                name="languange"
+                id="language-select-3"
+                class="language-select"
+              >
+                <option value="">Language</option>
+                <option value="english">English</option>
+                <option value="arabic">Arabic</option>
+                <option value="kurdish">Kurdish</option>
+              </select>
+            </div>
+
+            <button class="btn__remove" type="button"></button>
+
+            <button class="btn languange-btn" type="button">+ ADD</button>
+          </div>
+        </section>
+
+        <div class="tone__urgent__wrapper">
+          <section class="tone">
+            <h2 class="tone__header header__number">
+              Select your desired tone
+            </h2>
+
+            <div class="tone__field">
+              <label>
+                <input
+                  type="radio"
+                  name="tone-type"
+                  value="friendly-casual"
+                  class="tone__input"
+                  required
+                />
+
+                <span class="tone__text icon tone__icon tone__icon-fc"
+                  >Friendly / Casual</span
+                >
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="tone-type"
+                  value="comporate-pro"
+                  class="tone__input"
+                  required
+                />
+                <span
+                  class="tone__text tone__text-cp icon tone__icon tone__icon-cp"
+                  >Comporate / Pro</span
+                >
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="tone-type"
+                  value="media-format"
+                  class="tone__input"
+                  required
+                />
+
+                <span
+                  class="tone__text tone__text-mf icon tone__icon tone__icon-mf"
+                  >Media / Formal</span
+                >
+              </label>
+            </div>
+          </section>
+
+          <section class="urgent">
+            <h2 class="urgent__header header__number">
+              Tell us how urgent this job is
+            </h2>
+
+            <div class="urgent__range">
+              <input
+                type="range"
+                name="urgent"
+                min="0"
+                max="2"
+                step="1"
+                value="1"
+                id="range__input"
+                class="urgent__range__input"
+              />
+            </div>
+            <div class="urgent__range__text">
+              <span>I got time</span>
+              <span class="urgent__range__text_sel">Average</span>
+              <span>Yesterday</span>
+            </div>
+
+            <div class="urgent__info">
+              <h4>TIMELINE INFO</h4>
+
+              <p>
+                <span class="icon urgent__icon__info"></span>With an
+                <span class="urgent__range__text_sel">AVARAGE</span> timeline
+                set up, our expert translator can take a reasonable amount of
+                time perfecting y our translation
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <section class="payment">
+          <h2 class="payment__header header__number">
+            Sign up and choose a payment method
+          </h2>
+          <p>Already have account with us? <a href="#">Sign in</a>.</p>
+          <div class="payment__relative-input">
+            <label class="payment__label" for="full__name">FULL NAME</label>
+            <input
+              type="text"
+              id="full__name"
+              class="payment__input"
+              name="full__name"
+              placeholder="Tom Holder"
+              title="Write your name and surname"
+              pattern="^[a-zA-Z ]+$"
+              minlength="2"
+              required
+            />
+            <span class="payment__valid-status"></span>
+          </div>
+
+          <div class="payment__info__wrapper">
+            <div class="payment__relative-input">
+              <label class="payment__label" for="email">EMAIL ADRESS</label>
+              <input
+                type="email"
+                id="email"
+                class="payment__input"
+                name="email"
+                placeholder="example@domain.com"
+                title="Write your email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                minlength="6"
+                required
+              />
+              <span class="payment__valid-status"></span>
+            </div>
+            <div class="payment__relative-input">
+              <label class="payment__label" for="password"
+                >CHOOSE A PASSWORD</label
+              >
+              <input
+                type="password"
+                id="password"
+                class="payment__input"
+                name="password"
+                placeholder="Enter your password"
+                title="Minimum 8 characters, UPPERCASE, lowercase and Number"
+                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                minlength="8"
+                required
+              />
+              <span class="payment__valid-status"></span>
+            </div>
+          </div>
+
+          <div class="payment__field">
+            <label>
+              <input
+                type="radio"
+                name="translate-type"
+                value="visa-mastercard"
+                class="translate__input"
+                required
+              />
+              <div class="payment__img">
+                <img src="img/visa.jpg" />
+                <img src="img/mastercard.jpg" />
+              </div>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="translate-type"
+                value="paypal"
+                class="translate__input"
+                required
+              />
+              <div class="payment__img">
+                <img src="img/paypal.jpg" />
+              </div>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="translate-type"
+                value="amazon"
+                class="translate__input"
+                required
+              />
+              <div class="payment__img">
+                <img src="img/amazon.jpg" />
+              </div>
+            </label>
+          </div>
+
+          <div class="payment__card__wrapper">
+            <div class="payment__relative-input">
+              <label class="payment__label" for="card-number"
+                >CARD NUMBER</label
+              >
+              <input
+                type="text"
+                id="card-number"
+                class="payment__input"
+                name="card-number"
+                pattern="^[0-9]+$"
+                minlength="13"
+                maxlength="16"
+                required
+              />
+              <span class="payment__valid-status"></span>
+            </div>
+            <div class="payment__relative-input">
+              <label class="payment__label" for="card-number"
+                >EXPIRY DATE</label
+              >
+              <input
+                type="date"
+                id="date"
+                class="payment__input payment__input__date"
+                name="date"
+                minlength="10"
+                required
+              />
+            </div>
+            <div class="payment__relative-input">
+              <label class="payment__label" for="card-number">CODE</label>
+              <input
+                type="text"
+                id="card-code"
+                class="payment__input"
+                name="card-code"
+                pattern="^[0-9]+$"
+                minlength="3"
+                maxlength="5"
+                required
+              />
+              <span class="payment__valid-status"></span>
+            </div>
+          </div>
+
+          <div class="payment__submit">
+            <div class="payment__agree">
+              <input required type="checkbox" id="payment__agree-link" />
+              <label for="payment__agree-link"
+                >I agree to the <a href="#">Terms & Conditions</a></label
+              >
+            </div>
+            <div>
+              <button class="btn payment__btn__active" type="submit">
+                PLACE ORDER
+              </button>
+              <button class="btn" type="button">PRINT A QUOTE</button>
+            </div>
+          </div>
+        </section>
+      </form>
+    </main>
+    <footer></footer>
+  </body>
+</html>

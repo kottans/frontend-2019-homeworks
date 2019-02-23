@@ -1,0 +1,80 @@
+.language {
+  margin-top: 50px;
+  margin-left: 93px;
+}
+
+.language__header {
+  margin-bottom: 50px;
+}
+
+.language__header::before {
+  content: "2";
+}
+
+.language__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.language__label__to {
+  padding-left: 20px;
+}
+
+.language-select {
+  width: 100%;
+  height: 100%;
+  padding: 0 25px;
+  cursor: pointer;
+  border: 1px solid #d5d6de;
+  border-radius: 5px;
+  background-color: #f7f7fa;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.language-select:hover,
+.languange-btn:hover,
+.language-select__wrapper:hover {
+  border-color: #77a8e0;
+  will-change: border-color;
+  transition: border-color 0.3s ease-out;
+}
+
+.language-select__wrapper {
+  width: 200px;
+  height: 50px;
+  margin-left: 10px;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.language-select__wrapper::after {
+  position: absolute;
+  font-size: 14px;
+  top: 0;
+  right: 0;
+  content: "▼";
+  border-left: 1px solid #d5d6de;
+  line-height: 50px;
+  width: 50px;
+  text-align: center;
+  height: 50px;
+  pointer-events: none;
+}
+
+.language-select__wrapper:hover::before {
+  background-color: blue;
+  will-change: background-color;
+  transition: background-color 0.3s ease-out;
+}
+
+.languange-btn {
+  height: 50px;
+  width: 70px;
+  margin-top: 10px;
+  background-color: #f7f7fa;
+  cursor: pointer;
+}

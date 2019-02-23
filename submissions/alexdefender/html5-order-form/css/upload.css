@@ -1,0 +1,71 @@
+.upload {
+  margin-top: 50px;
+  margin-left: 93px;
+}
+
+.upload__header {
+  margin-bottom: 50px;
+}
+
+.upload__header::before {
+  content: "1";
+}
+
+.upload__doc-format {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.upload__file-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.upload__file {
+  cursor: pointer;
+  border: 1px solid #d7dae0;
+  border-radius: 5px;
+  background-color: #f7f7fa;
+  padding: 15px 25px;
+  padding-left: 60px;
+  padding-right: 30px;
+  position: relative;
+}
+
+.upload__file:hover {
+  border-color: #77a8e0;
+  will-change: border-color;
+  transition: border-color 0.3s ease-out;
+  cursor: pointer;
+}
+
+.upload__icon{
+  background-image: url(../font/icon-upload.png);
+}
+
+.upload__table {
+  margin-top: 50px;
+  padding: 25px;
+  border: 1px solid #e8eaed;
+  border-radius: 5px;
+  max-width: 800px;
+  min-width: 400px;
+}
+
+.upload__td__doc {
+  position: relative;
+  padding-left: 40px;
+
+}
+
+.upload__icon__doc {
+  background-image: url(../font/icon-document.png);
+  left: 0;
+  top: 10px;
+}

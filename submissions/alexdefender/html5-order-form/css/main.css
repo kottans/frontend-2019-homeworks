@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 10pt;
+  background-color: #ebedf2;
+  box-sizing: border-box;
+}
+
+.document__header {
+  max-width: 950px;
+  margin: 30px auto 30px auto;
+}
+
+.header__nav__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+
+.icon {
+  content: "";
+  background-repeat: no-repeat;
+  background-size: 70%;
+  height: 24px;
+  width: 26px;
+  left: 25px;
+  top: 16px;
+  position: absolute;
+}
+
+.icon__back {
+  background-image: url(../font/icon-back.png);
+  left: 20px;
+}
+
+.icon__sing-in {
+  background-image: url(../font/icon-sing-in.png);
+  top: 12px;
+}
+
+.btn {
+  background-color: #ebedf2;
+  border: 1px solid #cad1e0;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 15px;
+  width: 130px;
+  text-transform: uppercase;
+  color: #a5abc4;
+}
+
+.btn:hover {
+  border-color: #77a8e0;
+  will-change: border-color;
+  transition: border-color 0.3s ease-out;
+  cursor: pointer;
+}
+
+.header__back,
+.header__sing-in {
+  position: relative;
+}
+
+/* ----------------- Start Form ----------------- */
+
+#form__wrapper {
+  max-width: 1000px;
+  background: #ffffff;
+  margin: auto;
+  border: 1px solid #cad1e0;
+  border-radius: 3px;
+  color: #6e768f;
+}
+
+.header__number::before {
+  margin-left: -50px;
+  margin-right: 10px;
+  border: 1px solid #b9bdc7;
+  border-radius: 50%;
+  padding: 5px 10px 5px 10px;
+}
+
+.table {
+  width: 100%;
+  padding-left: 40px;
+}
+
+.th {
+  text-align: left;
+}
+
+.td {
+  position: relative;
+  text-align: left;
+  padding-top: 10px;
+  color: #a5abc4;
+}
+
+.btn__remove {
+  background-image: url(../font/icon-remove.png);
+  background-repeat: no-repeat;
+  height: 23px;
+  width: 20px;
+  border: none;
+  margin: 0 15px 0 15px;
+  cursor: pointer;
+}
+
+.tone__urgent__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.translate__input:focus + .translate__img-wrapper,
+.upload__file-hidden:focus + .upload__file,
+.tone__input:focus + .tone__text,
+.translate__input:focus + .payment__img,
+.language-select:focus {
+  outline: 2px solid #77a8e0; 
+}
+
+footer {
+  margin: 100px;
+}
