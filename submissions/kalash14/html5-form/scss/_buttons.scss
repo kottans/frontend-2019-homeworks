@@ -11,11 +11,11 @@
     color: $lightGrey;
     text-align: center;
     letter-spacing: 0.5px;
-    @include transition(opacity);
-    &:hover,
-    &:focus,
-    &:active {
-        opacity: 0.8;
+    @include transition(all);
+    &:not(.standard-button-blue):hover,
+    &:not(.standard-button-blue):focus,
+    &:not(.standard-button-blue):active {
+        border-color: $blueColor;
     }
     &:-moz-focusring {
         outline: 1px dotted;
@@ -30,6 +30,11 @@
     border: 1px solid #54aca9;
     span {
         color: #fff;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+        opacity: 0.8;
     }
 }
 
@@ -71,7 +76,7 @@
     border-radius: $borderRadius;
     color: $lightGrey;
     letter-spacing: 0.5px;
-    @include transition(opacity);
+    @include transition(border-color);
     background-image: url(#{$imagePath}/add-plus-button.svg);
     background-position: 20px center;
     background-repeat: no-repeat;
@@ -80,7 +85,7 @@
     &:hover,
     &:focus,
     &:active {
-        opacity: 0.8;
+        border-color: $blueColor;
     }
 }
 

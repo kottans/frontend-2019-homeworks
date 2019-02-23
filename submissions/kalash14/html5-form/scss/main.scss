@@ -286,6 +286,10 @@ body {
     border-radius: $borderRadius;
     background-color: $blocksGrey;
     border: 1px solid $borderColor;
+    @include transition(border-color);
+    &:hover {
+        border: 1px solid $mainBlue;
+    }
     @include mediaQuery(1200) {
         width: 240px;
     }
@@ -409,9 +413,9 @@ body {
     padding: 1.5em 2em 1.5em 4.5em;
     font-weight: 600;
     background-color: $blocksGrey;
-    @include transition(opacity);
+    @include transition(border-color);
     &:hover {
-        opacity: 0.8;
+        border-color: $blueColor;
     }
 }
 
@@ -676,6 +680,10 @@ body {
     background-size: 1.5rem;
     background-position: 32px center;
     padding-left: 4em;
+    @include transition(border-color);
+    &:hover {
+        border: 1px solid $mainBlue;
+    }
 }
 
 .tone-item-text-wrap-friendly {
@@ -1015,6 +1023,10 @@ body {
     border-radius: $borderRadius;
     box-sizing: border-box;
     background-color: $blocksGrey;
+    @include transition(border-color);
+    &:hover {
+        border: 1px solid $mainBlue;
+    }
 }
 
 .payment-item-thumb {
@@ -1113,6 +1125,12 @@ body {
 .text-link-small {
     text-decoration: underline;
     color: $lightGrey;
+    @include transition(color);
+    &:hover,
+    &:focus,
+    &:active {
+        color: $blueColor;
+    }
 }
 
 .agree-checkbox-wrap {
