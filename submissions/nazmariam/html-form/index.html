@@ -144,7 +144,7 @@
                                         842
                                     </div>
                                     <div class="file-remove">
-                                        <button class="del">delete</button>
+                                        <button type='button' class="del">delete</button>
                                     </div>
                                 </li>
                                 <li class="file-row">
@@ -158,7 +158,7 @@
                                         2,326
                                     </div>
                                     <div class="file-remove">
-                                        <button class="del">delete</button>
+                                        <button type='button' class="del">delete</button>
                                     </div>
                                 </li>
                             </ul>
@@ -185,35 +185,40 @@
                                 </label>
                             </div>
                            <div class="to-lang">
-                               <span class="list-header">to</span>
-                               <label class="to-lang-label">
-                                   <select name="to-lang"
-                                           class="form-button sel-but">
-                                       <option value=""
-                                               disabled
-                                               selected>
-                                           Select language
-                                       </option>
-                                       <option value="english">English</option>
-                                       <option value="arabic">Arabic</option>
-                                       <option value="kurdish">Kurdish</option>
-                                   </select>
-                               </label>
-                               <label class="second-lang">
-                                   <select name="to-lang"
-                                           class="form-button sel-but">
-                                       <option value=""
-                                               disabled
-                                               selected>
-                                           Select language
-                                       </option>
-                                       <option value="english">English</option>
-                                       <option value="arabic">Arabic</option>
-                                       <option value="kurdish">Kurdish</option>
-                                   </select>
+                               <span class="first-lang-block">
+                                   <span class="list-header">to</span>
+                                   <label class="to-lang-label">
+                                       <select name="to-lang"
+                                               class="form-button sel-but">
+                                           <option value=""
+                                                   disabled
+                                                   selected>
+                                               Select language
+                                           </option>
+                                           <option value="english">English</option>
+                                           <option value="arabic">Arabic</option>
+                                           <option value="kurdish">Kurdish</option>
+                                       </select>
+                                   </label>
+                               </span>
+                               <span class="second-lang-block">
+                                   <label class="second-lang">
+                                       <select name="to-lang"
+                                               class="form-button sel-but">
+                                           <option value=""
+                                                   disabled
+                                                   selected>
+                                               Select language
+                                           </option>
+                                           <option value="english">English</option>
+                                           <option value="arabic">Arabic</option>
+                                           <option value="kurdish">Kurdish</option>
+                                       </select>
 
-                               </label>
-                               <button type="button" class="del">delete</button>
+                                   </label>
+                                   <button type="button" class="del">delete</button>
+                               </span>
+
                                <button type="button" class="form-button add">+ add</button>
                            </div>
 
@@ -230,7 +235,7 @@
                                                class="inp-type visually-hidden"
                                                name="desired-tone">
                                         <i class="fas fa-check-circle"></i>
-                                        <span class="type-button fourth-but fourth-but-casual">Friendly&nbsp;&sol;&nbsp;Casual</span>
+                                        <span class="type-button fourth-but fourth-but-casual"><span class="inner-txt">Friendly&nbsp;&sol;&nbsp;Casual</span></span>
                                     </label>
                                     <label class="type-label">
                                         <input type="radio"
@@ -238,14 +243,14 @@
                                                name="desired-tone"
                                                checked>
                                         <i class="fas fa-check-circle"></i>
-                                        <span class="type-button fourth-but fourth-but-pro">Corporate&nbsp;&sol;&nbsp;Pro</span>
+                                        <span class="type-button fourth-but fourth-but-pro"><span class="inner-txt">Corporate&nbsp;&sol;&nbsp;Pro</span></span>
                                     </label>
                                     <label class="type-label">
                                         <input type="radio"
                                                class="inp-type visually-hidden"
                                                name="desired-tone">
                                         <i class="fas fa-check-circle"></i>
-                                        <span class="type-button fourth-but fourth-but-formal">Media&nbsp;&sol;&nbsp;Formal</span>
+                                        <span class="type-button fourth-but fourth-but-formal"><span class="inner-txt">Media&nbsp;&sol;&nbsp;Formal</span></span>
                                     </label>
                                 </fieldset>
                             </div>
@@ -330,7 +335,7 @@
                         </div>
 
                         <div class="payment-method">
-                            <fieldset>
+                            <fieldset class="payment-fieldset">
                                 <div class="container">
                                     <label class="type-label">
                                         <input type="radio"
@@ -395,7 +400,7 @@
                                                name="date"
                                                class="date"
                                                id="date"
-                                               placeholder="Please, enter date"
+                                               placeholder="Enter date"
                                                title="Please, enter date"
                                                required >
                                     </label>
@@ -425,16 +430,18 @@
                     </section>
                     <section class="accept">
                         <div class="container">
-                            <label class="checkbox-label">
-                                <input type="checkbox"
-                                       name="agreement"
-                                       class="agreement"
-                                       id="agreement"
-                                       required>
-                                <span class="checkbox"></span>
-                                <span class="agreement-link">I agree to the</span>
-                            </label>
-                            <a class="terms" href="#">Terms & Conditions</a>
+                            <div class="agreement-wrapper">
+                                <label class="checkbox-label">
+                                    <input type="checkbox"
+                                           name="agreement"
+                                           class="agreement"
+                                           id="agreement"
+                                           required>
+                                    <span class="checkbox"></span>
+                                    <span class="agreement-link">I agree to the</span>
+                                </label>
+                                <a class="terms" href="#">Terms & Conditions</a>
+                            </div>
                             <div class="process-order-buttons">
                                 <input type="submit"
                                        class="form-button order"

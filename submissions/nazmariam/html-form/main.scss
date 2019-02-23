@@ -19,6 +19,9 @@ body{
   padding: 32px 73px;
   display: flex;
   justify-content: space-between;
+  max-width: 1140px;
+  margin: auto;
+  flex-wrap: wrap;
   .form-button{
     background-color: transparent;
     border-color: $mainColorLight;
@@ -228,12 +231,13 @@ fieldset{
   flex-direction: column;
   align-items: center;
   background-color: #f7f7fa;
-  padding: 32px 96px;
+  padding: 32px 60px;
   cursor: pointer;
   border: 1px solid $mainColorLighter;
   border-radius: 4px;
   box-sizing: border-box;
   justify-content: center;
+  width: 300px;
 }
 .type-button:hover,
 .inp-type:checked ~ .type-button{
@@ -241,8 +245,9 @@ fieldset{
   border-radius: 4px;
   margin: 0;
   box-sizing: border-box;
-  padding: 25px 89px;
+  padding: 25px 53px;
 }
+
 .inp-type:checked ~ .fa-check-circle{
   display: inline;
   position: absolute;
@@ -348,7 +353,7 @@ fieldset{
   mask-image: url(../images/003-trash.svg);
   align-items: center;
   color: transparent;
-  &:focus{
+  &:focus, &:hover{
     background-color: $mainColor;
   }
 }
@@ -377,13 +382,12 @@ fieldset{
 }
 .from-lang,
 .to-lang{
-  margin: 0 0 32px;
+  margin: 0;
 }
 .to-lang-label{
   margin-right: 16px;
 }
 .third-area .del{
-  margin-right: 24px;
 }
 .third-area label{
   position: relative;
@@ -395,9 +399,11 @@ fieldset{
   appearance: none;
   background: #f7f7fa url(../images/test.svg) 100% 50% no-repeat;
   background-size: contain;
+  margin-bottom: 16px;
 }
 .add{
   min-width: 136px;
+  margin-left: 51px;
 }
 //----------------------------------third area END----------------------
 //----------------------------------fourth area-------------------------
@@ -415,25 +421,34 @@ fieldset{
 .fourth-but{
   position: relative;
   flex-direction: row;
-  &:before{
-    content: '';
-    width: 20px;
-    height: 20px;
-    background: #a4abc5 0 50% no-repeat;
-    margin-right: 16px;
+  .inner-txt{
+    position: relative;
+    padding-left: 25px;
+    &:before{
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: $mainColorLight 0 50% no-repeat;
+      margin-right: 16px;
+      left: 0;
+    }
   }
+  
 }
-.fourth-but-casual::before{
+.fourth-but-casual .inner-txt::before{
   -webkit-mask-image: url(../images/007-comment.svg);
   mask-image: url(../images/007-comment.svg);
 }
-.fourth-but-pro::before{
+.fourth-but-pro .inner-txt::before{
   -webkit-mask-image: url(../images/006-suitcase-with-white-details.svg);
   mask-image: url(../images/006-suitcase-with-white-details.svg);
+  top: -2px;
 }
-.fourth-but-formal::before{
+.fourth-but-formal .inner-txt::before{
   -webkit-mask-image: url(../images/010-megaphone.svg);
   mask-image: url(../images/010-megaphone.svg);
+  top: -2px;
 }
 
 .fifth-area{
@@ -444,7 +459,8 @@ fieldset{
   position: relative;
   -webkit-appearance: none;
   appearance: none;
-  margin: 24px 16px 16px 32px;
+  margin: 24px auto;
+  display: block;
 }
 .urgent::before {
   left: 0;
@@ -488,7 +504,7 @@ fieldset{
   display: flex;
   width: 90%;
   justify-content: space-between;
-  margin: 0 8px;
+  margin: 0 auto;
   color: #a4abc5;
   font-weight: 600;
   text-transform: uppercase;
@@ -546,6 +562,19 @@ fieldset{
 }
 .text, .email, .password{
   min-width: 300px;
+}
+.date{
+  max-width: 230px;
+  box-sizing: border-box;
+  &:focus{
+
+  }
+}
+.username{
+  width: 300px;
+}
+.username-label{
+  width: 100%;
 }
 .email:focus:invalid ~ .fa-window-close,
 .password:focus:invalid ~ .fa-window-close{
@@ -629,7 +658,6 @@ input::-webkit-input-placeholder{
 .card-number,
 .date {
   position: relative;
-  min-width: 100px;
   margin-top: 5px;
   height: 50px;
   padding: 5px 15px 5px 15px;
@@ -640,7 +668,7 @@ input::-webkit-input-placeholder{
   outline: transparent;
   background-color: transparent;
   color: $mainColor;
-  &:hover, :active{
+  &:hover, &:active{
     border: 1px solid $mainColor;
   }
   &:focus{
