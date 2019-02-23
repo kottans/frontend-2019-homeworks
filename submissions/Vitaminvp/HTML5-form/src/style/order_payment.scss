@@ -1,0 +1,140 @@
+@import 'variables';
+@import 'mixins';
+
+.order__payment {
+  .order__header {
+    &:before {
+      content: '5';
+    }
+  }
+
+  .order__payment_signin {
+    color: $font-color;
+    font-size: 1.1em;
+
+    & a {
+      color: $font-color;
+      text-decoration: underline;
+      @include transition;
+      &:hover{
+        color: $font-color-light;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .order__payment_buttons {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 50px;
+    @include laptop {
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      & label.label:not(:first-child) {
+        margin-left: 10px;
+      }
+    }
+
+    & label:not(:first-child) {
+      margin-left: 30px;
+    }
+  }
+
+  .order__payment_inputs {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    @include laptop {
+      align-items: center;
+    }
+  }
+}
+
+.order__payment_input {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  @include laptop {
+    margin-bottom: 0;
+    justify-content: center;
+  }
+
+  & label {
+    margin-top: 20px;
+    font-size: 0.9em;
+    padding-left: 10px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .order__payment_input-pass,
+  .order__payment_input-text,
+  .order__payment_input-email {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .order__payment_input-email {
+    margin-right: 50px;
+    @include tablet {
+      margin-right: 0;
+    }
+  }
+}
+
+.order__payment_card {
+  &-date, &-number, &-code {
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+    @include mobile{
+      margin-right: 0;
+    }
+    position: relative;
+  }
+}
+.order__payment_submit {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+  @include tablet {
+    justify-content: center;
+  }
+
+  & .submit {
+    max-width: 200px;
+
+    &:not(:first-child) {
+      margin-top: 0;
+      margin-left: 20px;
+    }
+
+    @include laptop {
+      margin-top: 20px;
+      &:not(:first-child) {
+        margin-top: 20px;
+        margin-left: 20px;
+      }
+    }
+  }
+
+  & .terms {
+    text-decoration: underline;
+    color: $font-color;
+    @include transition;
+    &:hover{
+      color: $font-color-light;
+      text-decoration: none;
+    }
+  }
+}
+
