@@ -1,0 +1,121 @@
+.payment {
+  margin-bottom: 100px;
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .caption::before {
+    content: '5';
+    width: 42px;
+    height: 42px;
+    border: 1px solid #6e768f;
+    border-radius: 50%;
+    position: absolute;
+    left: -71px;
+    text-align: center;
+    line-height: 42px;
+    top: -10px;
+  }
+  &__about {
+    margin-bottom: 30px;
+    label {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-weight: bold;
+      padding-left: 11px;
+    }
+    input {
+      margin-bottom: 35px;
+      padding: 15px;
+      border-radius: 5px;
+      border: 1.5px solid #d7d9e0;
+      background-repeat: no-repeat;
+      background-position: 96% 50%;
+      width: 300px;
+    }
+    input:valid {
+      background-image: url(../img/check.png);
+    }
+    input:invalid {
+      background-image: url(../img/wrong.png);
+    }
+    img {
+      height: 30px;
+      width: 100px;
+    }
+  }
+  &__wraper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__email {
+    margin-right: 25px;
+  }
+  &__radio {
+    margin-bottom: 72px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  &__radio label {
+    display: inline-block;
+    margin-right: 30px;
+    max-width: 220px;
+  }
+  &__radio__wraper {
+    padding: 25px 40px;
+    background-color: #f7f7fa;
+    border: 6px solid transparent;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    &:hover {
+      box-shadow: 0 0 0 2px #76a7e1;
+    }
+  }
+}
+
+.card {
+  &__about {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  &__number {
+    background-image: url(../img/visa_bg.png);
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
+  }
+  &__date {
+    width: 172px;
+  }
+  &__cvv {
+    width: 106px;
+  }
+}
+
+.card__item {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  margin-right: 30px;
+  font-weight: bold;
+  & label {
+    margin-bottom: 10px;
+  }
+  & input {
+    font-size: 14px;
+    padding: 14px 25px;
+    border-radius: 5px;
+    border: 1.5px solid #d7d9e0;
+    text-align: center;
+  }
+}
+
+.card__item:first-child {
+  width: 35%
+}

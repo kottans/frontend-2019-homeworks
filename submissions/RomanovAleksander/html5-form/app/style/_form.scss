@@ -1,0 +1,125 @@
+form {
+  max-width: 1140px;
+  border-radius: 5px;
+  border: 1.5px solid #c9d0e1;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.form__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 1.5px solid #c9d0e1;
+  padding-left: 72px;
+}
+
+.client_order {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  h2 {
+    font-size: 14px;
+    color: #6e768f;
+    position: relative;
+    display: block;
+    padding-bottom: 15px;
+    &::before {
+      content: '';
+      position: absolute;
+      left: -31px;
+      width: 30px;
+      height: 42px;
+      background-image: url(../img/fileH.png);
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.client_value {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.value {
+  width: 90px;
+  margin-right: 12px;
+  &__title {
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+  &__info {
+    font-size: 12px;
+    line-height: 2.5;
+    margin-bottom: 5px;
+  }
+}
+
+.preview_buttons {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-right: 35px;
+  max-width: 202px;
+}
+
+.btn_order {
+  background-color: #5fcac6;
+  color: #fff !important;
+  border-color: #54aca9;
+}
+
+.help {
+  padding: 20px 50px 30px 70px;
+  border-left: 1.5px solid #c9d0e1;
+  width: 260px;
+  h2 {
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      left: -41px;
+      width: 42px;
+      height: 42px;
+      background-image: url(../img/rescircle.png);
+      background-repeat: no-repeat;
+    }
+  }
+  p {
+    color: #afa6b8;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+}
+
+.help__address a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #757d94;
+  font-style: normal;
+  font-weight: 700;
+}
+
+input[type=radio]:checked {
+  & + .translation__wrapper,
+  & + .tone,
+  & + .payment__radio__wraper{
+    border-color: #59a9e4
+  }
+}
+
+input[type=radio]:checked {
+  & + .translation__wrapper::after,
+  & + .tone::after,
+  & + .payment__radio__wraper::after{
+    content: '';
+    width: 32px;
+    height: 32px;
+    background-image: url(../img/check.png);
+    position: absolute;
+    top: -20px;
+    right: -20px;
+  }
+}
