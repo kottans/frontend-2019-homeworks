@@ -1,0 +1,35 @@
+.form__footer{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 75px;
+}
+
+.agree{
+  cursor: pointer;
+}
+
+.agree:focus{
+  outline-color: $black;
+}
+
+.agree_label{
+  cursor: pointer;
+  font-size: 13px;
+  margin-left: 15px;
+}
+
+.terms{
+  font-size: 13px;
+  color: $mainFont;
+  margin-right: 45px;
+}
+
+.terms:hover, .terms:focus{
+  color: $submit;
+}
+
+.form__footer_buttons{
+  padding-right: 100px;
+}

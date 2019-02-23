@@ -1,0 +1,65 @@
+
+.form__uploud_title-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form__section_number{
+  width: 38px;
+  height: 38px;
+  border: 1px solid $mainFont;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 700;
+}
+
+.form__upload_title{
+  margin:7px 15px 7px 30px;
+  font-weight: 500;
+}
+
+.form__upload_info{
+  font-size: 14px;
+  margin:auto 0;
+  color: $font;
+}
+
+.form__upload_table-wrapper{
+  margin-left:70px;
+  width: 900px;
+  height: 160px;
+  border: 1px solid $borderLight;
+  border-radius: 5px;
+  display: flex;
+}
+
+.form__upload_table{
+  margin: 35px 40px;
+  width: 100%;
+  color: $font;
+  border-collapse: collapse;
+}
+
+.upload__table-title{
+  font-size: 14px;
+  text-align: left;
+}
+
+.upload__table-data{  
+  padding-top: 20px;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 500;
+}
+
+.upload__table_icon{
+  font-size: 20px;
+  padding-right: 10px;
+}
+
+.upload__table-data_remove{
+  text-align: center;
+}

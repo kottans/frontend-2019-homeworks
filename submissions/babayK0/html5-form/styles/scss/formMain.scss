@@ -1,0 +1,29 @@
+.form__main-section_title-wraper{
+  position: relative;
+}
+.form__main-section_title {
+  font-weight: 500;
+}
+.form__main-section_title::after{
+  content: '';
+  position: absolute;
+  top:100%;
+  left:30%;
+  width:40%;
+  height: 1px;
+  background-color: $borderLight;
+}
+.form__main-section_wrapper {
+  padding: 75px 0 100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 900px;
+}
+
+.form__main_label-size {
+  height: 200px;
+  width: 280px;
+}
+

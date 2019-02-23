@@ -1,0 +1,98 @@
+.submit {
+  height: 50px;
+  width: 160px;
+  margin: 6px;
+  padding: 0;
+  border: 1px solid $submitDark;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: $submit;
+  font-size: 14px;
+  font-weight: 700;
+  color: $white;
+  transition: 0.3s ease-out;
+}
+
+.submit:hover, .submit:focus {
+  color: $submitDark/2;
+  border-color: $mainFont;
+}
+
+.print {
+  height: 50px;
+  width: 160px;
+  margin: 6px;
+  padding: 0;
+  border: 1px solid $borderLight;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: $button;
+  font-size: 14px;
+  font-weight: 700;
+  color: $font;
+  transition: 0.3s ease-out;
+}
+
+.print:hover, .print:focus{
+  color: $mainFont;
+  border-color: $mainFont;
+}
+
+.remove{
+  color: $font;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  transform: scale(1);
+}
+
+.remove:active{
+  transform: scale(0.95);
+  transition: transform .2s ease-out;
+}
+
+.remove:hover{
+  color: $red;
+}
+
+.remove:focus{
+  outline-color: $red;
+  color: $red;
+}
+
+.add{
+  height: 50px;
+  width: 120px;
+  margin: 0 25px;
+  background-color: $button;
+  border: 2px solid $borderLight;
+  border-radius: 5px;
+  cursor: pointer;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: $font;
+  transform: scale(1);
+}
+
+.add_plus{
+  font-size: 22px;
+  font-weight: 500;
+  margin-right: 15px;
+}
+
+.add:hover{
+  color:$mainFont;
+  border-color: $border;
+}
+
+.add:focus{
+  outline: none;
+  border-color: $submit;
+}
+.add:active{
+  transform: scale(0.95);
+  transition: transform .1s ease-in-out;
+}
