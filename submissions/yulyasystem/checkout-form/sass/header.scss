@@ -44,6 +44,12 @@
   align-items: center;
 }
 
+.submit-input:focus+label{
+  outline: 2px solid Highlight;
+  outline: auto 5px -webkit-focus-ring-color;
+}
+
+
 .button {
   width: 60%;
   height: 7%;

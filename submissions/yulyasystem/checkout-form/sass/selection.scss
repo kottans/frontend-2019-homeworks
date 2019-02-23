@@ -49,6 +49,11 @@
   background-color: rgb(247, 247, 250);
 }
 
+.radio-input:focus+label {
+  outline: 2px solid Highlight;
+  outline: auto 5px -webkit-focus-ring-color;
+}
+
 .radio-input:checked~.radio-label {
   box-shadow: inset 0px 0px 0px 5px #74a4e1;
   -moz-box-shadow: inset 0px 0px 0px 5px #74a4df;

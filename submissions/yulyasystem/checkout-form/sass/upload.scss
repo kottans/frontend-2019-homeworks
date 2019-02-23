@@ -60,6 +60,11 @@
   opacity: 0.7;
 }
 
+.upload-input:focus+label {
+  outline: 2px solid Highlight;
+  outline: auto 5px -webkit-focus-ring-color;
+}
+
 .upload-label-text {
   font-size: 14px;
   font-weight: 400;

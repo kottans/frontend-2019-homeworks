@@ -18,6 +18,11 @@
   color: rgb(99, 92, 100);
 }
 
+.tone-radio-input:focus+label {
+  outline: 2px solid Highlight;
+  outline: auto 5px -webkit-focus-ring-color;
+}
+
 
 .tone-radio {
   border: none;
