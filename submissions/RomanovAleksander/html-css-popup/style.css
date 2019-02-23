@@ -1,0 +1,274 @@
+body {
+    position: relative;
+    font-size: 13px;
+    min-width: 300px;
+    overflow: hidden;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+a:nth-child(1):focus, a:nth-child(1):hover {
+    color: blue;
+    text-decoration: underlineж
+
+}
+
+a:nth-child(2):focus, a:nth-child(2):hover {
+    color: red;
+    text-decoration: underline
+}
+
+.hidden-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.services-menu {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    min-width: 240px;
+}
+
+.bell {
+    background-color: black;
+    margin-left: 15px;
+    height: 18px;
+    width: 18px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-size: 50%;
+    background-image: url(./img/bell.png);
+}
+
+.bell:focus, .bell:hover {
+    border-radius: 8px;
+    padding: 1px;
+    background-color: blue;
+    transition: all 0.2s;
+}
+
+.user {
+    border-radius: 25px;
+    height: 32px;
+    width: 32px;
+    background-image: url(./img/photo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.user:focus, .user:hover {
+    border-radius: 8px;
+    border: 1.5px solid greenyellow;
+    transition: all 0.2s;
+}
+
+.popup__icon-menu {
+    background-image: url(./img/menu.png);
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.popup-input:focus ~ label {
+    border: 2px solid orange;
+}
+
+.popup-input:hover ~ label {
+    opacity: 0.5;
+    border: 2px solid orange;
+}
+
+.popup-wrapper {
+    display: none;
+    scroll-behavior: smooth;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    text-align: center;
+    max-width: 320px;
+    max-height: 475px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    overflow: overlay;
+}
+
+.popup-wrapper__container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.popup-wrapper__service {
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    margin: 5px 10px;
+    cursor: pointer;
+    max-width: 65px;
+}
+
+.popup-wrapper__service:hover, .popup-wrapper__service:focus {
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 2px;
+}
+
+.popup-wrapper__item {
+    display: block;
+    height: 64px;
+    width: 64px;
+    background-image: url(./img/services.png);
+}
+
+.popup-more-btn {
+    width: 100%;
+    background-color: #f5f5f5;
+    padding: 10px 0;
+    display: block;
+    cursor: pointer;
+}
+
+.popup-more-btn:hover {
+    transition: all 0.3s;
+    background-color: grey;
+    color: white;
+}
+
+.popup-more-input:focus ~ .popup-more-btn {
+    width: 99.5%;
+    border: 1px solid rgb(77, 144, 254);
+}
+
+.popup-wrapper__more {
+    display: none;
+    padding-bottom: 20px;
+}
+
+.popup-wrapper__even-more {
+    margin-top: 35px;
+    margin-left: 28%;
+}
+
+.line {
+    height: 0.5px;
+    width: 80%;
+    background-color: #cccccc;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+
+.popup-input:checked ~ .popup-wrapper {
+    display: block;
+}
+
+.popup-input:checked ~ label {
+    border: 1px solid orange;
+}
+
+.popup-more-input:checked ~ .popup-wrapper__more {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.popup-more-input:checked ~ .popup-more-btn {
+    display: none;
+}
+
+.youtube {
+    background-position: 0 -2957px;
+}
+
+.play {
+    background-position: 0 -2344px;
+}
+
+.news {
+    background-position: 0 -1031px
+}
+
+.gmail {
+    background-position: 0 -3510px
+}
+
+.photo {
+    background-position: 0 -3927px
+}
+
+.docs {
+    background-position: 0 -1447px
+}
+
+.contacts {
+    background-position: 0 -2137px
+}
+
+.drive {
+    background-position: 0 -1999px
+}
+
+.calendar {
+    background-position: 0 -5646px
+}
+
+.g-plus {
+    background-position: 0 -413px;
+}
+
+.search {
+    background-position: 0 -1311px;
+}
+
+.maps {
+    background-position: 0 -5023px
+}
+
+.translate {
+    background-position: 0 -1657px
+}
+
+.blogger {
+    background-position: 0 -2067px
+}
+
+.hangouts {
+    background-position: 0 -3997px
+}
+
+.jamboard {
+    background-position: 0 -3307px
+}
+
+.clasroom {
+
+    background-position: 0 -3027px
+}
+
+.earth {
+    background-position: 0 -4271px
+}
+
+.business {
+    background-position: 0 -2271px;
+}
+
+.collections {
+    background-position: 0 -1725px;
+}

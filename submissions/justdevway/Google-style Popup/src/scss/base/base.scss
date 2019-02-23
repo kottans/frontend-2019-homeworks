@@ -1,0 +1,17 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+*, *:after, *:before {
+  box-sizing: inherit;
+}
+
+.cf:after {
+  content: '';
+  display: table;
+  clear: both;
+}
