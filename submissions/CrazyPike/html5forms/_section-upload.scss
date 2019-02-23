@@ -1,0 +1,64 @@
+.form__section-upload{
+  display: grid;
+  grid-template-columns: 1fr 1fr 15fr 2fr;
+  grid-template-rows: 40px 130px 160px 100px  ;
+}
+
+.section-upload__button{
+  grid-column: 3;
+  grid-row: 2;
+  align-self: center;
+  width: 230px;
+  background: rgba(236,238,244,1);
+  border: 1px solid rgba(201,208,225,1);
+  border-radius: 3px;
+  height: 50px;
+  color: rgba(201,208,225,1);
+}
+
+.section-upload__table-container{
+  grid-row: 3;
+  grid-column: 3;
+  border: 1px solid rgba(201,208,225,1);
+  border-radius: 3px;
+  color: rgba(201,208,225,1);
+}
+
+.section-upload__table{
+  width: 800px;
+  margin: auto;
+  margin-top: 10px;
+  border-collapse: collapse;
+  text-align: left;
+  height: 40px;
+  vertical-align: center;
+}
+
+.section-upload__table tr{
+  height: 40px;
+}
+
+.section-upload__table-col-1{
+  width: 330px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.section-upload__table-col-2{
+  width: 180px;
+}
+
+.section-upload__table-col-3{
+  width: 210px;
+}
+
+.section-upload__table-col-4{
+  text-align: center;
+}
+
+input[type='file']{
+  opacity: 0;
+  position: relative;
+  left: -400px;
+}

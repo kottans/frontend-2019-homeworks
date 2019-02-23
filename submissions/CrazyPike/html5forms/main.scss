@@ -1,0 +1,104 @@
+.page__common{
+  background: rgba(236,238,244,1);
+  color: rgba(119,118,143,1);
+  font-family: "Franklin Gothic Medium";
+  font-size: 14px;
+}
+
+input:focus + label{
+  outline: 2px solid red;
+}
+
+.menu{
+  width: 1140px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu__button{
+  border: 1px solid rgba(201,208,225,1);
+  border-radius: 3px;
+  height: 50px;
+  width: 160px;
+  background-color: transparent;
+  color: rgba(201,208,225,1);
+
+}
+
+.menu__logo{
+  height: 50%;
+}
+
+.menu__button-text{
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+}
+
+.menu__button-img {
+  width:20px;
+}
+
+.form{
+  outline: 1px grey solid;
+  width: 1140px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.form__icons{
+  grid-column: 2/3;
+  grid-row: 1/2;
+  justify-self: center;
+  align-self: center;
+  width: 20px
+}
+
+.form__header-text{
+  grid-column: 3/15;
+  grid-row: 1/2;
+  justify-self: start;
+  align-self: center;
+}
+
+
+.section__ordinal-number{
+  grid-column: 2/3;
+  grid-row: 1/2;
+  border: 1px solid rgba(119,118,143,1);;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.section__header{
+  grid-column: 3;
+  font-size: 26px;
+  align-self: center;
+}
+
+input:invalid:not(:placeholder-shown) {border-color: red;}
+input:valid:not(:placeholder-shown) {border-color: green;}
+
+
+
+@import "section-quote";
+@import "section-translate";
+@import "section-upload";
+@import "section-languages";
+@import "section-tone-urgent";
+@import "range-input";
+@import "section-payment";
+
