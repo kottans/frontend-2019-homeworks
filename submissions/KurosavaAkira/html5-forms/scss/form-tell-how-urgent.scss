@@ -1,0 +1,110 @@
+.form-tell-how-urgent {
+  padding-top: 20px;
+  width: 50%;
+}
+
+.tell-how-urgent-input {
+  position: relative;
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: 70px;
+  margin-bottom: 20px;
+  width: 88%;
+  cursor: pointer;
+}
+
+.tell-how-urgent-input:after,
+.tell-how-urgent-input:before {
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: #dedfe6;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+}
+
+.tell-how-urgent-input:after {
+  right: 0;
+}
+
+.tell-how-urgent-input:hover:after,
+.tell-how-urgent-input:hover:before {
+  background-color: #d4d4da;
+}
+
+.tell-how-urgent-input::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: #eff0f5;
+  height: 10px;
+  border-radius: 5px;
+}
+
+.tell-how-urgent-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: $yellow;
+  margin-top: -5px;
+  box-sizing: border-box;
+  border: 2px solid $yellow;
+  z-index: 2;
+  position: relative;
+}
+
+.tell-how-urgent-input:hover::-webkit-slider-thumb {
+  background-color: $yellow-2;
+}
+
+.tell-how-urgent-input-text {
+  width: 105%;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: $gray;
+  opacity: 0.7;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  margin-left: -30px;
+}
+
+.tell-how-urgent-input-text .active {
+  color: $yellow;
+}
+
+.tell-how-urgent-info {
+  width: 330px;
+  margin-left: -35px;
+  margin-top: 60px;
+  border: 1px solid rgba(111, 118, 146, 0.3);
+  padding: 22px 70px;
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 300;
+  color: $gray;
+}
+
+.urgent-info-title {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.tell-how-urgent-info i {
+  position: absolute;
+  font-size: 20px;
+  margin-left: -30px;
+}
+
+.tell-how-urgent-info mark {
+  font-weight: 700;
+  color: $yellow;
+  background-color: transparent;
+  text-transform: uppercase;
+}
