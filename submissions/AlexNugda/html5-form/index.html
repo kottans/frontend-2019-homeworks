@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML5 checkout form</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header><section class="top-content"></section></header>
+    <main>
+        <section class="section-form">
+        <form action="" id="main-form" class="main-form">
+          <section id="order-help" class="order-help">
+            <div id="order-info" class="order-help-block order-info">
+              <h3 class="block-title title-order">
+                <i class="fas fa-clipboard"></i>
+                Your order
+              </h3>
+              <table id="order-table" class="order-table">
+                <thead>
+                  <tr>
+                    <th><span class="label-text-bold">items</span></th>
+                    <th><span class="label-text-bold">details</span></th>
+                    <th><span class="label-text-bold">price</span></th>
+                    <th><span class="label-text-bold">delivery</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2 documents</td>
+                    <td>2 languages</td>
+                    <td value="USD:696.00">$ 696.00</td>
+                    <td>48 hours*</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="order-buttons" class="order-help-block order-buttons">
+              <button type="submit" class="button button-submit">
+                Place order
+              </button>
+              <button type="button" class="button">Print a quote</button>
+            </div>
+            <div id="help-block" class="order-help-block help-block">
+              <h3 class="block-title">
+                <i class="fa fa-life-ring icon-offset" aria-hidden="true"></i>
+                Help center
+              </h3>
+              <p class="help-paragraph">
+                If you need assistance while placing your order, contact one of
+                our beloved Project Manager by phone or email.
+              </p>
+              <a href="tel:+38(044)1234567" class="help-link help-phone" title="Help center phone">+971(0)555 555</a>
+              <a href="mailto:help@center.com" class="help-link help-email" title="Help center email">help@qtest.com</a>
+            </div>
+          </section>
+          <section class="form-section section-form-type">
+            <h1 class="header-form">Select what you want to translate</h1>
+            <fieldset>
+              <div class="flex-wrapper">
+                <div class="item-type form-control-wrapper">
+                  <input
+                    required
+                    type="radio"
+                    name="type1"
+                    class="hide-input-radio"
+                    id="type1"
+                    value="website"    
+                  />
+                  <label for="type1" class="label-radio">
+                    <img src="img/website.png" alt="" />
+                    <span class="translation-text">Website</span>
+                  </label>
+                </div>
+                <div class="item-type form-control-wrapper">
+                  <input
+                    required
+                    type="radio"
+                    name="type1"
+                    class="hide-input-radio"
+                    id="type2"
+                    value="documents"
+                  />
+                  <label for="type2" class="label-radio">
+                    <img src="img/docs.png" alt="" />
+                    <span class="translation-text">Documents</span>
+                  </label>
+                </div>
+                <div class="item-type form-control-wrapper">
+                  <input
+                    required
+                    type="radio"
+                    name="type1"
+                    class="hide-input-radio"
+                    id="type3"
+                    value="account"
+                  />
+                  <label for="type3" class="label-radio">
+                    <img src="img/account.png" alt="" />
+                    <span class="translation-text">Social Account</span>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+
+          <section class="form-section section-upload">
+            <h2 class="section-title">
+              upload your documents
+              <small>(doc, docx, text, PDF, markdown)</small>
+            </h2>
+            <div class="control-wrapper upload-wrapper">
+              <div class="upload-wrapper-inner">
+                <input type="file" name="upload" id="upload" />
+                <label for="upload" class="label-radio label-upload">
+                  <span class="icon-wrap"><i class="fas fa-cloud-upload-alt"></i></span>
+                  <span class="btn-title">Upload a new file</span>
+                </label>
+              </div>
+              <table class="upload-file-list">
+                <thead>
+                  <tr>
+                    <th><span class="label-text">file name</span></th>
+                    <th><span class="label-text">file size</span></th>
+                    <th><span class="label-text">number of words</span></th>
+                    <th><span class="label-text">remove</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="icon-wrap"><i class="fas fa-file-alt"></i></span>business_operations.docx</td>
+                    <td>78kb</td>
+                    <td>842</td>
+                    <td class="remove-icon"><button type="button" class="del-btn" tabindex="0"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="icon-wrap"><i class="fas fa-file-alt"></i></span>business_financial.docx</td>
+                    <td>26kb</td>
+                    <td>2.326</td>
+                    <td class="remove-icon"><button type="button" class="del-btn" tabindex="0"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="form-section section-lang">
+            <h2 class="section-title">choose your language pairings</h2>
+            <div class="control-wrapper select-wrapper">
+              <div class="select-lang-content">
+                <label for="sel-1" class="select-lang-description"><span class="label-text">from</span></label>
+                <div class="select-wrapper-inner">
+                  <select
+                    name="select-lang-from"
+                    id="sel-1"
+                    class="select-lang"
+                  >
+                    <option value="en">english</option>
+                    <option value="es">spain</option>
+                    <option value="de">german</option>
+                    <option value="fr">france</option>
+                    <option value="it">italian</option>
+                  </select>
+                </div>
+              </div>
+              <div class="select-lang-content">
+                <label for="sel-2" class="select-lang-description"><span class="label-text">to</span></label>
+                <div class="result-select-lang"> 
+                  <div class="select-wrapper-inline">
+                    <div class="select-wrapper-inner">
+                      <select
+                        name="select-lang-to-1"
+                        id="sel-2"
+                        class="select-lang"
+                      >
+                        <option value="en">spain</option>
+                        <option value="es">english</option>
+                        <option value="de">german</option>
+                        <option value="fr">france</option>
+                        <option value="it">italian</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="select-wrapper-inline">
+                    <div class="select-wrapper-inner">
+                      <select
+                        name="select-lang-to-2"
+                        id="sel-3"
+                        class="select-lang"
+                      >
+                        <option value="en">german</option>
+                        <option value="es">spain</option>
+                        <option value="de">english</option>
+                        <option value="fr">france</option>
+                        <option value="it">italian</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="delete-translate">
+                    <button type="button" class="del-btn" tabindex="0"><i class="fas fa-trash"></i></button>  
+                  </div>
+                  <div class="add-translate">
+                      <button type="button" class="button add-btn" tabindex="0"><i class="fas fa-plus"></i> add</button>  
+                  </div>         
+                </div> 
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section desired-tone">
+            <h2 class="section-title">
+              select your desired tone
+            </h2>
+            <div class="control-wrapper">
+              <fieldset>
+                <div class="flex-wrapper flex-wrapper-vertical">
+                  <div class="item-tone form-control-wrapper">
+                    <input
+                      required
+                      type="radio"
+                      name="tone"
+                      class="hide-input-radio"
+                      id="tone1"
+                      value="desired-tone-1"
+                    />
+                    <label for="tone1" class="label-radio label-radio-row">
+                      <span class="icon-wrap"><i class="fas fa-comments"></i></span>
+                      <span class="btn-title">Friendly / Casual</span>
+                    </label>
+                  </div>
+                  <div class="item-tone form-control-wrapper">
+                    <input
+                      required
+                      type="radio"
+                      name="tone"
+                      class="hide-input-radio"
+                      id="tone2"
+                      value="desired-tone-2"
+                    />
+                    <label for="tone2" class="label-radio label-radio-row">
+                      <span class="icon-wrap"><i class="fas fa-suitcase"></i></span>                        
+                      <span class="btn-title">Corporate / Pro</span>
+                    </label>
+                  </div>
+                  <div class="item-tone form-control-wrapper">
+                    <input
+                      required
+                      type="radio"
+                      name="tone"
+                      class="hide-input-radio"
+                      id="tone3"
+                      value="desired-tone-3"
+                    />
+                    <label for="tone3" class="label-radio label-radio-row">
+                      <span class="icon-wrap"><i class="fas fa-bullhorn"></i></span>
+                      <span class="btn-title">Media / Formal</span>
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </section>
+
+          <section class="form-section section-urgent">
+            <h2 class="section-title">
+              tell us how urgent this job is
+            </h2>
+            <div class="control-wrapper control-wrapper-urgent">
+              <div class="urgent-wrap">
+                <input
+                  type="range"
+                  name="urgent"
+                  class="urgent"
+                  id="urgent"
+                  min="0"
+                  max="2"
+                  step="1"
+                  value="1"
+                />             
+              </div>
+              <div class="urgent-controls">
+                <span class="label-text">i got time</span>
+                <span class="label-text highlighted">average</span>
+                <span class="label-text">yesterday</span>
+              </div>
+              <div class="urgent-info">
+                <h4 class="label-text-bold urgent-title">Timeline info</h4>
+                <p class="urgent-info-text">With an <span class="highlighted">average</span> timeline set up, our expert translator can take a reasonable amount of time perfecting your translation</p>
+              </div>
+            </div>
+          </section>
+          <section class="form-section section-payment">
+            <h2 class="section-title">sign up and choose a payment method</h2>
+            <div class="control-wrapper">
+              <span class="tip-span">
+                  Already have account with us? <a href="#" class="text-link" title="Sign in">Sign in.</a>
+              </span>
+              <div class="payment-person-info">
+                <div class="person-info-wrapper">   
+                  <div class="person-info-wrapper-inner">         
+                    <label class="input-label label-text" for="full-name">full name</label>
+                    <input class="person-info-input" type="text" placeholder="Mathieu Mayer" name="full-name" id="full-name" pattern="^[a-zA-Z ,.'-]+$" minlength="3" required>                
+                  </div> 
+                </div>
+                <div class="person-info-wrapper">
+                  <div class="person-info-wrapper-inner">    
+                    <label class="input-label label-text" for="email">email address</label>
+                    <input class="person-info-input" type="text" placeholder="mathieu.mm@me.com" name="email" id="email" pattern="^[a-zA-Z ,.'-]+$" minlength="3" required>        
+                  </div>
+                  <div class="person-info-wrapper-inner">    
+                    <label class="input-label label-text" for="password">choose a password</label>
+                    <input class="person-info-input" type="password" placeholder="password" name="pass" id="password" pattern="^[a-zA-Z ,.'-]+$" minlength="3" required> 
+                  </div>  
+                </div>
+              </div>
+
+              <div class="payment-services">
+                <fieldset>
+                  <div class="flex-wrapper wrapper-services">
+                    <div class="payment-method form-control-wrapper">
+                      <input
+                        required
+                        type="radio"
+                        name="payment"
+                        class="hide-input-radio"
+                        id="payment1"
+                        value=""
+                      />
+                      <label for="payment1" class="label-radio">
+                        <img src="img/payment-visa-mastercard.png" alt="visa/mastercard">
+                      </label>
+                    </div>
+                    <div class="payment-method form-control-wrapper">
+                      <input
+                        required
+                        type="radio"
+                        name="payment"
+                        class="hide-input-radio"
+                        id="payment2"
+                        value=""
+                      />
+                      <label for="payment2" class="label-radio">
+                        <img src="img/payment-paypal.png" alt="paypal">
+                      </label>
+                    </div>
+                    <div class="payment-method form-control-wrapper">
+                      <input
+                        required
+                        type="radio"
+                        name="payment"
+                        class="hide-input-radio"
+                        id="payment3"
+                        value=""
+                      />
+                      <label for="payment3" class="label-radio">
+                        <img src="img/payment-amazon.png" alt="amazon">
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="payment-card-info">               
+                  <div class="card-info-wrapper">         
+                    <label class="input-label label-text" for="card-number">card number</label>
+                    <input class="card-input card-number-input" type="text" placeholder="xxxx xxxx xxxx xxxx" title="Enter your card number here" name="card-number" id="card-number" pattern="\d*" minlength="16" maxlength="16" required>                
+                  </div> 
+                  <div class="card-info-wrapper">    
+                    <label class="input-label label-text" for="expiry-date">expiry date</label>
+                    <input class="card-input" type="text" placeholder="DD/MM/YY" title="Enter your card expiration date here" name="expiry-date" id="expiry-date" pattern="\d*" minlength="6" maxlength="6" required>        
+                  </div>
+                  <div class="card-info-wrapper">    
+                    <label class="input-label label-text" for="card-code">code</label>
+                    <input class="card-input" type="password" placeholder="xxx" title="Enter your card code here" name="card-code" id="card-code" pattern="\d*" minlength="3" maxlength="3" required> 
+                  </div>                 
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section section-submit">
+            <div class="submit-block">
+              <div class="agree-rules">
+                <input type="checkbox" name="agree" id="agree">
+                <label for="agree"><span class="tip-span">I agree to the <a href="#" class="text-link">Terms & Conditions</a></span></label>
+              </div>
+              <div class="button-wrapper">
+                <button type="submit" class="button button-submit">
+                  Place order
+                </button>
+              </div>
+              <div class="button-wrapper">
+                <button type="button" class="button">Print a quote</button>
+              </div>
+            </div>
+          </section>
+        </form>
+      </section>
+    </main>
+    <footer><section class="bottom-content"></section></footer>
+  </body>
+</html>
