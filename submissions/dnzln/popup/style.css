@@ -32,8 +32,6 @@ body {
     display: inline-block;
     width: 28px;
     height: 20px;
-    background: url(icons.png);
-    
 }
 
 .menu-item:nth-child(4) {
@@ -52,22 +50,60 @@ body {
     background-position: 0 -57px;
 }
 
-.menu-item:nth-child(3):hover,
-.menu-item:nth-child(4):hover,
+.menu-item:nth-child(4):hover {
+    cursor: pointer;
+    background: url(iconsdark.jpg);
+    background-position: 0 -28px;
+}
+
 .menu-item:last-child:hover {
     cursor: pointer;
-} 
+    background: url(iconsdark.jpg);
+    background-position: 0 -57px;
+}
 
 .menu-item:nth-child(3) {
     position: relative;
 }
 
+.menu-item:nth-child(4) .menu-item-link {
+    display: block;
+    width: 36px; 
+    height: 21px;
+}
+
+.menu-item:nth-child(5) .menu-item-link {
+    display: block;
+    width: 35px;
+    height: 35px;
+}
+
 .menu-button {
     height: 25px;
-    width: 35xp;
-    margin: 0 0 25px 12px;
-    opacity: 0;
+    width: 25px;
+    margin: 0 0 25px 5px;
     cursor: pointer;
+}
+
+.menu-button::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 30px;
+    background: url(icons.png);
+}
+
+.menu-button:focus::before {
+    outline-color: rgb(77, 144, 254);
+    outline-style: auto;
+    padding: 0px 6px 0 0;
+}
+
+.menu-button:hover::before {
+    background: url(iconsdark.jpg);
 }
 
 .popup-block {
@@ -270,7 +306,8 @@ body {
 }
 
 .more-button {
-    display: none;
+    position: absolute;
+    top: -50px;
 }
 
 .more-button:checked + .more-button-label {
@@ -294,4 +331,10 @@ body {
     margin: 30px 0 20px 0;
     display: block;
     text-align: center;
+}
+
+
+.more-button:focus + .more-button-label {
+    outline-color: #4d90fe;
+    outline-style: auto;
 }
