@@ -2,15 +2,17 @@
   display: flex;
   flex-wrap: wrap;
   border-bottom: 2px solid #cad1e0;
+  box-sizing: border-box;
 }
 
 /* ---------- Start Order Section ---------- */
 
 .order {
-  width: 480px;
+  width: 500px;
   padding-top: 10px;
   padding-left: 30px;
   margin: 0 10px 10px 0;
+  box-sizing: border-box;
 }
 
 .order__caption {
@@ -28,9 +30,10 @@
 /* ---------- Start Buttons Section ---------- */
 
 .order__btns {
-  width: 160px;
+  width: 150px;
   flex-direction: column;
   padding-top: 20px;
+  box-sizing: border-box;
 }
 
 .order__btn {
@@ -51,9 +54,10 @@
 /* ---------- Start Help Section ---------- */
 
 .order__help {
-  width: 270px;
+  width: 338px;
   padding-top: 10px;
   padding-left: 20px;
+  box-sizing: border-box;
   border-left: 2px solid #cad1e0;
 }
 
