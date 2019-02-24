@@ -1,4 +1,7 @@
 .header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
 
   &:after {
     visibility: hidden;
@@ -9,25 +12,35 @@
     height: 0;
   }
 
+  @media only screen and (max-width: $tablet) {
+    flex-flow: row wrap;
+  }
+
   &__order {
-    float: left;
-    width: 70%;
+    flex: 0 0 70%;
     padding: 0 15px;
-    border-right: 1px solid var(--lightgray);
+    border: 1px solid var(--lightgray);
+    border-radius: 2.5px 0 0 0;
 
     @media only screen and (max-width: $tablet) {
-      width: 100%;
+      flex: 0 0 100%;
       padding: 0;
-      border-right: none;
+      border: 1px solid var(--lightgray);
+      border-bottom: none;
+      border-radius: 2.5px 2.5px 0 0;
     }
   }
 
   &__help {
-    float: right;
-    width: 30%;
+    flex: 0 0 30%;
+    border: 1px solid var(--lightgray);
+    border-left: none;
+    border-radius: 0 2.5px 0 0;
 
     @media only screen and (max-width: $tablet) {
-      width: 100%;
+      flex: 0 0 100%;
+      border: 1px solid var(--lightgray);
+      border-top: none;
     }
   }
 }
