@@ -3,15 +3,6 @@
   flex-flow: row nowrap;
   align-items: stretch;
 
-  &:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
-  }
-
   @media only screen and (max-width: $tablet) {
     flex-flow: row wrap;
   }
