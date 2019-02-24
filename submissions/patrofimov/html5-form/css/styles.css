@@ -241,12 +241,9 @@ fieldset {
 }
 
 .upload_file-btn {
-  margin-top: 30px;
-}
-
-.upload_file-btn {
   background: #f7f7f9;
   padding: 15px 30px;
+  margin-top: 30px;
   border: 1px solid #d2d5dc;
   border-radius: 6px;
   display: inline-block;
@@ -911,27 +908,27 @@ summary {
 .tone_input:hover + label,
 .required-input:hover + label,
 .translate_input:hover + label,
-.upload-table_btn:focus,
-.lang_btn:focus {
-  outline: 1px solid blue;
-}
-
 .upload-table_btn:hover,
+.payment_input:hover,
+.payment-agree_input:hover,
 .lang_btn:hover {
   outline: 1px solid blue;
   cursor: pointer;
-}
+ }
+
 
 .order-actions_btn:focus,
 .header-btn:focus,
-.upload_file-btn:focus,
+.upload_input:focus + label,
 .lang_select-wrapper:focus,
 .tone_input:focus + label,
 .required-input:focus + label,
 .translate_input:focus + label,
 .upload-table_btn:focus,
+.payment-agree_input:focus,
 .lang_btn:focus {
-  outline: 2px solid blue;
+  outline: 1px solid blue;
+  border-radius: 4px;
 }
 
 .help_adress a:hover {
@@ -958,6 +955,7 @@ summary {
   transition: all 275ms ease-in-out;
 }
 
+ 
 .payment_input:focus:valid + .payment_valid:after {
   content: "\2714";
   background: #fff;
@@ -1179,6 +1177,7 @@ summary {
   .urgent {
     text-align: center;
     display: block;
+	margin: 120px 0 0 0;
   }
   .urgent::before {
     top: -50px;
@@ -1187,12 +1186,7 @@ summary {
     bottom: 0;
     transform: translateX(-50%);
   }
-  .urgent {
-    margin: 120px 0 0 0;
-  }
-  .urgent::before {
-    transform: translateX(-50%);
-  }
+   
   .urgent_caption {
     transform: translateX(0);
   }

@@ -173,7 +173,7 @@
                 type="file"
                 class="visually-hidden upload_input"
               />
-              <label class="upload_file-btn" for="file-picker">
+              <label class="upload_file-btn" for="file-picker" >
                 <span class="upload-cloud">&#9729;</span>
                 Upload a new file
               </label>
@@ -364,7 +364,7 @@
                     type="range"
                     min="0"
                     max="100"
-                    step="25"
+                    step="50"
                     value="50"
                     id="urgent-timeline_range"
                     class="urgent-timeline_range"
@@ -411,7 +411,7 @@
                   >Full name</label
                 >
                 <input
-                  placeholder="Vasya pupkin"
+                  placeholder="Ivan Petrov"
                   required
                   name="full-name"
                   class="payment_input payment_full-name"
@@ -450,6 +450,7 @@
                     placeholder="password"
                     type="password"
                     id="form_password"
+					title = "Длина пароля не менее 6 символов!"
                     minlength="6"
                   />
                   <span aria-hidden="true" class="payment_valid"></span>
@@ -512,6 +513,7 @@
                     type="text"
                     minlength="9"
                     maxlength="19"
+					title = "Номер карты должен быть от 9 до 19 цифр!"
                     pattern="\d{1,19}"
                   />
                   <span aria-hidden="true" class="payment_valid"></span>
@@ -529,6 +531,7 @@
                     name="exp-date"
                     max="2025-12-31"
                     min="2018-02-01"
+					title = "Дата выдачи карты должна быть в периоде с 2018 по 2025 год!"
                   />
                   <span aria-hidden="true" class="payment_valid"></span>
                 </div>
@@ -541,8 +544,9 @@
                     id="card-code"
                     name="card-code"
                     type="text"
+					title = "Длина кода должна быть 3 символа!"
                     minlength="3"
-                    maxlength="3"
+                    maxlength="4"
                   />
                   <span aria-hidden="true" class="payment_valid"></span>
                 </div>
