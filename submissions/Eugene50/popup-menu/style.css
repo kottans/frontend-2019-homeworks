@@ -53,7 +53,7 @@ img {
    margin-left: 0px;
 }
 
-#main-checkbox {
+.main-checkbox {
    position: absolute;
    clip: rect(0 0 0 0);
    width: 1px;
@@ -61,21 +61,21 @@ img {
    margin: -1px;
   }
 
-#main-checkbox:checked ~ label {
+.main-checkbox:checked ~ label {
    display: block;
    width: 20px;
    height: 20px;
 }
 
-#main-checkbox:focus ~ .menu-label {
+.main-checkbox:focus ~ .menu-label {
    outline: 1px solid blue;
 }
 
-#main-checkbox:checked ~ .wraper {
+.main-checkbox:checked ~ .wraper {
    display: block;
 }
 
-#sub-checkbox {
+.sub-checkbox {
    position: absolute;
    clip: rect(0 0 0 0);
    width: 1px;
@@ -83,15 +83,15 @@ img {
    margin: -1px;
 }
 
-#sub-checkbox:focus ~ .more-label p {
+.sub-checkbox:focus ~ .more-label p {
    outline: 1px solid blue;
 }
 
-#sub-checkbox:checked ~ label {
+.sub-checkbox:checked ~ label {
    display: none;
 }
 
-#sub-checkbox:checked ~ .sub-container  {
+.sub-checkbox:checked ~ .sub-container  {
    display: flex;
 }
 
