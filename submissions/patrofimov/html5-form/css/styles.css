@@ -119,7 +119,7 @@ h1 {
 }
 
 .order_wrapper {
- flex-basis: 470px;
+  flex-basis: 470px;
   margin: 20px 0 20px 30px;
 }
 
@@ -204,7 +204,7 @@ fieldset {
 
 .translate_select {
   position: relative;
-  display:inline-block;
+  display: inline-block;
 }
 
 .visually-hidden {
@@ -914,8 +914,7 @@ summary {
 .lang_btn:hover {
   outline: 1px solid blue;
   cursor: pointer;
- }
-
+}
 
 .order-actions_btn:focus,
 .header-btn:focus,
@@ -955,7 +954,6 @@ summary {
   transition: all 275ms ease-in-out;
 }
 
- 
 .payment_input:focus:valid + .payment_valid:after {
   content: "\2714";
   background: #fff;
@@ -1004,12 +1002,12 @@ summary {
   color: #76a7e1;
   font-size: 30px;
   z-index: 1;
-  content: '\2611';
+  content: "\2611";
   background: #fff;
   line-height: 15px;
   width: 22px;
   height: 15px;
- }
+}
 
 .payment-form_input_date::-webkit-inner-spin-button {
   display: none;
@@ -1021,50 +1019,49 @@ summary {
   width: 64px;
   height: 50px;
   white-space: nowrap;
- }
+}
 
 .lang_label {
   width: 38px;
 }
 
- .lang_actions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.lang_actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 
 .lang_btn:first-child {
   margin-left: 52px;
 }
 
 .translate_input:checked + label:after {
-	top: -5px;
-    right: -6px;
-    content: '\2611';
-   	font-size: 30px;
-	background: #fff;
-	line-height: 15px;
-	width: 22px;
-	height: 15px;
-    color: #76a7e1;
-    position: absolute;
-    z-index: 1;
- }
- 
- .tone_input:checked + label:after {
-	top: -5px;
-    right: -6px;
-    content: '\2611';
-   	font-size: 30px;
-	background: #fff;
-	line-height: 15px;
-	width: 22px;
-	height: 15px;
-    color: #76a7e1;
-    position: absolute;
-    z-index: 1;
- }
+  top: -5px;
+  right: -6px;
+  content: "\2611";
+  font-size: 30px;
+  background: #fff;
+  line-height: 15px;
+  width: 22px;
+  height: 15px;
+  color: #76a7e1;
+  position: absolute;
+  z-index: 1;
+}
+
+.tone_input:checked + label:after {
+  top: -5px;
+  right: -6px;
+  content: "\2611";
+  font-size: 30px;
+  background: #fff;
+  line-height: 15px;
+  width: 22px;
+  height: 15px;
+  color: #76a7e1;
+  position: absolute;
+  z-index: 1;
+}
 
 @media screen and (max-width: 1200px) {
   .order_wrapper {
@@ -1177,7 +1174,7 @@ summary {
   .urgent {
     text-align: center;
     display: block;
-	margin: 120px 0 0 0;
+    margin: 120px 0 0 0;
   }
   .urgent::before {
     top: -50px;
@@ -1186,7 +1183,7 @@ summary {
     bottom: 0;
     transform: translateX(-50%);
   }
-   
+
   .urgent_caption {
     transform: translateX(0);
   }
