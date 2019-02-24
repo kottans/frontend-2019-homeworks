@@ -414,9 +414,11 @@
                 id="card-number"
                 class="payment__input"
                 name="card-number"
-                pattern="^[0-9]+$"
-                minlength="13"
-                maxlength="16"
+                title="Write number card"
+                placeholder="0000-0000-0000-0000"
+                pattern="^[0-9-]+$"
+                minlength="16"
+                maxlength="19"
                 required
               />
               <span class="payment__valid-status"></span>
@@ -430,6 +432,7 @@
                 id="date"
                 class="payment__input payment__input__date"
                 name="date"
+                title="Write expiry date"
                 minlength="10"
                 required
               />
@@ -441,9 +444,11 @@
                 id="card-code"
                 class="payment__input"
                 name="card-code"
+                title="Write CCV code"
+                placeholder="000"
                 pattern="^[0-9]+$"
                 minlength="3"
-                maxlength="5"
+                maxlength="3"
                 required
               />
               <span class="payment__valid-status"></span>
