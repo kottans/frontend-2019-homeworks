@@ -15,7 +15,7 @@
       Go back
     </button>
     <h1>
-      <a href="#">
+      <a href="/">
         <img class="header-logo" src="assets/img/logo.png" alt="logo">
       </a>
     </h1>
@@ -197,17 +197,17 @@
         <p class="payment-description">Already have account with us? <a href="#">Sign in</a></p>
         <fieldset class="full-width validate">
           <label for="input-name">Full name</label>
-          <input id="input-name" type="text" placeholder="Full name" minlength="3" title="Set name more than 3 letters"  value="Dmytro Ivanov" class="sm-input" required>
+          <input id="input-name" required type="text" placeholder="Full name" minlength="3" title="Set name more than 3 letters"  value="Dmytro Ivanov" class="sm-input" required>
           <span class="input-result"></span>
         </fieldset>
         <fieldset class="validate">
           <label for="input-mail">Email adress</label>
-          <input id="input-mail" type="email" placeholder="Email adress" value="dmytroivanov@gmail.com" class="sm-input" required>
+          <input id="input-mail" required type="email" placeholder="Email adress" value="dmytroivanov@gmail.com" class="sm-input" required>
           <span class="input-result"></span>
         </fieldset>
         <fieldset class="validate">
           <label for="input-password">Choose a password</label>
-          <input id="input-password" type="password" placeholder="Choose a password" minlength="6" title="Set password more than 6 letters" class="sm-input" required>
+          <input id="input-password" required type="password" placeholder="Choose a password" minlength="6" title="Set password more than 6 letters" class="sm-input" required>
           <span class="input-result"></span>
         </fieldset>
         <fieldset class="payment-way">
@@ -228,15 +228,15 @@
         </fieldset>
         <fieldset class="payment-card">
           <legend>Card number</legend>
-          <input type="number" placeholder="Card number" class="sm-input card-number">
+          <input type="text" pattern="[0-9]{16}" required placeholder="Card number" class="sm-input card-number" title="Set card 16 numbers">
         </fieldset>
         <fieldset class="payment-expiry">
           <legend>Expiry date</legend>
-          <input type="date" placeholder="DD / MM / YY" class="sm-input">
+          <input type="date" placeholder="DD / MM / YY" required class="sm-input" title="Enter the correct format">
         </fieldset>
         <fieldset class="payment-code">
           <legend>Code</legend>
-          <input type="password" placeholder="Code" class="sm-input">
+          <input type="password" pattern="[0-9]{3}" required placeholder="Code" class="sm-input" title="Set code 3 numbers">
         </fieldset>
       </section>
       <section class="submit-block">

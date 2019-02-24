@@ -265,10 +265,17 @@ h1{
   padding: 0 30px;
   font-size: $fontSmall;
   @include border(#6e768f, #6e768f);
-  &:active,
-  &:focus,
+  &:active{
+    opacity: 1;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5);
+  }
+  &:focus{
+    opacity: 1;
+    box-shadow: 0px 0px 5px 5px rgba(0,204,204,0.5);
+  }
   &:hover{
     opacity: 1;
+    box-shadow: 0px 0px 5px 5px rgba(118,166,225,0.5);
   }
   .fa{
     padding-right: 15px;
@@ -300,10 +307,17 @@ h1{
     width: 100%;
   }
   opacity: 0.5;
-  &:hover,
-  &:active,
+  &:active{
+    opacity: 1;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5);
+  }
   &:focus{
     opacity: 1;
+    box-shadow: 0px 0px 5px 5px rgba(0,204,204,0.5);
+  }
+  &:hover{
+    opacity: 1;
+    box-shadow: 0px 0px 5px 5px rgba(118,166,225,0.5);
   }
   .fa{
     padding-right: 15px;
@@ -556,9 +570,17 @@ h1{
     @include border(#d7d9e0, #6e768f);
     opacity: 0.5;
     transition: 0.2s;
-    &:hover,
+    &:active{
+      opacity: 1;
+      box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5);
+    }
     &:focus{
       opacity: 1;
+      box-shadow: 0px 0px 5px 5px rgba(0,204,204,0.5);
+    }
+    &:hover{
+      opacity: 1;
+      box-shadow: 0px 0px 5px 5px rgba(118,166,225,0.5);
     }
     @media (max-width: $tablet) {
       width: 100%;
@@ -639,10 +661,17 @@ h1{
         border: none;
         background: none;
         cursor: pointer;
-        &:hover,
-        &:focus,
         &:active{
           opacity: 1;
+          box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5);
+        }
+        &:focus{
+          opacity: 1;
+          box-shadow: 0px 0px 5px 5px rgba(0,204,204,0.5);
+        }
+        &:hover{
+          opacity: 1;
+          box-shadow: 0px 0px 5px 5px rgba(118,166,225,0.5);
         }
       }
     }
@@ -657,10 +686,17 @@ h1{
   border: none;
   color: $colorBold;
   opacity: 0.5;
-  &:hover,
-  &:active,
+  &:active{
+    opacity: 1;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5);
+  }
   &:focus{
     opacity: 1;
+    box-shadow: 0px 0px 5px 5px rgba(0,204,204,0.5);
+  }
+  &:hover{
+    opacity: 1;
+    box-shadow: 0px 0px 5px 5px rgba(118,166,225,0.5);
   }
 }
 .language fieldset{
@@ -949,10 +985,17 @@ h1{
     @include border(#d7d9e0, #7489ab);
     position: relative;
     opacity: 0.5;
-    &:hover,
-    &:focus,
     &:active{
       opacity: 1;
+      box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5);
+    }
+    &:focus{
+      opacity: 1;
+      box-shadow: 0px 0px 5px 5px rgba(0,204,204,0.5);
+    }
+    &:hover{
+      opacity: 1;
+      box-shadow: 0px 0px 5px 5px rgba(118,166,225,0.5);
     }
     @media (max-width: $desktop) {
       margin-left: 0px;
