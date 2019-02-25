@@ -31,6 +31,20 @@
   font-size: 1.4rem;
   color: $slate;
 
+  &--long {
+    min-width: 325px;
+  }
+
+  &--medium {
+    max-width: 190px;
+    min-width: 0;
+  }
+
+  &--short {
+    max-width: 110px;
+    min-width: 0;
+  }
+
   &::placeholder {
     color: $slate;
   }

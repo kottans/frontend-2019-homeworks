@@ -75,7 +75,7 @@
           <form id="translate">
             <div class="inner-container">
               <section class="section translate-selection">
-                <h1 class="main-heading">SELECT WHAT YOU WANT TO TRANSLATE</h1>
+                <h1 class="main-heading">select what you want to translate</h1>
 
                 <div class="service" role="group">
                   <label for="web" class="service__select">
@@ -86,6 +86,7 @@
                       name="service-type"
                       value="website"
                       required
+                      checked
                     />
                     <span class="service__img-wrapper"
                       ><img
@@ -241,6 +242,7 @@
                       class="text language__select"
                       name="language-1"
                       id="from"
+                      required
                     >
                       <option value="english">English</option>
                       <option value="ukrainian">Ukrainian</option>
@@ -265,6 +267,7 @@
                         class="text language__select"
                         name="language-2"
                         id="to"
+                        required
                       >
                         <option value="kurdish">Kurdish</option>
                         <option value="ukrainian">Ukrainian</option>
@@ -314,6 +317,7 @@
                       value="friendly-casual"
                       class="visually-hidden tone__input"
                       required
+                      checked
                     />
                     <label class="tone__label" for="friend">
                       <span class="tone__icon fa fa-comments"></span>
@@ -390,7 +394,7 @@
                       timeline info
                     </h3>
 
-                    <p class="urget-info__text text text--no-mrg-btm">
+                    <p class="urgent-info__text text text--no-mrg-btm">
                       With an
                       <span class="fifth-heading fifth-heading--yellow"
                         >average</span
@@ -442,7 +446,7 @@
                     >
                     <input
                       class="user__input"
-                      type="text"
+                      type="email"
                       placeholder="example@gmail.com"
                       name="email"
                       id="email-input"
@@ -479,6 +483,7 @@
                     name="choose-payment"
                     id="cards"
                     required
+                    checked
                   />
 
                   <label class="user__payment-label" for="cards">
@@ -519,7 +524,7 @@
                       >Card number</label
                     >
                     <input
-                      class="user__input"
+                      class="user__input user__input--long"
                       type="text"
                       placeholder=""
                       title="Write your payment card number"
@@ -541,7 +546,7 @@
                       >Expiry date</label
                     >
                     <input
-                      class="user__input"
+                      class="user__input user__input--medium"
                       type="date"
                       name="input-date"
                       id="date-picker"
@@ -560,7 +565,7 @@
                       >Code</label
                     >
                     <input
-                      class="user__input"
+                      class="user__input user__input--short"
                       type="text"
                       title="Write your payment card CCV code"
                       placeholder=""

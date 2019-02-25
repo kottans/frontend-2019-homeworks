@@ -74,15 +74,15 @@
     display: block;
     position: absolute;
     content: "";
-    width: 35px;
-    height: 46px;
+    width: 18px;
+    height: 24px;
     background-color: $black;
     background-image: url(../img/tablet.jpg);
     background-size: cover;
     object-fit: cover;
     background-position: top center;
-    left: -45px;
-    top: -15px;
+    left: -35px;
+    top: -3px;
   }
 }
 
@@ -355,7 +355,7 @@
 
 .urgent {
   position: relative;
-  width: 50%;
+  width: 53%;
 
   @include sectionNum();
 }
