@@ -26,7 +26,17 @@
     color: #000;
     text-decoration: underline;
 }
-
+.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    top: 700px;
+}
 .dots_label {
     width: 20px;
     height: 20px;
@@ -44,22 +54,6 @@
     background: url("img/big_brother_sprite.png") no-repeat;
     background-position: -132px -42px;
     background-size: 510px;
-}
-
-.bell {
-    width: 20px;
-    height: 20px;
-    border-radius: 100%;
-    cursor: pointer;
-    background: url("img/big_brother_sprite.png") no-repeat;
-    background-position: -202.5px -22px;
-    background-size: 550px;
-    background-color: #737373;
-}
-
-.bell:hover {
-    background-color: #000;
-
 }
 
 .face {
@@ -195,10 +189,12 @@
     cursor: pointer;
 }
 
-.more_input, .dots_input, .hidden {
+.more_input, .hidden {
     display: none;
 }
-
+.dots_input:focus ~ .dots_label{
+    outline: auto;
+}
 .dots_input:checked ~ .big-brother_services {
     display: flex;
 }
