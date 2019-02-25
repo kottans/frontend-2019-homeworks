@@ -28,8 +28,8 @@
 		margin-left: 15px
 	.upload__table
 		margin: 0 15px
-	.select__wrapper
-		margin-left: 15px
+	// .select__wrapper
+	// 	margin-left: 15px
 	.label
 		margin: 15px auto
 	.how-urgent__wrapper
@@ -64,8 +64,9 @@
 		justify-content: center
 	.form__footer .main-button
 		margin: 15px
-	.credit__card-item i
-		right: 20px
+	.credit__card-item
+		.fa
+			right: 20px
 
 +r(768)
 	body
@@ -89,27 +90,27 @@
 		margin-top: 60px
 	.upload__table-body
 		padding: 30px 15px
-	.select__wrapper-more
-		margin-left: 55px
 	.languages__pairing-wrapper
 		margin-top: 60px
 	.languages__pairing-item
+		margin: 0 15px
 		width: 100%
 	.language__delete
+		width: 100%
 		.delete-icon
 			display: flex
 			align-items: center
 			justify-content: center
 			border: 1px solid $bordercolor
 			border-radius: 5px
-			margin: 15px
 			height: 50px
 			text-align: center
 			background-color: $background
-			width: 90%
+			width: 100%
+			margin: 15px 0
 	.language__add
-		width: 90%
-		margin: 15px
+		width: 100%
+		margin: 15px 0
 	.how-urgent__wrapper
 		max-width: 100%
 	.desire-tone__wrapper
@@ -128,6 +129,10 @@
 		flex-direction: column
 	.credit__card .input__auth
 		width: 100%
+	.credit__card-item
+		.fa
+			top: 45px
+
 	.input__auth
 		width: 100%
 		font-size: 16px
@@ -145,10 +150,12 @@
 		max-width: 50%
 	.logo
 		text-align: center
-
 	.select__wrapper
-		width: 90%
-		margin: 15px
+		width: 100%
+		margin: 15px 0 15px 15px
+	.select__wrapper-more
+		margin: 15px 0
+
 	.selects__block
 		flex-direction: column
 	.checkbox-label::before
@@ -181,16 +188,21 @@
 			margin-right: 0
 
 +r(460)
-	.language__add
-		margin-left: 15px
 	.form__footer .main-button
 		padding: 0
 		margin: 15px 15px 10px 15px
 	.header
+		padding: 15px
 		.header__logo
-			display: none
-	.header
-		padding: 30px 15px
+			order: 1
+			flex-basis: 100%
+			margin-bottom: 10px
+			text-align: center
+			// width: 100%
+		.back-button
+			order: 2
+		.sign-button
+			order: 3
 	.input__auth
 		width: 100%
 

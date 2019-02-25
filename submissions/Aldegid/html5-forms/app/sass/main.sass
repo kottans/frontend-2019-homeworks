@@ -37,6 +37,7 @@ body
 	margin: 0 auto
 	display: flex
 	justify-content: space-between
+	flex-wrap: wrap
 	align-items: center
 	padding: 80px 0
 	.fa
@@ -405,26 +406,23 @@ input[type=radio]:checked + .label__image-wrapper
 	&:focus
 		box-shadow: 0 0 3px 3px #83A8E5
 
-.select__wrapper-more
-	display: flex
-	align-items: center
-	flex-wrap: wrap
-	.select__wrapper
-		width: 180px
+// .select__wrapper-more
+// 	display: flex
+// 	align-items: center
+// 	flex-wrap: wrap
 
 .select__wrapper
-	width: 235px
+	width: 200px
 	height: 50px
-	margin: 30px 30px 30px 0
+	margin: 30px 15px
 	display: flex
 	position: relative
 
 .select__text
-	align-self: center
-	margin-right: 20px
 	font-weight: bold
-	&-to
-		margin-right: 40px
+	min-width: 40px
+	text-align: right
+
 
 .select__wrapper::before
 	content: ''
@@ -459,11 +457,15 @@ input[type=radio]:checked + .label__image-wrapper
 	flex-wrap: wrap
 
 .languages__pairing-item
+	display: flex
+	align-items: center
+
+.languages__pairing-item
 	&:first-child
 		width: 100%
 
-.select__wrapper-more
-	width: 183px
+// .select__wrapper-more
+// 	width: 183px
 .language__delete
 	.fa
 		color: $text-light
@@ -490,10 +492,12 @@ input[type=radio]:checked + .label__image-wrapper
 			box-shadow: 0px 0px 2px 1px #83A8E5
 
 .language__add
+	box-sizing: border-box
 	border-radius: 5px
 	border: none
-	height: 50px
+	height: 48px
 	width: 120px
+	padding: 0
 	box-shadow: 0 0 0 1px $bordercolor
 	background-color: $background
 	margin-left: 30px
