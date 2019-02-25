@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>HTML5 Form</title>
+    <link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="style/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="style/responsive.css">
+</head>
+<body>
+<div class="wrapper">
+    <form action="URL">
+        <div class="formHeader">
+            <div class="yourOrders">
+                <div class="youOrders__icon">
+                    <i class="fas fa-clipboard"></i>
+                </div>
+                <h3 class="formHeader__title">
+                    your order
+                </h3>
+                <div class="youOrdersItem first">
+                    <h3 class="youOrdersItem__text">
+                        items
+                    </h3>
+                    <div class="youOrdersItem__value">
+                        2 documents
+                    </div>
+                </div>
+                <div class="youOrdersItem">
+                    <h3 class="youOrdersItem__text">
+                        details
+                    </h3>
+                    <div class="youOrdersItem__value">
+                        2 languages
+                    </div>
+                </div>
+                <div class="youOrdersItem">
+                    <h3 class="youOrdersItem__text">
+                        Price
+                    </h3>
+                    <div class="youOrdersItem__value">
+                        $ 696.06
+                    </div>
+                </div>
+                <div class="youOrdersItem">
+                    <h3 class="youOrdersItem__text">
+                        delivery
+                    </h3>
+                    <div class="youOrdersItem__value">
+                        48 hours
+                    </div>
+                </div>
+            </div>
+            <div class="headerButtons">
+                <button class="headerButtonsItem" type="submit">
+                    PLACE ORDER
+                </button>
+                <br>
+                <button class="headerButtonsItem" type="button">
+                    PRINT A QUOTE
+                </button>
+            </div>
+            <div class="helpCenter">
+                <h3 class="formHeader__title">
+                    help center
+                </h3>
+                <div class="helpCenter__icon">
+                    <i class="far fa-question-circle"></i>
+                </div>
+                <div class="helpCenter__subtitle">
+                    If you need assistance while placing your order, contact one
+                    of our beloved Project Manager by phone or email.
+                </div>
+                <div class="helpCenter__contacts">
+                    <strong>
+                        <a href="tel:+971 (0) 555"
+                           class="helpCenter__contacts--phone">
+                            +971 (0) 555
+                        </a>
+                        <a href="mailto:help@qtest.com"
+                           class="helpCenter__contacts--mail">
+                            help@qtest.com
+                        </a>
+                    </strong>
+                </div>
+            </div>
+        </div>
+        <div class="insideWrapper">
+            <div class="selectTypeBlock">
+                <h1 class="selectTypeBlock__title">
+                    select what you want to translate
+                </h1>
+                <div class="selectTypeBlock__checkboxes">
+                    <input type="radio"
+                           title="Radio"
+                           id="website"
+                           name="Type"
+                           value="website"
+                           class="checkboxType hidden"
+                           checked>
+                    <label for="website" class="typeBlockItem__label">
+                        <div class="typeBlockItem__img"><i class="fas fa-tablet-alt"></i></div>
+                        <div class="typeBlockItem__title">Website</div>
+                        <div class="typeBlockItem__label--active">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </label>
+                    <input type="radio"
+                           title="Document"
+                           id="document"
+                           name="Type"
+                           value="document"
+                           class="checkboxType hidden">
+                    <label for="document" class="typeBlockItem__label">
+                        <div class="typeBlockItem__img"><i class="fas fa-file-alt"></i></div>
+                        <div class="typeBlockItem__title">Document</div>
+                        <div class="typeBlockItem__label--active">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </label>
+                    <input type="radio"
+                           title="Social account"
+                           id="socialacc"
+                           name="Type"
+                           value="social"
+                           class="checkboxType hidden">
+                    <label for="socialacc" class="typeBlockItem__label">
+                        <div class="typeBlockItem__img"><i class="fab fa-instagram"></i></div>
+                        <div class="typeBlockItem__title">Social Account</div>
+                        <div class="typeBlockItem__label--active">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="selectDocumentBlock numberedBlock">
+                <h1 class="selectDocumentBlock__title">
+                    Upload your documents
+                </h1>
+                <h2 class="selectDocumentBlock__subtitle">
+                    (Doc,Docx,Text,Markdown)
+                </h2>
+                <input type="file"
+                       title="Upload file"
+                       id="uploadFileButton"
+                       class="uploadFileButton hidden"
+                       accept=".doc,.docx,.txt,.pdf">
+                <br>
+                <label for="uploadFileButton" class="uploadFileButtonLabel" tabindex="0">
+                    <div class="uploadFileButton__icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <div class="uploadFileButton__title">
+                        Upload a new file
+                    </div>
+                </label>
+                <div class="fileList">
+                    <table class="fileList__table">
+                        <tr>
+                            <td class="fileList__tableTitle fileList__tableTitleName">
+                                filename
+                            </td>
+                            <td class="fileList__tableTitle">
+                                file size
+                            </td>
+                            <td class="fileList__tableTitle">
+                                numbers of words
+                            </td>
+                            <td class="fileList__tableTitle">
+                                remove
+                            </td>
+                        </tr>
+                        <tr class="fileList__tableItem">
+                            <td class="fileList__tableItemTitle">
+                                <div class="fileList__tableItemTitleIcon">
+                                    <i class="fas fa-list-alt"></i>
+                                </div>
+                                <div class="fileList__tableItemTitleText">
+                                    business_operations.docx
+                                </div>
+                            </td>
+                            <td class="fileList__tableItemTitle">
+                                78kb
+                            </td>
+                            <td class="fileList__tableItemTitle">
+                                842
+                            </td>
+                            <td class="fileList__tableItemTitle">
+                                <a href="#"><i class="fas fa-trash-alt"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr class="fileList__tableItem">
+                            <td class="fileList__tableItemTitle">
+                                <div class="fileList__tableItemTitleIcon">
+                                    <i class="fas fa-list-alt"></i>
+                                </div>
+                                <div class="fileList__tableItemTitleText">
+                                    business_financial.docx
+                                </div>
+                            </td>
+                            <td class="fileList__tableItemTitle">
+                                26kb
+                            </td>
+                            <td class="fileList__tableItemTitle">
+                                2,326
+                            </td>
+                            <td class="fileList__tableItemTitle">
+                                <a href="#"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="selectLanguageBlock numberedBlock">
+                <h1 class="selectLanguageBlock__title">
+                    Choose your languages pairing
+                </h1>
+                <label for="selectLangFrom"
+                       class="langLabel">
+                    FROM
+                </label>
+                <div class="select">
+                    <select name="From"
+                            id="selectLangFrom"
+                            class="selectLangFrom">
+                        <option>English</option>
+                        <option>Russian</option>
+                        <option>France</option>
+                    </select>
+                </div>
+                <br>
+                <label for="selectLangTo" class="langLabel ">
+                    TO
+                </label>
+                <div class="select">
+                    <select name="TO"
+                            id="selectLangTo"
+                            class="selectLangFrom selectLang">
+                        <option>English</option>
+                        <option>Russian</option>
+                        <option>France</option>
+                    </select>
+                </div>
+
+                <div class="select">
+                    <select name="TO"
+                            id="selectLangToSecond"
+                            class="selectLangFrom selectLang selectLangToSecond">
+                        <option>English</option>
+                        <option>Russian</option>
+                        <option>France</option>
+                    </select>
+
+                </div>
+                <div class="selectLangToSecond__icon">
+                    <a href="#">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </div>
+                <button class="selectLang__add" type="button">
+                    + ADD
+                </button>
+            </div>
+            <div class="wrapperInner">
+                <div class="selectDesired numberedBlock">
+                    <h1 class="selectDocumentBlock__title selectDesired__title">
+                        Select your desired tone
+                    </h1>
+                    <div class="selectDesired__checkboxes">
+                        <input type="radio"
+                               title="Friendly"
+                               id="Friendly"
+                               name="Desired"
+                               value="Friendly"
+                               class="checkboxType hidden"
+                               checked>
+                        <label for="Friendly"
+                               class="typeBlockItem__label selectDesired__checkboxes--label ">
+                            <div class="typeBlockItem__icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <p class="typeBlockItem__title">
+                                Friendly / Casual
+                            </p>
+                            <div class="typeBlockItem__label--active">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </label>
+
+
+                        <input type="radio"
+                               title="Corporate / Pro"
+                               id="Corporate"
+                               name="Desired"
+                               value="Corporate / Pro"
+                               class="checkboxType hidden">
+                        <label for="Corporate"
+                               class="typeBlockItem__label selectDesired__checkboxes--label ">
+                            <div class="typeBlockItem__icon">
+                                <i class="fas fa-suitcase"></i>
+                            </div>
+                            <p class="typeBlockItem__title">
+                                Corporate / Pro
+                            </p>
+                            <div class="typeBlockItem__label--active">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </label>
+
+                        <input type="radio"
+                               title="Media / Formal"
+                               id="Media"
+                               name="Desired"
+                               value="Media / Formal"
+                               class="checkboxType hidden">
+                        <label for="Media"
+                               class="typeBlockItem__label selectDesired__checkboxes--label ">
+                            <div class="typeBlockItem__icon">
+                                <i class="fas fa-volume-up"></i>
+                            </div>
+                            <p class="typeBlockItem__title">
+                                Media / Formal
+                            </p>
+                            <div class="typeBlockItem__label--active">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="tellUrgent numberedBlock">
+                    <h1 class="selectDocumentBlock__title">
+                        Tell us how urgent this job is
+                    </h1>
+                    <div class="tellUrgent__range">
+                        <input type="range"
+                               title="Tell us how urgent this job is"
+                               max="100"
+                               name="urgent"
+                               min="0"
+                               step="1"
+                               value="50"
+                               class="tellUrgent__rangeInput">
+                    </div>
+                    <div class="range__text">
+                        <span>I GOT TIME</span>
+                        <span class="orange">AVERAGE</span>
+                        <span>YESTERDAY</span>
+                    </div>
+                    <div class="tellUrgent__timeline">
+                        <div class="timeline__info">
+                            <div class="timeline__info--icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            TIMELINE INFO
+                        </div>
+                        <div class="timeline__text">
+                            With an <span class="orange">AVERAGE</span> timeline set up our expert translator can take a
+                            resonable amount of time perfecting your translation
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="paymentBlock numberedBlock">
+                <h1 class="selectLanguageBlock__title">
+                    Sign up and choose a payment method
+                </h1>
+                <h2 class="selectLanguageBlock__subtitle">
+                    Already have an account with us? Sign in.
+                </h2>
+                <div class="registerForm">
+                    <label
+                            for="registerForm__fullNameInput"
+                            class="registerForm__label registerForm__labelBlock">
+                        <div class="registerForm__label--title">
+                            FULL NAME
+                        </div>
+                        <input
+                                type="text"
+                                name="fullName"
+                                id="registerForm__fullNameInput"
+                                class="registerForm__Input"
+                                placeholder="Mathieu Mayer"
+                                title="Example: Mathieu Mayer"
+                                pattern="^[a-zA-Z ]+$"
+                                minlength="2"
+                                required>
+                        <div class="registerForm__label--valid">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="registerForm__label--invalid">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </label>
+                    <label
+                            for="registerForm__emailInput"
+                            class="registerForm__label">
+                        <div class="registerForm__label--title">
+                            EMAIL ADDRESS
+                        </div>
+                        <input
+                                type="email"
+                                name="email"
+                                id="registerForm__emailInput"
+                                class="registerForm__Input"
+                                placeholder="mathieu.mm@me.com"
+                                title="Enter valid email"
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                minlength="6"
+                                required>
+                        <div class="registerForm__label--valid">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="registerForm__label--invalid">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </label>
+                    <label
+                            for="registerForm__passwordInput"
+                            class="registerForm__label">
+                        <div class=" registerForm__label--title registerForm__label--titleInline">
+                            CHOOSE A PASSWORD
+                        </div>
+                        <input
+                                type="password"
+                                name="password"
+                                id="registerForm__passwordInput"
+                                class="registerForm__Input"
+                                placeholder="Enter a password"
+                                title="Minimum 8 characters, UPPERCASE, lowercase and Number"
+                                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                                minlength="8"
+                                required>
+                        <div class="registerForm__label--valid">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="registerForm__label--invalid">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </label>
+                </div>
+                <div class="selectPayType">
+                    <input
+                            name="payType"
+                            type="radio"
+                            value="mastercard / visa"
+                            id="selectPayType__card"
+                            class="checkboxType hidden"
+                            checked>
+                    <label
+                            for="selectPayType__card"
+                            class="typeBlockItem__label selectPayType__item">
+                        <div class="selectPayType__item--image">
+                            <img src="img/visa.png"/>
+                            <img src="img/mastercard.png"/>
+                        </div>
+                        <div class="typeBlockItem__label--active">
+                            <i class="fas fa-check"></i>
+                        </div>
+
+                    </label>
+                    <input
+                            name="payType"
+                            type="radio"
+                            value="paypal"
+                            id="selectPayType__paypal"
+                            class="checkboxType hidden">
+                    <label
+                            for="selectPayType__paypal"
+                            class="typeBlockItem__label selectPayType__item">
+                        <div class="selectPayType__item--image">
+                            <img src="img/paypal.png"/>
+                        </div>
+                        <div class="typeBlockItem__label--active">
+                            <i class="fas fa-check"></i>
+                        </div>
+
+                    </label>
+                    <input
+                            name="payType"
+                            type="radio"
+                            value="amazon.com"
+                            id="selectPayType__amazon"
+                            class="checkboxType hidden">
+                    <label
+                            for="selectPayType__amazon"
+                            class=" typeBlockItem__label selectPayType__item">
+                        <div class="selectPayType__item--image">
+                            <img src="img/amazon.png"/>
+                        </div>
+                        <div class="typeBlockItem__label--active">
+                            <i class="fas fa-check"></i>
+                        </div>
+
+                    </label>
+                </div>
+                <div class="cardInfo">
+
+                    <label
+                            for="cardInfo__item-number"
+                            class="cardInfo__item">
+                        <div class="registerForm__label--title">
+                            CARD NUMBER
+                        </div>
+                        <input
+                                type="text"
+                                title="Enter card number in format XXXXXXXXXXXXXXXX"
+                                name="cardNumber"
+                                id="cardInfo__item-number"
+                                class="cardInfo__item--input cardInfo__item--inputNumber"
+                                pattern="^[0-9]+$"
+                                minlength="13"
+                                maxlength="16"
+                                required>
+                        <span class="cardInfo__item--inputIcon">
+                            <i class="fab fa-cc-visa"></i>
+                        </span>
+                    </label>
+
+                    <label
+                            for="cardInfo__item-date"
+                            class="cardInfo__item">
+                        <div class="registerForm__label--title">
+                            EXPIRE DATE
+                        </div>
+                        <input
+                                type="date"
+                                title="Enter date in format: DD.MM.YYYY"
+                                id="cardInfo__item-date"
+                                placeholder="DD/MM/YY"
+                                class="cardInfo__item--input cardInfo__item--inputDate"
+                                name="date"
+                                minlength="8"
+                                required>
+
+                    </label>
+
+                    <label
+                            for="cardInfo__item-code"
+                            class="cardInfo__item">
+                        <div class="registerForm__label--title">
+                            CODE
+                        </div>
+                        <input
+                                type="password"
+                                title="Enter CV"
+                                name="CV"
+                                id="cardInfo__item-code"
+                                class="cardInfo__item--input cardInfo__item--inputCode"
+                                pattern="^[0-9]+$"
+                                minlength="3"
+                                maxlength="5"
+                                required>
+                    </label>
+
+                </div>
+                <div class="paymentBlock__buttons">
+                    <input type="checkbox"
+                           name="Agree"
+                           id="paymentBlock__buttons--checkbox"
+                           checked
+                           required>
+                    <label
+                            for="paymentBlock__buttons--checkbox"
+                            class="paymentBlock__buttons--label">
+                        I agree to the Terms & Conditions
+                    </label>
+                    <div class="headerButtons">
+                        <button class="headerButtonsItem" type="submit">
+                            PLACE ORDER
+                        </button>
+                        <br>
+                        <button class="headerButtonsItem" type="button">
+                            PRINT A QUOTE
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
