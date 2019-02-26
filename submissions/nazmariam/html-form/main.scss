@@ -100,6 +100,12 @@ fieldset{
   padding: 32px;
   justify-content: space-between;
 }
+.nav-wrap{
+  display: flex;
+}
+.order-item{
+  margin-right: 28px;
+}
 .order-info{
   flex: 0 0 70%;
 }

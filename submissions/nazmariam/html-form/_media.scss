@@ -226,6 +226,16 @@
   }
 }
 @media only screen and (max-width: 768px){
+  .process-order-buttons{
+    width: 100%;
+  }
+  .order.form-button{
+    width: 100%;
+    margin: 16px 0;
+  }
+  .print.form-button{
+    width: 100%;
+  }
   .add, .from-lang,
   .first-lang-block,
   .second-lang-block{
@@ -253,6 +263,9 @@
   .sel-but{
     display: inline-block;
     width: 88%;
+  }
+  .third-area .del{
+    overflow: hidden;
   }
   .add{
     width: 88%;
@@ -300,6 +313,9 @@
   .date{
     max-width: 100%;
   }
+  .accept .process-order-buttons {
+    flex-wrap: wrap;
+  }
 
 }
 @media only screen and (max-width: 520px) {
@@ -310,6 +326,13 @@
       margin: 0 auto 4px;
     }
   }
+  .order-item{
+    width:50%;
+  }
+  .nav-wrap{
+    width:100%
+  }
+
   .accept .process-order-buttons{
     flex-wrap: wrap;
   }
@@ -320,7 +343,7 @@
     margin: 0;
   }
   .to-lang .list-header {
-    padding-left: 0px;
+    padding-left: 0;
   }
   .second-lang {
     margin: 0;
@@ -379,6 +402,11 @@
     position: absolute;
     right: 10px;
     top: 18px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .add{
+    width:248px;
   }
 }
 @media (min-width: 768px) {
