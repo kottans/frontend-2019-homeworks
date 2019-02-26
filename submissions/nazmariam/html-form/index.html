@@ -5,7 +5,7 @@
     <title>HTML form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <header>
@@ -114,8 +114,7 @@
                                        name="file"
                                        accept=".doc, .docx, .txt, .pdf, .md"
                                        multiple
-                                       role="table"
-                                       required>
+                                       role="table">
                                 <span class="file-button form-button">Upload a new file</span>
                             </label>
                             <ul class="file-list">
@@ -189,7 +188,8 @@
                                    <span class="list-header">to</span>
                                    <label class="to-lang-label">
                                        <select name="to-lang"
-                                               class="form-button sel-but">
+                                               class="form-button sel-but"
+                                               required>
                                            <option value=""
                                                    disabled
                                                    selected>

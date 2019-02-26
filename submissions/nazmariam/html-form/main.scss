@@ -120,8 +120,8 @@ fieldset{
 }
 .order-list{
   display: flex;
-  padding: 0;
-  justify-content: space-around;
+  padding: 0 0 0 28px;
+  justify-content: space-between;
 }
 .order-item{
   display: flex;
@@ -434,7 +434,7 @@ fieldset{
       left: 0;
     }
   }
-  
+
 }
 .fourth-but-casual .inner-txt::before{
   -webkit-mask-image: url(../images/007-comment.svg);
