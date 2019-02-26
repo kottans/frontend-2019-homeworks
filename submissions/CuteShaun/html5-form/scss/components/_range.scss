@@ -15,10 +15,10 @@
   &:after {
     content: "";
     position: absolute;
-    width: 10px;
+    width: 8px;
     height: 8px;
     background: #d2d7e5;
-    top: -1px;
+    top: 0px;
     -webkit-border-radius: 50%;
     border-radius: 50%;
     z-index: -1;
@@ -29,7 +29,7 @@
   }
 
   &:after {
-    right: 0
+    right: 0;
   }
 
   &::-webkit-slider-runnable-track {
