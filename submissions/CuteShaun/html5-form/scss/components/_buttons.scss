@@ -96,4 +96,8 @@
   &:hover {
     @include defaultHover;
   }
+
+  @media screen and(max-width: 620px) {
+    width: 100%;
+  }
 }
