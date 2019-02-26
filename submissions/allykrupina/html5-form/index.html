@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav class="navigation">
+                <a class="go-back" href="#">
+                    <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                    Go back
+                </a>
+            <a class="logo" href="/" class="logo">
+                <img class="logo-img" src="assets/img/logo.png" alt="logo-icon">
+            </a>
+            <a class="sign-in" href="#">
+                <i class="fas fa-user-alt" aria-hidden="true"></i>
+                Sign in
+            </a>
+            </nav>
+        </header>
+        <div class="form-page">
+        <section class="header-section">
+            <div class="header-left">
+                <div class="order-block">
+                    <div class="order-item">
+                        <h2 class="title">Your order</h2>
+                        <ul class="order-list">
+                            <li class="order-list-item">
+                                <h5>Items</h5>
+                                <span class="item-amount">2 documents</span>
+                            </li>
+                            <li class="order-list-item">
+                                <h5>Details</h5>
+                                <span class="item-amount">2 languages</span>
+                            </li>
+                            <li class="order-list-item">
+                                <h5>Price</h5>
+                                <span class="item-amount">$ 696.06</span>
+                            </li>
+                            <li class="order-list-item">
+                                <h5>Delivery</h5>
+                                <span class="item-amount">48 hours*</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="buttons-block ">
+                    <button type="submit" name="submit-button" class="place-order-btn">Place order</button>
+                    <button type="button" name="button" class="print-btn">Print a quote</button>
+                </div>
+            </div>
+            <div class="header-right info-block">
+                <h2 class="title">Help center</h2>
+                <address class="address">
+                    <p class="text">If you need assistance while placing your order, contact one of our beloved Project Managers by phone or email.</p>
+                    <a class="link" href="tel:+971(0)555555">+971 (0) 555 555</a>
+                    <a class="link" href="mailto:help@qtest.com">help@qtest.com</a>
+                </address>
+            </div>
+        </section>
+        <section class="wrapper-form">
+            <form class="form" method="post" id="form">
+                <h1>Select what you want to translate</h1>
+                    <div class="doc-type">
+                        <div class="type-item">
+                            <input class="doc-type-input" type="radio" id="website" name="doc" checked>
+                            <label class="doc-type-label" for="website">
+                                <img class="doc-img" src="assets/img/website.png" alt="document-image">
+                                <p class="title">Website</p>
+                            </label>
+                        </div>
+                        <div class="type-item">
+                            <input class="doc-type-input" type="radio" id="doc" name="doc" value="">
+                            <label class="doc-type-label" for="doc">
+                                <img class="doc-img" src="assets/img/documents.png" alt="document-image">
+                                <p class="title">Documents</p>
+                            </label>
+                        </div>
+                        <div class="type-item">
+                            <input class="doc-type-input" type="radio" id="account" name="doc" value="">
+                            <label class="doc-type-label" for="account">
+                                <img class="doc-img" src="assets/img/account.png" alt="document-image">
+                                <p class="title">Social account</p>
+                            </label>
+                        </div>
+                    </div>
+                    <section class="upload">
+                        <h4 class="upload-title">Upload your documents <span class="upload-type">(Doc, Docx, Text, PDF, Markdown)</span> </h4>
+                        <input type="file" class="upload-input" accept=".doc, .docx, .txt, .md, .pdf" id="upload-file">
+                        <label for="upload-file" class="upload-label">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Upload a new file</span>
+                        </label>
+                        <div class="files-items">
+                          <div class="files-item item-head">
+                              <p class="name item-text">File name</p>
+                              <p class="size item-text">File size</p>
+                              <p class="number item-text">Number of words</p>
+                              <p class="remove  item-text">Remove</p>
+                          </div>
+                          <div class="files-item">
+                              <p class="name">
+                                <i class="fas fa-file-alt"></i>
+                                business_operations.docx
+                              </p>
+                              <p class="size">78kb</p>
+                              <p  class="number">842</p>
+                              <div class="remove">
+                                  <button class="remove-btn" type="button" name="button">
+                                      <i class="fa fa-trash" aria-hidden="true"></i>
+                                  </button>
+                              </div>
+                          </div>
+                          <div class="files-item">
+                              <p class="name">
+                                <i class="fas fa-file-alt"></i>
+                                business_operations.docx
+                              </p>
+                              <p class="size">78kb</p>
+                              <p  class="number">842</p>
+                              <div class="remove">
+                                  <button class="remove-btn" type="button" name="button">
+                                      <i class="fa fa-trash" aria-hidden="true"></i>
+                                  </button>
+                              </div>
+                          </div>
+                        </div>
+                    </section>
+                    <section class="pairing">
+                        <h4 class="pairing-title">Choose your language pairing</h4>
+                        <label class="select from-select">From</label>
+                        <div class="select-language-wrapper">
+                            <select form="form" class="select-language" name="select" >
+                                <option  disabled value="English" >English</option>
+                                <option value="Spanish">Spanish</option>
+                                <option value="Portugese">Portugese</option>
+                                <option value="Deuch">Deuch</option>
+                            </select>
+                        </div>
+                        <div class="translate-to">
+                            <label class="select">To</label>
+                                <div class="select-language-wrapper">
+                                    <select form="form" class="select-language" name="select" >
+                                        <option  disabled value="Arabic" >Arabic</option>
+                                        <option value="Persian">Persian</option>
+                                        <option value="French">French</option>
+                                        <option value="Japanese">Japanese</option>
+                                    </select>
+                                </div>
+                            <label class="select"></label>
+                                <div class="select-language-wrapper">
+                                    <select form="form" class="select-language" name="select" >
+                                        <option  disabled value="Mandarinean" >Mandarinean</option>
+                                        <option value="Persian">Persian</option>
+                                        <option value="French">French</option>
+                                        <option value="Japanese">Japanese</option>
+                                    </select>
+                                </div>
+                            <div class="bin-button">
+                                <button class="remove-btn" type="button" name="button">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <button class="add-selection" type="button" name="button">
+                                + Add
+                            </button>
+                        </div>
+                    </section>
+                    <div class="sections-block">
+                        <section class="tone">
+                            <h4 class="tone-title">Select your desired tone</h4>
+                            <input class="tone-input" type="radio" name="tone" id="tone1" checked>
+                            <label class="tone-label casual" for="tone1">
+                                Friendly/Casual
+                            </label>
+                            <input class="tone-input" type="radio" name="tone" id="tone2">
+                            <label class="tone-label pro" for="tone2">
+                                Corporate/Pro
+                            </label>
+                            <input class="tone-input" type="radio" name="tone" id="tone3">
+                            <label class="tone-label formal" for="tone3">
+                                Media/Formal
+                            </label>
+                        </section>
+                        <section class="range-block">
+                            <h4 class="range-title">Tell us how urgent this job is</h4>
+                            <div class="range-item">
+                                <input class="range-input" type="range" name="" value="" min="0" max="100" step="50" value="50" >
+                                <div class="range-labels">
+                                    <label class="range-label">I got time</label>
+                                    <label class="range-label average">Average</label>
+                                    <label class="range-label">Yesterday</label>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <h5 class="timeline-title">Timeline info</h5>
+                                <p class="text">With an <span class="average">average </span> timeline setup, our expert translator can take a reasonable amount of time perfection your translation</p>
+                            </div>
+                        </section>
+                    </div>
+                    <section class="sign-up">
+                        <h4 class="sign-up-title">Sign up and choose a paying method</h4>
+                        <p class="sign-up">Already have an account here?
+                            <a class="sign-up-link" href="#">Sign up</a>.
+                        </p>
+                        <section class="payment">
+                            <div class="name">
+                                <label class="name-label" for="full-name">Full name</label>
+                                <input class="name-input" type="text" id="full-name" name="full-name" minlength="3" pattern="^[a-zA-Z\s\.\-]*$" title="Set name more than 2 letters" placeholder="Your name" value="Mark Smith" required>
+                                <span class="validation"></span>
+                            </div>
+                            <div class="payment-item">
+                                <div class="email">
+                                    <label class="address-label" for="email-address">Email address</label>
+                                    <input class="address-input" type="email" id="email-address" name="email-address" placeholder="your email" value="marksmith@gmail.com" required>
+                                    <span class="validation"></span>
+                                </div>
+                                <div class="password">
+                                    <label class="password-label" for="password">Choose a password</label>
+                                    <input class="password-input" type="password" id="password" name="password" placeholder="Choose your password" minlength="6" title="Set password more than 6 letters length" required>
+                                    <span class="validation"></span>
+                                </div>
+                            </div>
+                            <div class="payment-method">
+                                <input class="payment-input"  id="visa-i" type="radio" name="payment-input" checked>
+                                <label for="visa-i" class="payment-label">
+                                    <img class="payment-img" src="assets/img/visa.png" alt="visa-img">
+                                </label>
+                                <input class="payment-input"  id="paypal" type="radio" name="payment-input">
+                                <label for="paypal" class="payment-label">
+                                    <img class="payment-img" src="assets/img/paypal.png" alt="paypal-img">
+                                </label>
+                                <input class="payment-input"  id="amazon"  type="radio" name="payment-input">
+                                <label for="amazon" class="payment-label">
+                                    <img class="payment-img" src="assets/img/amazon.png" alt="amazon-img">
+                                </label>
+                            </div>
+                            <div class="pay-card">
+                                <div class="pay-card-item card-item">
+                                    <label class="number-label">Card number</label>
+                                    <input class="card-input" type="number" pattern="[0-9]{16}" required placeholder="Your Card number" title="Set not less than 16 numbers">
+                                </div>
+                                <div class="pay-card-item">
+                                    <label class="expiry-label">Expiry date</label>
+                                    <input class="date-input" type="date" placeholder="DD / MM / YY" required title="Enter the correct format of the date">
+                                </div>
+                                <div class="pay-card-item">
+                                    <label class="code-label">Code</label>
+                                    <input class="code-input" type="password" pattern="[0-9]{3}" required placeholder="Your code" title="Set password of 3 numbers">
+                                </div>
+
+                            </div>
+                        </section>
+                    </section>
+                    <section class="place-order">
+                        <div class="place-order-block">
+                            <input type="checkbox" name="terms" class="terms-input" id="terms">
+                            <label for="terms" class="terms-label">I agree to the</label>
+                            <a href="#" class="terms-link">Terms &amp; Conditions</a>
+                        </div>
+                        <div class="buttons-block bottom-buttons">
+                            <button type="submit" name="submit-button" class="place-order-btn">Place order</button>
+                            <button type="button" name="button" class="print-btn">Print a quote</button>
+                        </div>
+                    </section>
+            </form>
+        </section>
+        </div>
+    </div>
+</body>
+</html>
