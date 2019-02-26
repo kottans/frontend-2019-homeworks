@@ -12,11 +12,17 @@
     text-align: center;
     letter-spacing: 0.5px;
     @include transition(all);
-    &:not(.standard-button-blue):hover,
-    &:not(.standard-button-blue):focus,
-    &:not(.standard-button-blue):active {
+    &:not(.standard-button-blue):hover {
         border-color: $blueColor;
     }
+    &:not(.standard-button-blue):focus {
+        border-color: $blueColor;
+        box-shadow: $shadow;
+    }
+    &:not(.standard-button-blue):active {
+        box-shadow: $shadow;
+    }
+
     &:-moz-focusring {
         outline: 1px dotted;
     }
@@ -31,10 +37,14 @@
     span {
         color: #fff;
     }
-    &:hover,
-    &:focus,
+    &:hover {
+        box-shadow: $shadow;
+    }
+    &:focus {
+        box-shadow: $blueShadow;
+    }
     &:active {
-        opacity: 0.8;
+        box-shadow: $brightShadow;
     }
 }
 
@@ -82,10 +92,15 @@
     background-repeat: no-repeat;
     background-size: 1em;
     background-position: 36px center;
-    &:hover,
-    &:focus,
-    &:active {
+    &:hover {
         border-color: $blueColor;
+    }
+    &:focus {
+        border-color: $blueColor;
+        box-shadow: $shadow;
+    }
+    &:active {
+        box-shadow: $shadow;
     }
 }
 

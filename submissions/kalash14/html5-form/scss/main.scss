@@ -38,8 +38,13 @@ body {
     }
 }
 
-@include mediaQuery(600) {
-    .logo-link {
+.logo-link {
+    @include transition(all);
+    border: 2px solid transparent;
+    &:hover {
+        border: 2px solid $borderColor;
+    }
+    @include mediaQuery(600) {
         order: -1;
         margin-bottom: 1em;
     }
@@ -296,6 +301,9 @@ body {
     @include mediaQuery(992) {
         width: 300px;
     }
+    @include mediaQuery(400) {
+        width: 275px;
+    }
 }
 
 .hidden-input {
@@ -319,6 +327,9 @@ body {
         &:last-child {
             margin-bottom: 0;
         }
+    }
+    @include mediaQuery(400) {
+        width: 275px;
     }
 }
 
@@ -413,14 +424,14 @@ body {
     padding: 1.5em 2em 1.5em 4.5em;
     font-weight: 600;
     background-color: $blocksGrey;
-    @include transition(border-color);
+    @include transition(all);
     &:hover {
         border-color: $blueColor;
     }
 }
 
 .file-upload-input:focus + .file-label {
-    opacity: 0.8;
+    box-shadow: $shadow;
     outline: -webkit-focus-ring-color auto 5px;
 }
 
@@ -884,6 +895,17 @@ body {
 .text-link-sign {
     text-decoration: underline;
     color: $text;
+    @include transition(all);
+    &:hover {
+        color: $blueColor;
+    }
+    &:focus {
+        color: #54aca9;
+    }
+    &:active {
+        color: $blueColor;
+        text-decoration: none;
+    }
 }
 
 .text-form-item {
@@ -1127,10 +1149,15 @@ body {
     text-decoration: underline;
     color: $lightGrey;
     @include transition(color);
-    &:hover,
-    &:focus,
+    &:hover {
+        color: $blueColor;
+    }
+    &:focus {
+        color: #54aca9;
+    }
     &:active {
         color: $blueColor;
+        text-decoration: none;
     }
 }
 
