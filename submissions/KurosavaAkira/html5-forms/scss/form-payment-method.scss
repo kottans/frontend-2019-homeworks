@@ -43,6 +43,14 @@
   max-height: 52px;
 }
 
+.input-sign-up input:invalid {
+  background-image: url(../img/mark-invalid.png);
+}
+
+.input-sign-up input:valid {
+  background-image: url(../img/mark-valid.png);
+}
+
 .payment-media-button {
   margin-right: 30px;
   margin-top: 30px;
@@ -111,8 +119,8 @@
   max-height: 52px;
 }
 
-.input-expiry-date input {
-  width: 140px;
+.input-card-number input {
+  background-image: url(../img/mark-visa.png);
 }
 
 .input-card-code input {
