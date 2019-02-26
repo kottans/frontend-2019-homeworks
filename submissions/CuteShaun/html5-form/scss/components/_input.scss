@@ -33,6 +33,10 @@
 
   &--long {
     min-width: 325px;
+
+    @media (max-width: 620px) {
+      min-width: 250px;
+    }
   }
 
   &--medium {

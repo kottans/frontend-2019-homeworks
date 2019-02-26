@@ -6,12 +6,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 450px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .nav__logo {
   width: 100px;
   height: 100px;
   border-radius: 50%;
+
+  @media (max-width: 450px) {
+    margin: 40px 0;
+  }
 
   &:hover {
     box-shadow: 0 0 0 5px $blue;

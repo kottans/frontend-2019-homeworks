@@ -6,6 +6,8 @@
   font-size: 1.6rem;
   cursor: pointer;
   transition: 0.3s;
+  min-width: 188px;
+  max-width: 220px;
 
   &:focus,
   &:hover {

@@ -67,3 +67,11 @@
     color: $blue;
   }
 }
+
+
+.logo-section {
+  text-align: center;
+  @media(max-width: 480px) {
+    width: 100%;
+  }
+}
