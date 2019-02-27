@@ -110,12 +110,10 @@
   flex-direction: column;
   padding-right: 2.5rem;
 
-  @media (max-width: 500px) {
-    padding-right: 0;
-  }
-
-  @media (max-width: 430px) {
+  @media (max-width: 620px) {
     align-items: center;
+    width: 100%;
+    padding-right: 0;
   }
 }
 
@@ -411,6 +409,12 @@
   }
 }
 
+.language__selects {
+  @media (max-width: 620px) {
+    width: 100%;
+  }
+}
+
 .language__row {
   @media (max-width: 620px) {
     justify-content: center;
@@ -435,6 +439,10 @@
     text-align: center;
     height: 50px;
     pointer-events: none;
+  }
+
+  @media (max-width: 620px) {
+    width: 100%;
   }
 }
 
@@ -477,6 +485,10 @@
 
   &:hover {
     @include defaultHover;
+  }
+
+  @media (max-width: 620px) {
+    width: 100%;
   }
 }
 
@@ -524,6 +536,10 @@
 
 .tone__buttons {
   margin: 10px 0;
+
+  @media (max-width: 620px) {
+    width: 100%;
+  }
 }
 
 .urgent {
@@ -556,6 +572,10 @@
   cursor: pointer;
   transition: 0.25s;
   text-align: center;
+
+  @media (max-width: 620px) {
+    width: 100%;
+  }
 }
 
 .tone__icon {
@@ -610,9 +630,10 @@
 }
 
 .user__card {
-  @media screen and(max-width: 410px) {
+  @media (max-width: 620px) {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -626,11 +647,11 @@
   flex-wrap: wrap;
   margin: 20px 0;
 
-  @media screen and (max-width: 658px) {
+  @media (max-width: 658px) {
     margin: 0;
   }
 
-  @media screen and (max-width: 527px) {
+  @media (max-width: 527px) {
     justify-content: center;
   }
 }
@@ -640,8 +661,15 @@
   display: inline-block;
   margin: 1.5rem 2rem 0 0;
 
-  @media screen and (max-width: 410px) {
+  @media (max-width: 620px) {
     margin-right: 0;
+    width: 100%;
+  }
+
+  &--auto {
+    @media (max-width: 620px) {
+      width: auto;
+    }
   }
 }
 
@@ -678,7 +706,7 @@
   &:not(:last-child) {
     margin-right: 20px;
 
-    @media screen and (max-width: 550px) {
+    @media (max-width: 620px) {
       margin-right: 0;
     }
   }
@@ -687,8 +715,9 @@
     margin: 10px 10px 10px 0;
   }
 
-  @media (max-width: 550px) {
+  @media (max-width: 620px) {
     margin: 10px 0;
+    width: 100%;
   }
 }
 
@@ -752,7 +781,7 @@
   &--1 {
     margin-right: 20px;
 
-    @media (max-width: 460px) {
+    @media (max-width: 620px) {
       margin-right: 0;
       margin-bottom: 15px;
     }

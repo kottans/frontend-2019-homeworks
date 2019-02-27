@@ -14,6 +14,12 @@
     box-shadow: 0 0 0 2px $blue;
     color: $blue;
   }
+
+  @media screen and (max-width: 620px) {
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .icon {

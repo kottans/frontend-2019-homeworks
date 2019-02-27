@@ -33,24 +33,24 @@
   &--long {
     min-width: 325px;
 
-    @media (max-width: 500px) {
-      min-width: 234px;
+    @media (max-width: 620px) {
+      width: 100%;
+      min-width: 0;
     }
   }
 
   &--medium {
-    max-width: 190px;
-    min-width: 0;
+    max-width: 100%;
+
+    @media (max-width: 620px) {
+      width: 100%;
+    }
   }
 
   &--short {
     width: 110px;
     max-width: 110px;
-
-    @media (max-width: 500px) {
-      min-width: 110px;
-      max-width: 110px;
-    }
+    min-width: 110px;
   }
 
   &::placeholder {

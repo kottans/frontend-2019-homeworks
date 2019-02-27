@@ -21,7 +21,7 @@
   }
 
   &__link {
-      text-decoration: underline;
+    text-decoration: underline;
   }
 }
 
@@ -49,6 +49,10 @@
   letter-spacing: 0.5px;
   color: $slate;
   margin-bottom: 35px;
+
+  @media (max-width: 620px) {
+    text-align: center;
+  }
 }
 
 .fifth-heading {

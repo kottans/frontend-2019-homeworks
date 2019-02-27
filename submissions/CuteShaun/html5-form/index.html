@@ -1,25 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <style>
-      @font-face{font-family:FontAwesome;src:url(fonts/web-fonts/fontawesome-webfont.eot?v=4.7.0);src:url(fonts/web-fonts/fontawesome-webfont.eot?#iefix&v=4.7.0) format('embedded-opentype'),url(fonts/web-fonts/fontawesome-webfont.woff2?v=4.7.0) format('woff2'),url(fonts/web-fonts/fontawesome-webfont.woff?v=4.7.0) format('woff'),url(fonts/web-fonts/fontawesome-webfont.ttf?v=4.7.0) format('truetype'),url(fonts/web-fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular) format('svg');font-weight:400;font-style:normal}.fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.fa-user:before{content:"\f007"}.fa-long-arrow-left:before{content:"\f177"}.fa-life-ring:before{content:"\f1cd"}@font-face{font-family:Roboto;font-style:normal;font-weight:400;src:local('Roboto'),local('Roboto-Regular'),url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype')}@font-face{font-family:Roboto;font-style:normal;font-weight:500;src:local('Roboto Medium'),local('Roboto-Medium'),url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fBBc9.ttf) format('truetype')}@font-face{font-family:Roboto;font-style:normal;font-weight:700;src:local('Roboto Bold'),local('Roboto-Bold'),url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc9.ttf) format('truetype')}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;font-size:62.5%}body{margin:0;font-family:Roboto,sans-serif}header,main,nav,section{display:block}a{background-color:transparent;text-decoration:none}h1{font-size:2em;margin:0}img{border:0}button,input{color:inherit;font:inherit;margin:0}button{overflow:visible}button{text-transform:none}button{-webkit-appearance:button}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=radio]{-webkit-box-sizing:border-box;box-sizing:border-box;padding:0}ul{padding:0}.visually-hidden{position:absolute;clip:rect(0 0 0 0);width:1px;height:1px;margin:-1px}*{-webkit-box-sizing:border-box;box-sizing:border-box}@media (max-width:1200px){html{font-size:50%}}ul{margin:0}li{list-style-type:none}.section{position:relative;margin-bottom:100px}.wrapper{background-color:#eceef4;counter-reset:section;padding-bottom:100px}.container{max-width:1200px;margin:0 auto;padding:0 15px}@media (max-width:620px){.container{padding:0 10px}}@media (max-width:470px){.container{padding:0 5px}}.inner-container{max-width:1000px;margin:0 auto;padding:0 15px}.inner-wrapper{background-color:#fff;border:1px solid #abb4cd;-webkit-border-radius:3px;border-radius:3px}.order-detail{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding:0 3.8rem 0 7rem;border-bottom:1px solid #abb4cd}@media (max-width:739px){.order-detail{padding:0 3rem;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}}@media (max-width:390px){.order-detail{padding:0 1rem}}.help,.order{padding-top:24px;padding-bottom:24px}@media (max-width:390px){.help,.order{padding:40px 0}}.order{border-right:1px solid #abb4cd}@media (max-width:739px){.order{border-right:0}}.order__item{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}@media (max-width:940px){.order__item{-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}}@media (max-width:720px){.order__item{-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}}.order__table{margin-right:7rem}@media (max-width:940px){.order__table{margin-bottom:20px;margin-right:2rem}}@media (max-width:430px){.order__table{margin-right:0}}.order__list-item:not(:last-child){margin-right:5.5rem}@media (max-width:720px){.order__list-item:not(:last-child){margin-right:10px}}@media (max-width:430px){.order__list-item:not(:last-child){margin-right:5px}}.button-box{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;padding-right:2.5rem}@media (max-width:500px){.button-box{padding-right:0}}@media (max-width:430px){.button-box{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}}.button-box__item--1{margin-bottom:12px}.order__list{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}.order__list{-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between}.order__title{position:relative}.order__title:before{display:block;position:absolute;content:"";width:18px;height:24px;background-color:#000;background-image:url(img/tablet.jpg);-webkit-background-size:cover;background-size:cover;-o-object-fit:cover;object-fit:cover;background-position:top center;left:-35px;top:-3px}@media (max-width:390px){.order__title:before{top:-35px;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%)}}.help{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;padding-left:6rem}@media (max-width:940px){.help{-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}}@media (max-width:739px){.help{padding-left:0;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}}.help__item{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}.help__title{position:relative}.help__text,.order__text{color:#9fa3c4;font-size:1.4rem}.help__text{word-break:break-word;max-width:250px}.help__link-box{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}.help__link{color:#6e768f;font-size:1.4rem;font-weight:500}.help__link:not(last-child){margin-right:10px}.help__icon{position:absolute;left:-35px;font-size:20px}@media (max-width:390px){.help__icon{top:-35px;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%)}}.translate-selection{text-align:center}.service{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}@media (max-width:1200px){.service{-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}}.service__select{position:relative}@media (max-width:1200px){.service__select{margin:10px}}.service__img-wrapper{font-size:0;display:inline-block;padding:20px 8rem;background-color:#f7f7f9;border:1px solid #abb4cd;-webkit-border-radius:3px;border-radius:3px}@media (max-width:360px){.service__img-wrapper{padding:20px 6rem}}.service__input:checked+.service__img-wrapper{-webkit-box-shadow:inset 0 0 0 6px #76a7e1;box-shadow:inset 0 0 0 6px #76a7e1}.service__input:checked+.service__img-wrapper:after{display:block;position:absolute;top:-4px;right:-6px;color:#76a7e1;font-size:30px;z-index:2;font-family:FontAwesome;content:"\f058";background:#fff;line-height:15px;width:22px;height:15px;-webkit-border-radius:50%;border-radius:50%}.service__text{display:block;font-size:1.4rem;font-weight:500;color:#6e768f;margin-top:10px}.main-heading{display:inline-block;margin:0 auto;padding-bottom:7px;font-weight:500;text-transform:uppercase;margin:6.5rem;line-height:1.2;letter-spacing:3px;text-align:center;color:#6e768f;border-bottom:1px solid #abb4cd}.secondary-heading,.tertiary-heading{text-transform:uppercase;font-size:1.6rem;font-weight:700;color:#6e768f}.tertiary-heading{font-size:1.4rem}.btn{padding:20px 35px;border:1px solid #abb4cd;-webkit-border-radius:5px;border-radius:5px;font-weight:700;font-size:1.6rem;min-width:188px;max-width:220px}.icon{margin-right:10px}.btn-grey-upper-text{text-transform:uppercase;background-color:#f7f7f9;color:#abb4cd}.btn-turq{text-transform:uppercase;background-color:#5fcac6;color:#fff;border:1px solid #5fcac6}.header{padding:60px 0}.nav__list{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}@media (max-width:450px){.nav__list{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}}.nav__logo{width:100px;height:100px;-webkit-border-radius:50%;border-radius:50%}@media (max-width:450px){.nav__logo{margin:40px 0}}
-    </style>
-    <style>
-      @font-face{font-family:FontAwesome;src:url(fonts/web-fonts/fontawesome-webfont.eot?v=4.7.0);src:url(fonts/web-fonts/fontawesome-webfont.eot?#iefix&v=4.7.0) format('embedded-opentype'),url(fonts/web-fonts/fontawesome-webfont.woff2?v=4.7.0) format('woff2'),url(fonts/web-fonts/fontawesome-webfont.woff?v=4.7.0) format('woff'),url(fonts/web-fonts/fontawesome-webfont.ttf?v=4.7.0) format('truetype'),url(fonts/web-fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular) format('svg');font-weight:400;font-style:normal}.fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.fa-user:before{content:"\f007"}.fa-long-arrow-left:before{content:"\f177"}.fa-life-ring:before{content:"\f1cd"}@font-face{font-family:Roboto;font-style:normal;font-weight:400;src:local('Roboto'),local('Roboto-Regular'),url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype')}@font-face{font-family:Roboto;font-style:normal;font-weight:500;src:local('Roboto Medium'),local('Roboto-Medium'),url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fBBc9.ttf) format('truetype')}@font-face{font-family:Roboto;font-style:normal;font-weight:700;src:local('Roboto Bold'),local('Roboto-Bold'),url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc9.ttf) format('truetype')}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;font-size:62.5%}body{margin:0;font-family:Roboto,sans-serif}header,main,nav,section{display:block}a{background-color:transparent;text-decoration:none}h1{font-size:2em;margin:0}img{border:0}button,input{color:inherit;font:inherit;margin:0}button{overflow:visible}button{text-transform:none}button{-webkit-appearance:button}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=radio]{-webkit-box-sizing:border-box;box-sizing:border-box;padding:0}ul{padding:0}.visually-hidden{position:absolute;clip:rect(0 0 0 0);width:1px;height:1px;margin:-1px}*{-webkit-box-sizing:border-box;box-sizing:border-box}@media (max-width:1200px){html{font-size:50%}}ul{margin:0}li{list-style-type:none}.section{position:relative;margin-bottom:100px}.wrapper{background-color:#eceef4;counter-reset:section;padding-bottom:100px}.container{max-width:1200px;margin:0 auto;padding:0 15px}@media (max-width:620px){.container{padding:0 10px}}@media (max-width:470px){.container{padding:0 5px}}.inner-container{max-width:1000px;margin:0 auto;padding:0 15px}.inner-wrapper{background-color:#fff;border:1px solid #abb4cd;-webkit-border-radius:3px;border-radius:3px}.order-detail{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding:0 3.8rem 0 7rem;border-bottom:1px solid #abb4cd}@media (max-width:739px){.order-detail{padding:0 3rem;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}}@media (max-width:390px){.order-detail{padding:0 1rem}}.help,.order{padding-top:24px;padding-bottom:24px}@media (max-width:390px){.help,.order{padding:40px 0}}.order{border-right:1px solid #abb4cd}@media (max-width:739px){.order{border-right:0}}.order__item{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}@media (max-width:940px){.order__item{-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}}@media (max-width:720px){.order__item{-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}}.order__table{margin-right:7rem}@media (max-width:940px){.order__table{margin-bottom:20px;margin-right:2rem}}@media (max-width:430px){.order__table{margin-right:0}}.order__list-item:not(:last-child){margin-right:5.5rem}@media (max-width:720px){.order__list-item:not(:last-child){margin-right:10px}}@media (max-width:430px){.order__list-item:not(:last-child){margin-right:5px}}.button-box{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;padding-right:2.5rem}@media (max-width:500px){.button-box{padding-right:0}}@media (max-width:430px){.button-box{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}}.button-box__item--1{margin-bottom:12px}.order__list{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}.order__list{-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between}.order__title{position:relative}.order__title:before{display:block;position:absolute;content:"";width:18px;height:24px;background-color:#000;background-image:url(img/tablet.jpg);-webkit-background-size:cover;background-size:cover;-o-object-fit:cover;object-fit:cover;background-position:top center;left:-35px;top:-3px}@media (max-width:390px){.order__title:before{top:-35px;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%)}}.help{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;padding-left:6rem}@media (max-width:940px){.help{-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}}@media (max-width:739px){.help{padding-left:0;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}}.help__item{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}.help__title{position:relative}.help__text,.order__text{color:#9fa3c4;font-size:1.4rem}.help__text{word-break:break-word;max-width:250px}.help__link-box{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}.help__link{color:#6e768f;font-size:1.4rem;font-weight:500}.help__link:not(last-child){margin-right:10px}.help__icon{position:absolute;left:-35px;font-size:20px}@media (max-width:390px){.help__icon{top:-35px;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%)}}.translate-selection{text-align:center}.service{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}@media (max-width:1200px){.service{-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}}.service__select{position:relative}@media (max-width:1200px){.service__select{margin:10px}}.service__img-wrapper{font-size:0;display:inline-block;padding:20px 8rem;background-color:#f7f7f9;border:1px solid #abb4cd;-webkit-border-radius:3px;border-radius:3px}@media (max-width:360px){.service__img-wrapper{padding:20px 6rem}}.service__input:checked+.service__img-wrapper{-webkit-box-shadow:inset 0 0 0 6px #76a7e1;box-shadow:inset 0 0 0 6px #76a7e1}.service__input:checked+.service__img-wrapper:after{display:block;position:absolute;top:-4px;right:-6px;color:#76a7e1;font-size:30px;z-index:2;font-family:FontAwesome;content:"\f058";background:#fff;line-height:15px;width:22px;height:15px;-webkit-border-radius:50%;border-radius:50%}.service__text{display:block;font-size:1.4rem;font-weight:500;color:#6e768f;margin-top:10px}.main-heading{display:inline-block;margin:0 auto;padding-bottom:7px;font-weight:500;text-transform:uppercase;margin:6.5rem;line-height:1.2;letter-spacing:3px;text-align:center;color:#6e768f;border-bottom:1px solid #abb4cd}.secondary-heading,.tertiary-heading{text-transform:uppercase;font-size:1.6rem;font-weight:700;color:#6e768f}.tertiary-heading{font-size:1.4rem}.btn{padding:20px 35px;border:1px solid #abb4cd;-webkit-border-radius:5px;border-radius:5px;font-weight:700;font-size:1.6rem;min-width:188px;max-width:220px}.icon{margin-right:10px}.btn-grey-upper-text{text-transform:uppercase;background-color:#f7f7f9;color:#abb4cd}.btn-turq{text-transform:uppercase;background-color:#5fcac6;color:#fff;border:1px solid #5fcac6}.header{padding:60px 0}.nav__list{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}@media (max-width:450px){.nav__list{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}}.nav__logo{width:100px;height:100px;-webkit-border-radius:50%;border-radius:50%}@media (max-width:450px){.nav__logo{margin:40px 0}}
-    </style>
-    <style>
-      @font-face{font-family:FontAwesome;src:url(fonts/web-fonts/fontawesome-webfont.eot?v=4.7.0);src:url(fonts/web-fonts/fontawesome-webfont.eot?#iefix&v=4.7.0) format('embedded-opentype'),url(fonts/web-fonts/fontawesome-webfont.woff2?v=4.7.0) format('woff2'),url(fonts/web-fonts/fontawesome-webfont.woff?v=4.7.0) format('woff'),url(fonts/web-fonts/fontawesome-webfont.ttf?v=4.7.0) format('truetype'),url(fonts/web-fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular) format('svg');font-weight:400;font-style:normal}.fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.fa-user:before{content:"\f007"}.fa-long-arrow-left:before{content:"\f177"}.fa-life-ring:before{content:"\f1cd"}@font-face{font-family:Roboto;font-style:normal;font-weight:400;src:local('Roboto'),local('Roboto-Regular'),url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype')}@font-face{font-family:Roboto;font-style:normal;font-weight:500;src:local('Roboto Medium'),local('Roboto-Medium'),url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fBBc9.ttf) format('truetype')}@font-face{font-family:Roboto;font-style:normal;font-weight:700;src:local('Roboto Bold'),local('Roboto-Bold'),url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc9.ttf) format('truetype')}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;font-size:62.5%}body{margin:0;font-family:Roboto,sans-serif}header,main,nav,section{display:block}a{background-color:transparent;text-decoration:none}h1{font-size:2em;margin:0}img{border:0}button,input{color:inherit;font:inherit;margin:0}button{overflow:visible}button{text-transform:none}button{-webkit-appearance:button}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=radio]{-webkit-box-sizing:border-box;box-sizing:border-box;padding:0}ul{padding:0}.visually-hidden{position:absolute;clip:rect(0 0 0 0);width:1px;height:1px;margin:-1px}*{-webkit-box-sizing:border-box;box-sizing:border-box}@media (max-width:1200px){html{font-size:50%}}ul{margin:0}li{list-style-type:none}.section{position:relative;margin-bottom:100px}.wrapper{background-color:#eceef4;counter-reset:section;padding-bottom:100px}.container{max-width:1200px;margin:0 auto;padding:0 15px}@media (max-width:620px){.container{padding:0 10px}}@media (max-width:470px){.container{padding:0 5px}}.inner-container{max-width:1000px;margin:0 auto;padding:0 15px}.inner-wrapper{background-color:#fff;border:1px solid #abb4cd;-webkit-border-radius:3px;border-radius:3px}.order-detail{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding:0 3.8rem 0 7rem;border-bottom:1px solid #abb4cd}@media (max-width:739px){.order-detail{padding:0 3rem;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}}@media (max-width:390px){.order-detail{padding:0 1rem}}.help,.order{padding-top:24px;padding-bottom:24px}@media (max-width:390px){.help,.order{padding:40px 0}}.order{border-right:1px solid #abb4cd}@media (max-width:739px){.order{border-right:0}}.order__item{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}@media (max-width:940px){.order__item{-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}}@media (max-width:720px){.order__item{-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}}.order__table{margin-right:7rem}@media (max-width:940px){.order__table{margin-bottom:20px;margin-right:2rem}}@media (max-width:430px){.order__table{margin-right:0}}.order__list-item:not(:last-child){margin-right:5.5rem}@media (max-width:720px){.order__list-item:not(:last-child){margin-right:10px}}@media (max-width:430px){.order__list-item:not(:last-child){margin-right:5px}}.button-box{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;padding-right:2.5rem}@media (max-width:500px){.button-box{padding-right:0}}@media (max-width:430px){.button-box{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}}.button-box__item--1{margin-bottom:12px}.order__list{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}.order__list{-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between}.order__title{position:relative}.order__title:before{display:block;position:absolute;content:"";width:18px;height:24px;background-color:#000;background-image:url(img/tablet.jpg);-webkit-background-size:cover;background-size:cover;-o-object-fit:cover;object-fit:cover;background-position:top center;left:-35px;top:-3px}@media (max-width:390px){.order__title:before{top:-35px;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%)}}.help{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;padding-left:6rem}@media (max-width:940px){.help{-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}}@media (max-width:739px){.help{padding-left:0;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}}.help__item{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}.help__title{position:relative}.help__text,.order__text{color:#9fa3c4;font-size:1.4rem}.help__text{word-break:break-word;max-width:250px}.help__link-box{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}.help__link{color:#6e768f;font-size:1.4rem;font-weight:500}.help__link:not(last-child){margin-right:10px}.help__icon{position:absolute;left:-35px;font-size:20px}@media (max-width:390px){.help__icon{top:-35px;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%)}}.translate-selection{text-align:center}.service{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}@media (max-width:1200px){.service{-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}}.service__select{position:relative}@media (max-width:1200px){.service__select{margin:10px}}.service__img-wrapper{font-size:0;display:inline-block;padding:20px 8rem;background-color:#f7f7f9;border:1px solid #abb4cd;-webkit-border-radius:3px;border-radius:3px}@media (max-width:360px){.service__img-wrapper{padding:20px 6rem}}.service__input:checked+.service__img-wrapper{-webkit-box-shadow:inset 0 0 0 6px #76a7e1;box-shadow:inset 0 0 0 6px #76a7e1}.service__input:checked+.service__img-wrapper:after{display:block;position:absolute;top:-4px;right:-6px;color:#76a7e1;font-size:30px;z-index:2;font-family:FontAwesome;content:"\f058";background:#fff;line-height:15px;width:22px;height:15px;-webkit-border-radius:50%;border-radius:50%}.service__text{display:block;font-size:1.4rem;font-weight:500;color:#6e768f;margin-top:10px}.main-heading{display:inline-block;margin:0 auto;padding-bottom:7px;font-weight:500;text-transform:uppercase;margin:6.5rem;line-height:1.2;letter-spacing:3px;text-align:center;color:#6e768f;border-bottom:1px solid #abb4cd}.secondary-heading,.tertiary-heading{text-transform:uppercase;font-size:1.6rem;font-weight:700;color:#6e768f}.tertiary-heading{font-size:1.4rem}.btn{padding:20px 35px;border:1px solid #abb4cd;-webkit-border-radius:5px;border-radius:5px;font-weight:700;font-size:1.6rem;min-width:188px;max-width:220px}.icon{margin-right:10px}.btn-grey-upper-text{text-transform:uppercase;background-color:#f7f7f9;color:#abb4cd}.btn-turq{text-transform:uppercase;background-color:#5fcac6;color:#fff;border:1px solid #5fcac6}.header{padding:60px 0}.nav__list{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}@media (max-width:450px){.nav__list{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}}.nav__logo{width:100px;height:100px;-webkit-border-radius:50%;border-radius:50%}@media (max-width:450px){.nav__logo{margin:40px 0}}
-    </style>
-    <link rel="preload" href="fonts/css/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="fonts/css/font-awesome.min.css"></noscript>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet"></noscript>
-    <link rel="preload" href="css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/styles.min.css"></noscript>
-    <script>!function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="fonts/css/font-awesome.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.min.css" />
     <title>Form</title>
   </head>
   <body>
@@ -35,7 +25,9 @@
           </a>
         </li>
         <li class="nav__list-item">
-          <a class="nav__link" href="#"><img class="nav__logo" src="img/logo.jpg" alt="logo"></a>
+          <a class="nav__link" href="#"
+            ><img class="nav__logo" src="img/logo.jpg" alt="logo"
+          /></a>
         </li>
         <li class="nav__list-item">
           <a class="btn btn-grey-upper-text nav__link" href="#">
@@ -74,10 +66,17 @@
                   </ul>
                 </div>
                 <div class="button-box">
-                  <button class="btn btn-turq button-box__item--1" form="translate" type="submit">
+                  <button
+                    class="btn btn-turq button-box__item--1"
+                    form="translate"
+                    type="submit"
+                  >
                     place order
                   </button>
-                  <button class="btn btn-grey-upper-text button-box__item--2" type="button">
+                  <button
+                    class="btn btn-grey-upper-text button-box__item--2"
+                    type="button"
+                  >
                     print a quote
                   </button>
                 </div>
@@ -93,8 +92,12 @@
                   of our beloved Project Manager by phone or email.
                 </p>
                 <div class="help__link-box">
-                  <a class="help__link" href="tel:+9710555555">+971(0)555 555</a>
-                  <a class="help__link" href="mailto:help@qtest.com">help@qtest.com</a>
+                  <a class="help__link" href="tel:+9710555555"
+                    >+971(0)555 555</a
+                  >
+                  <a class="help__link" href="mailto:help@qtest.com"
+                    >help@qtest.com</a
+                  >
                 </div>
               </div>
             </div>
@@ -107,22 +110,59 @@
 
                 <div class="service" role="group">
                   <label for="web" class="service__select">
-                    <input id="web" type="radio" class="visually-hidden service__input" name="service-type" value="website" required checked>
-                    <span class="service__img-wrapper"><img class="service__img" src="img/translate-1.jpg" alt="website">
+                    <input
+                      id="web"
+                      type="radio"
+                      class="visually-hidden service__input"
+                      name="service-type"
+                      value="website"
+                      required
+                      checked
+                    />
+                    <span class="service__img-wrapper"
+                      ><img
+                        class="service__img"
+                        src="img/translate-1.jpg"
+                        alt="website"
+                      />
                       <span class="service__text">Website</span>
                     </span>
                   </label>
 
                   <label for="doc" class="service__select">
-                    <input id="doc" type="radio" class="visually-hidden service__input" name="service-type" value="documents" required>
-                    <span class="service__img-wrapper"><img class="service__img" src="img/translate-2.jpg" alt="documents">
+                    <input
+                      id="doc"
+                      type="radio"
+                      class="visually-hidden service__input"
+                      name="service-type"
+                      value="documents"
+                      required
+                    />
+                    <span class="service__img-wrapper"
+                      ><img
+                        class="service__img"
+                        src="img/translate-2.jpg"
+                        alt="documents"
+                      />
                       <span class="service__text">Documents</span>
                     </span>
                   </label>
 
                   <label for="social" class="service__select">
-                    <input id="social" type="radio" class="visually-hidden service__input" name="service-type" value="social-account" required>
-                    <span class="service__img-wrapper"><img class="service__img" src="img/translate-3.jpg" alt="social account">
+                    <input
+                      id="social"
+                      type="radio"
+                      class="visually-hidden service__input"
+                      name="service-type"
+                      value="social-account"
+                      required
+                    />
+                    <span class="service__img-wrapper"
+                      ><img
+                        class="service__img"
+                        src="img/translate-3.jpg"
+                        alt="social account"
+                      />
                       <span class="service__text">Social account</span>
                     </span>
                   </label>
@@ -132,20 +172,34 @@
               <section class="section documents">
                 <h4 class="fourth-heading">
                   Upload your documents
-                  <span class="add-heading">(Doc, Docx, Text, PDF, Markdown)</span>
+                  <span class="add-heading"
+                    >(Doc, Docx, Text, PDF, Markdown)</span
+                  >
                 </h4>
 
                 <div class="documents__button-wrapper">
-                  <input class="documents__input visually-hidden" type="file" name="file-upload" id="upload">
-                  <label for="upload" class="documents__button btn btn-grey-normal-text">
+                  <input
+                    class="documents__input visually-hidden"
+                    type="file"
+                    name="file-upload"
+                    id="upload"
+                  />
+                  <label
+                    for="upload"
+                    class="documents__button btn btn-grey-normal-text"
+                  >
                     <span class="fa fa-cloud-upload"></span>
                     Upload a new file
                   </label>
                 </div>
 
                 <div class="documents__table">
-                  <div class="documents__table-wrapper documents__table-wrapper--1">
-                    <div class="documents__table-item documents__table-item--1 documents__name">
+                  <div
+                    class="documents__table-wrapper documents__table-wrapper--1"
+                  >
+                    <div
+                      class="documents__table-item documents__table-item--1 documents__name"
+                    >
                       <h5 class="fifth-heading">
                         File name
                       </h5>
@@ -161,7 +215,9 @@
                       </span>
                     </div>
 
-                    <div class="documents__table-item documents__table-item--2 documents__size">
+                    <div
+                      class="documents__table-item documents__table-item--2 documents__size"
+                    >
                       <h5 class="fifth-heading">
                         File size
                       </h5>
@@ -176,8 +232,12 @@
                     </div>
                   </div>
 
-                  <div class="documents__table-wrapper documents__table-wrapper--2">
-                    <div class="documents__table-item documents__table-item--3 documents__words">
+                  <div
+                    class="documents__table-wrapper documents__table-wrapper--2"
+                  >
+                    <div
+                      class="documents__table-item documents__table-item--3 documents__words"
+                    >
                       <h5 class="fifth-heading">
                         Number of words
                       </h5>
@@ -191,18 +251,24 @@
                       </span>
                     </div>
 
-                    <div class="documents__table-item documents__table-item--4 documents__remove">
+                    <div
+                      class="documents__table-item documents__table-item--4 documents__remove"
+                    >
                       <h5 class="fifth-heading">
                         Remove
                       </h5>
 
                       <button class="trash-btn documents__button" type="button">
-                        <span class="documents__text trash-icon documents__icon fa fa-trash">
+                        <span
+                          class="documents__text trash-icon documents__icon fa fa-trash"
+                        >
                         </span>
                       </button>
 
                       <button class="trash-btn documents__button" type="button">
-                        <span class="documents__text trash-icon documents__icon fa fa-trash">
+                        <span
+                          class="documents__text trash-icon documents__icon fa fa-trash"
+                        >
                         </span>
                       </button>
                     </div>
@@ -213,9 +279,18 @@
               <section class="section language">
                 <h4 class="fourth-heading">Choose your languages pairings</h4>
                 <div class="language__row">
-                  <label for="from" class="fifth-heading fifth-heading--no-mrg language__label language__label--from">from</label>
+                  <label
+                    for="from"
+                    class="fifth-heading fifth-heading--no-mrg language__label language__label--from"
+                    >from</label
+                  >
                   <div class="language__select-wrapper language__item">
-                    <select class="text language__select" name="language-1" id="from" required>
+                    <select
+                      class="text language__select"
+                      name="language-1"
+                      id="from"
+                      required
+                    >
                       <option value="english">English</option>
                       <option value="ukrainian">Ukrainian</option>
                       <option value="kurdish">Kurdish</option>
@@ -226,28 +301,51 @@
                 </div>
 
                 <div class="language__row">
-                  <label for="to" class="fifth-heading fifth-heading--no-mrg language__label language__label--to">to</label>
+                  <label
+                    for="to"
+                    class="fifth-heading fifth-heading--no-mrg language__label language__label--to"
+                    >to</label
+                  >
                   <div class="language__selects">
-                    <div class="language__item language__item--1 language__select-wrapper">
-                      <select class="text language__select" name="language-2" id="to" required>
+                    <div
+                      class="language__item language__item--1 language__select-wrapper"
+                    >
+                      <select
+                        class="text language__select"
+                        name="language-2"
+                        id="to"
+                        required
+                      >
                         <option value="kurdish">Kurdish</option>
                         <option value="ukrainian">Ukrainian</option>
                         <option value="russian">Russian</option>
                         <option value="french">French</option>
                       </select>
                     </div>
-                    <div class="language__item language__item--2 language__select-wrapper">
-                      <select class="text language__select" name="language-3" id="additional-language">
+                    <div
+                      class="language__item language__item--2 language__select-wrapper"
+                    >
+                      <select
+                        class="text language__select"
+                        name="language-3"
+                        id="additional-language"
+                      >
                         <option value="ukrainian">Ukrainian</option>
                         <option value="kurdish">Kurdish</option>
                         <option value="russian">Russian</option>
                         <option value="french">French</option>
                       </select>
                     </div>
-                    <button class="trash-btn language__item language__item--3" type="button">
+                    <button
+                      class="trash-btn language__item language__item--3"
+                      type="button"
+                    >
                       <span class="trash-icon fa fa-trash"></span>
                     </button>
-                    <button class="language__item language__item--4 language__button" type="button">
+                    <button
+                      class="language__item language__item--4 language__button"
+                      type="button"
+                    >
                       <span class="fa fa-plus language__plus"></span>add
                     </button>
                   </div>
@@ -259,21 +357,43 @@
                     Select your desired tone
                   </h4>
                   <div class="tone__buttons">
-                    <input type="radio" name="tone__radio" id="friend" value="friendly-casual" class="visually-hidden tone__input" required checked>
+                    <input
+                      type="radio"
+                      name="tone__radio"
+                      id="friend"
+                      value="friendly-casual"
+                      class="visually-hidden tone__input"
+                      required
+                      checked
+                    />
                     <label class="tone__label" for="friend">
                       <span class="tone__icon fa fa-comments"></span>
                       Friendly / Casual
                     </label>
                   </div>
                   <div class="tone__buttons">
-                    <input type="radio" name="tone__radio" id="corporate" value="corporate-pro" class="visually-hidden tone__input" required>
+                    <input
+                      type="radio"
+                      name="tone__radio"
+                      id="corporate"
+                      value="corporate-pro"
+                      class="visually-hidden tone__input"
+                      required
+                    />
                     <label class="tone__label" for="corporate">
                       <span class="tone__icon fa fa-suitcase"></span>
                       Corporate / Pro
                     </label>
                   </div>
                   <div class="tone__buttons">
-                    <input type="radio" name="tone__radio" id="media" value="media-formal" class="visually-hidden tone__input" required>
+                    <input
+                      type="radio"
+                      name="tone__radio"
+                      id="media"
+                      value="media-formal"
+                      class="visually-hidden tone__input"
+                      required
+                    />
                     <label class="tone__label" for="media">
                       <span class="tone__icon fa fa-bullhorn"> </span>
                       Media / Formal
@@ -286,21 +406,46 @@
                   </h4>
 
                   <div class="urgent-timeline">
-                    <input type="range" name="range-slider" id="urgent-timeline__range" min="0" max="100" step="25" value="50" class="urgent-timeline__input">
+                    <input
+                      type="range"
+                      name="range-slider"
+                      id="urgent-timeline__range"
+                      min="0"
+                      max="100"
+                      step="25"
+                      value="50"
+                      class="urgent-timeline__input"
+                    />
 
-                    <label for="urgent-timeline__range" class=" urgent-timeline__label fifth-heading">i got time</label>
-                    <label for="urgent-timeline__range" class="urgent-timeline__label fifth-heading fifth-heading--yellow">average</label>
-                    <label for="urgent-timeline__range" class="urgent-timeline__label fifth-heading">yesterday</label>
+                    <label
+                      for="urgent-timeline__range"
+                      class=" urgent-timeline__label fifth-heading"
+                      >i got time</label
+                    >
+                    <label
+                      for="urgent-timeline__range"
+                      class="urgent-timeline__label fifth-heading fifth-heading--yellow"
+                      >average</label
+                    >
+                    <label
+                      for="urgent-timeline__range"
+                      class="urgent-timeline__label fifth-heading"
+                      >yesterday</label
+                    >
                   </div>
 
                   <div class="urgent-info">
-                    <h3 class="urgent-info__title tertiary-heading tertiary-heading--no-mrg-top">
+                    <h3
+                      class="urgent-info__title tertiary-heading tertiary-heading--no-mrg-top"
+                    >
                       timeline info
                     </h3>
 
                     <p class="urgent-info__text text text--no-mrg-btm">
                       With an
-                      <span class="fifth-heading fifth-heading--yellow">average</span>
+                      <span class="fifth-heading fifth-heading--yellow"
+                        >average</span
+                      >
                       timeline set up, our expert translator can take a
                       reasonable amount of time perfecting y our translation
                     </p>
@@ -312,13 +457,28 @@
                   Sign up and choose a payment method
                 </h4>
 
-                <span class="user__text text">Already have account with us?
-                  <a href="#" class="text text__link">Sign in.</a></span>
+                <span class="user__text text"
+                  >Already have account with us?
+                  <a href="#" class="text text__link">Sign in.</a></span
+                >
 
                 <div class="user__input-wrapper-outer">
                   <div class="user__input-wrapper-inner">
-                    <label class="fifth-heading fifth-heading--payment user__label" for="full-name">Full name</label>
-                    <input class="user__input user__input--medium" type="text" placeholder="Kottan Kottanko" name="name-surname" id="full-name" pattern="^[a-zA-Z ,.'-]+$" minlength="3" required>
+                    <label
+                      class="fifth-heading fifth-heading--payment user__label"
+                      for="full-name"
+                      >Full name</label
+                    >
+                    <input
+                      class="user__input user__input--medium"
+                      type="text"
+                      placeholder="Kottan Kottanko"
+                      name="name-surname"
+                      id="full-name"
+                      pattern="^[a-zA-Z ,.'-]+$"
+                      minlength="3"
+                      required
+                    />
 
                     <span class="status-icon"></span>
                   </div>
@@ -326,59 +486,148 @@
 
                 <div class="user__input-wrapper-outer">
                   <div class="user__input-wrapper-inner">
-                    <label class="fifth-heading fifth-heading--payment user__label" for="email-input">Email adress</label>
-                    <input class="user__input user__input--medium" type="email" placeholder="example@gmail.com" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="email-input" required>
+                    <label
+                      class="fifth-heading fifth-heading--payment user__label"
+                      for="email-input"
+                      >Email adress</label
+                    >
+                    <input
+                      class="user__input user__input--medium"
+                      type="email"
+                      placeholder="example@gmail.com"
+                      name="email"
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                      id="email-input"
+                      required
+                    />
 
                     <span class="status-icon"></span>
                   </div>
 
                   <div class="user__input-wrapper-inner">
-                    <label class="fifth-heading fifth-heading--payment user__label" for="input-password">Choose a password</label>
-                    <input class="user__input user__input--medium" type="password" placeholder="password" name="input-pass" id="input-password" minlength="6" required>
+                    <label
+                      class="fifth-heading fifth-heading--payment user__label"
+                      for="input-password"
+                      >Choose a password</label
+                    >
+                    <input
+                      class="user__input user__input--medium"
+                      type="password"
+                      placeholder="password"
+                      name="input-pass"
+                      id="input-password"
+                      minlength="6"
+                      required
+                    />
 
                     <span class="status-icon"></span>
                   </div>
                 </div>
 
                 <div class="user__payment">
-                  <input class="visually-hidden user__payment-input" type="radio" name="choose-payment" id="cards" required checked>
+                  <input
+                    class="visually-hidden user__payment-input"
+                    type="radio"
+                    name="choose-payment"
+                    id="cards"
+                    required
+                    checked
+                  />
 
                   <label class="user__payment-label" for="cards">
-                    <img src="img/visa.jpg" alt="visa">
-                    <img src="img/mastercard.jpg" alt="mastercard">
+                    <img src="img/visa.jpg" alt="visa" />
+                    <img src="img/mastercard.jpg" alt="mastercard" />
                   </label>
 
-                  <input class="visually-hidden user__payment-input" type="radio" name="choose-payment" id="paypal" required>
+                  <input
+                    class="visually-hidden user__payment-input"
+                    type="radio"
+                    name="choose-payment"
+                    id="paypal"
+                    required
+                  />
 
                   <label class="user__payment-label" for="paypal">
-                    <img src="img/paypal.jpg" alt="paypal">
+                    <img src="img/paypal.jpg" alt="paypal" />
                   </label>
 
-                  <input class="visually-hidden user__payment-input" type="radio" name="choose-payment" id="amazon" required>
+                  <input
+                    class="visually-hidden user__payment-input"
+                    type="radio"
+                    name="choose-payment"
+                    id="amazon"
+                    required
+                  />
 
                   <label class="user__payment-label" for="amazon">
-                    <img src="img/amazon.jpg" alt="amazon">
+                    <img src="img/amazon.jpg" alt="amazon" />
                   </label>
                 </div>
 
                 <div class="user__card">
                   <div class="user__input-wrapper-inner">
-                    <label class="fifth-heading fifth-heading--payment user__label" for="card-number">Card number</label>
-                    <input class="user__input user__input--long" type="text" placeholder="" title="Write your payment card number" name="input-card-num" id="card-number" pattern="^[0-9]+$" minlength="16" maxlength="16" required>
+                    <label
+                      class="fifth-heading fifth-heading--payment user__label"
+                      for="card-number"
+                      >Card number</label
+                    >
+                    <input
+                      class="user__input user__input--long"
+                      type="text"
+                      placeholder=""
+                      title="Write your payment card number"
+                      name="input-card-num"
+                      id="card-number"
+                      inputmode="numeric"
+                      pattern="^[0-9]+$"
+                      minlength="16"
+                      maxlength="16"
+                      required
+                    />
 
                     <span class="status-icon"></span>
                   </div>
 
                   <div class="user__input-wrapper-inner">
-                    <label class="fifth-heading fifth-heading--payment user__label" for="date-picker">Expiry date</label>
-                    <input class="user__input user__input--medium" type="date" name="input-date" id="date-picker" min="2018-01-01" max="2030-01-01" required>
+                    <label
+                      class="fifth-heading fifth-heading--payment user__label"
+                      for="date-picker"
+                      >Expiry date</label
+                    >
+                    <input
+                      class="user__input user__input--medium"
+                      type="date"
+                      name="input-date"
+                      id="date-picker"
+                      min="2018-01-01"
+                      max="2030-01-01"
+                      required
+                    />
 
                     <span class="status-icon"></span>
                   </div>
 
-                  <div class="user__input-wrapper-inner">
-                    <label class="fifth-heading fifth-heading--payment user__label" for="code">Code</label>
-                    <input class="user__input user__input--short" type="text" title="Write your payment card CCV code" placeholder="" name="card-code" id="code" minlength="3" maxlength="4" pattern="^[0-9]+$" required>
+                  <div
+                    class="user__input-wrapper-inner user__input-wrapper-inner--auto"
+                  >
+                    <label
+                      class="fifth-heading fifth-heading--payment user__label"
+                      for="code"
+                      >Code</label
+                    >
+                    <input
+                      class="user__input user__input--short"
+                      type="text"
+                      title="Write your payment card CCV code"
+                      placeholder=""
+                      name="card-code"
+                      id="code"
+                      minlength="3"
+                      maxlength="4"
+                      pattern="^[0-9]+$"
+                      inputmode="numeric"
+                      required
+                    />
 
                     <span class="status-icon"></span>
                   </div>
@@ -387,7 +636,13 @@
 
               <section class="section terms">
                 <div class="terms__item terms__item--1">
-                  <input class="terms__input " type="checkbox" name="rules" id="conditions" required>
+                  <input
+                    class="terms__input "
+                    type="checkbox"
+                    name="rules"
+                    id="conditions"
+                    required
+                  />
                   <label class="terms__label" for="conditions">
                     I agree to the
                     <a class="terms__link" href="#">Terms & Conditions</a>
@@ -395,10 +650,17 @@
                 </div>
 
                 <div class="terms__item terms__item--2">
-                  <button class="terms__btn terms__btn--1 btn btn-turq" form="translate" type="submit">
+                  <button
+                    class="terms__btn terms__btn--1 btn btn-turq"
+                    form="translate"
+                    type="submit"
+                  >
                     place order
                   </button>
-                  <button class="terms__btn terms__btn--2 btn btn-grey-upper-text" type="button">
+                  <button
+                    class="terms__btn terms__btn--2 btn btn-grey-upper-text"
+                    type="button"
+                  >
                     print a quote
                   </button>
                 </div>
@@ -414,7 +676,8 @@
     <div class="footer__content">
       <section class="footer__section mission">
         <h4 class="footer__title">
-          <span class="fa fa-heart fa-lg icon-footer" aria-hidden="true"></span>what we do
+          <span class="fa fa-heart fa-lg icon-footer" aria-hidden="true"></span
+          >what we do
         </h4>
         <p class="footer__text footer__text--italic">
           We provide a full range of language services including content
@@ -423,19 +686,29 @@
       </section>
       <section class="footer__section adress">
         <h4 class="footer__title">
-          <span class="fa fa-compass fa-lg icon-footer" aria-hidden="true"></span>our main office
+          <span
+            class="fa fa-compass fa-lg icon-footer"
+            aria-hidden="true"
+          ></span
+          >our main office
         </h4>
         <address class="footer__adress">
           <p class="footer__text">Dubai, UAE</p>
           <p class="footer__text">P.O. Box: 502735</p>
           <p class="footer__text ">
-            <a class="footer__text footer__link" href="tel:+971044278128">Phone: +971(0) 44278128</a>
+            <a class="footer__text footer__link" href="tel:+971044278128"
+              >Phone: +971(0) 44278128</a
+            >
           </p>
         </address>
       </section>
       <section class="footer__section contact">
         <h4 class="footer__title">
-          <span class="fa fa-share-alt fa-lg icon-footer" aria-hidden="true"></span>connect with us
+          <span
+            class="fa fa-share-alt fa-lg icon-footer"
+            aria-hidden="true"
+          ></span
+          >connect with us
         </h4>
 
         <ul class="footer__list">
@@ -452,15 +725,17 @@
             </a>
           </li>
           <li class="footer__list-item">
-            <a class="footer__text footer__link" href="#"><span class="fa fa-linkedin icon-list" aria-hidden="true"></span>
-              LinkedIn</a>
+            <a class="footer__text footer__link" href="#"
+              ><span class="fa fa-linkedin icon-list" aria-hidden="true"></span>
+              LinkedIn</a
+            >
           </li>
         </ul>
       </section>
 
       <div class="footer__section logo-section">
         <a href="#">
-          <img class="footer__logo" src="img/logo-dark.jpg" alt="dark-logo">
+          <img class="footer__logo" src="img/logo-dark.jpg" alt="dark-logo" />
         </a>
       </div>
     </div>
