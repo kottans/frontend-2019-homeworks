@@ -1,0 +1,104 @@
+@mixin max-screen-width($width)
+	@media (max-width: $width)
+		@content
+
+@mixin counter()
+	+max-screen-width(800px)
+		text-align: center
+		display: block
+
+	&:focus-within::before
+		border-color: #fff
+		box-shadow: 0 0 11px 1px $accent-dark-color
+
+	&::before
+		position: absolute
+		top: -10px
+		left: -60px
+		counter-increment: section
+		content: counter(section)
+		height: 40px
+		width: 40px
+		border-radius: 50%
+		text-align: center
+		display: flex
+		justify-content: center
+		align-items: center
+		border: 1px solid #606a85
+		font-family: sans-serif
+		font-weight: 600
+		font-size: 20px
+		transition: all 225ms ease-in-out
+		transition-delay: 100ms
+		box-shadow: 0 0 11px 1px transparent
+		+max-screen-width(800px)
+			top: -50px
+			left: 50%
+			right: 0
+			bottom: 0
+			transform: translateX(-50%)
+
+@mixin respond()
+	cursor: pointer
+	transition: all 225ms ease-in-out
+	&:hover
+		box-shadow: 2px 2px 15px -4px $base-color
+
+
+@mixin picker()
+	box-shadow: inset 0 0 0 6px $accent-color
+	border-radius: 4px
+	border: 1px solid transparent
+	position: relative
+	transition: all 275ms ease-in-out
+	&::after
+		position: absolute
+		top: -4px
+		right: -6px
+		color: $accent-color
+		font-size: 30px
+		z-index: 2
+		font-family: "FontAwesome"
+		content: '\f058'
+		background: white
+		line-height: 15px
+		width: 22px
+		height: 15px
+		border-radius: 50%
+		transition: all 275ms ease-in-out
+
+@mixin select-wrapper()
+	height: 50px
+	position: relative
+	&::after
+		position: absolute
+		font-size: 18px
+		top: 0
+		right: 0
+		font-family: "FontAwesome"
+		content: "\f0dd"
+		border-left: 1px solid darken($gray-color, 10)
+		line-height: 44px
+		text-align: right
+		width: 50px
+		text-align: center
+		height: 50px
+		pointer-events: none
+
+@mixin select()
+	border: 1px solid darken($gray-color, 10)
+	border-radius: 5px
+	background: $gray-color
+	-webkit-appearance: none
+	-moz-appearance: none
+	appearance: none
+	height: 50px
+	padding: 0 75px 0 40px
+	color: $base-color
+	transition: all 225ms ease-in-out
+	cursor: pointer
+	&:hover
+		box-shadow: 1px 1px 10px -3px $base-color
+	&:focus
+		outline: none
+		box-shadow: 0 0 0 2px $accent-color

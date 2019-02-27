@@ -1,0 +1,65 @@
+@mixin sectionNum() {
+  &:before {
+    color: $slate;
+    position: absolute;
+    top: -10px;
+    left: -60px;
+    counter-increment: section;
+    content: counter(section);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #606a85;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    transition: all 225ms ease-in-out;
+    transition-delay: 0.1s;
+    box-shadow: 0 0 11px 1px transparent;
+
+    @media (max-width: 1200px) {
+    position: absolute;
+    top: -60px;  
+    left: 50%;
+    transform: translateX(-50%);
+    }
+  }
+
+  &:hover {
+    &:before {
+      box-shadow: 0 0 11px 1px $blue;
+    }
+  }
+}
+
+@mixin customCheckIcon() {
+  &:after {
+    display: block;
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    color: #76a7e1;
+    font-size: 30px;
+    z-index: 2;
+    font-family: FontAwesome;
+    content: "\f058";
+    background: #fff;
+    line-height: 15px;
+    width: 22px;
+    height: 15px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+  }
+}
+
+@mixin defaultFocus() {
+  box-shadow: inset 0 0 0 2px $blue;
+}
+
+@mixin defaultHover() {
+  box-shadow: 2px 2px 15px -4px $slate;
+}
