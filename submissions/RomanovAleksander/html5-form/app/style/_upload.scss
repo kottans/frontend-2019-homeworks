@@ -15,6 +15,9 @@
 
 .upload__button-wrapper {
   margin-bottom: 60px;
+  width: 234px;
+  height: 31px;
+  text-align: center;
   label {
     font-size: 16px;
     background-color: #f7f7fa;
@@ -36,9 +39,13 @@
     top: 19px;
     left: 29px;
   }
-  label:hover, label:focus {
-    box-shadow: 0 0 0 2px #76a7e1;
+  label:hover,  label:focus {
+    border: 2px solid #76a7e1;
   }
+}
+
+.upload__button-wrapper:focus {
+border: 1px solid black
 }
 
 .documents__table {

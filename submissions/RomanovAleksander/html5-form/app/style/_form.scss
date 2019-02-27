@@ -1,4 +1,4 @@
-form {
+.form {
   max-width: 1140px;
   border-radius: 5px;
   border: 1.5px solid #c9d0e1;
@@ -39,6 +39,10 @@ form {
 .client_value {
   display: flex;
   flex-wrap: wrap;
+  p {
+    font-size: 13px;
+    font-weight: bold;
+  }
 }
 
 .value {
@@ -100,6 +104,11 @@ form {
   color: #757d94;
   font-style: normal;
   font-weight: 700;
+}
+
+.help__address a:hover {
+  text-decoration: underline;
+  color: #5fcac6;
 }
 
 input[type=radio]:checked {

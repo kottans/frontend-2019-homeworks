@@ -13,19 +13,19 @@
   }
   label {
     margin-left: 5px;
-    a:hover {
-      font-weight: bold
-    }
   }
   input {
     cursor: pointer;
   }
-  input, label, label a {
+  input, label, a {
     font-size: 14px;
     color: inherit;
     margin-top: 20px;
   }
   button {
     margin-left: 30px;
+  }
+  a:hover {
+    color: #5fcac6;
   }
 }

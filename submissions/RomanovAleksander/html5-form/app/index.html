@@ -18,25 +18,25 @@
         </a>
         <button class="header__btn btn">sign in</button>
     </header>
-    <form id="form">
+    <form id="form" class="form">
         <header class="form__header">
             <div class="client_order">
                 <h2>Your order</h2>
                 <div class="client_value">
                     <div class="value">
-                        <div class="value__title"><h3>ITEMS</h3></div>
+                        <div class="value__title"><p>ITEMS</p></div>
                         <div class="value__info">2 documents</div>
                     </div>
                     <div class="value">
-                        <div class="value__title"><h3>Details</h3></div>
+                        <div class="value__title"><p>Details</p></div>
                         <div class="value__info">2 langueges</div>
                     </div>
                     <div class="value">
-                        <div class="value__title"><h3>Price</h3></div>
+                        <div class="value__title"><p>Price</p></div>
                         <div class="value__info">$ 696.06</div>
                     </div>
                     <div class="value">
-                        <div class="value__title"><h3>Delivery</h3></div>
+                        <div class="value__title"><p>Delivery</p></div>
                         <div class="value__info">48 hours*</div>
                     </div>
                 </div>
@@ -59,26 +59,26 @@
             <h2>Select what you want to translate</h2>
             <div class="radio__choise">
                 <label class="radio__type">
-                    <input required="" type="radio" name="translation" value="website" class="visually-hidden">
-                    <div class="translation__wrapper" tabindex="0">
-                        <img src="img/website.png" alt="">
-                        <div>Website</div>
-                    </div>
+                    <input value="website" type="radio" name="translation" class="visually-hidden" required>
+                    <span class="translation__wrapper">
+                        <img src="img/website.png" alt="Website">
+                        <span>Website</span>
+                    </span>
                 </label>
                 <label class="radio__type">
-                    <input required="" type="radio" name="translation" value="document" class="visually-hidden"
-                           checked="">
-                    <div class="translation__wrapper" tabindex="0">
-                        <img src="img/documents.png" alt="">
-                        <div>Documents</div>
-                    </div>
+                    <input value="documents" type="radio" name="translation" class="visually-hidden"
+                           checked required>
+                    <span class="translation__wrapper">
+                        <img src="img/documents.png" alt="Documents">
+                        <span>Documents</span>
+                    </span>
                 </label>
                 <label class="radio__type">
-                    <input required="" type="radio" name="translation" value="social" class="visually-hidden">
-                    <div class="translation__wrapper" tabindex="0">
-                        <img src="img/social.png" alt="">
-                        <div>Social Account</div>
-                    </div>
+                    <input value="social" type="radio" name="translation" class="visually-hidden" required>
+                    <span class="translation__wrapper">
+                        <img src="img/social.png" alt="Social Account">
+                        <span>Social Account</span>
+                    </span>
                 </label>
             </div>
         </section>
@@ -118,7 +118,7 @@
                 <h2 class="caption">Choose your languages pairings</h2>
                 <div class="from">
                     <span>from</span>
-                    <select class="choice-language">
+                    <select class="choice-language" required>
                         <option>English</option>
                         <option>Arabic</option>
                         <option>Kurdish</option>
@@ -127,13 +127,13 @@
                 </div>
                 <div class="to">
                     <span>to</span>
-                    <select class="choice-language first">
+                    <select class="choice-language first" required>
                         <option>Arabic</option>
                         <option>English</option>
                         <option>Kurdish</option>
                         <option>Ukrainian</option>
                     </select>
-                    <div>
+                    <div class="language-wrapper">
                         <select class="choice-language">
                             <option>Kurdish</option>
                             <option>English</option>
@@ -151,16 +151,16 @@
                 <div class="tone-section">
                     <h2 class="caption">Select your desired tone</h2>
                     <label class="tones">
-                        <input class="visually-hidden" type="radio" name="tone" value="friendly"/>
-                        <span tabindex="0" class="tone">Friendly/Casual</span>
+                        <input class="visually-hidden" type="radio" name="tone" value="friendly" required/>
+                        <span class="tone">Friendly/Casual</span>
                     </label>
                     <label class="tones">
-                        <input class="visually-hidden" type="radio" name="tone" value="corporate" checked/>
-                        <span tabindex="0" class="tone">Corporate/Pro</span>
+                        <input class="visually-hidden" type="radio" name="tone" value="corporate" checked required/>
+                        <span class="tone">Corporate/Pro</span>
                     </label>
                     <label class="tones">
-                        <input class="visually-hidden" type="radio" name="tone" value="media"/>
-                        <span tabindex="0" class="tone">Media/Formal</span>
+                        <input class="visually-hidden" type="radio" name="tone" value="media" required/>
+                        <span class="tone">Media/Formal</span>
                     </label>
                 </div>
                 <div class="urgent-section">
@@ -187,16 +187,16 @@
                 <div class="payment__form">
                     <div class="payment__about">
                         <label for="name">Full name </label>
-                        <input required="" type="text" id="name" name="name" placeholder="Mathieu Mayer">
+                        <input required type="text" id="name" name="name" placeholder="Mathieu Mayer">
                         <div class="payment__wraper">
                             <div class="payment__email">
                                 <label for="email">email adress </label>
-                                <input required="" type="email" id="email" name="email" placeholder="mathieu.mm@me.com"
+                                <input required type="email" id="email" name="email" placeholder="mathieu.mm@me.com"
                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="name@domain.etc">
                             </div>
                             <div class="payment__password">
                                 <label for="password">choose a passsword </label>
-                                <input required="" type="password" id="password" name="password" placeholder="Password"
+                                <input required type="password" id="password" name="password" placeholder="Password"
                                        title="Minimum 8 characters, UPPERCASE, lowercase and Number" minlength="6"
                                        pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*">
                             </div>
@@ -205,43 +205,42 @@
                     <div class="payment__way">
                         <div class="payment__radio">
                             <label class="radio__type ">
-                                <input required="" checked="" type="radio" name="payment__system" value="visa"
+                                <input required checked type="radio" name="payment__system" value="visa"
                                        class="visually-hidden">
-                                <div class="payment__radio__wraper" tabindex="0">
-                                    <img src="img/visa.png" alt="">
-                                </div>
+                                <span class="payment__radio__wraper">
+                                    <img src="img/visa.png" alt="Visa">
+                                </span>
                             </label>
                             <label class="radio__type">
-                                <input required="" type="radio" name="payment__system" value="paypal"
+                                <input required type="radio" name="payment__system" value="paypal"
                                        class="visually-hidden">
-                                <div class="payment__radio__wraper" tabindex="0">
-                                    <img src="img/paypal.png" alt="">
-                                </div>
+                                <span class="payment__radio__wraper">
+                                    <img src="img/paypal.png" alt="PayPal">
+                                </span>
                             </label>
                             <label class="radio__type ">
-                                <input required="" type="radio" name="payment__system" value="amazone"
+                                <input required type="radio" name="payment__system" value="amazone"
                                        class="visually-hidden">
-                                <div class="payment__radio__wraper" tabindex="0">
-                                    <img src="img/amazon.png" alt="">
-                                </div>
+                                <span class="payment__radio__wraper">
+                                    <img src="img/amazon.png" alt="Amazon">
+                                </span>
                             </label>
                         </div>
                         <div class="card__about">
                             <div class="card__item">
                                 <label for="card__number">card number </label>
-                                <input required="" type="text" id="card__number" name="card" minlength="16"
+                                <input required type="text" id="card__number" name="card" minlength="16"
                                        maxlength="16" class="card__number" pattern="^[0-9]+$"
                                        title="1234123412341234">
                             </div>
                             <div class="card__item">
                                 <label for="card__date">expiry date </label>
                                 <input type="date" id="card__date" name="card" placeholder="DD/MM/YY"
-                                       max="2040-01-01" min="2017-01-01" class="card__date" pattern="[0-9]{2}\/[0-9]{2}"
-                                       title="01/12/34" required="">
+                                       max="2050-31-12" min="2015-01-01" class="card__date" title="01/12/34" required>
                             </div>
                             <div class="card__item">
                                 <label for="card__cvv">code </label>
-                                <input required="" type="text" id="card__cvv" name="card" pattern="[0-9]{3}"
+                                <input required type="text" id="card__cvv" name="card" pattern="[0-9]{3}"
                                        maxlength="3" size="3" class="card__cvv" title="123">
                             </div>
                         </div>
@@ -252,9 +251,10 @@
         <section class="submite">
             <div class="container">
                 <div class="submite__wraper">
-                    <div>
-                        <input type="checkbox" id="legal" name="legal">
-                        <label for="legal">I agree to the <a href="#">Terms &amp; Conditions</a></label>
+                    <div class="submite-title">
+                        <input type="checkbox" id="legal" name="legal" required>
+                        <label for="legal">I agree to the </label>
+                        <a href="#">Terms &amp; Conditions</a>
                     </div>
                     <button class="btn btn_order">Place order</button>
                     <button class="btn">Print a quote</button>
