@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kottans form</title>
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,700"
@@ -20,7 +21,7 @@
 
   <body>
     <div class="container">
-      <h1>Kottans form</h1>
+      <h1 class="h1">Kottans form</h1>
       <form action="/">
         <section class="card">
           <header class="card__header header-card">
@@ -82,6 +83,7 @@
                   name="translate-type"
                   value="web"
                   class="radio__input visuallyhidden"
+                  checked
                 />
                 <label for="translate-web" class="radio__label">
                   <img src="images/website-icon.png" alt="Website icon" />
@@ -155,7 +157,7 @@
                       <td class="table__cell">78kb</td>
                       <td class="table__cell">842</td>
                       <th class="table__cell t-center">
-                        <button class="link">
+                        <button type="button" class="link">
                           <i class="fas fa-trash"></i>
                         </button>
                       </td>
@@ -226,6 +228,7 @@
                       id="friendly-tone"
                       class="radio__input visuallyhidden"
                       name="desired-tone"
+                      checked
                     />
                     <label for="friendly-tone" class="radio__label">
                       <i class="fas fa-comments radio__icon btn__icon"></i>
@@ -262,23 +265,25 @@
               </li>
               <li class="form-list__item form-list__item--inline">
                 <h3 class="h3">Tell us how urgent this job is</h3>
-                <div class="range">
-                  <div class="range__labels">
-                    <div class="range__label">I Got time</div>
-                    <div class="range__label tc-accent-yellow">Average</div>
-                    <div class="range__label">Yesterday</div>
+                <div class="range-wrapper">
+                  <div class="range">
+                    <div class="range__labels">
+                      <div class="range__label">I Got time</div>
+                      <div class="range__label tc-accent-yellow">Average</div>
+                      <div class="range__label">Yesterday</div>
+                    </div>
+                    <input
+                      type="range"
+                      class="range__input"
+                      min="1"
+                      max="3"
+                      value="2"
+                    />
                   </div>
-                  <input
-                    type="range"
-                    class="range__input"
-                    min="1"
-                    max="3"
-                    value="2"
-                  />
-                </div>
-                <div class="additional-info">
-                  <h5 class="h5"><i class="fas fa-info-circle h5__icon"></i>Timeline info</h5>
-                  <p class="text-block">With an <strong class="tc-accent-yellow tt-uppercase">average</strong> timeline set up, our expert translator can take a reasonable amount of time perfecting your translation</p>
+                  <div class="additional-info">
+                    <h5 class="h5"><i class="fas fa-info-circle h5__icon"></i>Timeline info</h5>
+                    <p class="text-block">With an <strong class="tc-accent-yellow tt-uppercase">average</strong> timeline set up, our expert translator can take a reasonable amount of time perfecting your translation</p>
+                  </div>
                 </div>
               </li>
               <li class="form-list__item">
@@ -288,9 +293,10 @@
                 </div>
                 <div class="input-row">
                   <div class="form-group">
-                    <label class="form-label">Full name</label>
+                    <label class="form-label" for="full-name">Full name</label>
                     <input
                       type="text"
+                      id="full-name"
                       class="form-control form-control--medium"
                       placeholder="Type your full name"
                       required
@@ -300,9 +306,10 @@
                 </div>
                 <div class="input-row">
                   <div class="form-group">
-                    <label class="form-label">Email address</label>
+                    <label class="form-label" for="email-address">Email address</label>
                     <input
                       type="email"
+                      id="email-address"
                       class="form-control form-control--medium"
                       placeholder="Type your email"
                       required
@@ -310,9 +317,11 @@
                     <div class="form-control__status"></div>
                   </div>
                   <div class="form-group">
-                    <label class="form-label">Choose a password</label>
+                    <label class="form-label" for="password-field">Choose a password</label>
                     <input
                       type="password"
+                      id="password-field"
+                      title="Password need contain uppercase, lowercase chars and number"
                       class="form-control form-control--medium"
                       placeholder="Type your password"
                       pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
@@ -329,6 +338,7 @@
                       name="payment-type"
                       id="pay-card"
                       class="radio__input visuallyhidden"
+                      checked
                     />
                     <label for="pay-card" class="radio__label">
                       <img
@@ -365,34 +375,40 @@
                 </div>
                 <div class="input-row">
                   <div class="form-group form-group--credit-card">
-                    <label class="form-label">Card number</label>
+                    <label class="form-label" for="card-number">Card number</label>
                     <input
-                      type="number"
+                      type="text"
+                      id="card-number"
                       class="form-control form-control--huge"
                       placeholder="0000 0000 0000 0000"
                       maxlength="16"
                       minlength="16"
+                      title="Credit card number contains with 13 - 18 digits"
                       required
-                      pattern="[0-9]{13,16}"
+                      pattern="[0-9]{13,18}"
                     />
                     <i class="fab fa-cc-visa form-group__icon"></i>
                   </div>
                   <div class="form-group">
-                    <label class="form-label">Expiry date</label>
+                    <label class="form-label" for="expiry-date">Expiry date</label>
                     <input
                       type="text"
+                      id="expiry-date"
                       class="form-control form-control--small"
                       placeholder="MM/YY"
+                      title="Date format need to be MM/YY, e.g. 07/20"
                       pattern="([0-9]{2}[/]?){2}"
                       required
                     />
                     <div class="form-control__status"></div>
                   </div>
                   <div class="form-group">
-                    <label class="form-label">Code</label>
+                    <label class="form-label" for="cvv-code">Code</label>
                     <input
-                      type="number"
+                      type="text"
+                      id="cvv-code"
                       class="form-control form-control--tiny"
+                      title="CVV code is 3 or 4 digit lenght"
                       placeholder="***"
                       minlength="3"
                       maxlength="4"

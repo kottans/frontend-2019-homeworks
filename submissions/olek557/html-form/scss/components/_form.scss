@@ -227,9 +227,17 @@ input[type=number]::-webkit-outer-spin-button {
   display: inline-block;
 }
 
+.range-wrapper {
+  display: inline-block;
+  @include bp(large) {
+    display: block;
+  }
+}
+
 .range {
   position: relative;
   width: 100%;
+  margin: 0 auto;
   @include bp(medium) {
     width: 400px;
   }
@@ -342,12 +350,25 @@ input[type=number]::-webkit-outer-spin-button {
   }
   &:first-child {
     left: 0;
+    @include bp(small) {
+      &:after {
+        left: 0;
+        margin-left: 0;
+      }
+    }
     @include bp(medium) {
       left: -30px;
     }
   }
   &:last-child {
     right: 0;
+    @include bp(small) {
+      &:after {
+        right: 0;
+        left: auto;
+        margin-left: 0;
+      }
+    }
     @include bp(medium) {
       right: -30px;
     }
