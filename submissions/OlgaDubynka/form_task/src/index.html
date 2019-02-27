@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>form</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="root">
+      <header></header>
+      <form action="#" method="POST" class="form">
+        <div class="form-head">
+          <a class="go-back" href="#">
+              <span class="arrow-icon"></span>
+              <span class="go-back-text">go back</span>
+          </a>
+          <a class="logo"><img src="images/logo.png" alt="logo-of-company"></a>
+          <a class="sign-in" href="#">
+              <span class="sign-in-icon"></span>
+              <span class="sign-in-text">sign in</span>
+          </a>
+        </div>
+        <div class="form-body">
+          <section class="form-intro">
+            <div class="your-order">
+              <div class="order-box">
+                <p class="order-name">your order</p>
+                <ul class="order-list">
+                  <li class="order-item">
+                    <span class="order-title">items</span>
+                    <span class="order-desc">2 documents</span>
+                  </li>
+                  <li class="order-item">
+                    <span class="order-title">details</span>
+                    <span class="order-desc">2 languages</span>
+                  </li>
+                  <li class="order-item">
+                    <span class="order-title">price</span>
+                    <span class="order-desc">$ 696.06</span>
+                  </li>
+                  <li class="order-item">
+                    <span class="order-title">delivery</span>
+                    <span class="order-desc">48 hours<sup>*</sup></span>
+                  </li>
+                </ul>
+              </div>
+              <div class="processing">
+                <button class="proc-btn proc-btn_green proc-btn_mb" type="submit">place order</button>
+                <button class="proc-btn" type="button">print a quote</button>
+              </div>
+            </div>
+            <div class="support">
+              <p class="support-title">help center</p>
+              <div class="support-desc">If you need assistance while placing your order, contact one of our beloved Project Manager by phone or email.</div>
+              <address class="support-contacts">
+                <a class="support-link" href="tel:+3800555555">+380 (0) 555 555</a>
+                <a class="support-link" href="mailto:help@qtest.com">help@qtest.com</a>
+              </address>
+            </div>
+          </section>
+          <section class="options">
+            <div class="container">
+              <h1 class="title-h1">select what you want to translate</h1>
+              <div class="group">
+                <input type="radio" id="website" name="source" class="group-input visually-hidden">
+                <label for="website" class="group-label">
+                    <span class="group-border"></span>
+                    <span class="group-text">website</span>
+                </label>
+                <input type="radio" id="documents" name="source" class="group-input visually-hidden">
+                <label for="documents" class="group-label">
+                    <span class="group-border"></span>
+                    <span class="group-text">documents</span>
+                </label>
+                <input type="radio" id="social-account" name="source" class="group-input visually-hidden">
+                <label for="social-account" class="group-label">
+                    <span class="group-border"></span>
+                    <span class="group-text">social account</span>
+                </label>
+              </div>
+            </div>
+          </section>
+          <section class="upload">
+            <div class="container">
+              <h3 class="title-h3"><span class="title-number">1</span>Upload your documents<span class="type-of-files">(Doc, Docx, Text, PDF, Markdown)</span></h3>
+              <input type="file" id="upload-file" name="upload-file" class="upload-input visually-hidden">
+              <label for="upload-file" class="upload-label">
+                <span class="upload-text">Upload a new file</span>
+              </label>
+              <ul class="files-list">
+                <li class="files-item">
+                  <span class="files-text files-text_th">file name</span>
+                  <span class="files-text files-text_th">file size</span>
+                  <span class="files-text files-text_th">number of words</span>
+                  <span class="files-text files-text_th files-text_center">remove</span>
+                </li>
+                <li class="files-item">
+                  <span class="files-text"><span class="files-icon"></span>business_operations.docx</span>
+                  <span class="files-text">78 kb</span>
+                  <span class="files-text">842</span>
+                  <span class="files-text">
+                    <button class="btn-del files-text_center" type="button"></button>
+                  </span>
+                </li>
+                <li class="files-item">
+                  <span class="files-text"><span class="files-icon"></span>business_financial.docx</span>
+                  <span class="files-text">26 kb</span>
+                  <span class="files-text">2.326</span>
+                  <span class="files-text">
+                    <button class="btn-del files-text_center" type="button"></button>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section class="lang">
+            <div class="container">
+              <h3 class="title-h3"><span class="title-number">2</span>Choose your languages pairings</h3>
+              <div class="choose-from">
+                <span class="lang-label">from</span>
+                <div class="select-wrap">
+                  <select name="choose-lang-from" id="from-lang" class="choose-lang">
+                      <option value="English">English</option>
+                      <option value="Arabic">Arabic</option>
+                      <option value="Ukrainian">Ukrainian</option>
+                      <option value="Kurdish">Kurdish</option>
+                  </select>
+                </div>
+              </div>
+              <div class="choose-from">
+                <span class="lang-label">to</span>
+                <div class="select-wrap">
+                    <select name="choose-lang-to" id="to-lang-1" class="choose-lang">
+                        <option value="Arabic">Arabic</option>
+                        <option value="English">English</option>
+                        <option value="Ukrainian">Ukrainian</option>
+                        <option value="Kurdish">Kurdish</option>
+                    </select>
+                </div>
+                <div class="select-wrap select-wrap_extra-m">
+                    <select name="choose-lang-to" id="to-lang-2" class="choose-lang">
+                        <option value="Kurdish">Kurdish</option>
+                        <option value="Arabic">Arabic</option>
+                        <option value="English">English</option>
+                        <option value="Ukrainian">Ukrainian</option>
+                    </select>
+                </div>          
+                <button class="btn-del" type="button"></button>
+                <button class="btn-add" type="button">&plus;  add</button>
+              </div>
+            </div>
+          </section>
+          <div class="wrapper-section">
+            <div class="container">
+              <section class="tone">
+                <h3 class="title-h3"><span class="title-number">3</span>Select your desired tone</h3>
+                <input type="radio" id="friendly" name="tone" class="group-input visually-hidden">
+                <label for="friendly" class="group-label">
+                    <span class="group-border"></span>
+                    <span class="group-text group-docs">Friendly / Casual</span>
+                </label>
+                <input type="radio" id="pro" name="tone"  class="group-input visually-hidden">
+                <label for="pro" class="group-label">
+                    <span class="group-border"></span>
+                    <span class="group-text  group-case">Corporate / Pro</span>
+                </label>
+                <input type="radio" id="media" name="tone"  class="group-input visually-hidden">
+                <label for="media" class="group-label">
+                    <span class="group-border"></span>
+                    <span class="group-text group-media">Media / Formal</span>
+                </label>
+              </section>
+              <section class="urgent">
+                <h3 class="title-h3"><span class="title-number">4</span>Tell us how urgent this work is</h3>
+                <label for="urgent-range" class="range-label">
+                  <input type="range" name="urgent-range" id="urgent-range" class="range-input">
+                  <span class="urgent-text">I got time</span>
+                  <span class="urgent-text">Average</span>
+                  <span class="urgent-text">Yesterday</span>
+                </label>
+                <div class="info">
+                  <span class="info-title"><span class="info-icon"></span>timeline info</span>
+                  <p class="info-desc">
+                      With an <span class="text-yellow">Average</span> timeline set up, our expert translator can take a reesobable amount of time perfecting your translation.
+                  </p>
+                </div>
+              </section>
+            </div>
+          </div>
+          <section class="payment">
+            <div class="container">
+              <h3 class="title-h3"><span class="title-number">5</span>Sign up and choose a payment method</h3>
+              <p class="sign-in-text">
+                  Already have an account with us?
+                  <a href="#" class="sign-in-link">Sign in.</a>
+              </p>
+              <div class="user-info">
+                  <label for="fullname" class="sign-up-label">
+                    <span class="sign-up-text">fullname</span>
+                    <input type="text" id="fullname" class="sign-up-input" placeholder="Mathieu Mayer" title="please enter your fullname" required>
+                  </label>
+                  <label for="email" class="sign-up-label">
+                    <span class="sign-up-text">email address</span>
+                    <input type="email" id="email" class="sign-up-input" placeholder="mathieu.mm@me.com"
+                    title="please enter your email example@gmail.com" required>
+                  </label>
+                  <label for="password" class="sign-up-label">
+                    <span class="sign-up-text">Choose a password</span>
+                    <input type="password" name="password" id="password" class="sign-up-input" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" placeholder="Must be (A-Z, a-z and 0-9)" required title="password must be (A-Z, a-z and 0-9)">
+                  </label>
+              </div>
+              <div class="cards-wrap">
+                  <input type="radio" id="visa" name="card" class="group-input visually-hidden">
+                  <label for="visa" class="group-label">
+                      <span class="group-border"></span>
+                      <img class="group-img" src="images/visa.png" alt="visa vs master-card">
+                  </label>
+                  <input type="radio" id="pay-pal" name="card" class="group-input visually-hidden">
+                  <label for="pay-pal" class="group-label">
+                      <span class="group-border"></span>
+                      <img class="group-img"  src="images/paypal.png" alt="paypal">
+                  </label>
+                  <input type="radio" id="amazon" name="card" class="group-input visually-hidden">
+                  <label for="amazon" class="group-label">
+                      <span class="group-border"></span>
+                      <img class="group-img" src="images/amazon.png" alt="amazon">
+                  </label>
+              </div>
+              <div class="sign-up-card">
+                  <label for="card-number" class="sign-up-label">
+                    <span class="sign-up-text">Card number</span>
+                    <input class="sign-up-input  card-number" type="text" name="card-number" id="card-number" pattern="[0-9]{13,16}" placeholder="Must be 16-18 digits"
+                    title="please enter your card number" required>
+                    </label>
+                  <label for="card-date" class="sign-up-label">
+                    <span class="sign-up-text">Expiry date</span>
+                    <input class="sign-up-input card-date" type="date" name="card-date" id="card-date" required title="please enter date in DD/MM/YYYY format">
+                  </label>
+                  <label for="card-code" class="sign-up-label">
+                    <span class="sign-up-text">code</span>
+                    <input class="sign-up-input card-code" type="text" name="card-code" id="card-code" size="4" pattern="[0-9]{3}" required title="please enter your cvv code">
+                  </label>
+              </div>
+            </div>
+          </section>
+          <section class="terms">
+            <div class="container">
+              <div class="terms-wrap">
+                <label class="terms-text">
+                  <input type="checkbox" class="terms-checkbox" required="">
+                  I agree to the
+                </label>
+                <a href="#" class="terms-link">Terms &amp; Conditions</a>
+              </div>
+              <div class="processing">
+                <button class="proc-btn proc-btn_green" type="submit">place order</button>
+                <button class="proc-btn" type="button">print a quote</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </form>
+      <footer class="footer">
+        <div class="container">
+          <div class="about-us">
+            <h4 class="footer-title">
+              what we do
+            </h4>
+            <p class="about-us-text">
+              We provide a full range of language services including content development, document, website and social media eccounts translations.
+            </p>
+          </div>
+          <div class="location">
+            <h4 class="footer-title">our main office</h4>
+            <address class="location-address">
+              <span>Dubfi, UAE</span><br>
+              <span>P.O.Box: 502735</span><br>
+              <a href="tel:+3800555555" class="phone">+380 (0) 555 555</a>
+            </address>
+          </div>
+          <div class="socials">
+            <h4 class="footer-title">
+              connect with us
+            </h4>
+            <a href="#" class="fb">Facebook</a>
+            <a href="#" class="tw">Twitter</a>
+            <a href="#" class="ld">Linkedin</a>
+          </div>
+          <a href="#" class="footer-logo">
+            <img src="images/footer-logo.png" alt="logo-of-company" class="logo-img">
+          </a>
+        </div>
+      </footer>
+  </div>
+  
+</body>
+</html>
