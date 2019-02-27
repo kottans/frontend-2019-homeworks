@@ -64,8 +64,13 @@
   pointer-events: none;
   opacity: 0.5;
 }
-.slider::before,
-.slider::after {
+
+.slider-container {
+  position: relative;
+}
+
+.slider-container::before,
+.slider-container::after {
   content: '';
   position: absolute;
   display: block;
@@ -75,10 +80,12 @@
   background: #b2b2b2;
   pointer-events: none;
   opacity: 0.5;
+  z-index: 2;
 }
-.slider::after {
-  left: 0;
+.slider-container::after {
+  top: 5px;
 }
-.slider::before {
+.slider-container::before {
   right: 0;
+  top: 5px;
 }

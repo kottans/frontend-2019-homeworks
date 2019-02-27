@@ -9,7 +9,7 @@
 
   /* Payment section elements */
   .payment-item {
-    width: 233px;
+    width: 150px;
     height: 105px;
   }
   .payment-item-image {
@@ -18,7 +18,7 @@
   }
 }
 @media screen and (min-width: 600px) {
-  /* General elements */
+  /* General section elements */
   .select {
     width: 208px;
   }
@@ -31,7 +31,7 @@
     border: 5px solid transparent;
   }
 
-  /* Upload Documents section */
+  /* Upload Documents section elements*/
   .upload-button {
     width: 180px;
   }
@@ -44,10 +44,13 @@
     background-color: #fff;
   }
 
-  /* Languages section */
+  /* Languages section elements*/
+  .lang-from > .select {
+    margin-left: 0.7em;
+  }
   .lang-to > .select:nth-child(n + 2) {
     width: 208px;
-    margin-left: 1.8em;
+    margin-left: 0.7em;
   }
   .container .lang-trash-button {
     width: 40px;
@@ -55,13 +58,21 @@
     margin: 0 5px;
   }
 
-  /* Tone section */
+  /* Tone section elements*/
   .tone-item {
     width: 250px;
     margin: 0 auto;
   }
 
-  /* Payment section */
+  /* Languages section elements */
+  .lang-add-button {
+    margin-left: 50px;
+  }
+
+  /* Payment section elements*/
+  .field-block {
+    width: initial;
+  }
   .input-field {
     width: 315px;
     margin-top: 0.5em;
@@ -72,9 +83,6 @@
   }
   .card-sticker {
     top: 40px;
-  }
-  .date-check-status {
-    left: 145px;
   }
   .code-check-status {
     left: 75px;
@@ -110,7 +118,7 @@
 }
 
 @media screen and (min-width: 750px) {
-  /* General elements */
+  /* General section elements */
   .button {
     width: 160px;
     font-size: 0.8em;
@@ -130,8 +138,9 @@
     top: 88%;
   }
 
-  /* Translate elements */
+  /* Translate section elements */
   .translate-item {
+    max-width: 295px;
     height: 210px;
   }
   .translate-item:nth-child(n + 2) {
@@ -142,25 +151,31 @@
     height: 90px;
   }
 
-  /* Languages elements */
+  /* Languages section elements */
   .lang-add-button {
     width: 125px;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  /* Order section */
+  /* Order section elements*/
   .order-buttons {
     padding-left: 6vw;
   }
 
-  /* Translate elements */
+  /* Translate section elements */
   .translate-item-content {
     padding: 30px 91px 67px;
   }
 
-  /* Payment elements */
+  /* Languages section elements */
+  .lang-add-button {
+    margin-left: 0.7em;
+  }
+
+  /* Payment section elements */
   .payment-item {
+    width: 233px;
     padding: 42px 66px 38px;
   }
 }
@@ -233,8 +248,20 @@
   }
 
   /* Languages sections */
+  .lang-label {
+    width: initial;
+    display: inline-block;
+    vertical-align: top;
+    flex-basis: 40px;
+    text-align: right;
+  }
   .lang-to {
     flex-direction: row;
+  }
+
+  /* Payment section */
+  .payment-method {
+    justify-content: left;
   }
 }
 @media screen and (min-width: 750px) {
@@ -255,7 +282,7 @@
   /* Help section */
   .row.order,
   .row.help {
-    padding: 0 30px 0 60px;
+    padding: 0 30px 30px 60px;
   }
   .help {
     grid-column: 9 / -1;
@@ -312,7 +339,7 @@
   footer .container {
     flex-direction: row;
     justify-content: space-between;
-    padding: 90px 1em;
+    padding: 90px 3em;
   }
   .goal {
     width: 225px;
@@ -337,12 +364,5 @@
   /* Timeline section */
   .timeline-info {
     padding: 28px 43px 28px 70px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  /* FOOTER */
-  footer .container {
-    padding: 90px 0;
   }
 }

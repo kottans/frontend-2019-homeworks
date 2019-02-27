@@ -3,14 +3,13 @@ footer {
   background: #444a62;
   color: #c6ccea;
 }
-footer h4 {
-  color: #c6ccea;
+.footer-title {
   margin-top: 0;
 }
 footer .container {
   display: flex;
   flex-direction: column;
-  padding: 15px 20px;
+  padding: 15px 65px;
 }
 .container > div {
   margin-top: 20px;

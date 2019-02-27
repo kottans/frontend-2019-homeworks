@@ -60,9 +60,30 @@ h5 {
   text-decoration: none;
 }
 
+.social-link,
 .signin-link,
 .agreement-link {
   display: inline-block;
   text-decoration: underline;
   color: #a5abc5;
+}
+
+.social-link {
+  text-decoration: none;
+  color: #c6ccea;
+}
+
+.footer-title {
+  position: relative;
+  display: block;
+  margin: 1em 0;
+  color: #c6ccea;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.footer-icon {
+  position: absolute;
+  top: 0;
+  left: -40px;
 }

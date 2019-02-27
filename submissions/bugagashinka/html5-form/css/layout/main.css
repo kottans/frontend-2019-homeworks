@@ -54,13 +54,21 @@ main .button {
   flex-direction: column;
 }
 .translate h1 {
-  width: 100%;
+  max-width: 506px;
+  padding-bottom: 15px;
+  margin: 8vw auto 5vw auto;
+  border-bottom: 2px solid #eaebef;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
 }
 
 /* Upload Documents section */
+.file-types-title {
+  font-size: 0.8em;
+  color: #a9b2c5;
+}
+
 .doc-icon {
   display: none;
   width: 20px;
@@ -89,14 +97,18 @@ main .button {
 /* - */
 
 /* Languages sections */
+.lang-label {
+  width: 100%;
+  font-weight: 600;
+  font-size: 0.75em;
+  text-transform: uppercase;
+}
 .lang-to,
 .lang-from {
-  margin-top: 42px;
-}
-.lang-to {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 42px;
 }
 
 /* Timeline section */
@@ -126,5 +138,10 @@ main .button {
 /* Payment section */
 .payment-method {
   display: flex;
+  justify-content: center;
   margin: 3vw 0 4vw 0;
+}
+.card-props {
+  display: flex;
+  flex-wrap: wrap;
 }
