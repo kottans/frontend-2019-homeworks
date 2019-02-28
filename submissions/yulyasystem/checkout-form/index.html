@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
     crossorigin="anonymous" />
-    <link rel="stylesheet" href="/dist/style.css">
+    <link rel="stylesheet" href="/dist/checkout-page.3f5afef6.36e2587f.css">
   <title>Checkout Page</title>
 </head>
 
@@ -45,11 +45,11 @@
         </table>
         <div class="header-buttons">
           <input type="submit" value="" id="submit-button" class="submit-input visually-hidden">
-          <label for="submit-button" class=" button order-button" tabindex="0">
+          <label for="submit-button" class=" button order-button" >
             Place order
           </label>
          <input type="button" value="" id="print-button" class="submit-input visually-hidden">
-          <label for="print-button" class="button quote-button" tabindex="0">
+          <label for="print-button" class="button quote-button" >
             Print a quote
           </label>
         </div>
@@ -106,8 +106,8 @@
           <span class="circle"> 1</span>
           <b class="upload-heading">Upload your documents</b>
         </div>
-        <input type="file" name="upload" id="input-file" class=" upload-input visually-hidden" />
-        <label for="input-file" class="upload-label-file" >
+        <input type="file" name="upload" id="input-file" class=" upload-input visually-hidden " required />
+        <label for="input-file" class="upload-label-file">
           <i class="fas fa-cloud-upload-alt"></i>
           <b class="upload-label-text">Upload a new file</b>
         </label>
@@ -159,7 +159,7 @@
 
           <div class="language-select-button language-from">
             <label class="select-lable" for="language-option">From</label>
-            <select name="translate-from" class="select select-button" id="language-option" tabindex="0">
+            <select name="translate-from" class="select select-button" id="language-option" >
               <option selected value="english">English</option>
               <option value="arabic">Arabic</option>
               <option value="kurdish">Kurdish</option>
@@ -170,7 +170,7 @@
 
           <div class="language-select-button language-to">
             <label class="select-lable" for="language-option">To</label>
-            <select name="translate-to" class="select select-button" id="language-option" tabindex="0">
+            <select name="translate-to" class="select select-button" id="language-option" >
               <option selected value="english">English</option>
               <option value="arabic">Arabic</option>
               <option value="kurdish">Kurdish</option>
@@ -180,7 +180,7 @@
           </div>
 
           <div class="language-select-button language-second">
-            <select name="translate-to-secons" class="select select-button " id="language-option" tabindex="0">
+            <select name="translate-to-secons" class="select select-button " id="language-option" >
               <option selected value="english">English</option>
               <option value="arabic">Arabic</option>
               <option value="kurdish">Kurdish</option>
@@ -206,7 +206,7 @@
 
         <fieldset class="tone-radio">
           <div class="tone-radio-button">
-            <input type="radio" name="group2" id="casual" class="tone-radio-input visually-hidden" required />
+            <input type="radio" name="group2" id="casual" class="tone-radio-input visually-hidden" required checked />
             <label for="casual" class="tone-radio-label " >
               <i class="fas fa-comments"></i>
               <span class="tone-span ">Friendly / Cassual</span>
@@ -279,7 +279,7 @@
           <div class="card-field card-password">
             <label for="password" class="card-label">Choose a password</label>
             <input type="password" pattern="^[a-zA-Z]\w{3,14}$" name="password" id="password" class="card-input "
-              minlength="6" placeholder="•••••••" required>
+              minlength="4" maxlength="16" placeholder="•••••••" title="Password must contain at least 4 chars, letters, numbers and the underscore may be used" required>
           </div>
 
         </div>
@@ -289,14 +289,14 @@
       <div class="selection-card">
 
         <div class="card-radio-button">
-          <input type="radio" name="group3" id="visa" class="card-radio-input visually-hidden" required />
+          <input type="radio" name="group3" id="visa" class="card-radio-input visually-hidden" required checked  />
           <label for="visa" class="card-radio-label " >
             <img src="/img/visa.png" alt="visa logo">
           </label>
         </div>
 
         <div class="card-radio-button">
-          <input type="radio" name="group3" id="paypal" class="card-radio-input visually-hidden" checked />
+          <input type="radio" name="group3" id="paypal" class="card-radio-input visually-hidden" />
           <label for="paypal"  class="card-radio-label ">
             <img src="/img/paypal.png" alt="paypal logo">
           </label>
@@ -321,13 +321,13 @@
 
         <div class="card-field card-date">
           <label for="date" class="card-label">Expiry Date</label>
-          <input type="text" pattern="^\d{1,2}\/\d{1,2}\/\d{4}$" name="date" id="date" placeholder="DD / MM / YY"
+          <input type="date" pattern="^\d{1,2}\/\d{1,2}\/\d{4}$" name="date" id="date" placeholder="DD / MM / YY"
             class="card-input input-date " required>
         </div>
         
         <div class="card-field card-code">
           <label for="code" class="card-label">Code</label>
-          <input type="text"  name="password" id="code" class="card-input input-code" minlength="3"
+          <input type="text"  name="password" id="code" class="card-input input-code" minlength="3" maxlength="3"
             pattern="^(?!000)\d{3,4}$" required>
         </div>
       </div>
@@ -339,11 +339,11 @@
           <a href="#" class="footer-link">Terms & Conditions</a>
         </label>
           <input type="submit" value="" id="submit-button-footer" class="submit-input visually-hidden">
-          <label for="submit-button-footer" class=" button order-button footer-button" tabindex="0">
+          <label for="submit-button-footer" class=" button order-button footer-button" >
             Place order
           </label>
           <input type="button" value="" id="print-button-footer" class="submit-input visually-hidden">
-          <label for="print-button-footer" class="button quote-button footer-button" tabindex="0">
+          <label for="print-button-footer" class="button quote-button footer-button" >
             Print a quote
           </label>
       </footer>
@@ -354,4 +354,3 @@
 </body>
 
 </html>
-
