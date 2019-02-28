@@ -7,7 +7,12 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1"
     />
-		
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body class="document">
@@ -79,8 +84,9 @@
 
           <section class="help">
             <h2 class="help_caption">
-              <span class="help-ring" aria-hidden="true">&#8853;</span>Help
-              center
+              <i class="fa fa-life-ring help-ring" aria-hidden="true"></i>
+
+              Help center
             </h2>
             <p class="help_text">
               if you need assistance while placing your order, contact one of
@@ -107,13 +113,13 @@
               <div class="translate_select">
                 <input
                   required
-				  id = "translate_1"
+                  id="translate_1"
                   type="radio"
                   name="translate-type"
                   class="visually-hidden translate_input"
                   value="website"
                 />
-                <label class="translate_figure" for = "translate_1">
+                <label class="translate_figure" for="translate_1">
                   <img
                     src="img/translate-1.jpg"
                     alt="translate site"
@@ -125,13 +131,14 @@
               <div class="translate_select">
                 <input
                   required
-				  id = "translate_2"
+                  id="translate_2"
                   type="radio"
                   name="translate-type"
                   class="visually-hidden translate_input"
                   value="documents"
+                  checked
                 />
-                <label class="translate_figure" for = "translate_2">
+                <label class="translate_figure" for="translate_2">
                   <img
                     src="img/translate-2.jpg"
                     alt="translate documents"
@@ -143,13 +150,13 @@
               <div class="translate_select">
                 <input
                   required
-				  id = "translate_3"
+                  id="translate_3"
                   type="radio"
                   name="translate-type"
                   class="visually-hidden translate_input"
                   value="social-account"
                 />
-                <label class="translate_figure" for = "translate_3">
+                <label class="translate_figure" for="translate_3">
                   <img
                     src="img/translate-3.jpg"
                     alt="translate social-account"
@@ -173,7 +180,7 @@
                 type="file"
                 class="visually-hidden upload_input"
               />
-              <label class="upload_file-btn" for="file-picker" >
+              <label class="upload_file-btn" for="file-picker">
                 <span class="upload-cloud">&#9729;</span>
                 Upload a new file
               </label>
@@ -193,39 +200,33 @@
                 </tr>
                 <tr>
                   <td class="upload-table_td">
-                    <span
-                      class="upload-document upload-table_th_hidden"
+                    <i
+                      class="fa fa-file-text upload-table_th_hidden"
                       aria-hidden="true"
-                      >&#9016;</span
-                    >
+                    ></i>
                     business_operations.docx
                   </td>
                   <td class="upload-table_td upload-table_th_hidden">78kb</td>
                   <td class="upload-table_td upload-table_th_hidden">2,326</td>
                   <td class="upload-table_td upload-table_td-btn">
                     <button class="upload-table_btn" type="button">
-                      <span class="upload-trash" aria-hidden="true"
-                        >&#128686;</span
-                      >
+                      <i class="fa fa-trash" aria-hidden="true"></i>
                     </button>
                   </td>
                 </tr>
                 <tr>
                   <td class="upload-table_td">
-                    <span
-                      class="upload-document upload-table_th_hidden"
+                    <i
+                      class="fa fa-file-text upload-table_th_hidden"
                       aria-hidden="true"
-                      >&#9016;</span
-                    >
+                    ></i>
                     business_financial.docx
                   </td>
                   <td class="upload-table_td upload-table_th_hidden">26kb</td>
                   <td class="upload-table_td upload-table_th_hidden">842</td>
                   <td class="upload-table_td upload-table_td-btn">
                     <button class="upload-table_btn" type="button">
-                      <span class="upload-trash" aria-hidden="true"
-                        >&#128686;</span
-                      >
+                      <i class="fa fa-trash" aria-hidden="true"></i>
                     </button>
                   </td>
                 </tr>
@@ -243,6 +244,7 @@
                     name="translate-from"
                     class="lang_select"
                     id="lang_select_from"
+                    required
                   >
                     <option selected value="english">English</option>
                     <option value="arabic">Arabic</option>
@@ -261,6 +263,7 @@
                     name="translate-to"
                     class="lang_select"
                     id="lang_select_to"
+                    required
                   >
                     <option value="english">English</option>
                     <option selected value="arabic">Arabic</option>
@@ -276,6 +279,7 @@
                     name="translate-to-second"
                     class="lang_select"
                     id="lang_select_to_second"
+                    required
                   >
                     <option value="english">English</option>
                     <option value="arabic">Arabic</option>
@@ -287,11 +291,11 @@
 
                 <div class="lang_actions">
                   <button class="lang_btn" type="button">
-                    <span class="lang_trash" aria-hidden="true">&#10062;</span>
+                    <i class="fa fa-trash lang_trash" aria-hidden="true"></i>
                   </button>
-                  <button class="lang_btn" type="button">
+                  <button class="lang_btn lang_btn_add" type="button">
                     <span class="lang_add" aria-hidden="true">&#10133;</span>
-                    ADD
+                    Add
                   </button>
                 </div>
               </div>
@@ -313,7 +317,11 @@
                       class="visually-hidden tone_input"
                     />
                     <label class="tone-btn_label" for="select-casual">
-                      <span class="tone-btn_label_ic" aria-hidden="true"></span>
+                      <i
+                        class="fa fa-comments tone-btn_label_ic"
+                        aria-hidden="true"
+                      ></i>
+
                       <span>Friendly / Casual</span>
                     </label>
                   </div>
@@ -325,12 +333,13 @@
                       name="translate-tone"
                       value="pro"
                       class="visually-hidden tone_input"
+                      checked
                     />
                     <label class="tone-btn_label" for="select-pro">
-                      <span
-                        class="tone-suitcase tone-btn_label_ic"
+                      <i
+                        class="fa fa-briefcase tone-btn_label_ic"
                         aria-hidden="true"
-                      ></span>
+                      ></i>
                       <span>Corporate / Pro</span>
                     </label>
                   </div>
@@ -344,10 +353,10 @@
                       class="visually-hidden tone_input"
                     />
                     <label class="tone-btn_label" for="select-formal">
-                      <span
-                        class="bullhorn tone-btn_label_ic"
+                      <i
+                        class="fa fa-bullhorn tone-btn_label_ic"
                         aria-hidden="true"
-                      ></span>
+                      ></i>
                       <span>Media / Formal</span>
                     </label>
                   </div>
@@ -385,15 +394,18 @@
                     >yesterday</label
                   >
                 </div>
-                <details open class="timeline-info">
-                  <summary class="timeline-info_caption">timeline info</summary>
+                <div class="timeline-info">
+                  <div class="timeline_info-title">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                    <h3 class="timeline-info_caption">timeline info</h3>
+                  </div>
                   <p class="timeline-info_text">
                     With an
                     <span class="timeline-info_emphasized">AVARAGE</span>
                     timeline set up, our expert translator can take a reasonable
                     amount of time perfecting y our translation
                   </p>
-                </details>
+                </div>
               </fieldset>
             </section>
           </div>
@@ -450,7 +462,7 @@
                     placeholder="password"
                     type="password"
                     id="form_password"
-					title = "Длина пароля не менее 6 символов!"
+                    title="Длина пароля не менее 6 символов!"
                     minlength="6"
                   />
                   <span aria-hidden="true" class="payment_valid"></span>
@@ -470,7 +482,6 @@
                   class="payment_radio_label"
                   for="payment-visa_mastercard"
                 >
-                  visa\mastercard
                   <img src="img/mastercard.jpg" alt="mastercard" />
                   <img src="img/visa.jpg" alt="visa" />
                 </label>
@@ -483,7 +494,6 @@
                   class="required-input visually-hidden"
                 />
                 <label class="payment_radio_label" for="payment-paypal">
-                  paypal
                   <img src="img/paypal.jpg" alt="paypal" />
                 </label>
                 <input
@@ -493,9 +503,9 @@
                   value="amazon"
                   id="payment-amazon"
                   class="required-input visually-hidden"
+                  checked
                 />
                 <label class="payment_radio_label" for="payment-amazon">
-                  amazon
                   <img src="img/amazon.jpg" alt="amazon" />
                 </label>
               </div>
@@ -513,7 +523,7 @@
                     type="text"
                     minlength="9"
                     maxlength="19"
-					title = "Номер карты должен быть от 9 до 19 цифр!"
+                    title="Номер карты должен быть от 9 до 19 цифр!"
                     pattern="\d{1,19}"
                   />
                   <span aria-hidden="true" class="payment_valid"></span>
@@ -531,7 +541,7 @@
                     name="exp-date"
                     max="2025-12-31"
                     min="2018-02-01"
-					title = "Дата выдачи карты должна быть в периоде с 2018 по 2025 год!"
+                    title="Дата выдачи карты должна быть в периоде с 2018 по 2025 год!"
                   />
                   <span aria-hidden="true" class="payment_valid"></span>
                 </div>
@@ -544,7 +554,7 @@
                     id="card-code"
                     name="card-code"
                     type="text"
-					title = "Длина кода должна быть 3 символа!"
+                    title="Длина кода должна быть 3 символа!"
                     minlength="3"
                     maxlength="3"
                   />
@@ -560,9 +570,8 @@
                     class="payment-agree_input"
                     id="payment-agree_input"
                   />
-                  <label for="payment-agree_input"
-                    >I agree to the <a href="#">Terms & Conditions</a></label
-                  >
+                  <label for="payment-agree_input">I agree to the</label>
+                  <a href="#" class="accept_terms-link">Terms & Conditions</a>
                 </div>
                 <div class="payment-actions_btn payment-submit">
                   <button
@@ -586,7 +595,7 @@
       <div class="footer-wrapper">
         <section class="what-we-do">
           <h4 class="footer_caption">
-            <span class="fa fa-heart fa-lg fa-footer" aria-hidden="true"></span>
+            <i class="fa fa-heart fa-lg fa-footer" aria-hidden="true"></i>
             What we do
           </h4>
           <p class="footer_text">
@@ -597,55 +606,47 @@
         </section>
         <section class="office">
           <h4 class="footer_caption">
-            <span
-              class="fa fa-compass fa-lg fa-footer"
-              aria-hidden="true"
-            ></span>
+            <i class="fa fa-compass fa-lg fa-footer" aria-hidden="true"></i>
             Our main office
           </h4>
           <address class="footer_text">
             Dubai, UAE <br />
             P.O. Box: 502735 <br />
-            Phone: +971(0) 44278128
+            Phone: <a href="tel:+971(0)555555">+971(0)555 555</a>
           </address>
         </section>
         <section class="social">
           <h4 class="footer_caption">
-            <span
-              class="fa fa-share-alt fa-lg fa-footer"
-              aria-hidden="true"
-            ></span>
+            <i class="fa fa-share-alt fa-lg fa-footer" aria-hidden="true"></i>
             Connect with us
           </h4>
-          <ul class="footer_list">
-            <li>
-              <a href="#"
-                ><span
-                  class="fa fa-facebook fa-footer-list"
-                  aria-hidden="true"
-                ></span>
-                Facebook</a
-              >
-            </li>
-            <li>
-              <a href="#"
-                ><span
-                  class="fa fa-twitter fa-footer-list"
-                  aria-hidden="true"
-                ></span>
-                Twitter</a
-              >
-            </li>
-            <li>
-              <a href="#"
-                ><span
-                  class="fa fa-linkedin fa-footer-list"
-                  aria-hidden="true"
-                ></span>
-                Linkedin</a
-              >
-            </li>
-          </ul>
+
+          <div class="footer_list">
+            <a href="#" class="footer_list-ref">
+              <img src="img/facebook.png" alt="facebook" class="social-icons" />
+
+              <span class="social-icon_text">Facebook</span>
+            </a>
+          </div>
+
+          <div class="footer_list">
+            <a href="#" class="footer_list-ref">
+              <img
+                src="img/twitter_bird.png"
+                alt="twitter"
+                class="social-icons"
+              />
+
+              <span class="social-icon_text">Twitter</span>
+            </a>
+          </div>
+
+          <div class="footer_list">
+            <a href="#" class="footer_list-ref">
+              <img src="img/linkedin.png" alt="linkedin" class="social-icons" />
+              <span class="social-icon_text">Linkedin</span>
+            </a>
+          </div>
         </section>
         <div class="dark-logo">
           <a href="#" class="dark-logo_link">
