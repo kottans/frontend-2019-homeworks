@@ -1,0 +1,61 @@
+.third-step{
+	width: 40%;
+	height: 330px;
+	align-items: center;
+	@extend .first-step ;
+	article{
+		margin-left: 25%;
+		&::before{
+			content: url(../img/three.png);
+		}
+	}
+}
+
+.third-step__header{
+	@extend .first-step__header ;
+}
+
+.select-disared{
+	width: 60%;
+	height: 70px;
+	margin-top: 20px;
+	border-radius: 4px;
+	position: relative;
+	border: 1px solid #d7d8e0;
+	transition: .1s;
+	appearance: none;
+	&:hover{
+		cursor: pointer;
+		box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.75);
+	}
+	&:focus{
+		outline: none;
+	}
+	&:checked{
+		border: 4px solid #76a7e1;
+		&::after{
+			content: url(../img/004-checked.png);
+			transform: scale(.15);
+			position: absolute;
+			top: -95px;
+			right: -95px;
+			z-index: 10;
+			outline: none;
+		}
+	}
+}
+
+.disared-first-btn{
+	background: #f7f7fa url(../img/bg-select-1.png)no-repeat center;
+	background-size: 100%;;
+}
+
+.disared-second-btn{
+	background: #f7f7fa url(../img/bg-select-2.png)no-repeat center;
+	background-size: 100%;
+}
+
+.disared-thrird-btn{
+	background: #f7f7fa url(../img/bg-select-3.png)no-repeat center;
+	background-size: 100%;
+}

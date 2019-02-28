@@ -1,0 +1,49 @@
+.second-step{
+	height: 400px;
+	@extend .first-step ;
+	article{
+		&::before{
+			content: url(../img/two.png);
+		}
+	}
+}
+
+.second-step__header{
+	@extend .first-step__header ;
+}
+
+.second-step__from-btn{
+	width: 80%;
+	height: 55px;
+	display: flex;
+	align-items: center;
+	margin: 60px 10% 0 10%;
+	span{
+		display: flex;
+		justify-content: flex-end;
+		padding-right: 30px;
+		width: 40px;
+		color: #9098b8;
+		user-select: none;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 500;
+	}
+}
+
+.add-language-btn{
+	width: 15%;
+	height: inherit;
+	margin-left: 10px;
+	background: #f7f7fa;
+	color: #9098b8;
+	border: 1px solid #d7d8e0;
+	border-radius: 4px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	transition: .5s;
+	&:hover{
+		color: rgb(87, 187, 74);
+		cursor: pointer;
+	}
+}

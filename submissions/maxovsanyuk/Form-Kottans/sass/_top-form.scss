@@ -1,0 +1,155 @@
+
+.form-header{
+	width: 100%;
+	height: 150px;
+	display: flex;
+	border-bottom:1px solid #c9d0e1;
+	&__left-section{
+		width: 70%;
+		height: inherit;
+		display: flex;
+		border-right: 1px solid #c9d0e1;
+		transition: .5s;
+		user-select: none;
+		&:hover{
+			background: rgba(176, 207, 119, 0.384);
+		}
+	}
+	&__right-section{
+		width: 30%;
+		height: inherit;
+		transition: .5s;
+		&:hover{
+			background: rgba(176, 207, 119, 0.384);
+		}
+	}
+}
+
+.user-order{
+	width: 70%;
+	height: inherit;
+	display: flex;
+	flex-wrap: wrap;
+	&-icon{
+		width: 100%;
+		height: calc(40% - 20px);
+		display: flex;
+		align-items: center;
+		padding: 10px 0 10px 20%;
+		color: #6e768f;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 500;
+		font-size: 13px;
+		text-transform: uppercase;
+		position: relative;
+		&::before{
+			content: url(../img/order.png);
+			position: absolute;
+			transform: scale(.7);
+			left: 10%;
+		}
+	}
+}
+
+.user-order-properties{
+	width: 100%;
+	height: 60%;
+	display: flex;
+	margin-left: 20%;
+}
+
+.order-properties-item{
+	width: 25%;
+	height: inherit;
+	article{
+		font-size: 13px;
+		padding: 10px 0;
+		color: #6e768f;
+		text-transform: uppercase;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 500;
+	}
+	span{
+		color: #a5abc5;
+		font-size: 11px;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 300;
+	}
+}
+
+.order-btn-container{
+	width: 30%;
+	height: inherit;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	&__btn{
+		width: 80%;
+		padding: 15px 0;
+		margin: 5px 0;
+		background:#eceef4;
+		color: #a5aaca;
+		border: 1px solid #c9d0e1;
+		border-radius: 4px;
+		text-transform: uppercase;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 500;
+		font-size: 12px;
+		transition: .3s;
+		&:focus{
+			outline: none;
+		}
+		&:hover{
+			cursor: pointer;
+			background: #5fcac6;
+			color: #fff;
+			border: 1px solid #5fcac6;
+		}
+	}
+}
+
+.form-header__right-section{
+	display: flex;
+	flex-wrap: wrap;
+	transition: .5s;
+	article{
+		width: 100%;
+		display: flex;
+		align-items: center;
+		padding: 10px 0 0 20%;
+		color: #6e768f;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 500;
+		font-size: 13px;
+		text-transform: uppercase;
+		position: relative;
+		&::before{
+			content: url(../img/ring.png);
+			position: absolute;
+			transform: scale(.6);
+			left: 5%;
+		}
+	}
+	p{
+		margin: 0 10% 0 20%;
+		font-size: 13px;
+		color: #a5abc5;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 300;
+		line-height: 1.3;
+	}
+	a{
+		padding-right: 20px;
+		color: #6e768f;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 500;
+		font-size: 12px;
+		text-decoration: none;
+	}
+}
+
+.contact-us{
+	margin-left: 20%;
+}
+

@@ -1,0 +1,132 @@
+
+.fourth-step{
+	width: 60%;
+	height: 330px;
+	position: relative;
+	@extend .first-step ;
+	article{
+		margin-left: 16%;
+		&::before{
+			content: url(../img/four.png);
+		}
+	}
+}
+
+.fourth__header{
+	@extend .first-step__header ;
+}
+
+input[type=range] {
+	-webkit-appearance: none;
+	margin: 40px 0 0 5%;
+	width: 70%;
+	position: relative;
+  }
+  input[type=range]:focus {
+	outline: none;
+  }
+  input[type=range]:hover {
+	cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+	width: 100%;
+	height: 10px;
+	cursor: pointer;
+	background: #eff0f5;
+	border-radius: 10px;
+  }
+  input[type=range]::-webkit-slider-thumb {
+	box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+	border: 0px solid rgba(0, 0, 0, 0);
+	height: 25px;
+	width: 25px;
+	border-radius: 50px;
+	background: #edbe76;
+	cursor: pointer;
+	-webkit-appearance: none;
+	margin-top: -5.9px;
+	position: relative;
+	z-index: 20;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+	background: #eff0f5;
+  }
+  input[type=range]::before {
+	content: '.';
+	position: absolute;
+	font-size: 100px;
+	top: -80px;
+	left: -10px;
+	z-index: 10;
+	color:#d6d8e2;
+  }
+  input[type=range]::after {
+	content: '.';
+	position: absolute;
+	font-size: 100px;
+	top: -80px;
+	right: -2px;
+	z-index: 10;
+	color: #d6d8e2;
+  }
+
+.range-step-info{
+	width: 81%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	span{
+		display: flex;
+		margin-top: 30px;
+		color: #9098b8;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 400;
+		text-transform: uppercase;
+		font-size: 14px;
+	}
+}
+
+.range-step-info .range-average{
+	color: #f4c574;
+}
+
+.time-line-info{
+	width: 81%;
+	height: 150px;
+	position: absolute;
+	bottom: 0;
+	border: 1px solid #e6e8ee;
+	border-radius: 3px;
+	h3{
+		margin: 30px 0 0 15%;
+		color: #7278a2;
+		font-size: 16px;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 400;
+		text-transform: uppercase;
+		position: relative;
+		&::before{
+			content: url(../img/info.png);
+			transform: scale(.6);
+			position: absolute;
+			top: -16px;
+			left: -55px;
+		}
+	}
+	p{
+		padding: 10px 35px 0 15%;
+		color: #7278a2;
+		font-size: 14px;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 200;
+		line-height: 1.6;
+		b{
+			font-family: 'Roboto', sans-serif;
+			font-weight: 400;
+			text-transform: uppercase;
+			font-size: 14px;
+			color: #f4c574;
+		}
+	}
+}

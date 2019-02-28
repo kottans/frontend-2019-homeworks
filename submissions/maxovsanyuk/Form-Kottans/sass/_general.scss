@@ -1,0 +1,19 @@
+
+.section{
+	width: 100%;
+	height: 3000px;
+	display: flex;
+	justify-content: center;
+	background:#eceef4;
+	scroll-behavior: smooth;
+	&__form{
+		width: 80%;
+		height: 2820px;
+		display: flex;
+		align-content: flex-start;
+		flex-wrap: wrap;
+		background: #fff;
+		border: 1px solid #c9d0e1;
+		border-radius: 3px;
+	}
+}

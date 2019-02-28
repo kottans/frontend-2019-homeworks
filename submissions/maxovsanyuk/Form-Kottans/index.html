@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
+</head>
+<body>
+
+
+	<header class="header">
+		<button class="header__go-back-btn">Go back</button>
+		<button class="header__sign-in-btn">Sign in</button>
+	</header>
+
+<form action="#" method="POST">
+	<section class="section">
+		<section class="section__form">
+			<div class="form-header">
+				<div class="form-header__left-section">
+					<div class="user-order">
+						<span class="user-order-icon">Your order</span>
+						<div class="user-order-properties">
+								<div class="order-properties-item">
+								<article>Items</article>
+								<span>2 documents</span>
+							</div>
+							<div class="order-properties-item">
+									<article>Details</article>
+									<span>2 languages</span>
+							</div>
+							<div class="order-properties-item">
+									<article>Price</article>
+									<span>$ 696.06</span>
+							</div>
+							<div class="order-properties-item">
+									<article>Delivery</article>
+									<span>48 hours*</span>
+							</div>
+						</div>
+					</div>
+					<form action="#" method="POST">
+						<div class="order-btn-container">
+							<button class="order-btn-container__btn">Place order</button>
+							<button class="order-btn-container__btn">Print a quote</button>
+						</div>
+					</form>
+				</div>
+
+				<div class="form-header__right-section">
+					<article>Help Center</article>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur error porro placeat a labore et.
+					</p>
+					<div class="contact-us">
+						<a href="tel:+9710555555">+971 (0) 555 555</a>
+						<a href="mailto:help@qtest.com">help@qtest.com</a>
+					</div>
+				</div>
+			</div>
+
+			<section class="select-target">
+				<h3>Select what you want to translate</h3>
+				<div class="all-target-btn">
+					<div class="all-target-btn-form" >
+						<input type="radio" class="select-target-btn website" name="btn" value="one" required>
+						<input type="radio" class="select-target-btn social-account" name="btn" value="two">
+						<input type="radio" class="select-target-btn documents" name="btn" value="three">
+					</div>
+				</div>
+			</section>
+
+			<section class="first-step">
+				<div class="first-step__header">
+					<article>Upload your documents</article>
+					<span>(Doc, Docx, Text, Pdf, Marcdown)</span>
+				</div>
+				<label for="file" class="upload-file-btn" >
+						<input type="file" id="file" class="hidden-btn" required>
+				</label>
+
+				<div class="upload-file-container">
+					<div class="upload-file-container__header">
+						<div class="file-name file-name_size-s">file-name</div>
+						<div class="file-size">file-size</div>
+						<div class="numbers-of-words">numbers of words</div>
+						<div class="file-remove">remove</div>
+					</div>
+					<div class="all-item-container">
+						<div class="upload-file-container__item">
+							<div class="file-name-item">bisiness_operations.docx</div>
+							<div class="file-size-item">78kb</div>
+							<div class="numbers-of-words-item">842</div>
+							<div class="file-remove-item">
+								<button class="remove-item-btn" ></button>
+							</div>
+						</div>
+
+						<div class="upload-file-container__item">
+							<div class="file-name-item">bisiness_operations.docx</div>
+							<div class="file-size-item">238kb</div>
+							<div class="numbers-of-words-item">1282</div>
+							<div class="file-remove-item">
+								<button class="remove-item-btn" ></button>
+							</div>
+						</div>
+
+						<div class="upload-file-container__item">
+							<div class="file-name-item">bisiness_operations.docx</div>
+							<div class="file-size-item">781kb</div>
+							<div class="numbers-of-words-item">1842</div>
+							<div class="file-remove-item">
+								<button class="remove-item-btn"></button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+
+			<section class="second-step">
+				<div class="second-step__header">
+					<article>Chose your languages pairings</article>
+				</div>
+
+				<div class="second-step__from-btn">
+					<span>From</span>
+					<div class="select-wrapper">
+						<select class="select" required>
+							<option>English</option>
+							<option>Polish</option>
+							<option>German</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="second-step__from-btn">
+					<span>To</span>
+					<div class="select-wrapper">
+						<select class="select" required>
+							<option>Arabic</option>
+							<option>English</option>
+							<option>Polish</option>
+							<option>German</option>
+						</select>
+					</div>
+
+					<div class="select-wrapper select-wrapper_add-language">
+						<select class="select" required>
+							<option>Kurdish</option>
+							<option>English</option>
+							<option>Polish</option>
+							<option>German</option>
+						</select>
+					</div>
+					<button class="remove-item-btn"></button>
+					<button class="add-language-btn">+ ADD</button>
+				</div>
+			</section>
+
+			<section class="third-step">
+				<div class="third-step__header">
+					<article>Select your disered tone</article>
+				</div>
+				<input type="radio" class="select-disared disared-first-btn" name="disared" value="one" required>
+				<input type="radio" class="select-disared disared-second-btn" name="disared" value="two">
+				<input type="radio" class="select-disared disared-thrird-btn" name="disared" value="three">
+			</section>
+
+			<section class="fourth-step">
+				<div class="fourth__header">
+					<article>Tell us how urgent this job is </article>
+				</div>
+				<input type="range" min="0" max="2" step="1"  name="range" required>
+				<div class="range-step-info">
+					<span>I got time</span>
+					<span class="range-average">Average</span>
+					<span>Yesterday</span>
+				</div>
+				<div class="time-line-info">
+					<h3>Timeline info</h3>
+					<p>
+						Lorem an <b>Average</b> amet consectet. Animi dolorem debitis non magnam eaque et accusantium ratione dignis.
+					</p>
+				</div>
+			</section>
+
+			<section class="fifth-step">
+				<div class="fifth__header">
+					<article>Sign up and choose a payment method</article>
+				</div>
+
+				<div class="sign-in-info">
+					<span>Already have an acount with us?</span>
+					<a href="#">Sign in</a>
+				</div>
+
+				<div class="user-token">
+					<div class="input-container">
+						<div>
+						<label>
+							<h3>Full name</h3>
+							<input
+							class="full-name"
+							type="text"
+							minlength="10"
+							maxlength="30"
+							name="full_name"
+							pattern="^[a-zA-Z ,.'-]+$"
+							placeholder="Mathieu Mayer"
+							id="full-name"
+							required>
+						</label>
+						</div>
+					</div>
+
+					<div class="input-container">
+						<div class="addithional-container">
+							<label>
+								<h3>EMAIL ADDRESS</h3>
+								<input class="email-adress"
+								type="email"
+								id="email"
+								name="email"
+								minlength="5"
+								maxlength="30"
+								pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+								title="name@domain.etc"
+								placeholder="example@.com"
+								required>
+							</label>
+						</div>
+						<div class="addithional-container">
+							<label>
+								<h3>CHOOSE A PASSWORD</h3>
+								<input
+								class="choose-password"
+								type="password"
+								id="password"
+								pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+								title="Minimum 8 characters, UPPERCASE, lowercase and Number"
+								minlength="6"
+								maxlength="12"
+								required>
+							</label>
+						</div>
+						<div class="all-payment-btn-form" >
+							<input type="radio" class="payment-target-btn visa" name="payment"  id="visa" value="one" required>
+							<input type="radio" class="payment-target-btn paypal" name="payment" id="payPal" value="two">
+							<input type="radio" class="payment-target-btn amazon" name="payment" id="amazon" value="three">
+						</div>
+						<div class="card-full-data">
+							<div>
+								<label>
+									<h3>Card number</h3>
+									<input
+									id="curd-number"
+									type="text"
+									class="card-number"
+									inputmode="numeric"
+									pattern="[0-9 ]{15,19}"
+									title="Input card number. Min lenght 15 and max length 19"
+									minlength="15"
+									maxlength="19"
+									autocomplete="on"
+									required>
+								</label>
+							</div>
+
+							<div>
+								<label>
+									<h3>Expiry date</h3>
+									<input
+									class="card-expiry-date"
+									type="date"
+									title="Input expiry card date."
+									autocomplete="on"
+									required>
+								</label>
+							</div>
+
+							<div>
+								<h3>Code</h3>
+								<input
+								class="card-password"
+								type="password"
+								inputmode="numeric"
+								name="password"
+								pattern="[0-9]{3}"
+								title="Input card cod. 3 digits"
+								minlength="3"
+								maxlength="3"
+								autocomplete="on"
+								required>
+							</div>
+						</div>
+						<div class="order-container">
+								<input type="checkbox" id="cbx" class="confirm-terms" required>
+								<label for="cbx" class="check">
+									<svg width="18px" height="18px" viewbox="0 0 18 18">
+									  <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+									  <polyline points="1 9 7 14 15 4"></polyline>
+									</svg>
+								  </label>
+								  <label for="cbx"><span>I agree to the</span></label>
+								<a href="#">Terms & Conditions</a>
+							<button class="order-btn-container__btn size_m">Place order</button>
+							<button class="order-btn-container__btn size_m">Print a quote</button>
+						</div>
+					</div>
+				</div>
+			</section>
+		</section>
+	</section>
+</form>
+
+<footer class="footer"></footer>
+</body>
+<script src="js/index.js"></script>
+</html>
+
