@@ -33,7 +33,7 @@
 	<body>
 		<!-- Custom HTML -->
 
-		<div class="container">
+
 			<header class="header">
 				<button type="button" class="main-button print-button back-button">
 					<i class="fa fa-long-arrow-left" aria-hidden="true"></i>
@@ -227,36 +227,7 @@
 							</div>
 							<div class="languages__pairing-inner">
 								<div class="languages__pairing-item">
-									<div class="select__text">From</div>
-									<div class="select__wrapper">
-										<select
-											name="languange"
-											id="select-from"
-											class="select__item"
-											required
-										>
-											<option value="english">English</option>
-											<option value="arabic">Arabic</option>
-											<option value="kurdish">Kurdish</option>
-										</select>
-									</div>
-								</div>
-								<div class="languages__pairing-item">
-									<div class="select__text select__text-to">To</div>
-									<div class="select__wrapper">
-										<select
-											name="languange"
-											id="select-to"
-											class="select__item"
-											required
-										>
-											<option value="english">English</option>
-											<option value="arabic">Arabic</option>
-											<option value="kurdish">Kurdish</option>
-										</select>
-									</div>
-								</div>
-								<div class="languages__pairing-item">
+										<div class="select__text text-from">From</div>
 									<div class="select__wrapper select__wrapper-more">
 										<select
 											name="languange"
@@ -270,6 +241,41 @@
 									</div>
 								</div>
 								<div class="languages__pairing-item">
+									<div class="select__text select__text-to">To</div>
+									<div class="select__wrapper select__wrapper-more">
+										<select
+											name="languange"
+											id="select-to-2"
+											class="select__item select__item-more"
+										>
+											<option value="english">English</option>
+											<option value="arabic">Arabic</option>
+											<option value="kurdish">Kurdish</option>
+										</select>
+									</div>
+								</div>
+								<div class="languages__pairing-item">
+									<div class="select__wrapper select__wrapper-more select__wrapper-additinal">
+										<select
+											name="languange"
+											id="select-to-2"
+											class="select__item select__item-more"
+										>
+											<option value="english">English</option>
+											<option value="arabic">Arabic</option>
+											<option value="kurdish">Kurdish</option>
+										</select>
+									</div>
+									<div class="language__delete">
+											<button type="button" class="delete-icon">
+												<i
+													class="fa fa-trash"
+													aria-hidden="true"
+												></i>
+											</button>
+										</div>
+								</div>
+								<!-- <div class="languages__pairing-item">
 									<div class="language__delete">
 										<button type="button" class="delete-icon">
 											<i
@@ -278,7 +284,7 @@
 											></i>
 										</button>
 									</div>
-								</div>
+								</div> -->
 								<div class="languages__pairing-item">
 									<button class="language__add" type="button">
 										<i class="fa fa-plus" aria-hidden="true"></i> &nbsp; add

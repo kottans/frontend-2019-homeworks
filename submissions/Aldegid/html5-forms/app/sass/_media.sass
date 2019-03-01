@@ -28,8 +28,9 @@
 		margin-left: 15px
 	.upload__table
 		margin: 0 15px
-	// .select__wrapper
-	// 	margin-left: 15px
+	.languages__pairing-wrapper
+		margin-left: 15px
+		margin-right: 15px
 	.label
 		margin: 15px auto
 	.how-urgent__wrapper
@@ -79,7 +80,8 @@
 	.order__buttons
 		flex-direction: row
 		justify-content: space-around
-		padding: 25px 0
+		padding: 25px
+		flex-wrap: wrap
 	.form__body
 		margin-top: 50px
 	.translate-h2
@@ -92,22 +94,34 @@
 		padding: 30px 15px
 	.languages__pairing-wrapper
 		margin-top: 60px
+		margin-left: 0
+		margin-right: 0
+
 	.languages__pairing-item
-		margin: 0 15px
-		width: 100%
+		&:nth-child(3)
+			// flex-direction: row
+			// align-items: center
+			width: 70%
+			position: relative
+	.languages__pairing-item
+		margin: 0 auto
+		width: 70%
+		flex-direction: column
+		align-items: flex-start
+	.languages__pairing-item
+		&:first-child
+			width: 70%
+
+	.select__text
+		text-align: left
+	.text-from
+		margin-top: 10px
 	.language__delete
 		width: 100%
 		.delete-icon
-			display: flex
-			align-items: center
-			justify-content: center
-			border: 1px solid $bordercolor
-			border-radius: 5px
-			height: 50px
-			text-align: center
-			background-color: $background
-			width: 100%
-			margin: 15px 0
+			position: absolute
+			top: 29px
+			right: -40px
 	.language__add
 		width: 100%
 		margin: 15px 0
@@ -133,9 +147,19 @@
 		.fa
 			top: 45px
 
+	.order__table-body
+		// width: calc(100% - 30px)
+		width: 100%
+		margin: 0 auto
+	.order__table .order__table-td,
+	.order__table .order__table-th,
+	.order__table .order__table-tr
+		padding-right: 0
+
 	.input__auth
 		width: 100%
 		font-size: 16px
+		margin-right: 0
 	.validation::before
 		left: 90%
 	.sign-up__name
@@ -191,6 +215,10 @@
 	.form__footer .main-button
 		padding: 0
 		margin: 15px 15px 10px 15px
+	.main-button
+		width: 100%
+	.credit__card-item
+		margin: 15px 0
 	.header
 		padding: 15px
 		.header__logo
@@ -205,6 +233,12 @@
 			order: 3
 	.input__auth
 		width: 100%
+	.order__table-td
+		font-size: 14px
+	.order__table
+		padding-left: 15px
+	// .order__table-body
+	// 	margin-left: 0
 
 +r(400)
 	.header .main-button
@@ -217,7 +251,7 @@
 		padding-left: 15px
 		padding-bottom: 0
 	.order__table-body
-		margin: 0
+		// margin: 0
 		.order__table-tr, .order__table-th, .order__table-td
 			font-size: 12px
 			padding-right: 10px
