@@ -1,0 +1,69 @@
+.range-section {
+  grid-area: range;
+}
+
+.range-heading-section {
+  display: flex;
+  margin-top: 4px;
+  margin-left: 119px;
+}
+
+.range-heading {
+  align-self: center;
+  font-size: 22px;
+  color: rgb(99, 92, 100);
+}
+
+.range-container {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+
+}
+
+.range-input {
+  position: relative;
+  width: 55%;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.range-label-group{
+  display:flex;
+  justify-content: space-evenly;
+  width: 80%;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.range-info {
+  border-radius: 6px;
+  border: 1px solid rgb(221, 221, 228);
+  padding-left: 35px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+  margin-top: 75px;
+
+  width: 60%;
+
+}
+
+.fa-info-circle {
+  font-size: 16px;
+  margin-right: 15px;
+}
+
+.range-info-text {
+  margin-left: 30px;
+}
+
+.range-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgb(235, 182, 103);
+}
