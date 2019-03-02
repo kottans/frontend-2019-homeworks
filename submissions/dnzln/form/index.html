@@ -12,7 +12,6 @@
         <form action="#" method="POST">
 
         <header class="form-header">
-
                            
                 <div class="order-details">
                     <span class="bold-uppercase order-heading">Your order</span>
@@ -30,8 +29,7 @@
                                 <td class="second-line">48 hours*</td>
                             </tr>
                         </table>
-                </div>
-               
+                </div>               
             
                 <div class="form-buttons">
                     <button class="button submit">
@@ -41,8 +39,7 @@
                     <button class="button" type="button">
                         Print a quote
                     </button>
-                </div>
-            
+                </div>            
 
             <div class="help-center">
                 <span class="bold-uppercase help-heading">
@@ -74,7 +71,7 @@
 
                     <label for="doc-type-site" class="doctype-radio">
                         <span class="doctype-label-wrapper">
-                            <img src="img/website.jpg" width="90px" alt="" class="doctype-label-image">
+                            <img src="img/website.jpg" alt="Website" class="doctype-label-image">
                             <span class="doctype-label-text">Website</span>
                         </span>
                     </label>
@@ -89,7 +86,7 @@
                     <label for="doc-type-document" class="doctype-radio">
                         
                         <span class="doctype-label-wrapper">
-                            <img src="img/docs.jpg" width="90px" alt="" class="doctype-label-image">
+                            <img src="img/docs.jpg" alt="Documents" class="doctype-label-image">
                             <span class="doctype-label-text">Documents</span>
                         </span>
                     </label>
@@ -103,24 +100,22 @@
                     <label for="doc-type-soc" class="doctype-radio">
                         
                         <span class="doctype-label-wrapper">
-                            <img src="img/soc.jpg" width="90px" alt="" class="doctype-label-image">
+                            <img src="img/soc.jpg" alt="Social Account" class="doctype-label-image">
                             <span class="doctype-label-text">Social Account</span>
                         </span>
                     </label>
                 </section>
 
                 <section class="uploud-doc">
-                    <p class="upload-info">
                         <h3 class="section-heading">
                             Upload your documents
                         </h3>
                         &emsp;
                         <span class="allowed-formats">(Doc, Docx, Text, PDF, Markdown)</span>
-                    </p>
                     
                     <label>
                         <input type="file" 
-                            class="visually-hidden"
+                            class="visually-hidden upload-button"
                             name="upload-file-input" 
                             id="file-input"
                             accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, text/markdown, text/plain"
@@ -169,7 +164,7 @@
                         <span class="tip-text select">From</span>
                         <div class="lang-wrapper">
                         <select name="languange"
-                                id="select-languange"
+                                id="select-languange-from"
                                 class="select-languange common-button-style"
                                 required>
                             <option value="english" selected>English</option>
@@ -179,19 +174,17 @@
                         </select>
                         </div>
                     </div>
-
                     
-                    <ul class="list-selected-lang">
+                    <ul class="list-selected-lang" id="select-languange-to">
                         <li class="selected-lang-item">
                             <div class="label-wrapper">
                             <span class="tip-text select">To</span>
                                 <div class="lang-wrapper">
                                         <select name="languange"
-                                                id="select-languange"
                                                 class="select-languange common-button-style"
                                                 required>
-                                            <option value="arabic" selected>Arabic</option>
                                             <option value="english">English</option>
+                                            <option value="arabic" selected>Arabic</option>
                                             <option value="ukrainian">Ukrainian</option>
                                             <option value="kurdish">Kurdish</option>
                                         </select>
@@ -202,11 +195,10 @@
                         <li class="selected-lang-item">
                                 <div class="lang-wrapper">
                                         <select name="languange"
-                                                id="select-languange"
                                                 class="select-languange common-button-style"
                                                 required>
-                                            <option value="kurdish" selected>Kurdish</option>
                                             <option value="english">English</option>
+                                            <option value="kurdish" selected>Kurdish</option>
                                             <option value="ukrainian">Ukrainian</option>
                                             <option value="arabic">Arabic</option>
                                         </select>
@@ -236,7 +228,7 @@
                         <label class="tone-radio common-button-style">
                             <input type="radio" 
                                 name="tone-type" 
-                                id="tone-type-site"
+                                id="tone-type-site-casual"
                                 value="casual"
                                 class="visually-hidden tone-radio-input"
                                 required>
@@ -250,7 +242,7 @@
                         <label class="tone-radio common-button-style">
                             <input type="radio" 
                                 name="tone-type" 
-                                id="tone-type-site"
+                                id="tone-type-site-pro"
                                 value="pro"
                                 class="visually-hidden tone-radio-input" 
                                 checked>
@@ -258,13 +250,13 @@
                                 <span class="tone-label-text">
                                         Corporate / Pro
                                 </span>
-                            <span>
+                            </span>
                         </label>
 
                         <label class="tone-radio common-button-style">
                             <input type="radio" 
                                 name="tone-type" 
-                                id="tone-type-site"
+                                id="tone-type-site-formal"
                                 value="formal"
                                 class="visually-hidden tone-radio-input">
                             <span class="wrapper-tone formal">
@@ -319,7 +311,7 @@
                         Already have an account with us? <a class="link" href="#">Sign in.</a>
                     </p>
 
-                    <div class="payment-wrapper">
+                <div class="payment-wrapper">
 
                     <div class="name-email">
                         <label for="user-name" class="tip-text ">
@@ -380,7 +372,7 @@
                                 class="visually-hidden paymethod-radio-input"
                                 checked>
                             <span class="paymethod-label-wrapper">
-                                <img src="img/mastercard.jpg" width="100px" alt="By card" class="paymethod-label-image">
+                                <img src="img/mastercard.jpg" alt="By card" class="paymethod-label-image">
                             </span>
                         </label>
 
@@ -391,7 +383,7 @@
                                 class="visually-hidden paymethod-radio-input"
                                 required>
                             <span class="paymethod-label-wrapper">
-                                <img src="img/paypal.jpg" width="90px" alt="Paypal" class="paymethod-label-image">
+                                <img src="img/paypal.jpg" alt="Paypal" class="paymethod-label-image">
                             </span>
                         </label>
 
@@ -401,11 +393,11 @@
                                 value="amazon"
                                 class="visually-hidden paymethod-radio-input">
                             <span class="paymethod-label-wrapper">
-                                <img src="img/amazon.jpg" width="110px" alt="Amazon" class="paymethod-label-image">
+                                <img src="img/amazon.jpg" alt="Amazon" class="paymethod-label-image">
                             </span>
                         </label>
                     </div>
-
+                </div>
             
             <div class="card-data-wrapper">
 
@@ -429,12 +421,13 @@
                             Expire date
                     </label>
                         <input type="text"
+                            id="card-date"
                             class="card-date"
                             name="card-date"
-                            title="Enter expire date of your card."
+                            title="Enter expire date of your card: 01/24"
                             placeholder="MM / YY"
                             minlength="4"
-                            maxlength="4"
+                            maxlength="5"
                             required>
                 </div>  
 
@@ -443,6 +436,7 @@
                             Code
                     </label>
                         <input type="password"
+                            id="card-cvv"
                             class="card-cvv"
                             name="card-cvv"
                             title="Enter CVV number of your card."
@@ -450,7 +444,6 @@
                             minlength="3"
                             maxlength="4"
                             required>
-                    
                 </div>
             </div>
                 </section>

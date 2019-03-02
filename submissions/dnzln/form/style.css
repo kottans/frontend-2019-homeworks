@@ -36,11 +36,6 @@ body {
     border-bottom: 1px #d7d9e0 solid;
 }
 
-/* .order-info {
-    width: 69%;
-    display: flex;
-} */
-
 .order-details {
     display: flex;
     width: 49%;
@@ -254,6 +249,11 @@ body {
 
 .doctype-label-image {
     margin-top: 30px;
+    width: 90px;
+}
+
+.paymethod-label-image {
+    width: 100px;
 }
 
 .uploud-doc {
@@ -923,6 +923,28 @@ body {
     top: 60;
     right: 8;
 }
+
+.input-doc-type:focus + .doctype-radio,
+.upload-button:focus + .text-file-upload,
+.tone-radio-input:focus + .wrapper-tone,
+.paymethod-radio-input:focus + .paymethod-label-wrapper {
+    outline: 2px solid;
+    outline-color: #9dc4f7;
+    outline-width: 2px;
+    outline-offset: 12px;
+}
+
+.upload-button:focus + .text-file-upload {
+    outline-offset: 0px;
+}
+
+.remove-button:focus {
+    outline: 2px solid;
+    outline-color: #9dc4f7;
+    outline-width: 2px;
+    outline-offset: 6px;
+}
+
 
 @media screen and (max-width: 767px) {
 
