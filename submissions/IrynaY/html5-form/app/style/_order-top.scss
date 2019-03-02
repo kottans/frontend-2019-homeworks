@@ -1,0 +1,84 @@
+.order-top{
+    display: flex;
+    flex-flow: row wrap;
+    border-bottom: 1px solid $borderColor;
+}
+
+.order-top .title{
+    text-transform: uppercase;
+}
+
+.order-details{
+    flex: 4;
+    padding: 20px 20px 15px 70px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    @media screen and (max-width: 425px) {
+        padding: 10px;
+        min-width: 200px;
+    }
+}
+
+.order-details .icon{
+    @include defaultIcon(30px, 40px, "../img/bag.png");
+    @media screen and (max-width: 425px) {
+        background: none;
+    }
+}
+
+.order-buttons{
+    flex: 1;
+    padding: 20px 30px 15px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width: 425px) {
+        padding: 10px;
+    }
+}
+
+.order-help{
+    flex: 2;
+    padding: 20px 40px 15px 70px;
+    line-height: 1.3;
+    border-left: 1px solid $borderColor;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    @media screen and (max-width: 768px) {
+        border: none;
+    }
+    @media screen and (max-width: 425px) {
+        margin: 0;
+        padding: 10px;
+    }
+}
+
+.order-help .icon{
+    @include defaultIcon(30px, 40px, "../img/help.png");
+    @media screen and (max-width: 425px) {
+        background: none;
+    }
+}
+
+.order-summary{
+    margin-top: 15px;
+}
+
+.info{
+    text-align: justify;
+}
+
+.contact{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact a{
+    color: darken($gray2, 20%);
+    text-decoration: none;
+}
