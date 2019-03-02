@@ -1,0 +1,67 @@
+.documents {
+
+  @media only screen and (max-width: $mobile) {
+    padding-bottom: 25px;
+    overflow: scroll;
+  }
+
+  &__table {
+    width: 100%;
+    color: var(--darkgray);
+  }
+
+  thead {
+    @media only screen and (max-width: $mobile) {
+      display: none;
+    }
+  }
+
+
+  th {
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+
+  tbody {
+    @media only screen and (max-width: $mobile) {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+  }
+
+  td {
+    padding: 5px 10px;
+
+    &:first-child,
+    &:last-child {
+      width: 15px;
+      height: 15px;
+      background-image: url('../img/file.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &:last-child {
+      border: 1px solid rgba(0, 0, 0, 0);
+      background-image: url('../img/trash.svg');
+      background-size: 17.5px;
+      outline: none;
+      color: rgba(0, 0, 0, 0);
+      cursor: pointer;
+      transition-property: border;
+      transition-duration: 0.175s;
+      transition-timing-function: linear;
+
+      &:hover,
+      &:focus {
+        border: 1px solid var(--lightgreen);
+      }
+    }
+  }
+}

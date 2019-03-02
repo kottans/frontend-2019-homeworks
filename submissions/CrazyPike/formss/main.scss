@@ -34,7 +34,8 @@ button:hover{
 }
 
 .menu__logo{
-  height: 50%;
+  height: 100px;
+  width: 100px;
 }
 
 .menu__button-text{
@@ -115,4 +116,5 @@ input:not(:placeholder-shown):valid {
 @import "section-tone-urgent";
 @import "range-input";
 @import "section-payment";
+@import "footer";
 

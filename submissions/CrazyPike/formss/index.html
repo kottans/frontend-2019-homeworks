@@ -1,3 +1,216 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Главная страница</title><link href="main.css" rel="stylesheet"></head><body class="page__common"><nav class="menu"><button class="menu__button"><span class="menu__button-text"><img class="menu__button-img" src="img/arrow_back.png" alt="Arrow back">GO BACK</span></button><img class="menu__logo" src="img/logo.png" alt="Here is a logo"><button class="menu__button"><span class="menu__button-text"><img class="menu__button-img" src="img/icon_profile.png" alt="Log in">SIGN IN</span></button></nav><main class="form"><form id="html5form"></form><section class="form__common-info"><div class="quote"><img class="form__icons" src="img/icon_order.png" alt="Order icon"><div class="form__header-text">YOUR ORDER</div><table class="quote__table"><thead><td> ITEMS</td><td> DETAILS</td><td> PRICE</td><td> DELIVERY</td></thead><tr><td> 2 documents</td><td> 2 languages</td><td> $ 696.06</td><td> 48 hours</td></tr></table><div class="quote__buttons"><button class="menu__button quote__button-place-order"><span class="menu__button-text">PLACE ORDER</span></button><button class="menu__button"><span class="menu__button-text">PRINT A QUOTE</span></button></div></div><div class="contacts"><img class="form__icons" src="img/icon_help.png" alt="Help icon"><div class="form__header-text">HELP CENTER</div><div class="contacts__desc">If you need assistance while placing your
-order, contact one of our beloved Project
-Manager by phone or email</div><div class="contacts__details"><span>+971 (0) 555 555</span><span>help@qtest.com</span></div></div></section><section class="section-translate"><div class="section-translate__desc">SELECT WHAT YOU WANT TO TRANSLATE<div class="section-translate__text__center"></div><hr class="section-translate__horizontal-line"></div><div class="section-translate__options"><input class="section-translate__input__hidden" type="radio" name="type-for-translate" id="option-web" value="web"><label class="section-translate__buttons" for="option-web"><img src="img/icon_website.png"><span>Web</span></label><input class="section-translate__input__hidden" type="radio" name="type-for-translate" id="option-doc" value="web"><label class="section-translate__buttons" for="option-doc"><img src="img/icon_documents.png"><span>Documents</span></label><input class="section-translate__input__hidden" type="radio" name="type-for-translate" id="option-social" value="web"><label class="section-translate__buttons" for="option-social"><img src="img/icon_social.png"><span>Social Accounts</span></label></div></section><section class="form__section-upload"><div class="section__ordinal-number">1</div><div class="section__header">Upload your documents</div><div class="section-upload__button"><input type="file" id="upload-input"><label for="upload-input" tabindex="0"><span class="menu__button-text"><img class="menu__button-img" src="img/icon_cloud.png" alt="Upload icon">Upload a new file</span></label></div><div class="section-upload__table-container"><table class="section-upload__table"><thead><td class="section-upload__table-col-1">FILE NAME</td><td class="section-upload__table-col-2">FILE SIZE</td><td class="section-upload__table-col-3">NUMBER OF WORDS</td><td class="section-upload__table-col-4">REMOVE</td></thead><tr><td class="section-upload__table-col-1"><img src="img/icon_file.png">business_operations.docx</td><td class="section-upload__table-col-2">78 kB</td><td class="section-upload__table-col-3">3894 words</td><td class="section-upload__table-col-4"><button class="form__delete-button"><img src="img/icon_trash.png"></button></td></tr><tr><td class="section-upload__table-col-1"><img src="img/icon_file.png" alt="Trash icon">business_financial.docx</td><td class="section-upload__table-col-2">23 kB</td><td class="section-upload__table-col-3">2123 words</td><td class="section-upload__table-col-4"><button class="form__delete-button"><img src="img/icon_trash.png" alt="Trash icon"></button></td></tr></table></div></section><section class="form__section-languages"><div class="section__ordinal-number">2</div><div class="section__header">Choose your languages pairings</div><div class="section-languages__content-container"><div class="section-languages__content"><div>FROM</div><select class="section-languages__select"><option>Arabic</option><option>Slavic</option></select><div></div><div></div><div>TO</div><select class="section-languages__select"><option>English</option><option>Polish</option></select><span><select class="section-languages__select"><option>Ukrainian</option><option>Polish</option></select><button class="form__delete-button"><img src="img/icon_trash.png" alt="Trash icon"></button></span><button class="section-languages__button-add">+ ADD</button></div></div></section><section class="form__section-tone-urgent"><div class="section-tone"><div class="section__ordinal-number">3</div><div class="section__header">Select your desired tone</div><div class="section-tone__container"><input class="section-tone__buttons__hidden" type="radio" name="tone" id="option-friendly" value="friwndly"><label class="section-tone__buttons" for="option-friendly" tabindex="0"><div><img src="img/icon_friendly.png"><div>Friendly</div></div></label><input class="section-tone__buttons__hidden" type="radio" name="tone" id="option-pro" value="pro"><label class="section-tone__buttons" for="option-pro" tabindex="0"><div><img src="img/icon_corp.png"><span>Corporate</span></div></label><input class="section-tone__buttons__hidden" type="radio" name="tone" id="option-media" value="media"><label class="section-tone__buttons" for="option-media" tabindex="0"><div><img src="img/icon_media.png"><span>Media</span></div></label></div></div><div class="section-urgent"><div class="section__ordinal-number">4</div><div class="section__header">Tell us how urgent this job is</div><div class="section-urgent__range"><input type="range" min="0" max="2" value="1" id="form__range"><div class="section-urgent__range-label"><span>I GOT TIME</span><span>AVERAGE</span><span>YESTERDAY</span></div></div><div class="section-urgent__description"><img class="form__icons" src="img/icon_info.png" alt=""><div class="form__header-text">YOUR ORDER</div><div class="section-urgent__description-text"><span>With the AVERAGE timeline set up, our expert translator can</span>take a reasonable amount of time perfecting your translation</div></div></div></section><section class="form-payment"><div class="section__ordinal-number">5</div><div class="section__header">Sign up and choose a payment method</div><div class="form-payment__signin-text">Already have an account with us?<a href="#">Sign In</a></div><div class="form-payment__input-name"><div class="form-payment__input"><span>FULL NAME</span><input type="text" placeholder="Full name" pattern="[0-9A-Za-z. -]+" title="Enter the name"></div></div><div class="form-payment__input-email-pass"><div class="form-payment__input"><span>EMAIL ADDRESS</span><input type="email" placeholder="Email" pattern="[0-9A-Za-z.-]+[@][0-9A-Za-z.-]+[.][0-9A-Za-z.-]+" title="Email address"></div><div class="form-payment__input"><span>PASSWORD</span><input type="password" minlength="6" placeholder="Enter password.." title="Enter password"></div></div><div class="form-payment__option-container"><input class="section-payment__input__hidden" type="radio" name="payment" id="option-card" value="card"><label class="form-payment__option" for="option-card" tabindex="0"><img src="img/icon_cards.png"></label><input class="section-payment__input__hidden" type="radio" name="payment" id="option-paypal" value="paypal"><label class="form-payment__option" for="option-paypal" tabindex="0"><img src="img/icon_paypal.png"></label><input class="section-payment__input__hidden" type="radio" name="payment" id="option-amazon" value="amazon"><label class="form-payment__option" for="option-amazon"><img src="img/icon_amazon.png"></label></div><div class="form-payment__card-info"><div class="form-payment__card-input"><span>CARD NUMBER</span><input class="form-payment__card-number" type="text" pattern="[0-9]{16}" placeholder="Card number.." minlength="16" maxlength="16" title="Card number must be 16-digit"></div><div class="form-payment__card-input"><span>CARD EXPIRE</span><input class="form-payment__card-expire" type="text" placeholder="MM/YY" pattern="[0-9]{2}/[0-9]{2}" title="Format MM/YY"></div><div class="form-payment__card-input"><span>CARD CVV</span><input class="form-payment__card-cvv" type="password" pattern="[0-9]{3}" placeholder="CVV" minlength="3" maxlength="3" title="CVV mush have 3 digits"><span></span></div></div></section><section class="form-submit"><div><input type="checkbox" id="TC-label"><label for="TC-label">I agree to the terms & Conditions</label></div><button class="menu__button quote__button-place-order"><span class="menu__button-text">PLACE ORDER</span></button><button class="menu__button"><span class="menu__button-text">PRINT A QUOTE</span></button></section></main></body></html>
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Главная страница</title>
+    <link href="main.css" rel="stylesheet">
+  </head>
+  <body class="page__common">
+    <nav class="menu">
+      <button class="menu__button"><span class="menu__button-text"><img class="menu__button-img" src="img/arrow_back.png" alt="Arrow back">GO BACK</span></button>  <a href="#"><img class="menu__logo" src="img/logo.png" alt="Here is a logo"></a>
+      <button class="menu__button"><span class="menu__button-text"><img class="menu__button-img" src="img/icon_profile.png" alt="Log in">SIGN IN</span></button>
+    </nav>
+    <main class="form">
+      <form id="html5form"></form>
+      <section class="form__common-info">
+        <div class="quote"><img class="form__icons" src="img/icon_order.png" alt="Order icon">
+          <div class="form__header-text">YOUR ORDER</div>
+          <table class="quote__table">
+            <thead>
+              <td> ITEMS</td>
+              <td> DETAILS</td>
+              <td> PRICE</td>
+              <td> DELIVERY</td>
+            </thead>
+            <tr>
+              <td> 2 documents</td>
+              <td> 2 languages</td>
+              <td> $ 696.06</td>
+              <td> 48 hours</td>
+            </tr>
+          </table>
+          <div class="quote__buttons">
+            <button class="menu__button quote__button-place-order"><span class="menu__button-text">PLACE ORDER</span></button>
+            <button class="menu__button"><span class="menu__button-text">PRINT A QUOTE</span></button>
+          </div>
+        </div>
+        <div class="contacts"><img class="form__icons" src="img/icon_help.png" alt="Help icon">
+          <div class="form__header-text">HELP CENTER</div>
+          <div class="contacts__desc">
+            If you need assistance while placing your
+            order, contact one of our beloved Project
+            Manager by phone or email
+          </div>
+          <div class="contacts__details"><span>+971 (0) 555 555</span><span>help@qtest.com</span></div>
+        </div>
+      </section>
+      <section class="section-translate">
+        <div class="section-translate__desc">SELECT WHAT YOU WANT TO TRANSLATE
+          <div class="section-translate__text__center"></div>
+          <hr class="section-translate__horizontal-line">
+        </div>
+        <div class="section-translate__options">
+          <input class="section-translate__input__hidden" type="radio" name="type-for-translate" id="option-web" value="web">
+          <label class="section-translate__buttons" for="option-web"><img src="img/icon_website.png"><span>Web</span></label>
+          <input class="section-translate__input__hidden" type="radio" name="type-for-translate" id="option-doc" value="web">
+          <label class="section-translate__buttons" for="option-doc"><img src="img/icon_documents.png"><span>Documents</span></label>
+          <input class="section-translate__input__hidden" type="radio" name="type-for-translate" id="option-social" value="web">
+          <label class="section-translate__buttons" for="option-social"><img src="img/icon_social.png"><span>Social Accounts</span></label>
+        </div>
+      </section>
+      <section class="form__section-upload">
+        <div class="section__ordinal-number">1</div>
+        <div class="section__header">Upload your documents</div>
+        <div class="section-upload__button">
+          <input type="file" id="upload-input">
+          <label for="upload-input" tabindex="0"><span class="menu__button-text"><img class="menu__button-img" src="img/icon_cloud.png" alt="Upload icon">Upload a new file</span></label>
+        </div>
+        <div class="section-upload__table-container">
+          <table class="section-upload__table">
+            <thead>
+              <td class="section-upload__table-col-1">FILE NAME</td>
+              <td class="section-upload__table-col-2">FILE SIZE</td>
+              <td class="section-upload__table-col-3">NUMBER OF WORDS</td>
+              <td class="section-upload__table-col-4">REMOVE</td>
+            </thead>
+            <tr>
+              <td class="section-upload__table-col-1"><img src="img/icon_file.png">business_operations.docx</td>
+              <td class="section-upload__table-col-2">78 kB</td>
+              <td class="section-upload__table-col-3">3894 words</td>
+              <td class="section-upload__table-col-4">
+                <button class="form__delete-button"><img src="img/icon_trash.png"></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="section-upload__table-col-1"><img src="img/icon_file.png" alt="Trash icon">business_financial.docx</td>
+              <td class="section-upload__table-col-2">23 kB</td>
+              <td class="section-upload__table-col-3">2123 words</td>
+              <td class="section-upload__table-col-4">
+                <button class="form__delete-button"><img src="img/icon_trash.png" alt="Trash icon"></button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </section>
+      <section class="form__section-languages">
+        <div class="section__ordinal-number">2</div>
+        <div class="section__header">Choose your languages pairings</div>
+        <div class="section-languages__content-container">
+          <div class="section-languages__content">
+            <div>FROM</div>
+            <select class="section-languages__select">
+              <option>Arabic</option>
+              <option>Slavic</option>
+            </select>
+            <div></div>
+            <div></div>
+            <div>TO</div>
+            <select class="section-languages__select">
+              <option>English</option>
+              <option>Polish</option>
+            </select><span>
+              <select class="section-languages__select">
+                <option>Ukrainian</option>
+                <option>Polish</option>
+              </select>
+              <button class="form__delete-button"><img src="img/icon_trash.png" alt="Trash icon"></button></span>
+            <button class="section-languages__button-add">+ ADD</button>
+          </div>
+        </div>
+      </section>
+      <section class="form__section-tone-urgent">
+        <div class="section-tone">
+          <div class="section__ordinal-number">3</div>
+          <div class="section__header">Select your desired tone</div>
+          <div class="section-tone__container">
+            <input class="section-tone__buttons__hidden" type="radio" name="tone" id="option-friendly" value="friwndly">
+            <label class="section-tone__buttons" for="option-friendly" tabindex="0">
+              <div><img src="img/icon_friendly.png">
+                <div>Friendly</div>
+              </div>
+            </label>
+            <input class="section-tone__buttons__hidden" type="radio" name="tone" id="option-pro" value="pro">
+            <label class="section-tone__buttons" for="option-pro" tabindex="0">
+              <div><img src="img/icon_corp.png"><span>Corporate</span></div>
+            </label>
+            <input class="section-tone__buttons__hidden" type="radio" name="tone" id="option-media" value="media">
+            <label class="section-tone__buttons" for="option-media" tabindex="0">
+              <div><img src="img/icon_media.png"><span>Media</span></div>
+            </label>
+          </div>
+        </div>
+        <div class="section-urgent">
+          <div class="section__ordinal-number">4</div>
+          <div class="section__header">Tell us how urgent this job is</div>
+          <div class="section-urgent__range">
+            <input type="range" min="0" max="2" value="1" id="form__range">
+            <div class="section-urgent__range-label"><span>I GOT TIME</span><span>AVERAGE</span><span>YESTERDAY</span></div>
+          </div>
+          <div class="section-urgent__description"><img class="form__icons" src="img/icon_info.png" alt="">
+            <div class="form__header-text">YOUR ORDER</div>
+            <div class="section-urgent__description-text"><span>With the AVERAGE timeline set up, our expert translator can</span>take a reasonable amount of time perfecting your translation</div>
+          </div>
+        </div>
+      </section>
+      <section class="form-payment">
+        <div class="section__ordinal-number">5</div>
+        <div class="section__header">Sign up and choose a payment method</div>
+        <div class="form-payment__signin-text">Already have an account with us?<a href="#">Sign In</a></div>
+        <div class="form-payment__input-name">
+          <div class="form-payment__input"><span>FULL NAME</span>
+            <input type="text" placeholder="Full name" pattern="[0-9A-Za-z. -]+" title="Enter the name">
+          </div>
+        </div>
+        <div class="form-payment__input-email-pass">
+          <div class="form-payment__input"><span>EMAIL ADDRESS</span>
+            <input type="email" placeholder="Email" pattern="[0-9A-Za-z.-]+[@][0-9A-Za-z.-]+[.][0-9A-Za-z.-]+" title="Email address">
+          </div>
+          <div class="form-payment__input"><span>PASSWORD</span>
+            <input type="password" minlength="6" placeholder="Enter password.." title="Enter password">
+          </div>
+        </div>
+        <div class="form-payment__option-container">
+          <input class="section-payment__input__hidden" type="radio" name="payment" id="option-card" value="card">
+          <label class="form-payment__option" for="option-card" tabindex="0"><img src="img/icon_cards.png"></label>
+          <input class="section-payment__input__hidden" type="radio" name="payment" id="option-paypal" value="paypal">
+          <label class="form-payment__option" for="option-paypal" tabindex="0"><img src="img/icon_paypal.png"></label>
+          <input class="section-payment__input__hidden" type="radio" name="payment" id="option-amazon" value="amazon">
+          <label class="form-payment__option" for="option-amazon"><img src="img/icon_amazon.png"></label>
+        </div>
+        <div class="form-payment__card-info">
+          <div class="form-payment__card-input"><span>CARD NUMBER</span>
+            <input class="form-payment__card-number" type="text" pattern="[0-9]{16}" placeholder="Card number.." minlength="16" maxlength="16" title="Card number must be 16-digit">
+          </div>
+          <div class="form-payment__card-input"><span>CARD EXPIRE</span>
+            <input class="form-payment__card-expire" type="text" placeholder="MM/YY" pattern="[0-9]{2}/[0-9]{2}" title="Format MM/YY">
+          </div>
+          <div class="form-payment__card-input"><span>CARD CVV</span>
+            <input class="form-payment__card-cvv" type="password" pattern="[0-9]{3}" placeholder="CVV" minlength="3" maxlength="3" title="CVV mush have 3 digits"><span></span>
+          </div>
+        </div>
+      </section>
+      <section class="form-submit">
+        <div>
+          <input type="checkbox" id="TC-label">
+          <label for="TC-label">I agree to the terms & Conditions</label>
+        </div>
+        <button class="menu__button quote__button-place-order"><span class="menu__button-text">PLACE ORDER</span></button>
+        <button class="menu__button"><span class="menu__button-text">PRINT A QUOTE</span></button>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__container">
+        <section class="footer__item"><img class="footer__item-icon" src="img/icon_heart.png" alt="heart icon"><span class="footer__item-header">WHAT WE DO</span><span class="footer__item-content">
+            We provide a full range of languageservices including content development,
+            document, website and social media
+            accounts translation</span></section>
+        <section class="footer__item"><img class="footer__item-icon" src="img/icon_compass.png" alt="Compass icon"><span class="footer__item-header">OUR MAIN OFFICE</span><span class="footer__item-content">DUBAI, UAE<br><span>P.O. Box 832472</span><br><span>Phone +971 (0) 44278128</span></span></section>
+        <section class="footer__item"><img class="footer__item-icon" src="img/icon_network.png" alt="Network icon"><span class="footer__item-header">CONNECT WITH US</span><span class="footer__item-content">
+            <div class="footer__social-item"><img src="img/icon_facebook.png" alt="Facebook logo"><span> Facebook</span></div>
+            <div class="footer__social-item"><img src="img/icon_tweeter.png" alt="Twitter logo"><span>Twitter</span></div>
+            <div class="footer__social-item"><img src="img/icon_linkedin.png" alt="Linkedin  logo"><span>Linkedin</span></div></span></section><a href="#"><img src="img/logo_grey.png" alt="Company logo"></a>
+      </div>
+    </footer>
+  </body>
+</html>
