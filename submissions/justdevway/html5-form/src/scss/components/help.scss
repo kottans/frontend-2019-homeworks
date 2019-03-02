@@ -1,0 +1,72 @@
+.help {
+  padding: 20px 30px 20px 60px;
+  color: var(--gray);
+
+  @media only screen and (max-width: $tablet) {
+    padding: 20px 30px;
+  }
+
+  @media only screen and (max-width: $mobile) {
+    padding: 10px 15px;
+  }
+
+  &__header {
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    left: -22.5px;
+    top: -2px;
+    width: 15px;
+    @media only screen and (max-width: $mobile) {
+      display: none;
+    }
+  }
+
+  &__head {
+    color: var(--darkgray);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    font-size: 12px;
+    text-align: left;
+    @media only screen and (max-width: $mobile) {
+      font-size: 14px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__link {
+    color: var(--darkgray);
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    outline: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+      @media only screen and (max-width: $tablet) {
+        text-decoration: inherit;
+      }
+    }
+
+    &:active {
+      color: var(--blue);
+    }
+
+    @media only screen and (max-width: $mobile) {
+      font-size: 14px;
+    }
+  }
+
+}

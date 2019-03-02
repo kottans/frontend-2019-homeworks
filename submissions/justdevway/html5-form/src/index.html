@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML5 form</title>
+</head>
+<body>
+<main>
+    <form class="form" method="post" action="https://test.test/test">
+        <header class="header">
+            <div class="header__order">
+                <div class="order">
+                    <div class="order__left">
+                        <img src="./img/list.svg" alt="order" class="order__icon">
+                        <div class="order__head">Your order</div>
+                        <table class="order__table">
+                            <thead>
+                            <tr>
+                                <th>Items</th>
+                                <th>Details</th>
+                                <th>Price</th>
+                                <th>Delivery</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2 documents</td>
+                                <td>2 languages</td>
+                                <td>$ 696.06</td>
+                                <td>48 hours<sup>*</sup></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="order__right">
+                        <div class="order__buttons">
+                            <div class="order__button">
+                                <button class="button button--submit" type="submit">
+                                    <span class="button__text">Place order</span>
+                                </button>
+                            </div>
+                            <div class="order__button">
+                                <button class="button" type="button">
+                                    <span class="button__text">Print a quote</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header__help">
+                <div class="help">
+                    <div class="help__header">
+                        <img src="./img/help.svg" alt="help center icon" class="help__icon">
+                        <div class="help__head">Help center</div>
+                    </div>
+                    <div class="help__body">
+                        <p class="help__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex incidunt
+                            magnam maxime minus nemo nobis omnis reprehenderit! Nostrum quasi, veritatis.</p>
+                    </div>
+                    <div class="help__footer">
+                        <a href="tel:+971(0)555555" class="help__link">+971(0)555555</a>
+                        <a href="mailto:help@qtest.com" class="help__link">help@qtest.com</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="form__body">
+            <div class="form__content">
+                <div class="form__docs">
+                    <div class="form__docs__head">
+                        <p>Select what you want to translate</p>
+                    </div>
+                    <ul class="form__docs__list">
+                        <li class="form__docs__item">
+                            <div class="doc-select">
+                                <input id="doc-select-web"
+                                       class="doc-select__radio"
+                                       type="radio"
+                                       value="website"
+                                       name="translate-type"
+                                       checked
+                                       required>
+                                <label for="doc-select-web" class="doc-select__item">
+                                    <span class="doc-select__description">
+                                        <img class="doc-select__img" src="img/html.svg" alt="website">
+                                        <span class="doc-select__name">Website</span>
+                                    </span>
+                                    <svg class="doc-select__status" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 44 44">
+                                        <path d="M22 0C9.8 0 0 9.8 0 22s9.8 22 22 22 22-9.8 22-22S34.2 0 22 0zm12.7 15.1l-16 16.6c-.2.2-.4.3-.7.3-.3 0-.6-.1-.7-.3l-7.8-8.4-.2-.2c-.2-.2-.3-.5-.3-.7s.1-.5.3-.7l1.4-1.4c.4-.4 1-.4 1.4 0l.1.1 5.5 5.9c.2.2.5.2.7 0l13.4-13.9h.1c.4-.4 1-.4 1.4 0l1.4 1.4c.4.3.4.9 0 1.3z"/>
+                                    </svg>
+                                </label>
+                            </div>
+                        </li>
+                        <li class="form__docs__item">
+                            <div class="doc-select">
+                                <input
+                                        id="doc-select-documents"
+                                        class="doc-select__radio"
+                                        type="radio"
+                                        value="document"
+                                        name="translate-type"
+                                        required>
+                                <label for="doc-select-documents" class="doc-select__item">
+                                    <span class="doc-select__description">
+                                        <img class="doc-select__img" src="img/document.svg" alt="document">
+                                        <span class="doc-select__name">Documents</span>
+                                    </span>
+                                    <svg class="doc-select__status" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 44 44">
+                                        <path d="M22 0C9.8 0 0 9.8 0 22s9.8 22 22 22 22-9.8 22-22S34.2 0 22 0zm12.7 15.1l-16 16.6c-.2.2-.4.3-.7.3-.3 0-.6-.1-.7-.3l-7.8-8.4-.2-.2c-.2-.2-.3-.5-.3-.7s.1-.5.3-.7l1.4-1.4c.4-.4 1-.4 1.4 0l.1.1 5.5 5.9c.2.2.5.2.7 0l13.4-13.9h.1c.4-.4 1-.4 1.4 0l1.4 1.4c.4.3.4.9 0 1.3z"/>
+                                    </svg>
+                                </label>
+                            </div>
+                        </li>
+                        <li class="form__docs__item">
+                            <div class="doc-select">
+                                <input id="doc-select-soc"
+                                       class="doc-select__radio"
+                                       type="radio"
+                                       name="translate-type"
+                                       value="social account"
+                                       required>
+                                <label for="doc-select-soc" class="doc-select__item">
+                                <span class="doc-select__description">
+                                    <img class="doc-select__img" src="img/browser.svg" alt="browser">
+                                    <span class="doc-select__name">Social Account</span>
+                                </span>
+                                    <svg class="doc-select__status" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 44 44">
+                                        <path d="M22 0C9.8 0 0 9.8 0 22s9.8 22 22 22 22-9.8 22-22S34.2 0 22 0zm12.7 15.1l-16 16.6c-.2.2-.4.3-.7.3-.3 0-.6-.1-.7-.3l-7.8-8.4-.2-.2c-.2-.2-.3-.5-.3-.7s.1-.5.3-.7l1.4-1.4c.4-.4 1-.4 1.4 0l.1.1 5.5 5.9c.2.2.5.2.7 0l13.4-13.9h.1c.4-.4 1-.4 1.4 0l1.4 1.4c.4.3.4.9 0 1.3z"/>
+                                    </svg>
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="form__steps">
+                    <li class="form__step">
+                        <div class="form__step__number">1</div>
+                        <p class="form__step__name">Upload your documents <span>(Doc, Docx, Text, PDF, Markdown)</span>
+                        </p>
+                        <div class="form__upload">
+                            <div class="upload">
+                                <input
+                                        id="file"
+                                        type="file"
+                                        class="upload__input">
+                                <label class="upload__button" for="file">
+                                    <span class="upload__button__body">
+                                        <img class="upload__button__icon" src="./img/upload.svg" alt="decor"
+                                             aria-hidden="true">
+                                        <span class="upload__button__text">Upload a new file</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form__documents">
+                            <div class="documents">
+                                <table class="documents__table">
+                                    <thead>
+                                    <tr>
+                                        <th colspan="2">File name</th>
+                                        <th>File size</th>
+                                        <th>Number of words</th>
+                                        <th>Remove</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td>business_operations.docx</td>
+                                        <td>72kb</td>
+                                        <td>842</td>
+                                        <td tabindex="0">remove
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>business_operations.docx</td>
+                                        <td>72kb</td>
+                                        <td>842</td>
+                                        <td tabindex="0">remove</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>business_operations.docx</td>
+                                        <td>72kb</td>
+                                        <td>842</td>
+                                        <td tabindex="0">remove</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>business_operations.docx</td>
+                                        <td>72kb</td>
+                                        <td>842</td>
+                                        <td tabindex="0">remove</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>business_operations.docx</td>
+                                        <td>72kb</td>
+                                        <td>842</td>
+                                        <td tabindex="0">remove</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="form__step">
+                        <div class="form__step__number">2</div>
+                        <p class="form__step__name">Choose your languages pairings</p>
+                        <div class="form__selects">
+                            <p class="form__selects__name">From</p>
+                            <div class="form__select">
+                                <div class="select">
+                                    <div class="select__item-wrapper">
+                                        <select name="from-language" class="select__item" size="1" required>
+                                            <option value="">Choose</option>
+                                            <option value="en">English</option>
+                                            <option value="de">German</option>
+                                            <option value="fr">French</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__selects">
+                            <p class="form__selects__name">To</p>
+                            <div class="form__select">
+                                <div class="select">
+                                    <div class="select__item-wrapper">
+                                        <select name="to-language" class="select__item" size="1" required>
+                                            <option value="">Choose</option>
+                                            <option value="br">Brazilian</option>
+                                            <option value="mex">Mexican</option>
+                                            <option value="jap">Japanese</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form__select">
+                                <div class="select">
+                                    <div class="select__item-wrapper">
+                                        <select name="addition-language-1" class="select__item" size="1">
+                                            <option value="">Choose</option>
+                                            <option value="ind">Indian</option>
+                                            <option value="mex">Mexican</option>
+                                            <option value="jap">Japanese</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form__select form__select--remove">
+                                <button class="button button--like-icon" type="button">
+                                    <img src="./img/trash.svg" alt="decor" class="button__icon" aria-hidden="true">
+                                </button>
+                            </div>
+                            <div class="form__select">
+                                <div class="form__button">
+                                    <button type="button" class="button">
+                                        <span class="button__text">+ Add</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="form__steps">
+                    <li class="form__step form__step--small">
+                        <div class="form__step__number">3</div>
+                        <p class="form__step__name">Select your desired tone</p>
+                        <div class="form__desires">
+                            <div class="form__desire">
+                                <div class="radio-input">
+                                    <input
+                                            type="radio"
+                                            class="radio-input__input"
+                                            id="radio-input__frendly"
+                                            name="select_casual_desire"
+                                            value="frendly/casual"
+                                            required>
+                                    <label for="radio-input__frendly" class="radio-input__button">
+                                        <img class="radio-input__icon" src="./img/comment.svg" alt="decor"
+                                             aria-hidden="true">
+                                        <span class="radio-input__text">Frendly / Casual</span>
+                                        <svg class="radio-input__status" xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 44 44">
+                                            <path d="M22 0C9.8 0 0 9.8 0 22s9.8 22 22 22 22-9.8 22-22S34.2 0 22 0zm12.7 15.1l-16 16.6c-.2.2-.4.3-.7.3-.3 0-.6-.1-.7-.3l-7.8-8.4-.2-.2c-.2-.2-.3-.5-.3-.7s.1-.5.3-.7l1.4-1.4c.4-.4 1-.4 1.4 0l.1.1 5.5 5.9c.2.2.5.2.7 0l13.4-13.9h.1c.4-.4 1-.4 1.4 0l1.4 1.4c.4.3.4.9 0 1.3z"/>
+                                        </svg>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form__desire">
+                                <div class="radio-input">
+                                    <input
+                                            type="radio"
+                                            class="radio-input__input"
+                                            id="radio-input__corporate"
+                                            name="select_casual_desire"
+                                            value="corporate/pro"
+                                            checked
+                                            required>
+                                    <label for="radio-input__corporate" class="radio-input__button">
+                                        <img class="radio-input__icon" src="./img/suitcase.svg" alt="decor"
+                                             aria-hidden="true">
+                                        <span class="radio-input__text">Corporate / Pro</span>
+                                        <svg class="radio-input__status" xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 44 44">
+                                            <path d="M22 0C9.8 0 0 9.8 0 22s9.8 22 22 22 22-9.8 22-22S34.2 0 22 0zm12.7 15.1l-16 16.6c-.2.2-.4.3-.7.3-.3 0-.6-.1-.7-.3l-7.8-8.4-.2-.2c-.2-.2-.3-.5-.3-.7s.1-.5.3-.7l1.4-1.4c.4-.4 1-.4 1.4 0l.1.1 5.5 5.9c.2.2.5.2.7 0l13.4-13.9h.1c.4-.4 1-.4 1.4 0l1.4 1.4c.4.3.4.9 0 1.3z"/>
+                                        </svg>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form__desire">
+                                <div class="radio-input">
+                                    <input
+                                            type="radio"
+                                            class="radio-input__input"
+                                            id="radio-input__media"
+                                            name="select_casual_desire"
+                                            value="media/formal"
+                                            required>
+                                    <label for="radio-input__media" class="radio-input__button">
+                                        <img class="radio-input__icon" src="./img/megaphone.svg" alt="decor"
+                                             aria-hidden="true">
+                                        <span class="radio-input__text">Media / Formal</span>
+                                        <svg class="radio-input__status" xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 44 44">
+                                            <path d="M22 0C9.8 0 0 9.8 0 22s9.8 22 22 22 22-9.8 22-22S34.2 0 22 0zm12.7 15.1l-16 16.6c-.2.2-.4.3-.7.3-.3 0-.6-.1-.7-.3l-7.8-8.4-.2-.2c-.2-.2-.3-.5-.3-.7s.1-.5.3-.7l1.4-1.4c.4-.4 1-.4 1.4 0l.1.1 5.5 5.9c.2.2.5.2.7 0l13.4-13.9h.1c.4-.4 1-.4 1.4 0l1.4 1.4c.4.3.4.9 0 1.3z"/>
+                                        </svg>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="form__step form__step--small">
+                        <div class="form__step__number">4</div>
+                        <p class="form__step__name">Tell us how urgent this job is</p>
+                        <div class="form__urgency">
+                            <div class="form__urgency__range">
+                                <div class="range">
+                                    <input
+                                            class="range__input"
+                                            type="range"
+                                            min="-1"
+                                            max="1"
+                                            step="1"
+                                            value="0"
+                                            name="timeline-data">
+                                    <div class="range__signatures">
+                                        <div class="range__signature">I got time</div>
+                                        <div class="range__signature range__signature--selected">Average</div>
+                                        <div class="range__signature">Yesterday</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form__urgency__info">
+                                <div class="form__urgency__head">
+                                    Timeline info
+                                </div>
+                                <div class="form__urgency__text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    <span>Ab aliquid assumenda</span> consequuntur doloremque exercitationem ipsa
+                                    laboriosam mollitia sunt ut voluptas. Amet consectetur dolor dolore ipsam similique.
+                                    Assumenda debitis error soluta!
+                                </div>
+                                <img src="./img/information.svg" alt="urgency information" class="form__urgency__icon">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="form__steps">
+                    <li class="form__step">
+                        <div class="form__step__number">5</div>
+                        <p class="form__step__name">Sign up and choose a payment method</p>
+                        <div class="form__login">
+                            <div class="login">
+                                <div class="login__text">
+                                    Already have an account with us?
+                                    <a href="#" class="login__link">Sign in</a>
+                                </div>
+                                <ul class="login__fields">
+                                    <li class="login__field">
+                                        <label class="main-input">
+                                            <div class="main-input__header">
+                                                <div class="main-input__name">Full name</div>
+                                            </div>
+                                            <div class="main-input__body">
+                                                <input
+                                                        type="text"
+                                                        class="main-input__input"
+                                                        placeholder="Full name"
+                                                        minlength="2"
+                                                        required>
+                                                <div class="main-input__status main-input__status"></div>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li class="login__field login__field--inline">
+                                        <div class="login__field__input">
+                                            <label class="main-input">
+                                                <div class="main-input__header">
+                                                    <div class="main-input__name">Email address</div>
+                                                </div>
+                                                <div class="main-input__body">
+                                                    <input type="email"
+                                                           class="main-input__input"
+                                                           placeholder="Email"
+                                                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                                           title="Please enter email like your-email@your-domain"
+                                                           required>
+                                                    <div class="main-input__status main-input__status"></div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li class="login__field login__field--inline">
+                                        <div class="login__field__input">
+                                            <label class="main-input">
+                                                <div class="main-input__header">
+                                                    <div class="main-input__name">Choose a password</div>
+                                                </div>
+                                                <div class="main-input__body">
+                                                    <input type="password"
+                                                           class="main-input__input"
+                                                           placeholder="Password"
+                                                           minlength="6"
+                                                           title="Please set password more than 6 letters"
+                                                           required>
+                                                    <div class="main-input__status main-input__status"></div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="login__card-types">
+                                    <li class="login__card-type">
+                                        <div class="radio-input radio-input--card">
+                                            <input
+                                                    type="radio"
+                                                    class="radio-input__input"
+                                                    id="viza_master-card"
+                                                    name="select_payment_method"
+                                                    value="viza/master-card"
+                                                    checked
+                                                    required>
+                                            <label for="viza_master-card" class="radio-input__button">
+                                                <img class="radio-input__icon" src="./img/cards/visa.svg"
+                                                     alt="visa-master-cards">
+                                                <img class="radio-input__icon" src="./img/cards/mastercard.svg"
+                                                     alt="visa-master-cards">
+                                                <svg class="radio-input__status" xmlns="http://www.w3.org/2000/svg"
+                                                     viewBox="0 0 44 44">
+                                                    <path d="M22 0C9.8 0 0 9.8 0 22s9.8 22 22 22 22-9.8 22-22S34.2 0 22 0zm12.7 15.1l-16 16.6c-.2.2-.4.3-.7.3-.3 0-.6-.1-.7-.3l-7.8-8.4-.2-.2c-.2-.2-.3-.5-.3-.7s.1-.5.3-.7l1.4-1.4c.4-.4 1-.4 1.4 0l.1.1 5.5 5.9c.2.2.5.2.7 0l13.4-13.9h.1c.4-.4 1-.4 1.4 0l1.4 1.4c.4.3.4.9 0 1.3z"/>
+                                                </svg>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li class="login__card-type">
+                                        <div class="radio-input radio-input--card">
+                                            <input
+                                                    type="radio"
+                                                    class="radio-input__input"
+                                                    id="paypal"
+                                                    name="select_payment_method"
+                                                    value="paypal"
+                                                    required>
+                                            <label for="paypal" class="radio-input__button">
+                                                <img class="radio-input__icon" src="./img/cards/paypal.svg"
+                                                     alt="paypal">
+                                                <svg class="radio-input__status" xmlns="http://www.w3.org/2000/svg"
+                                                     viewBox="0 0 44 44">
+                                                    <path d="M22 0C9.8 0 0 9.8 0 22s9.8 22 22 22 22-9.8 22-22S34.2 0 22 0zm12.7 15.1l-16 16.6c-.2.2-.4.3-.7.3-.3 0-.6-.1-.7-.3l-7.8-8.4-.2-.2c-.2-.2-.3-.5-.3-.7s.1-.5.3-.7l1.4-1.4c.4-.4 1-.4 1.4 0l.1.1 5.5 5.9c.2.2.5.2.7 0l13.4-13.9h.1c.4-.4 1-.4 1.4 0l1.4 1.4c.4.3.4.9 0 1.3z"/>
+                                                </svg>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li class="login__card-type">
+                                        <div class="radio-input radio-input--card">
+                                            <input
+                                                    type="radio"
+                                                    class="radio-input__input"
+                                                    id="amazon"
+                                                    name="select_payment_method"
+                                                    value="amazon"
+                                                    required>
+                                            <label for="amazon" class="radio-input__button">
+                                                <img class="radio-input__icon" src="./img/cards/amazon.svg"
+                                                     alt="visa-master-cards">
+                                                <svg class="radio-input__status" xmlns="http://www.w3.org/2000/svg"
+                                                     viewBox="0 0 44 44">
+                                                    <path d="M22 0C9.8 0 0 9.8 0 22s9.8 22 22 22 22-9.8 22-22S34.2 0 22 0zm12.7 15.1l-16 16.6c-.2.2-.4.3-.7.3-.3 0-.6-.1-.7-.3l-7.8-8.4-.2-.2c-.2-.2-.3-.5-.3-.7s.1-.5.3-.7l1.4-1.4c.4-.4 1-.4 1.4 0l.1.1 5.5 5.9c.2.2.5.2.7 0l13.4-13.9h.1c.4-.4 1-.4 1.4 0l1.4 1.4c.4.3.4.9 0 1.3z"/>
+                                                </svg>
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="login__card-details">
+                                    <ul class="login__fields login__fields--card-data">
+                                        <li class="login__field">
+                                            <label class="main-input">
+                                                <div class="main-input__header">
+                                                    <div class="main-input__name">Card number</div>
+                                                </div>
+                                                <div class="main-input__body">
+                                                    <input type="text"
+                                                           class="main-input__input"
+                                                           minlength="16"
+                                                           maxlength="16"
+                                                           pattern="\d{16}"
+                                                           title="Please enter real card's numbers like 1111222233334444"
+                                                           name="card-name"
+                                                           placeholder="1111222233334444"
+                                                           required>
+                                                    <div class="main-input__status main-input__status"></div>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="login__field login__field--date">
+                                            <div class="login__field__input">
+                                                <label class="main-input">
+                                                    <div class="main-input__header">
+                                                        <div class="main-input__name">Expire date</div>
+                                                    </div>
+                                                    <div class="main-input__body">
+                                                        <input
+                                                                type="date"
+                                                                class="main-input__input main-input__input--date"
+                                                                name="card-expire"
+                                                                min="2018-02-14"
+                                                                max="2099-12-31"
+                                                                required>
+                                                        <div class="main-input__status main-input__status"></div>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="login__field login__field--code">
+                                            <div class="login__field__input">
+                                                <label class="main-input">
+                                                    <div class="main-input__header">
+                                                        <div class="main-input__name">Code</div>
+                                                    </div>
+                                                    <div class="main-input__body">
+                                                        <input
+                                                                type="text"
+                                                                class="main-input__input"
+                                                                minlength="3"
+                                                                maxlength="3"
+                                                                pattern="\d{3}"
+                                                                title="Please enter real code"
+                                                                name="card-code"
+                                                                placeholder="123"
+                                                                required>
+                                                        <div class="main-input__status main-input__status"></div>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer class="form__footer">
+            <div class="form__content cf">
+                <div class="form__footer__content">
+                    <label for="form__rules" class="form__rules" tabindex="0">
+                        <span class="checkbox">
+                            <input
+                                    class="checkbox__input"
+                                    type="checkbox"
+                                    id="form__rules"
+                                    value="rules accept"
+                                    title="Please select if your agree with our policy"
+                                    required>
+                            <span class="checkbox__phantom-box"></span>
+                        </span>
+                        <span>I agree to the <a class="form__rules__link" href="#" title="Terms & Conditions"
+                                                target="_blank">Terms & Conditions</a></span>
+                    </label>
+                    <div class="form__footer__button">
+                        <button class="button button--submit" type="submit">
+                            <span class="button__text">Place order</span>
+                        </button>
+                    </div>
+                    <div class="form__footer__button">
+                        <button class="button" type="button">
+                            <span class="button__text">Print a quote</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </form>
+</main>
+</body>
+</html>
