@@ -1,0 +1,484 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form HTML CSS</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans|Oswald|Raleway|Roboto" rel="stylesheet">
+</head>
+<body>
+    <main class="main-container">
+        <form action="#" method="POST">
+
+        <header class="form-header">
+
+                           
+                <div class="order-details">
+                    <span class="bold-uppercase order-heading">Your order</span>
+                        <table class="table-order-info">
+                            <tr class="first-row">
+                                <td class="bold-uppercase">Items</td>
+                                <td class="bold-uppercase">Details</td>
+                                <td class="bold-uppercase">Price</td>
+                                <td class="bold-uppercase">Delivery</td>
+                            </tr>
+                            <tr class="second-row">
+                                <td class="second-line">2 documents</td>
+                                <td class="second-line">2 languages</td>
+                                <td class="second-line">$ 696.06</td>
+                                <td class="second-line">48 hours*</td>
+                            </tr>
+                        </table>
+                </div>
+               
+            
+                <div class="form-buttons">
+                    <button class="button submit">
+                        Place order
+                    </button>
+
+                    <button class="button" type="button">
+                        Print a quote
+                    </button>
+                </div>
+            
+
+            <div class="help-center">
+                <span class="bold-uppercase help-heading">
+                    Help center
+                </span>
+                <p class="help-text">
+                    If you need assistence while placing your order, 
+                    contact one of our beloved Project Manager by phone or email.
+                </p>
+                <b class="contacts">
+                    <a class="link" href="tel:+9710555555">+971(0) 555 555</a> &emsp; <a class="link" href="mailto:help@qtest.com">help@qtest.com</a>
+                </b>
+            </div>
+        </header>
+
+            <article class="form-body">
+
+                    <h1 class="visually-hidden">Form HTML CSS</h1>
+                    <h2 class="second-heading">Select what you want to translate</h2>
+
+                <section class="select-doctype">
+
+                    <input type="radio" 
+                            name="doc-type" 
+                            id="doc-type-site"
+                            value="website"
+                            class="visually-hidden input-doc-type"
+                            required>
+
+                    <label for="doc-type-site" class="doctype-radio">
+                        <span class="doctype-label-wrapper">
+                            <img src="img/website.jpg" width="90px" alt="" class="doctype-label-image">
+                            <span class="doctype-label-text">Website</span>
+                        </span>
+                    </label>
+
+                    <input type="radio" 
+                            name="doc-type" 
+                            id="doc-type-document"
+                            value="documents"
+                            class="visually-hidden input-doc-type"
+                            checked>
+
+                    <label for="doc-type-document" class="doctype-radio">
+                        
+                        <span class="doctype-label-wrapper">
+                            <img src="img/docs.jpg" width="90px" alt="" class="doctype-label-image">
+                            <span class="doctype-label-text">Documents</span>
+                        </span>
+                    </label>
+
+                    <input type="radio" 
+                            name="doc-type" 
+                            id="doc-type-soc"
+                            value="social-account"
+                            class="visually-hidden input-doc-type">
+
+                    <label for="doc-type-soc" class="doctype-radio">
+                        
+                        <span class="doctype-label-wrapper">
+                            <img src="img/soc.jpg" width="90px" alt="" class="doctype-label-image">
+                            <span class="doctype-label-text">Social Account</span>
+                        </span>
+                    </label>
+                </section>
+
+                <section class="uploud-doc">
+                    <p class="upload-info">
+                        <h3 class="section-heading">
+                            Upload your documents
+                        </h3>
+                        &emsp;
+                        <span class="allowed-formats">(Doc, Docx, Text, PDF, Markdown)</span>
+                    </p>
+                    
+                    <label>
+                        <input type="file" 
+                            class="visually-hidden"
+                            name="upload-file-input" 
+                            id="file-input"
+                            accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, text/markdown, text/plain"
+                            multiple
+                            required>
+                        <span class="text-file-upload common-button-style">
+                            Upload a new file
+                        </span>
+                    </label>
+
+                    <div class="files-block">
+                        <table class="files-list">
+                            <tr class="items-row">
+                                <td class="tip-text file-name">File name</td>
+                                <td class="tip-text file-size">File size</td>
+                                <td class="tip-text file-words">Number of words</td>
+                                <td class="tip-text file-remove">Remove</td>
+                            </tr>
+                            <tr class="items-row">
+                                <td class="file-name document-icon">business_operations.docx</td>
+                                <td class="file-size">78kb</td>
+                                <td class="file-words">842</td>
+                                <td class="file-remove delete-button">
+                                    <button class="remove-button" type="button"></button>
+                                </td>
+                            </tr>
+                            <tr class="items-row">
+                                <td class="file-name document-icon">business_financial.docx</td>
+                                <td class="file-size">26kb</td>
+                                <td class="file-words">2,326</td>
+                                <td class="file-remove delete-button">
+                                    <button class="remove-button" type="button"></button>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </section>
+                
+                <section class="choose-lang">
+                    <h3 class="section-heading">
+                        Choose your languages pairings
+                    </h3>
+
+                    <div class="label-wrapper">
+                        <span class="tip-text select">From</span>
+                        <div class="lang-wrapper">
+                        <select name="languange"
+                                id="select-languange"
+                                class="select-languange common-button-style"
+                                required>
+                            <option value="english" selected>English</option>
+                            <option value="arabic">Arabic</option>
+                            <option value="ukrainian">Ukrainian</option>
+                            <option value="kurdish">Kurdish</option>
+                        </select>
+                        </div>
+                    </div>
+
+                    
+                    <ul class="list-selected-lang">
+                        <li class="selected-lang-item">
+                            <div class="label-wrapper">
+                            <span class="tip-text select">To</span>
+                                <div class="lang-wrapper">
+                                        <select name="languange"
+                                                id="select-languange"
+                                                class="select-languange common-button-style"
+                                                required>
+                                            <option value="arabic" selected>Arabic</option>
+                                            <option value="english">English</option>
+                                            <option value="ukrainian">Ukrainian</option>
+                                            <option value="kurdish">Kurdish</option>
+                                        </select>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="selected-lang-item">
+                                <div class="lang-wrapper">
+                                        <select name="languange"
+                                                id="select-languange"
+                                                class="select-languange common-button-style"
+                                                required>
+                                            <option value="kurdish" selected>Kurdish</option>
+                                            <option value="english">English</option>
+                                            <option value="ukrainian">Ukrainian</option>
+                                            <option value="arabic">Arabic</option>
+                                        </select>
+                                </div>
+                        </li>
+
+                        <li class="selected-lang-item del-button">
+                            <button class="remove-button" id="remove-lang" type="button"></button>
+                        </li>
+
+                        <li class="selected-lang-item">
+                            <button class="common-button-style add-button" id="add-lang" type="button">
+                                &emsp;     ADD
+                            </button>
+                        </li>
+                    </ul>                      
+                        
+                </section>
+                
+                <div class="ton-time-wrapper">
+
+                <section class="choose-tone">
+                    <h3 class="section-heading">
+                        Select your desired tone
+                    </h3>
+
+                        <label class="tone-radio common-button-style">
+                            <input type="radio" 
+                                name="tone-type" 
+                                id="tone-type-site"
+                                value="casual"
+                                class="visually-hidden tone-radio-input"
+                                required>
+                            <span class="wrapper-tone casual">
+                                <span class="tone-label-text">
+                                    Friendly / Casual
+                                </span>
+                            </span>
+                        </label>
+
+                        <label class="tone-radio common-button-style">
+                            <input type="radio" 
+                                name="tone-type" 
+                                id="tone-type-site"
+                                value="pro"
+                                class="visually-hidden tone-radio-input" 
+                                checked>
+                            <span class="wrapper-tone pro">
+                                <span class="tone-label-text">
+                                        Corporate / Pro
+                                </span>
+                            <span>
+                        </label>
+
+                        <label class="tone-radio common-button-style">
+                            <input type="radio" 
+                                name="tone-type" 
+                                id="tone-type-site"
+                                value="formal"
+                                class="visually-hidden tone-radio-input">
+                            <span class="wrapper-tone formal">
+                                <span class="tone-label-text">
+                                    Media / Formal
+                                </span>
+                            </span>
+                        </label>
+                    
+                </section>
+
+                <section class="urgent">
+                    <h3 class="section-heading">
+                        Tell us how urgent this job is
+                    </h3>
+
+                    <div class="range-wrapper">
+                    <input type="range"
+                            name="urgent"
+                            min="0"
+                            max="2"
+                            step="1"
+                            value="1"
+                            id="urgent-range"
+                            class="urgent-range">
+                    </div>
+
+                    <div class="range-label">
+                        <span class="tip-text">I got time</span>
+                        <span class="tip-text orange">Average</span>
+                        <span class="tip-text">Yesterday</span>
+                    </div>
+
+                    <div class="time-info">
+                        <span class="bold-uppercase">
+                            Timeline info
+                        </span>
+                        <p class="time-info-text">With an <span class="tip-text orange">Average</span> timeline set up, 
+                            our expert translator can take a reasonable amount 
+                            of time perfecting your translation.</p>
+                    </div>
+                </section>
+
+                </div>
+
+                <section class="payment-part">
+                    <h3 class="section-heading">
+                        Sing up and choose a payment method
+                    </h3>
+
+                    <p class="sign-up">
+                        Already have an account with us? <a class="link" href="#">Sign in.</a>
+                    </p>
+
+                    <div class="payment-wrapper">
+
+                    <div class="name-email">
+                        <label for="user-name" class="tip-text ">
+                            Full name
+                        </label>
+                        <input type="text"
+                            class="payment-field"
+                            id="user-name"
+                            name="full-name"
+                            placeholder="Mathieu Mayer"
+                            title="Write your name, at least 4 literas."
+                            minlength="4"
+                            maxlength="25"
+                            required>
+                        <span class="validation-indicator"></span>
+
+                        <label for="user-email" class="tip-text">
+                            Email adress
+                        </label>
+                        <input type="email"
+                            class="payment-field"
+                            name="user-email"
+                            id="user-email"
+                            placeholder="mathieu.mm@me.com"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                            title="Enter your email: example@domain.com"
+                            minlength="4"
+                            maxlength="25"
+                            required>
+                        <span class="validation-indicator"></span>
+                        
+                    </div>
+
+                    <div class="password-block">
+                        <div class="pass-wrapper">
+                        <label for="user-password" class="tip-text">
+                            Choose a password
+                        </label>
+                        <input type="password"
+                            class="password-field"
+                            name="user-password"
+                            id="user-password"
+                            placeholder="Enter your password"
+                            pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                            title="Minimum 8 characters, UPPERCASE, lowercase and Number required."
+                            minlength="6"
+                            maxlength="24"
+                            required>
+                            <span class="validation-indicator"></span>
+                        </div>
+                    </div>
+
+                    <div class="paymethod-radio-block">
+                        <label class="paymethod-radio">
+                            <input type="radio" 
+                                name="paymethod-type" 
+                                value="card"
+                                class="visually-hidden paymethod-radio-input"
+                                checked>
+                            <span class="paymethod-label-wrapper">
+                                <img src="img/mastercard.jpg" width="100px" alt="By card" class="paymethod-label-image">
+                            </span>
+                        </label>
+
+                        <label class="paymethod-radio">
+                            <input type="radio" 
+                                name="paymethod-type" 
+                                value="paypal"
+                                class="visually-hidden paymethod-radio-input"
+                                required>
+                            <span class="paymethod-label-wrapper">
+                                <img src="img/paypal.jpg" width="90px" alt="Paypal" class="paymethod-label-image">
+                            </span>
+                        </label>
+
+                        <label class="paymethod-radio">
+                            <input type="radio" 
+                                name="paymethod-type" 
+                                value="amazon"
+                                class="visually-hidden paymethod-radio-input">
+                            <span class="paymethod-label-wrapper">
+                                <img src="img/amazon.jpg" width="110px" alt="Amazon" class="paymethod-label-image">
+                            </span>
+                        </label>
+                    </div>
+
+            
+            <div class="card-data-wrapper">
+
+                <div class="card-number-block">
+                    <label for="card-number" class="tip-text">
+                            Card number
+                    </label>
+                        <input type="text"
+                            class="card-number"
+                            name="card-number"
+                            id="card-number"
+                            title="Enter number of your card."
+                            minlength="16"
+                            maxlength="19"
+                            required>
+                    
+                </div>
+
+                <div class="card-date-block">
+                    <label for="card-date" class="tip-text">
+                            Expire date
+                    </label>
+                        <input type="text"
+                            class="card-date"
+                            name="card-date"
+                            title="Enter expire date of your card."
+                            placeholder="MM / YY"
+                            minlength="4"
+                            maxlength="4"
+                            required>
+                </div>  
+
+                <div class="card-cvv-block">
+                    <label for="card-cvv" class="tip-text">
+                            Code
+                    </label>
+                        <input type="password"
+                            class="card-cvv"
+                            name="card-cvv"
+                            title="Enter CVV number of your card."
+                            pattern="\d{3,4}"
+                            minlength="3"
+                            maxlength="4"
+                            required>
+                    
+                </div>
+            </div>
+                </section>
+                
+                <div class="finish-block">
+                    <div class="agree-wrapper">
+                        <label class="agree-label">
+                            <input type="checkbox" 
+                                    name="agree"
+                                    class="agree-checkbox"
+                                    checked>
+                                I agree to the 
+                        </label>
+                        <a class="link" href="#">Terms & Conditions</a>
+                    </div>
+                    
+                    <button class="button submit">
+                        Place order
+                    </button>
+
+                    <button class="button" type="button">
+                        Print a quote
+                    </button>
+                </div>
+
+            </article>
+        
+        </form>
+    </main>
+</body>
+</html>
