@@ -1,7 +1,7 @@
 .page__common{
   background: rgba(236,238,244,1);
   color: rgba(119,118,143,1);
-  font-family: "Franklin Gothic Medium";
+  font-family: sans-serif;
   font-size: 14px;
 }
 
@@ -12,6 +12,17 @@ input:focus + label{
 button:hover{
   border-color: black;
 }
+
+
+.page__links{
+  &:hover{
+    border: 1px black solid;
+  }
+  &:focus{
+    outline: 2px solid rgba(127,185,249,1);
+  }
+}
+
 
 .menu{
   width: 1140px;
@@ -38,6 +49,7 @@ button:hover{
   width: 100px;
 }
 
+
 .menu__button-text{
   display: flex;
   width: 60%;
@@ -45,7 +57,10 @@ button:hover{
   margin-right: auto;
   margin-left: auto;
   align-items: center;
+  text-transform: uppercase;
 }
+
+
 
 .menu__button-img {
   width:20px;
@@ -73,6 +88,7 @@ button:hover{
   grid-row: 1/2;
   justify-self: start;
   align-self: center;
+  text-transform: uppercase;
 }
 
 

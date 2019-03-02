@@ -35,11 +35,13 @@
   grid-column: 2/3;
   align-self: center;
   margin-right: 10px;
+  text-transform: uppercase;
 }
 
 .footer__item-content{
   grid-row: 2/3;
   grid-column: 2/3;
+  line-height: 1.5;
 }
 
 .footer__social-item{

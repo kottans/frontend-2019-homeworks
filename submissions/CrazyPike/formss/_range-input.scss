@@ -8,6 +8,17 @@ input[type=range] {
   margin-left:auto;
   margin-right: auto;
   background: transparent; /* Otherwise white in Chrome */
+  z-index: 4;
+}
+
+.input-range-end{
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(236,238,244,1);
+  position: relative;
+  top: 70px;
+  z-index:2;
 }
 
 input[type=range]:hover{
@@ -71,13 +82,13 @@ input[type=range]::-ms-thumb {
 input[type=range]::-webkit-slider-runnable-track {
   height: 8.4px;
   cursor: pointer;
-  background: rgba(236,238,244,1);
-  border-radius: 1.3px;
-
+  background: rgba(236,238,244,0.6);
+  border-radius: 4.2px;
 }
 
+
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: rgba(236,238,244,1);
+  background: rgba(236,238,244,0.6);
 }
 
 input[type=range]::-moz-range-track {

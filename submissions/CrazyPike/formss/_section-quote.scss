@@ -38,6 +38,9 @@
 .quote__table {
   grid-column: 3/17;
   grid-row: 2/4;
+  & thead {
+    text-transform: uppercase;
+  }
 }
 
 .quote__buttons{

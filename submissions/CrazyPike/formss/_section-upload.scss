@@ -14,6 +14,10 @@
   border-radius: 3px;
   height: 50px;
   color: rgba(201,208,225,1);
+  & span{
+    text-transform: capitalize;
+  }
+
 }
 
 .section-upload__button:hover{
@@ -36,6 +40,9 @@
   text-align: left;
   height: 40px;
   vertical-align: center;
+  & thead{
+    text-transform: uppercase;
+  }
 }
 
 .section-upload__table tr{

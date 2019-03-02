@@ -85,9 +85,21 @@
   outline: 1px solid black;
 }
 
+.section-urgent__range-end{
+  display: flex;
+  justify-content: space-between;
+  width:320px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
 .section-urgent__range-label{
   display: flex;
   justify-content: space-between;
+  & span{
+    text-transform: uppercase;
+  }
 }
 
 .section-urgent__description{
