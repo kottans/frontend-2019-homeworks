@@ -1,0 +1,49 @@
+*:focus {
+  box-shadow: 0 0 0 2px #76a7e1;
+}
+
+select:hover, button:hover {
+  box-shadow: 0 0 0 2px #76a7e1;
+}
+
+h3, h2 {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 12px;
+  font-family: 'Nunito Sans', sans-serif;
+  overflow-x: hidden;
+  opacity: 1;
+  color: #6e768f;
+  background-color: #eceef4;
+}
+
+.wrapper {
+  padding: 20px;
+  padding-top: 35px;
+}
+
+.caption {
+  font-size: 21px;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 40px;
+  letter-spacing: 1.4px;
+}
+
+.btn {
+  white-space: nowrap;
+  padding: 18px 35px;
+  border-radius: 5px;
+  border: 1.5px solid #c9d0e1;
+  font-size: 12px;
+  font-weight: 700;
+  background-color: #f7f7fa;
+  color: #a5abc5;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom: 12px;
+  max-height: 53px;
+}

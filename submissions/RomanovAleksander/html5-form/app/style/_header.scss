@@ -1,0 +1,33 @@
+.header {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0;
+  padding-top: 30px;
+  margin-bottom: 60px;
+}
+
+.header__btn {
+  background-color: transparent;
+  position: relative;
+  max-height: 52px;
+  &:hover {
+    opacity: 0.5;
+    border-color: #76a7e1;
+    color: #76a7e1;
+  }
+}
+
+.logo img {
+  &:hover {
+    opacity: 0.8;
+    border-radius: 50%;
+    box-shadow: 0 0 2px 2px #76a7e1;
+  }
+}
+
+.transform {
+  text-transform: none;
+}

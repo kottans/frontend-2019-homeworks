@@ -1,0 +1,66 @@
+@media (max-width : 1145px) {
+  .form__header {
+    justify-content: space-around;
+  }
+  .help {
+    border-left: none;
+    padding-bottom: 17px;
+    padding-top: 20px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .upload .caption::before,
+  .language .caption::before,
+  .tone-section .caption::before,
+  .urgent-section .caption::before,
+  .payment .caption::before{
+    top: -58px;
+    left: 47%;
+  }
+}
+
+@media (max-width : 925px) {
+ .radio__choise {
+   justify-content: center;
+ }
+  .radio__type {
+    padding: 10px;
+  }
+  .tone-urgent {
+    margin-bottom: 90px;
+    .container {
+      justify-content: center;
+    }
+  }
+  .tone-section {
+    margin-right: 10px;
+  }
+  .payment__radio {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width : 755px) {
+  .submite__wraper {
+    justify-content: center;
+  }
+}
+
+@media (max-width : 455px) {
+  .header {
+    flex-direction: column;
+    margin-bottom: 35px;
+    padding-top: 0;
+  }
+  .logo {
+    padding: 15px;
+  }
+  .translation__wrapper {
+    padding: 25px 50px;
+  }
+  .payment__info input {
+    width: 160px;
+  }
+}
+

@@ -1,0 +1,31 @@
+.submite {
+  margin-bottom: 50px;
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  &__wraper {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+  label {
+    margin-left: 5px;
+  }
+  input {
+    cursor: pointer;
+  }
+  input, label, a {
+    font-size: 14px;
+    color: inherit;
+    margin-top: 20px;
+  }
+  button {
+    margin-left: 30px;
+  }
+  a:hover {
+    color: #5fcac6;
+  }
+}
