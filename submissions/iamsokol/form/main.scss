@@ -128,12 +128,15 @@ fieldset{
   }
 }
 
-.visually-hidden{
-  display: none;
-}
 .visually-radio{
   position: absolute;
-  z-index: -1;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
 }
 
 .select-title{
@@ -176,7 +179,9 @@ fieldset{
     right: 25px;
     transform: translateY(-50%);
     z-index: 1;
-    font: normal normal normal 20px/1 FontAwesome;
+    font-family: "FontAwesome";
+    font-size: 20px;
+    line-height: 1;
   }
 }
 select.sm-button{
@@ -220,13 +225,15 @@ input:checked + label:not(.agree){
     border-radius: 40px;
     color: #fff;
     text-align: center;
-    font: normal normal normal 25px/40px FontAwesome;
+    font-family: "FontAwesome";
+    font-size: 25px;
+    line-height: 40px;
   }
 }
 p{
   color: $colorText;
 }
-h1{
+.logo{
   @media (max-width: $tablet) {
     order: 1;
     margin: 20px auto;
@@ -338,7 +345,8 @@ h1{
 .validate{
   position: relative;
 }
-.validate input:valid + .input-result{
+
+.validate input:focus:valid + .input-result{
   &:after{
     content: '\f00c';
     position: absolute;
@@ -352,10 +360,12 @@ h1{
     background: #76a7e1;
     color: #fff;
     border-radius: 30px;
-    font: normal normal normal 20px/30px FontAwesome;
+    font-family: "FontAwesome";
+    font-size: 20px;
+    line-height: 30px;
   }
 }
-.validate input:invalid + .input-result{
+.validate input:focus:invalid + .input-result{
   &:after{
     content: '\f00d';
     position: absolute;
@@ -369,7 +379,9 @@ h1{
     background: #e17776;
     color: #fff;
     border-radius: 30px;
-    font: normal normal normal 20px/30px FontAwesome;
+    font-family: "FontAwesome";
+    font-size: 20px;
+    line-height: 30px;
   }
 }
 .full-width{
@@ -440,7 +452,9 @@ h1{
     position: absolute;
     left: -40px;
     top: -5px;
-    font: normal normal normal 25px/1 FontAwesome;
+    font-family: "FontAwesome";
+    font-size: 25px;
+    line-height: 1;
     @media (max-width: $mobile) {
       display: none;
     }
@@ -625,7 +639,7 @@ h1{
       display: flex;
       flex-wrap: wrap;
       padding: 20px 0;
-      p{
+      .document-text{
         line-height: 25px;
       }
       & > *{
@@ -796,6 +810,7 @@ h1{
       top: -50%;
   }
   &::-webkit-slider-runnable-track {
+    border-radius: 20px;
     width: 100%;
     height: 10px;
     cursor: pointer;
@@ -838,7 +853,9 @@ h1{
     top: 50%;
     transform: translateY(-50%);
     left: -45px;
-    font: normal normal normal 25px/1 FontAwesome;
+    font-family: "FontAwesome";
+    font-size: 25px;
+    line-height: 1;
   }
 }
 .range-info-description{
@@ -866,6 +883,14 @@ h1{
 .footer-item{
   width: 25%;
   padding: 0 5% 0 80px;
+  font-style: inherit;
+  a:hover{
+    color: #fff;
+    .fa{
+      color: #fff;
+      background: #444a62;
+    }
+  }
   @media (max-width: $desktop) {
      width: 50%;
      margin-bottom: 30px;
@@ -889,7 +914,9 @@ h1{
       top: 50%;
       transform: translateY(-50%);
       left: -60px;
-      font: normal normal normal 30px/1 FontAwesome;
+      font-family: "FontAwesome";
+      font-size: 30px;
+      line-height: 1;
     }
   }
   .footer-item-description{

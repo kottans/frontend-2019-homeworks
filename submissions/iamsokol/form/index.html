@@ -14,7 +14,7 @@
       <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
       Go back
     </button>
-    <h1>
+    <h1 class="logo">
       <a href="/">
         <img class="header-logo" src="assets/img/logo.png" alt="logo">
       </a>
@@ -64,7 +64,7 @@
         </div>
       </header>
       <section class="select">
-        <p class="select-title">Select what you want to translate</p>
+        <h3 class="select-title">Select what you want to translate</h3>
         <fieldset>
           <div class="select-type">
             <input class="visually-radio" type="radio" id="website" name="selectType">
@@ -89,7 +89,7 @@
         <h2 class="title">Upload your documents</h2>
         <p class="subtitle">(Doc, Docx, Text, PDF, Markdown)</p>
         <fieldset>
-          <input class="file" type="file" id="file" name="file" title="download file">
+          <input class="file visually-radio" type="file" id="file" name="file" title="download file">
           <label for="file" class="sm-button">
             <i class="fa fa-cloud-upload" aria-hidden="true"></i>
             Upload a new file
@@ -97,27 +97,27 @@
         </fieldset>
         <div class="document-in">
           <div class="document-in-head">
-            <p>File name</p>
-            <p>File size</p>
-            <p>Number of worlds</p>
-            <p>Remove</p>
+            <p class="document-text">File name</p>
+            <p class="document-text">File size</p>
+            <p class="document-text">Number of worlds</p>
+            <p class="document-text">Remove</p>
           </div>
           <div class="document-in-item">
-            <p>
+            <p class="document-text">
               <i class="fa fa-file-word-o" aria-hidden="true"></i>
               bussiness_operations.docx
             </p>
-            <p>78kb</p>
-            <p>842</p>
+            <p class="document-text">78kb</p>
+            <p class="document-text">842</p>
             <button class="trash" name="button" type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
           </div>
           <div class="document-in-item">
-            <p>
+            <p class="document-text">
               <i class="fa fa-file-word-o" aria-hidden="true"></i>
               bussiness_financial.docx
             </p>
-            <p>26kb</p>
-            <p>2.326</p>
+            <p class="document-text">26kb</p>
+            <p class="document-text">2.326</p>
             <button class="trash" name="button" type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
           </div>
         </div>
@@ -197,17 +197,17 @@
         <p class="payment-description">Already have account with us? <a href="#">Sign in</a></p>
         <fieldset class="full-width validate">
           <label for="input-name">Full name</label>
-          <input id="input-name" required type="text" placeholder="Full name" minlength="3" title="Set name more than 3 letters"  value="Dmytro Ivanov" class="sm-input" required>
+          <input id="input-name" required type="text" placeholder="Full name" minlength="3" title="Set name more than 3 letters"  value="Dmytro Ivanov" class="sm-input">
           <span class="input-result"></span>
         </fieldset>
         <fieldset class="validate">
           <label for="input-mail">Email adress</label>
-          <input id="input-mail" required type="email" placeholder="Email adress" value="dmytroivanov@gmail.com" class="sm-input" required>
+          <input id="input-mail" required type="email" placeholder="Email adress" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  title="type of dmytroivanov@gmail.com" value="dmytroivanov@gmail.com" class="sm-input">
           <span class="input-result"></span>
         </fieldset>
         <fieldset class="validate">
           <label for="input-password">Choose a password</label>
-          <input id="input-password" required type="password" placeholder="Choose a password" minlength="6" title="Set password more than 6 letters" class="sm-input" required>
+          <input id="input-password" required type="password" placeholder="Choose a password" minlength="6" title="Set password more than 6 letters" class="sm-input">
           <span class="input-result"></span>
         </fieldset>
         <fieldset class="payment-way">
@@ -257,12 +257,12 @@
         <h3 class="footer-item-title">What we do</h3>
         <p class="footer-item-description">We provide a full range of language services including content development, document, website and social media accounts translations.</p>
       </div>
-      <div class="footer-item contact">
+      <address class="footer-item contact">
         <h3 class="footer-item-title">Our main office</h3>
         <p class="footer-item-description">Dubai, UAE</p>
         <p class="footer-item-description">P.O. Box: 502735</p>
         <a href="tel:+971(0)44278128" class="footer-item-description">Phone: +971(0)44278128</a>
-      </div>
+      </address>
       <div class="footer-item social">
         <h3 class="footer-item-title">Connect with us</h3>
         <a href="#" class="footer-item-description"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
@@ -270,7 +270,9 @@
         <a href="#" class="footer-item-description"><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
       </div>
       <div class="footer-item">
-        <img src="assets/img/logo2.png" alt="logo2">
+        <a href="/">
+          <img src="assets/img/logo2.png" alt="logo2">
+        </a>
       </div>
     </div>
   </footer>
