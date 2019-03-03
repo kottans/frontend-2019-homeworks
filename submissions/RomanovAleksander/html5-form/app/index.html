@@ -118,28 +118,34 @@
                 <h2 class="caption">Choose your languages pairings</h2>
                 <div class="from">
                     <span>from</span>
-                    <select class="choice-language" required>
-                        <option>English</option>
-                        <option>Arabic</option>
-                        <option>Kurdish</option>
-                        <option>Ukrainian</option>
-                    </select>
+                    <div class="select-wrapper">
+                        <select class="choice-language" required>
+                            <option>English</option>
+                            <option>Arabic</option>
+                            <option>Kurdish</option>
+                            <option>Ukrainian</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="to">
                     <span>to</span>
-                    <select class="choice-language first" required>
-                        <option>Arabic</option>
-                        <option>English</option>
-                        <option>Kurdish</option>
-                        <option>Ukrainian</option>
-                    </select>
-                    <div class="language-wrapper">
-                        <select class="choice-language">
-                            <option>Kurdish</option>
-                            <option>English</option>
+                    <div class="select-wrapper first">
+                        <select class="choice-language" required>
                             <option>Arabic</option>
+                            <option>English</option>
+                            <option>Kurdish</option>
                             <option>Ukrainian</option>
                         </select>
+                    </div>
+                    <div class="language-wrapper">
+                        <div class="select-wrapper">
+                            <select class="choice-language">
+                                <option>Kurdish</option>
+                                <option>English</option>
+                                <option>Arabic</option>
+                                <option>Ukrainian</option>
+                            </select>
+                        </div>
                         <button type="button" class="delete"></button>
                     </div>
                     <button type="button" class="choice-language-btn">+ Add</button>
