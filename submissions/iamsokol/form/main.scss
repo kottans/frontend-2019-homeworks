@@ -234,6 +234,13 @@ p{
   color: $colorText;
 }
 .logo{
+  img{
+    border-radius: 100%;
+    border: 10px solid #eceef4;
+  }
+  img:hover{
+    border: 10px solid red;
+  }
   @media (max-width: $tablet) {
     order: 1;
     margin: 20px auto;
@@ -884,6 +891,13 @@ p{
   width: 25%;
   padding: 0 5% 0 80px;
   font-style: inherit;
+  img{
+    border-radius: 100%;
+    border: 10px solid #444a62;
+    &:hover{
+      border: 10px solid red;
+    }
+  }
   a:hover{
     color: #fff;
     .fa{
