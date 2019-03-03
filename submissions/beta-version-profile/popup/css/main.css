@@ -73,10 +73,8 @@ a {
 .nav__checkbox:focus + .nav__label {
   outline: auto;
   outline-color: #aeb5ff;
-
-
-
 }
+
 .nav__checkbox:checked ~ .nav__wrapper {
   display: block;
 }
