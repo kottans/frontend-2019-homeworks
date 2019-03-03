@@ -1,0 +1,123 @@
+@import "./_mixins/custom-mixins";
+
+.standard-button {
+    width: 14em;
+    padding: 1.5em 0;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: $blocksGrey;
+    border: 1px solid $borderColor;
+    border-radius: $borderRadius;
+    color: $lightGrey;
+    text-align: center;
+    letter-spacing: 0.5px;
+    @include transition(all);
+    &:not(.standard-button-blue):hover {
+        border-color: $blueColor;
+    }
+    &:not(.standard-button-blue):focus {
+        border-color: $blueColor;
+        box-shadow: $shadow;
+    }
+    &:not(.standard-button-blue):active {
+        box-shadow: $shadow;
+    }
+
+    &:-moz-focusring {
+        outline: 1px dotted;
+    }
+    &:focus {
+        outline: -webkit-focus-ring-color auto 5px;
+    }
+}
+
+.standard-button-blue {
+    background-color: $blueColor;
+    border: 1px solid #54aca9;
+    span {
+        color: #fff;
+    }
+    &:hover {
+        box-shadow: $shadow;
+    }
+    &:focus {
+        box-shadow: $blueShadow;
+    }
+    &:active {
+        box-shadow: $brightShadow;
+    }
+}
+
+.standard-button-back,
+.standard-button-signin {
+    background-position: 50px center;
+    background-repeat: no-repeat;
+    padding-left: 2em;
+    background-size: 15px;
+    @include mediaQuery(600) {
+        background-position: 40px center;
+    }
+}
+
+.standard-button-back {
+    background-color: $greyMain;
+    background-image: url("#{$imagePath}/left-arrow-key.svg");
+    @include mediaQuery(600) {
+        order: 2;
+    }
+}
+
+.standard-button-signin {
+    background-color: $greyMain;
+    background-image: url("#{$imagePath}/profile.svg");
+    @include mediaQuery(600) {
+        margin-bottom: 1em;
+        order: 1;
+    }
+}
+
+.add-button {
+    width: 10em;
+    padding: 1.5em 0 1.5em 1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: $blocksGrey;
+    border: 1px solid $borderColor;
+    border-radius: $borderRadius;
+    color: $lightGrey;
+    letter-spacing: 0.5px;
+    @include transition(border-color);
+    background-image: url(#{$imagePath}/add-plus-button.svg);
+    background-position: 20px center;
+    background-repeat: no-repeat;
+    background-size: 1em;
+    background-position: 36px center;
+    &:hover {
+        border-color: $blueColor;
+    }
+    &:focus {
+        border-color: $blueColor;
+        box-shadow: $shadow;
+    }
+    &:active {
+        box-shadow: $shadow;
+    }
+}
+
+.remove-button {
+    width: 1.5em;
+    height: 1.5em;
+    background: url("#{$imagePath}/waste-bin.svg") center no-repeat;
+    border: none;
+    @include transition(opacity);
+    &:hover,
+    &:focus,
+    &:active {
+        opacity: 0.8;
+    }
+}
+
+button[type="button"]:-moz-focusring,
+button[type="submit"]:-moz-focusring {
+    outline: 1px dotted;
+}
