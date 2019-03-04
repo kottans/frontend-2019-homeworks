@@ -34,11 +34,13 @@
   border-radius: 5px;
 }
 
+.main-radio:checked + .form__main-section_label-wrapper,
 .main-radio:focus:checked + .form__main-section_label-wrapper {
   border-color: $check;
 }
 
-.main-radio:focus:checked + .form__main-section_label-wrapper::before { 
+.main-radio:checked + .form__main-section_label-wrapper::before,
+.main-radio:focus:checked + .form__main-section_label-wrapper::before {
   content: '';
   display: inline-block;
   position: absolute;
@@ -46,7 +48,7 @@
   right: -16px;
   background-image: url('../img/check.png');
   background-size: 100%;
-  background-color: $check; 
+  background-color: $check;
   border-radius: 50%;
   width: 30px;
   height: 30px;
@@ -64,42 +66,42 @@
   color: $font;
 }
 
-.form__upload_file-wrapper{
+.form__upload_file-wrapper {
   width: 300px;
   height: 50px;
-  padding: 50px 70px ;
+  padding: 50px 70px;
 }
 
-.form__upload_file{
+.form__upload_file {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.4;
 }
 
-.upload__icon{
+.upload__icon {
   color: $font;
   font-size: 16px;
-  padding-right:15px;
+  padding-right: 15px;
 }
 
-.form__upload_file-label{
+.form__upload_file-label {
   cursor: pointer;
   border: 2px solid $borderLight;
   border-radius: 5px;
   background-color: $button;
   padding: 20px 30px;
-  position: relative
+  position: relative;
 }
 
-.form__upload_file-label:hover{
+.form__upload_file-label:hover {
   border-color: $mainFont;
 }
 
-.upload__file:focus + .form__upload_file-label{
+.upload__file:focus + .form__upload_file-label {
   border-color: $mainFont;
 }
 
-.form__payment_radio{
+.form__payment_radio {
   width: 100%;
   height: 100%;
   display: flex;
@@ -109,15 +111,14 @@
   border-radius: 5px;
   cursor: pointer;
   position: relative;
-
 }
 
-.form__payment_radio:hover{
+.form__payment_radio:hover {
   border-color: $border;
 }
 
-.form__payment_radio-image-wrapper{
-  margin:0 auto;
+.form__payment_radio-image-wrapper {
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,15 +132,17 @@
   border-radius: 5px;
 }
 
-.form__payment_radio-image{
-  width:50%;
+.form__payment_radio-image {
+  width: 50%;
 }
 
-.payment-radio:focus:checked + .form__payment_radio-image-wrapper{
+.payment-radio:checked + .form__payment_radio-image-wrapper,
+.payment-radio:focus:checked + .form__payment_radio-image-wrapper {
   border-color: $check;
 }
 
-.payment-radio:focus:checked + .form__payment_radio-image-wrapper::before { 
+.payment-radio:checked + .form__payment_radio-image-wrapper::before,
+.payment-radio:focus:checked + .form__payment_radio-image-wrapper::before {
   content: '';
   display: inline-block;
   position: absolute;
@@ -147,14 +150,14 @@
   right: -16px;
   background-image: url('../img/check.png');
   background-size: 100%;
-  background-color: $check; 
+  background-color: $check;
   border-radius: 50%;
   width: 30px;
   height: 30px;
 }
 
-.form__tone_radio{
-  width:230px;
+.form__tone_radio {
+  width: 230px;
   height: 70px;
   box-sizing: border-box;
   background-color: $button;
@@ -165,11 +168,11 @@
   margin-bottom: 20px;
 }
 
-.form__tone_radio:hover{
+.form__tone_radio:hover {
   border-color: $border;
 }
 
-.form__tone_radio-title-wrapper{
+.form__tone_radio-title-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -183,35 +186,36 @@
   border-radius: 5px;
 }
 
-.form__tone_radio-title{
+.form__tone_radio-title {
   color: $font;
   padding-left: 20px;
 }
 
-.tone_icon{
-  color:$font;
+.tone_icon {
+  color: $font;
 }
 
+.tone-radio:checked + .form__tone_radio-title-wrapper,
 .tone-radio:focus:checked + .form__tone_radio-title-wrapper {
   border-color: $check;
 }
 
-.tone-radio:focus:checked + .form__tone_radio-title-wrapper::before { 
+.tone-radio:checked + .form__tone_radio-title-wrapper::before,
+.tone-radio:focus:checked + .form__tone_radio-title-wrapper::before {
   content: '';
   display: inline-block;
   position: absolute;
   top: -16px;
   right: -16px;
-  background-image: url('../../img/check.png');
+  background-image: url('../img/check.png');
   background-size: 100%;
-  background-color: $check; 
+  background-color: $check;
   border-radius: 50%;
   width: 30px;
   height: 30px;
 }
 
-
-.range__input::-webkit-slider-runnable-track{
+.range__input::-webkit-slider-runnable-track {
   appearance: none;
   background-color: $borderLight;
   width: 100%;
@@ -219,7 +223,7 @@
   border-radius: 10px;
 }
 
-.range__input{
+.range__input {
   width: 85%;
   appearance: none;
   position: relative;
@@ -227,11 +231,11 @@
   border-radius: 50%;
 }
 
-.range__input:focus{
+.range__input:focus {
   outline-color: $yellow;
 }
 
-.range__input::-webkit-slider-thumb{
+.range__input::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   height: 18px;
@@ -244,7 +248,8 @@
   position: relative;
 }
 
-.range__input::before,.range__input::after{
+.range__input::before,
+.range__input::after {
   content: '';
   display: block;
   width: 7px;
@@ -254,19 +259,19 @@
   background-color: $border;
 }
 
-.range__input::before{
+.range__input::before {
   left: 0;
 }
 
-.range__input::after{
+.range__input::after {
   right: 0;
 }
 
-.form__sign_input-wrapper{
+.form__sign_input-wrapper {
   display: flex;
 }
 
-.sign_input-wrapper{
+.sign_input-wrapper {
   width: 300px;
   height: 50px;
   padding-bottom: 35px;
@@ -275,19 +280,20 @@
   position: relative;
 }
 
-.form__sign_label{
+.form__sign_label {
   display: block;
   padding-left: 10px;
   padding-bottom: 10px;
   font-size: 12px;
   font-weight: 600;
   color: $font;
+  text-transform: uppercase;
 }
 
-.form__sign_input{
+.form__sign_input {
   width: 100%;
   height: 100%;
-  border:2px solid $borderLight;
+  border: 2px solid $borderLight;
   border-radius: 5px;
   font-size: 18px;
   color: $mainFont;
@@ -295,7 +301,7 @@
   outline: transparent;
 }
 
-.form__sign_status{
+.form__sign_status {
   content: '';
   position: absolute;
   right: 0;
@@ -306,25 +312,25 @@
   background-color: transparent;
 }
 
-.form__sign_input:focus:valid{
+.form__sign_input:focus:valid {
   border-color: $check;
 }
 
-.form__sign_input:valid + .form__sign_status{
+.form__sign_input:valid + .form__sign_status {
   background-image: url('../img/check.png');
   background-size: 100%;
 }
 
-.form__sign_input:focus:invalid{
+.form__sign_input:focus:invalid {
   border-color: $red;
 }
 
-.form__sign_input:invalid + .form__sign_status{
+.form__sign_input:invalid + .form__sign_status {
   background-image: url('../img/notcheck.png');
   background-size: 100%;
 }
 
-.card__input-wrapper{
+.card__input-wrapper {
   width: 300px;
   height: 50px;
   padding-bottom: 35px;
@@ -333,19 +339,20 @@
   position: relative;
 }
 
-.card__label{
+.card__label {
   display: block;
   padding-left: 10px;
   padding-bottom: 10px;
   font-size: 12px;
   font-weight: 600;
   color: $font;
+  text-transform: uppercase;
 }
 
-.card__input{
+.card__input {
   width: 100%;
   height: 100%;
-  border:2px solid $borderLight;
+  border: 2px solid $borderLight;
   border-radius: 5px;
   font-size: 18px;
   color: $mainFont;
@@ -353,28 +360,28 @@
   outline: transparent;
 }
 
-.card-number{
-  width:320px;
+.card-number {
+  width: 320px;
 }
 
-.card-date{
-  width:170px;
+.card-date {
+  width: 170px;
 }
 
-.card_date{
-  text-align: center; 
+.card_date {
+  text-align: center;
   font-size: 14px;
 }
 
-.card_date::-webkit-input-placeholder{
+.card_date::-webkit-input-placeholder {
   color: $font;
 }
 
-.card-cvv{
+.card-cvv {
   width: 100px;
 }
 
-.card__input_status{
+.card__input_status {
   content: '';
   position: absolute;
   right: 0;
@@ -385,29 +392,29 @@
   background-color: transparent;
 }
 
-.card__input:focus:valid{
+.card__input:focus:valid {
   border-color: $check;
 }
 
-.card__input:valid + .card__input_status{
+.card__input:valid + .card__input_status {
   background-image: url('../img/check.png');
   background-size: 100%;
 }
 
-.card__input:focus:invalid{
+.card__input:focus:invalid {
   border-color: $red;
 }
 
-.card__input:invalid + .card__input_status{
+.card__input:invalid + .card__input_status {
   background-image: url('../img/notcheck.png');
   background-size: 100%;
 }
 
-.to{
-  margin-left:90px;
+.to {
+  margin-left: 90px;
 }
 
-.select_label{
+.select_label {
   font-size: 12px;
   font-weight: 700;
   color: $font;
@@ -415,7 +422,7 @@
   cursor: pointer;
 }
 
-.form__select-wrapper{
+.form__select-wrapper {
   width: 220px;
   height: 50px;
   position: relative;
@@ -424,11 +431,11 @@
   background-color: $button;
 }
 
-.form__select-wrapper:hover{
+.form__select-wrapper:hover {
   border-color: $border;
 }
 
-.form__select-wrapper::before{
+.form__select-wrapper::before {
   content: '';
   display: block;
   background-color: $borderLight;
@@ -439,22 +446,22 @@
   right: 45px;
 }
 
-.form__select-wrapper:hover::before{
+.form__select-wrapper:hover::before {
   background-color: $border;
 }
 
-.form__select-wrapper::after{
+.form__select-wrapper::after {
   content: '';
   display: block;
-	border-left: 5px solid transparent;
-	border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
   border-top: 10px solid $font;
   position: absolute;
   top: 20px;
   right: 20px;
 }
 
-.select__item{
+.select__item {
   width: 100%;
   height: 100%;
   font-size: 14px;
@@ -468,12 +475,12 @@
   cursor: pointer;
 }
 
-.select__item:hover{
+.select__item:hover {
   border-color: $border;
   color: $mainFont;
 }
 
-.select__item:focus{
+.select__item:focus {
   outline: none;
   color: $submit;
 }

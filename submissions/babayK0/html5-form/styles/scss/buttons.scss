@@ -11,6 +11,7 @@
   font-weight: 700;
   color: $white;
   transition: 0.3s ease-out;
+  text-transform: uppercase;
 }
 
 .submit:hover, .submit:focus {
@@ -31,6 +32,7 @@
   font-weight: 700;
   color: $font;
   transition: 0.3s ease-out;
+  text-transform: uppercase;
 }
 
 .print:hover, .print:focus{
@@ -75,6 +77,7 @@
   font-weight: 700;
   color: $font;
   transform: scale(1);
+  text-transform: uppercase;
 }
 
 .add_plus{

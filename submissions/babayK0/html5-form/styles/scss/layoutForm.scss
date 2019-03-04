@@ -39,7 +39,7 @@
 }
 
 .form__tone{
-  margin-right: 160px;
+  margin-right: 60px;
 }
 
 .form__tone_radio-wrapper{
@@ -61,6 +61,7 @@
   font-size: 12px;
   font-weight: 600;
   color: $font;
+  text-transform: uppercase;
 }
 
 .timeline-info-wrapper{
@@ -88,6 +89,7 @@
 .timeline-info_title{
   margin-left: 15px;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 .timeline-info{
@@ -97,4 +99,5 @@
 
 .average{
   font-weight: 700;
+  text-transform: uppercase;
 }
