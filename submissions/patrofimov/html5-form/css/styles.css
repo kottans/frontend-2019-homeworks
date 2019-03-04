@@ -1051,7 +1051,7 @@ img.translate_img {
 }
 
 .lang_btn:first-child {
-  margin-left: 52px;
+  margin-left: -20px;
   border: none;
   background: none;
   font-size: 1.5em;

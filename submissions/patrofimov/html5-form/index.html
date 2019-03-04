@@ -443,10 +443,12 @@
                   <input
                     required
                     class="payment_input"
-                    placeholder="example@google.com"
+                    placeholder="name@domain.etc"
                     name="email"
                     type="email"
                     id="form_email"
+					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+					title="name@domain.etc"
                   />
                   <span aria-hidden="true" class="payment_valid"></span>
                 </div>
