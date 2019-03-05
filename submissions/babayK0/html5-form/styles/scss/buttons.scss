@@ -57,6 +57,9 @@
   background-color: transparent;
   transform: scale(1);
 }
+.remove-select{
+  margin-left: -20px;
+}
 
 .remove:active{
   transform: scale(0.95);
