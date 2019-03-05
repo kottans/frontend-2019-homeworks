@@ -4,10 +4,18 @@
   justify-content: flex-end;
   align-items: center;
   margin-bottom: 75px;
+  @include mobileS {
+    flex-direction: column;
+    align-items: center;
+  }
+  @include desktop {
+    padding-left: 50px;
+  }
 }
 
 .agree{
   cursor: pointer;
+
 }
 
 .agree:focus{
@@ -18,12 +26,20 @@
   cursor: pointer;
   font-size: 13px;
   margin-left: 15px;
+  @include mobileS {
+   font-size: 18px;
+   margin: 0 0 10px;
+  }
 }
 
 .terms{
   font-size: 13px;
   color: $mainFont;
   margin-right: 45px;
+  @include mobileS {
+    font-size: 18px;
+    margin: 0 0 10px;
+   }
 }
 
 .terms:hover, .terms:focus{
@@ -32,4 +48,8 @@
 
 .form__footer_buttons{
   padding-right: 100px;
+  @include mobileS {
+    padding: 0;
+    width: 100%;
+  }
 }

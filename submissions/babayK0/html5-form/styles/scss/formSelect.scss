@@ -1,22 +1,44 @@
-.form__select{
+.form__select {
   padding-bottom: 50px;
 }
-.form__section_title-wrapper{
+
+.form__section_title-wrapper {
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 40px;
+  @include mobileS {
+    // justify-content: center
+  }
 }
-.form__section_title{
+
+.form__section_title {
   margin: 7px 15px 7px 30px;
   font-weight: 500;
+  @include mobileS {
+    margin: 7px 0;
+  }
 }
-.form__selects{
+
+.form__selects {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   margin-left: 70px;
   padding-bottom: 40px;
+  @include mobileS{
+    width: 100%;
+    margin: 0;
+    padding-bottom: 0;
+    flex-direction: column;
+  }
+  @include desktop{
+    width: 100%;
+    margin: 0;
+    padding-bottom: 0;
+    flex-direction: column;
+  }
 }
-.select_label{
+
+.select_label {
   text-transform: uppercase;
 }

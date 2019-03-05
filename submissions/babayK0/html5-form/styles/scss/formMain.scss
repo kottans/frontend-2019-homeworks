@@ -21,6 +21,20 @@
   flex-direction: row;
   justify-content: space-between;
   width: 900px;
+  @include mobileS {
+    width: 100%;
+    padding: 25px 0 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  @include desktop {
+    width: 100%;
+    padding: 25px 0 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .form__main_label-size {

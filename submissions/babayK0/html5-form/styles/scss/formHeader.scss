@@ -3,6 +3,16 @@
   padding: 25px 0 22.5px 50px;
   display: flex;
   flex-wrap: wrap;
+  
+  @include mobileS {
+    width: 100%;
+    padding:0;
+  }
+  @include desktop {
+    width: 100%;
+    padding:5px;
+    padding-right: 0;
+  }
 }
 
 .form__header_order-title {
@@ -10,6 +20,9 @@
   font-weight: 700;
   margin: 7px 15px;
   text-transform: uppercase;
+  @include mobileS {
+    margin: 5px 10px;
+  }
 }
 
 .form__header_order-table {
@@ -17,6 +30,9 @@
   width: 100%;
   margin-left: 35px;
   font-size: 14px;
+  @include mobileS {
+    margin: 5px;
+  }
 }
 
 .order__table-title {
@@ -29,6 +45,9 @@
   text-align: left;
   font-weight: 500;
   color: $font;
+  @include mobileS {
+    padding-top: 5px;
+  }
 }
 
 .form__header_buttons {
@@ -38,6 +57,19 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @include mobileS {
+    width: 100%;
+    padding: 0;
+    padding-top: 10px;
+    border:none;
+  }
+  @include desktop {
+    width: 100%;
+    padding: 0;
+    padding-top: 10px;
+    border:none;
+  }
 }
 
 .form__header_contacts {
@@ -46,11 +78,23 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  @include mobileS {
+    width: 100%;
+    padding: 20px 0 5px;
+  }
+  @include desktop {
+    width: 100%;
+    padding: 20px 0 5px;
+  }
 }
 
 .form__header_contacts-wrapper {
   flex: 2;
   margin: -7px 15px 0;
+  @include mobileS {
+    margin: -7px 0;
+  }
 }
 
 .form__header_contacts-title {

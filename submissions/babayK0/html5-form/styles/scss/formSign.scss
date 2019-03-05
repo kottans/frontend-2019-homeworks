@@ -22,14 +22,30 @@
   width: 70%;
   margin-left: 70px;
   margin-bottom: 80px;
+  @include mobileS {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .form__payment_radio-wrapper{
   width: calc(33% - 30px);
   height: 100px;
   margin-right: 30px;
+  @include mobileS {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 25px;
+  }
 }
 
 .form__card-wrapper{
   display: flex;
+  @include mobileS {
+    flex-direction: column;
+    align-items: baseline;
+  }
+  @include desktop {
+    width: 90%;
+  }
 }

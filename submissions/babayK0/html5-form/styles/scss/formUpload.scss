@@ -19,12 +19,18 @@
 .form__upload_title{
   margin:7px 15px 7px 30px;
   font-weight: 500;
+  @include mobileS {
+    margin:7px 3px 7px ;
+  }
 }
 
 .form__upload_info{
   font-size: 14px;
   margin:auto 0;
   color: $font;
+  @include mobileS {
+    margin: auto;
+  }
 }
 
 .form__upload_table-wrapper{
@@ -34,6 +40,16 @@
   border: 1px solid $borderLight;
   border-radius: 5px;
   display: flex;
+  @include mobileS {
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+  }
+  @include desktop {
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .form__upload_table{
@@ -41,6 +57,12 @@
   width: 100%;
   color: $font;
   border-collapse: collapse;
+  @include mobileS {
+    margin: 10px;
+  }
+  @include desktop {
+    margin: 10px;
+  }
 }
 
 .upload__table-title{
@@ -54,6 +76,9 @@
   text-align: left;
   vertical-align: middle;
   font-weight: 500;
+  @include mobileS {
+    vertical-align: bottom;
+  }
 }
 
 .upload__table_icon{

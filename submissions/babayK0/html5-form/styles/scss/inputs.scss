@@ -17,6 +17,12 @@
   border-radius: 5px;
   cursor: pointer;
   position: relative;
+  @include mobileS {
+    margin-bottom: 15px;
+  }
+  @include desktop {
+    margin-bottom: 25px;
+  }
 }
 
 .form__main-section_label:hover {
@@ -70,6 +76,13 @@
   width: 300px;
   height: 50px;
   padding: 50px 70px;
+  position: relative;
+  margin-left: 70px; 
+  @include mobileS {
+    width: 100%;
+    padding: 30px 0;
+    margin: 0px;
+  }
 }
 
 .form__upload_file {
@@ -90,7 +103,14 @@
   border-radius: 5px;
   background-color: $button;
   padding: 20px 30px;
-  position: relative;
+  position: absolute;
+  @include mobileS {
+    width: 100%;
+    padding: 20px 0;
+    border-width: 1px;
+    border-radius: 0;
+    text-align: center;
+  }
 }
 
 .form__upload_file-label:hover {
@@ -269,6 +289,12 @@
 
 .form__sign_input-wrapper {
   display: flex;
+  @include mobileS {
+    flex-direction: column;
+  }
+  @include desktop {
+    flex-direction: column;
+  }
 }
 
 .sign_input-wrapper {
@@ -278,6 +304,10 @@
   margin-left: 70px;
   margin-bottom: 30px;
   position: relative;
+  @include mobileS {
+    width: 90%;
+    margin-left: 0;
+  }
 }
 
 .form__sign_label {
@@ -337,6 +367,9 @@
   margin-left: 70px;
   margin-bottom: 30px;
   position: relative;
+  @include mobileS {
+    margin-left: 0;
+  }
 }
 
 .card__label {
@@ -358,6 +391,9 @@
   color: $mainFont;
   padding-left: 15px;
   outline: transparent;
+  @include mobileS {
+    padding-left: 0;
+  }
 }
 
 .card-number {
@@ -412,6 +448,12 @@
 
 .to {
   margin-left: 90px;
+  @include mobileS{
+    margin: 0;
+  }
+  @include desktop{
+    margin: 0;
+  }
 }
 
 .select_label {
@@ -429,6 +471,12 @@
   overflow: hidden;
   margin-right: 25px;
   background-color: $button;
+  @include mobileS{
+    margin-bottom: 15px;
+  }
+  @include desktop{
+    margin-bottom: 15px;
+  }
 }
 
 .form__select-wrapper:hover {

@@ -12,6 +12,11 @@
   color: $white;
   transition: 0.3s ease-out;
   text-transform: uppercase;
+  @include mobileS {
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+  }
 }
 
 .submit:hover, .submit:focus {
@@ -33,6 +38,11 @@
   color: $font;
   transition: 0.3s ease-out;
   text-transform: uppercase;
+  @include mobileS {
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+  }
 }
 
 .print:hover, .print:focus{
@@ -78,6 +88,11 @@
   color: $font;
   transform: scale(1);
   text-transform: uppercase;
+  @include mobileS{
+    width: 100%;
+    margin: 0;
+    margin-top: 20px;
+  }
 }
 
 .add_plus{
