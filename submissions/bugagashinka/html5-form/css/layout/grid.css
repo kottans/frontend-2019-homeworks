@@ -1,0 +1,19 @@
+/* GRID general*/
+.container {
+  display: grid;
+  grid-template: auto / repeat(12, 1fr);
+  max-width: 1200px;
+  margin: 0 auto;
+  font-style: normal;
+}
+.row {
+  grid-column: 1 / -1;
+}
+.row:nth-child(n + 1) {
+  padding: 1em;
+}
+.row:nth-child(n + 3) {
+  margin: 0.5em;
+  border: 1px solid;
+  border-radius: 5px;
+}

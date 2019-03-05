@@ -1,0 +1,91 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 45px;
+  padding: 15px 25px;
+  margin: 0;
+  background: #fff;
+  border: 1px solid var(--darkgray);
+  border-radius: 2.5px;
+  outline: none;
+  color: var(--gray);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  transition-property: background, color;
+  transition-duration: 0.175s;
+  transition-timing-function: linear;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    background: var(--lightgreen);
+    @media only screen and (max-width: $tablet) {
+      color: inherit;
+      background: inherit;
+    }
+  }
+
+  &:active {
+    color: #fff;
+    background: var(--blue);
+  }
+
+  &--submit {
+    background: var(--lightgreen);
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      background: var(--blue);
+      @media only screen and (max-width: $tablet) {
+        color: inherit;
+        background: inherit;
+      }
+    }
+
+    &:active {
+      color: #fff;
+      background: var(--blue);
+    }
+  }
+
+  &--like-icon {
+    padding: 10px;
+    height: auto;
+    border: 1px solid rgba(0, 0, 0, 0);
+    transition-property: border;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+
+    &:hover,
+    &:focus {
+      background: none;
+      color: inherit;
+      border: 1px solid var(--darkgray);
+      @media only screen and (max-width: $tablet) {
+        border: 1px solid rgba(0, 0, 0, 0);
+      }
+    }
+
+    &:active {
+      color: #fff;
+      background: var(--blue);
+    }
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+  }
+
+  &--like-icon .button__icon {
+    margin: 0;
+  }
+}
