@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="wrapper">
-    <form action="URL">
+    <form action="URL" class="formWrapper">
         <div class="formHeader">
             <div class="yourOrders">
                 <div class="youOrders__icon">
@@ -57,12 +57,12 @@
                 </div>
             </div>
             <div class="headerButtons">
-                <button class="headerButtonsItem" type="submit">
-                    PLACE ORDER
+                <button class="headerButtonsItem headerButtonsItem--submit" type="submit">
+                   place order
                 </button>
                 <br>
                 <button class="headerButtonsItem" type="button">
-                    PRINT A QUOTE
+                   print a quote
                 </button>
             </div>
             <div class="helpCenter">
@@ -92,9 +92,9 @@
         </div>
         <div class="insideWrapper">
             <div class="selectTypeBlock">
-                <h1 class="selectTypeBlock__title">
+                <div class="selectTypeBlock__title">
                     select what you want to translate
-                </h1>
+                </div>
                 <div class="selectTypeBlock__checkboxes">
                     <input type="radio"
                            title="Radio"
@@ -102,7 +102,8 @@
                            name="Type"
                            value="website"
                            class="checkboxType hidden"
-                           checked>
+                           checked
+                           required>
                     <label for="website" class="typeBlockItem__label">
                         <div class="typeBlockItem__img"><i class="fas fa-tablet-alt"></i></div>
                         <div class="typeBlockItem__title">Website</div>
@@ -139,9 +140,9 @@
                 </div>
             </div>
             <div class="selectDocumentBlock numberedBlock">
-                <h1 class="selectDocumentBlock__title">
+                <div class="selectDocumentBlock__title">
                     Upload your documents
-                </h1>
+                </div>
                 <h2 class="selectDocumentBlock__subtitle">
                     (Doc,Docx,Text,Markdown)
                 </h2>
@@ -218,17 +219,18 @@
                 </div>
             </div>
             <div class="selectLanguageBlock numberedBlock">
-                <h1 class="selectLanguageBlock__title">
+                <div class="selectLanguageBlock__title">
                     Choose your languages pairing
-                </h1>
+                </div>
                 <label for="selectLangFrom"
                        class="langLabel">
-                    FROM
+                    from
                 </label>
                 <div class="select">
                     <select name="From"
                             id="selectLangFrom"
-                            class="selectLangFrom">
+                            class="selectLangFrom"
+                            required>
                         <option>English</option>
                         <option>Russian</option>
                         <option>France</option>
@@ -236,12 +238,13 @@
                 </div>
                 <br>
                 <label for="selectLangTo" class="langLabel ">
-                    TO
+                    to
                 </label>
                 <div class="select">
                     <select name="TO"
                             id="selectLangTo"
-                            class="selectLangFrom selectLang">
+                            class="selectLangFrom selectLang"
+                            required>
                         <option>English</option>
                         <option>Russian</option>
                         <option>France</option>
@@ -258,20 +261,20 @@
                     </select>
 
                 </div>
-                <div class="selectLangToSecond__icon">
+                <button type="button" class="selectLangToSecond__icon">
                     <a href="#">
                         <i class="fas fa-trash-alt"></i>
                     </a>
-                </div>
+                </button>
                 <button class="selectLang__add" type="button">
                     + ADD
                 </button>
             </div>
             <div class="wrapperInner">
                 <div class="selectDesired numberedBlock">
-                    <h1 class="selectDocumentBlock__title selectDesired__title">
+                    <div class="selectDocumentBlock__title selectDesired__title">
                         Select your desired tone
-                    </h1>
+                    </div>
                     <div class="selectDesired__checkboxes">
                         <input type="radio"
                                title="Friendly"
@@ -279,7 +282,8 @@
                                name="Desired"
                                value="Friendly"
                                class="checkboxType hidden"
-                               checked>
+                               checked
+                                required>
                         <label for="Friendly"
                                class="typeBlockItem__label selectDesired__checkboxes--label ">
                             <div class="typeBlockItem__icon">
@@ -334,9 +338,9 @@
                     </div>
                 </div>
                 <div class="tellUrgent numberedBlock">
-                    <h1 class="selectDocumentBlock__title">
+                    <div class="selectDocumentBlock__title">
                         Tell us how urgent this job is
-                    </h1>
+                    </div>
                     <div class="tellUrgent__range">
                         <input type="range"
                                title="Tell us how urgent this job is"
@@ -345,19 +349,20 @@
                                min="0"
                                step="1"
                                value="50"
-                               class="tellUrgent__rangeInput">
+                               class="tellUrgent__rangeInput"
+                               required>
                     </div>
                     <div class="range__text">
-                        <span>I GOT TIME</span>
-                        <span class="orange">AVERAGE</span>
-                        <span>YESTERDAY</span>
+                        <span>i got time</span>
+                        <span class="orange">average</span>
+                        <span>yesterday</span>
                     </div>
                     <div class="tellUrgent__timeline">
                         <div class="timeline__info">
                             <div class="timeline__info--icon">
                                 <i class="fas fa-info-circle"></i>
                             </div>
-                            TIMELINE INFO
+                            timeline info
                         </div>
                         <div class="timeline__text">
                             With an <span class="orange">AVERAGE</span> timeline set up our expert translator can take a
@@ -369,18 +374,19 @@
                 </div>
             </div>
             <div class="paymentBlock numberedBlock">
-                <h1 class="selectLanguageBlock__title">
+                <div class="selectLanguageBlock__title">
                     Sign up and choose a payment method
-                </h1>
+                </div>
                 <h2 class="selectLanguageBlock__subtitle">
-                    Already have an account with us? Sign in.
+                    Already have an account with us?
+                    <a href="#" class="selectLanguageBlock__signIn">Sign in.</a>
                 </h2>
                 <div class="registerForm">
                     <label
                             for="registerForm__fullNameInput"
                             class="registerForm__label registerForm__labelBlock">
                         <div class="registerForm__label--title">
-                            FULL NAME
+                           full name
                         </div>
                         <input
                                 type="text"
@@ -403,7 +409,7 @@
                             for="registerForm__emailInput"
                             class="registerForm__label">
                         <div class="registerForm__label--title">
-                            EMAIL ADDRESS
+                            email address
                         </div>
                         <input
                                 type="email"
@@ -426,7 +432,7 @@
                             for="registerForm__passwordInput"
                             class="registerForm__label">
                         <div class=" registerForm__label--title registerForm__label--titleInline">
-                            CHOOSE A PASSWORD
+                            chose a password
                         </div>
                         <input
                                 type="password"
@@ -453,7 +459,8 @@
                             value="mastercard / visa"
                             id="selectPayType__card"
                             class="checkboxType hidden"
-                            checked>
+                            checked
+                            required>
                     <label
                             for="selectPayType__card"
                             class="typeBlockItem__label selectPayType__item">
@@ -471,7 +478,8 @@
                             type="radio"
                             value="paypal"
                             id="selectPayType__paypal"
-                            class="checkboxType hidden">
+                            class="checkboxType hidden"
+                            required>
                     <label
                             for="selectPayType__paypal"
                             class="typeBlockItem__label selectPayType__item">
@@ -488,7 +496,8 @@
                             type="radio"
                             value="amazon.com"
                             id="selectPayType__amazon"
-                            class="checkboxType hidden">
+                            class="checkboxType hidden"
+                            required>
                     <label
                             for="selectPayType__amazon"
                             class=" typeBlockItem__label selectPayType__item">
@@ -507,7 +516,7 @@
                             for="cardInfo__item-number"
                             class="cardInfo__item">
                         <div class="registerForm__label--title">
-                            CARD NUMBER
+                            card number
                         </div>
                         <input
                                 type="text"
@@ -528,7 +537,7 @@
                             for="cardInfo__item-date"
                             class="cardInfo__item">
                         <div class="registerForm__label--title">
-                            EXPIRE DATE
+                            expire date
                         </div>
                         <input
                                 type="date"
@@ -565,20 +574,19 @@
                     <input type="checkbox"
                            name="Agree"
                            id="paymentBlock__buttons--checkbox"
-                           checked
                            required>
                     <label
                             for="paymentBlock__buttons--checkbox"
                             class="paymentBlock__buttons--label">
-                        I agree to the Terms & Conditions
+                        I agree to the <a href="">Terms & Conditions</a>
                     </label>
                     <div class="headerButtons">
-                        <button class="headerButtonsItem" type="submit">
-                            PLACE ORDER
+                        <button class="headerButtonsItem headerButtonsItem--submit" type="submit">
+                            place order
                         </button>
                         <br>
                         <button class="headerButtonsItem" type="button">
-                            PRINT A QUOTE
+                            print a quote
                         </button>
                     </div>
                 </div>
