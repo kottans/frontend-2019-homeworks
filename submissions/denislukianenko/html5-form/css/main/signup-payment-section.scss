@@ -149,10 +149,11 @@
 }
 .payment-card-date-label {
   flex: 0 0 173px;
+  width: 173px;
 }
 .card-date {
   font-family: inherit;
-  padding: 7px 10px 7px 35px;
+  padding: 7px 10px 7px 15px;
 }
 .payment-card-code-label {
   flex: 0 0 105px;
@@ -167,6 +168,7 @@
 @media (max-width: 530px) {
   .payment-label {
     flex: 0 1 300px;
+    margin-right: 0;
   }
   .payment-type-radio-group {
     flex-direction: column;

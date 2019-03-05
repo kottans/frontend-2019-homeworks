@@ -23,10 +23,13 @@ header > .one-col-wrapper {
   border-radius: 5px;
   font-size: 12px;
   font-family: inherit;
+  transition: all 150ms ease-in-out;
 }
 
 .header-button:hover {
   background-color: #dee4f3;
+  transform: translate(0, -5px);
+  box-shadow: 0 5px 10px 0 #dee4f3;
 }
 
 .header-logo-wrapper {
@@ -34,5 +37,20 @@ header > .one-col-wrapper {
   max-width: 102px;
 }
 .header-logo {
+  border-radius: 50%;
   width: 100%;
+  transition: all 150ms ease-in-out;
+}
+.header-logo:hover {
+  transform: scale(1.01) translate(0, -5px);
+  box-shadow: 0 5px 10px 0 rgb(186, 217, 228);
+}
+.header-logo:active {
+  box-shadow: 0 0 0 5px rgb(109, 159, 177);
+}
+
+@media (max-width: 1130px) {
+  header > .one-col-wrapper {
+    padding: 0 10px;
+  }
 }

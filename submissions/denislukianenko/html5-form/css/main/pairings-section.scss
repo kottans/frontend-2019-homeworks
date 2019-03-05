@@ -86,30 +86,38 @@
     padding: 0 60px 93px 60px;
   }
   .from-to-row {
-    max-width: 350px;
+    width: 100%;
+    // flex-direction: column;
+    // align-items: flex-start;
   }
+  .from-to-row > p {
+    text-align: right;
+  }
+
   .from-to-select-wrapper {
     margin-top: 20px;
   }
   .from-to-select {
-    margin-left: 60px;
+    margin-left: 45px;
+    width: 60vw;
   }
   .delete-lang {
-    margin-top: 20px;
+    margin-top: 15px;
   }
   .add-lang {
     margin-top: 20px;
-    margin-left: 60px;
+    margin-left: 45px;
   }
   .from-to-select-wrapper:first-of-type {
-    margin-top: 0;
+    margin-top: 5px;
   }
   .from-to-select-wrapper:first-of-type > .from-to-select {
-    margin-left: 20px;
+    margin-left: 5px;
   }
 }
-@media (max-width: 420px) {
+
+@media (max-width: 500px) {
   .from-to-select {
-    width: 150px;
+    width: 40vw;
   }
 }

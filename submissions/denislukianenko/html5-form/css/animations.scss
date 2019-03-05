@@ -23,10 +23,10 @@
 .place-button,
 .print-button,
 .helpcenter > p,
-.helpcenter > b > a,
+.helpcenter > .helpcenter-bold > .helpcenter-link,
 .choose-type > h2,
 .doc-type-label {
-  animation: fadeInMove 600ms cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  animation: fadeInMove 600ms cubic-bezier(0.215, 0.61, 0.355, 1) backwards;
 }
 .header-button {
   animation-delay: 100ms;
@@ -72,5 +72,6 @@
 }
 
 form > .one-col-wrapper {
-  animation: fadeInMove 600ms 200ms cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  animation: fadeInMove 600ms 200ms cubic-bezier(0.215, 0.61, 0.355, 1)
+    backwards;
 }

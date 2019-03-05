@@ -5,7 +5,6 @@
 .numbered-header {
   display: flex;
   align-items: center;
-  height: 42px;
   margin-left: -71px;
 }
 
@@ -30,10 +29,6 @@
   margin: 0 0 0 10px;
   color: #9fa5b8;
   font-size: 12px;
-}
-
-.upload-input-hidden {
-  @include visually-hidden;
 }
 
 .upload-input-hidden:focus-within + .document-upload-label {
@@ -92,7 +87,6 @@
   flex: 1 1 330px;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .file-size-col {
   flex: 0 1 180px;
@@ -130,5 +124,17 @@ button.file-remove-col:hover {
   }
   .numbered-header > .number {
     border-radius: 0 50% 50% 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .numbered-header {
+    flex-wrap: wrap;
+  }
+  .numbered-header > h2 {
+    flex: 0 0 60%;
+  }
+  .numbered-header > p {
+    margin-left: 70px;
   }
 }

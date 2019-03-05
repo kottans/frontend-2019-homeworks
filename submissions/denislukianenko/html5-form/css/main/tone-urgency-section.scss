@@ -16,10 +16,6 @@
   flex: 0 1 484px;
 }
 
-.hidden-checkbox {
-  @include visually-hidden;
-}
-
 .tone-radio-group {
   width: 100%;
   padding-right: 57px;
@@ -174,5 +170,13 @@ input[type="range"]::-webkit-slider-thumb {
 @media (max-width: 1115px) {
   .unshifted-numbered-header {
     margin-left: -71px;
+  }
+}
+@media (max-width: 600px) {
+  .tone-column {
+    flex: 1 1 290px;
+  }
+  .tone-radio-group {
+    padding-right: 0;
   }
 }

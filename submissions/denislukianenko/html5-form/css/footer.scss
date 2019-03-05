@@ -38,3 +38,12 @@ footer > .one-col-wrapper {
   color: #b3b9d7;
   text-decoration: none;
 }
+
+@media (max-width: 850px) {
+  footer > .one-col-wrapper {
+    flex-direction: column;
+  }
+  .footer-col {
+    flex: 0 0 auto;
+  }
+}
