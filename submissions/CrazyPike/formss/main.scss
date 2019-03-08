@@ -16,13 +16,16 @@ button:hover{
 
 .page__links{
   &:hover{
-    border: 1px black solid;
+    outline: 1px black solid;
   }
   &:focus{
     outline: 2px solid rgba(127,185,249,1);
   }
 }
 
+.page__uppercase{
+  text-transform: uppercase;
+}
 
 .menu{
   width: 1140px;
@@ -115,14 +118,14 @@ button:hover{
   border-color: transparent;
 }
 
-input:invalid {
+input:not(:placeholder-shown){
   background: url("img/icon_nonvalid.png") no-repeat right;
 }
 
-input:not(:placeholder-shown):valid {
+
+input:not(:placeholder-shown):valid{
   background: url("img/icon_valid.png") no-repeat right;
 }
-
 
 
 @import "section-quote";
