@@ -14,10 +14,14 @@ button:hover {
 }
 
 .page__links:hover {
-  border: 1px black solid;
+  outline: 1px black solid;
 }
 .page__links:focus {
   outline: 2px solid #7fb9f9;
+}
+
+.page__uppercase {
+  text-transform: uppercase;
 }
 
 .menu {
@@ -105,7 +109,7 @@ button:hover {
   border-color: transparent;
 }
 
-input:invalid {
+input:not(:placeholder-shown) {
   background: url("img/icon_nonvalid.png") no-repeat right;
 }
 
@@ -448,7 +452,7 @@ input[type=file] {
   border-color: black;
 }
 
-.section-tone__buttons > div {
+.section-tone__buttons > span {
   display: flex;
   width: 200px;
   justify-content: center;
@@ -683,7 +687,7 @@ input[type=range]:focus::-ms-fill-upper {
   align-items: left;
   margin-right: 30px;
 }
-.form-payment__input span {
+.form-payment__input label {
   text-transform: uppercase;
 }
 
@@ -770,7 +774,7 @@ input[type=range]:focus::-ms-fill-upper {
   flex-direction: column;
   align-items: left;
 }
-.form-payment__card-input span {
+.form-payment__card-input label {
   text-transform: uppercase;
 }
 
@@ -847,6 +851,9 @@ input[type=range]:focus::-ms-fill-upper {
   grid-row: 2/3;
   grid-column: 2/3;
   line-height: 1.5;
+}
+.footer__item-content span {
+  display: block;
 }
 
 .footer__social-item {

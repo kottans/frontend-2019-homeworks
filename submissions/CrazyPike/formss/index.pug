@@ -7,13 +7,13 @@ html(lang="ru")
         link(href='main.css', rel='stylesheet')
     body.page__common
         nav.menu
-            button.menu__button
+            button.menu__button(type='button')
                 span.menu__button-text
                     img.menu__button-img(src='img/arrow_back.png', alt='Arrow back')
                     span go back
             a.page__links(href='#')
                 img.menu__logo(src='img/logo.png', alt='Here is a logo')
-            button.menu__button
+            button.menu__button(type='button')
                 span.menu__button-text
                     img.menu__button-img(src='img/icon_profile.png', alt='Log in')
                     span sign in
@@ -22,7 +22,7 @@ html(lang="ru")
             section.form__common-info
                 div.quote
                     img.form__icons(src='img/icon_order.png', alt='Order icon')
-                    div.form__header-text your quote
+                    h4.form__header-text your quote
                     table.quote__table
                         thead
                             td  items
@@ -35,45 +35,45 @@ html(lang="ru")
                             td  $ 696.06
                             td  48 hours
                     div.quote__buttons
-                        button.menu__button.quote__button-place-order
+                        button.menu__button.quote__button-place-order(type='button')
                             span.menu__button-text place order
-                        button.menu__button
+                        button.menu__button(type='button')
                             span.menu__button-text print a quote
                 div.contacts
                     img.form__icons(src='img/icon_help.png', alt='Help icon')
-                    div.form__header-text help center
+                    h4.form__header-text help center
                     div.contacts__desc
                         | If you need assistance while placing your
                         | order, contact one of our beloved Project
                         | Manager by phone or email
                     div.contacts__details
-                        a(href='tel:+9710555555') +971 (0) 555 555
-                        span help@qtest.com
+                        a.page__links(href='tel:+9710555555') +971 (0) 555 555
+                        a.page__links(href='mailto:help@qtest.com') help@qtest.com
             section.section-translate
-                div.section-translate__desc select what you want to translate
+                h2.section-translate__desc select what you want to translate
                     div.section-translate__text__center
                     hr.section-translate__horizontal-line
                 div.section-translate__options
                     input.section-translate__input__hidden(type='radio', name='type-for-translate',id='option-web',
-                    value='web')
+                    value='web' required="required" checked='checked')
                     label.section-translate__buttons(for="option-web")
-                        img(src='img/icon_website.png')
+                        img(src='img/icon_website.png', alt='Website icon')
                         span Web
                     input.section-translate__input__hidden(type='radio', name='type-for-translate',id='option-doc',
                     value='web')
                     label.section-translate__buttons(for="option-doc")
-                        img(src='img/icon_documents.png')
+                        img(src='img/icon_documents.png', alt='Documents icon')
                         span Documents
                     input.section-translate__input__hidden(type='radio', name='type-for-translate',id='option-social',
                         value='web')
                     label.section-translate__buttons(for="option-social")
-                        img(src='img/icon_social.png')
+                        img(src='img/icon_social.png', alt = 'Social icon')
                         span Social Accounts
             section.form__section-upload
                 div.section__ordinal-number 1
-                div.section__header Upload your documents
+                h2.section__header Upload your documents
                 div.section-upload__button
-                    input(type='file',id='upload-input')
+                    input(type='file', id='upload-input')
                     label(for='upload-input', tabindex='0')
                         span.menu__button-text
                             img.menu__button-img(src="img/icon_cloud.png",alt="Upload icon")
@@ -87,167 +87,166 @@ html(lang="ru")
                             td.section-upload__table-col-4 remove
                         tr
                             td.section-upload__table-col-1
-                                img(src="img/icon_file.png")
+                                img(src="img/icon_file.png", alt='icon')
                                 | business_operations.docx
                             td.section-upload__table-col-2 78 kB
                             td.section-upload__table-col-3 3894 words
                             td.section-upload__table-col-4
-                                button.form__delete-button
-                                    img(src="img/icon_trash.png")
+                                button.form__delete-button(type='button')
+                                    img(src="img/icon_trash.png", alt='icon')
                         tr
                             td.section-upload__table-col-1
-                                img(src="img/icon_file.png", alt='Trash icon')
+                                img(src="img/icon_file.png", alt='icon')
                                 | business_financial.docx
                             td.section-upload__table-col-2 23 kB
                             td.section-upload__table-col-3 2123 words
                             td.section-upload__table-col-4
-                                button.form__delete-button
+                                button.form__delete-button(type='button')
                                     img(src="img/icon_trash.png", alt='Trash icon')
 
             section.form__section-languages
                 div.section__ordinal-number 2
-                div.section__header Choose your languages pairings
+                h2.section__header Choose your languages pairings
                 div.section-languages__content-container
                     div.section-languages__content
-                        div FROM
-                        select.section-languages__select
+                        label.page__uppercase from
+                        select.section-languages__select(required='required')
                             option Arabic
                             option Slavic
-                        div
-                        div
-                        div TO
-                        select.section-languages__select
+                        div.section-languages__empty-cell
+                        div.section-languages__empty-cell
+                        label.page__uppercase to
+                        select.section-languages__select(required='required')
                             option English
                             option Polish
                         span
-                            select.section-languages__select
+                            select.section-languages__select(required='required')
                                 option Ukrainian
                                 option Polish
-                            button.form__delete-button
+                            button.form__delete-button(type='button')
                                 img(src="img/icon_trash.png", alt='Trash icon')
-                        button.section-languages__button-add + ADD
+                        button.section-languages__button-add(type='button') + ADD
             section.form__section-tone-urgent
                 div.section-tone
                     div.section__ordinal-number 3
-                    div.section__header Select your desired tone
+                    h2.section__header Select your desired tone
                     div.section-tone__container
                         input.section-tone__buttons__hidden(type='radio', name='tone',
-                        id='option-friendly',value='friwndly')
+                        id='option-friendly',value='friendly', required="required", checked='checked')
                         label.section-tone__buttons(for="option-friendly", tabindex="0")
-                            div
-                                img(src='img/icon_friendly.png')
-                                div Friendly
+                            span
+                                img(src='img/icon_friendly.png', alt='Friendly icon')
+                                span Friendly
                         input.section-tone__buttons__hidden(type='radio', name='tone',id='option-pro',value='pro')
                         label.section-tone__buttons(for="option-pro", tabindex="0")
-                            div
-                                img(src='img/icon_corp.png')
+                            span
+                                img(src='img/icon_corp.png', alt='Corporate icon')
                                 span Corporate
                         input.section-tone__buttons__hidden(type='radio', name='tone',id='option-media',value='media')
                         label.section-tone__buttons(for="option-media", tabindex="0")
-                            div
-                                img(src='img/icon_media.png')
+                            span
+                                img(src='img/icon_media.png', alt='Media icon')
                                 span Media
 
                 div.section-urgent
                     div.section__ordinal-number 4
-                    div.section__header Tell us how urgent this job is
+                    h2.section__header Tell us how urgent this job is
                     div.section-urgent__range
                         div.section-urgent__range-end
                             div.input-range-end
                             div.input-range-end
-                        input(type="range", min="0", max="2", value="1" id="form__range")
+                        input(type="range", min="0", max="2", value="1", id="form__range", required="required")
                         div.section-urgent__range-label
                             span i got time
                             span average
                             span yesterday
                     div.section-urgent__description
-                        img.form__icons(src="img/icon_info.png",alt='')
+                        img.form__icons(src="img/icon_info.png",alt='icon info')
                         div.form__header-text your order
                         div.section-urgent__description-text
                             span With the AVERAGE timeline set up, our expert translator can
                             | take a reasonable amount of time perfecting your translation
             section.form-payment
                 div.section__ordinal-number 5
-                div.section__header Sign up and choose a payment method
+                h2.section__header Sign up and choose a payment method
                 div.form-payment__signin-text Already have an account with us?
-                    a(href="#") Sign In
+                    a.page__links(href="#") Sign In
                 div.form-payment__input-name
                     div.form-payment__input
-                        span full name
-                        input(type='text', placeholder='Full name', pattern='[0-9A-Za-z. -]+',
-                        title='Enter the name')
+                        label(for='person_name') full name
+                        input(type='text', placeholder='Full name', pattern='[0-9A-Za-z. -]+', id = 'person_name',
+                        title='Enter the name', required="required")
                 div.form-payment__input-email-pass
                     div.form-payment__input
-                        span email address
+                        label(for='person_email') email address
                         input(type='email', placeholder='Email',
-                        pattern='[0-9A-Za-z.-]+[@][0-9A-Za-z.-]+[.][0-9A-Za-z.-]+',
-                        title='Email address')
+                        pattern='[0-9A-Za-z.-]+[@][0-9A-Za-z.-]+[.][0-9A-Za-z.-]+', id='person_email',
+                        title='Email address', required="required")
                     div.form-payment__input
-                        span password
-                        input(type='password', minlength='6', placeholder='Enter password..',
-                        title='Enter password')
+                        label(for='person_pass') password
+                        input(type='password', minlength='6', placeholder='Enter password..', id = 'person_pass',
+                        title='Enter password', required="required")
                 div.form-payment__option-container
-                    input.section-payment__input__hidden(type='radio', name='payment',id='option-card',value='card')
+                    input.section-payment__input__hidden(type='radio', name='payment',id='option-card',value='card',
+                    required="required",checked='checked')
                     label.form-payment__option(for="option-card", tabindex="0")
-                        img(src='img/icon_cards.png')
+                        img(src='img/icon_cards.png', alt='cards icon')
                     input.section-payment__input__hidden(type='radio', name='payment',id='option-paypal',value='paypal')
                     label.form-payment__option(for="option-paypal", tabindex="0")
-                        img(src='img/icon_paypal.png')
+                        img(src='img/icon_paypal.png', alt='paypal icon')
                     input.section-payment__input__hidden(type='radio', name='payment',id='option-amazon',value='amazon')
                     label.form-payment__option(for="option-amazon")
-                        img(src='img/icon_amazon.png')
+                        img(src='img/icon_amazon.png', alt='amazon icon')
                 div.form-payment__card-info
                     div.form-payment__card-input
-                        span card number
-                        input.form-payment__card-number(type='text', pattern='[0-9]{16}', placeholder='Card number..',
+                        label(for='card_num') card number
+                        input.form-payment__card-number(type='text', id = 'card_num', pattern='[0-9]{16}', placeholder='Card number..',
                         minlength=16, maxlength=16,title='Card number must be 16-digit')
                     div.form-payment__card-input
-                        span card expire
-                        input.form-payment__card-expire(type='text', placeholder='MM/YY', pattern='[0-9]{2}/[0-9]{2}',
+                        label(for='card_exp') card expire
+                        input.form-payment__card-expire(type='text', id = 'card_exp' placeholder='MM/YY', pattern='[0-9]{2}/[0-9]{2}',
                         title='Format MM/YY')
                     div.form-payment__card-input
-                        span card cvv
-                        input.form-payment__card-cvv(type='password', pattern='[0-9]{3}',placeholder='CVV', minlength=3,
+                        label(for='card_cvv') card cvv
+                        input.form-payment__card-cvv(type='password', id = 'card_cvv', pattern='[0-9]{3}',placeholder='CVV', minlength=3,
                         maxlength=3,title='CVV mush have 3 digits')
-                        span
             section.form-submit
                 div
                     input(type='checkbox',id='TC-label')
-                    label(for='TC-label') I agree to the terms & Conditions
-                button.menu__button.quote__button-place-order
+                    label(for='TC-label') I agree to the
+                        a.page__links(href='#') terms & Conditions
+                button.menu__button.quote__button-place-order(type='submit')
                     span.menu__button-text place order
-                button.menu__button
+                button.menu__button(type='button')
                     span.menu__button-text print a quote
 
         footer.footer
             div.footer__container
                 section.footer__item
                     img.footer__item-icon(src='img/icon_heart.png', alt='heart icon')
-                    span.footer__item-header what we do
+                    h4.footer__item-header what we do
                     span.footer__item-content We provide a full range of language
                         | services including content development,
                         | document, website and social media
                         | accounts translation
                 section.footer__item
                     img.footer__item-icon(src='img/icon_compass.png', alt='Compass icon')
-                    span.footer__item-header our main office
-                    span.footer__item-content Dubai, UAE
-                        br
+                    h4.footer__item-header our main office
+                    address.footer__item-content Dubai, UAE
                         span P.O. Box 832472
-                        br
                         span Phone
-                            a(href='tel:+9710555555') +971 (0) 44278128
+                            a.page__links(href='tel:+9710555555') +971 (0) 44278128
                 section.footer__item
                     img.footer__item-icon(src='img/icon_network.png', alt='Network icon')
-                    span.footer__item-header connect with us
+                    h4.footer__item-header connect with us
                     span.footer__item-content
-                            div.footer__social-item
+                            a.footer__social-item.page__links(href='#')
                                 img(src='img/icon_facebook.png', alt='Facebook logo')
                                 span  Facebook
-                            div.footer__social-item
+                            a.footer__social-item.page__links(href='#')
                                 img(src='img/icon_tweeter.png', alt='Twitter logo')
                                 span Twitter
-                            div.footer__social-item
+                            a.footer__social-item.page__links(href='#')
                                 img(src='img/icon_linkedin.png', alt='Linkedin  logo')
                                 span Linkedin
                 a.page__links(href='#')

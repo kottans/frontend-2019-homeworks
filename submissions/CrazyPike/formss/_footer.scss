@@ -1,3 +1,4 @@
+
 .footer{
   background-color: grey;
   height:300px;
@@ -42,6 +43,9 @@
   grid-row: 2/3;
   grid-column: 2/3;
   line-height: 1.5;
+  & span{
+    display: block;
+  }
 }
 
 .footer__social-item{
@@ -51,8 +55,4 @@
     margin-right: 5px;
   }
 }
-
-
-
-
 

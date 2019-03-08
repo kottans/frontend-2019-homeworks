@@ -8,14 +8,14 @@
   </head>
   <body class="page__common">
     <nav class="menu">
-      <button class="menu__button"><span class="menu__button-text"><img class="menu__button-img" src="img/arrow_back.png" alt="Arrow back"><span>go back</span></span></button><a class="page__links" href="#"><img class="menu__logo" src="img/logo.png" alt="Here is a logo"></a>
-      <button class="menu__button"><span class="menu__button-text"><img class="menu__button-img" src="img/icon_profile.png" alt="Log in"><span>sign in</span></span></button>
+      <button class="menu__button" type="button"><span class="menu__button-text"><img class="menu__button-img" src="img/arrow_back.png" alt="Arrow back"><span>go back</span></span></button><a class="page__links" href="#"><img class="menu__logo" src="img/logo.png" alt="Here is a logo"></a>
+      <button class="menu__button" type="button"><span class="menu__button-text"><img class="menu__button-img" src="img/icon_profile.png" alt="Log in"><span>sign in</span></span></button>
     </nav>
     <main class="form">
       <form id="html5form"></form>
       <section class="form__common-info">
         <div class="quote"><img class="form__icons" src="img/icon_order.png" alt="Order icon">
-          <div class="form__header-text">your quote</div>
+          <h4 class="form__header-text">your quote</h4>
           <table class="quote__table">
             <thead>
               <td> items</td>
@@ -31,37 +31,37 @@
             </tr>
           </table>
           <div class="quote__buttons">
-            <button class="menu__button quote__button-place-order"><span class="menu__button-text">place order</span></button>
-            <button class="menu__button"><span class="menu__button-text">print a quote</span></button>
+            <button class="menu__button quote__button-place-order" type="button"><span class="menu__button-text">place order</span></button>
+            <button class="menu__button" type="button"><span class="menu__button-text">print a quote</span></button>
           </div>
         </div>
         <div class="contacts"><img class="form__icons" src="img/icon_help.png" alt="Help icon">
-          <div class="form__header-text">help center</div>
+          <h4 class="form__header-text">help center</h4>
           <div class="contacts__desc">
             If you need assistance while placing your
             order, contact one of our beloved Project
             Manager by phone or email
           </div>
-          <div class="contacts__details"><a href="tel:+9710555555">+971 (0) 555 555</a><span>help@qtest.com</span></div>
+          <div class="contacts__details"><a class="page__links" href="tel:+9710555555">+971 (0) 555 555</a><a class="page__links" href="mailto:help@qtest.com">help@qtest.com</a></div>
         </div>
       </section>
       <section class="section-translate">
-        <div class="section-translate__desc">select what you want to translate
+        <h2 class="section-translate__desc">select what you want to translate
           <div class="section-translate__text__center"></div>
           <hr class="section-translate__horizontal-line">
-        </div>
+        </h2>
         <div class="section-translate__options">
-          <input class="section-translate__input__hidden" type="radio" name="type-for-translate" id="option-web" value="web">
-          <label class="section-translate__buttons" for="option-web"><img src="img/icon_website.png"><span>Web</span></label>
+          <input class="section-translate__input__hidden" type="radio" name="type-for-translate" id="option-web" value="web" required="required" checked="checked">
+          <label class="section-translate__buttons" for="option-web"><img src="img/icon_website.png" alt="Website icon"><span>Web</span></label>
           <input class="section-translate__input__hidden" type="radio" name="type-for-translate" id="option-doc" value="web">
-          <label class="section-translate__buttons" for="option-doc"><img src="img/icon_documents.png"><span>Documents</span></label>
+          <label class="section-translate__buttons" for="option-doc"><img src="img/icon_documents.png" alt="Documents icon"><span>Documents</span></label>
           <input class="section-translate__input__hidden" type="radio" name="type-for-translate" id="option-social" value="web">
-          <label class="section-translate__buttons" for="option-social"><img src="img/icon_social.png"><span>Social Accounts</span></label>
+          <label class="section-translate__buttons" for="option-social"><img src="img/icon_social.png" alt="Social icon"><span>Social Accounts</span></label>
         </div>
       </section>
       <section class="form__section-upload">
         <div class="section__ordinal-number">1</div>
-        <div class="section__header">Upload your documents</div>
+        <h2 class="section__header">Upload your documents</h2>
         <div class="section-upload__button">
           <input type="file" id="upload-input">
           <label for="upload-input" tabindex="0"><span class="menu__button-text"><img class="menu__button-img" src="img/icon_cloud.png" alt="Upload icon"><span>Upload a new file</span></span></label>
@@ -75,19 +75,19 @@
               <td class="section-upload__table-col-4">remove</td>
             </thead>
             <tr>
-              <td class="section-upload__table-col-1"><img src="img/icon_file.png">business_operations.docx</td>
+              <td class="section-upload__table-col-1"><img src="img/icon_file.png" alt="icon">business_operations.docx</td>
               <td class="section-upload__table-col-2">78 kB</td>
               <td class="section-upload__table-col-3">3894 words</td>
               <td class="section-upload__table-col-4">
-                <button class="form__delete-button"><img src="img/icon_trash.png"></button>
+                <button class="form__delete-button" type="button"><img src="img/icon_trash.png" alt="icon"></button>
               </td>
             </tr>
             <tr>
-              <td class="section-upload__table-col-1"><img src="img/icon_file.png" alt="Trash icon">business_financial.docx</td>
+              <td class="section-upload__table-col-1"><img src="img/icon_file.png" alt="icon">business_financial.docx</td>
               <td class="section-upload__table-col-2">23 kB</td>
               <td class="section-upload__table-col-3">2123 words</td>
               <td class="section-upload__table-col-4">
-                <button class="form__delete-button"><img src="img/icon_trash.png" alt="Trash icon"></button>
+                <button class="form__delete-button" type="button"><img src="img/icon_trash.png" alt="Trash icon"></button>
               </td>
             </tr>
           </table>
@@ -95,63 +95,55 @@
       </section>
       <section class="form__section-languages">
         <div class="section__ordinal-number">2</div>
-        <div class="section__header">Choose your languages pairings</div>
+        <h2 class="section__header">Choose your languages pairings</h2>
         <div class="section-languages__content-container">
           <div class="section-languages__content">
-            <div>FROM</div>
-            <select class="section-languages__select">
+            <label class="page__uppercase">from</label>
+            <select class="section-languages__select" required="required">
               <option>Arabic</option>
               <option>Slavic</option>
             </select>
-            <div></div>
-            <div></div>
-            <div>TO</div>
-            <select class="section-languages__select">
+            <div class="section-languages__empty-cell"></div>
+            <div class="section-languages__empty-cell"></div>
+            <label class="page__uppercase">to</label>
+            <select class="section-languages__select" required="required">
               <option>English</option>
               <option>Polish</option>
             </select><span>
-              <select class="section-languages__select">
+              <select class="section-languages__select" required="required">
                 <option>Ukrainian</option>
                 <option>Polish</option>
               </select>
-              <button class="form__delete-button"><img src="img/icon_trash.png" alt="Trash icon"></button></span>
-            <button class="section-languages__button-add">+ ADD</button>
+              <button class="form__delete-button" type="button"><img src="img/icon_trash.png" alt="Trash icon"></button></span>
+            <button class="section-languages__button-add" type="button">+ ADD</button>
           </div>
         </div>
       </section>
       <section class="form__section-tone-urgent">
         <div class="section-tone">
           <div class="section__ordinal-number">3</div>
-          <div class="section__header">Select your desired tone</div>
+          <h2 class="section__header">Select your desired tone</h2>
           <div class="section-tone__container">
-            <input class="section-tone__buttons__hidden" type="radio" name="tone" id="option-friendly" value="friwndly">
-            <label class="section-tone__buttons" for="option-friendly" tabindex="0">
-              <div><img src="img/icon_friendly.png">
-                <div>Friendly</div>
-              </div>
-            </label>
+            <input class="section-tone__buttons__hidden" type="radio" name="tone" id="option-friendly" value="friendly" required="required" checked="checked">
+            <label class="section-tone__buttons" for="option-friendly" tabindex="0"><span><img src="img/icon_friendly.png" alt="Friendly icon"><span>Friendly</span></span></label>
             <input class="section-tone__buttons__hidden" type="radio" name="tone" id="option-pro" value="pro">
-            <label class="section-tone__buttons" for="option-pro" tabindex="0">
-              <div><img src="img/icon_corp.png"><span>Corporate</span></div>
-            </label>
+            <label class="section-tone__buttons" for="option-pro" tabindex="0"><span><img src="img/icon_corp.png" alt="Corporate icon"><span>Corporate</span></span></label>
             <input class="section-tone__buttons__hidden" type="radio" name="tone" id="option-media" value="media">
-            <label class="section-tone__buttons" for="option-media" tabindex="0">
-              <div><img src="img/icon_media.png"><span>Media</span></div>
-            </label>
+            <label class="section-tone__buttons" for="option-media" tabindex="0"><span><img src="img/icon_media.png" alt="Media icon"><span>Media</span></span></label>
           </div>
         </div>
         <div class="section-urgent">
           <div class="section__ordinal-number">4</div>
-          <div class="section__header">Tell us how urgent this job is</div>
+          <h2 class="section__header">Tell us how urgent this job is</h2>
           <div class="section-urgent__range">
             <div class="section-urgent__range-end">
               <div class="input-range-end"></div>
               <div class="input-range-end"></div>
             </div>
-            <input type="range" min="0" max="2" value="1" id="form__range">
+            <input type="range" min="0" max="2" value="1" id="form__range" required="required">
             <div class="section-urgent__range-label"><span>i got time</span><span>average</span><span>yesterday</span></div>
           </div>
-          <div class="section-urgent__description"><img class="form__icons" src="img/icon_info.png" alt="">
+          <div class="section-urgent__description"><img class="form__icons" src="img/icon_info.png" alt="icon info">
             <div class="form__header-text">your order</div>
             <div class="section-urgent__description-text"><span>With the AVERAGE timeline set up, our expert translator can</span>take a reasonable amount of time perfecting your translation</div>
           </div>
@@ -159,61 +151,71 @@
       </section>
       <section class="form-payment">
         <div class="section__ordinal-number">5</div>
-        <div class="section__header">Sign up and choose a payment method</div>
-        <div class="form-payment__signin-text">Already have an account with us?<a href="#">Sign In</a></div>
+        <h2 class="section__header">Sign up and choose a payment method</h2>
+        <div class="form-payment__signin-text">Already have an account with us?<a class="page__links" href="#">Sign In</a></div>
         <div class="form-payment__input-name">
-          <div class="form-payment__input"><span>full name</span>
-            <input type="text" placeholder="Full name" pattern="[0-9A-Za-z. -]+" title="Enter the name">
+          <div class="form-payment__input">
+            <label for="person_name">full name</label>
+            <input type="text" placeholder="Full name" pattern="[0-9A-Za-z. -]+" id="person_name" title="Enter the name" required="required">
           </div>
         </div>
         <div class="form-payment__input-email-pass">
-          <div class="form-payment__input"><span>email address</span>
-            <input type="email" placeholder="Email" pattern="[0-9A-Za-z.-]+[@][0-9A-Za-z.-]+[.][0-9A-Za-z.-]+" title="Email address">
+          <div class="form-payment__input">
+            <label for="person_email">email address</label>
+            <input type="email" placeholder="Email" pattern="[0-9A-Za-z.-]+[@][0-9A-Za-z.-]+[.][0-9A-Za-z.-]+" id="person_email" title="Email address" required="required">
           </div>
-          <div class="form-payment__input"><span>password</span>
-            <input type="password" minlength="6" placeholder="Enter password.." title="Enter password">
+          <div class="form-payment__input">
+            <label for="person_pass">password</label>
+            <input type="password" minlength="6" placeholder="Enter password.." id="person_pass" title="Enter password" required="required">
           </div>
         </div>
         <div class="form-payment__option-container">
-          <input class="section-payment__input__hidden" type="radio" name="payment" id="option-card" value="card">
-          <label class="form-payment__option" for="option-card" tabindex="0"><img src="img/icon_cards.png"></label>
+          <input class="section-payment__input__hidden" type="radio" name="payment" id="option-card" value="card" required="required" checked="checked">
+          <label class="form-payment__option" for="option-card" tabindex="0"><img src="img/icon_cards.png" alt="cards icon"></label>
           <input class="section-payment__input__hidden" type="radio" name="payment" id="option-paypal" value="paypal">
-          <label class="form-payment__option" for="option-paypal" tabindex="0"><img src="img/icon_paypal.png"></label>
+          <label class="form-payment__option" for="option-paypal" tabindex="0"><img src="img/icon_paypal.png" alt="paypal icon"></label>
           <input class="section-payment__input__hidden" type="radio" name="payment" id="option-amazon" value="amazon">
-          <label class="form-payment__option" for="option-amazon"><img src="img/icon_amazon.png"></label>
+          <label class="form-payment__option" for="option-amazon"><img src="img/icon_amazon.png" alt="amazon icon"></label>
         </div>
         <div class="form-payment__card-info">
-          <div class="form-payment__card-input"><span>card number</span>
-            <input class="form-payment__card-number" type="text" pattern="[0-9]{16}" placeholder="Card number.." minlength="16" maxlength="16" title="Card number must be 16-digit">
+          <div class="form-payment__card-input">
+            <label for="card_num">card number</label>
+            <input class="form-payment__card-number" type="text" id="card_num" pattern="[0-9]{16}" placeholder="Card number.." minlength="16" maxlength="16" title="Card number must be 16-digit">
           </div>
-          <div class="form-payment__card-input"><span>card expire</span>
-            <input class="form-payment__card-expire" type="text" placeholder="MM/YY" pattern="[0-9]{2}/[0-9]{2}" title="Format MM/YY">
+          <div class="form-payment__card-input">
+            <label for="card_exp">card expire</label>
+            <input class="form-payment__card-expire" type="text" id="card_exp" placeholder="MM/YY" pattern="[0-9]{2}/[0-9]{2}" title="Format MM/YY">
           </div>
-          <div class="form-payment__card-input"><span>card cvv</span>
-            <input class="form-payment__card-cvv" type="password" pattern="[0-9]{3}" placeholder="CVV" minlength="3" maxlength="3" title="CVV mush have 3 digits"><span></span>
+          <div class="form-payment__card-input">
+            <label for="card_cvv">card cvv</label>
+            <input class="form-payment__card-cvv" type="password" id="card_cvv" pattern="[0-9]{3}" placeholder="CVV" minlength="3" maxlength="3" title="CVV mush have 3 digits">
           </div>
         </div>
       </section>
       <section class="form-submit">
         <div>
           <input type="checkbox" id="TC-label">
-          <label for="TC-label">I agree to the terms & Conditions</label>
+          <label for="TC-label">I agree to the<a class="page__links" href="#">terms & Conditions</a></label>
         </div>
-        <button class="menu__button quote__button-place-order"><span class="menu__button-text">place order</span></button>
-        <button class="menu__button"><span class="menu__button-text">print a quote</span></button>
+        <button class="menu__button quote__button-place-order" type="submit"><span class="menu__button-text">place order</span></button>
+        <button class="menu__button" type="button"><span class="menu__button-text">print a quote</span></button>
       </section>
     </main>
     <footer class="footer">
       <div class="footer__container">
-        <section class="footer__item"><img class="footer__item-icon" src="img/icon_heart.png" alt="heart icon"><span class="footer__item-header">what we do</span><span class="footer__item-content">
+        <section class="footer__item"><img class="footer__item-icon" src="img/icon_heart.png" alt="heart icon">
+          <h4 class="footer__item-header">what we do</h4><span class="footer__item-content">
             We provide a full range of languageservices including content development,
             document, website and social media
-            accounts translation</span></section>
-        <section class="footer__item"><img class="footer__item-icon" src="img/icon_compass.png" alt="Compass icon"><span class="footer__item-header">our main office</span><span class="footer__item-content">Dubai, UAE<br><span>P.O. Box 832472</span><br><span>Phone<a href="tel:+9710555555">+971 (0) 44278128</a></span></span></section>
-        <section class="footer__item"><img class="footer__item-icon" src="img/icon_network.png" alt="Network icon"><span class="footer__item-header">connect with us</span><span class="footer__item-content">
-            <div class="footer__social-item"><img src="img/icon_facebook.png" alt="Facebook logo"><span> Facebook</span></div>
-            <div class="footer__social-item"><img src="img/icon_tweeter.png" alt="Twitter logo"><span>Twitter</span></div>
-            <div class="footer__social-item"><img src="img/icon_linkedin.png" alt="Linkedin  logo"><span>Linkedin</span></div></span></section><a class="page__links" href="#"><img src="img/logo_grey.png" alt="Company logo"></a>
+            accounts translation</span>
+        </section>
+        <section class="footer__item"><img class="footer__item-icon" src="img/icon_compass.png" alt="Compass icon">
+          <h4 class="footer__item-header">our main office</h4>
+          <address class="footer__item-content">Dubai, UAE<span>P.O. Box 832472</span><span>Phone<a class="page__links" href="tel:+9710555555">+971 (0) 44278128</a></span></address>
+        </section>
+        <section class="footer__item"><img class="footer__item-icon" src="img/icon_network.png" alt="Network icon">
+          <h4 class="footer__item-header">connect with us</h4><span class="footer__item-content"><a class="footer__social-item page__links" href="#"><img src="img/icon_facebook.png" alt="Facebook logo"><span> Facebook</span></a><a class="footer__social-item page__links" href="#"><img src="img/icon_tweeter.png" alt="Twitter logo"><span>Twitter</span></a><a class="footer__social-item page__links" href="#"><img src="img/icon_linkedin.png" alt="Linkedin  logo"><span>Linkedin</span></a></span>
+        </section><a class="page__links" href="#"><img src="img/logo_grey.png" alt="Company logo"></a>
       </div>
     </footer>
   </body>
