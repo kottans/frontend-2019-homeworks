@@ -1,0 +1,63 @@
+<fieldset class="fieldset fieldset--number">
+        <legend class="legend">Sign up and choose a payment method</legend>
+
+        <div class="row">
+            <p class="fieldset__text">Already have an account with us? <a href="">Sign in</a></p>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="name" class="form-label">FULL NAME</label>
+                <input type="text" name="user_name" id="name" class="form-input form-input--validate form-input--long" placeholder=" " required>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="form-group">
+                <label for="email" class="form-label">EMAIL ADDRESS</label>
+                <input type="email" name="user_email" id="email" class="form-input form-input--validate form-input--long" placeholder=" " required>
+            </div>
+        
+            <div class="form-group">
+                <label for="password" class="form-label">CHOOSE A PASSWORD</label>
+                <input type="password" name="user_password" id="password" class="form-input form-input--validate form-input--long" placeholder=" " required pattern=".{4,16}" title="4 characters minimum">
+            </div>
+        </div>
+        
+        <div class="row row--spaced">
+        <label for="payment_cc" class="radio-button radio-button--space-right" title="CC">
+            <input type="radio" name="payment_type" id="payment_cc" class="visualy__hidden radio-button__input" checked required>
+            <div class="radio-button__content radio-button__content--medium"><i class="fab fa-cc-visa"></i> <i class="fab fa-cc-mastercard"></i></div>
+        </label>
+
+        <label for="payment_paypal" class="radio-button radio-button--space-right" title="PayPal">
+            <input type="radio" name="payment_type" id="payment_paypal" class="visualy__hidden radio-button__input" required>
+            <div class="radio-button__content radio-button__content--medium"><i class="fab fa-cc-paypal"></i></div>
+        </label>
+
+        <label for="payment_amazon" class="radio-button radio-button--space-right" title="Amazon Pay">
+            <input type="radio" name="payment_type" id="payment_amazon" class="visualy__hidden radio-button__input" required>
+            <div class="radio-button__content radio-button__content--medium"><i class="fab fa-cc-amazon-pay"></i></div>
+        </label>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="card_number" class="form-label">CARD NUMBER</label>
+                <div class="form-input--icon">
+                    <input type="text" name="card_number" id="card_number" class="form-input form-input--xlong" required pattern="[0-9]{12,19}" title="Input valid CC number, 12-19 digits lenght">
+                    <i class="fab fa-cc-visa"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="card_number" class="form-label">EXPIRY DATE</label>
+                <input type="date" name="card_number" id="card_number" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+                <label for="card_number" class="form-label">CODE</label>
+                <input type="text" name="card_number" id="card_number" class="form-input" required pattern="[0-9]{3,4}" title="Input valid CVV code, 3-4 digits lenght">
+            </div>
+        </div>
+    </fieldset>

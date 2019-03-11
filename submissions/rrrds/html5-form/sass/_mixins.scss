@@ -1,0 +1,24 @@
+@mixin form-input {
+  height: 50px;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  background-color: #f7f7fa;
+  color: $text-color-input;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+
+  &:hover {
+    color: darken($color: $text-color-input, $amount: 5%);
+    background-color: darken($color: #f7f7fa, $amount: 5%);
+  }
+
+  &:active {
+    color: darken($color: $text-color-input, $amount: 10%);
+    background-color: darken($color: #f7f7fa, $amount: 10%);
+  }
+}
+
+@mixin focus-outline {
+  box-shadow: 0 0 0 0.2rem rgba($color: #268fff, $alpha: 0.5);
+}

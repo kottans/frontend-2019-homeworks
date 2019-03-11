@@ -1,0 +1,58 @@
+.fieldset {
+  width: 100%;
+  position: relative;
+  margin: 0 0 3em 0;
+  padding: 50px 0 0 0;
+  border: none;
+
+  &--small {
+    width: 50%;
+  }
+}
+
+.legend {
+  color: $text-color;
+  font-size: 18px;
+  font-weight: 600;
+
+  .small {
+    color: $text-color-second;
+    font-weight: 400;
+    margin-left: 10px;
+  }
+}
+
+.fieldset--hero {
+  text-align: center;
+
+  .legend {
+    text-transform: uppercase;
+    font-weight: 700;
+    border-bottom: 1px solid $border-color;
+    padding: 100px 0 10px 0;
+    letter-spacing: 0.15em;
+    font-size: 19px;
+  }
+}
+
+.fieldset--number::before {
+  position: absolute;
+  top: -15px;
+  left: -(45+30) + px;
+  counter-increment: section;
+  content: counter(section);
+  border-radius: 50%;
+  border: 1px solid darken($border-color, 50%);
+  height: 45px;
+  width: 45px;
+  display: inline-block;
+  font-size: 18px;
+  line-height: (45/17);
+  text-align: center;
+  font-weight: 600;
+}
+
+.fieldset__text {
+  color: $text-color-second;
+  font-size: 18px;
+}
