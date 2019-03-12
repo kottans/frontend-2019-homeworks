@@ -32,17 +32,20 @@ body {
   position: absolute;
 }
 
-.icon__back {
+.link__back {
   background-image: url(../font/icon-back.png);
   left: 20px;
+  top: 17px;
 }
 
 .icon__sing-in {
   background-image: url(../font/icon-sing-in.png);
-  top: 12px;
+  top: 10px;
+  left: 20px;
 }
 
-.btn {
+.btn, .header__back {
+  position: relative;
   background-color: #ebedf2;
   border: 1px solid #cad1e0;
   border-radius: 5px;
@@ -54,17 +57,28 @@ body {
   color: #a5abc4;
 }
 
-.btn:hover {
+.btn:hover, .header__back:hover {
   border-color: #77a8e0;
   will-change: border-color;
   transition: border-color 0.3s ease-out;
   cursor: pointer;
 }
 
-.header__back,
-.header__sing-in {
-  position: relative;
+.header__back {
+  padding-top: 17px;
+  padding-bottom: 25px;
+  width: 110px;
 }
+
+
+.header__back-text {
+  position: absolute;
+  color: #a5abc4;
+  text-decoration: none;
+  left: 50px;
+  
+}
+
 
 /* ----------------- Start Form ----------------- */
 

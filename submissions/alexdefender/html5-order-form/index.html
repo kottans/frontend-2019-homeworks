@@ -11,16 +11,16 @@
     <header class="document__header">
       <nav>
         <ul class="header__nav__items">
+          <label>
           <li class="header__back">
-            <button class="btn">
-              <span class="icon icon__back"></span>Go back
-            </button>
+            <a href="#"><span class="icon link__back"></span><span class="header__back-text">Go back</a>
           </li>
+        </label>
           <li>
-            <a href="#"><img src="img/logo.jpg" /></a>
+            <a href="#"><img src="img/logo.jpg"/></a>
           </li>
           <li class="header__sing-in">
-            <button class="btn">
+            <button class="btn" type="button">
               <span class="icon icon__sing-in"></span>Sing in
             </button>
           </li>
@@ -52,7 +52,7 @@
             </table>
           </section>
           <section class="order__btns">
-            <button class="btn order__btn order__btn__active" type="button">
+            <button class="btn order__btn order__btn__active" type="submit">
               Place order
             </button>
             <button class="btn order__btn" type="button">Print a quote</button>
@@ -64,7 +64,7 @@
               our beloved Project Manager by phone or email.
             </p>
             <address class="help__address">
-              <a href="+971(0)555 555">+971(0)555 555</a>
+              <a href="tel:+971(0)555 555">+971(0)555 555</a>
               <a href="mailto:help@qtest.com">help@qtest.com</a>
             </address>
           </section>
@@ -368,9 +368,9 @@
             <label>
               <input
                 type="radio"
-                name="translate-type"
+                name="payment-type"
                 value="visa-mastercard"
-                class="translate__input"
+                class="payment__input-radio"
                 required
               />
               <div class="payment__img">
@@ -381,9 +381,9 @@
             <label>
               <input
                 type="radio"
-                name="translate-type"
+                name="payment-type"
                 value="paypal"
-                class="translate__input"
+                class="payment__input-radio"
                 required
               />
               <div class="payment__img">
@@ -393,9 +393,9 @@
             <label>
               <input
                 type="radio"
-                name="translate-type"
+                name="payment-type"
                 value="amazon"
-                class="translate__input"
+                class="payment__input-radio"
                 required
               />
               <div class="payment__img">

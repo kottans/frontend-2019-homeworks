@@ -1,11 +1,13 @@
 @media screen and (max-width: 1000px) {
     .order__help {
         border-left: none;
+        padding-left: 30px;
     }
 
     .order__btns {
         order: 3;
         width: 300px;
+        padding-left: 30px;
     }
 }
 

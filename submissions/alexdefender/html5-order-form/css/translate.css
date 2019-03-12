@@ -21,13 +21,19 @@
 }
 
 .translate__field {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   border: 0 none;
 }
 
-.translate__input {
+.translate__input,
+.payment__input-radio,
+.tone__input {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
   width: 0px;
   height: 0px;
   margin: -1px;
@@ -48,6 +54,7 @@
   text-align: center;
   left: 0;
   right: 0;
+  top: 165px;
   font-weight: 800;
   letter-spacing: 1px;
 }
@@ -60,8 +67,7 @@
   -moz-box-shadow: 0 0 10px 0 #cad1e0;
 }
 
-
-input[type="radio"]:checked + .translate__img-wrapper, 
+input[type="radio"]:checked + .translate__img-wrapper,
 input[type="radio"]:checked + .tone__text,
 input[type="radio"]:checked + .payment__img {
   border: 1px solid #77a8e0;
