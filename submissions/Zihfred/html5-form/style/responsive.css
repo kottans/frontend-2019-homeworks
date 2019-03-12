@@ -167,7 +167,8 @@
     }
     .registerForm__label--valid, .registerForm__label--invalid {
         top: 44px;
-        left: 202px;
+        right: 10px;
+        left: unset;
     }
     .cardInfo__item--inputIcon{
         top: 48px;

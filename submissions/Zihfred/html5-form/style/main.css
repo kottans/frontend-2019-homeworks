@@ -737,7 +737,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .registerForm__label--valid,
 .registerForm__label--invalid {
-    top: 28px;
+    top: 44px;
     display: flex;
     left: 220px;
     position: absolute;
