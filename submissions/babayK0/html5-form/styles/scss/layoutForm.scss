@@ -26,6 +26,7 @@
     border-width: 1px;
   }
 
+
   @include desktop {
     height: auto;
   }
@@ -44,6 +45,7 @@
   margin-left: 60px;
   @include mobileS {
     margin-left: 0;
+    padding-left: 5px;
   }
 }
 

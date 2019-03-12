@@ -2,6 +2,9 @@
 .form__uploud_title-wrapper{
   display: flex;
   flex-wrap: wrap;
+  @include mobileS{
+    padding-left: 10px;
+  }
 }
 
 .form__section_number{
@@ -20,6 +23,7 @@
   margin:7px 15px 7px 30px;
   font-weight: 500;
   @include mobileS {
+    font-size: 18px;
     margin:7px 3px 7px ;
   }
 }
@@ -49,6 +53,9 @@
     margin-left: 0;
     width: 100%;
     height: auto;
+  }
+  @include desktopL{
+    width: 91%;
   }
 }
 

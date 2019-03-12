@@ -6,15 +6,13 @@
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 40px;
-  @include mobileS {
-    // justify-content: center
-  }
 }
 
 .form__section_title {
   margin: 7px 15px 7px 30px;
   font-weight: 500;
   @include mobileS {
+    font-size: 18px;
     margin: 7px 0;
   }
 }

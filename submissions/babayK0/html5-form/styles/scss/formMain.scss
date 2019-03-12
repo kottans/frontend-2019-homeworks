@@ -9,6 +9,9 @@
   font-weight: 500;
   text-transform: uppercase;
   border-bottom: 1px solid $borderLight;
+  @include mobileS{
+    font-size: 14px;
+  }
 }
 
 .form__main-section_wrapper {
@@ -16,8 +19,8 @@
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  width: 85%;
+  justify-content: space-between;
+  width: 80%;
   @include mobileS {
     width: 100%;
     padding: 25px 0 50px;

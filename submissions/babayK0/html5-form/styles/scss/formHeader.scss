@@ -5,8 +5,8 @@
   flex-wrap: wrap;
   
   @include mobileS {
-    width: 100%;
-    padding:0;
+    width: 90%;
+    padding:15px;
   }
   @include desktop {
     width: 100%;
@@ -32,6 +32,10 @@
   font-size: 14px;
   @include mobileS {
     margin: 5px;
+    font-size: 12px;
+  }
+  @include tabletL {
+    font-size: 12px;
   }
 }
 
@@ -64,8 +68,8 @@
     padding-top: 10px;
     border:none;
   }
+
   @include desktop {
-    width: 100%;
     padding: 0;
     padding-top: 10px;
     border:none;
@@ -84,7 +88,6 @@
     padding: 20px 0 5px;
   }
   @include desktop {
-    width: 100%;
     padding: 20px 0 5px;
   }
 }
