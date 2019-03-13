@@ -6,6 +6,7 @@
   border-radius: 4px;
 
   @include mobileS {
+    margin-bottom: 0;
     width: 100%;
     border: none;
   }
@@ -80,6 +81,9 @@
 
 .form__range{
   padding-right: 70px;
+  @include mobileS{
+    padding-right: 0;
+  }
 }
 
 .form__tone_radio-wrapper{

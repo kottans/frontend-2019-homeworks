@@ -7,6 +7,9 @@
   margin-top: 0;
   margin-left: 70px;
   padding-bottom: 35px;
+  @include mobileS{
+    margin-left: 5px;
+  }
 }
 
 .form__sign_question-link{

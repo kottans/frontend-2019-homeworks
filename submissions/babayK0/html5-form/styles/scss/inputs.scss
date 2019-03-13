@@ -399,17 +399,16 @@
 .card-number {
   width: 320px;
   @include mobileS {
-    width: 280px;
+    width: 98%;
   }
 }
 
 .card-date {
   width: 170px;
-}
-
-.card_date {
-  text-align: center;
   font-size: 14px;
+  @include mobileS {
+    width: 98%;
+  }
 }
 
 .card_date::-webkit-input-placeholder {
@@ -418,6 +417,9 @@
 
 .card-cvv {
   width: 100px;
+  @include mobileS {
+    width: 98%;
+  }
 }
 
 .card__input_status {

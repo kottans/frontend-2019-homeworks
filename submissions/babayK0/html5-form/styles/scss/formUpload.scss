@@ -64,7 +64,7 @@
   color: $font;
   border-collapse: collapse;
   @include mobileS {
-    margin: 10px;
+    margin: 0;
     display: block;
   }
   @include desktop {
@@ -85,8 +85,8 @@
   @include mobileS {
     display: block;
     position: absolute;
-    top: -9999px;
-    left: -9999px;
+    top: -999999px;
+    left: -999999px;
   }
 }
 
@@ -113,25 +113,35 @@
 }
 
 .upload__table-data::before {
-  position: absolute;
-  top: 20px;
-  left: 6px;
-  width: 20%;
-  padding-right: 10px;
-  white-space: nowrap;
+  @include mobileS {
+    position: absolute;
+    top: 20px;
+    left: 6px;
+    width: 20%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
 }
 
 .upload__table-data:nth-of-type(1):before {
-  content: 'File name';
+  @include mobileS {
+    content: 'File name';
+  }
 }
 .upload__table-data:nth-of-type(2):before {
-  content: 'File size';
+  @include mobileS {
+    content: 'File size';
+  }
 }
 .upload__table-data:nth-of-type(3):before {
-  content: 'Words';
+  @include mobileS {
+    content: 'Words';
+  }
 }
 .upload__table-data:nth-of-type(4):before {
-  content: 'Remove';
+  @include mobileS {
+    content: 'Remove';
+  }
 }
 
 .upload__table_icon {
