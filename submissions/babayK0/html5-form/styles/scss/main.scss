@@ -1,0 +1,25 @@
+@import 'normalize';
+@import 'mixinMedia';
+@import 'variables';
+@import 'layoutMain';
+@import 'layoutForm';
+@import 'formHeader';
+@import 'formMain';
+@import 'formUpload';
+@import 'formSelect';
+@import 'formSign';
+@import 'formFooter';
+@import 'buttons';
+@import 'inputs';
+
+body {
+  background-color: $body;
+}
+
+:focus {
+  outline-color: $mainFont/2;
+}
+
+.icon {
+  font-size: 24px;
+}
