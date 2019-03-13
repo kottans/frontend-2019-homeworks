@@ -1,13 +1,12 @@
-
-.form__uploud_title-wrapper{
+.form__uploud_title-wrapper {
   display: flex;
   flex-wrap: wrap;
-  @include mobileS{
+  @include mobileS {
     padding-left: 10px;
   }
 }
 
-.form__section_number{
+.form__section_number {
   width: 38px;
   height: 38px;
   border: 1px solid $mainFont;
@@ -19,26 +18,26 @@
   font-weight: 700;
 }
 
-.form__upload_title{
-  margin:7px 15px 7px 30px;
+.form__upload_title {
+  margin: 7px 15px 7px 30px;
   font-weight: 500;
   @include mobileS {
     font-size: 18px;
-    margin:7px 3px 7px ;
+    margin: 7px 3px 7px;
   }
 }
 
-.form__upload_info{
+.form__upload_info {
   font-size: 14px;
-  margin:auto 0;
+  margin: auto 0;
   color: $font;
   @include mobileS {
     margin: auto;
   }
 }
 
-.form__upload_table-wrapper{
-  margin:0 auto;
+.form__upload_table-wrapper {
+  margin: 0 auto;
   width: 89%;
   height: 160px;
   border: 1px solid $borderLight;
@@ -54,45 +53,98 @@
     width: 100%;
     height: auto;
   }
-  @include desktopL{
+  @include desktopL {
     width: 91%;
   }
 }
 
-.form__upload_table{
+.form__upload_table {
   margin: 35px 40px;
   width: 100%;
   color: $font;
   border-collapse: collapse;
   @include mobileS {
     margin: 10px;
+    display: block;
   }
   @include desktop {
     margin: 10px;
   }
 }
 
-.upload__table-title{
+.form__upload_table tbody {
+  @include mobileS {
+    display: block;
+  }
+}
+
+.upload__table-title {
   font-size: 14px;
   text-align: left;
   text-transform: uppercase;
+  @include mobileS {
+    display: block;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
 }
 
-.upload__table-data{  
+.upload__table-row {
+  @include mobileS {
+    display: block;
+    border: 1px solid $borderLight;
+  }
+}
+
+.upload__table-data {
   padding-top: 20px;
   text-align: left;
   vertical-align: middle;
   font-weight: 500;
   @include mobileS {
     vertical-align: bottom;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 30%;
   }
 }
 
-.upload__table_icon{
-  font-size: 20px;
+.upload__table-data::before {
+  position: absolute;
+  top: 20px;
+  left: 6px;
+  width: 20%;
   padding-right: 10px;
+  white-space: nowrap;
 }
 
-.upload__table-data_remove{
+.upload__table-data:nth-of-type(1):before {
+  content: 'File name';
+}
+.upload__table-data:nth-of-type(2):before {
+  content: 'File size';
+}
+.upload__table-data:nth-of-type(3):before {
+  content: 'Words';
+}
+.upload__table-data:nth-of-type(4):before {
+  content: 'Remove';
+}
+
+.upload__table_icon {
+  font-size: 20px;
+  padding-right: 10px;
+  @include mobileS {
+    display: inline;
+  }
+}
+
+.upload__table-data_remove {
   text-align: center;
+  @include mobileS {
+    text-align: left;
+  }
 }

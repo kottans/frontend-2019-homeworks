@@ -398,6 +398,9 @@
 
 .card-number {
   width: 320px;
+  @include mobileS {
+    width: 280px;
+  }
 }
 
 .card-date {
