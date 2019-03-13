@@ -410,10 +410,10 @@
                             name="card-number"
                             id="card-number"
                             title="Enter number of your card."
+                            pattern="\d{16,19}"
                             minlength="16"
                             maxlength="19"
-                            required>
-                    
+                            required>                    
                 </div>
 
                 <div class="card-date-block">
@@ -424,8 +424,9 @@
                             id="card-date"
                             class="card-date"
                             name="card-date"
-                            title="Enter expire date of your card: 01/24"
+                            title="Enter expire date of your card: 01/24 or 0124"
                             placeholder="MM / YY"
+                            pattern="([0-9]{2}[/]?){2}"
                             minlength="4"
                             maxlength="5"
                             required>
