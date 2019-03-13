@@ -13,9 +13,9 @@
 <body>
     <div class="wrapper">
         <header class="header">
-            <button class="header__button header__button_back"><span>go back</span></button>
+            <a href="#" class="header__link header__link_back">go back</a>
             <a href="#" class="header__logo"><img src="./img/logo.png" alt="Logo"></a>
-            <button class="header__button header__button_sign_in"><span>sign in</span></button>
+            <a href="#" class="header__link header__link_sign_in">sign in</a>
         </header>
         <main class="main">
             <form action="#" class="form">
@@ -24,7 +24,7 @@
                         <div class="form-order__details order-details">
                             <div class="order-details__wrapper">
                                 <div class="order-details__caption">
-                                    <h3 class="order-details__caption_text"><span>your order</span></h3>
+                                    <h3 class="order-details__caption_text">your order</h3>
                                 </div>
                                 <div class="order-details__items order-items">
                                     <div class="order-items__item order-item">
@@ -56,7 +56,7 @@
                     <section class="form__help form-help">
                         <div class="form-help__wrapper">
                             <div class="form-help__caption">
-                                <h3 class="form-help__title"><span>help center</span></h3>
+                                <h3 class="form-help__title">help center</h3>
                             </div>
                             <div class="form-help__text">
                                 <div class="form-help__about">
@@ -65,7 +65,7 @@
                                     by phone or email.
                                 </div>
                                 <address class="form-help__address">
-                                    <p><a href="#">+971 (0) 555 555</a></p>
+                                    <p><a href="tel:+9710555555">+971 (0) 555 555</a></p>
                                     <p><a href="mailto:help@qtest.com">help@qtest.com</a></p>
                                 </address>
                             </div>
@@ -75,7 +75,7 @@
                 <div class="form__sections form__sections-wrapper">
                     <section class="form__translate translate-section">
                         <div class="translate-section__caption translate-caption">
-                            <h3><span class="translate-caption__text">select what you want to translate</span></h3>
+                            <h3 class="translate-caption__text">select what you want to translate</h3>
                         </div>
                         <div class="translate-section__radio-wrapper radio-choice">
                             <label class="radio-choice__label">
@@ -144,11 +144,13 @@
                                 <div class="container-from__wrapper select-wrapper">
                                     <label class="select-wrapper__label">
                                         <div class="select-wrapper__title">from</div>
-                                        <select name="language-from" class="select-wrapper__select">
-                                            <option value="english" class="select-wrapper__option">english</option>
-                                            <option value="ukrainian" class="select-wrapper__option">ukrainian</option>
-                                            <option value="poland" class="select-wrapper__option">poland</option>
-                                        </select>
+                                        <div class="select-wrapper__container">
+                                            <select name="language-from" class="select-wrapper__select" required>
+                                                <option value="english" class="select-wrapper__option">english</option>
+                                                <option value="ukrainian" class="select-wrapper__option">ukrainian</option>
+                                                <option value="poland" class="select-wrapper__option">poland</option>
+                                            </select>
+                                        </div>
                                     </label>
                                 </div>
                             </div>
@@ -156,20 +158,24 @@
                                 <div class="container-to__wrapper select-wrapper">
                                     <label class="select-wrapper__label">
                                         <div class="select-wrapper__title">to</div>
-                                        <select name="language-to" class="select-wrapper__select">
-                                            <option value="english">arabic</option>
-                                            <option value="ukrainian">ukrainian</option>
-                                            <option value="poland">poland</option>
-                                        </select>
+                                        <div class="select-wrapper__container">
+                                            <select name="language-to" class="select-wrapper__select" required>
+                                                <option value="english">arabic</option>
+                                                <option value="ukrainian">ukrainian</option>
+                                                <option value="poland">poland</option>
+                                            </select>
+                                        </div>
                                     </label>
                                     <label class="select-wrapper__label select-wrapper__label_to">
-                                        <select name="language-to" class="select-wrapper__select">
-                                            <option value="english">kurdish</option>
-                                            <option value="ukrainian">ukrainian</option>
-                                            <option value="poland">poland</option>
-                                        </select>
+                                        <div class="select-wrapper__container">
+                                            <select name="language-to" class="select-wrapper__select">
+                                                <option value="english">kurdish</option>
+                                                <option value="ukrainian">ukrainian</option>
+                                                <option value="poland">poland</option>
+                                            </select>
+                                        </div>
+                                        <button class="select-wrapper__btn select-wrapper__btn_delete" type="button"></button>
                                     </label>
-                                    <button class="select-wrapper__btn select-wrapper__btn_delete" type="button"></button>
                                     <button class="select-wrapper__btn select-wrapper__btn_add" type="button">add</button>
                                 </div>
                             </div>
@@ -335,7 +341,11 @@
                     <h3 class="footer__title footer__title_address">our main office</h3>
                     <div class="footer__text">
                         <address class="footer__address">
-                            Dubai, UAE<br>P.O.Box: 502735<br>Phone: +971 (0) 44278128
+                            <ul class="footer__address-list">
+                                <li>Dubai, UAE</li>
+                                <li>P.O.Box: 502735</li>
+                                <li>Phone: <a href="tel:+971044278128" class="footer__phone">+971 (0) 44278128</a></li>
+                            </ul>
                         </address>
                     </div>
                 </div>
