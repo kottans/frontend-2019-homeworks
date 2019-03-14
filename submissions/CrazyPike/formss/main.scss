@@ -14,7 +14,15 @@ button:hover{
 }
 
 
+input{
+  font-size: 20px;
+  padding-left: 5px;
+}
+
+
 .page__links{
+  color: rgba(119,118,143,1);
+  text-decoration: none;
   &:hover{
     outline: 1px black solid;
   }
