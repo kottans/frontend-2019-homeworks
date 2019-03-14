@@ -44,6 +44,8 @@ body {
               font-size: 0.7em; }
             body .container header .header-container .header-table .first-table caption {
               margin-bottom: 20px; }
+            body .container header .header-container .header-table .first-table tr {
+              color: grey; }
           body .container header .header-container .header-table .header-button {
             display: flex;
             flex-wrap: wrap;
@@ -80,7 +82,8 @@ body {
             padding-bottom: 7px;
             width: 80%; }
             body .container header .header-container .help-center .help-center-lorem p {
-              margin-bottom: 15px; }
+              margin-bottom: 15px;
+              color: grey; }
             body .container header .header-container .help-center .help-center-lorem :first-child {
               font-weight: bold; }
             body .container header .header-container .help-center .help-center-lorem :nth-child(3) {
@@ -156,9 +159,10 @@ body {
           padding-top: 20px;
           padding-left: 20px;
           border-spacing: 10px; }
-          body .container .second-container .second-container-other .second-table th {
+          body .container .second-container .second-container-other .second-table tr {
             text-align: left;
-            font-size: 0.7em; }
+            font-size: 0.8em;
+            color: grey; }
           body .container .second-container .second-container-other .second-table .delete-cell {
             padding-left: 17px;
             text-align: center; }

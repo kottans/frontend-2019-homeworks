@@ -59,6 +59,10 @@ body {
                   caption {
                      margin-bottom: 20px;
                   }
+
+                  tr {
+                     color: grey;
+                  }
                }
 
               .header-button {
@@ -111,6 +115,7 @@ body {
 
                   p {
                      margin-bottom: 15px;
+                     color: grey;
                   }
 
                   :first-child {
@@ -229,9 +234,10 @@ body {
                padding-left: 20px;
                border-spacing: 10px;
 
-               th {
+               tr {
                   text-align: left;
-                  font-size: 0.7em;
+                  font-size: 0.8em;
+                  color: grey;
                }
 
                .delete-cell {
