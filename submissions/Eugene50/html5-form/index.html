@@ -1,0 +1,253 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="style.css">
+   <title>HTML5-form</title>
+</head>
+<body>
+   <div class="container">
+      <form action="">
+         <header>
+            <div class="header-container">
+               <div class="header-table">
+                  <div class="header-icon">
+                     <img src="img/your_order.png" alt="your order">
+                  </div>
+                  <table class="first-table">
+                     <caption>YOUR ORDER</caption>
+                     <tr>
+                        <th>ITEMS</th>
+                        <th>DETAILS</th>
+                        <th>PRICE</th>
+                        <th>DELIVERY</th>
+                     </tr>
+                     <tr>
+                        <td>2 documents</td>
+                        <td>2 languages</td>
+                        <td>$640</td>
+                        <td>48 hours*</td>
+                     </tr>
+                  </table>
+                  <div class="header-button">
+                     <input type="submit" value="" class="button button-first">
+                     <input type="button" class="button button-second" value="">
+                  </div>
+               </div>
+               <div class="help-center">
+                  <div class="help-center-img">
+                     <img src="img/help_center.png" alt="help center">
+                  </div>
+                  <div class="help-center-lorem">
+                     <p>HELP CENTER</p>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum expedita ex natus aut repudiandae.</p>
+                     <p>+309234-09346</p>
+                  </div> 
+               </div>
+            </div>
+         </header>
+
+         <section class="first-container">
+            <div>
+               <h4>SELECT WHAT YOU WANT TO TRANSLATE</h4>
+            </div>
+            <div>
+               <input type="radio" name="item-button" id="btn-a" class="btn-a radio">
+               <label for="btn-a">
+                  <img src="img/documents.png" alt="Documents" class="btn-a-img first-container-img">
+               </label>
+               <input type="radio" name="item-button" id="btn-b" class="btn-b radio">
+               <label for="btn-b">
+                  <img src="img/social_account.png" alt="Social Account" class="btn-b-img first-container-img">
+               </label>
+               <input type="radio" name="item-button" id="btn-c" class="btn-c radio">
+               <label for="btn-c">
+                  <img src="img/website.png" alt="Website" class="btn-c-img first-container-img">
+               </label>
+            </div>
+         </section>
+
+         <section class="second-container">
+            <div class="container-img">
+               <img src="img/1.png" alt="1">
+            </div>
+            <div class="second-container-other">
+               <p class="title">Upload your documents <span>(Doc, Docx,Text, PDF, Markdown)</span></p>
+               <label for="file-upload" class="custom-file-upload">
+                  Upload a new file
+               </label>
+               <input id="file-upload" type="file"/>
+               <input type="checkbox" name="checkbox" id="delete-btn-first" class="delete-btn-first delete-btn-hidden">
+               <input type="checkbox" name="checkbox" id="delete-btn-second" class="delete-btn-second delete-btn-hidden">
+               <table class="second-table">
+                  <col width="250" valign="top">
+                  <tr>
+                     <th>FILE NAME</th>
+                     <th>FILE SIZE</th>
+                     <th>NUMBER OF WORDS</th>
+                     <th class="delete-cell">REMOVE</th>
+                  </tr>
+                  <tr class="second">
+                     <td>business_operations.docx</td>
+                     <td>78kb</td>
+                     <td>842</td>
+                     <td class="delete-cell"><label for="delete-btn-first"><img src="img/basket.png" alt="basket" class="basket"></label></td>
+                  </tr>
+                  <tr class="third">
+                     <td>business_financial.docx</td>
+                     <td>26kb</td>
+                     <td>2,326</td>
+                     <td class="delete-cell"><label for="delete-btn-second"><img src="img/basket.png" alt="basket" class="basket"></label></td>
+                  </tr>
+               </table>
+            </div>
+         </section>
+
+         <section class="third-container">
+            <div class="container-img">
+               <img src="img/2.png" alt="2">
+            </div>
+            <div class="third-container-other">
+               <p class="title">Choose your languages pairings</p>
+               <div class="third-container-other-block">
+                  <div class="third-container-other-block-first">
+                     <p class="subtitle">from</p>
+                     <p class="subtitle">to</p>
+                  </div>
+                  <div class="third-container-other-block-second">
+                     <div class="select-wraper">
+                        <select name="language" id="select" class="select">
+                           <option value="">English</option>
+                           <option value="">Arabic</option>
+                           <option value="">Kurdish</option>
+                        </select>
+                     </div>
+                     <div class="container-select-wraper">
+                        <div class="select-wraper">
+                           <select name="language" id="select" class="select">
+                              <option value="">Arabic</option>
+                              <option value="">Kurdish</option>
+                              <option value="">English</option>
+                           </select>
+                        </div>
+                        <div class="select-wraper">
+                           <select name="language" id="select" class="select">
+                              <option value="">Kurdish</option>
+                              <option value="">English</option>
+                              <option value="">Arabic</option>
+                           </select>
+                        </div>
+                        <div class="img-basket"><img src="img/basket.png" alt="delete"></div>
+                        <div class="btn-add"><input type="button" class="button" value="+ ADD"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <section class="common-container">
+            <div class="fourth-container">
+                  <div class="container-img">
+                     <img src="img/3.png" alt="3">
+                  </div>
+                  <div class="fourth-container-other">
+                     <div><p class="title">Select your desired tone</p></div>
+                     <ul class="input-list">
+                        <li>
+                           <input type="radio" id="radio-btn-first" class="radio-btn-first radio" name="fourth-container-other-radio">
+                           <label for="radio-btn-first"><img src="img/friendly-btn.png" class="label-img radio-btn-first-img" alt="friendly-btn"></label>
+                        </li>
+                        <li>
+                           <input type="radio" id="radio-btn-second" class="radio-btn-second radio" name="fourth-container-other-radio">
+                           <label for="radio-btn-second"><img src="img/media-btn.png" class="label-img radio-btn-second-img" alt="media-btn"></label>
+                        </li>
+                        <li>
+                           <input type="radio" id="radio-btn-third" class="radio-btn-third radio" name="fourth-container-other-radio">
+                           <label for="radio-btn-third"><img src="img/corporate-btn.png" class="label-img radio-btn-third-img" alt="corporate-btn"></label>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+         
+            <div class="fifth-container">
+               <div class="container-img">
+                  <img src="img/4.png" alt="4">
+               </div>
+               <div class="fifth-container-other">
+                  <p class="title">Tell us how urgent this job is</p>
+                  <div class="range">
+                     <input type="range" class="range-input" min="0" max="10" step="1">
+                  </div>
+                  <div class="range-text">
+                     <span>I GOT TIME</span>
+                     <span>AVARAGE</span>
+                     <span>YESTERDAY</span>
+                  </div>
+               </div>
+               <div class="timeline">
+                  <div class="time-line-img">
+                     <img src="img/info.png" alt="info">
+                  </div>
+                  <div class="time-line-lorem">
+                     <p>TIMELINE INFO</p>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum expedita ex natus aut repudiandae.</p>
+                  </div> 
+               </div>
+            </div>
+         </section>
+         <section class="six-container">
+            <div class="container-img">
+               <img src="img/5.png" alt="5">
+            </div>
+            <div class="six-container-other">
+               <div class="six-container-other-first block">
+                  <p class="title">Sign up and choose a payment method</p>
+                  <p>Already have an account with us?<a href="#">Sign in</a></p>
+               </div>
+               <div class="six-container-other-second block">
+                  <p>FULL NAME</p>
+                  <input type="text" name="text" class="text input" id="text" minlength="3" title="Name Lastname" maxlength="30" pattern="^([a-zA-Z]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)" required>
+               </div>
+               <div class="six-container-other-third block">
+                  <p>EMAIL ADRESS</p>
+                  <p>CHOOSE A PASSWORD</p>
+               </div>
+               <div class="six-container-other-fourth block">
+                  <input type="email" name="email" class="email input" id="email" title="name@domain.etc" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                  <input type="password" name="password" class="pass input" id="password" title="Minimum 6 characters" minlength="6" required>
+               </div>
+               <div class="six-container-other-fifth block">
+                  <input type="radio" name="pay" id="visa-pay" class="btn-a radio">
+                  <label for="visa-pay"><img src="img/visa.png" alt="visa" tabindex="0" class="btn-a-img six-container-img"></label>
+                  <input type="radio" name="pay" id="paypall-pay" class="btn-b radio">
+                  <label for="paypall-pay"><img src="img/paypall.png" alt="paypall" tabindex="0" class="btn-b-img six-container-img"></label>
+                  <input type="radio" name="pay" id="amazon-pay" class="btn-c radio">
+                  <label for="amazon-pay"><img src="img/amazon.png" alt="amazon-pay" tabindex="0" class="btn-c-img six-container-img"></label>
+               </div>
+               <div class="six-container-other-title">
+                  <p>CARD NUMBER</p>
+                  <p>EXPIRY DATE</p>
+                  <p>CODE</p>
+               </div>
+               <div class="six-container-other-input">
+                  <input type="text" class="input" placeholder="please enter your card number" title="numbers (0-9)" pattern="[0-9]{13,16}" minlength="16" maxlength="16" name="text" id="text" required>
+                  <input type="text" class="input date" pattern="(0[1-9]|[12][0-9]|3[01])[- //](0[1-9]|1[012])[- //](19|20)\d\d" maxlength="10" placeholder="DD/MM/YY" name="text" id="text" required>
+                  <input type="text" class="input" placeholder="CVV2/CVC2" pattern="^(\d){1,13}$" minlength="3" maxlength="3" name="text" id="text" required>
+               </div>
+            </div>
+         </section>
+
+         <footer>
+            <input type="checkbox" name="" id="agree-btn" class="footer-item">
+            <label for="agree-btn" class="footer-item">
+               <p>I agree to the</p>
+            </label>
+            <a href="#">Terms & Conditions</a>
+            <input type="submit" value="" class="button-first button footer-item">
+            <input type="button" value="" class="button-second button footer-item">
+         </footer>
+      </form>
+   </div>
+</body>
+</html>
