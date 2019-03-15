@@ -1,0 +1,44 @@
+.form__main-section_title-wraper{
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.form__main-section_title {
+  display: inline;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-bottom: 1px solid $borderLight;
+  @include mobileS{
+    font-size: 14px;
+  }
+}
+
+.form__main-section_wrapper {
+  padding: 75px 0 100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  @include mobileS {
+    width: 100%;
+    padding: 25px 0 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  @include desktop {
+    width: 100%;
+    padding: 25px 0 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.form__main_label-size {
+  height: 200px;
+  width: 280px;
+}
+
