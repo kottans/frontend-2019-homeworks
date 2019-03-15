@@ -203,7 +203,93 @@
         margin-bottom: 20px;
     }
 }
-@media screen and (max-width: 1242px) {
+
+@media screen and (min-width: 768px) and (max-width: 1024px)  {
+    .selectTypeBlock__checkboxes{
+        flex-direction: column;
+    }
+    .wrapperInner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .selectLanguageBlock__title,
+    .selectDocumentBlock__title,
+    .selectTypeBlock__title {
+        text-align: center;
+        margin-left: 10px;
+        font-size: 1.5em;
+    }
+    .numberedBlock::before{
+        display: none;
+    }
+    .cardInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .selectPayType{
+        flex-direction: column;
+    }
+    .selectPayType__item:not(:last-child) {
+         margin-right: 0;
+    }
+    .formWrapper{
+        padding: 0px 5px;
+    }
+    .youOrdersItem{
+        width: 100%;
+    }
+    .youOrdersItem.first{
+        margin: 0px 15px;
+    }
+    .headerButtons .headerButtonsItem:not(:last-child), .paymentBlock__buttons--label {
+         margin-right: 0px;
+    }
+    .typeBlockItem__label {
+        margin-bottom: 10px;
+    }
+    .selectDesired{
+        width: 100%;
+    }
+    .selectDesired__checkboxes{
+        width: 100%;
+    }
+    .tellUrgent{
+        width: 100%;
+    }
+    .selectLanguageBlock__subtitle{
+        text-align: center;
+    }
+    .paymentBlock__buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .cardInfo__item--inputIcon {
+        right: 107px;
+    }
+    .selectDocumentBlock {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+    }
+    .wrapper{
+        width: 100%;
+    }
+    .selectTypeBlock{
+        width: 100%;
+    }
+    .fileList{
+        width: 100%;
+    }
+}
+
+
+
+@media screen and (min-width: 1242px) {
     .youOrdersItem {
         width: 50%;
         margin: 0;
