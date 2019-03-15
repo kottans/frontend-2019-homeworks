@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>HTML5 form</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi" />
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
@@ -76,14 +76,14 @@
                             </label>
                         </div>
                         <div class="type-item">
-                            <input class="doc-type-input" type="radio" id="doc" name="doc" value="">
+                            <input class="doc-type-input" type="radio" id="doc" name="doc">
                             <label class="doc-type-label" for="doc">
                                 <img class="doc-img" src="assets/img/documents.png" alt="document-image">
                                 <p class="title">Documents</p>
                             </label>
                         </div>
                         <div class="type-item">
-                            <input class="doc-type-input" type="radio" id="account" name="doc" value="">
+                            <input class="doc-type-input" type="radio" id="account" name="doc">
                             <label class="doc-type-label" for="account">
                                 <img class="doc-img" src="assets/img/account.png" alt="document-image">
                                 <p class="title">Social account</p>
@@ -154,7 +154,7 @@
                                     </select>
                                 </div>
                             <label class="select"></label>
-                                <div class="select-language-wrapper">
+                                <div class="select-language-wrapper bottom-select">
                                     <select form="form" class="select-language" name="select" >
                                         <option  disabled value="Mandarinean" >Mandarinean</option>
                                         <option value="Persian">Persian</option>
@@ -191,7 +191,7 @@
                         <section class="range-block">
                             <h4 class="range-title">Tell us how urgent this job is</h4>
                             <div class="range-item">
-                                <input class="range-input" type="range" name="" value="" min="0" max="100" step="50" value="50" >
+                                <input class="range-input" type="range" min="0" max="100" step="50" value="50" >
                                 <div class="range-labels">
                                     <label class="range-label">I got time</label>
                                     <label class="range-label average">Average</label>
@@ -212,13 +212,13 @@
                         <section class="payment">
                             <div class="name">
                                 <label class="name-label" for="full-name">Full name</label>
-                                <input class="name-input" type="text" id="full-name" name="full-name" minlength="3" pattern="^[a-zA-Z\s\.\-]*$" title="Set name more than 2 letters" placeholder="Your name" value="Mark Smith" required>
+                                <input class="name-input" type="text" id="full-name" name="full-name" minlength="3" pattern="^[a-zA-Z\s\.\-]*$" title="Set name more than 2 letters" placeholder="Your name"  required>
                                 <span class="validation"></span>
                             </div>
                             <div class="payment-item">
                                 <div class="email">
                                     <label class="address-label" for="email-address">Email address</label>
-                                    <input class="address-input" type="email" id="email-address" name="email-address" placeholder="your email" value="marksmith@gmail.com" required>
+                                    <input class="address-input" type="email" id="email-address" name="email-address" placeholder="your email" required>
                                     <span class="validation"></span>
                                 </div>
                                 <div class="password">
@@ -244,7 +244,7 @@
                             <div class="pay-card">
                                 <div class="pay-card-item card-item">
                                     <label class="number-label">Card number</label>
-                                    <input class="card-input" type="number" pattern="[0-9]{16}" required placeholder="Your Card number" title="Set not less than 16 numbers">
+                                    <input class="card-input" type="text" pattern="[0-9]{16}" required placeholder="Your Card number" title="Set not less than 16 numbers">
                                 </div>
                                 <div class="pay-card-item">
                                     <label class="expiry-label">Expiry date</label>
@@ -260,7 +260,7 @@
                     </section>
                     <section class="place-order">
                         <div class="place-order-block">
-                            <input type="checkbox" name="terms" class="terms-input" id="terms">
+                            <input type="checkbox" name="terms" class="terms-input" id="terms" required>
                             <label for="terms" class="terms-label">I agree to the</label>
                             <a href="#" class="terms-link">Terms &amp; Conditions</a>
                         </div>

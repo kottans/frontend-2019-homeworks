@@ -67,6 +67,9 @@ h5 {
     @media screen and (max-width: $break-small) {
         margin: 10px 0;
     }
+    @media screen and (max-width: $break-middle) {
+        margin-bottom: 10px;
+    }
 }
 select {
     -webkit-appearance: none;
@@ -102,6 +105,13 @@ i.fas {
         width: 32px;
         height: 32px;
         line-height: 33px;
+    }
+    @media screen and (max-width: $break-middle)  {
+        content: '1';
+        left: -45px;
+        width: 34px;
+        height: 34px;
+        line-height: 34px;
     }
 }
 .pairing-title:before {
@@ -210,6 +220,9 @@ i.fas {
         @media screen and (max-width: $break-small) {
             width: 100%;
         }
+        @media screen and (max-width: $break-middle) {
+            padding: 40px 20px 40px 40px;
+        }
         .title:before {
             content: '\f1cd';
             position: absolute;
@@ -234,11 +247,17 @@ i.fas {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        @media screen and (max-width: $break-middle) {
+            flex-direction: column;
+        }
         .order-list-item {
             @media screen and (max-width: $break-small)  {
                 width: 100%;
                 border-bottom: 1px solid #e5e5e5;
                 padding-bottom: 10px;
+            }
+            @media screen and (max-width: $break-middle) {
+                margin-bottom: 10px;
             }
             .item-amount {
                 color: #a5abc5;
@@ -255,6 +274,10 @@ i.fas {
     @media screen and (max-width: $break-small)  {
         width: 100%;
     }
+    @media screen and (max-width: $break-middle) {
+        width: 35%;
+        justify-content: flex-start;
+    }
     .place-order-btn {
         background: #5fcac6;
         border: 1px solid #54aca9;
@@ -270,6 +293,9 @@ i.fas {
         }
         @media screen and (max-width: $break-small) {
             margin: 10px 0;
+        }
+        @media screen and (max-width: $break-middle)  {
+            margin-bottom: 10px;
         }
     }
     .print-btn {
@@ -316,6 +342,9 @@ i.fas {
 }
 .info-block {
     border-left: 1px solid #c9d0e1;
+    @media screen and (max-width: $break-small) {
+        border: 0;
+    }
 }
 .address {
     font-style: normal;
@@ -326,6 +355,10 @@ i.fas {
         color: #6e768f;
         width: 50%;
         @media screen and (max-width: $break-small) {
+            width: 100%;
+            margin: 10px 0;
+        }
+        @media screen and (max-width: $break-middle) {
             width: 100%;
             margin: 10px 0;
         }
@@ -375,7 +408,7 @@ i.fas {
         width: 100%;
         flex-direction: column;
         align-items: center;
-        border: 4px solid #f7f7fa;
+        border: 5px solid #f7f7fa;
         border-radius: 5px;
         cursor: pointer;
         padding: 40px 0;
@@ -474,6 +507,9 @@ i.fas {
     @media screen and (max-width: $break-small) {
         padding: 10px;
     }
+    @media screen and (max-width: $break-middle) {
+        padding: 20px;
+    }
 }
 .files-item {
     display: flex;
@@ -482,12 +518,18 @@ i.fas {
     &:hover {
         background: #f8f8f8;
     }
+    @media screen and (max-width: $break-middle) {
+        align-items: baseline;
+    }
     .name {
         width: 35%;
         @media screen and (max-width: $break-small) {
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
+        }
+        @media screen and (max-width: $break-middle)  {
+            width: 40%;
         }
         i {
             font-size: 20px;
@@ -507,6 +549,9 @@ i.fas {
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
+        }
+        @media screen and (max-width: $break-middle) {
+            width: 27%;
         }
     }
     .remove {
@@ -587,6 +632,11 @@ i.fas {
     }
     @media screen and (max-width: $break-small) {
         margin: 10px 0;
+    }
+}
+.bottom-select {
+    @media screen and (max-width: $break-middle) {
+        margin-top: 25px;
     }
 }
 .select-language {

@@ -62,6 +62,9 @@ h5 {
   @media screen and (max-width: 767px) {
     h5 {
       margin: 10px 0; } }
+  @media screen and (max-width: 1024px) {
+    h5 {
+      margin-bottom: 10px; } }
 
 select {
   -webkit-appearance: none;
@@ -102,6 +105,17 @@ i.fas {
       width: 32px;
       height: 32px;
       line-height: 33px; } }
+  @media screen and (max-width: 1024px) {
+    .upload-title:before,
+    .pairing-title:before,
+    .tone-title:before,
+    .range-title:before,
+    .sign-up-title:before {
+      content: '1';
+      left: -45px;
+      width: 34px;
+      height: 34px;
+      line-height: 34px; } }
 
 .pairing-title:before {
   content: '2'; }
@@ -236,6 +250,9 @@ i.fas {
     @media screen and (max-width: 767px) {
       .header-section .header-right {
         width: 100%; } }
+    @media screen and (max-width: 1024px) {
+      .header-section .header-right {
+        padding: 40px 20px 40px 40px; } }
     .header-section .header-right .title:before {
       content: '\f1cd';
       position: absolute;
@@ -278,11 +295,21 @@ i.fas {
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap; }
+    @media screen and (max-width: 1024px) {
+      .order-block .order-list {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column; } }
     @media screen and (max-width: 767px) {
       .order-block .order-list .order-list-item {
         width: 100%;
         border-bottom: 1px solid #e5e5e5;
         padding-bottom: 10px; } }
+    @media screen and (max-width: 1024px) {
+      .order-block .order-list .order-list-item {
+        margin-bottom: 10px; } }
     .order-block .order-list .order-list-item .item-amount {
       color: #a5abc5; }
 
@@ -304,6 +331,13 @@ i.fas {
   @media screen and (max-width: 767px) {
     .buttons-block {
       width: 100%; } }
+  @media screen and (max-width: 1024px) {
+    .buttons-block {
+      width: 35%;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+          -ms-flex-pack: start;
+              justify-content: flex-start; } }
   .buttons-block .place-order-btn {
     background: #5fcac6;
     border: 1px solid #54aca9;
@@ -320,6 +354,9 @@ i.fas {
     @media screen and (max-width: 767px) {
       .buttons-block .place-order-btn {
         margin: 10px 0; } }
+    @media screen and (max-width: 1024px) {
+      .buttons-block .place-order-btn {
+        margin-bottom: 10px; } }
   .buttons-block .print-btn {
     background: #f7f7fa;
     color: #a5abc5;
@@ -375,6 +412,9 @@ i.fas {
 
 .info-block {
   border-left: 1px solid #c9d0e1; }
+  @media screen and (max-width: 767px) {
+    .info-block {
+      border: 0; } }
 
 .address {
   font-style: normal;
@@ -393,6 +433,10 @@ i.fas {
     color: #6e768f;
     width: 50%; }
     @media screen and (max-width: 767px) {
+      .address .link {
+        width: 100%;
+        margin: 10px 0; } }
+    @media screen and (max-width: 1024px) {
       .address .link {
         width: 100%;
         margin: 10px 0; } }
@@ -459,7 +503,7 @@ i.fas {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
-    border: 4px solid #f7f7fa;
+    border: 5px solid #f7f7fa;
     -webkit-border-radius: 5px;
             border-radius: 5px;
     cursor: pointer;
@@ -563,6 +607,9 @@ i.fas {
   @media screen and (max-width: 767px) {
     .files-items {
       padding: 10px; } }
+  @media screen and (max-width: 1024px) {
+    .files-items {
+      padding: 20px; } }
 
 .files-item {
   display: -webkit-box;
@@ -576,6 +623,12 @@ i.fas {
   padding: 10px 0; }
   .files-item:hover {
     background: #f8f8f8; }
+  @media screen and (max-width: 1024px) {
+    .files-item {
+      -webkit-box-align: baseline;
+      -webkit-align-items: baseline;
+          -ms-flex-align: baseline;
+              align-items: baseline; } }
   .files-item .name {
     width: 35%; }
     @media screen and (max-width: 767px) {
@@ -584,6 +637,9 @@ i.fas {
            text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden; } }
+    @media screen and (max-width: 1024px) {
+      .files-item .name {
+        width: 40%; } }
     .files-item .name i {
       font-size: 20px; }
   .files-item .size {
@@ -602,6 +658,9 @@ i.fas {
            text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden; } }
+    @media screen and (max-width: 1024px) {
+      .files-item .number {
+        width: 27%; } }
   .files-item .remove {
     width: 10%;
     display: -webkit-box;
@@ -684,6 +743,10 @@ i.fas {
   @media screen and (max-width: 767px) {
     .select-language-wrapper {
       margin: 10px 0; } }
+
+@media screen and (max-width: 1024px) {
+  .bottom-select {
+    margin-top: 25px; } }
 
 .select-language {
   display: inline-block;
