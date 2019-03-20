@@ -35,7 +35,7 @@ body {
   font-size: 1.4rem;
   cursor: pointer;
   will-change: color;
-  transition: color 0.3s;
+  transition: color 0.3s linear;
 }
 .main-link:hover {
   text-decoration: underline;
@@ -49,37 +49,46 @@ body {
 /* END e-mail & pictures links */
 
 /* Menu btn & btn activities */
-.main-btn {
+.menu-btn__label,
+.notification-btn__label,
+.profile-btn__label {
   width: 2.4rem;
   height: 2.4rem;
-  margin: 0 .5rem;
+  margin: 0.5rem;
   cursor: pointer;
 }
-.main-btn__svg {
+.menu-btn__svg {
   width: 100%;
   height: 100%;
 }
-.main-btn__svg path {
+.menu-btn__svg path,
+.notification-btn__svg path,
+.profile-btn__svg path {
   fill: #777;
   will-change: fill;
-  transition: fill .3s;
+  transition: fill .3s linear;
 }
-#menu:focus + .main-btn > .main-btn__svg path {
+.menu-btn:focus + .menu-btn__label > .menu-btn__svg path,
+.notification-btn:focus + .notification-btn__label > .notification-btn__svg path,
+.profile-btn:focus + .profile-btn__label > .profile-btn__svg path {
   fill: #000;
 }
-.main-btn__svg:hover path {
+.menu-btn__label:hover > .menu-btn__svg path,
+.notification-btn__label:hover > .notification-btn__svg path,
+.profile-btn__label:hover > .profile-btn__svg path {
   fill: #000;
 }
 /* END menu btn & btn activities */
 
 .dropdown-menu {
   width: 32rem;
-  height: 32.2rem;
+  height: 28rem;
   display: none;
   flex-flow: column;
   justify-content: space-between;
   border: 1px solid rgb(175, 175, 175);
   position: absolute;
+  padding-bottom: 3.6rem;
   top: 7rem;
   right: 1.1rem;
   box-shadow: 0.1rem 0.1rem 1rem 0.1rem gray;
@@ -97,23 +106,24 @@ body {
   border-left: 1px solid rgb(175, 175, 175);
   background-color: white;
 }
-.btn__label {
+.dropdown-menu-btn__label {
   display: flex;
-  order: 2;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 3.6rem;
   min-height: 3.6rem;
+  position: absolute;
+  bottom: 0;
   background-color: rgba(230, 230, 230, 0.671);
   font-size: 1.4rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3 linear;
 }
-.btn__label:hover {
+.dropdown-menu-btn__label:hover {
   background-color: #8a8a8aab;
 }
-.dropdown-menu__btn:focus + .btn__label {
+.dropdown-menu-btn:focus + .dropdown-menu-btn__label {
   background-color: #8a8a8aab;  
 }
 
@@ -150,12 +160,12 @@ body {
 }
 
 /* Механика */
-#menu:checked ~ .dropdown-menu {
+.menu-btn:checked ~ .dropdown-menu {
   display: flex;
 }
-#dropdown-menu__btn:checked ~ .dropdown-menu__wrapper {
+.dropdown-menu-btn:checked ~ .dropdown-menu__wrapper {
   overflow-y: scroll;
 }
-#dropdown-menu__btn:checked ~ .dropdown-menu__wrapper > .more-services__list {
+.dropdown-menu-btn:checked ~ .dropdown-menu__wrapper > .more-services__list {
   display: flex;
 }

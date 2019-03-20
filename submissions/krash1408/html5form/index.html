@@ -11,14 +11,14 @@
     <nav class="main-nav">
       <a class="main-link" href="#">Почта</a>
       <a class="main-link" href="#">Картинки</a>
-      <input class="visually-hidden" id="menu" type="checkbox" />
-      <label class="main-btn" for="menu">
+      <input class="menu-btn visually-hidden" id="menu" type="checkbox" />
+      <label class="menu-btn__label" for="menu">
         <svg
           aria-hidden="true"
           focusable="false"
           data-prefix="fas"
           data-icon="bars"
-          class="svg-inline--fa fa-bars fa-w-14 main-btn__svg"
+          class="svg-inline--fa fa-bars fa-w-14 menu-btn__svg"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
@@ -33,16 +33,16 @@
 
       <input
         id="notification"
-        class="main-link main-link_btn visually-hidden"
+        class="notification-btn visually-hidden"
         type="checkbox"
       />
-      <label class="main-btn" for="notification">
+      <label class="notification-btn__label" for="notification">
         <svg
           aria-hidden="true"
           focusable="false"
           data-prefix="far"
           data-icon="dot-circle"
-          class="svg-inline--fa fa-dot-circle fa-w-16 main-btn__svg"
+          class="svg-inline--fa fa-dot-circle fa-w-16 notification-btn__svg"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
@@ -57,16 +57,16 @@
 
       <input
         id="profile"
-        class="main-link main-link__btn visually-hidden"
+        class="profile-btn visually-hidden"
         type="checkbox"
       />
-      <label class="main-btn" for="profile">
+      <label class="profile-btn__label" for="profile">
         <svg
           aria-hidden="true"
           focusable="false"
           data-prefix="fas"
           data-icon="user-circle"
-          class="svg-inline--fa fa-user-circle fa-w-16 main-btn__svg"
+          class="svg-inline--fa fa-user-circle fa-w-16 profile-btn__svg"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 496 512"
@@ -77,15 +77,15 @@
           ></path>
         </svg>
       </label>
-
-      <div class="dropdown-menu">
+      
+      <div class="dropdown-menu">          <!-- BTN ACTIVATED A FULL LIST OF SERVICES -->
         <input
-          class="visually-hidden dropdown-menu__btn"
+          class="visually-hidden dropdown-menu-btn"
           type="checkbox"
           name=""
           id="dropdown-menu__btn"
         />
-        <label class="btn__label" for="dropdown-menu__btn">Ещё</label>
+        <label class="dropdown-menu-btn__label" for="dropdown-menu__btn">Ещё</label>
         <div class="dropdown-menu__wrapper">
           <a class="dropdown-menu__item" href="#">
             <svg
@@ -240,6 +240,8 @@
               ></path>
             </svg>
           </a>
+
+
           <div class="more-services__list">
               <a class="more-services__item" href="#">
                 <svg
