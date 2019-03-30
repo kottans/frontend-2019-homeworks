@@ -10,7 +10,6 @@
 </head>
 <body>
   <div class="root">
-      <header></header>
       <form action="#" method="POST" class="form">
         <div class="form-head">
           <a class="go-back" href="#">
@@ -27,7 +26,7 @@
           <section class="form-intro">
             <div class="your-order">
               <div class="order-box">
-                <p class="order-name">your order</p>
+                <h3 class="order-name">your order</h3>
                 <ul class="order-list">
                   <li class="order-item">
                     <span class="order-title">items</span>
@@ -54,7 +53,7 @@
             </div>
             <div class="support">
               <p class="support-title">help center</p>
-              <div class="support-desc">If you need assistance while placing your order, contact one of our beloved Project Manager by phone or email.</div>
+              <p class="support-desc">If you need assistance while placing your order, contact one of our beloved Project Manager by phone or email.</p>
               <address class="support-contacts">
                 <a class="support-link" href="tel:+3800555555">+380 (0) 555 555</a>
                 <a class="support-link" href="mailto:help@qtest.com">help@qtest.com</a>
@@ -65,17 +64,17 @@
             <div class="container">
               <h1 class="title-h1">select what you want to translate</h1>
               <div class="group">
-                <input type="radio" id="website" name="source" class="group-input visually-hidden">
+                <input type="radio" id="website" name="source" class="group-input visually-hidden" checked required>
                 <label for="website" class="group-label">
                     <span class="group-border"></span>
                     <span class="group-text">website</span>
                 </label>
-                <input type="radio" id="documents" name="source" class="group-input visually-hidden">
+                <input type="radio" id="documents" name="source" class="group-input visually-hidden" required>
                 <label for="documents" class="group-label">
                     <span class="group-border"></span>
                     <span class="group-text">documents</span>
                 </label>
-                <input type="radio" id="social-account" name="source" class="group-input visually-hidden">
+                <input type="radio" id="social-account" name="source" class="group-input visually-hidden" required>
                 <label for="social-account" class="group-label">
                     <span class="group-border"></span>
                     <span class="group-text">social account</span>
@@ -122,7 +121,7 @@
               <div class="choose-from">
                 <span class="lang-label">from</span>
                 <div class="select-wrap">
-                  <select name="choose-lang-from" id="from-lang" class="choose-lang">
+                  <select name="choose-lang-from" id="from-lang" class="choose-lang" required>
                       <option value="English">English</option>
                       <option value="Arabic">Arabic</option>
                       <option value="Ukrainian">Ukrainian</option>
@@ -133,7 +132,7 @@
               <div class="choose-from">
                 <span class="lang-label">to</span>
                 <div class="select-wrap">
-                    <select name="choose-lang-to" id="to-lang-1" class="choose-lang">
+                    <select name="choose-lang-to" id="to-lang-1" class="choose-lang" required>
                         <option value="Arabic">Arabic</option>
                         <option value="English">English</option>
                         <option value="Ukrainian">Ukrainian</option>
@@ -157,17 +156,17 @@
             <div class="container">
               <section class="tone">
                 <h3 class="title-h3"><span class="title-number">3</span>Select your desired tone</h3>
-                <input type="radio" id="friendly" name="tone" class="group-input visually-hidden">
+                <input type="radio" id="friendly" name="tone" class="group-input visually-hidden" checked required>
                 <label for="friendly" class="group-label">
                     <span class="group-border"></span>
                     <span class="group-text group-docs">Friendly / Casual</span>
                 </label>
-                <input type="radio" id="pro" name="tone"  class="group-input visually-hidden">
+                <input type="radio" id="pro" name="tone"  class="group-input visually-hidden" required>
                 <label for="pro" class="group-label">
                     <span class="group-border"></span>
                     <span class="group-text  group-case">Corporate / Pro</span>
                 </label>
-                <input type="radio" id="media" name="tone"  class="group-input visually-hidden">
+                <input type="radio" id="media" name="tone"  class="group-input visually-hidden" required>
                 <label for="media" class="group-label">
                     <span class="group-border"></span>
                     <span class="group-text group-media">Media / Formal</span>
@@ -200,12 +199,12 @@
               <div class="user-info">
                   <label for="fullname" class="sign-up-label">
                     <span class="sign-up-text">fullname</span>
-                    <input type="text" id="fullname" class="sign-up-input" placeholder="Mathieu Mayer" title="please enter your fullname" required>
+                    <input type="text" id="fullname" class="sign-up-input" placeholder="Mathieu Mayer" title="please enter your fullname" required checked>
                   </label>
                   <label for="email" class="sign-up-label">
                     <span class="sign-up-text">email address</span>
                     <input type="email" id="email" class="sign-up-input" placeholder="mathieu.mm@me.com"
-                    title="please enter your email example@gmail.com" required>
+                    title="please enter your email example@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
                   </label>
                   <label for="password" class="sign-up-label">
                     <span class="sign-up-text">Choose a password</span>
@@ -213,17 +212,17 @@
                   </label>
               </div>
               <div class="cards-wrap">
-                  <input type="radio" id="visa" name="card" class="group-input visually-hidden">
+                  <input type="radio" id="visa" name="card" class="group-input visually-hidden" checked required>
                   <label for="visa" class="group-label">
                       <span class="group-border"></span>
                       <img class="group-img" src="images/visa.png" alt="visa vs master-card">
                   </label>
-                  <input type="radio" id="pay-pal" name="card" class="group-input visually-hidden">
+                  <input type="radio" id="pay-pal" name="card" class="group-input visually-hidden" required>
                   <label for="pay-pal" class="group-label">
                       <span class="group-border"></span>
                       <img class="group-img"  src="images/paypal.png" alt="paypal">
                   </label>
-                  <input type="radio" id="amazon" name="card" class="group-input visually-hidden">
+                  <input type="radio" id="amazon" name="card" class="group-input visually-hidden" required>
                   <label for="amazon" class="group-label">
                       <span class="group-border"></span>
                       <img class="group-img" src="images/amazon.png" alt="amazon">
@@ -233,7 +232,7 @@
                   <label for="card-number" class="sign-up-label">
                     <span class="sign-up-text">Card number</span>
                     <input class="sign-up-input  card-number" type="text" name="card-number" id="card-number" pattern="[0-9]{13,16}" placeholder="Must be 16-18 digits"
-                    title="please enter your card number" required>
+                    title="please enter your card number" minlength="16" maxlength="18" required>
                     </label>
                   <label for="card-date" class="sign-up-label">
                     <span class="sign-up-text">Expiry date</span>
@@ -276,8 +275,8 @@
           <div class="location">
             <h4 class="footer-title">our main office</h4>
             <address class="location-address">
-              <span>Dubfi, UAE</span><br>
-              <span>P.O.Box: 502735</span><br>
+              <span>Dubfi, UAE</span>
+              <span>P.O.Box: 502735</span>
               <a href="tel:+3800555555" class="phone">+380 (0) 555 555</a>
             </address>
           </div>

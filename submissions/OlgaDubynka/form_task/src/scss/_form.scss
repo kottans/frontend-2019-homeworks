@@ -40,7 +40,6 @@
 .sign-in {
   padding: 0 40px;
   display: flex;
-  display: flex;
   align-items: center;
   border: 1px solid $gray;
   border-radius: 3px;
@@ -60,11 +59,11 @@
   }
 
   .arrow-icon {
-    background-image: url('/images/arrow-back.png');
+    background-image: url('../images/arrow-back.png');
   }
 
   .sign-in-icon {
-    background-image: url('/images/user-account.png');
+    background-image: url('../images/user-account.png');
   }
 }
 
@@ -873,8 +872,29 @@
 }
 
 .range-input {
+  position: relative;
   display: block;
   width: 413px;
+}
+
+.range-input:before,
+.range-input:after {
+  position: absolute;
+  content: '';
+  top: -2px;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: lightgray;
+  z-index: 1;
+}
+
+.range-input:before {
+  left: 0;
+}
+
+.range-input:after{
+  right: 0;
 }
 
 .range-label {
@@ -899,10 +919,11 @@ input[type=range]::-webkit-slider-runnable-track {
   height: 11.3px;
   cursor: pointer;
   background: $lightgray;
-  border-radius: 1px;
+  border-radius: 5px;
 }
 
 input[type=range]::-webkit-slider-thumb {
+  position: relative;
   height: 23px;
   width: 23px;
   border-radius: 12px;
@@ -910,6 +931,7 @@ input[type=range]::-webkit-slider-thumb {
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -6.95px;
+  z-index: 10;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
@@ -1038,6 +1060,7 @@ input[type=range]:focus::-ms-fill-upper {
   }
 
   .sign-up-input {
+    position: relative;
 
     @media (max-width: 960px) {
       width: 80%;
@@ -1048,6 +1071,22 @@ input[type=range]:focus::-ms-fill-upper {
       width: 100%;
     }
 
+  }
+
+  .sign-up-input:valid,
+  .sign-up-input:invalid {
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position-y: 50%;
+    background-position-x: 96%;
+  }
+
+  .sign-up-input:valid {
+    background-image: url('../images/checked.svg');
+  }
+
+  .sign-up-input:invalid {
+    background-image: url('../images/error.svg');
   }
 
 }
