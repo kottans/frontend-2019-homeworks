@@ -43,7 +43,7 @@ class NumberControl extends Component {
   }
 
   eventHandler(event) {
-    const value = event.target.value || event.data || null;
+    const value = event.target.value || null;
     this.props.setState({ [this.props.valueName]: value });
   }
 }
@@ -95,7 +95,7 @@ class FriendApp {
   }
 
   filterByName(data, filter) {
-    return data.filter(item => item.name.first.startsWith(filter));
+    return data.filter(item => item.name.first.indexOf(filter) >= 0);
   }
 
   filterFromAge(data, age) {
@@ -166,7 +166,7 @@ class FriendApp {
     return data;
   }
 
-  renderUsers(data) {
+  renderUsers(data = []) {
     this.container.innerHTML = '';
     const userTemplates = [];
 
@@ -190,7 +190,7 @@ class FriendApp {
     });
 
     this.container.innerHTML = userTemplates.join('');
-    this.totalCounter.innerHTML = `Total: ${data.length || 0}`;
+    this.totalCounter.innerHTML = `Total: ${data.length}`;
   }
 
   render() {
@@ -207,8 +207,10 @@ class FriendApp {
 
   fetchData(apiUrl) {
     return fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => data.results)
+      .then(response => {
+        if (!response.ok) return [];
+        return response.json();
+      })
       .catch(() => []);
   }
 
@@ -253,13 +255,16 @@ class FriendApp {
       })
     );
 
-    this.fetchData(this.config.apiUrl).then(data => {
-      this.usersData = data;
+    this.fetchData(this.config.apiUrl)
+      .then(data => data.results || [])
+      .then(data => {
+        this.usersData = data;
 
-      this.render();
-    });
+        this.render();
+      });
   }
 }
 
-const app = new FriendApp('https://randomuser.me/api/?results=50');
+// const app = new FriendApp('https://randomuser.me/api/?results=50');
+const app = new FriendApp('http://httpstat.us/500');
 app.init();
