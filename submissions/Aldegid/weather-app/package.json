@@ -1,0 +1,35 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "main": "./index.html",
+  "scripts": {
+    "start": "parcel ./src/index.html",
+    "prebuild-dev": "shx rm -rf dist/",
+    "build-dev": "parcel build ./src/index.html --no-minify --public-url ./",
+    "prebuild": "shx rm -rf dist/",
+    "build": "parcel build ./src/index.html --public-url ./",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+  },
+  "author": "aldegid",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^9.4.9",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "cssnano": "^4.1.10",
+    "node-sass": "^4.11.0",
+    "sass": "^1.17.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.3",
+    "normalize.css": "^8.0.1",
+    "shx": "^0.3.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 3 versions",
+    "ios >= 6",
+    "not ie < 10"
+  ]
+}

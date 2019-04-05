@@ -1,0 +1,50 @@
+@import "vars"
+
+
+//Mixin for media rules
+=r($width)
+	@media only screen and (max-width: $width+ "px")
+		@content
+
+
++r(480)
+	.container
+		margin-left: 15px
+		margin-right: 15px
+
++r(400)
+	.main
+		background-image: none
+		background-color: rgba(#000, .7)
+	.container__inner-item img
+		width: 150px
+	.temperature__main-big
+		font-size: 60px
+	.temperature__state
+		font-size: 30px
+	.weather-state
+		font-size: 16px
+	.day-date .day
+		font-size: 16px
+	.day-date .date
+		font-size: 16px
+
+	.params_desc
+		display: none
+
+	.container__inner-small-item
+		font-size: 16px
+
+	.container__tools
+		flex-direction: column
+	.container__tools-item
+		width: 90%
+
+	.location-header
+		font-size: 26px
+
+	.avg-temperature
+		flex-direction: column
+		font-size: 24px
+		span
+			margin-left: 15px
