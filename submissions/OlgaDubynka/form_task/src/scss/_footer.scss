@@ -1,6 +1,38 @@
 .footer {
   background-color: $blue;
 
+  .fb,
+  .tw,
+  .in {
+    position: relative;
+    display: block;
+  }
+
+  .fb:before,
+  .tw:before,
+  .in:before {
+    position: absolute;
+    content: '';
+    width: 17px;
+    height: 17px;
+    top: -4px;
+    left: -25px;
+    background-size: 17px;
+    background-repeat: no-repeat;
+  }
+
+  .fb:before {
+    background-image: url(../images/fb.svg);
+  }
+
+  .tw:before {
+    background-image: url(../images/tw.svg);
+  }
+
+  .in:before {
+    background-image: url(../images/in.svg);
+  }
+
   .container {
     max-width: 1168px;
     margin: 0 auto;

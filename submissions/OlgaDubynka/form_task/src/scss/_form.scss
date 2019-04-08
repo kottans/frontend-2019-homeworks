@@ -48,6 +48,7 @@
   text-transform: uppercase;
   font-weight: 700;
   font-size: 12px;
+  transition: all .2s ease-in-out;
 
   .arrow-icon,
   .sign-in-icon {
@@ -71,6 +72,11 @@
   @media (max-width: 768px) {
     margin-bottom: 20px;
   }
+}
+
+.go-back:hover,
+.sign-in:hover {
+  background-color: #d5d7dd;
 }
 
 .form-intro {
@@ -206,15 +212,25 @@
   font-weight: 700;
   font-size: 12px;
   color: $darkgray;
+  transition: all .2s ease-in-out;
+}
+
+.proc-btn:hover {
+  background-color: #d5d7dd;
 }
 
 .proc-btn_green {
   background-color: $green;
   color: $white;
+  transition: all .2s ease-in-out;
 
   @media (max-width: 1200px) {
     margin-right: 5%;
   }
+}
+
+.proc-btn_green:hover {
+  background-color: #009688;
 }
 
 .proc-btn_mb {
@@ -340,6 +356,12 @@
   }
 
   .group-label {
+    transition: all .2 ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0px 0px 7px 4px rgba(0,0,0,0.2);
+    }
 
     &:first-of-type:before {
       background-image: url('../images/website.png');
@@ -515,6 +537,12 @@
   border: 1px solid $gray;
   background-color: $almostgray;
   border-radius: 5px;
+  transition: all .2s ease-in-out;
+}
+
+.upload-label:hover {
+  background-color: #d5d7dd;
+  cursor: pointer;
 }
 
 .upload-input:focus + .upload-label {
@@ -640,10 +668,16 @@
 
   .btn-add {
     margin-left: 25px;
+    transition: all .2s ease-in-out;
 
     @media (max-width: 576px) {
       margin-left: 0;
       width: 70%;
+    }
+
+    &:hover {
+      background-color: #d5d7dd;
+      cursor: pointer;
     }
   }
 
@@ -672,6 +706,7 @@
   border: 1px solid $gray;
   background-color: $almostgray;
   border-radius: 5px;
+  cursor: pointer;
 
   @media (max-width: 960px) {
     width: 180px;
@@ -727,6 +762,7 @@
   -moz-appearance: none;
   -webkit-appearance: none;
   border: none;
+  cursor: pointer;
 
   &:focus {
     outline: transparent;
@@ -803,6 +839,13 @@
     width: 240px;
     height: 73px;
     margin-bottom: 25px;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      background-color: #d5d7dd;
+      cursor: pointer;
+    }
+   
   }
 
   .group-border {
@@ -881,9 +924,8 @@
 .range-input:after {
   position: absolute;
   content: '';
-  top: -2px;
-  width: 15px;
-  height: 15px;
+  width: 11px;
+  height: 100%;
   border-radius: 100%;
   background-color: lightgray;
   z-index: 1;
@@ -1177,6 +1219,12 @@ input[type=range]:focus::-ms-fill-upper {
   }
 
   .group-label {
+    transition: all .2 ease-in-out;
+    cursor: pointer;
+  
+    &:hover {
+      box-shadow: 0px 0px 7px 4px rgba(0,0,0,0.2);
+    }
 
     @media (max-width: 768px) {
       width: 30%;
@@ -1336,7 +1384,7 @@ input[type=range]:focus::-ms-fill-upper {
   .phone,
   .fb,
   .tw,
-  .ld {
+  .in {
     display: block;
     margin-bottom: 10px;
     color: $lightcolor;
