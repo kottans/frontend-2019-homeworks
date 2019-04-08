@@ -1,0 +1,128 @@
+.language-section {
+  grid-area: language;
+  margin-bottom: 80px;
+}
+
+.language-heading-section {
+  display: flex;
+  padding-top: 10px;
+  padding-left: 70px;
+}
+
+.language-heading {
+  align-self: center;
+  font-size: 22px;
+  color: rgb(99, 92, 100);
+}
+
+.select-group {
+  border: none;
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  grid-row-gap: 4rem;
+  grid-column-gap: 2rem;
+  padding-top: 20px;
+  padding-left: 95px;
+  margin-left: 13px;
+}
+
+.language-select-button {
+  position: relative;
+  display: inline-block;
+}
+
+.language-select-button::before {
+  content: "▼";
+  position: absolute;
+  margin: 0 auto;
+  font-size: 12px;
+  right: 8px;
+  top: 16px;
+  z-index: 1;
+  text-align: center;
+  width: 10%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.language-select-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 50px;
+  width: 1px;
+  background: rgb(221, 221, 228);
+}
+
+
+.select-lable {
+  color: rgb(133, 130, 130);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.language-from,
+.language-to {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 30px;
+}
+
+.language-to {
+  grid-row: 2;
+  grid-column: 1/2;
+}
+
+.language-second {
+  grid-column: 2/3;
+  grid-row: 2;
+  padding-left: 30px;
+}
+
+.add-button {
+  grid-column: 3/4;
+  grid-row: 2;
+}
+
+.select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.select-button {
+  position: relative;
+  min-width: 180px;
+  width: 70%;
+  height: 52px;
+  border-radius: 8px;
+  border: 1px solid rgb(221, 221, 228);
+  padding-left: 45px;
+  color: rgb(152, 150, 179);
+  background-color: rgb(247, 247, 250);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.fa-plus {
+  margin-right: 5px;
+  font-size: 10px;
+}
+
+.add-button {
+  padding: 0;
+  min-width: 100px;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.select-button:hover{
+  opacity: 0.8;
+}
+
+

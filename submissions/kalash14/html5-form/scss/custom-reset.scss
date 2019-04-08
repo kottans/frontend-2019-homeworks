@@ -1,0 +1,99 @@
+@import "vars";
+@import "./_mixins/custom-mixins";
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+    @include mediaQuery(1200) {
+        font-size: 13px;
+    }
+    @include mediaQuery(600) {
+        font-size: 12px;
+    }
+}
+
+input::placeholder {
+    color: #d8deea;
+}
+
+body {
+    line-height: 1.5;
+    font-family: $default-font;
+    font-weight: normal;
+    color: $text;
+}
+
+input,
+textarea {
+    outline: none;
+
+    &:focus:required:invalid {
+        border-color: #e17776;
+    }
+
+    &:focus:required:invalid + .validation-circle {
+        opacity: 1;
+        visibility: visible;
+        background-image: url("#{$imagePath}/not-valid.svg");
+    }
+    &:required:valid + .validation-circle {
+        opacity: 1;
+        visibility: visible;
+        background-image: url("#{$imagePath}/checked.png");
+    }
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    &.img-width {
+        width: 100%;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+
+span,
+p {
+    color: $lightGrey;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    li {
+        list-style: none;
+    }
+}
+
+figure {
+    margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}

@@ -1,0 +1,77 @@
+.button {
+  cursor: pointer;
+  border: 1px solid #dcdce3;
+  background-color: #f7f7fa;
+  border-radius: 5px;
+  color: #b1aac5;
+  width: 170px;
+  height: 52px;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: darken($color: #f7f7fa, $amount: 5%);
+    border-color: darken($color: #dcdce3, $amount: 10%);
+  }
+
+  &:active {
+    background-color: darken($color: #f7f7fa, $amount: 10%);
+    border-color: darken($color: #dcdce3, $amount: 10%);
+  }
+}
+
+.button--primary {
+  color: #ffffff;
+  background-color: #5fcac6;
+  border-color: #56b3b0;
+
+  &:hover {
+    background-color: darken($color: #5fcac6, $amount: 10%);
+    border-color: darken($color: #56b3b0, $amount: 10%);
+  }
+
+  &:active {
+    background-color: darken($color: #5fcac6, $amount: 15%);
+    border-color: darken($color: #56b3b0, $amount: 15%);
+  }
+}
+
+.form-button {
+  @include form-input;
+
+  cursor: pointer;
+  min-width: 120px;
+}
+
+.form-button--transparent {
+  background-color: transparent;
+  border: none;
+  color: $text-color-second;
+
+  &:hover,
+  &:active {
+    background-color: transparent;
+  }
+}
+
+.form-button--small {
+  min-width: 50px;
+}
+
+.file-upload__label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 25px 0;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: fit-content;
+
+  .file-upload__input:focus + & {
+    @include focus-outline;
+  }
+  
+  .fas {
+    margin-right: 0.5em;
+    font-size: 1.2em;
+  }
+}
