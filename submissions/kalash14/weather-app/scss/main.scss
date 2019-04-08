@@ -1,0 +1,456 @@
+@import "vars";
+@import "fonts";
+@import "custom-reset";
+@import "./_mixins/custom-mixins";
+@import "perfect-scrollbar.css";
+
+/* custom styles */
+
+html {
+    @include mediaQuery(400) {
+        font-size: 12px;
+    }
+}
+
+body {
+    background-color: $backgroundColor;
+    padding: 0 15px;
+}
+
+.main {
+    padding-bottom: 2em;
+}
+
+.app-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.main-title {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    font-size: 3em;
+}
+
+.search-block {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.main-search-input {
+    flex-grow: 1;
+    height: $elementsHeight;
+    padding-left: 10px;
+    padding-right: 50px;
+    margin-right: 5px;
+    border: none;
+    border-radius: $borderRadius;
+    background-color: $backgroundItem;
+    background-image: url("#{$imagePath}/magnifying-glass.svg");
+    background-position: 98% center;
+    background-repeat: no-repeat;
+    background-size: 25px;
+    color: $text;
+    @include transition(background-color);
+    &:hover {
+        background-color: $backgroundItemHover;
+    }
+    &:focus {
+        background-color: $backgroundItemHover;
+    }
+    @include mediaQuery(400) {
+        width: 100%;
+    }
+}
+
+.add-to-favourite {
+    background-image: url("#{$imagePath}/star.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: $backgroundItem;
+    background-size: 35px;
+    border: none;
+    border-radius: $borderRadius;
+    width: 50px;
+    height: $elementsHeight;
+    margin-right: 5px;
+    cursor: pointer;
+    @include transition(all);
+    &:not(:disabled):hover {
+        background-color: $backgroundItemHover;
+    }
+    &:disabled {
+        cursor: default;
+    }
+}
+
+.add-to-favourite-active {
+    background-image: url("#{$imagePath}/star-filled.svg");
+}
+
+.temperature-units {
+    height: $elementsHeight;
+    background-color: $backgroundItem;
+    border: none;
+    border-radius: $borderRadius;
+    padding: 0 10px;
+    color: $text;
+    @include transition(all);
+    &:hover {
+        background-color: $backgroundItemHover;
+    }
+    option {
+        color: $backgroundColor;
+    }
+}
+
+/* search result container */
+
+.city-name {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(66, 134, 244, 0.1);
+}
+
+.forecast-details {
+    display: flex;
+    justify-content: space-between;
+    @include mediaQuery(600) {
+        flex-wrap: wrap;
+    }
+    @include mediaQuery(400) {
+        flex-direction: column;
+    }
+}
+
+.forecast-item:first-child {
+    @include mediaQuery(600) {
+        width: 50%;
+    }
+    @include mediaQuery(400) {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+.forecast-item:nth-child(2) {
+    text-align: center;
+    @include mediaQuery(600) {
+        order: 3;
+        margin: 0 auto;
+    }
+    @include mediaQuery(400) {
+        text-align: left;
+        margin: 0 0 20px;
+    }
+}
+
+.forecast-item:last-child {
+    @include mediaQuery(600) {
+    }
+}
+
+.forecast-current {
+    background-color: $backgroundItem;
+    border: 1px solid transparent;
+    border-radius: $borderRadius;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.forecast-item-text {
+    margin-bottom: 5px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.forecast-item-text-day {
+    font-size: 24px;
+}
+
+.forecast-item-text-icon {
+    padding-left: 2em;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 1.4em;
+}
+
+.forecast-item-text-icon-pressure {
+    background-image: url("#{$imagePath}/barometer.svg");
+}
+
+.forecast-item-text-icon-date {
+    background-image: url("#{$imagePath}/calendar.svg");
+}
+
+.forecast-item-text-icon-humidity {
+    background-image: url("#{$imagePath}/humidity.svg");
+}
+.forecast-item-text-icon-wind {
+    background-image: url("#{$imagePath}/wind.svg");
+}
+
+.forecast-item-temps {
+    display: flex;
+    justify-content: space-between;
+    @include mediaQuery(600) {
+        justify-content: flex-start;
+    }
+}
+
+.forecast-item-tempcurrent {
+    font-size: 72px;
+    font-weight: 600;
+    text-align: center;
+    @include mediaQuery(600) {
+        text-align: left;
+    }
+}
+
+.weather-icon-current {
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100px;
+    margin: 0 auto;
+    @include mediaQuery(600) {
+        margin: 0;
+    }
+}
+
+.weather-icon-description {
+    font-size: 24px;
+    font-style: italic;
+    max-width: 6em;
+    line-height: 1.25;
+}
+
+.temp-min,
+.temp-max {
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    padding-left: 28px;
+    font-size: 20px;
+}
+
+.temp-min {
+    background-image: url("#{$imagePath}/cold-temperature.svg");
+    margin-right: 20px;
+}
+
+.temp-max {
+    background-image: url("#{$imagePath}/hot-thermometer.svg");
+}
+
+/* forecast days */
+
+.forecast-nearest-days,
+.user-activity-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.forecast-nearest-days {
+    margin-bottom: 20px;
+    margin-left: -10px;
+    @include mediaQuery(600) {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-bottom: 0;
+    }
+}
+
+.forecast-nearest-days > div {
+    height: 150px;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: $borderRadius;
+    margin-left: 10px;
+    background-color: $backgroundItem;
+    cursor: pointer;
+    @include transition(background-color);
+    &:hover {
+        background-color: $backgroundItemHover;
+    }
+    @include mediaQuery(600) {
+        width: calc(33.33% - 10px);
+        margin-bottom: 20px;
+        flex-grow: 0;
+    }
+}
+
+// .forecast-nearest-day-item {
+//     flex-grow: 1;
+//     align-items: center;
+//     justify-content: center;
+//     height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     border-radius: 5px;
+//     margin-left: 10px;
+//     background-color: rgba(255, 255, 255, 0.1);
+//     cursor: pointer;
+//     @include transition(background-color);
+//     &:hover {
+//         background-color: rgba(255, 255, 255, 0.3);
+//     }
+// }
+
+.forecast-nearest-day-item {
+    width: 100%;
+    height: 100%;
+    padding-top: 1.5em;
+    text-align: center;
+}
+
+.day-forecast-weather {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50px;
+}
+
+.day-forecast-weather-sunny {
+    background-image: url("#{$imagePath}/animated/day.svg");
+}
+.day-forecast-weather-cloudy-small {
+    background-image: url("#{$imagePath}/animated/cloudy-day-1.svg");
+}
+.day-forecast-weather-cloudy {
+    background-image: url("#{$imagePath}/animated/cloudy-day-3.svg");
+}
+.day-forecast-weather-shower-rain {
+    background-image: url("#{$imagePath}/animated/rainy-7.svg");
+}
+.day-forecast-weather-snow {
+    background-image: url("#{$imagePath}/animated/snowy-6.svg");
+}
+.day-forecast-weather-rain {
+    background-image: url("#{$imagePath}/animated/rainy-3.svg");
+}
+.day-forecast-weather-thunder {
+    background-image: url("#{$imagePath}/animated/thunder.svg");
+}
+
+.day-forecast-dayname {
+    font-style: italic;
+}
+
+/* user activity items */
+
+.user-activity-wrap {
+    min-height: 200px;
+    margin-left: -20px;
+    @include mediaQuery(768) {
+        margin-left: 0;
+        flex-direction: column;
+    }
+}
+
+.user-activity-wrap > div {
+    width: 50%;
+    margin-left: 20px;
+    padding: 20px;
+    border-radius: $borderRadius;
+    background-color: $backgroundItem;
+    &:first-child {
+        @include mediaQuery(768) {
+            margin-bottom: 20px;
+        }
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+
+    @include mediaQuery(768) {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+// .user-activity-item {
+//     width: 50%;
+//     margin-left: 20px;
+//     padding: 20px;
+//     border-radius: 5px;
+//     &:last-child {
+//         margin-right: 0;
+//     }
+//     background-color: rgba(255, 255, 255, 0.1);
+// }
+
+.user-activity-title {
+    text-transform: uppercase;
+}
+
+.user-activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.remove-button {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-image: url("#{$imagePath}/delete.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: $backgroundItem;
+    background-size: 20px;
+    border: none;
+    border-radius: $borderRadius;
+    @include transition(background-color);
+    &:hover {
+        background-color: $backgroundItemHover;
+    }
+}
+
+.user-activity-list {
+    height: 180px;
+    position: relative;
+    padding-right: 15px;
+}
+
+.user-activity-list-item {
+    margin-bottom: 5px;
+    border-bottom: 1px solid $backgroundItem;
+    padding: 0 5px;
+    cursor: pointer;
+    @include transition(all);
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &:hover {
+        background-color: $backgroundItem;
+        border-radius: $borderRadius;
+    }
+}
+
+.user-activity-title-fav,
+.user-activity-title-history {
+    background-position: left 2px;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    padding-left: 30px;
+}
+
+.user-activity-title-fav {
+    background-image: url("#{$imagePath}/star.svg");
+}
+
+.user-activity-title-history {
+    background-image: url("#{$imagePath}/history-clock-button.svg");
+}

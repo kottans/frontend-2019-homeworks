@@ -1,0 +1,12 @@
+@import "vars";
+
+//Mixin for media rules
+@mixin mediaQuery($width) {
+    @media only screen and (max-width: $width+ "px") {
+        @content;
+    }
+}
+
+@mixin transition($arg) {
+    transition: 0.2s $arg ease-in-out;
+}
