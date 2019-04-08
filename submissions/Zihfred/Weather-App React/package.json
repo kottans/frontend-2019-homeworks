@@ -1,0 +1,29 @@
+{
+  "name": "weather-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "cyrillic-to-translit-js": "^2.1.0",
+    "downshift": "^3.2.7",
+    "react": "^16.8.5",
+    "react-autocomplete": "^1.8.1",
+    "react-dom": "^16.8.5",
+    "react-scripts": "2.1.8",
+    "react-select": "^2.4.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
