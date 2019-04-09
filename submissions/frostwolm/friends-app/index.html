@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Friends App</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<header>
+  <h1 class="apptitle">Friends App</h1>
+</header>
+<main class="main-container">
+  <div class="controls">
+    <div class="controls__group sort">
+      <span class="controls__text">By Age:</span>
+      <button class="controls__button sort__button sort__button--increase" id="age-sort-increase"></button>
+      <button class="controls__button sort__button sort__button--reduce" id="age-sort-degrease"></button>
+    </div>
+    <div class="controls__group sort">
+      <span class="controls__text">By Name:</span>
+      <button class="controls__button sort__button sort__button--increase" id="name-sort-increase"></button>
+      <button class="controls__button sort__button sort__button--reduce" id="name-sort-decrease"></button>
+    </div>
+    <div class="controls__group filter">
+      <input class="controls__input" type="number" id="age-input">
+      <button class="controls__button controls__button--stretch" id="age-filter">Filter by age</button>
+      <input class="controls__input" stype="text" id="name-input">
+      <button class="controls__button controls__button--stretch" id="name-filter">Filter by name</button>
+    </div>
+    <div class="reset">
+      <button class="controls__button controls__button--stretch" id="reset-button">Reset</button>
+    </div>
+  </div>
+  <div class="users" id="users">
+  </div>
+  <div class="modal visually-hidden" id="modal-error">
+    <div>
+        <p class="modal__text">
+            Something go wrong!
+        </p>
+    </div>
+  </div>
+</main>
+<script src="js/app.js" charset="utf-8"></script>
+</body>
+</html>
