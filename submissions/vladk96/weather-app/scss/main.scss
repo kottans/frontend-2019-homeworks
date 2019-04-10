@@ -1,0 +1,15 @@
+@import 'base/normalize';
+@import 'base/font-iconmoon';
+@import 'base/fonts';
+@import 'base/variables';
+
+@import 'components/app-content';
+@import 'components/search-bar';
+@import 'components/today-weather';
+@import 'components/week-forecast';
+@import 'components/lists';
+
+body {
+  font-family: 'raleway-regular', sans-serif;
+  background-color: $back-color;
+}

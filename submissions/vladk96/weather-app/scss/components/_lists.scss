@@ -1,0 +1,104 @@
+// .lists {
+//   display: flex;
+//   margin-top: $component-ver-indent;
+// }
+
+//this thrick will be removed later
+
+.lists {
+  margin-top: $component-ver-indent;
+}
+
+.lists > div {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+}
+
+.list {
+  // width: 50%;
+  padding-bottom: 3px;
+  background-color: $component-back-color;
+  border-radius: $component-radius;
+}
+
+.list-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-title {
+  margin: 10px 0 0 15px;
+  font-family: 'raleway-bold', sans-serif;
+  font-size: 1rem;
+  color: $font-color-accent;
+  text-transform: uppercase;
+}
+
+.list-button {
+  background: none;
+  border: none;
+  padding: 8px 10px 0;
+  color: $font-color-accent;
+  cursor: pointer;
+  outline: none;
+  transition: .1s color linear;
+}
+
+.list-button:hover {
+  color: $font-color-light;
+}
+
+.favorite-list{ 
+  margin-left: $component-hor-indent;
+}
+
+.favorite-list li {
+  position: relative;
+  margin-right: 15px;
+}
+
+.favorite-list-button {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  top: 6px;
+  right: 0;
+  font-size: 1rem;
+  color: #4b5d6a;
+  cursor: pointer;
+}
+
+.favorite-list-button:hover {
+  color: #f44336;
+}
+
+.viewed-list {
+  margin-right: $component-hor-indent;
+}
+
+.viewed-list li {
+  margin-right: 15px;
+}
+
+.list ul {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.list li {
+  list-style: none;
+  font-family: 'raleway-regular', sans-serif;
+  border-bottom: 1px solid rgb(205,205,205);
+  color: $font-color-accent;
+  font-size: .9rem;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.list li:hover {
+  color: $font-color-light;
+}

@@ -1,0 +1,82 @@
+.today-weather {
+  display: flex;
+  justify-content: space-between;
+  background-color: $component-back-color;
+  border-radius: $component-radius $component-radius 0 0;
+  padding: 15px 40px 50px;
+}
+
+.wrapper:first-child {
+  width: 60%;
+}
+
+.wrapper:last-child {
+  width: 40%;
+} 
+
+.city-name {
+  display: inline-block;
+  font-family: 'raleway-semibold', sans-serif;
+  color: $font-color-accent;
+  margin-bottom: 0;
+}
+
+.favorite-btn {
+  display: inline-block;
+  font-size: 1.3rem;
+  color: $font-color-accent;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: .1s color linear;
+  transition: .2s transform linear;
+}
+
+.favorite-btn:hover { 
+  color: $font-color-light;
+  transform: scale(1.2);
+}
+
+.date {
+  margin: 0;
+  color: $font-color-light;
+}
+
+.weather-desc {
+  font-family: 'raleway-semibold', sans-serif;
+  color: rgba(75,93,106,.82);;
+  margin: 5px 0 0 0;
+  text-transform: capitalize;
+}
+
+.weather-image {
+  margin-top: 40px;
+  margin-left: 10px;
+  width: 150px;
+}
+
+.weather-image img {
+  width: 100%;
+}
+
+.wind-speed,
+.humidity,
+.plessure {
+  margin: 0 0 5px 15px;
+  font-family: 'raleway-regular', sans-serif;
+  color: $font-color-light;
+}
+
+.wind-speed {
+  margin-top: 25px;
+}
+
+.temperature {
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  font-size: 6rem;
+  color: $font-color-accent;
+  margin: 50px 0 0 0;
+  text-align: center;
+}

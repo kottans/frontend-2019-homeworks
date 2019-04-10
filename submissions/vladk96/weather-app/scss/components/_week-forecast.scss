@@ -1,0 +1,43 @@
+.week-forecast {
+  background-color: $component-back-color;
+  padding-bottom: 40px;
+  border-radius: 0 0 $component-radius $component-radius;
+}
+
+.week-forecast-list {
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.week-forecast-day {
+  list-style: none;
+  padding: 0 25px;
+  border-right: 1px solid rgb(205,205,205);
+  color: $font-color-accent;
+  cursor: pointer;
+  transition: .2s color linear;
+}
+
+.week-forecast-day:hover { 
+  color: $font-color-light;
+}
+
+.week-forecast-day:last-child {
+  border: 0;
+}
+
+.week-forecast-title {
+  margin: 0 0 10px 0;
+  font-family: 'raleway-bold', sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.week-forecast-temperature {
+  font-family: 'raleway-bold', sans-serif;
+  font-size: 1rem;
+  margin: 0;
+}
