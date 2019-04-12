@@ -13,12 +13,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://github.com/IrynaY/frontend-2019-homeworks",
+  "homepage": "http://IrynaY.github.io/frontend-2019-homeworks",
   "browserslist": [
     ">0.2%",
     "not dead",
