@@ -1,0 +1,8 @@
+.page-list {
+  justify-content: center;
+}
+
+.page-list button{
+  padding: 5px 8px;
+  margin: 5px;
+}

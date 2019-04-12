@@ -1,0 +1,18 @@
+.character-info {
+  margin: 25px;
+  padding: 15px;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  border-radius: 15px;
+
+}
+
+.character-info .title {
+  text-align: center;
+}
+
+.character-info:hover{
+  box-shadow: 0 0 10px rgba(0,0,0,0.5)
+}

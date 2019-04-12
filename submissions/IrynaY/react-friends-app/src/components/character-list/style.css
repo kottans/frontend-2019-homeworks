@@ -1,0 +1,10 @@
+.content {
+  text-align: center;
+}
+
+.character-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
