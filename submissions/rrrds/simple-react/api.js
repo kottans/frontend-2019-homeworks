@@ -37,10 +37,19 @@ export async function fetchCharacter(id) {
   return res;
 }
 
-export async function fetchCharacterAll(page = 1) {
-  const res = await fetch(`${API}/character?page=${page}`).then(body =>
-    body.json()
-  );
+export async function fetchCharacterAll(page = 1, filters) {
+  const allFilters = { name: "", gender: "" };
+  filters = Object.assign(allFilters, filters);
+
+  const filterString = Object.keys(filters)
+    .map(key => {
+      return `${key}=${filters[key]}`;
+    })
+    .join("&");
+
+  const res = await fetch(
+    `${API}/character/?page=${page}&${filterString}`
+  ).then(body => body.json());
 
   return res;
 }
