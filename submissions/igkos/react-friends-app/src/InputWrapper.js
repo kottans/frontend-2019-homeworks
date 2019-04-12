@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputWrapper = ({ handleSubmit }) => {
+const InputWrapper = ({ handleSubmit, limit, orderBy }) => {
   const onSubmit = ev => {
     ev.preventDefault();
     const { elements } = ev.target;
@@ -14,17 +14,23 @@ const InputWrapper = ({ handleSubmit }) => {
   };
   return (
     <form onSubmit={onSubmit}>
-      <select className="search__item search__select" name="orderBy">
+      <select
+        defaultValue={orderBy}
+        className="search__item search__select"
+        name="orderBy"
+      >
         <option value="modified">Order by: modified</option>
         <option value="-modified">Order by: -modified</option>
         <option value="title">Order by: title</option>
         <option value="-title">Order by: -title</option>
       </select>
-      <select className="search__item search__select" name="limit">
+      <select
+        defaultValue={limit}
+        className="search__item search__select"
+        name="limit"
+      >
         <option value="10">Comics per page: 10</option>
-        <option selected="selected" value="20">
-          Comics per page: 20
-        </option>
+        <option value="20">Comics per page: 20</option>
         <option value="30">Comics per page: 30</option>
         <option value="50">Comics per page: 50</option>
       </select>
@@ -32,6 +38,7 @@ const InputWrapper = ({ handleSubmit }) => {
         className="search__item search__input"
         placeholder="title starts with ....."
         name="titleStartsWith"
+        readOnly
       />
       <button className="search__item search__button">search</button>
     </form>

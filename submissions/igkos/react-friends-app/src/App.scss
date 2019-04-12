@@ -36,9 +36,8 @@ nav {
   z-index: 1;
   background-color: white;
   .search__item {
-    height: 40px;
     margin: 10px;
-    padding: 5px 20px;
+    padding: 10px 20px;
     text-align: center;
     z-index: 1;
     background: white;
@@ -54,6 +53,10 @@ nav {
   .search__item:focus {
     outline: none;
     border: 1px solid blue;
+  }
+  .search__input {
+    width: 260px;
+    text-align: left;
   }
 
   .search__button {

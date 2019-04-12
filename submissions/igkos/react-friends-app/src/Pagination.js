@@ -4,8 +4,7 @@ const Pagination = ({ limit, offset, total, handleClick }) => {
   if (total && limit) {
     const getPageNumber = itemsPerPage => Math.ceil(itemsPerPage / limit);
     let currentPage = getPageNumber(offset) + 1;
-    currentPage = !currentPage ? 1 : currentPage;
-    const lastPage = getPageNumber(total) - 1;
+    const lastPage = getPageNumber(total);
     const getPager = () => {
       let pagerSize = 5;
       pagerSize = pagerSize % 2 ? pagerSize++ : pagerSize;
@@ -50,10 +49,11 @@ const Pagination = ({ limit, offset, total, handleClick }) => {
       if (
         e.target.matches('li') &&
         pageNumber !== '...' &&
-        pageNumber !== currentPage
-      )
-        console.log(pageNumber);
-      handleClick({ offset: (pageNumber - 1) * limit });
+        // eslint-disable-next-line
+        pageNumber != currentPage
+      ) {
+        handleClick({ offset: (pageNumber - 1) * limit });
+      }
     };
 
     return (

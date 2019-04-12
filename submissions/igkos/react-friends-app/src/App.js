@@ -72,7 +72,10 @@ class App extends Component {
     return (
       <div className="App">
         <nav>
-          <InputWrapper handleSubmit={this.setComicsLParams} />
+          <InputWrapper
+            handleSubmit={this.setComicsLParams}
+            {...searchParams}
+          />
         </nav>
 
         {isLoading ? (
@@ -89,7 +92,7 @@ class App extends Component {
               ))}
               {!list.length ? <h2>Oops nothing found ":("</h2> : null}
             </main>
-            <Pagination handleClick={this.setComicsLParams} {...searchParams} />
+            <Pagination handleClick={this.setComicsParams} {...searchParams} />
           </>
         )}
         {showPopup ? (
