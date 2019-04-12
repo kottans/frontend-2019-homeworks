@@ -1,0 +1,5 @@
+.sorter-section {
+  display: flex;
+  flex-direction: row;
+  min-width: 200px;
+}

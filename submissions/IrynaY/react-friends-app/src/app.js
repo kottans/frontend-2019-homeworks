@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import './app.css'
 
 import Filter from './components/filter'
+import Sorter from './components/sorter'
+
 import CharacterList from './components/character-list'
 import Pagination from './components/pagination'
 
@@ -27,6 +29,10 @@ class App extends Component {
   handleSearch({ key, value }) {
     const filter = {...this.state.filter, [key]: value}
     this.resetPageState(filter)
+  }
+
+  handleSort(list) {
+    this.setState({list})
   }
 
   handlePrevPage() {
@@ -65,7 +71,12 @@ class App extends Component {
   render() {
     return(
       <div className='App'>
-        <Filter formSubmit={this.handleSearch.bind(this)}/>
+        <div className='sidebar'>
+          <Sorter 
+            apllySort={this.handleSort.bind(this)} 
+            list={this.state.list}/>
+          <Filter formSubmit={this.handleSearch.bind(this)}/>
+        </div>
         <CharacterList list={this.state.list}>
           <Pagination
             page={this.state.filter.page}
