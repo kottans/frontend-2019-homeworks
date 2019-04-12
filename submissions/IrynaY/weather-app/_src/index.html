@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="style.css" rel="stylesheet" />
+
+    <!-- AIzaSyDDzLWG78savrOF2u8tzL75R5TdnyMPQKE -->
+    <!-- AIzaSyDGgiikwlZ3KqdGW_L3jVqV4In36OI7_bY -->
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDzLWG78savrOF2u8tzL75R5TdnyMPQKE&libraries=places"></script> -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGgiikwlZ3KqdGW_L3jVqV4In36OI7_bY&libraries=places"></script> -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en-GB&key=AIzaSyDacIY2y0FpYJPzviDRd25k_nQWvausoPs"></script> -->
+    <script src="./index.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="top">
+      <input type="text" id="city" />
+      <button class="search">Find</button>
+      <button class="c active__btn">°C</button>
+      <button class="f">°F</button>
+    </div>
+    <main class="app">
+      <section class="history">
+        <ul>
+          <li><a href="#">Lviv, Lviv Oblast, Ukraine</a></li>
+          <li><a href="#">Kyiv, Ukraine</a></li>
+        </ul>
+      </section>
+      <section class="content">
+        <div class="location">
+          <i class="favourite__icon"></i>
+          <span class="city-title"> Kiev, UA </span>
+          <span class="date-title">01.01.2019</span>
+            
+          <div class="weather">
+            <div class="min-max">
+              <span class="min-temp">13°</span> |<span class="max-temp"> 14° </span>
+            </div>
+            <span class="temperature"><img src="./assets/sunny.png" alt="" style="width: 34px"/> 30 <sup>° C</sup> </span>  
+            <span>Clouds: 10%</span>
+            <span>Humidity: 74%</span>
+            <span>Wind: 4 mps</span>
+          </div>
+
+          <ul class="forecast">
+            <li class="card">
+                <span>Tuesday, 28</span>
+                <div>
+                  27° <img src="./assets/sunny.png" alt="" />
+                  <p>Partly cloudy</p>
+                  <p>Humidity 60% </p>
+                  <p>Wind NW 12</p>
+                  <p>Dew Point 16°</p>
+                </div>
+              </li>
+              <li class="card">
+                <span>Tuesday, 28</span>
+                <div>
+                  27° <img src="./assets/sunny.png" alt="" />
+                  <p>Partly cloudy</p>
+                  <p>Humidity 60%</p>
+                  <p>Wind NW 12</p>
+                  <p>Dew Point 16°</p>
+                </div>
+              </li>
+          </ul>
+      </section>
+      <section class="favourite">
+        <ul class="favourites">
+          <li>
+            <div>
+              <i class="favourite__icon"></i>
+              <p>Lviv, Lviv Oblast, Ukraine</p>
+              <span>Tuesday, 28</span>
+              <div>
+                <img src="./assets/sunny.png" alt="" />
+                <span>Temp: 10°</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <i class="favourite__icon"></i>
+              <p>Lviv, Lviv Oblast, Ukraine</p>
+              <span>Tuesday, 28</span>
+              <div>
+                <img src="./assets/sunny.png" alt="" />
+                <span>Temp: 10°</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

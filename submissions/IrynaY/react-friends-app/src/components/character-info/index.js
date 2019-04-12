@@ -4,25 +4,15 @@ import './style.css';
 
 import Avatar from '../avatar'
 
-const CharacterInfo = ({name, image, status, species, gender, type}) => {
+const CharacterInfo = ({ name, image, status, species, gender, type }) => {
   return(
     <div className='character-info'>
-      <h2 className='title'>{name}</h2>
+      <h4 className='title'>{name}</h4>
       <Avatar src={image} alt={name}/>
-      <span><b>Status:</b>
-        {status}
-      </span>
-      <span><b>Species:</b>
-        {species}
-      </span>
-      <span><b>Gender:</b>
-        {gender}
-      </span>
-      {type &&
-        <span><b>Type:</b>
-          {type}
-        </span>
-      }
+      <span><b>Status: </b>{status}</span>
+      <span><b>Species: </b>{species}</span>
+      <span><b>Gender: </b>{gender}</span>
+      {type && <span><b>Type: </b>{type}</span>}
     </div>
   )
 }
