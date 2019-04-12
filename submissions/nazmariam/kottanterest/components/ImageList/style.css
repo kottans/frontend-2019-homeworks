@@ -1,0 +1,82 @@
+
+@keyframes rt {
+  from {
+    top:-20px
+  }
+  to {
+    top: 0
+  }
+}
+
+.wrapper{
+  column-count:4;
+  column-width: 200px;
+}
+.card{
+  margin-bottom: 16px;
+  position: relative !important;
+}
+.user-link{
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background-color: #3c3d3e;
+  padding: 8px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #fff;
+  opacity: 0;
+}
+.rate{
+  position: absolute;
+  color: #fff;
+  background-color: red;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  top:0;
+  right:16px;
+  font-weight: bolder;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+  opacity: 0;
+}
+.unsplash-link{
+  color: #cecece;
+  text-decoration: none;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  padding: 8px;
+  font-size: 0.9em;
+  opacity: 0;
+}
+.card:hover > .user-link{
+  opacity: 1;
+  transition: opacity .15s ease-in-out;
+}
+.card:hover > .rate{
+  opacity: 1;
+  transition: opacity .15s ease-in-out;
+}
+.card:hover > .unsplash-link{
+  opacity: 1;
+  transition: opacity .15s ease-in-out;
+}
+.card-img-top{
+  width: 100%;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  display: block;
+}
+
+@media screen and (max-width: 500px){
+  .user-link,
+  .rate,
+  .unsplash-link{
+    opacity: 1;
+  }
+}
