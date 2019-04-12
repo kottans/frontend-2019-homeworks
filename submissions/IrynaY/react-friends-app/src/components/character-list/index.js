@@ -2,18 +2,15 @@ import React from 'react';
 import propTypes from 'prop-types'
 import './style.css';
 
-
 import CharacterInfo from '../character-info'
-import Pagination from '../pagination'
 
-function CharacterList(props) {
-  console.log(">>>", props)
+const CharacterList = ({list, children} ) => {
   return (
     <div className='content'>
-      <div className='character-list'> 
-      {props.list.map(character => 
-        <CharacterInfo 
-          image={character.image} 
+      <div className='character-list'>
+      {list && list.map(character =>
+        <CharacterInfo
+          image={character.image}
           url={character.url}
           name={character.name}
           status={character.status}
@@ -24,19 +21,13 @@ function CharacterList(props) {
         />
       )}
       </div>
-      <Pagination 
-        currentPage={props.page} 
-        // next={props.next} 
-        // prev={props.prev}
-        />
+      {list ? children : <div className='notFound'> 404 </div>}
     </div>
   )
 }
 
 CharacterList.propTypes = {
   list: propTypes.array,
-  // page: propTypes.array,
 }
-
 
 export default CharacterList

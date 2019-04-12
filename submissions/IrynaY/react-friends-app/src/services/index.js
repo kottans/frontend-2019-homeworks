@@ -1,9 +1,8 @@
-const fetchy = (url) => 
-  fetch(url).then(resp => {
-    if(resp.ok)
-      return resp.json()
-    throw new Error(resp.statusText)
-  })
+const URL = 'https://rickandmortyapi.com/api/character/'
 
-export const fetchCharacterList = (query) => 
-  fetchy(`https://rickandmortyapi.com/api/character/?page=${query}`)
+export const fetchCharacterList = (query) => {
+  let uri = URL
+  if(query)
+    uri += '?' + query
+  return fetch(uri).then(resp => !resp.ok ? [] : resp.json())
+}

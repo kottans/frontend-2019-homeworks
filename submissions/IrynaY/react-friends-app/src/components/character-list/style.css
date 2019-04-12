@@ -8,3 +8,12 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.notFound{
+  margin:auto;
+  padding: 150px;
+  font-size: 228px;
+  font-weight: bold;
+  color: blueviolet;
+  transform: rotate(-25deg);
+}

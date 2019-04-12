@@ -2,29 +2,21 @@ import React from 'react';
 import propTypes from 'prop-types'
 import './style.css';
 
-function Pagination(props){
+const Pagination = ({page, total, goToNextPage, goToPrevPage}) => {
   return(
     <div className='page-list'>
-      
-      <button>
-      set page state -1
-      </button>
-
-      <button>
-        {props.currentPage}
-      </button>
-
-      <button>
-        set page state +1
-      </button>
+      {(page > 1) && <button onClick={goToPrevPage}> Back </button> }
+      <button>{page}</button>
+      {(page < total) &&  <button onClick={goToNextPage}>  Next </button> }
     </div>
   )
 }
 
 Pagination.propTypes = {
-  currentPage: propTypes.number,
-  // next: propTypes.number,
-  // prev: propTypes.number
+  page: propTypes.number,
+  total: propTypes.number,
+  goToNextPage: propTypes.func,
+  goToPrevPage: propTypes.func,
 }
 
 export default Pagination
