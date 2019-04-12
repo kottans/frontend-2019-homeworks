@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -17,6 +18,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "homepage": "https://github.com/IrynaY/frontend-2019-homeworks",
   "browserslist": [
     ">0.2%",
     "not dead",
