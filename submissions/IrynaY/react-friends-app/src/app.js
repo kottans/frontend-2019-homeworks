@@ -26,22 +26,22 @@ class App extends Component {
     this.resetPageState(filter)
   }
 
-  handleSearch({ key, value }) {
+  handleSearch = ({ key, value }) => {
     const filter = {...this.state.filter, [key]: value}
     this.resetPageState(filter)
   }
 
-  handleSort(list) {
+  handleSort = (list) => {
     this.setState({list})
   }
 
-  handlePrevPage() {
+  handlePrevPage = () => {
     const filter = this.state.filter
     --filter.page
     this.updatePageState(filter)
   }
 
-  handleNextPage() {
+  handleNextPage = () => {
     const filter = this.state.filter
     ++filter.page
     this.updatePageState(filter)
@@ -73,16 +73,16 @@ class App extends Component {
       <div className='App'>
         <div className='sidebar'>
           <Sorter 
-            apllySort={this.handleSort.bind(this)} 
+            apllySort={this.handleSort} 
             list={this.state.list}/>
-          <Filter formSubmit={this.handleSearch.bind(this)}/>
+          <Filter formSubmit={this.handleSearch}/>
         </div>
         <CharacterList list={this.state.list}>
           <Pagination
             page={this.state.filter.page}
             total={this.state.filter.totalPages}
-            goToNextPage={this.handleNextPage.bind(this)}
-            goToPrevPage={this.handlePrevPage.bind(this)}/>
+            goToNextPage={this.handleNextPage}
+            goToPrevPage={this.handlePrevPage}/>
         </CharacterList>
       </div>
     )
