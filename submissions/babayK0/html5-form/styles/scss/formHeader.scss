@@ -1,0 +1,135 @@
+.form__header_order {
+  width: 47%;
+  padding: 25px 0 22.5px 50px;
+  display: flex;
+  flex-wrap: wrap;
+  
+  @include mobileS {
+    width: 90%;
+    padding:15px;
+  }
+  @include desktop {
+    width: 100%;
+    padding:5px;
+    padding-right: 0;
+  }
+}
+
+.form__header_order-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 7px 15px;
+  text-transform: uppercase;
+  @include mobileS {
+    margin: 5px 10px;
+  }
+}
+
+.form__header_order-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-left: 35px;
+  font-size: 14px;
+  @include mobileS {
+    margin: 5px;
+    font-size: 12px;
+  }
+  @include tabletL {
+    font-size: 12px;
+  }
+}
+
+.order__table-title {
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.order__table-data {
+  padding-top: 10px;
+  text-align: left;
+  font-weight: 500;
+  color: $font;
+  @include mobileS {
+    padding-top: 5px;
+  }
+}
+
+.form__header_buttons {
+  padding: 25px 35px 0 0;
+  border-right: 1.5px solid $borderLight;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  @include mobileS {
+    width: 100%;
+    padding: 0;
+    padding-top: 10px;
+    border:none;
+  }
+
+  @include desktop {
+    padding: 0;
+    padding-top: 10px;
+    border:none;
+  }
+}
+
+.form__header_contacts {
+  width: 33%;
+  padding: 25px 45px 32px 35px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @include mobileS {
+    width: 100%;
+    padding: 20px 0 5px;
+  }
+  @include desktop {
+    padding: 20px 0 5px;
+  }
+}
+
+.form__header_contacts-wrapper {
+  flex: 2;
+  margin: -7px 15px 0;
+  @include mobileS {
+    margin: -7px 0;
+  }
+}
+
+.form__header_contacts-title {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.form__header_contacts-description {
+  font-size: 14px;
+  font-weight: 500;
+  color: $font;
+}
+
+.form__header_contacts-phone {
+  color: $mainFont;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 20px;
+  transition: 0.3s ease-out;
+}
+
+.form__header_contacts-mail {
+  color: $mainFont;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s ease-out;
+}
+
+.form__header_contacts-phone:hover,
+.form__header_contacts-mail:hover {
+  color: $mainFont/2;
+}

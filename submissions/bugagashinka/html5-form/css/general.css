@@ -1,0 +1,89 @@
+/* GENERAL STYLES */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #eceef4;
+  font-family: Arial, sans-serif;
+  color: #b7b6ca;
+  line-height: 1.4em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #75768f;
+}
+
+h1,
+h2 {
+  font-weight: normal;
+  font-size: 1.17em;
+}
+
+h4,
+h5 {
+  text-transform: uppercase;
+}
+
+h4 {
+  margin: 1em 0;
+}
+
+h5 {
+  margin: 1em 0;
+}
+
+.logo {
+  width: 110px;
+  height: 110px;
+}
+
+.icon {
+  position: relative;
+  top: 5px;
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  margin: 0 1em 0 -3em;
+}
+
+.phone > a {
+  color: #c6ccea;
+  text-decoration: none;
+}
+
+.social-link,
+.signin-link,
+.agreement-link {
+  display: inline-block;
+  text-decoration: underline;
+  color: #a5abc5;
+}
+
+.social-link {
+  text-decoration: none;
+  color: #c6ccea;
+}
+
+.footer-title {
+  position: relative;
+  display: block;
+  margin: 1em 0;
+  color: #c6ccea;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.footer-icon {
+  position: absolute;
+  top: 0;
+  left: -40px;
+}

@@ -1,0 +1,101 @@
+.order__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #cad1e0;
+  box-sizing: border-box;
+}
+
+/* ---------- Start Order Section ---------- */
+
+.order {
+  width: 500px;
+  padding-top: 10px;
+  padding-left: 30px;
+  margin: 0 10px 10px 0;
+  box-sizing: border-box;
+}
+
+.order__caption {
+  background: url(../font/icon-table.png) no-repeat center left;
+}
+
+.order__header {
+  text-align: left;
+  padding-left: 40px;
+  text-transform: uppercase;
+}
+
+/* ---------- End Order Section ---------- */
+
+/* ---------- Start Buttons Section ---------- */
+
+.order__btns {
+  width: 150px;
+  flex-direction: column;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+.order__btn {
+  background-color: #f7f7fa;
+  margin: 5px;
+}
+
+.order__btn__active,
+.order__btn:active,
+.payment__btn__active,
+.payment__btn__active:active {
+  background-color: #61c9c4;
+  color: #fcfcfc;
+}
+
+/* ---------- End Buttons Section ---------- */
+
+/* ---------- Start Help Section ---------- */
+
+.order__help {
+  width: 338px;
+  padding-top: 10px;
+  padding-left: 20px;
+  box-sizing: border-box;
+  border-left: 2px solid #cad1e0;
+}
+
+.help__h4 {
+  position: relative;
+  text-transform: uppercase;
+  padding-left: 35px;
+}
+
+.icon-help {
+  background: url(../font/icon-help.png) no-repeat;
+  height: 25px;
+  width: 25px;
+  left: 0px;
+  top: -5px;
+  position: absolute;
+}
+
+.help__text {
+  width: 270px;
+  padding-left: 35px;
+  line-height: 1.5;
+}
+
+.help__address {
+  padding-left: 35px;
+  padding-bottom: 10px;
+}
+
+.help__address a {
+  color: black;
+  font-weight: 800;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.help__address a:first-child {
+  margin-right: 20px;
+}
+
+/* ---------- End Help Section ---------- */

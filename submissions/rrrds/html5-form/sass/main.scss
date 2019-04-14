@@ -1,0 +1,223 @@
+@import "params";
+@import "mixins";
+@import "helpers";
+
+html {
+  font-family: $font-family;
+  color: $text-color;
+}
+
+.body {
+  background-color: #eceef4;
+  display: flex;
+  justify-content: center;
+  padding-top: 230px;
+  padding-bottom: 130px;
+}
+
+.form {
+  counter-reset: section;
+
+  background-color: #ffffff;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  width: 1140px;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.form-header {
+  display: flex;
+  border-bottom: 1px solid $border-color;
+  padding: 0 15px 0 35px;
+}
+
+.section {
+  width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.type {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-input {
+  @include form-input;
+
+  min-width: 120px;
+  margin-left: 15px;
+}
+
+.form-input--validate {
+  background-repeat: no-repeat;
+  background-position: center right 0.5em;
+  background-size: 2em 2em;
+
+  &:valid {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%2376a7e1' d='M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z'%3E%3C/path%3E%3C/svg%3E");
+  }
+
+  &:invalid:not(:focus):not(:placeholder-shown) {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23e17776' d='M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z'%3E%3C/path%3E%3C/svg%3E");
+  }
+}
+
+.form-input--long {
+  min-width: 250px;
+}
+
+.form-input--xlong {
+  min-width: 380px;
+}
+
+.form-input--icon {
+  position: relative;
+
+  .fas,
+  .fab {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 2.3em;
+    color: $text-color-second;
+  }
+}
+
+.form-input__select {
+  width: 200px;
+  -webkit-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, $text-color 50%),
+    linear-gradient(135deg, $text-color 50%, transparent 50%),
+    linear-gradient(to right, $border-color, $border-color);
+  background-position: calc(100% - 20px), calc(100% - 15px), calc(100% - 2.5em);
+  background-size: 5px 5px, 5px 5px, 1px 50px;
+  background-repeat: no-repeat;
+  padding-left: 15px;
+  color: $text-color-second;
+}
+
+.form-label {
+  min-width: 50px;
+  text-align: right;
+  color: $text-color-second;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-right: 35px;
+  margin-bottom: 35px;
+
+  .form-label,
+  .form-input {
+    display: block;
+    text-align: left;
+    margin: 0 0 5px;
+    padding-left: 10px;
+  }
+}
+
+.form-header__block {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 25px 35px 25px 35px;
+}
+
+.summary__title {
+  margin-top: 15px;
+  position: relative;
+  line-height: 1;
+
+  .fas,
+  .far {
+    position: absolute;
+    left: -30px;
+    top: -5px;
+    font-size: 24px;
+  }
+}
+
+.details {
+  display: flex;
+  margin: 0;
+}
+
+.details__group:not(:last-child) {
+  padding-right: 45px;
+}
+
+.details__name {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+
+.details__info {
+  margin: 0;
+  white-space: nowrap;
+  color: $text-color-second;
+}
+
+.help__text {
+  font-size: 14px;
+  color: $text-color-second;
+}
+
+.help__link {
+  color: $text-color;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  margin-right: 15px;
+  font-size: 14px;
+
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: lighten($color: $text-color, $amount: 30%);
+  }
+}
+
+.info {
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  margin: 0 -30px 0 -30px;
+  padding: 30px 30px 30px 60px;
+
+  .fas {
+    position: absolute;
+    left: 0;
+  }
+}
+
+.form-footer {
+  display: flex;
+  margin-bottom: 75px;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.footer__element {
+  margin-left: 30px;
+}
+
+.terms {
+  color: $text-color-second;
+  font-size: 16px;
+}
+
+@import "fieldset";
+@import "range";
+@import "table";
+@import "radio";
+@import "button";
+@import "file";

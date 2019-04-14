@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <title>HTML Forms Homework</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet/styles.css"/>
+        <link href="fontawesome/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext,cyrillic,cyrillic-ext,greek-ext,greek,vietnamese">
+    </head>
+    <body>
+        <header class="header">
+            <div class="btn-group">
+                <button class="btn" type="button" name="button">
+                    <i class="fas fa-long-arrow-alt-left ico">
+                    </i>Go back
+                </button>
+                <button class="btn" type="button" name="button">
+                    <i class="fas fa-user ico">
+                    </i>Sign in
+                </button>
+            </div>
+            <a class="logo header-logo" href="#"><img src="image/logo.png" alt="logo"></a>
+        </header>
+        <main class="main">
+            <div class="order-form-body">
+                <form class="flex-row" action="index.html" method="post">
+                    <div class="order-info">
+                        <div class="flex-row">
+                            <div class="order-info-heading">
+                                <h4><i class="fas fa-clipboard ico"></i>Your order</h4>
+                            </div>
+                            <div class="order-info-details">
+                                <div class="tr heading">
+                                    <div class="td"><span>Items</span></div>
+                                    <div class="td"><span>Details</span></div>
+                                    <div class="td"><span>Price</span></div>
+                                    <div class="td"><span>Delivery</span></div>
+                                </div>
+                                <div class="tr">
+                                    <div class="td"><span>2 documents</span></div>
+                                    <div class="td"><span>2 languages</span></div>
+                                    <div class="td"><span>$ 696.06</span></div>
+                                    <div class="td"><span>48 hours*</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn mint submit" type="submit" name="button">Place order</button>
+                            <button class="btn grey submit" type="submit" name="button">Print a quote</button>
+                        </div>
+                    </div>
+                    <div class="order-info help">
+                        <div class="flex-row">
+                            <div class="order-info-heading">
+                                <h4><i class="far fa-life-ring ico"></i>Help center</h4>
+                            </div>
+                            <div class="order-info-details">
+                                <p class="sm-light-grey">If you need assistance while
+                                    placing your order, contact one of our
+                                    beloved Project Manager by phone or email.
+                                </p>
+                                <a class="phone" href="tel:+971(0)555555">+971(0)555 555</a>
+                                <a class="email" href="mailto:help@qtest.com">help@qtest.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-section">
+                        <div class="wrapper">
+                            <h1 class="select-type-title spacer">Select what you want to translate</h1>
+                            <div class="flex-row flex-row-btwn spacer">
+                                <input type="radio" name="translate-type" value="Website" required>
+                                <input type="radio" name="translate-type" value="Documents" required>
+                                <input type="radio" name="translate-type" value="Social Account" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-section">
+                        <div class="step-heading">
+                            <h2 class="step-title" step-order="1">Upload your documents
+                                <span class="sm-light-grey">(Doc, Docx, Text, PDF, Markdown)</span>
+                            </h2>
+                        </div>
+                        <input id="file" type="file">
+                        <label for="file" class="file btn grey">Upload a new file</label>
+                        <div class="info-block">
+                            <div class="table">
+                                <div class="column">
+                                    <div class="td"><span>File name</span></div>
+                                    <div class="td"><span class="file-name">business_operations.docx</span></div>
+                                    <div class="td"><span class="file-name">business_financial.docx</span></div>
+                                </div>
+                                <div class="column">
+                                    <div class="td"><span>File size</span></div>
+                                    <div class="td"><span>78kb</span></div>
+                                    <div class="td"><span>26kb</span></div>
+                                </div>
+                                <div class="column">
+                                    <div class="td"><span>Number of words</span></div>
+                                    <div class="td"><span>842</span></div>
+                                    <div class="td"><span>2,326</span></div>
+                                </div>
+                            </div>
+                            <div class="fixed">
+                                <div class="column">
+                                    <div class="td"><span>Remove</span></div>
+                                    <div class="td"><a href="#"><i class="fas fa-trash"></i></a></div>
+                                    <div class="td"><a href="#"><i class="fas fa-trash"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-section">
+                        <div class="step-heading">
+                            <h2 class="step-title" step-order="2">Choose your languages pairings</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="select" label-name="From">
+                                    <select class="input-select grey" name="from" required>
+                                        <option value="" disabled selected>Choose language</option>
+                                        <option value="English">English</option>
+                                        <option value="Arabic">Arabic</option>
+                                        <option value="Kurdish">Kurdish</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row flex-row">
+                            <div class="col">
+                                <label class="select" label-name="To">
+                                    <select class="input-select grey" name="to" required>
+                                        <option value="" disabled selected>Choose language</option>
+                                        <option value="Arabic">Arabic</option>
+                                        <option value="Kurdish">Kurdish</option>
+                                        <option value="English">English</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="col">
+                                <label class="select" label-name="Additional">
+                                    <select class="input-select grey" name="additional" required>
+                                        <option value="" disabled selected>Choose language</option>
+                                        <option value="Kurdish">Kurdish</option>
+                                        <option value="Arabic">Arabic</option>
+                                        <option value="English">English</option>
+                                    </select>
+                                </label>
+                                <a class="remove" href="#"><i class="fas fa-trash"></i></a>
+                            </div>
+                            <div class="col">
+                                <button class="btn grey" type="button" name="button">
+                                    <i class="fas fa-plus ico"></i>Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-section left">
+                        <div class="step-heading">
+                            <h2 class="step-title" step-order="3">Select your desired tone</h2>
+                        </div>
+                        <div class="flex-col">
+                            <label class="radio"><span class="casual">Friendly / Casual</span>
+                                <input class="grey" type="radio" name="desired-tone" value="casual" required>
+                            </label>
+                            <label class="radio"><span class="corp">Corporate / Pro</span>
+                                <input class="grey" type="radio" name="desired-tone" value="pro" required>
+                            </label>
+                            <label class="radio"><span class="media">Media / Formal</span>
+                                <input class="grey" type="radio" name="desired-tone" value="formal" required>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="order-section right">
+                        <div class="step-heading">
+                            <h2 class="step-title" step-order="4">Tell us how urgent this job is</h2>
+                        </div>
+                        <div class="range-container">
+                            <div class="range">
+                                <i class="middle-point fas fa-circle"></i>
+                                <input type="range" name="range" min="1" max="3" value="2" step="1">
+                            </div>
+                            <div class="points-description">
+                                <span>I got time</span>
+                                <span class="active">Average</span>
+                                <span>Yesterday</span>
+                            </div>
+                        </div>
+                        <div class="info-block">
+                            <div class="flex-row">
+                                <div class="order-info-heading">
+                                    <h4><i class="fas fa-info-circle ico"></i>Timeline info</h4>
+                                </div>
+                                <div class="order-info-details">
+                                    <p class="sm-light-grey">With an <span class="active">Average</span>
+                                        timeline set up, our expert translator can take a resonable
+                                        amount of time perfecting your translation.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-section payment">
+                        <div class="step-heading">
+                            <h2 class="step-title" step-order="5">Sign up and choose a payment method</h2>
+                        </div>
+                        <p class="md-regular-grey spacer">Already have an account with us?
+                            <a href="#">Sign in</a>.
+                        </p>
+                        <div class="flex-row">
+                            <label class="global-input-label">
+                                <span>Full name</span>
+                                <input class="global-input personal-data"
+                                    minlength="4"
+                                    type="text"
+                                    name="name"
+                                    required>
+                            </label>
+                        </div>
+                        <div class="flex-row">
+                            <label class="global-input-label">
+                                <span>Email adress</span>
+                                <input class="global-input personal-data"
+                                    minlength="4"
+                                    inputmode="email"
+                                    title="Follow the example: info@domain.io"
+                                    type="email"
+                                    name="email"
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                    required>
+                            </label>
+                            <label class="global-input-label">
+                                <span>Choose a password</span>
+                                <input class="global-input personal-data"
+                                    title="The password should be at least 6 characters, contain at least one number, one lowercase and one uppercase letter."
+                                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+                                    minlength="6"
+                                    maxlength="16"
+                                    type="password"
+                                    name="password"
+                                    required>
+                            </label>
+                        </div>
+                        <div class="flex-row flex-row-btwn spacer">
+                            <input class="grey" type="radio" name="payment-method" value="visa-mastercard" required>
+                            <input class="grey" type="radio" name="payment-method" value="paypal" required>
+                            <input class="grey" type="radio" name="payment-method" value="amazon" required>
+                        </div>
+                        <div class="flex-row">
+                            <label class="global-input-label card">
+                                <span>Card number</span>
+                                <input
+                                    minlength="16"
+                                    maxlength="19"
+                                    pattern="[0-9]{16,19}"
+                                    inputmode="numeric"
+                                    class="global-input"
+                                    type="text"
+                                    name="card"
+                                    required>
+                            </label>
+                            <label class="global-input-label date">
+                                <span>Expiry date</span>
+                                <input class="global-input"
+                                minlength="5"
+                                maxlength="5"
+                                pattern="[0-9]{2}\/\[0-9]{2}"
+                                type="text"
+                                title="Input date format: '05/99'"
+                                placeholder="MM/YY"
+                                name="date"
+                                required>
+                            </label>
+                            <label class="global-input-label code">
+                                <span>Code</span>
+                                <input
+                                    inputmode="numeric"
+                                    class="global-input"
+                                    minlength="3"
+                                    maxlength="3"
+                                    pattern="[0-9]{3}"
+                                    type="password"
+                                    name="code"
+                                    required>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="order-section flex-row flex-row-end">
+                        <div class="spacer">
+                            <label class="agreement">
+                                <input type="checkbox" name="agreement" required>
+                                I agree to the
+                                <a href="#">Terms & Conditions</a>
+                            </label>
+                        </div>
+                        <div class="wrapper">
+                            <button class="btn mint submit" type="submit" name="button">Place order</button>
+                            <button class="btn grey submit" type="submit" name="button">Print a quote</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="flex-row flex-row-btwn">
+                <div class="footer-info-block">
+                    <div class="order-info-heading">
+                        <h4><i class="far fa-heart ico"></i>What we do</h4>
+                    </div>
+                    <div class="order-info-details">
+                        <p class="sm-light-grey italic">We provide a full range of language srvices including
+                            content development, document, website and social media
+                            accounts translations.
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-info-block">
+                    <div class="order-info-heading">
+                        <h4><i class="far fa-compass ico"></i>Our main office</h4>
+                    </div>
+                    <div class="order-info-details">
+                        <p class="sm-light-grey">Dubai, UAE</p>
+                        <p class="sm-light-grey">P.O. Box: 502735</p>
+                        <p class="sm-light-grey">Phone: <a href="phone:+971044278128">+971(0)44278128</a></p>
+                    </div>
+                </div>
+                <div class="footer-info-block">
+                    <div class="order-info-heading">
+                        <h4><i class="fas fa-share-alt ico"></i>Connect with us</h4>
+                    </div>
+                    <div class="order-info-details">
+                        <a class="sm-light-grey" href="#"><i class="fab fa-facebook-f ico"></i>Facebook</a>
+                        <a class="sm-light-grey" href="#"><i class="fab fa-twitter ico"></i>Twitter</a>
+                        <a class="sm-light-grey" href="#"><i class="fab fa-linkedin-in ico"></i>Linkedin</a>
+                    </div>
+                </div>
+                <div class="footer-info-block">
+                    <div class="order-info-details">
+                        <a class="logo" href="#"><img src="image/logo.png" alt="logo"></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

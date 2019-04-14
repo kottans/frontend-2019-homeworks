@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link
+      rel="stylesheet"
+      href="./fonts/font-awesom/css/font-awesome.min.css"
+    />
+    <title>HTML5: Forms task</title>
+  </head>
+  <body>
+    <form action="#" method="POST">
+      <header>
+        <div class="container">
+          <section class="row heading">
+            <button type="button" class="button">Go back</button>
+            <a href="#" class="logo">
+              <svg width="110" height="110">
+                <g transform="translate(0,-942.36218)">
+                  <path
+                    d="m 54.859268,946.47005 c -28.69536,0 -51.9687498,23.10091 -51.9687498,51.62499 0,28.52406 23.2733898,51.65626 51.9687498,51.65626 28.69536,0 51.937502,-23.1322 51.937502,-51.65626 0,-28.52408 -23.242142,-51.62499 -51.937502,-51.62499 z m -0.4375,18.75 c 18.31234,0 33.1875,14.84392 33.1875,33.15629 0,6.41546 -1.84038,12.39376 -5,17.46866 l 7.375,19.1563 -19.90625,-7.4063 c -4.66726,2.5026 -9.99336,3.9375 -15.65625,3.9375 -18.31233,0 -33.15625,-14.8439 -33.15625,-33.15616 0,-18.31237 14.84392,-33.15629 33.15625,-33.15629 z m 0.0625,19.3125 c -7.89864,0 -14.3125,6.43599 -14.3125,14.37499 0,7.93896 6.41386,14.37496 14.3125,14.37496 7.89865,0 14.28125,-6.436 14.28125,-14.37496 0,-7.939 -6.3826,-14.37499 -14.28125,-14.37499 z"
+                    style="fill:#DADDE7;fill-opacity:1;stroke:#DADDE7;stroke-width:1.07500005;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+                  />
+                </g>
+              </svg>
+            </a>
+            <button type="button" class="button">Sign In</button>
+          </section>
+        </div>
+      </header>
+      <main>
+        <div class="container">
+          <section class="row order">
+            <div class="order-details">
+              <h4>
+                <img src="./img/list.svg" alt="" class="icon" />Your order
+              </h4>
+              <div class="order-details-items">
+                <div>
+                  <h5>Items</h5>
+                  <p>2 documents</p>
+                </div>
+                <div>
+                  <h5>Details</h5>
+                  <p>2 languages</p>
+                </div>
+                <div>
+                  <h5>Price</h5>
+                  <p>$696.06</p>
+                </div>
+                <div>
+                  <h5>Delivery</h5>
+                  <p>48 hours*</p>
+                </div>
+              </div>
+            </div>
+            <div class="order-buttons top-order">
+              <button class="button">Place order</button>
+              <button type="button" class="button">Print a quote</button>
+            </div>
+          </section>
+          <section class="row help">
+            <h4><img src="./img/help.svg" alt="" class="icon" />Help center</h4>
+            <p>
+              If you need assistance while placing your order, contact one of
+              our beloved Project Manager by phone or email.
+            </p>
+            <span class="phone help-phone"
+              ><a href="tel:+971(0)555-555">+971 (0) 555 555</a></span
+            >
+            <span class="help-email"><a href="#">help@qtest.com</a></span>
+          </section>
+          <section class="row translate">
+            <h1>Select what you want yo translate</h1>
+            <div class="translate-group">
+              <label class="radio-item translate-item">
+                <input
+                  type="radio"
+                  name="translate"
+                  value="web"
+                  class="radio-item-input"
+                  required
+                />
+                <span class="radio-item-content translate-item-content">
+                  <img
+                    class="radio-item-image translate-item-image"
+                    alt=""
+                    src="./img/tralnslate_website.png"
+                  /><span class="radio-item-label">Website</span>
+                </span>
+              </label>
+
+              <label class="radio-item translate-item">
+                <input
+                  type="radio"
+                  name="translate"
+                  value="doc"
+                  class="radio-item-input"
+                  id="doc-input"
+                />
+                <span class="radio-item-content translate-item-content">
+                  <img
+                    class="radio-item-image translate-item-image"
+                    alt=""
+                    src="./img/tralnslate_documents.png"
+                  /><span class="radio-item-label">Documents</span>
+                </span>
+              </label>
+
+              <label class="radio-item translate-item">
+                <input
+                  type="radio"
+                  name="translate"
+                  value="soc"
+                  class="radio-item-input"
+                  id="soc-input"
+                />
+                <span class="radio-item-content translate-item-content">
+                  <img
+                    class="radio-item-image translate-item-image"
+                    alt=""
+                    src="./img/tralnslate_social_account.png"
+                  /><span class="radio-item-label">Social account</span>
+                </span>
+              </label>
+            </div>
+          </section>
+          <section class="row upload">
+            <h2>
+              Upload your documents
+              <span class="file-types-title"
+                >(Doc, Docx, Text, PDF, markdown)</span
+              >
+            </h2>
+            <div class="button upload-button">
+              <img class="icon upload-icon" src="./img/upload.svg" alt="" />
+              <label for="file-upload">Upload a new file</label>
+              <input
+                id="file-upload"
+                name="filePath"
+                type="file"
+                accept=".doc,.docx,.txt,.pdf,.md"
+              />
+              <span class="upload-button-border"></span>
+            </div>
+
+            <table class="uploaded-table">
+              <thead>
+                <tr>
+                  <th>File name</th>
+                  <th>File size</th>
+                  <th>Number of words</th>
+                  <th class="trash-button-column">Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="File name">
+                    <img
+                      src="./img/document.svg"
+                      alt=""
+                      class="icon doc-icon"
+                    />business_operations.docx
+                  </td>
+                  <td data-label="File size">78kb</td>
+                  <td data-label="Number of words">842</td>
+                  <td class="trash-button-column">
+                    <button type="button" class="button trash-button"></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="File name">
+                    <img
+                      src="./img/document.svg"
+                      alt=""
+                      class="icon doc-icon"
+                    />business_financial.docx
+                  </td>
+                  <td data-label="File size">26kb</td>
+                  <td data-label="Number of words">2,326</td>
+                  <td class="trash-button-column">
+                    <button type="button" class="button trash-button"></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section class="row languages">
+            <h2>Choose your languages pairings</h2>
+            <div class="lang-from">
+              <label class="lang-label lang-from-label">From</label>
+              <div class="select">
+                <select name="from" required>
+                  <option value="">Choose</option>
+                  <option value="en">English</option>
+                  <option value="ar">Arabic</option>
+                  <option value="uk">Ukrainian</option>
+                  <option value="sp">Spanish</option>
+                  <option value="kmr">Kurdish</option>
+                </select>
+              </div>
+            </div>
+            <div class="lang-to">
+              <label class="lang-label lang-to-label">To</label>
+              <div class="select">
+                <select name="lang-to-1" required>
+                  <option value="">Choose</option>
+                  <option value="ar">Arabic</option>
+                  <option value="en">English</option>
+                  <option value="uk">Ukrainian</option>
+                  <option value="sp">Spanish</option>
+                  <option value="kmr">Kurdish</option>
+                </select>
+              </div>
+              <div class="select">
+                <select name="lang-to-2">
+                  <option value="kmr">Kurdish</option>
+                  <option value="en">English</option>
+                  <option value="ar">Arabic</option>
+                  <option value="uk">Ukrainian</option>
+                  <option value="sp">Spanish</option>
+                </select>
+              </div>
+              <button
+                type="button"
+                class="button trash-button lang-trash-button"
+              ></button>
+              <button type="button" class="button lang-add-button">
+                + Add
+              </button>
+            </div>
+          </section>
+          <section class="row tone">
+            <h2>Select your desired tone</h2>
+            <label class="radio-item tone-item">
+              <input
+                type="radio"
+                name="tone"
+                value="casual"
+                class="radio-item-input tone-input"
+                required
+              />
+              <span class="radio-item-content tone-item-content">
+                <img
+                  class="radio-item-image tone-item-image"
+                  alt=""
+                  src="./img/tone_casual.jpg"
+                /><span class="tone-item-label">Frieendly / Casual</span>
+              </span>
+            </label>
+
+            <label class="radio-item tone-item">
+              <input
+                type="radio"
+                name="tone"
+                value="pro"
+                class="radio-item-input tone-input"
+                required
+              />
+              <span class="radio-item-content tone-item-content">
+                <img
+                  class="radio-item-image tone-item-image"
+                  alt=""
+                  src="./img/tone_pro.jpg"
+                /><span class="tone-item-label">Corporate / Pro </span>
+              </span>
+            </label>
+
+            <label class="radio-item tone-item">
+              <input
+                type="radio"
+                name="tone"
+                value="formal"
+                class="radio-item-input"
+                required
+              />
+              <span class="radio-item-content tone-item-content">
+                <img
+                  class="radio-item-image tone-item-image"
+                  alt=""
+                  src="./img/tone_formal.jpg"
+                /><span class="tone-item-label">Media / Formal</span>
+              </span>
+            </label>
+          </section>
+          <section class="row timeline">
+            <h2>Tell us how urgent this job is</h2>
+            <div class="slider-container">
+              <input
+                type="range"
+                class="slider"
+                min="0"
+                max="2"
+                value="1"
+                step="1"
+              />
+            </div>
+            <div class="range-labels">
+              <span class="range-label-item">I got time</span>
+              <span class="range-label-item">Average</span>
+              <span class="range-label-item">Yesterday</span>
+            </div>
+            <div class="timeline-info">
+              <h4>
+                <img
+                  src="./img/information.svg"
+                  alt=""
+                  class="icon info-icon"
+                />timeline info
+              </h4>
+              <p>
+                With an
+                <span class="timeline-info-setup">average</span> timeline set
+                up, our expert translator can take a reasonable amount of time
+                prefecting your translation.
+              </p>
+            </div>
+          </section>
+          <section class="row payment">
+            <h2>Sign up and choose a payment method</h2>
+            <p>
+              Already have an acccount with us?
+              <a class="signin-link" href="#">Sign in.</a>
+            </p>
+            <div class="field-block signup-group">
+              <div class="signup-fullname">
+                <label for="fullName" class="input-label">Full Name</label>
+                <input
+                  type="text"
+                  name="firstname"
+                  class="input-field input-fullname"
+                  id="fullName"
+                  title="Min lenght 8"
+                  minlength="8"
+                  maxlength="20"
+                  required
+                />
+                <span class="check-status"></span>
+              </div>
+
+              <div class="field-block">
+                <label for="email" class="input-label">Email address</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="input-field input-email"
+                  name="email"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                  title="name@domain.etc"
+                  required
+                />
+                <span class="check-status"></span>
+              </div>
+
+              <div class="field-block">
+                <label for="password" class="input-label"
+                  >Choose a password
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  class="input-field input-password"
+                  id="password"
+                  pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                  title="Minimum 8 characters, UPPERCASE, lowercase and Number"
+                  minlength="6"
+                  required
+                />
+                <span class="check-status"></span>
+              </div>
+            </div>
+            <div class="payment-group">
+              <div class="payment-method">
+                <label class="radio-item payment-item">
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="card"
+                    class="radio-item-input"
+                    required
+                  />
+                  <span class="radio-item-content payment-item-content">
+                    <img
+                      class="radio-item-image payment-item-image"
+                      alt=""
+                      src="./img/payment_method_cards.jpg"
+                    />
+                  </span>
+                </label>
+
+                <label class="radio-item payment-item">
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="paypal"
+                    class="radio-item-input"
+                  />
+                  <span class="radio-item-content payment-item-content">
+                    <img
+                      class="radio-item-image payment-item-image"
+                      alt=""
+                      src="./img/payment_method_paypal.jpg"
+                    />
+                  </span>
+                </label>
+
+                <label class="radio-item payment-item">
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="amazon"
+                    class="radio-item-input"
+                  />
+                  <span class="radio-item-content payment-item-content">
+                    <img
+                      class="radio-item-image payment-item-image"
+                      alt=""
+                      src="./img/payment_method_amazon.jpg"
+                    />
+                  </span>
+                </label>
+              </div>
+              <div class="card-props">
+                <div class="field-block">
+                  <label for="card-number" class="input-label"
+                    >Card number</label
+                  >
+                  <input
+                    type="text"
+                    id="card-number"
+                    class="input-field input-card"
+                    name="card"
+                    pattern="[0-9\/]*"
+                    title="Enter 16 numbers of your credit card"
+                    minlength="16"
+                    maxlength="16"
+                    required
+                  />
+                  <span class="card-sticker">Visa</span>
+                </div>
+                <div class="field-block">
+                  <label for="expiry-date" class="input-label"
+                    >Expiry date</label
+                  >
+                  <input
+                    type="date"
+                    id="expiry-date"
+                    class="input-field input-date"
+                    name="expiry-date"
+                    title="Expiration date of your card DD/MM/YY"
+                    required
+                  />
+                </div>
+                <div class="field-block">
+                  <label for="card-code" class="input-label">Code</label>
+                  <input
+                    type="text"
+                    id="card-code"
+                    class="input-field input-code"
+                    name="code"
+                    title="CVV code"
+                    inputmode="numeric"
+                    pattern="[0-9]{3}"
+                    minlength="3"
+                    maxlength="3"
+                    required
+                  />
+                  <span class="check-status code-check-status"></span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="order-buttons bottom-order">
+                <label for="agreement" class="agreement-label"
+                  ><input
+                    id="agreement"
+                    class="agreement-check"
+                    type="checkbox"
+                    required
+                  />
+                  I agree to the
+                  <a class="agreement-link" href="#">Terms &amp; Conditions</a>
+                </label>
+                <button class="button">Place order</button>
+                <button type="button" class="button">Print a quote</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </form>
+    <footer>
+      <address class="container">
+        <div class="goal">
+          <span class="footer-title">
+            <i class="fa fa-heart-o fa-lg footer-icon" aria-hidden="true"></i
+            >What we do</span
+          >
+          <em>
+            We provide a full range of language services inluding content
+            development, documents, website and social media account
+            translations.
+          </em>
+        </div>
+        <div class="contact">
+          <span class="footer-title">
+            <i class="fa fa-compass fa-lg footer-icon" aria-hidden="true"></i
+            >Our main office</span
+          >
+          <ul class="list">
+            <li>Dubai, UAE</li>
+            <li>P.O. Box: 502735</li>
+            <li class="phone footer-phone">
+              <a href="tel:+971(0)44278128">Phone: +971 (0) 44278128</a>
+            </li>
+          </ul>
+        </div>
+        <div class="social-links">
+          <span class="footer-title">
+            <i class="fa fa-share-alt fa-lg footer-icon" aria-hidden="true"></i
+            >Connect with us</span
+          >
+          <ul class="list">
+            <li><a class="social-link" href="#">Facebook</a></li>
+            <li><a class="social-link" href="#">Twitter</a></li>
+            <li><a class="social-link" href="#">Linkedin</a></li>
+          </ul>
+        </div>
+        <a class="logo" href="#">
+          <svg width="110" height="110">
+            <g transform="translate(0,-942.36218)">
+              <path
+                d="m 54.859268,946.47005 c -28.69536,0 -51.9687498,23.10091 -51.9687498,51.62499 0,28.52406 23.2733898,51.65626 51.9687498,51.65626 28.69536,0 51.937502,-23.1322 51.937502,-51.65626 0,-28.52408 -23.242142,-51.62499 -51.937502,-51.62499 z m -0.4375,18.75 c 18.31234,0 33.1875,14.84392 33.1875,33.15629 0,6.41546 -1.84038,12.39376 -5,17.46866 l 7.375,19.1563 -19.90625,-7.4063 c -4.66726,2.5026 -9.99336,3.9375 -15.65625,3.9375 -18.31233,0 -33.15625,-14.8439 -33.15625,-33.15616 0,-18.31237 14.84392,-33.15629 33.15625,-33.15629 z m 0.0625,19.3125 c -7.89864,0 -14.3125,6.43599 -14.3125,14.37499 0,7.93896 6.41386,14.37496 14.3125,14.37496 7.89865,0 14.28125,-6.436 14.28125,-14.37496 0,-7.939 -6.3826,-14.37499 -14.28125,-14.37499 z"
+                style="fill:#383D50;fill-opacity:1;stroke:#383D50;stroke-width:1.07500005;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+              />
+            </g>
+          </svg>
+        </a>
+      </address>
+    </footer>
+  </body>
+</html>

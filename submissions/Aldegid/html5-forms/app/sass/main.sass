@@ -1,0 +1,910 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+=button-bg($bg, $procent)
+	&:hover
+		background-color: darken($bg, $procent)
+		transition: all .25s ease
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+body
+	margin: 0
+	font-size: 14px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	box-sizing: border-box
+	color: $text
+
+.text-uppercase
+	text-transform: uppercase
+
+.container
+	background-color: #eceef4
+	padding-bottom: 120px
+
+.header
+	max-width: 1200px
+	margin: 0 auto
+	display: flex
+	justify-content: space-between
+	flex-wrap: wrap
+	align-items: center
+	padding: 80px 0
+	.fa
+		font-size: 110px
+	.main-button
+		display: flex
+		align-items: center
+		justify-content: center
+		background-color: #eceef4
+		width: 150px
+		border: none
+		box-shadow: 0 0 1px 1px $bordercolor
+		transition: all .25s ease
+		&:hover
+			background-color: $accent
+			color: #ffffff
+		.fa
+			margin-right: 30px
+			font-size: 20px
+
+.header__logo
+	display: inline-block
+	color: $text-light
+	transition: all .25s ease
+	&:hover
+		color: $accent
+	&:focus
+		outline: none
+		box-shadow: 0 0 3px 3px #83A8E5
+	&:active
+		color: #da7674
+
+.form__wrapper
+	max-width: 1200px
+	margin: 0 auto
+	border: 1px solid $bordercolor
+	border-radius: 5px
+	background-color: #fff
+
+.form_header
+	border-bottom: 1px solid $bordercolor
+	h3
+		text-transform: uppercase
+
+.order
+	display: flex
+
+.order__inner
+	display: flex
+	flex-basis: 70%
+
+.order__table
+	margin-left: 30px
+	padding: 25px 0 25px 25px
+	.order__table-th, .order__table-td, .order__table-tr
+		padding-right: 50px
+		text-align: left
+	.order__table-th
+		padding-top: 30px
+	.fa
+		margin: 0 15px 0 -30px
+		font-size: 22px
+	h3
+		display: inline-block
+		margin: 0
+
+.order__table-body
+	margin-left: 10px
+	padding: 0
+
+.order__buttons
+	border-right: 1px solid $bordercolor
+	padding: 30px 25px
+	display: flex
+	flex-direction: column
+
+
+
+.main-button
+	display: block
+	text-transform: uppercase
+	width: 170px
+	height: 50px
+	border-radius: 5px
+	border: 1px solid $bordercolor
+	font-weight: bold
+	cursor: pointer
+	&:focus
+		outline: none
+		box-shadow: 0 0 3px 3px #83A8E5
+
+.order-button
+	color: #ffffff
+	margin-bottom: 15px
+	background-color: $accent
+	+button-bg($accent, 10%)
+
+.print-button
+	background-color: $background
+	color: $text-light
+	margin-bottom: 0
+	+button-bg($background, 4%)
+
+.help__center
+	padding: 25px
+	flex-basis: 30%
+	.fa
+		font-size: 23px
+
+.help__center-h3
+	display: inline-block
+	margin: 0
+	padding-left: 15px
+.help__center-p
+	color: $text-light
+	padding-left: 42px
+
+.contacts
+	font-weight: bold
+	padding-left: 40px
+
+.contacts__phone
+	color: $text
+	text-decoration: none
+	margin-right: 20px
+	display: inline-block
+	&:hover
+		text-decoration: underline
+	&:focus
+		outline: none
+		box-shadow: 0 0 3px 3px #83A8E5
+	&:active
+		color: #da7674
+
+.contacts__mail
+	color: $text
+	text-decoration: none
+	&:hover
+		text-decoration: underline
+	&:focus
+		outline: none
+		box-shadow: 0 0 3px 3px #83A8E5
+	&:active
+		color: #DA7674
+
+.form__main
+	h3
+		font-size: 16px
+
+
+.form__body
+	max-width: 900px
+	margin: 0 auto
+	margin-top: 100px
+	text-align: center
+
+.translate-h2
+	margin-bottom: 50px
+	border-bottom: 1px solid $bordercolor
+	display: inline-block
+	padding: 0 15px 10px 15px
+	text-transform: uppercase
+
+
+.visually__hidden
+	position: absolute
+	overflow: hidden
+	clip: rect(0 0 0 0)
+	height: 1px
+	width: 1px
+	margin: -1px
+	padding: 0
+	border: 0
+
+/**********custom radio start ***********/
+
+.translate__wrapper
+		margin: 30px auto 100px
+		display: flex
+		flex-direction: row
+		justify-content: space-between
+		flex-wrap: wrap
+		width: 100%
+
+
+.label
+		display: block
+		border: 5px solid $bordercolor
+		border-radius: 5px
+		cursor: pointer
+		position: relative
+		box-sizing: border-box
+		box-shadow: 0 0 2px 1px $bordercolor
+		margin-bottom: 25px
+
+.label--size-translate
+		width: 280px
+		height: 200px
+
+.label__image-wrapper
+	position: absolute
+	top: -5px
+	left: -5px
+	text-align: center
+	display: flex
+	flex-direction: column
+	justify-content: center
+	border: 5px solid transparent
+	border-radius: 5px
+	box-sizing: border-box
+	background-color: $background
+	transition: background-color .25s ease
+	.fa
+		font-size: 90px
+		color: $text-light
+		margin-bottom: 20px
+	+button-bg($background, 3%)
+
+	.svg-card
+		width: 60px
+
+	.svg-paypal, .svg-amazon
+		width: 100px
+
+	.label__image
+			margin: 0 auto
+			display: block
+
+.label__text
+	color: $text-light
+
+input[type=radio]:checked + .label__image-wrapper
+	border-color: #7DA8E3
+
+input[type=radio]:checked + .label__image-wrapper
+	&::before
+		content: '\f00c'
+		font-family: fontawesome
+		font-size: 24px
+		position: absolute
+		top: -19px
+		right: -19px
+		background-color: #7da8e3
+		color: #fff
+		z-index: 10
+		border-radius: 50%
+		line-height: 1
+		width: 24px
+		padding: 5px
+
+/**********custom radio end ***********/
+
+.upload__wrapper
+	text-align: left
+
+.section__title
+	display: flex
+	align-items: center
+	flex-wrap: wrap
+
+.step__number
+	text-align: center
+	width: 42px
+	height: 42px
+	border-radius: 50%
+	border: 1.5px solid $text
+	font-size: 16px
+	margin-left: -70px
+	font-weight: bold
+	position: relative
+	&-inner
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+
+.step__title
+	font-size: 24px
+	margin: 0 15px 0 25px
+	display: inline-block
+
+.step__desc
+	color: $text-light
+
+
+.upload_input
+	margin: 50px 0
+
+.checkbox-label
+	cursor: pointer
+	padding-left: 50px
+	display: block
+	position: relative
+
+.form-wrapper
+	margin: 50px auto
+	width: 460px
+
+.file-label
+	cursor: pointer
+	border: 1px solid $bordercolor
+	border-radius: 5px
+	padding: 12.5px 25px
+	padding-left: 55px
+	color: $text-light
+	position: relative
+	background-color: $background
+	transition: background-color .25s ease
+	+button-bg($background, 3%)
+
+.file-label::before
+	content: '\f0ee'
+	font-family: fontawesome
+	display: block
+	position: absolute
+	top: 3px
+	left: 15px
+	font-size: 24px
+	color: $text-light
+
+.input:focus + .file-label
+	box-shadow: 0 0 2px 3px #7da8e3
+	border-color: transparent
+
+.upload__table
+	white-space: nowrap
+	text-align: left
+
+.upload__table-body
+	width: 100%
+	border: 1px solid $bordercolor
+	padding: 30px 50px
+	width: 100%
+	border-radius: 5px
+	color: $text-light
+	th, td
+		padding-bottom: 20px
+		padding-left: 15px
+	td, th
+		&:last-child
+			text-align: center
+	.fa
+		cursor: pointer
+		font-size: 20px
+
+.upload__table-file
+	margin-left: 20px
+
+.languages__pairing-wrapper
+	text-align: left
+	margin-top: 120px
+
+
+.select__item
+	width: 100%
+	height: 100%
+	padding: 0 42px
+	cursor: pointer
+	border: 1px solid $bordercolor
+	border-radius: 5px
+	background-color: $background
+	appearance: none
+	color: $text-light
+	transition: background-color .25s ease
+	+button-bg($background, 3%)
+	&:focus
+		box-shadow: 0 0 3px 3px #83A8E5
+
+.select__wrapper
+	width: 200px
+	height: 50px
+	margin: 30px 15px
+	display: flex
+	position: relative
+
+.select__text
+	font-weight: bold
+	min-width: 40px
+	text-align: right
+
+.select__wrapper::before
+	content: ''
+	display: block
+	background-color: $bordercolor
+	width: 1px
+	height: 50px
+	position: absolute
+	top: 0
+	right: 50px
+	pointer-events: none
+
+.select__wrapper::after
+	content: '\f0d7'
+	font-family: fontawesome
+	display: block
+	position: absolute
+	top: 8px
+	right: 21px
+	pointer-events: none
+	font-size: 20px
+	color: $text-light
+
+.selects__block
+	display: flex
+	align-items: center
+	flex-wrap: wrap
+
+.languages__pairing-inner
+	display: flex
+	align-items: center
+	flex-wrap: wrap
+
+.languages__pairing-item
+	display: flex
+	align-items: center
+
+
+.languages__pairing-item
+	&:first-child
+		width: 100%
+
+.language__delete
+	.fa
+		color: $text-light
+		font-size: 20px
+		margin-right: 10px
+.delete-icon
+	cursor: pointer
+	display: block
+	padding: 3px
+	border: none
+	padding: 0
+	margin: 0
+	background-color: #fff
+	transition: all .25s ease
+	&:hover
+		color: $text
+	&:focus
+		outline: none
+		box-shadow: 0 0 2px 3px #7da8e3
+	.fa
+		&:hover
+			color: $text
+		&:focus
+			box-shadow: 0px 0px 2px 1px #83A8E5
+
+.language__add
+	box-sizing: border-box
+	border-radius: 5px
+	border: none
+	height: 48px
+	width: 120px
+	padding: 0
+	box-shadow: 0 0 0 1px $bordercolor
+	background-color: $background
+	margin-left: 30px
+	color: $text-light
+	text-transform: uppercase
+	cursor: pointer
+	transition: background-color .25s ease
+	+button-bg($background, 3%)
+	&:focus
+		box-shadow: 0 0 3px 3px #83A8E5
+		outline: none
+
+.tone-and-time__wrapper
+	text-align: left
+	margin-top: 100px
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+
+.label--size-tone
+		width: 232px
+		height: 70px
+
+.desire-tone__wrapper
+	max-width: 40%
+	.label
+		margin-bottom: 25px
+	.label__image-wrapper
+		flex-direction: row
+		align-items: center
+		justify-content: flex-start
+		.fa
+			font-size: 24px
+			margin: 0 25px
+
+.desire-tone__wrapper-inner
+	margin-top: 50px
+
+.how-urgent__wrapper
+	max-width: 60%
+
+/*************** custom range start ****************/
+.range__wrapper
+	margin: 50px 0 64px 0
+
+.range__body
+	text-align: center
+	margin-bottom: 20px
+	margin-top: 20px
+
+.range__text
+	display: flex
+	justify-content: space-between
+	font-weight: bold
+	color: $text-light
+	font-size: 15px
+
+.range__input::-webkit-slider-runnable-track
+	appearance: none
+	width: 100%
+	background: #EFF0F5
+	height: 10px
+	border-radius: 5px
+
+.range__input
+	width: 85%
+	position: relative
+	appearance: none
+	cursor: pointer
+
+.range__input::before,
+.range__input::after
+	content: ''
+	display: block
+	width: 10px
+	height: 10px
+	position: absolute
+	background-color: #D6D8E2
+	border-radius: 100%
+
+.range__input::before
+	left: 0
+
+.range__input::after
+	right: 0
+
+.range__input::-webkit-slider-thumb
+	appearance: none
+	height: 20px
+	width: 20px
+	background-color: #E9BD71
+	margin-top: -5px
+	box-sizing: border-box
+	z-index: 2
+	position: relative
+	border-radius: 100%
+.orange
+	color: #e9bd71
+
+/******** custom range end ***************/
+
+.timeline__info
+	padding: 25px
+	border: 1px solid $bordercolor
+	border-radius: 5px
+	.fa
+		font-size: 23px
+
+.timeline__info-h3
+	margin-left: 20px
+
+
+.timeline__info-p
+	padding-left: 40px
+	margin: 0
+	color: $text-light
+	span
+		color: #e9bd71
+		font-weight: bold
+
+.timeline__info-title
+	display: flex
+	align-items: center
+
+.paymant__wrapper
+	text-align: left
+	margin-top: 100px
+
+.sign-in
+	padding: 25px 0
+
+.sign-in-link
+	color: $text
+	&:hover
+		color: #000000
+	&:focus
+		outline: none
+		box-shadow: 0 0 3px 3px #83A8E5
+	&:active
+		color: #da7674
+
+.sign-up__inputs
+	display: flex
+	flex-wrap: wrap
+
+.sign-up__name
+	min-width: 100%
+
+
+.input__auth
+	box-sizing: border-box
+	height: 50px
+	width: 280px
+	border-radius: 5px
+	border: none
+	box-shadow: 0 0 2px 1px $bordercolor
+	margin-right: 40px
+	padding-left: 25px
+	font-size: 15px
+	+button-bg($background, 3%)
+	&:focus
+		outline: none
+		box-shadow: 0px 0px 3px 3px #83A8E5
+
+
+
+.sign-up__item
+	position: relative
+
+.sign-up-label
+	display: block
+	margin: 15px 0 10px 0
+	padding-left: 10px
+
+.validation::before
+	content: ''
+	font-family: fontawesome
+	position: absolute
+	left: 240px
+	bottom: 6px
+	font-size: 24px
+
+
+.input__auth:focus:invalid + .validation::before
+	content: '\f057'
+	color: #DA7674
+
+
+.input__auth:focus:invalid
+	box-shadow: 0 0 3px 2px red
+
+.input__auth:focus:valid + .validation::before
+	content: '\f058'
+	color: #7da8e3
+
+.input__auth:focus:valid
+	box-shadow: 0 0 3px 2px green
+
+.sign-up__mail
+	i
+		color: #da7674
+
+.label--size-payment
+	width: 280px
+	height: 130px
+	.label__image-wrapper
+		flex-direction: row
+		align-items: center
+		justify-content: space-around
+		.fa
+			font-size: 60px
+			margin: 0
+
+.payment-methods__wrapper
+	margin-top: 70px
+
+.credit__card-item
+	position: relative
+	i
+		position: absolute
+		top: 42px
+		right: 55px
+		font-size: 30px
+		color: $text-light
+
+
+.credit__card
+	display: flex
+	//flex-wrap: wrap
+	margin-bottom: 100px
+	label
+		display: block
+		margin: 0 0 10px 10px
+		font-weight: bold
+		color: $text-light
+	.input__auth
+		text-align: center
+		padding: 0
+
+.input__card-number
+	width: 380px
+
+.input__card-expires
+	width: 170px
+
+.input__card-code
+	width: 100px
+
+
+.form__footer
+	display: flex
+	flex-wrap: wrap
+	justify-content: flex-end
+	align-items: center
+	margin-top: 60px
+	margin-bottom: 120px
+	.order-button
+		margin: 0
+	.main-button
+		margin-left: 30px
+
+.form__footer-accept
+	cursor: pointer
+
+.accept__terms
+	display: flex
+	align-items: center
+
+.accept__terms-label
+	padding-left: 7px
+
+.accept__terms-link
+	color: $text
+	&:hover
+		color: #000000
+	&:focus
+		outline: none
+		box-shadow: 0 0 3px 3px #83A8E5
+	&:active
+		color: #da7674
+
+/*********** custom checkbox start***********/
+
+.checkbox-label-wrapper
+	cursor: pointer
+	display: flex
+	position: relative
+
+.checkbox-label-wrapper:hover
+	text-decoration: underline
+
+.checkbox-wrapper
+	width: 250px
+	margin: 50px auto
+	line-height: 1.4
+	font-size: 50px
+
+.checkbox-label
+	margin-right: 5px
+
+.checkbox-label::before
+	content: ''
+	display: block
+	width: 18px
+	height: 18px
+	box-shadow: 0 0 2px 1px #cad0e2
+	position: absolute
+	bottom: 2px
+	left: 15px
+	border-radius: 3px
+
+.checkbox-label::after
+	content: ''
+	display: block
+	width: 0
+	height: 0
+	border: 3px solid transparent
+	border-top: none
+	border-right: none
+	position: absolute
+	top: 6px
+	left: 14px
+	transform: rotate(-45deg)
+	transform-origin: top left
+	will-change: width, height
+	box-sizing: border-box
+
+input[type=checkbox]:checked + .checkbox-label::after
+	border-color: $text
+	width: 21px
+	height: 15px
+	transition: height 0.25s ease-out, width 0.25s ease-out 0.25s
+
+.input:focus + .checkbox-label::before
+	box-shadow: 0 0 3px 2px #7DA7E3
+
+/*********** custom checkbox end***********/
+
+/***********page  footer start ***********/
+
+.footer__main
+	background-color: #454a63
+	color: $text-light
+	box-sizing: border-box
+	font-size: 12px
+
+.footer__main-container
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+	align-items: center
+	max-width: 1200px
+	margin: 0 auto
+	padding: 10% 0 5% 0
+
+.footer__main-header
+	display: flex
+	align-items: center
+	font-weight: bold
+	.fa
+		font-size: 30px
+		margin-right: 25px
+
+.footer__main-item
+	max-width: 25%
+	min-height: 150px
+	width: 250px
+
+.what-we-do
+	p
+		font-style: italic
+		margin: 5px 0 0 55px
+
+.location
+	font-style: normal
+	.contacts__phone
+		color: #b5b9d9
+	.location-p
+		margin: 5px 0 0 51px
+
+.logo
+	text-align: right
+	.fa
+		font-size: 130px
+
+.social
+	margin: 5px 0 0 50px
+	position: relative
+	.fa
+		padding: 6px
+		font-size: 10px
+		width: 10px
+		text-align: center
+		text-decoration: none
+		border-radius: 50%
+		background-color: #B4B9D8
+		color: #454a63
+		&:hover
+			background-color: $accent
+
+.social__link
+	color: #B4B9D8
+	text-decoration: none
+	&:hover
+		color: $accent
+	&:focus
+		outline: none
+		box-shadow: 0 0 3px 3px #83A8E5
+	&:active
+		color: #da7674
+
+.social__link-text
+	margin-left: 10px
+
+/***********page  footer end ***********/
+
+@import "media"

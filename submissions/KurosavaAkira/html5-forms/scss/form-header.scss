@@ -1,0 +1,129 @@
+.main {
+  background-color: $white;
+  color: $gray;
+  border: 1px solid rgba(111, 118, 146, 0.3);
+}
+
+.form-header {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid rgba(111, 118, 146, 0.15);
+}
+
+.your-order {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1000px;
+  border-right: 2px solid rgba(111, 118, 146, 0.15);
+}
+
+.your-order-left {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 30px;
+  padding-left: 70px;
+}
+
+.form-header-title {
+  position: relative;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.form-header-title .icon-offset {
+  font-size: 20px;
+  position: absolute;
+  top: -3px;
+  left: -30px;
+}
+
+.your-order-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 36px 2px;
+  letter-spacing: 1px;
+}
+
+.your-order-item {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.your-order-item span {
+  font-size: 10px;
+  display: block;
+  padding: 14px 0px;
+  opacity: 0.6;
+}
+
+.your-order-right {
+  display: flex;
+  flex-direction: column;
+  padding: 25px 0px;
+  padding-left: 80px;
+  padding-right: 40px;
+}
+
+.your-order-button {
+  font-size: 13px;
+  letter-spacing: 1px;
+  min-width: 170px;
+  padding: 18px 20px;
+  border: 1px solid rgba(111, 118, 146, 0.3);
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border 0.2s, background 0.2s;
+}
+.your-order-button:hover {
+  background: $button-bg-aqua-hover;
+  border: 1px solid #6f7692;
+}
+.place-order {
+  background: $button-bg-aqua;
+  color: $white;
+}
+
+.print-a-quote {
+  background: $button-bg-white;
+  color: $gray;
+  margin-top: 10px;
+}
+
+.print-a-quote:hover {
+  background: $button-bg-white-hover;
+}
+
+.help-center {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  padding: 30px 0px;
+  padding-left: 60px;
+  padding-right: 30px;
+  max-width: 330px;
+}
+
+.help-center-text {
+  font-size: 12px;
+  line-height: 16px;
+  padding: 15px 0px;
+  opacity: 0.5;
+}
+
+.help-center-contacts {
+  display: flex;
+  flex-direction: row;
+  font-size: 13px;
+  font-style: normal;
+}
+
+.help-center-contact:not(:first-child) {
+  padding-left: 10px;
+}
