@@ -1,0 +1,4 @@
+export const entityList = {
+  CURRENT_WEATHER: 'CURRENT_WEATHER',
+  FORECAST_WEATHER: 'FORECAST_WEATHER'
+};

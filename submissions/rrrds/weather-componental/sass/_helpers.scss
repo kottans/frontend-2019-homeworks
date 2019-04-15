@@ -1,0 +1,15 @@
+.visualy-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  transition-property: box-shadow;
+  transition-duration: 0.5s;
+}

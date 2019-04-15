@@ -1,0 +1,49 @@
+.forecast {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.forecast__item {
+  width: 30%;
+}
+
+.forecast-grid {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.forecast__column {
+  border: 2px solid white;
+  width: 3px;
+  height: 100px;
+  // background-color: black;
+  // background-size: 100% 30%;
+  background-image: linear-gradient(
+    0deg,
+    darkgrey,
+    black var(--height),
+    transparent var(--height),
+    transparent 100%
+  );
+
+  &:hover {
+    width: 8px;
+  }
+}
+
+.forecast__max,
+.forecast__min {
+  position: absolute;
+  left: -2em;
+}
+
+.forecast__max {
+  top: -0.4em;
+}
+
+.forecast__min {
+  bottom: -0.4em;
+}

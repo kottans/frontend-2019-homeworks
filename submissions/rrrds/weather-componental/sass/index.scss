@@ -1,0 +1,31 @@
+// @import 'debug';
+
+@import 'helpers';
+
+.app {
+  max-width: 450px;
+  margin: 1em auto 3em;
+  font-family: Arvo, serif;
+}
+
+.button {
+  cursor: pointer;
+  border: 1px solid black;
+  background: white;
+  padding: 4px;
+  margin: 5px;
+  font-family: inherit;
+
+  &:hover {
+    background: black;
+    color: white;
+  }
+}
+
+.fas {
+  margin-right: 4px;
+}
+
+@import 'header';
+@import 'main';
+@import 'forecast';

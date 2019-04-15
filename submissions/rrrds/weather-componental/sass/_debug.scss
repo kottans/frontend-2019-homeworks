@@ -1,0 +1,25 @@
+* {
+  transition: background-color 1s linear;
+
+  &.div--new {
+    background-color: red;
+  }
+}
+
+.kottans-component {
+  position: relative;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+
+  &::before {
+    content: attr(data-component);
+    position: absolute;
+    top: -0.6em;
+    left: -1px;
+    background-color: white;
+    border: 1px solid black;
+    font-size: 12px;
+    padding: 0 5px;
+  }
+}

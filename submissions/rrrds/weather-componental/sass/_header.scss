@@ -1,0 +1,49 @@
+.header {
+  position: relative;
+  margin-bottom: 2em;
+}
+
+.search-form {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.search__input {
+  width: 100%;
+  border: 1px solid black;
+  margin: 5px;
+  padding: 5px;
+  font-family: inherit;
+  font-size: 1em;
+}
+
+.button--search {
+  font-weight: bold;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 1.1em;
+}
+
+.button-unit {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.button-unit__type {
+  font-weight: bold;
+  font-family: inherit;
+  font-size: 0.9em;
+  padding: 3px 10px;
+  background-color: black;
+  color: darken($color: #fff, $amount: 10%);
+}
+
+.button-unit__type--current {
+  background-color: white;
+  color: black;
+  font-size: 1em;
+}
