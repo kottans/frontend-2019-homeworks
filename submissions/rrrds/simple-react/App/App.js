@@ -13,19 +13,17 @@ import { Episode } from "../Episode";
 function App() {
   return (
     <Router>
-      <div className="app">
-        <Navigation />
+      <Navigation />
 
-        <main className="main">
-          <Route path="/" exact component={Home} />
-          <Route path="/character/" exact component={CharacterList} />
-          <Route path="/character/:id" exact component={Character} />
-          <Route path="/location/" exact component={LocationList} />
-          <Route path="/location/:id" exact component={Location} />
-          <Route path="/episode/" exact component={EpisodeList} />
-          <Route path="/episode/:id" exact component={Episode} />
-        </main>
-      </div>
+      <main className="main">
+        <Route path="/" exact component={Home} />
+        <Route path="/character/" exact component={CharacterList} />
+        <Route path="/character/:id" exact component={Character} />
+        <Route path="/location/" exact component={LocationList} />
+        <Route path="/location/:id" exact component={Location} />
+        <Route path="/episode/" exact component={EpisodeList} />
+        <Route path="/episode/:id" exact component={Episode} />
+      </main>
     </Router>
   );
 }
