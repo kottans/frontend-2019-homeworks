@@ -1,0 +1,47 @@
+.App {
+  text-align: center;
+  display: flex;
+  margin-top: 1rem;
+}
+
+.sideBar {
+  display: flex;
+  margin-left: 1rem;
+}
+
+.charactersList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-btn {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.characters {
+  width: 20rem;
+  height: 25rem;
+}
+
+.characters-image {
+  height: 17rem;
+  width: 17rem;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-width: 250px;
+}
+
+date-wrapper {
+  display: block;
+}
+
+label.date-filter {
+  display: inline-block;
+  width: 5rem;
+  text-align: left;
+}
