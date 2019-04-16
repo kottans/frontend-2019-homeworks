@@ -4,11 +4,12 @@
   "private": true,
   "homepage": "https://aldegid.github.io/react-basic-app/",
   "dependencies": {
-    "bootstrap": "^4.3.1",
     "gh-pages": "^2.0.1",
+    "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "react-transition-group": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

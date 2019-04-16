@@ -1,0 +1,296 @@
+
+::placeholder
+  color: #8FA2BA
+  font-size: 16px
+  font-family: Consolas, sans-serif
+  font-style: italic
+
+body
+  font-family: 'Raleway', sans-serif
+
+.App
+  text-align: center
+
+.container
+  max-width: 1920px
+  min-height: 100vh
+  background: rgba(147,206,222,1)
+  background: linear-gradient(to right, rgba(147,206,222,1) 0%, rgba(67,203,166,1) 38%, rgba(73,165,191,1) 100%)
+
+.main-section
+  display: flex
+  padding-top: 25px
+
+.filter
+  min-width: 320px
+  padding: 0 15px
+  color: #000000
+  margin: 10px 0
+
+.buttons-group
+  display: flex
+  justify-content: space-between
+
+.users-wrap
+  display: flex
+  margin: auto
+  transition: all .25s ease
+
+.not-found
+  color: tomato
+  font-size: 50px
+  align-self: center
+  font-weight: bold
+  padding: 50px 30px
+  border-radius: 10px
+  margin: 0 15px
+
+.users
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+
+.users .user
+  max-width: 200px
+  background-color: rgba(#fff, .95)
+  border-radius: 7px
+  box-shadow: 0px 10px 20px -1px rgba(0,0,0,0.33)
+  padding: 5px 25px
+  margin: 10px
+  color: #22354D
+  transition: all .25s ease
+  &:hover
+    transform: scale(.99)
+
+.form-control
+  width: 100%
+  padding: 15px 0
+  border: none
+  border-radius: 7px
+  margin: 25px 0
+  box-sizing: border-box
+  padding-left: 15px
+
+.radio-buttons
+  display: flex
+  flex-wrap: wrap
+
+.sort-asc-desc
+  width: 100%
+  background-color: rgba(#fff, .2)
+
+.form-check
+  padding: 8px
+
+img
+  width: 100%
+  margin-top: 15px
+  border-radius: 50%
+  box-shadow: 0px 5px 10px -1px rgba(0,0,0,0.33)
+
+.card.card__main
+  border: none
+  box-shadow: 0px 10px 20px -1px rgba(0,0,0,0.33)
+
+.card
+  transition: all .25s ease
+
+.card__header
+  margin: 0
+  color: tomato
+.list-item
+  margin: 5px 0
+
+.card:hover
+  transform: scale(.99)
+
+.card__main .card-body
+  padding: .5rem
+  text-align: center
+
+.card-body .list-group-item
+  padding: 5px 10px
+
+/*animate styles*/
+.item-enter
+  opacity: 0
+
+.item-enter-active
+  opacity: 1
+  transition: opacity 500ms ease-in
+
+.item-exit
+  opacity: 1
+
+.item-exit-active
+  opacity: 0
+  transition: opacity 500ms ease-in
+
+
+/* animate styles end */
+
+/* preloader styles */
+.preloader
+  position: fixed
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  background-color: #fff
+  z-index: 100
+@mixin opacity($opacity)
+  opacity: $opacity / 100
+  filter: alpha(opacity=$opacity)
+.pulse
+  position: relative
+  left: 50%
+  top: 50vh
+  margin:
+    left: -40px
+    top: -40px
+  &:before, &:after
+    content: ''
+    border: 5px solid #62DCC7
+    width: 80px
+    height: 80px
+    border-radius: 500px
+    position: absolute
+  &:before
+    animation: pulse-outer .8s ease-in infinite
+  &:after
+    animation: pulse-inner .8s linear infinite
+
+@keyframes pulse-outer
+  0%
+    @include opacity(100)
+  50%
+    @include opacity(50)
+  100%
+    @include opacity(0)
+
+@keyframes pulse-inner
+  0%
+    transform: scale(0)
+    @include opacity(0)
+  100%
+    transform: scale(1)
+    @include opacity(100)
+
+/* preloader styles end*/
+
+/* button styles */
+.button
+  display: inline-block
+  border: none
+  color: #fff
+  text-decoration: none
+  background-color: #FD6347
+  padding: 15px 15px
+  font-size: 13px
+  text-transform: uppercase
+  font-weight: 600
+  letter-spacing: 2px
+  border-radius: 7px
+  text-align: center
+  position: relative
+  outline: none
+  transition: background-color .1s ease
+  &::after
+    transition: background-color .2s ease
+    position: absolute
+    content: ''
+    height: 4px
+    bottom: 0
+    width: 100%
+    background-color: darken(#FD6347, 50%)
+    opacity: .18
+    border-bottom-left-radius: 7px
+    border-bottom-right-radius: 7px
+    left: 0
+  &:focus, &:hover
+    text-decoration: none
+    color: #fff
+  &:hover
+    background-color: lighten(#FD6347, 5%)
+    cursor: pointer
+    &::after
+      opacity: .22
+  &:active
+    background-color: darken(#FD6347, 5%)
+    &::after
+        opacity: .32
+  &:disabled
+    background-color: lighten(#777, 10%)
+    cursor: auto
+/* button styles end*/
+
+/* custom radio styles */
+[type="radio"]:checked,
+[type="radio"]:not(:checked)
+    position: absolute
+    left: -9999px
+
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+  position: relative
+  padding-left: 28px
+  cursor: pointer
+  line-height: 20px
+  display: block
+  color: #fff
+  font-weight: bold
+
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before
+  content: ''
+  position: absolute
+  left: 0
+  top: 0
+  width: 18px
+  height: 18px
+  border: 1px solid #ddd
+  border-radius: 100%
+  background: #fff
+
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after
+  content: ''
+  width: 12px
+  height: 12px
+  background: tomato
+  position: absolute
+  top: 4px
+  left: 4px
+  border-radius: 100%
+  -webkit-transition: all 0.2s ease
+  transition: all 0.2s ease
+
+[type="radio"]:not(:checked) + label:after
+  opacity: 0
+  -webkit-transform: scale(0)
+  transform: scale(0)
+
+[type="radio"]:checked + label:after
+  opacity: 1
+  -webkit-transform: scale(1)
+  transform: scale(1)
+
+/* custom radio end */
+
+/* media rules*/
+
+@media screen and (max-width: 980px)
+  .main-section
+    flex-direction: column
+
+@media screen and (max-width: 768px)
+  .not-found
+    font-size: 34px
+    text-align: center
+
+@media screen and (max-width: 500px)
+  .users .user
+    min-width: 75%
+@media screen and (max-width: 400px)
+  .filter
+    min-width: 290px
