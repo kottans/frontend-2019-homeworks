@@ -1,48 +1,9 @@
 import React from 'react';
+import { getPager } from './utils';
 
 const Pagination = ({ limit, offset, total, handleClick }) => {
   if (total && limit) {
-    const getPageNumber = itemsPerPage => Math.ceil(itemsPerPage / limit);
-    let currentPage = getPageNumber(offset) + 1;
-    const lastPage = getPageNumber(total);
-    const getPager = () => {
-      let pagerSize = 5;
-      pagerSize = pagerSize % 2 ? pagerSize++ : pagerSize;
-      const middleOfPager = Math.ceil(pagerSize / 2);
-      const createOrderedArr = size =>
-        Array.from(new Array(size)).map((el, index) => index + 1);
-      const orderedPagerSizeArr = createOrderedArr(pagerSize);
-      if (lastPage < 1) {
-        return [];
-      }
-      if (1 <= lastPage && lastPage <= pagerSize) {
-        return createOrderedArr(lastPage);
-      }
-      if (lastPage > pagerSize) {
-        if (currentPage <= middleOfPager) {
-          return [...orderedPagerSizeArr, '...', lastPage];
-        }
-        let pagerArr = orderedPagerSizeArr.map(
-          el => currentPage - middleOfPager + el,
-        );
-
-        if (currentPage === middleOfPager + 1) {
-          return [1, ...pagerArr, '...', lastPage];
-        }
-
-        if (currentPage === lastPage - middleOfPager) {
-          return [1, '...', ...pagerArr, lastPage];
-        }
-        let orderedArrBelowLastPage = orderedPagerSizeArr
-          .map(el => lastPage - el + 1)
-          .reverse();
-        if (currentPage > lastPage - middleOfPager) {
-          return [1, '...', ...orderedArrBelowLastPage];
-        }
-        return [1, '...', ...pagerArr, '...', lastPage];
-      }
-    };
-    const pager = getPager();
+    const { pagesArr, currentPage } = getPager(limit, offset, total);
 
     const onClick = e => {
       const pageNumber = e.target.innerHTML;
@@ -58,7 +19,7 @@ const Pagination = ({ limit, offset, total, handleClick }) => {
 
     return (
       <ul className="pagination_list" onClick={onClick}>
-        {pager.map((page, index) => {
+        {pagesArr.map((page, index) => {
           return page === currentPage ? (
             <li className="pagination_selected-list-item" key={index}>
               {page}

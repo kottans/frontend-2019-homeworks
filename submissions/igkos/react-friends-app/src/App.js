@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.scss';
 import loader from './GravityAnimating.svg';
 
-import { getComicsList, setComicsSearchParams } from './api';
+import { getComicsList } from './api';
 
 import Popup from './Popup';
 import Comics from './Comics';
@@ -28,37 +28,40 @@ class App extends Component {
   };
 
   async componentDidMount() {
-    this.updateComicsDate();
+    this.getComicsData();
   }
-  updateComicsDate = async () => {
-    const { list, offset, total } = await getComicsList();
-    this.updateSearchParams({ offset, total });
-    this.setState({ list, isLoading: false });
-  };
-  updateSearchParams = params => {
+  getComicsData = async () => {
     let { searchParams } = this.state;
-    searchParams = Object.assign(searchParams, params);
-    this.setState(searchParams);
+    const { list, offset, total } = await getComicsList(searchParams);
+    this.setState({
+      searchParams: { ...searchParams, offset, total },
+      list,
+      isLoading: false,
+    });
   };
-  setComicsLParams = async params => {
-    this.setState({ isLoading: true });
-    this.updateSearchParams(params);
-    setComicsSearchParams(this.state.searchParams);
-    this.updateComicsDate();
+  updateComics = async params => {
+    let { searchParams } = this.state;
+    await this.setState({
+      isLoading: true,
+      searchParams: { ...searchParams, ...params },
+    });
+    this.getComicsData();
   };
-  onClick = e => {
+  popupTargetComics = e => {
     const title = e.target.alt;
-    if (e.target.alt) {
+    if (title) {
       const targetComics = this.state.list.find(
         comics => comics.title === title,
       );
-      this.togglePopup(targetComics);
+      this.setState({
+        targetComics,
+      });
+      this.togglePopup();
     }
   };
-  togglePopup = (targetComics = {}) => {
+  togglePopup = () => {
     this.setState({
       showPopup: !this.state.showPopup,
-      targetComics,
     });
   };
   render() {
@@ -72,27 +75,23 @@ class App extends Component {
     return (
       <div className="App">
         <nav>
-          <InputWrapper
-            handleSubmit={this.setComicsLParams}
-            {...searchParams}
-          />
+          <InputWrapper updateComics={this.updateComics} {...searchParams} />
         </nav>
 
         {isLoading ? (
           <img src={loader} className="App-logo" alt="logo" />
         ) : (
           <>
-            <main onClick={this.onClick}>
+            <main onClick={this.popupTargetComics}>
               {list.map(comics => (
                 <Comics
                   key={comics.id}
-                  title={<Title title={comics.title} />}
                   image={<Image {...comics.thumbnail} alt={comics.title} />}
                 />
               ))}
               {!list.length ? <h2>Oops nothing found ":("</h2> : null}
             </main>
-            <Pagination handleClick={this.setComicsParams} {...searchParams} />
+            <Pagination handleClick={this.updateComics} {...searchParams} />
           </>
         )}
         {showPopup ? (

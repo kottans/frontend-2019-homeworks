@@ -101,6 +101,7 @@ main {
 }
 .popup {
   position: fixed;
+  padding: 10%;
   width: 100%;
   height: 100%;
   top: 0;
@@ -110,6 +111,8 @@ main {
   margin: auto;
   background-color: transparent;
   animation: colorchange 1s ease 0s 1 normal forwards;
+  display: flex;
+  justify-content: center;
   z-index: 2;
 }
 @keyframes colorchange {
@@ -119,11 +122,8 @@ main {
   }
 }
 .popup_inner {
-  position: absolute;
   border-radius: 16px;
-  left: 25%;
-  right: 25%;
-  top: 25%;
+  flex-basis: 45%;
   margin: auto;
   background: #141b1f;
   display: flex;
