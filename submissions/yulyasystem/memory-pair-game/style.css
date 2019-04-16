@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat',
+        sans-serif;
+    height: 100vh;
+}
+
+.heading {
+    font-weight: 600;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin: auto;
+    width: 640px;
+    height: 640px;
+    perspective: 1000px;
+}
+
+.memory-card {
+    background: rgb(209, 240, 223);
+    border-radius: 10px;
+    box-shadow: 0 40px 110px rgba(15, 46, 37, 0.45);
+    transform-style: preserve-3d;
+    position: relative;
+    transform: scale(1);
+    transition: transform .5s;
+}
+
+.memory-card:active {
+    transform: scale(.95);
+    transition: transform .2s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-side,
+.back-side {
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.front-side {
+    transform: rotateY(180deg);
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Friends App</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><h1>Friends App</h1></header>
+<main>
+	<aside class="filter">
+
+
+	<form class = "search-form">
+		<fieldset>
+			<legend>Search by name</legend>
+			<label><input type="text" size="15" class="search-text" placeholder="Search..."> <i class="fa fa-search"></i></label>
+        </fieldset>				
+		<fieldset>
+			<legend>Filter by sex</legend>
+			<label><input type="radio" name="gender" value="male">M</label>
+			<label><input type="radio" name="gender" value="female">F</label>
+			<label><input type="radio" name="gender" value="all" checked>All</label>
+        </fieldset>		
+		<fieldset>
+			<legend>Filter by name</legend>
+			<label><input type="radio" name="sort" value="nameAsc"><i class="fas fa-sort-amount-down"></i>A-Z</label>
+			<label><input type="radio" name="sort" value="nameDesc"><i class="fas fa-sort-amount-up"></i>Z-A</label>
+        </fieldset>		
+		<fieldset>
+			<legend>Filter by age</legend>
+			<label><input type="radio" name="sort" value="ageAsc"><i class="fas fa-sort-numeric-up"></i></label>
+			<label><input type="radio" name="sort" value="ageDesc"><i class="fas fa-sort-numeric-down"></i></label>
+        </fieldset>		
+		<button type="reset">Reset</button>
+	</form>
+</aside>
+	<section id = "show-friends"></section>
+</main>
+    <script src="friends.js"></script>
+</body>
+</html>

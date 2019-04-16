@@ -1,0 +1,78 @@
+.btn {
+  border-radius: 3px;
+  border: 1px solid $border-color;
+  color: $text-light;
+  background-color: $background-color;
+  line-height: 50px;
+  height: 50px;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.5s;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  &:hover {
+    background-color: rgba($background-color, 0.4);
+  }
+}
+
+.btn--small {
+  width: 100%;
+  @include bp(medium) {
+    width: 120px;
+  }
+}
+
+.btn--medium {
+  width: 100%;
+  @include bp(medium) {
+    width: 170px;
+  }
+}
+
+.btn--big {
+  width: 100%;
+  @include bp(medium) {
+    width: 230px;
+  }
+}
+
+.btn--primary {
+  background-color: $primary-color;
+  border-color: $primary-border-color;
+  color: $white;
+  &:hover {
+    background-color: rgba($primary-color, 0.7);
+  }
+}
+
+.btn__icon {
+  margin-right: 15px;
+  font-size: 15px;
+}
+
+.link {
+  color: $text-dark;
+  font-size: 12px;
+  text-decoration: none;
+  border: none;
+  background: none;
+  padding: 0;
+  letter-spacing: normal;
+  transition: all 0.5s;
+  cursor: pointer;
+  &:hover {
+    color: rgba($text-dark, 0.7);
+  }
+  & + & {
+    margin-left: 20px;
+  }
+}
+
+.link--inline {
+  text-decoration: underline;
+  color: inherit;
+  font-size: inherit;
+}

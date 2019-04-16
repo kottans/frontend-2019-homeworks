@@ -1,0 +1,83 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.outer-section {
+  background-color: rgb(230, 232, 238);
+  height: 100%;
+  color: rgb(168, 170, 194);
+  padding: 104px 103px;
+
+}
+
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.back-button,
+.sign-button {
+  font-weight: 600;
+  width: 120px;
+  border-radius: 5px;
+  border: 2px solid rgb(219, 224, 235);
+  padding: 18px;
+  text-align: center;
+}
+
+.button-icon {
+  margin-right: 10px;
+}
+
+.back-button:hover,
+.sign-button:hover {
+  opacity: 0.7;
+}
+
+.inner-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header help"
+    "heading-selection heading-selection heading-selection"
+    "selection-radio selection-radio selection-radio"
+    "upload upload upload"
+    "language language language"
+    "tone range range"
+    "card-info card-info card-info"
+    "selection-card selection-card selection-card"
+    "card-detail card-detail card-detail"
+    "button button button";
+
+  background-color: rgb(255, 255, 255);
+  border-radius: 6px;
+  border: 2px solid rgb(220, 225, 236);
+  height: 100%;
+  // padding: 20px;
+  margin-top: 50px;
+}
+
+@import "header.scss";
+@import "selection.scss";
+@import "upload.scss";
+@import "language.scss";
+@import "tone.scss";
+@import "range.scss";
+@import "card-checkout.scss";
+@import "media.scss"

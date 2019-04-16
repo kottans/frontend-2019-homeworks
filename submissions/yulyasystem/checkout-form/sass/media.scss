@@ -1,0 +1,276 @@
+@media (max-width: 1125px) {
+
+  .outer-section {
+    padding: 74px 0px;
+  }
+}
+
+@media (max-width: 960px) {
+
+  .inner-section {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "header header "
+      "help help"
+      "heading-selection heading-selection "
+      "selection-radio selection-radio "
+      "upload upload "
+      "language language "
+      "tone range "
+      "card-info card-info "
+      "selection-card selection-card "
+      "card-detail card-detail "
+      "button button ";
+  }
+
+  .radio-label {
+    width: 110%;
+    height: 150%;
+    margin: 0;
+  }
+
+  .help-center {
+    border: none;
+  }
+
+  .range-heading-section {
+    margin-left: 0;
+  }
+
+  .card-radio-button {
+    margin-right: 5px;
+  }
+
+  .input-name {
+    margin-right: 8px;
+  }
+
+
+}
+
+@media(max-width:790px) {
+
+  .outer-section {
+    width: 100vw;
+  }
+
+  .inner-section {
+    grid-template-areas:
+      "header header "
+      "help help"
+      "heading-selection heading-selection "
+      "selection-radio selection-radio "
+      "upload upload "
+      "language language "
+      "tone tone "
+      "range range"
+      "card-info card-info "
+      "selection-card selection-card "
+      "card-detail card-detail "
+      "button button ";
+  }
+
+  .range-heading-section {
+    margin-left: 62px;
+  }
+
+  .select-group {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-row-gap: 20px;
+  }
+
+  .language-second {
+    grid-row: 3;
+    grid-column: 1;
+    margin-left: 80px;
+  }
+
+  .add-button {
+    grid-row: 4;
+    grid-column: 1;
+    margin-left: 140px;
+  }
+
+  .card-fields {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    justify-items: start;
+    align-items: start;
+  }
+
+  .card-password {
+    grid-row: 3;
+    grid-column: 1;
+  }
+
+  .card-detail-section {
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 62px;
+  }
+
+  .input-date {
+    width: 30%;
+  }
+
+  .input-code {
+    width: 20%;
+  }
+
+}
+
+@media(max-width:660px) {
+  .header {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+
+  }
+
+  .header-table {
+    grid-column: span 2;
+  }
+
+  .header-buttons {
+    grid-row: 3;
+    grid-column: span 2;
+  }
+
+  .heading-selection {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .selection-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-group-down {
+    flex-direction: column;
+    padding-top: 15px;
+  }
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+  html{
+    overflow-x: hidden;
+  }
+
+.header{
+  padding-left: 18px;
+}
+
+.header-table{
+  padding: 15px 0;
+}
+
+table,
+thead,
+tbody,
+th,
+td,
+tr {
+  display: block;
+}
+
+/* Hide table headers (but not display: none;, for accessibility) */
+.thead {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+tr {
+  margin: 0 0 1rem 0;
+}
+
+
+
+td {
+  /* Behave  like a "row" */
+  border: none;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  padding-left: 50%;
+}
+
+td:before {
+  /* Now like a table header */
+  position: absolute;
+  /* Top/left values mimic padding */
+  top: 0;
+  left: 6px;
+  width: 45%;
+  padding-right: 10px;
+  white-space: nowrap;
+}
+.order-td:nth-of-type(1):before {
+  content: "ITEMS";
+}
+
+.order-td:nth-of-type(2):before {
+  content: "DETAILS";
+}
+
+.order-td:nth-of-type(3):before {
+  content: "PRICE";
+}
+
+.order-td:nth-of-type(4):before {
+  content: "DELIVERY";
+}
+
+.upload-heading-section{
+  padding-left: 10px;
+}
+
+.upload-heading::after{
+  display: none;
+}
+
+.upload-table{
+  padding-left: 5px;
+  padding-right: 40px;
+}
+
+.upload-table-td:nth-of-type(1):before {
+  content: "FILE NAME";
+  color: rgb(99, 92, 100);
+}
+
+.upload-table-td:nth-of-type(2):before {
+  content: "FILE SIZE";
+}
+
+.upload-table-td:nth-of-type(3):before {
+  content: "WORDS NUMBER";
+}
+.upload-table-td:nth-of-type(4):before {
+content: "REMOVE";
+}
+
+.fa-file{
+  display:none;
+}
+
+.tone-heading-section{
+  padding-left: 2px;
+}
+
+.select-group, .tone-radio, .card-heading-section{
+  padding-left: 20px;
+}
+
+.card-fields, .card-sub-heading, .selection-card{
+  margin-left:20px;
+}
+
+.input-name{
+  width: 95%;
+}
+
+
+}

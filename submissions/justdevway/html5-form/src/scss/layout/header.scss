@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+
+  @media only screen and (max-width: $tablet) {
+    flex-flow: row wrap;
+  }
+
+  &__order {
+    flex: 0 0 70%;
+    padding: 0 15px;
+    border: 1px solid var(--lightgray);
+    border-radius: 2.5px 0 0 0;
+
+    @media only screen and (max-width: $tablet) {
+      flex: 0 0 100%;
+      padding: 0;
+      border: 1px solid var(--lightgray);
+      border-bottom: none;
+      border-radius: 2.5px 2.5px 0 0;
+    }
+  }
+
+  &__help {
+    flex: 0 0 30%;
+    border: 1px solid var(--lightgray);
+    border-left: none;
+    border-radius: 0 2.5px 0 0;
+
+    @media only screen and (max-width: $tablet) {
+      flex: 0 0 100%;
+      border: 1px solid var(--lightgray);
+      border-top: none;
+    }
+  }
+}

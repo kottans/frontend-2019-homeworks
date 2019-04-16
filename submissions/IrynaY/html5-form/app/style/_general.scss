@@ -1,0 +1,152 @@
+body{
+    background-color: $gray1;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: darken($gray1, 20%);
+}
+
+.title{
+    @extend %title;
+}
+
+.table-title{
+    @extend %title;
+    font-size: 13px;
+    text-align: left;
+}
+
+.order-form {
+    counter-reset: h2;
+}
+
+fieldset{
+    padding: 50px 90px 10px 130px;
+    position: relative;
+    margin: 0;
+
+    @media screen and (max-width: 425px) {
+        padding: 10px;
+    }
+}
+
+fieldset h2::before {
+    counter-increment: h2;
+    content: counter(h2);
+    display: inline-block;
+    width: 40px;
+    left: 70px;
+    top: 55px;
+    border: 1px solid #A8ACBC;
+    border-radius: 50%;
+    color: #72788E;
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+
+    @media screen and (max-width: 425px) {
+        position: relative;
+        top:0;
+        left: 0;
+        width: 25px;
+        line-height: 25px;
+    }
+}
+
+.custom-select {
+    pointer-events: none;
+    display: inline-flex;
+    z-index: 2;
+    position: relative;
+}
+
+.custom-select  select {
+    @include defaultBorder();
+    display: inline-block;
+    height: 100%;
+    padding: 20px 100px 20px 50px;
+    -webkit-appearance: none;
+    color: $gray2;
+    font-weight: 400;
+    font-size: 14px;
+    background-color: $gray1;
+    pointer-events: all;
+    cursor: pointer;
+
+    &:hover{
+        @include defaultHover()
+    }
+}
+
+.custom-select::after{
+    padding: 20px;
+    right: 0;
+    top: 0;
+    content: "\25BC";
+    border-left: 1px solid darken($gray1, 10%);
+    font-size: 12px;
+    position: absolute;
+}
+
+.remove-button{
+    border: none;
+    padding: 15px;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 22px;
+    background-image: url("../img/waste-bin.png");
+    @media screen and (max-width: 425px) {
+        background-size: 14px;
+        padding: 9px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    body{
+        font-size: 10px;
+    }
+
+    fieldset h2 {
+        text-align: center;
+    }
+    input{
+        max-width: 230px;
+    }
+
+    table {
+        border: 0;
+    }
+
+    table thead {
+        border: none;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    table tr {
+        border-bottom: 3px solid $gray1;
+        display: block;
+        margin-bottom: .625em;
+    }
+
+    table td {
+        border-bottom: 1px solid $gray1;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+    }
+
+    table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    table td:last-child {
+        border-bottom: 0;
+    }
+}
+

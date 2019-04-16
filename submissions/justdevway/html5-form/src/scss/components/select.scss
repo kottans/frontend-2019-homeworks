@@ -1,0 +1,102 @@
+$arrow-width: 15px;
+
+.select {
+
+  @media only screen and (max-width: $mobile) {
+    display: block;
+  }
+
+  &__item-wrapper {
+    position: relative;
+    height: 45px;
+    cursor: pointer;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: $arrow-width;
+      width: $arrow-width;
+      height: $arrow-width;
+      background-image: url('../img/down.svg');
+      background-repeat: no-repeat;
+      pointer-events: none;
+      transform: translateY(-50%);
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      right: $arrow-width * 3;
+      width: 1px;
+      height: 100%;
+      background: var(--gray);
+      pointer-events: none;
+      transition-property: background;
+      transition-duration: 0.175s;
+      transition-timing-function: linear;
+    }
+
+    &:hover {
+      .select__item-wrapper:before {
+        background: var(--darkgray);
+      }
+    }
+  }
+
+  &__item {
+    width: 100%;
+    height: 100%;
+    padding: 0 40px;
+    background: transparent;
+    z-index: 5;
+    outline: none;
+    border: 1px solid var(--darkgray);
+    color: var(--gray);
+    font-size: 12px;
+    text-align: left;
+    cursor: pointer;
+    transition-property: border, color, background;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+      background: var(--lightgreen);
+    }
+
+    &::-ms-expand {
+      display: none;
+    }
+
+    @media only screen and (max-width: $mobile) {
+      padding: 0 40px 0 20px;
+    }
+  }
+
+  &__remove {
+    padding: 20px;
+    width: 20px;
+    height: 20px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0);
+    background-color: transparent;
+    background-image: url("../img/trash.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition-property: border;
+    transition-duration: 0.175s;
+    transition-timing-function: linear;
+
+    &:hover,
+    &:focus {
+      border: 1px solid var(--lightgreen);
+    }
+  }
+}

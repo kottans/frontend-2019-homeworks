@@ -1,0 +1,72 @@
+.menu{
+    width: 100%;
+    padding: 15px;
+    /*top: -200px;
+    position: absolute;
+    overflow: hidden;
+    z-index: -10;
+    transition: top .7s ease-in;*/
+}
+.menu.active{
+    top: 100px;
+}
+.menu-title{
+    font-size: 24px;
+    font-family: 'Lobster', cursive;
+}
+.menu-button-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    flex-wrap: wrap;
+}
+.menu-button{
+    height: 48px;
+    width: 46%;
+    border: none;
+    border-radius: 16px;
+    font-size: 1em;
+    font-family: 'Lobster', cursive;
+}
+.menu-button-sort{
+    display: flex;
+    align-items: center;
+    -webkit-box-shadow: inset 0px 0px 11px 1px rgba(11,196,105,1);
+    -moz-box-shadow: inset 0px 0px 11px 1px rgba(11,196,105,1);
+    box-shadow: inset 0px 0px 11px 1px rgba(11,196,105,1);
+    color: #0BC469;
+    background-color: #FFFFFF;
+}
+.fa-angle-up, .fa-angle-down{
+    font-size: 40px;
+    padding: 5px;
+}
+.filter{
+    width: 30%;
+}
+.filter-select{
+    border: 1px solid #A5A2A9;
+    border-radius: 5px;
+}
+.filter-gender-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+.filter-gender-label{
+    font-size: 20px;
+}
+.filter-title{
+    font-size: 18px;
+    font-family: 'Lobster', cursive;
+}
+.filter-select{
+    width: 100%;
+}
+.filter-age-wrapper, .filter-title, .filter-select{
+    padding: 5px;
+}
+.filter-location-field{
+    border: 1px solid #A5A2A9;
+    border-radius: 10px;
+    height: 25px;
+}

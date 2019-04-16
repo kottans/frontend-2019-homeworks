@@ -1,0 +1,30 @@
+.table {
+  width: 100%;
+  font-size: 12px;
+}
+
+.table--small {
+  table-layout: fixed;
+  .table__cell {
+    font-size: 11px;
+    padding: 5px 5px 5px 0;
+  }
+}
+
+.table__header {
+  color: $text-dark;
+  text-align: left;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+}
+
+.table__cell {
+  color: $text-light;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 10px 10px 10px 0;
+  .fas {
+    color: inherit;
+  }
+}

@@ -1,0 +1,39 @@
+.button {
+  display: flex;
+  align-items: center;
+  min-width: 100px;
+  padding: 1rem 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #a5abc5;
+  border: 1px solid #c9d0e1;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color .2s ease-in-out;
+}
+
+.button:hover {
+  border-color: #5fcac6;
+}
+
+.button__icon {
+  padding-right: 1rem;
+}
+
+.button__text {
+  margin: 0;
+}
+
+.button--grey {
+  background-color: #f7f7fa;
+  border-color: #d7d8e0;
+  color: #a5abc5;
+}
+
+.button--cyan {
+  background-color: #5fcac6;
+  border-color: #54aca9;
+  color: #fff;
+  transition: border-color .2s ease-in-out;
+}

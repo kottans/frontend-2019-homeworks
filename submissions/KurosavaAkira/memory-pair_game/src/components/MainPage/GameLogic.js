@@ -1,15 +1,19 @@
-import { cards_data, resetCards } from './Cards';
-import ScorePage from '../ScorePage/ScorePage';
+import { cardsData, resetCards } from './Cards';
+import scorePage from '../ScorePage/ScorePage';
 
-const margin_left = 50;
+const MARGIN_LEFT = 50;
 let pair = [];
-let number_of_pairs = 0;
-let card_z_index = 2;
+let numberOfPairs = 0;
+let cardZindex = 2;
 
 const addClickEventToCards = () => {
-    const cards = document.querySelectorAll('.card');
-    cards.forEach( card => {
-        card.addEventListener('click', () => { cardClick(card) });
+    const battlegroundBoardField = document.querySelector('.battleground-board-field');
+    battlegroundBoardField.addEventListener('click', (e) => { 
+        const card = e.target.closest('.card');
+        if (card === null) return;
+        else {
+            cardClick(card);
+        } 
     });
 }
 
@@ -17,7 +21,7 @@ const cardClick = (card) => {
     card.children[0].classList.add('card-content-show');
     pair.push({
         id : card.attributes.id.value, 
-        img : cards_data[card.attributes.id.value - 1].image
+        img : cardsData[card.attributes.id.value - 1].image
     });
     checkPair();
 }
@@ -41,10 +45,10 @@ const hidePair = () => {
 const correctPair = () => {
     const card_1 = document.getElementById(pair[0].id);
     const card_2 = document.getElementById(pair[1].id);
-    number_of_pairs += 1;
+    numberOfPairs += 1;
     pair = [];
     setTimeout(() => {
-        if (number_of_pairs == 6) {
+        if (numberOfPairs == 6) {
             resetGameVariables();
             showScorePage();
         } 
@@ -62,20 +66,20 @@ const correctPair = () => {
 
 const hideCorrectPair = (card_1, card_2) => {
     //z-index style is not working :(
-    card_1.children[0].style.zIndex = `${card_z_index++}`;
-    card_1.children[0].style.marginLeft = `${margin_left + card_z_index * 10}px`;
-    card_2.children[0].style.zIndex = `${card_z_index++}`;
-    card_2.children[0].style.marginLeft = `${margin_left + card_z_index * 10}px`;
+    card_1.children[0].style.zIndex = `${cardZindex++}`;
+    card_1.children[0].style.marginLeft = `${MARGIN_LEFT + cardZindex * 10}px`;
+    card_2.children[0].style.zIndex = `${cardZindex++}`;
+    card_2.children[0].style.marginLeft = `${MARGIN_LEFT + cardZindex * 10}px`;
 }
 
 const showHideCards = () => {
     const cards = document.querySelectorAll('.card-content');
-    const battleground_board = document.getElementById('battleground-board'); 
+    const battlegroundBoard = document.getElementById('battleground-board'); 
     cards.forEach( card => {
         card.classList.add('card-content-show');
     });
     setTimeout(() => {
-        battleground_board.classList.remove('battleground-board-disable');
+        battlegroundBoard.classList.remove('battleground-board-disable');
         addClickEventToCards();
         cards.forEach( card => {
             card.classList.remove('card-content-show');
@@ -84,18 +88,18 @@ const showHideCards = () => {
 }
 
 const showScorePage = () => {
-    setTimeout(() => { ScorePage('Well done!'); }, 500);
+    setTimeout(() => { scorePage('Well done!'); }, 500);
 }
 
 const resetGameVariables = () => {
     resetCards();
     pair = [];
-    number_of_pairs = 0;
-    card_z_index = 2;
+    numberOfPairs = 0;
+    cardZindex = 2;
 }
 
-const ApplyGameLogic = () => {
+const applyGameLogic = () => {
     setTimeout(() => { showHideCards(); }, 2000);
 }
 
-export default ApplyGameLogic;
+export default applyGameLogic;

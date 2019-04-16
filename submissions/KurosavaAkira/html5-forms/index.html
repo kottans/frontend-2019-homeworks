@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+   <!---- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://use.fontawesome.com/9f6fb3027d.js"></script>
+    <link rel="stylesheet" href="scss/index.scss" />
+    <title>HTML5 Forms</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="navigation">
+          <button class="header-button">
+            <i class="fa fa-long-arrow-left" aria-hidden="true"></i> go back
+          </button>
+          <div class="header-logo"></div>
+          <button class="header-button">
+            <i class="fa fa-user" aria-hidden="true"></i> sign in
+          </button>
+        </nav>
+      </header>
+      <main class="main">
+        <section class="form-header">
+          <div class="your-order">
+            <div class="your-order-left">
+              <div class="form-header-title">
+                <i class="fa fa-clipboard icon-offset" aria-hidden="true"></i>
+                your order
+              </div>
+              <div class="your-order-items">
+                <div class="your-order-item">item<span>2 documents</span></div>
+                <div class="your-order-item">
+                  details<span>2 languages</span>
+                </div>
+                <div class="your-order-item">price<span>$ 696.06</span></div>
+                <div class="your-order-item">
+                  delivery<span>48 hours*</span>
+                </div>
+              </div>
+            </div>
+            <div class="your-order-right">
+              <button class="your-order-button place-order">place order</button>
+              <button
+                class="your-order-button print-a-quote"
+                onclick="window.print()"
+              >
+                print a quote
+              </button>
+            </div>
+          </div>
+          <div class="help-center">
+            <div class="form-header-title">
+              <i class="fa fa-life-ring icon-offset" aria-hidden="true"></i>
+              help center
+            </div>
+            <div class="help-center-text">
+              If you need assistance while placing your order, contact one of
+              our beloved Project Managers by phone or email.
+            </div>
+            <address class="help-center-contacts">
+              <div class="help-center-contact">+971 (0) 555 555</div>
+              <div class="help-center-contact">help@qtest.com</div>
+            </address>
+          </div>
+        </section>
+        <section class="form-wrapper">
+          <form id="checkout" action="#">
+            <section class="form-select-media">
+              <div class="translate-source-title">
+                select what you want to translate
+              </div>
+              <fieldset>
+                <div class="translate-source-media">
+                  <div class="translate-source-media-button">
+                    <label>
+                      <input
+                        type="radio"
+                        name="mediatype"
+                        value="website"
+                        required
+                      />
+                      <span class="media-button-label-wrapper">
+                        <img src="img/media-website.png" />
+                        <span class="media-button-label-text">Website</span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="translate-source-media-button">
+                    <label>
+                      <input
+                        type="radio"
+                        name="mediatype"
+                        value="documents"
+                        checked
+                      />
+                      <span class="media-button-label-wrapper">
+                        <img src="img/media-docs.png" />
+                        <span class="media-button-label-text">Documents</span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="translate-source-media-button">
+                    <label>
+                      <input
+                        type="radio"
+                        name="mediatype"
+                        value="social account"
+                        required
+                      />
+                      <span class="media-button-label-wrapper">
+                        <img src="img/media-account.png" />
+                        <span class="media-button-label-text"
+                          >Social account</span
+                        >
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <section class="form-upload-documents title-counter">
+              <div class="form-title">
+                Upload your documents
+                <span>(Doc, Docx, Text, PDF, Markdown)</span>
+              </div>
+              <label class="form-button upload-a-file">
+                <input type="file" accept=".doc, .docx, .txt, .pdf" />
+                <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                <span>Upload a new file</span>
+              </label>
+              <table class="upload-table">
+                <thead>
+                  <tr>
+                    <th>File name</th>
+                    <th>File size</th>
+                    <th>Number of words</th>
+                    <th>Remove</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <i class="fa fa-file-text" aria-hidden="true"></i>
+                      business_operations.docx
+                    </td>
+                    <td>78kb</td>
+                    <td>842</td>
+                    <td>
+                      <button
+                        type="button"
+                        class="button-remove"
+                        aria-label="Remove"
+                      >
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="fa fa-file-text" aria-hidden="true"></i>
+                      business_financial.docx
+                    </td>
+                    <td>26kb</td>
+                    <td>2,326</td>
+                    <td>
+                      <button
+                        type="button"
+                        class="button-remove"
+                        aria-label="Remove"
+                      >
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="form-choose-language title-counter">
+              <div class="form-title">
+                Choose your languages pairings
+              </div>
+              <div class="choose-language-wrapper">
+                <fieldset>
+                  <legend>From</legend>
+                  <label class="choose-language-select">
+                    <select name="language-from" id="language-from">
+                      <option value="Icelandic" selected="">Icelandic</option>
+                      <option value="Ukranian">Ukranian</option>
+                      <option value="English">English</option>
+                    </select>
+                  </label>
+                </fieldset>
+                <fieldset>
+                  <legend class="choose-language-legend-to">To</legend>
+                  <label class="choose-language-select">
+                    <select name="language-to">
+                      <option value="Icelandic">Icelandic</option>
+                      <option value="Ukranian" selected="">Ukranian</option>
+                      <option value="English">English</option>
+                    </select>
+                  </label>
+                  <label class="choose-language-select">
+                    <select name="language-to">
+                      <option value="Icelandic">Icelandic</option>
+                      <option value="Ukranian">Ukranian</option>
+                      <option value="English" selected="">English</option>
+                    </select>
+                  </label>
+                  <button
+                    type="button"
+                    class="form-button choose-language-button-remove"
+                    aria-label="Remove"
+                  >
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                  <button
+                    type="button"
+                    class="form-button choose-language-button-add"
+                  >
+                    <span>+</span> Add
+                  </button>
+                </fieldset>
+              </div>
+            </section>
+            <div class="form-sections-row">
+              <section class="form-desired-tone title-counter">
+                <div class="form-title">
+                  Select your desired tone
+                </div>
+                <div class="desired-tone">
+                  <div class="desired-tone-button">
+                    <label>
+                      <input
+                        type="radio"
+                        name="tone"
+                        value="Friendly / Casual"
+                        required=""
+                      />
+                      <span
+                        class="form-button desired-tone-button-lable desired-tone-after-fix"
+                      >
+                        <i class="fa fa-comments" aria-hidden="true"></i>
+                        <span>Friendly / Casual</span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="desired-tone-button">
+                    <label>
+                      <input
+                        type="radio"
+                        name="tone"
+                        value="Corporate / Pro"
+                        checked
+                      />
+                      <span class="form-button desired-tone-button-lable">
+                        <i class="fa fa-suitcase" aria-hidden="true"></i>
+                        <span>Corporate / Pro</span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="desired-tone-button">
+                    <label>
+                      <input
+                        type="radio"
+                        name="tone"
+                        value="Media / Formal"
+                        required=""
+                      />
+                      <span class="form-button desired-tone-button-lable">
+                        <i class="fa fa-volume-up" aria-hidden="true"></i>
+                        <span>Media / Formal</span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </section>
+              <section class="form-tell-how-urgent title-counter">
+                <div class="form-title">
+                  Tell us how urgent this job is
+                </div>
+                <input
+                  type="range"
+                  name="urgent"
+                  min="0"
+                  max="2"
+                  step="1"
+                  value="1"
+                  id="tell-how-urgent"
+                  class="tell-how-urgent-input"
+                />
+                <div class="tell-how-urgent-input-text">
+                  <span>I got time</span>
+                  <span class="active">Average</span>
+                  <span>Yesterday</span>
+                </div>
+                <div class="tell-how-urgent-info">
+                  <div class="urgent-info-title">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                    Timeline info
+                  </div>
+                  With an
+                  <mark>average</mark> timeline set up, our expert translator
+                  can take a reasonable amount of time perfecting your
+                  translation
+                </div>
+              </section>
+            </div>
+            <section class="form-payment-method title-counter">
+              <div class="form-title">
+                Sign up and choose a payment method
+              </div>
+              <p>Already have an account with us? <a href="#">Sign in.</a></p>
+              <div class="payment-method-wrapper">
+                <div class="sign-up-row">
+                  <div class="input-group input-sign-up">
+                    <label for="full-name">Full name</label>
+                    <input
+                      type="text"
+                      id="full-name"
+                      name="full-name"
+                      minlength="3"
+                      pattern="^[a-zA-Z\s\.\-]*$"
+                      required=""
+                    />
+                  </div>
+                </div>
+                <div class="sign-up-row">
+                  <div class="input-group input-sign-up">
+                    <label for="email">Email address</label>
+                    <input
+                      type="email"
+                      id="email"
+                      class="email"
+                      name="email"
+                      placeholder="example@domaine.com"
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                      title="name@domain.etc"
+                      autocomplete="on"
+                      required=""
+                    />
+                  </div>
+                  <div class="input-group input-sign-up">
+                    <label for="password">Choose your password</label>
+                    <input
+                      type="password"
+                      id="password"
+                      class="password"
+                      name="password"
+                      placeholder="Enter your password"
+                      pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                      title="Minimum 8 characters, UPPERCASE, lowercase and Number"
+                      minlength="6"
+                      required=""
+                    />
+                  </div>
+                </div>
+                <fieldset>
+                  <div class="sign-up-row">
+                    <div class="payment-media-button">
+                      <label>
+                        <input
+                          type="radio"
+                          name="payment-method"
+                          value="website"
+                          required
+                        />
+                        <span class="payment-button-label-wrapper">
+                          <img
+                            src="img/payment-visa-mastercard.png"
+                            alt="visa / mastercard"
+                          />
+                        </span>
+                      </label>
+                    </div>
+                    <div class="payment-media-button">
+                      <label>
+                        <input
+                          type="radio"
+                          name="payment-method"
+                          value="documents"
+                          checked
+                        />
+                        <span class="payment-button-label-wrapper">
+                          <img src="img/payment-paypal.png" alt="paypal" />
+                        </span>
+                      </label>
+                    </div>
+                    <div class="payment-media-button">
+                      <label>
+                        <input
+                          type="radio"
+                          name="payment-method"
+                          value="social account"
+                          required
+                        />
+                        <span class="payment-button-label-wrapper">
+                          <img src="img/payment-amazon.png" alt="amazon" />
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+                <div class="payment-card-data">
+                  <div class="sign-up-row">
+                    <div class="input-group input-card-number">
+                      <label for="card-number">Card number</label>
+                      <input
+                        type="text"
+                        id="card-number"
+                        name="card-number"
+                        pattern="\d*"
+                        minlength="16"
+                        maxlength="16"
+                        required=""
+                      />
+                    </div>
+                    <div class="input-group input-expiry-date">
+                      <label for="expiry-date">Expiry date</label>
+                      <input
+                        type="text"
+                        id="expiry-date"
+                        name="expiry-date"
+                        pattern="\d*"
+                        minlength="6"
+                        maxlength="6"
+                        placeholder="ddmmyy"
+                        required=""
+                      />
+                    </div>
+                    <div class="input-group input-card-code">
+                      <label for="code">Code</label>
+                      <input
+                        type="password"
+                        id="code"
+                        name="code"
+                        pattern="\d*"
+                        minlength="3"
+                        maxlength="3"
+                        required=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-submit-wrapper">
+                  <input
+                    type="checkbox"
+                    id="terms-and-conditions"
+                    required=""
+                  />
+                  <label for="terms-and-conditions" class="terms-and-conditions"
+                    >I agree to the
+                    <a href="#">Terms & Conditions</a>
+                  </label>
+                  <button
+                    type="submit"
+                    class="form-button place-order your-order-button"
+                    id="submit"
+                  >
+                    Place order
+                  </button>
+                  <button
+                    type="button"
+                    onclick="window.print()"
+                    class="form-button print-a-quote"
+                    id="print"
+                  >
+                    Print a quote
+                  </button>
+                </div>
+              </div>
+            </section>
+          </form>
+        </section>
+      </main>
+    </div>
+    <footer class="footer">
+        <div class="footer-wrapper">
+          <section class="what-we-do">
+            <div class="footer-title">
+              <i class="fa fa-heart-o" aria-hidden="true"></i>
+              What we do
+            </div>
+            <p>
+              We provide a full range of language services including content development, document, website and social media accounts translations        
+            </p>
+          </section>
+          <section class="footer-address">
+            <div class="footer-title">
+              <i class="fa fa-compass" aria-hidden="true"></i>
+              Our main office
+            </div>
+            <address>
+              Dubai, UAE
+              <br> P.O. Box: 502735
+              <br>
+              <a href="tel:+971(0)44278128">Phone: +971(0) 44278128</a>
+            </address>
+          </section>
+          <section class="connect-with-us">
+            <div class="footer-title">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+              Connect with us
+            </div>
+              <ul>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    Facebook
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                    Twitter
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                    Linkedin
+                  </a>
+                </li>
+              </ul>
+          </section>
+          <a href="#" class="logo">
+            <img src="img/logo.png" alt="logo">
+          </a>
+        </div>
+      </footer>
+  </body>
+</html>

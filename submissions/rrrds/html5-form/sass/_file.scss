@@ -1,0 +1,15 @@
+.file {
+  overflow: hidden;
+  position: relative;
+}
+
+.file__input {
+  cursor: inherit;
+  display: block;
+  font-size: 999px;
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+}

@@ -1,15 +1,15 @@
-import RenderDifficultyMenu from './DifficultyMenu';
-import GameOptions from './GameOptions';
+import renderDifficultyMenu from './DifficultyMenu';
+import gameOptions from './GameOptions';
 import { changeFullScreenVideo } from '../FullScreenVideo/FullScreenVideo';
-import BlackScreen from '../PageTransition/BlackScreenTransition';
-import Sundtrack from '../Sound';
+import blackScreen from '../PageTransition/BlackScreenTransition';
+import sundtrack from '../Sound';
 
-const StartingPage = () => {
-  BlackScreen.fromBlack();
-  Sundtrack.play();
+const startingPage = () => {
+  blackScreen.fromBlack();
+  sundtrack.play();
   changeFullScreenVideo('planet.mp4', 'loop');
-  RenderDifficultyMenu();
-  GameOptions.render();
+  renderDifficultyMenu();
+  gameOptions.render();
 };
 
-export default StartingPage;
+export default startingPage;

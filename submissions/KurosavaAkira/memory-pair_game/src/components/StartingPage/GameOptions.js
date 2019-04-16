@@ -1,11 +1,11 @@
 import './GameOptions.sass';
-import Settings from '../Settings';
+import settings from '../Settings';
 
-const GameOptions = {
-    open_menu_button : function() {
+const gameOptions = {
+    openMenuButton : function() {
         return `<button id="game-options-button">Game options</button>`
     },
-    main_menu : function() {
+    mainMenu : function() {
         return `<div id="game-options-menu">
                     <div class="game-options-checkboxs">
                         <h3>Options</h3>
@@ -27,24 +27,24 @@ const GameOptions = {
                 </div>`
     },
     openMenuClickEvent : function() {
-        const game_options_button = document.getElementById('game-options-button');
-        game_options_button.addEventListener('click', () => { 
+        const gameOptionsButton = document.getElementById('game-options-button');
+        gameOptionsButton.addEventListener('click', () => { 
             this.applyMenuClickEven();
         });
     },
     closeMenuClickEvent : function() {
-        const game_options_menu_close = document.getElementById('game-options-menu-close');
-        game_options_menu_close.addEventListener('click', () => { 
+        const gameOptionsMenuClose = document.getElementById('game-options-menu-close');
+        gameOptionsMenuClose.addEventListener('click', () => { 
             this.applyMenuClickEven();
         });
     },
     applyMenuClickEven : function() {
-        const game_options_menu = document.getElementById('game-options-menu');
-        const difficulty_menu = document.getElementsByClassName('difficulty-menu')[0];
-        const game_options_button = document.getElementById('game-options-button');
-        game_options_menu.classList.toggle('game-options-menu-visible');
-        difficulty_menu.classList.toggle('difficulty-menu-hide');
-        game_options_button.classList.toggle('difficulty-menu-hide');
+        const gameOptionsMenu = document.getElementById('game-options-menu');
+        const difficultyMenu = document.querySelector('.difficulty-menu');
+        const gameOptionsButton = document.getElementById('game-options-button');
+        gameOptionsMenu.classList.toggle('game-options-menu-visible');
+        difficultyMenu.classList.toggle('difficulty-menu-hide');
+        gameOptionsButton.classList.toggle('difficulty-menu-hide');
     },
     checkboxClickEvent : function() {
         const checkboxes = document.querySelectorAll('.checkbox');
@@ -62,29 +62,30 @@ const GameOptions = {
         }
     },
     checkboxSound : function() {
-        Settings.sound = Settings.sound == true ? false : true;
+        settings.sound = !settings.sound;
         const soundtrack = document.getElementById('soundtrack');
-        const full_screen_video = document.getElementById('full-screen-video');
+        const fullScreenVideo = document.getElementById('full-screen-video');
         soundtrack.muted = !soundtrack.muted;
-        full_screen_video.muted = !full_screen_video.muted;
+        fullScreenVideo.muted = !fullScreenVideo.muted;
     },
     checkboxFullscreen : function() {
-        Settings.fullscreen = Settings.fullscreen == true ? false : true;
-        if(!(document.webkitCurrentFullScreenElement==null)) document.webkitCancelFullScreen();
+        const isFullscreen = document.webkitCurrentFullScreenElement == null;
+        settings.fullscreen = !settings.fullscreen;
+        if (!(isFullscreen)) document.webkitCancelFullScreen();
         else document.documentElement.webkitRequestFullScreen();
     },
-    setSettings : function() {
-        document.getElementById('game-options-menu-sound').checked = Settings.sound;
-        document.getElementById('game-options-menu-fullscreen').checked = Settings.fullscreen;
+    setsettings : function() {
+        document.getElementById('game-options-menu-sound').checked = settings.sound;
+        document.getElementById('game-options-menu-fullscreen').checked = settings.fullscreen;
     },
     render : function() {
         const container = document.getElementById('container');
-        container.insertAdjacentHTML('beforeend', this.open_menu_button() + this.main_menu());
-        this.setSettings();
+        container.insertAdjacentHTML('beforeend', this.openMenuButton() + this.mainMenu());
+        this.setsettings();
         this.openMenuClickEvent();
         this.closeMenuClickEvent();
         this.checkboxClickEvent();
     },
 }
 
-export default GameOptions;
+export default gameOptions;

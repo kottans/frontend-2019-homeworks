@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>Random friends</title>
+      <link rel="stylesheet" href="css/style.css">
+   </head>
+   <body>
+      <header class="flex-container">
+         <a href="index.html" class="logo">Friends app</a>
+         <form class="form" name="form-sort" >
+            <input id="search" class="search" type="text" name="search"  placeholder="Search">
+            <fieldset>
+               <legend>Gender:</legend>
+               <select id="filter-gender">
+                  <option value="all">all</option>
+                  <option value="male">male</option>
+                  <option value="female">female</option>
+               </select>
+            </fieldset>
+            <fieldset>
+               <legend>Age:</legend>
+               <div class="age-group">
+                  <input type="number" placeholder="from" step="10" min="0" max="100" value = "0" id="agefrom" size="2">
+                  <span> - </span>
+                  <input type="number" placeholder="to" step="10" min="0" max="100" value = "100" id="ageto" size="2">
+               </div>
+            </fieldset>
+            <fieldset>
+               <legend>Sort:</legend>
+               <select id="sort-type">
+                  <option value="nameUp">name (A-Z)</option>
+                  <option value="nameDown">name (Z-A)</option>
+                  <option value="ageUp">age (1-9)</option>
+                  <option value="ageDown">age (9-1)</option>
+               </select>
+            </fieldset>
+            <button class="reset">Reset</button>
+         </form>
+      </header>
+      <div class="wrapper">
+         <div id="friends-app">
+            <div class="persons">
+            </div>
+         </div>
+      </div>
+      <script src="js/app.js"></script>
+   </body>
+</html>

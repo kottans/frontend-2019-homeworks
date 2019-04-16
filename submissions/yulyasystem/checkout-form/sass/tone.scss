@@ -1,0 +1,86 @@
+.tone-section {
+  border: none;
+  grid-area: tone;
+  padding-right: 50px;
+}
+
+.tone-heading-section {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-top: 1px;
+  padding-left: 52px;
+  min-width: 110%;
+}
+
+.tone-heading {
+  align-self: center;
+  font-size: 22px;
+  color: rgb(99, 92, 100);
+}
+
+.tone-radio-input:focus+label {
+  outline: 2px solid Highlight;
+  outline: auto 5px -webkit-focus-ring-color;
+}
+
+
+.tone-radio {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-items: space-between;
+  justify-content: center;
+  align-items: flex-start;
+
+  margin-left: 70px;
+  padding-top: 35px;
+  padding-left: 52px;
+}
+
+
+
+.tone-radio-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  min-width: 210px;
+  width: 45%;
+  height: 50px;
+  margin-bottom: 20px;
+  padding: 10px;
+
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid rgb(221, 221, 228);
+  background-color: rgb(247, 247, 250);
+}
+
+.tone-radio-label:hover {
+  opacity: 0.8;
+}
+
+.tone-radio-label>.fas {
+  font-size: 18px;
+}
+
+.tone-radio-input:checked~.tone-radio-label {
+  box-shadow: inset 0px 0px 0px 5px #74a4e1;
+  -moz-box-shadow: inset 0px 0px 0px 5px #74a4df;
+  position: relative;
+}
+
+.tone-radio-input:checked~.tone-radio-label::before {
+  content: "✔";
+  font-size: 1.8em;
+  position: absolute;
+  background: #76a7e1;
+  right: -9px;
+  top: -8px;
+  width: 30px;
+  height: 30px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+}
