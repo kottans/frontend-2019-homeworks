@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./character.css";
-import { fetchCharacter, fetchEpisode } from "../api";
+import { fetchCharacter, fetchEpisodeMulti } from "../api";
 import { EpisodeShort } from "../Episode";
 
 export function Character({ match }) {
@@ -20,12 +20,8 @@ export function Character({ match }) {
     }
 
     const episodesId = character.episode.map(ep => ep.id);
-    fetchEpisode(episodesId).then(data => {
-      if (Array.isArray(data)) {
-        setEpisodes(data);
-      } else {
-        setEpisodes([data]);
-      }
+    fetchEpisodeMulti(episodesId).then(data => {
+      setEpisodes(data);
     });
   }, [character]);
 

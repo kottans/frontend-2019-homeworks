@@ -21,7 +21,7 @@ function Paginator({ current, pages, onPageChange }) {
                 <button
                   className="page-button"
                   data-page={pageNumber}
-                  disabled={current == pageNumber}
+                  disabled={parseInt(current) === pageNumber}
                 >
                   {pageNumber}
                 </button>

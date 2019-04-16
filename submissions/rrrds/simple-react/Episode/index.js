@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { fetchEpisode, fetchCharacter } from "../api";
+import { fetchEpisode, fetchCharacterMulti } from "../api";
 import { CharacterShort } from "../Character";
 
 export function Episode({ match }) {
@@ -17,12 +17,8 @@ export function Episode({ match }) {
     }
 
     const charactersId = episode.characters.map(ep => ep.id);
-    fetchCharacter(charactersId).then(data => {
-      if (Array.isArray(data)) {
-        setCharacters(data);
-      } else {
-        setCharacters([data]);
-      }
+    fetchCharacterMulti(charactersId).then(data => {
+      setCharacters(data);
     });
   }, [episode]);
 

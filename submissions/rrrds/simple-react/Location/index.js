@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { fetchLocation, fetchCharacter } from "../api";
+import { fetchLocation, fetchCharacterMulti } from "../api";
 import { CharacterShort } from "../Character";
 
 export function Location({ match }) {
@@ -17,12 +17,8 @@ export function Location({ match }) {
     }
 
     const residentsId = location.residents.map(ep => ep.id);
-    fetchCharacter(residentsId).then(data => {
-      if (Array.isArray(data)) {
-        setResidents(data);
-      } else {
-        setResidents([data]);
-      }
+    fetchCharacterMulti(residentsId).then(data => {
+      setResidents(data);
     });
   }, [location]);
 
