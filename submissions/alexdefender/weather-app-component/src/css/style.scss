@@ -1,0 +1,184 @@
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+main {
+  width: 400px;
+  margin: 0 auto;
+  background-color: #77a8e0;
+  box-shadow: 0px 0px 5px 3px rgba(217, 217, 217, 1);
+}
+
+.search-wrapper {
+  position: relative;
+  margin-top: 10px;
+}
+
+.search {
+  margin: 10px 5px 0 5px;
+  width: 390px;
+  height: 45px;
+  padding: 5px 50px 5px 50px;
+  box-sizing: border-box;
+}
+
+.search__btn {
+  position: absolute;
+  height: 42px;
+  width: 42px;
+  border: none;
+  background: transparent;
+  top: 11px;
+  right: 4px;
+  cursor: pointer;
+
+  &:before {
+    content: "\f002";
+    font-family: FontAwesome;
+    font-size: 20px;
+    color: #858585;
+  }
+}
+
+.fa-star, .fa-times {
+  color: rgb(255, 188, 111);
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.fa-star-fav {
+  color: rgb(202, 0, 18);
+}
+
+.temp-change-btn {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  color: #1a1a1a;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.weather-wrapper {
+  > div > div {
+    color: #383838;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name: fadeIn;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  > input {
+    display: none;
+    position: absolute;
+
+    &:checked + label {
+      box-shadow: inset 0px -2px 0px 0px rgba(70, 114, 201, 1);
+    }
+  }
+
+  > label {
+    display: inline-block;
+    margin: 0 0 -1px;
+    width: 85px;
+    padding: 15px 25px;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.weather__today,
+.weather__days-3 {
+  display: none;
+  padding: 10px;
+  height: 480px;
+  background: #fff;
+}
+
+#today:checked ~ #weather__today,
+#days-3:checked ~ #weather__days-3 {
+  display: block;
+}
+
+.weather__today__main-values {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  li {
+    list-style-type: none;
+    margin: 7px;
+  }
+}
+
+.weather__today__temp {
+  font-size: 50px;
+  padding-left: 10px;
+  margin: 0;
+  width: 40%;
+}
+
+.weather__today__img {
+  width: 20%;
+  height: 20%;
+}
+
+.weather__today__description,
+.days-3__description {
+  font-size: 30px;
+  font-weight: 600;
+  color: #ff872f;
+}
+
+.weather__today__more-values {
+  width: 100%;
+
+  th {
+    text-align: left;
+    padding: 5px;
+  }
+
+  td {
+    text-align: right;
+  }
+}
+
+.weather__days-3__day {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+  li {
+    list-style-type: none;
+    margin: 7px;
+  }
+}
+
+.days-3__img {
+  width: 20%;
+  height: 20%;
+}
+
+.weather__days-3__description {
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+@import '_more-info';

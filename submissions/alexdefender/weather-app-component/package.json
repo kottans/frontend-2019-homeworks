@@ -1,0 +1,26 @@
+{
+  "name": "weather-app-component",
+  "version": "1.0.0",
+  "main": "./index.html",
+  "author": "alex",
+  "license": "MIT",
+  "repository": "https://github.com/alexdefender/weather-app-component",
+  "devDependencies": {
+    "autoprefixer": "^9.4.9",
+    "node-sass": "^4.11.0",
+    "parcel-bundler": "^1.10.3",
+    "shx": "^0.3.2"
+  },
+  "scripts": {
+    "start": "parcel ./src/index.html",
+    "prebuild-dev": "shx rm -rf dist/",
+    "build-dev": "parcel build ./src/index.html --no-minify --public-url ./",
+    "prebuild": "shx rm -rf dist/",
+    "build": "parcel build ./src/index.html --public-url ./",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "src": "^1.1.2"
+  }
+}
