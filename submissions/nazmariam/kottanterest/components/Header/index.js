@@ -17,25 +17,25 @@ export const Header =({handleSubmit}) =>{
     };
 
     return (
-            <header className={'header'}>
-                <div className={'logo'}>
+            <header className='header'>
+                <div className='logo'>
                     <a href="/Kottanterest">
                         <img src={logo} alt="logo"/>
                     </a>
 
                 </div>
-                <div className={'search-form'}>
+                <div className='search-form'>
                     <form action="" onChange={onSubmit}>
                         <label>
-                            <input name='search' className={'search-input'} type="text" placeholder={"Search"}/>
+                            <input name='search' className='search-input' type="text" placeholder="Search"/>
                         </label>
                     </form>
 
 
                 </div>
-                <div className={'sorting-buttons'}>
-                    <button className={'decrease'} id={'decrease'} onClick={onClick}>&darr;</button>
-                    <button className={'increase'} id={'increase'}  onClick={onClick}>&uarr;</button>
+                <div className='sorting-buttons'>
+                    <button className='decrease' id='decrease' onClick={onClick}>&darr;</button>
+                    <button className='increase' id='increase'  onClick={onClick}>&uarr;</button>
                 </div>
 
             </header>

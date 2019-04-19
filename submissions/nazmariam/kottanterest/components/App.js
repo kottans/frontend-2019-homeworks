@@ -14,29 +14,16 @@ class App extends Component{
         if(searchName!=='decrease'&& searchName!=='increase'){
             result = list.filter((item)=>{return item.user.name.includes(searchName)})
         }else if (searchName==='decrease'){
-            result = list.sort((a,b)=>{return b.likes-a.likes})
+            result = list.sort((a,b)=>(b.likes-a.likes))
         }else if (searchName==='increase'){
-            result = list.sort((a,b)=>{return a.likes-b.likes})}
+            result = list.sort((a,b)=>(a.likes-b.likes))}
         this.setState({
             list:result,
         })
-
-}
-    // handleScroll = () => {
-    //     const nextList = getPhotos(this.state.nextApiUrl);
-    //     nextList.then( data => {
-    //         this.setState({
-    //             list: data.results,
-    //             data: data,
-    //             nextApiUrl: data.info.next,
-    //             prevApiData: data.info.prev
-    //         })
-    //     })
-    // }
+};
     async componentDidMount() {
-        const total = 100;
         let list = [];
-        if (list.length<total) list = await getPhotos(list.length);
+        list = await getPhotos(list.length);
 
         this.setState({
             list: list,
@@ -53,6 +40,5 @@ class App extends Component{
         )
     }
 }
-
 
 export default App;

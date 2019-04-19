@@ -6,7 +6,7 @@ export default  class ImageList extends Component {
     state = {
 
     };
-    popUp=(img)=>{
+    popUp=(img)=>{ //todo: popup for future
     };
     render(){
         const imageElements = this.props.images.map((item) => {
@@ -19,14 +19,14 @@ export default  class ImageList extends Component {
                         <p className='rate'>
                             {item.likes}
                         </p>
-                        <a className="user-link" href={item.user.links.html} target={'_blank'}>
+                        <a className="user-link" href={item.user.links.html} target='_blank' rel="noopener noreferrer">
                             {item.user.name}
                         </a>
-                        <a className={'unsplash-link'} href={'https://unsplash.com/'} target={'_blank'}>on Unsplash</a>
+                        <a className='unsplash-link' href='https://unsplash.com/' target='_blank' rel="noopener noreferrer">on Unsplash</a>
                     </div>
         });
         return (
-            <div className={'wrapper'}>
+            <div className='wrapper'>
             {imageElements}
             </div>
         )
