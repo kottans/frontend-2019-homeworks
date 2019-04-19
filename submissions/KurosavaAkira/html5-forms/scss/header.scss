@@ -1,0 +1,42 @@
+.header {
+  padding: 63px 0;
+}
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-button {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  width: 150px;
+  color: $gray;
+  padding: 18px 20px;
+  border-radius: 5px;
+  border: 1px solid rgba(111, 118, 146, 0.3);
+  background-color: transparent;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border 0.2s;
+}
+
+.header-button:hover {
+  border: 1px solid rgba(111, 118, 146, 0.5);
+}
+
+.header-button i {
+  padding-right: 8px;
+}
+
+.header-logo {
+  height: 100px;
+  width: 100px;
+  background-image: url("../img/logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  opacity: 0.1;
+}

@@ -1,0 +1,894 @@
+* {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 10px;
+}
+
+h1 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #6e768f;
+}
+
+.hidden {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+}
+
+.wrapper {
+    width: 70%;
+    margin: 0 auto;
+    color: #6e768f;
+}
+
+.formHeader {
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: 2px solid #d7d8e0;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Lato', sans-serif;
+    padding: 25px 50px
+}
+
+.formWrapper {
+    border: 2px solid #d7d8e0;
+}
+
+.yourOrders {
+    position: relative;
+    font-family: 'Lato', sans-serif;
+    color: #6e768f;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 426px;
+}
+
+.youOrders__icon {
+    display: inline-block;
+    position: absolute;
+    top: -8px;
+    left: -32px;
+    font-size: 31px;
+}
+
+.formHeader__title {
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.youOrdersItem {
+    font-size: 11px;
+    margin: 0px 15px;
+}
+
+.youOrdersItem:last-child {
+    margin-right: 0px;
+}
+
+.youOrdersItem__text {
+    text-transform: uppercase;
+}
+
+.youOrdersItem.first {
+    margin-left: 0px;
+}
+
+.headerButtons {
+    position: relative;
+}
+
+.headerButtonsItem {
+    width: 162px;
+    height: 52px;
+    padding: 10px 15px;
+    background-color: #f7f7fa;
+    border: 1px solid #d7d8e0;
+    border-radius: 5px;
+    color: #a5abc5;
+    margin-bottom: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.headerButtonsItem--submit {
+    background-color: #5fcac6;
+    color: white;
+}
+
+.headerButtonsItem:hover {
+    background: #5fcac6;
+    color: white;
+    position: relative;
+}
+
+.headerButtonsItem:active {
+    background: #ff950e;
+}
+
+.headerButtons:after {
+    content: "";
+    border-right: 2px solid #d7d8e0;
+    position: absolute;
+    top: -60px;
+    right: -50px;
+    height: 200%;
+}
+
+.helpCenter {
+    width: 255px;
+    color: #6e768f;
+    position: relative;
+    margin-left: 100px;
+}
+
+.helpCenter__icon {
+    display: inline-block;
+    position: absolute;
+    top: -8px;
+    left: -37px;
+    font-size: 31px;
+}
+
+.helpCenter__contacts {
+    margin-top: 10px;
+}
+
+.helpCenter__contacts--phone:hover {
+    color: #76a7e1;
+}
+
+helpCenter__contacts--phone:active {
+    color: #5fcac6;
+}
+
+helpCenter__contacts--phone:focus {
+    outline: auto;
+}
+
+.helpCenter__contacts--mail:hover {
+    color: #76a7e1;
+}
+
+.helpCenter__contacts--mail:active {
+    color: #5fcac6;
+}
+
+.helpCenter__contacts--mail:focus {
+    outline: auto;
+}
+
+.insideWrapper {
+    max-width: 889px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.selectTypeBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 115px;
+}
+
+.selectTypeBlock__checkboxes {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.selectTypeBlock__title {
+    margin: 90px 0px 60px 0px;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.typeBlockItem__label {
+    position: relative;
+    color: #9098b8;
+    min-width: 250px;
+    min-height: 250px;
+    background-color: #f7f7fa;
+    border: 2px solid #d7d9e0;
+    border-radius: 5px;
+}
+
+.typeBlockItem__label--active {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    background-color: #76a7e1;
+    color: white;
+    position: absolute;
+    top: -12px;
+    right: -9px;
+    width: 25px;
+    height: 25px;
+}
+
+.typeBlockItem:last-child {
+    margin-right: 0px
+}
+
+.typeBlockItem__label {
+    text-align: center;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.typeBlockItem__label:hover {
+    cursor: pointer;
+}
+
+.typeBlockItem__img {
+    font-size: 83px;
+    width: 100%;
+}
+
+.checkboxType:checked+.typeBlockItem__label {
+    border: 4px #76a7e1 solid;
+}
+
+.checkboxType:checked+.typeBlockItem__label .typeBlockItem__label--active {
+    display: flex;
+}
+
+.selectDocumentBlock {
+    position: relative;
+}
+
+.numberedBlock {
+    position: relative;
+}
+
+.numberedBlock::before {
+    position: absolute;
+    top: -2px;
+    left: -51px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectDocumentBlock::before {
+    content: '1';
+}
+
+.selectDocumentBlock__subtitle {
+    margin-left: 10px;
+    display: inline-block;
+    font-size: 15px;
+}
+
+.selectDocumentBlock__title {
+    margin-bottom: 60px;
+    display: inline-block;
+}
+
+.selectDocumentBlock__button {
+    width: 162px;
+    height: 52px;
+    padding: 10px 15px;
+    background-color: #f7f7fa;
+    border: 2px solid #d7d8e0;
+    border-radius: 5px;
+    color: #a5abc5;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.uploadFileButtonLabel {
+    cursor: pointer;
+    justify-content: center;
+    position: relative;
+    display: flex;
+    padding: 10px 15px;
+    background-color: #f7f7fa;
+    border: 2px solid #d7d8e0;
+    border-radius: 5px;
+    color: #a5abc5;
+    font-weight: bold;
+    width: 250px;
+    margin-bottom: 60px;
+}
+
+.uploadFileButtonLabel:hover {
+    background-color: #5fcac6;
+}
+
+.uploadFileButtonLabel:active {
+    background-color: #edbe76;
+}
+
+.uploadFileButton__icon {
+    margin-right: 10px;
+}
+
+.fileList {
+    margin-bottom: 115px;
+}
+
+.fileList__table {
+    width: 100%;
+    border: 1px solid #e6e8ee;
+    padding: 30px;
+}
+
+.fileList__tableTitle {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.fileList__table {
+    text-align: center;
+}
+
+.fileList__tableTitle {
+    text-align: left;
+}
+
+.fileList__tableItemTitle {
+    text-align: left;
+}
+
+.fileList__tableItemTitle:last-child {
+    text-align: center;
+    padding-right: 50px;
+}
+
+.fileList__table td {
+    padding: 10px;
+}
+
+.fileList__tableItemTitleIcon,
+.fileList__tableItemTitleText {
+    display: inline-block;
+}
+
+.fileList__tableItemTitleIcon {
+    margin-right: 10px;
+}
+
+.selectLanguageBlock {
+    margin-bottom: 105px;
+}
+
+.selectLanguageBlock::before {
+    content: '2';
+}
+
+.selectLanguageBlock__signIn:focus {
+    color: #2a6495;
+}
+
+.selectLanguageBlock__signIn:active {
+    color: #2a6495;
+}
+
+.selectLanguageBlock__signIn:hover {
+    color: #ff950e;
+}
+
+.selectLanguageBlock__title,
+.selectDocumentBlock__title,
+.selectTypeBlock__title {
+    font-weight: bold;
+    font-size: 2em;
+    margin-bottom: 50px;
+}
+
+.selectLanguageBlock__subtitle {
+    margin: 50px 0;
+}
+
+.selectLangFrom {
+    display: inline-block;
+    -webkit-appearance: none;
+    padding: 10px 53px;
+    background-color: #f7f7fa;
+    border-radius: 6px;
+}
+
+.select {
+    color: #d7d9e0;
+    position: relative;
+    display: inline-block;
+}
+
+.selectDocumentBlock {
+    width: 100%;
+}
+
+.select::after {
+    content: "▼";
+    padding: 0 8px;
+    font-size: 12px;
+    position: absolute;
+    right: 13px;
+    top: 14px;
+    z-index: 1;
+    text-align: center;
+    width: 10%;
+    height: 100%;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+.select::before {
+    right: 30px;
+    content: "";
+    position: absolute;
+    display: block;
+    height: 100%;
+    border-left: 2px solid #d7d9e0;
+}
+
+.langLabel {
+    text-transform: uppercase;
+    display: inline-block;
+    width: 50px;
+    text-align: end;
+}
+
+.select {
+    margin-bottom: 25px;
+    margin-right: 20px;
+}
+
+.selectLangToSecond__icon {
+    margin-left: -15px;
+    background-color: transparent;
+    border: 0px;
+    display: inline-block;
+}
+
+.selectLang__add {
+    margin-left: 30px;
+    width: 162px;
+    padding: 10px 53px;
+    background-color: #f7f7fa;
+    border: 2px solid #d7d8e0;
+    border-radius: 5px;
+    color: #a5abc5;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.selectDesired {
+    display: flex;
+    flex-wrap: wrap;
+    width: 46%;
+}
+
+.selectDesired::before {
+    content: "3";
+}
+
+.selectDesired__checkboxes--label {
+    border: 4px transparent solid;
+    padding: 18px 42px;
+    min-width: 25px;
+    min-height: 25px;
+}
+
+.selectDesired__title {
+    width: 100%;
+}
+
+.selectDesired__checkboxes--label:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.typeBlockItem__title {
+    margin-left: 10px;
+}
+
+.tellUrgent {
+    width: 54%;
+    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tellUrgent::before {
+    content: "4";
+}
+
+.wrapperInner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 100px;
+}
+
+.tellUrgent__range {
+    margin: 50px 0 10px 0;
+}
+
+.tellUrgent__rangeInput::before,
+.tellUrgent__rangeInput::after {
+    z-index: 0;
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background-color: #d6d8e2;
+    border-radius: 50%;
+}
+
+.tellUrgent__rangeInput::before {
+    left: 0px;
+}
+
+.tellUrgent__rangeInput::after {
+    right: 0px;
+}
+
+.range__text {
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.orange {
+    text-transform: uppercase;
+    color: orange;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    /* Hides the slider so that custom slider can be made */
+    width: 100%;
+    /* Specific width is required for Firefox. */
+    background: transparent;
+    /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+    outline: none;
+    /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    /* Hides the slider so custom styles can be added */
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+
+/* Special styling for WebKit/Blink */
+
+input[type=range]::-webkit-slider-thumb {
+    position: relative;
+    -webkit-appearance: none;
+    margin-top: -10px;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background: #edbe76;
+    cursor: pointer;
+    z-index: 20;
+}
+
+
+/* All the same stuff for Firefox */
+
+input[type=range]::-moz-range-thumb {
+    z-index: 2;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background: #edbe76;
+    cursor: pointer;
+}
+
+
+/* All the same stuff for IE */
+
+input[type=range]::-ms-thumb {
+    z-index: 2;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background: #edbe76;
+    cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 99%;
+    height: 10px;
+    cursor: pointer;
+    background: #eff0f5;
+    border-radius: 5px;
+    border: 0.2px solid #010101;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #eff0f5;
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: #2a6495;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: #3071a9;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: #3071a9;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #367ebd;
+}
+
+.tellUrgent__timeline {
+    padding: 30px;
+    border: 1px solid #e6e8ee;
+}
+
+.timeline__info {
+    text-transform: uppercase;
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.timeline__info--icon {
+    position: absolute;
+    top: 0;
+    left: -25px;
+}
+
+.paymentBlock::before {
+    content: "5";
+}
+
+.registerForm {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.registerForm__labelBlock {
+    width: 100%;
+}
+
+.registerForm__Input {
+    width: 250px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d7d9e0;
+}
+
+.registerForm__label--title {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.registerForm__label {
+    position: relative;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.registerForm__label--valid,
+.registerForm__label--invalid {
+    top: 44px;
+    display: flex;
+    left: 220px;
+    position: absolute;
+    visibility: hidden;
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    background-color: red;
+    color: white;
+    width: 25px;
+    height: 25px;
+}
+
+
+/*valid*/
+
+.registerForm__label--invalid {
+    background-color: red;
+}
+
+.registerForm__label--valid {
+    background-color: #76a7e1;
+}
+
+.registerForm__Input:focus:valid~.registerForm__label--valid {
+    visibility: visible;
+}
+
+.registerForm__Input:valid~.registerForm__label--valid {
+    visibility: visible;
+}
+
+.registerForm__Input:focus:invalid~.registerForm__label--valid {
+    visibility: hidden;
+}
+
+.registerForm__Input:invalid~.registerForm__label--valid {
+    visibility: hidden;
+}
+
+
+/*Invalid*/
+
+.registerForm__Input:focus:valid~.registerForm__label--invalid {
+    visibility: hidden;
+}
+
+.registerForm__Input:valid~.registerForm__label--invalid {
+    visibility: hidden;
+}
+
+.registerForm__Input:focus:invalid~.registerForm__label--invalid {
+    visibility: visible;
+}
+
+.selectPayType {
+    margin: 75px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.selectPayType__item--image img {
+    width: 70px;
+    height: auto;
+}
+
+.selectPayType__item--image {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.selectPayType__item {
+    min-height: 100px;
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    position: relative;
+    background-color: #f7f7fa;
+}
+
+.selectPayType__item:not(:last-child) {
+    margin-right: 20px;
+}
+
+.cardInfo {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 110px 0;
+}
+
+.cardInfo__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardInfo__item--inputIcon {
+    position: absolute;
+    top: 47px;
+    right: 9px;
+    font-size: 20px;
+}
+
+.cardInfo__item:not(:last-child) {
+    margin-right: 20px;
+}
+
+.cardInfo__item--input {
+    width: 250px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d7d9e0;
+    height: 45px;
+}
+
+.cardInfo__item--inputNumber {
+    width: 400px;
+}
+
+.cardInfo__item--inputDate {
+    text-align: center;
+    width: 170px;
+}
+
+.cardInfo__item--inputCode {
+    width: 100px;
+}
+
+.paymentBlock__buttons {
+    flex-direction: row;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+.paymentBlock__buttons .headerButtons {
+    display: flex;
+}
+
+.paymentBlock__buttons .headerButtons::after {
+    display: none;
+}
+
+.headerButtons .headerButtonsItem:not(:last-child),
+.paymentBlock__buttons--label {
+    margin-right: 20px;
+}
