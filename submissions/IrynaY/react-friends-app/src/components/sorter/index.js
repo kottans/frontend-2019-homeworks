@@ -2,28 +2,36 @@ import React from 'react';
 import propTypes from 'prop-types'
 import './style.css';
 
-const Sorter = ({ apllySort, list}) => {
-  const sortDESC = () => {
-      list.sort(( current, next ) =>  current.name < next.name ? 1 : -1)
-      apllySort(list)
+const SortButton = ({ title, name, active }) => {
+  let classList = 'sort-btn'
+  if(active) 
+    classList += ' active'
+    
+  return <button type='button' name={name} className={classList}> {title} </button>
+}
+
+SortButton.propTypes = {
+  title: propTypes.string,
+  name: propTypes.string,
+  active: propTypes.bool
+}
+
+const Sorter = ({ order, apllySort }) => {
+  const formOnClick = ( event ) => {
+    apllySort(event.target.name)
   }
 
-  const sortASC = () => {
-    list.sort(( current, next ) => current.name < next.name ? -1 : 1)
-    apllySort(list)
-  }
-
-  return(
-    <>
-      <button type='button' name='desc' onClick={sortDESC}> DESC </button>
-      <button type='button' name='acs' onClick={sortASC}> ASC </button>
-    </>
+  return (
+    <form className='sorter-section' onClick={formOnClick}>
+      <SortButton title='asc' name='asc' active={order === 'asc'}/>
+      <SortButton title='desc' name='desc' active={order === 'desc'}/>
+    </form>
   )
 }
 
 Sorter.propTypes = {
+  order: propTypes.string,
   apllySort: propTypes.func,
-  list: propTypes.array,
 }
 
-export default Sorter
+export default Sorter;

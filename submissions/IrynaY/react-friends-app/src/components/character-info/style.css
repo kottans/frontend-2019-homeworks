@@ -1,10 +1,11 @@
 .character-info {
   margin: 5px 10px;
-  padding: 0 15px 15px 10px;
-  max-width: 150px;
+  padding: 0 10px 15px 10px;
+  width: 180px;
+  height: 300px;
   display: flex;
   flex-direction: column;
-  border: 1px solid gray;
+  border: 1px solid lightblue;
   border-radius: 15px;
   flex-wrap: wrap;
   font-size: 14px;
@@ -15,5 +16,6 @@
 }
 
 .character-info:hover{
-  box-shadow: 0 0 10px rgba(0,0,0,0.5)
+  box-shadow: 0 0 10px lightblue;
+  cursor: pointer;  
 }

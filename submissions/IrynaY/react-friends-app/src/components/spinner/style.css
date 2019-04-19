@@ -1,0 +1,23 @@
+.spinner {
+  margin: auto;
+  animation: 10s linear 0s normal none infinite running spinner;
+  -webkit-animation: 5s linear 0s normal none infinite running spinner;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
