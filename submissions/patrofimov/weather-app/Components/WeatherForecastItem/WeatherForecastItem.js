@@ -6,19 +6,19 @@ export default class WeatherForecastItem extends Component {
   }
 
   render() {
-    let dataR = this.props;
+    const result = this.props;
 
     return `<div class="wf-item">
     
     <div class="wf-icon">
-    <img src=${dataR.ready ? dataR.icon : ""}  class ="wt-fc-icon-img" />
+    <img src=${result.isReady ? result.icon : ""}  class ="wt-fc-icon-img" />
     </div>
-    <div class="wf-descr">${dataR.ready ? dataR.descr : ""}</div>
+    <div class="wf-descr">${result.isReady ? result.descr : ""}</div>
     <div class="wf-temp">${
-      dataR.ready ? dataR.temp.value + dataR.temp.unit : ""
+      result.isReady ? result.temp.value + result.temp.unit : ""
     }</div>
-    <div class="wf-time">${dataR.ready ? dataR.time : ""}</div>
-    <div class="wf-date">${dataR.ready ? dataR.dt : ""}</div></div>    
+    <div class="wf-time">${result.isReady ? result.time : ""}</div>
+    <div class="wf-date">${result.isReady ? result.dt : ""}</div></div>    
     `;
   }
 }

@@ -48,16 +48,6 @@ export default class Component {
    */
   _vDomPrototypeElementToHtmlElement(element) {
     if (typeof element === "string") {
-      // let container;
-      // const containsHtmlTags = /[<>&]/.test(element);
-      // if (containsHtmlTags) {
-      //   container = document.createElement('div');
-      //   container.innerHTML = element;
-      // } else {
-      //   container = document.createTextNode(element);
-      // }
-      // return container;
-
       element = this._createDomFragment(element);
       return element;
     } else {
@@ -73,7 +63,6 @@ export default class Component {
           if (element.content) {
             container.innerHTML = element.content;
           }
-
           // ensure following element properties are Array
           ["classList", "attributes", "children"].forEach(item => {
             if (element[item] && !Array.isArray(element[item])) {
@@ -106,7 +95,6 @@ export default class Component {
               container.appendChild(htmlElement);
             });
           }
-
           return container;
         }
       }
@@ -116,7 +104,6 @@ export default class Component {
 
   _createDomFragment(string) {
     const template = document.createElement("template");
-
     let componentCount = 0;
     let idBase = new Date().getTime();
     let componentMap = {};

@@ -3,27 +3,21 @@ import { URL_API_CURRENT, URL_API_FORECAST } from "../config.js";
 class WeatherDataService {
   apiPath(data = {}) {
     let query = "";
-
     if (data) {
-      const dataList = data.value.split(",");
-      if (dataList.length >= 2 && data.value.search(/\d/) !== -1) {
-        query = `lon=${dataList[0].trim()}&lat=${dataList[1].trim()}&units=${
+      const result = data.value.split(",");
+      if (result.length >= 2 && data.value.search(/\d/) !== -1) {
+        query = `lon=${result[0].trim()}&lat=${result[1].trim()}&units=${
           data.unit
         }`;
       } else {
         query = `q=${data.value}&units=${data.unit}`;
       }
     }
-
     return query;
   }
 
   getCurrentWeather(data = {}) {
-    let query = this.apiPath(data);
-
-    //if (!data.value) return {};
-
-    let path = URL_API_CURRENT.replace(/#query/, query);
+    const path = URL_API_CURRENT.replace(/#query/, this.apiPath(data));
 
     return fetch(path, {
       method: "get"
@@ -33,7 +27,6 @@ class WeatherDataService {
         throw response.status;
       })
       .then(data => {
-        // console.log(data);
         return data;
       })
       .catch(error => {
@@ -45,13 +38,7 @@ class WeatherDataService {
       });
   }
   getWeatherForecast(data = {}) {
-    let query = this.apiPath(data);
-
-    // if (!data.value) return {};
-
-    let path = URL_API_FORECAST.replace(/#query/, query);
-
-    console.log(path);
+    const path = URL_API_FORECAST.replace(/#query/, this.apiPath(data));
 
     return fetch(path, {
       method: "get"

@@ -1,11 +1,10 @@
 import Component from "../../framework/Component";
 import ComponentFactory from "../../framework/ComponentFactory";
 import WeatherDataService from "../../Services/WeatherDataService";
-import { ICON_URL, ICON_EXT } from "../../config";
+import { ICON_URL, ICON_EXT, UNITS_TYPES } from "../../config";
 import { monthDay, hourMinute } from "../../utils";
 import { WeatherForecastItem } from "../WeatherForecastItem";
 import AppState from "../../Services/AppState";
-
 export default class WeatherForecast extends Component {
   constructor(host, props) {
     super(host, props);
@@ -18,28 +17,26 @@ export default class WeatherForecast extends Component {
 
   onServerResponse(callback, subState) {
     callback.then(data => {
-      let query = subState ? subState : this.props;
+      const query = subState ? subState : this.props;
 
-      let datalist = data.list.map(function(item) {
+      const datalist = data.list.map(function(item) {
         return {
           dt: monthDay(item.dt),
           time: hourMinute(item.dt),
           descr: item.weather[0].description,
           temp: {
             value: Math.round(item.main.temp),
-            unit: query.unit === "metric" ? "°C" : "°F"
+            unit: query.unit === UNITS_TYPES.metric ? "°C" : "°F"
           },
           icon: ICON_URL + item.weather[0].icon + ICON_EXT,
-          ready: true
+          isReady: true
         };
       });
 
       this.updateState({
-        datalist: datalist,
-        ready: true
+        datalist,
+        isReady: true
       });
-
-      console.log(datalist);
     });
   }
 
@@ -52,10 +49,10 @@ export default class WeatherForecast extends Component {
           descr: "",
           temp: {},
           icon: "",
-          ready: false
+          isReady: false
         }
       ],
-      ready: false
+      isReady: false
     };
     this.updateMyself = this.updateMyself.bind(this);
     AppState.watch("UNIT", this.updateMyself);
@@ -69,8 +66,7 @@ export default class WeatherForecast extends Component {
   }
 
   render() {
-    const datalist = this.state.datalist;
-    console.log(datalist);
+    const { datalist, isReady } = this.state;
 
     return {
       tag: "div",
@@ -82,7 +78,7 @@ export default class WeatherForecast extends Component {
       ],
 
       classList: [
-        this.state.ready ? "weather-visible" : "weather",
+        isReady ? "weather-visible" : "weather",
         "wt-row",
         "wt-row-spread"
       ],

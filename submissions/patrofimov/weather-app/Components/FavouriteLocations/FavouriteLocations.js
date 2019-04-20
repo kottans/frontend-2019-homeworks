@@ -24,10 +24,10 @@ export default class FavouriteLocations extends Component {
   }
 
   render() {
-    let data = JSON.parse(localStorage.getItem("likedStorage"));
-    let resultArr = [];
+    const data = JSON.parse(localStorage.getItem("likedStorage"));
+    let result = [];
     if (data) {
-      resultArr = Object.values(data);
+      result = Object.values(data);
     }
 
     return {
@@ -64,7 +64,7 @@ export default class FavouriteLocations extends Component {
           ],
 
           children: data
-            ? resultArr.sort().map((item, ind) => ({
+            ? result.sort().map(item => ({
                 tag: "option",
                 classList: ["liked-history-item"],
                 content: item

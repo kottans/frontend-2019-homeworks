@@ -13,6 +13,7 @@ import {
 } from "../../utils";
 import { normalize } from "path";
 import AppState from "../../Services/AppState";
+import { UNITS_TYPES } from "../../config";
 
 export default class App extends Component {
   constructor(host, props = {}) {
@@ -22,31 +23,27 @@ export default class App extends Component {
   onSubmit() {
     event.preventDefault();
     event.stopPropagation();
-
-    const searchInput = document.querySelector("#search-input").value;
-    const btnUnit = document.querySelector(".unit-active .wi-fahrenheit");
-    const unit = btnUnit ? "imperial" : "metric";
-
+    const value = document.querySelector("#search-input").value;
+    const unit = document.querySelector(".unit-active .wi-fahrenheit")
+      ? UNITS_TYPES.imperial
+      : UNITS_TYPES.metric;
     this.updateState({
-      value: searchInput,
-      unit: unit
+      value,
+      unit
     });
-
-    console.log("OnSubmit!");
   }
 
   init() {
     this.state = {
       value: "",
-      unit: "metric",
+      unit: UNITS_TYPES.metric,
       fav: false
     };
-
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   render() {
-    const data = this.state;
+    const result = this.state;
 
     return [
       {
@@ -70,7 +67,7 @@ export default class App extends Component {
           {
             tag: SearchBar,
             props: {
-              query: data ? data.value : ""
+              query: result ? result.value : ""
             }
           },
 
@@ -87,14 +84,14 @@ export default class App extends Component {
               {
                 tag: FavouriteLocations,
                 props: {
-                  query: data
+                  query: result
                 }
               },
 
               {
                 tag: SearchHistory,
                 props: {
-                  query: data
+                  query: result
                 }
               }
             ]
@@ -112,17 +109,17 @@ export default class App extends Component {
               {
                 tag: CurrentWeather,
                 props: {
-                  query: data,
-                  unit: data ? data.unit : "metric",
-                  fav: data ? data.fav : false
+                  query: result,
+                  unit: result ? result.unit : UNITS_TYPES.metric,
+                  fav: result ? result.fav : false
                 }
               },
 
               {
                 tag: WeatherForecast,
                 props: {
-                  query: data,
-                  unit: data ? data.unit : "metric"
+                  query: result,
+                  unit: result ? result.unit : UNITS_TYPES.metric
                 }
               }
             ]

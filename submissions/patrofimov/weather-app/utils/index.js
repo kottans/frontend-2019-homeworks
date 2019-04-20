@@ -49,17 +49,18 @@ export const pushToStorage = (item, key) => {
 export const popFromStorage = (item, key) => {
   const data = localStorage[key] ? JSON.parse(localStorage[key]) : [];
   let newData = data.slice();
-  let ind = newData.indexOf(item);
-  newData.splice(ind, 1);
+  const index = newData.indexOf(item);
+  newData.splice(index, 1);
   localStorage[key] = JSON.stringify(newData);
 };
 
 export const toggleInStorage = (item, key) => {
   const data = localStorage[key] ? JSON.parse(localStorage[key]) : [];
-  let newData = data.slice();
-  let ind = newData.indexOf(item);
-  if (ind == -1) {
+  const inStorage = data.slice().indexOf(item) !== -1;
+  console.log("" + item);
+  if (!inStorage) {
     pushToStorage(item, key);
+    console.log("" + item);
   } else {
     popFromStorage(item, key);
   }
@@ -67,13 +68,12 @@ export const toggleInStorage = (item, key) => {
 
 export const isInStorage = (item, key) => {
   const data = localStorage[key] ? JSON.parse(localStorage[key]) : [];
-  let newData = data.slice();
-  return newData.indexOf(item) != -1;
+  return data.slice().indexOf(item) != -1;
 };
 
 export const monthDay = timestamp => {
-  let xx = new Date(timestamp * 1000);
-  let options = {
+  const xx = new Date(timestamp * 1000);
+  const options = {
     day: "2-digit",
     month: "2-digit"
   };
@@ -81,8 +81,8 @@ export const monthDay = timestamp => {
 };
 
 export const hourMinute = timestamp => {
-  let xx = new Date(timestamp * 1000);
-  let options = {
+  const xx = new Date(timestamp * 1000);
+  const options = {
     hour: "2-digit",
     minute: "2-digit"
   };

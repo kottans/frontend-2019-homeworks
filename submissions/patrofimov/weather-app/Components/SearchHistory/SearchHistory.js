@@ -1,7 +1,6 @@
 import Component from "../../framework/Component";
 import ComponentFactory from "../../framework/ComponentFactory";
 import AppState from "../../Services/AppState";
-
 export default class SearchHistory extends Component {
   constructor(host, props) {
     super(host, props);
@@ -24,10 +23,10 @@ export default class SearchHistory extends Component {
   }
 
   render() {
-    let data = JSON.parse(localStorage.getItem("historyStorage"));
-    let resultArr = [];
+    const data = JSON.parse(localStorage.getItem("historyStorage"));
+    let result = [];
     if (data) {
-      resultArr = Object.values(data);
+      result = Object.values(data);
     }
 
     return {
@@ -64,7 +63,7 @@ export default class SearchHistory extends Component {
           ],
 
           children: data
-            ? resultArr.sort().map((item, ind) => ({
+            ? result.sort().map(item => ({
                 tag: "option",
                 classList: ["liked-history-item"],
                 content: item
