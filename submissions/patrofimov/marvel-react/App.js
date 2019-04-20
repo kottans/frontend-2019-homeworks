@@ -1,39 +1,34 @@
 import React, { Component } from "react";
-import Characters from "./components/Characters";
-import SearcBar from "./components/SearchBar";
+import Character from "./components/Character";
+import SearchBar from "./components/SearchBar";
 import "./App.css";
-import { getCharactersList } from "./api/api";
-
-const Name = ({ name }) => {
-  return <h2>{name}</h2>;
-};
-
-const Image = ({ path, extension, name }) => {
-  return (
-    <img
-      className="characters-image"
-      src={`${path}.${extension}`}
-      alt={name}    />
-  );
-};
+import { getCharacters } from "./api/api";
+import { DATE_FROM_DEFAULT, DATE_TO_DEFAULT } from "./config";
+import { convertDate } from "./utils/utils";
 
 class App extends Component {
   state = {
-    charactersList: [],
+    characters: [],
     name: "",
     sortName: "asc",
-    filterDateFrom: false,
-    filterDateTo: false,
-    dateFrom: "2010-01-01",
-    dateTo: "2020-01-01",
-    ready: false,
+    filterByDateFrom: false,
+    filterByDateTo: false,
+    dateFrom: DATE_FROM_DEFAULT,
+    dateTo: DATE_TO_DEFAULT,
+    isReady: false
   };
 
   async componentDidMount() {
-    const charactersList = await getCharactersList();
-    const ready = true;
-    console.log({ charactersList });
-    this.setState({ charactersList, ready });
+    let result = await getCharacters();
+    let characters = result.map(function(character) {
+      return {
+        id: character.id,
+        name: character.name,
+        image: `${character.thumbnail.path}.${character.thumbnail.extension}`,
+        modified: new Date(character.modified)
+      };
+    });
+    this.setState({ characters, isReady: true });
   }
 
   performSearch = ({ name }) => {
@@ -44,88 +39,66 @@ class App extends Component {
     this.setState({ sortName });
   };
 
-  performFilter = ({ filterDateFrom, filterDateTo, dateFrom, dateTo }) => {
-    this.setState({ filterDateFrom, filterDateTo, dateFrom, dateTo });
+  performFilter = ({ filterByDateFrom, filterByDateTo, dateFrom, dateTo }) => {
+    this.setState({ filterByDateFrom, filterByDateTo, dateFrom, dateTo });
   };
 
   render() {
     const {
-      charactersList,
+      characters,
       name,
       sortName,
-      filterDateFrom,
-      filterDateTo,
+      filterByDateFrom,
+      filterByDateTo,
       dateFrom,
       dateTo,
-      ready
+      isReady
     } = this.state;
 
-    if (!ready) {
+    if (!isReady) {
       return <div>Loading ...</div>;
     }
 
-    const formatDate = dateString => {
-      const date = new Date(dateString);
-      return new Intl.DateTimeFormat().format(date);
+    let result =
+      name !== ""
+        ? characters.filter(character =>
+            character.name.toUpperCase().includes(name.toUpperCase())
+          )
+        : characters;
+
+    if (filterByDateFrom) {
+      result = result.filter(character => character.modified >= dateFrom);
+    }
+
+    if (filterByDateTo) {
+      result = result.filter(character => character.modified <= dateTo);
+    }
+
+    const runSorting = (a, b) => (a > b ? 1 : -1);
+    const choicesSorting = {
+      asc: (a, b) => runSorting(a.name, b.name),
+      desc: (a, b) => runSorting(b.name, a.name),
+      old: (a, b) => runSorting(a.modified, b.modified),
+      new: (a, b) => runSorting(b.modified, a.modified)
     };
-
-    debugger;
-
-    let result = name
-      ? charactersList.filter(characters =>
-          characters.name.toUpperCase().includes(name.toUpperCase())
-        )
-      : charactersList;
-
-    if (filterDateFrom) {
-      result = result.filter(
-        characters => Date.parse(characters.modified) >= Date.parse(dateFrom)
-      );
-    }
-
-    if (filterDateTo) {
-      result = result.filter(
-        characters => Date.parse(characters.modified) <= Date.parse(dateTo)
-      );
-    }
-
-    switch (sortName) {
-      case "asc":
-        result = result.sort((a, b) => (a.name > b.name ? 1 : -1));
-        break;
-      case "desc":
-        result = result.sort((a, b) => (b.name > a.name ? 1 : -1));
-        break;
-      case "old":
-        result = result.sort((a, b) =>
-          Date.parse(a.modified) >= Date.parse(b.modified) ? 1 : -1
-        );
-        break;
-      case "new":
-        result = result.sort((a, b) =>
-          Date.parse(b.modified) >= Date.parse(a.modified) ? 1 : -1
-        );
-        break;
-      default:
-    }
+    result = result.sort((a, b) => choicesSorting[sortName](a, b));
 
     return (
       <div className="App">
-        <div className="sideBar">
-          <SearcBar
+        <div className="sidebar">
+          <SearchBar
             handleSearch={this.performSearch}
             handleSort={this.performSort}
             handleFilter={this.performFilter}
           />
         </div>
-        <div className="charactersList">
-          {result.map(characters => (
-            <Characters
-              key={characters.id}
-              {...characters}
-              name={<Name name={characters.name} />}
-              image={<Image {...characters.thumbnail} name= {characters.name} />}
-              modified={formatDate(characters.modified)}
+        <div className="characters">
+          {result.map(character => (
+            <Character
+              key={character.id}
+              name={character.name}
+              image={character.image}
+              modified={convertDate(character.modified)}
             />
           ))}
         </div>

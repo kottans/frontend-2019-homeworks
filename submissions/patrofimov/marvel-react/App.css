@@ -4,12 +4,12 @@
   margin-top: 1rem;
 }
 
-.sideBar {
+.sidebar {
   display: flex;
   margin-left: 1rem;
 }
 
-.charactersList {
+.characters {
   display: flex;
   flex-wrap: wrap;
 }
@@ -19,12 +19,12 @@
   margin-top: 0.5rem;
 }
 
-.characters {
+.character {
   width: 20rem;
   height: 25rem;
 }
 
-.characters-image {
+.character-image {
   height: 17rem;
   width: 17rem;
 }
@@ -36,7 +36,7 @@
   min-width: 250px;
 }
 
-date-wrapper {
+.date-wrapper {
   display: block;
 }
 

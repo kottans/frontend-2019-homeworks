@@ -1,58 +1,53 @@
 import React from "react";
+import { DATE_FROM_DEFAULT, DATE_TO_DEFAULT } from "../config";
+import { formatDate } from "../utils/utils";
 
 const SearchBar = ({ handleSearch, handleFilter, handleSort }) => {
-  const onSubmit = ev => {
-    const { elements } = ev.target;
+  const searchInput = React.createRef();
 
-    ev.preventDefault();
-
-    const value = Array.from(elements).reduce((acc, input) => {
-      if (input.name) {
-        return { ...acc, [input.name]: input.value };
-      }
-      return acc;
-    }, {});
-
-    handleSearch(value);
+  const onClick = ev => {
+    const { name, value } = searchInput.current;
+    handleSearch({ [name]: value });
   };
 
-  const onChange = ev => {
+  const onKeyUp = ev => {
     const { name, value } = ev.target;
-    console.log({ [name]: value });
     handleSearch({ [name]: value });
   };
 
   const onSort = ev => {
     const { name, value } = ev.target;
-    console.log({ [name]: value });
     handleSort({ [name]: value });
   };
 
   const onFilter = ev => {
     const { elements } = ev.currentTarget;
-    console.log("hy, ", { target: ev.target }, { curtarget: ev.currentTarget });
     const value = Array.from(elements).reduce((acc, input) => {
       if (input.name) {
         return {
           ...acc,
-          [input.name]: input.type === "checkbox" ? input.checked : input.value
+          [input.name]:
+            input.type === "checkbox" ? input.checked : new Date(input.value)
         };
       }
       return acc;
     }, {});
-
-    console.log({ value });
-    handleFilter(value);
+   handleFilter(value);
   };
 
   return (
     <div className="search-form-wrapper">
-      <form className="search-form" onSubmit={onSubmit} onChange={onChange}>
-        <input placeholder="name" name="name" />
-        <button type="submit" className="search-btn">
+      <div className="search-form">
+        <input
+          placeholder="name"
+          name="name"
+          onKeyUp={onKeyUp}
+          ref={searchInput}
+        />
+        <button className="search-btn" onClick={onClick}>
           Search
         </button>
-      </form>
+      </div>
 
       <fieldset>
         <legend>Sort:</legend>
@@ -62,7 +57,7 @@ const SearchBar = ({ handleSearch, handleFilter, handleSort }) => {
           name="sortName"
           id="nameUp"
           value="asc"
-          defaultChecked={true}
+          defaultChecked
           onChange={onSort}
         />
         <label htmlFor="nameDown">Desc</label>
@@ -95,7 +90,11 @@ const SearchBar = ({ handleSearch, handleFilter, handleSort }) => {
       <fieldset onChange={onFilter}>
         <legend>Filter:</legend>
         <div className="date-wrapper">
-          <input type="checkbox" name="filterDateFrom" id="filter-from" />
+          <input
+            type="checkbox"
+            name="filterByDateFrom"
+            id="filterByDateFrom"
+          />
           <label htmlFor="dateFrom" className="date-filter">
             From:
           </label>
@@ -104,11 +103,11 @@ const SearchBar = ({ handleSearch, handleFilter, handleSort }) => {
           type="date"
           name="dateFrom"
           id="dateFrom"
-          defaultValue="2010-01-01"
+          defaultValue={formatDate(DATE_FROM_DEFAULT)}
         />
 
         <div className="date-wrapper">
-          <input type="checkbox" name="filterDateTo" id="filterDateTo" />
+          <input type="checkbox" name="filterByDateTo" id="filterByDateTo" />
           <label htmlFor="dateTo" className="date-filter date-filter-to">
             To:
           </label>
@@ -117,7 +116,7 @@ const SearchBar = ({ handleSearch, handleFilter, handleSort }) => {
           type="date"
           name="dateTo"
           id="dateTo"
-          defaultValue="2100-01-01"
+          defaultValue={formatDate(DATE_TO_DEFAULT)}
         />
       </fieldset>
     </div>
