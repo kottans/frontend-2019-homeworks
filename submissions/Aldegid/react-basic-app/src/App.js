@@ -5,67 +5,59 @@ import UserCards from './components/UserCards/UserCards';
 import SearchFilter from './components/SearchFilter/SearchFilter';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      list: null,
-      filterSpecies: null,
-      sortAscDesc: null,
-      isLoaded: false,
-      change: null,
-      notFound: null,
-      currentApiUrl: 'https://rickandmortyapi.com/api/character',
-      nextApiUrl: '',
-      prevApiUrl: ''
-    };
-  }
+  state = {
+    list: null,
+    filterSpecies: null,
+    sortOrder: null,
+    isLoaded: false,
+    searchInputValue: null,
+    notFound: null,
+    currentPageUrl: 'https://rickandmortyapi.com/api/character',
+    nextPageUrl: '',
+    prevPageUrl: ''
+  };
 
   handleClickNext = () => {
-    getList(this.state.nextApiUrl).then(data => {
+    getList(this.state.nextPageUrl).then(data => {
       this.setState({
         list: data.results,
-        nextApiUrl: data.info.next,
-        prevApiUrl: data.info.prev
+        nextPageUrl: data.info.next,
+        prevPageUrl: data.info.prev
       });
     });
   };
 
   handleClickPrev = () => {
-    getList(this.state.prevApiUrl).then(data => {
+    getList(this.state.prevPageUrl).then(data => {
       this.setState({
         list: data.results,
-        data: data,
-        nextApiUrl: data.info.next,
-        prevApiUrl: data.info.prev
+        nextPageUrl: data.info.next,
+        prevPageUrl: data.info.prev
       });
     });
   };
 
   async componentDidMount() {
-    const list = await getList(this.state.currentApiUrl);
+    const list = await getList(this.state.currentPageUrl);
     this.setState({
       list: list.results,
       data: list,
-      nextApiUrl: list.info.next,
+      nextPageUrl: list.info.next,
       isLoaded: true
     });
   }
 
-  performSearch = ({ change }) => {
-    this.setState({ change });
+  performSearch = ({ searchInputValue }) => {
+    this.setState({ searchInputValue });
   };
 
-  performSort = ({ sortAscDesc }) => {
-    this.setState({ sortAscDesc });
+  performSort = ({ sortOrder }) => {
+    this.setState({ sortOrder });
   };
 
   performFilter = ({ filterSpecies }) => {
     this.setState({ filterSpecies });
   };
-
-  sortByAsc = list => list.sort((a, b) => (a.name < b.name ? -1 : 1));
-
-  sortByDesc = list => list.sort((a, b) => (a.name < b.name ? 1 : -1));
 
   sortPersons = (list, state) => {
     if (state === 'desc') {
@@ -85,27 +77,24 @@ class App extends Component {
       list,
       isLoaded,
       notFound,
-      change,
-      sortAscDesc,
+      searchInputValue,
+      sortOrder,
       filterSpecies,
-      prevApiUrl,
-      nextApiUrl
+      prevPageUrl,
+      nextPageUrl
     } = this.state;
     let result = list;
 
-    if (sortAscDesc) {
-      result = this.sortPersons(list, sortAscDesc);
+    if (sortOrder) {
+      result = this.sortPersons(list, sortOrder);
     }
 
     if (filterSpecies) {
-      result =
-        filterSpecies === 'human'
-          ? this.filterBySpecies(list, 'Human')
-          : this.filterBySpecies(list, 'Alien');
+      result = this.filterBySpecies(list, filterSpecies);
     }
 
-    if (change) {
-      result = this.filterByName(list, change);
+    if (searchInputValue) {
+      result = this.filterByName(list, searchInputValue);
     }
 
     if (!isLoaded) {
@@ -131,14 +120,14 @@ class App extends Component {
               <button
                 className='button'
                 onClick={this.handleClickPrev}
-                disabled={!prevApiUrl}
+                disabled={!prevPageUrl}
               >
                 ← Prev Page
               </button>
               <button
                 className='button'
                 onClick={this.handleClickNext}
-                disabled={!nextApiUrl}
+                disabled={!nextPageUrl}
               >
                 Next Page →
               </button>
@@ -152,9 +141,9 @@ class App extends Component {
           </aside>
           <div className='users-wrap'>
             <div className='users'>
-              {result.map(item => {
-                return <UserCards key={item.id} {...item} />;
-              })}
+              {result.map(item => (
+                <UserCards key={item.id} {...item} />
+              ))}
             </div>
             {result.length === 0 ? (
               <div className='not-found'>
