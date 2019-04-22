@@ -1,12 +1,14 @@
-export const convertDate = dateString => {
-    const date = typeof dateString === "string" ? new Date(dateString) : dateString;
-    return new Intl.DateTimeFormat().format(date);
-  };
+export const DATE_FROM_DEFAULT = new Date(2010, 1, 1);
+export const DATE_TO_DEFAULT = new Date(2020, 1, 1);
 
-  export const formatDate = date => {
-      const  month = String(date.getMonth() + 1).padStart(2, "0");
-      const  day = String(date.getDate()).padStart(2, "0");
-      const  year = date.getFullYear();
+export const localFormatDate = dateString => {
+  const date =
+    typeof dateString === "string" ? new Date(dateString) : dateString;
+  return new Intl.DateTimeFormat().format(date);
+};
 
-    return [year, month, day].join('-');
-}
+export const formatDate = date => {
+  console.log(new Intl.DateTimeFormat("sv-SE").format(date).replace("/", "-"));
+  return new Intl.DateTimeFormat("sv-SE").format(date).replace("/", "-");
+
+};

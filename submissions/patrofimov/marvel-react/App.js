@@ -3,8 +3,7 @@ import Character from "./components/Character";
 import SearchBar from "./components/SearchBar";
 import "./App.css";
 import { getCharacters } from "./api/api";
-import { DATE_FROM_DEFAULT, DATE_TO_DEFAULT } from "./config";
-import { convertDate } from "./utils/utils";
+import { DATE_FROM_DEFAULT, DATE_TO_DEFAULT, localFormatDate } from "./utils/utils";
 
 class App extends Component {
   state = {
@@ -18,6 +17,15 @@ class App extends Component {
     isReady: false
   };
 
+  runSorting = (a, b) => (a > b ? 1 : -1);
+
+  choicesSorting = {
+    asc: (a, b) => this.runSorting(a.name, b.name),
+    desc: (a, b) => this.runSorting(b.name, a.name),
+    old: (a, b) => this.runSorting(a.modified, b.modified),
+    new: (a, b) => this.runSorting(b.modified, a.modified)
+  };
+  
   async componentDidMount() {
     let result = await getCharacters();
     let characters = result.map(function(character) {
@@ -73,15 +81,8 @@ class App extends Component {
     if (filterByDateTo) {
       result = result.filter(character => character.modified <= dateTo);
     }
-
-    const runSorting = (a, b) => (a > b ? 1 : -1);
-    const choicesSorting = {
-      asc: (a, b) => runSorting(a.name, b.name),
-      desc: (a, b) => runSorting(b.name, a.name),
-      old: (a, b) => runSorting(a.modified, b.modified),
-      new: (a, b) => runSorting(b.modified, a.modified)
-    };
-    result = result.sort((a, b) => choicesSorting[sortName](a, b));
+          
+    result = result.sort((a, b) => this.choicesSorting[sortName](a, b));
 
     return (
       <div className="App">
@@ -98,7 +99,7 @@ class App extends Component {
               key={character.id}
               name={character.name}
               image={character.image}
-              modified={convertDate(character.modified)}
+              modified={localFormatDate(character.modified)}
             />
           ))}
         </div>

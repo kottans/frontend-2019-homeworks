@@ -1,16 +1,9 @@
 import React from "react";
-import { DATE_FROM_DEFAULT, DATE_TO_DEFAULT } from "../config";
-import { formatDate } from "../utils/utils";
+import { DATE_FROM_DEFAULT, DATE_TO_DEFAULT, formatDate } from "../utils/utils";
 
 const SearchBar = ({ handleSearch, handleFilter, handleSort }) => {
-  const searchInput = React.createRef();
-
-  const onClick = ev => {
-    const { name, value } = searchInput.current;
-    handleSearch({ [name]: value });
-  };
-
-  const onKeyUp = ev => {
+ 
+  const onChange = ev => {
     const { name, value } = ev.target;
     handleSearch({ [name]: value });
   };
@@ -41,13 +34,9 @@ const SearchBar = ({ handleSearch, handleFilter, handleSort }) => {
         <input
           placeholder="name"
           name="name"
-          onKeyUp={onKeyUp}
-          ref={searchInput}
+          onChange={onChange}          
         />
-        <button className="search-btn" onClick={onClick}>
-          Search
-        </button>
-      </div>
+       </div>
 
       <fieldset>
         <legend>Sort:</legend>
