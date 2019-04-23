@@ -1,0 +1,52 @@
+/*searchbar*/
+.search-form {
+  width: calc(100% - 5px);
+  position: relative;
+}
+
+.searchbar {
+  width: inherit;
+  height: 40px;
+  padding-left: 0.5rem;
+  border: none;
+  border-radius: 75px;
+  background-color: darken($grey, 10%);
+  color: inherit;
+  font-size: 1.5rem;
+  font-weight: 400;
+  outline: none;
+  @include desktopL{
+    font-size: 2rem;
+    height: 60px;
+  }
+}
+
+.searchbar::placeholder{
+  color: $white;
+}
+
+.search-button{
+  position: absolute;
+  right: -4px;
+  top: 0;
+  height: 100%;
+  width: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: $grey;
+  background-image: url('/img/search.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 75%;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  transition: 0.3s linear;
+  @include desktopL{
+    width: 60px;
+  }
+}
+
+.search-button:hover{
+  background-color: $greyDark;
+}

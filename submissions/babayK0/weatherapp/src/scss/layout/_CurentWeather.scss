@@ -1,0 +1,196 @@
+/*Curent weather*/
+.weather-subinfo{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.subinfo-item{
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 5px;
+  @include mobileS{
+    font-size: 1rem;
+  }
+  @include mobile{
+    font-size: 1.2rem;
+  }
+  @include tablet{
+    font-size: 1.5rem;
+  }
+}
+
+.day{
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.date{
+  margin-bottom: 30px;
+}
+
+.weather-maininfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $white;
+}
+
+.maininfo-item{
+  margin-bottom: 5px;
+}
+
+.city{
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  @include mobileS{
+    font-size: 1rem;
+  }
+  @include mobile{
+    font-size: 1.3rem;
+  }
+  @include tablet{
+    font-size: 1.5rem;
+  }
+}
+
+.favorite{
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 10px;
+  background-color: transparent;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  display: block;
+}
+
+.checkbox-favorite:checked + .like{
+  background-image: url('/img/liked.svg');
+}
+
+.checkbox-favorite:active + .like{
+  transition: transform 0.3s linear;
+  transform: scale(0.8);
+}
+
+.like{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  color: $white;
+  background-image: url('/img/like.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
+  transform: scale(1);
+}
+
+.swap{
+  text-transform: uppercase;
+  text-align: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-left: 10px;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  color: $white;
+  font-weight: 700;
+  transition: 0.3s linear;
+  background-color: $grey;
+  position: relative;
+  @include mobileS{
+    width: 2rem;
+    height: 2rem;
+    margin-left: 5px;
+  }
+}
+
+.swap:hover{
+  background-color: $greyDark;
+}
+
+.checkbox{
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.checkbox-units:hover + .units{
+  box-shadow: 0 0 1px 2px $yellow;
+}
+
+.units{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  font-size: 1.7rem;
+  color: $white;
+  @include mobileS{
+    font-size: 1.5rem;
+  }
+}
+
+.image-wrapper{
+  width: 100px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-weather{
+  font-size: 2.2rem;
+  font-weight: 300;
+}
+
+.weather-descr{
+  font-size: 1.2rem;
+}
+
+.extra-descr{
+  font-size: 0.75rem;
+}
+
+.typewriter{
+  overflow: hidden;
+  font-size: 1.7rem;
+  border-right: .15rem solid $yellow;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15rem;
+  animation:
+    blink-caret .75s step-end infinite;
+  @include mobileS{
+    font-size: 0.9rem;
+  }
+  @include mobile{
+    font-size: 1.1rem;
+  }
+  @include desktopL{
+    font-size: 2.5rem;
+    border-width: 0.3rem;
+  }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: $yellow; }
+}
