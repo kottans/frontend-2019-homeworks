@@ -9,9 +9,6 @@ import Comics from './components/Comics/Comics';
 import InputWrapper from './components/InputWrapper/InputWrapper';
 import Pagination from './components/Pagination/Pagination';
 
-const Image = ({ path, extension, alt }) => (
-  <img src={`${path}.${extension}`} alt={alt} />
-);
 class App extends Component {
   state = {
     list: [],
@@ -84,10 +81,7 @@ class App extends Component {
           <>
             <main onClick={this.popupTargetComic}>
               {list.map(comics => (
-                <Comics
-                  key={comics.id}
-                  image={<Image {...comics.thumbnail} alt={comics.title} />}
-                />
+                <Comics key={comics.id} comics={comics} />
               ))}
               {!list.length ? <h2>Oops nothing found ":("</h2> : null}
             </main>
@@ -102,9 +96,6 @@ class App extends Component {
             text="Close Me"
             closePopup={this.togglePopup}
             comics={targetComics}
-            image={
-              <Image {...targetComics.thumbnail} alt={targetComics.title} />
-            }
           />
         ) : null}
       </div>
