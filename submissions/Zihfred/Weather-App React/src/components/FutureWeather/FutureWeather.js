@@ -6,7 +6,6 @@ export default class FutureWeather extends React.PureComponent{
 
 
     render(){
-        console.log(this.props.weatherForecast)
         if (!this.props.weatherForecast ||
             !this.props.weatherForecast.list ||
             this.props.weatherForecast === '404')

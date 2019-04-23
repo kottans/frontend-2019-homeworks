@@ -10,7 +10,7 @@ import CyrillicToTranslit from "cyrillic-to-translit-js";
 
 import './App.css';
 
-
+let ToTranslit = CyrillicToTranslit({preset: 'uk'})
 class App extends Component {
     constructor(props) {
         super(props);
@@ -27,53 +27,46 @@ class App extends Component {
 
         this.defaultCity = this.state.favorite[this.state.favorite.length - 1];
 
-
-        //Events
-        this.handleInput = this.handleInput.bind(this);
-        this.handleSearch = this.handleSearch.bind(this);
-        this.handleUnits = this.handleUnits.bind(this);
-        this.handleHistoryItem = this.handleHistoryItem.bind(this);
-        this.handleAddFavorite = this.handleAddFavorite.bind(this);
-        this.handleFavoriteClick = this.handleFavoriteClick.bind(this);
-        this.handleRemoveFavCity = this.handleRemoveFavCity.bind(this);
-        this.handleAutocomplete = this.handleAutocomplete.bind(this);
-
     }
 
-    handleRemoveFavCity(cityWillRemove) {
-        let favList = this.state.favorite.slice();
-        favList.splice(favList.indexOf(cityWillRemove), 1);
+    handleRemoveFavCity = (cityToRemove) => {
+        let favList = [...this.state.favorite];
+        favList = favList.filter(item => {
+            return item !== cityToRemove;
+        });
         this.setState({
             favorite: favList,
         });
         localStorage.setItem("favorite", JSON.stringify(favList));
-    }
+    };
 
-    handleFavoriteClick(item) {
+    handleFavoriteClick = (item) => {
         if (item) {
-            WeatherService.getCurrentWeather({
-                city: item,
-                units: this.state.units,
-            })
-                .then(result => this.setState({
-                    inputValue: '',
-                    currentWeather: result,
-                    history: [...this.state.history, result]
-                }))
-                .then(() => WeatherService.getWeatherForecast({
+            Promise.all([
+                WeatherService.getCurrentWeather({
+                    city: item,
+                    units: this.state.units,
+                }),
+                WeatherService.getWeatherForecast({
                     city: item,
                     units: this.state.units,
                 })
-                    .then(result => this.setState({
-                        weatherForecast: result
-                    })));
+            ])
+                .then(values => {
+                    this.setState({
+                        inputValue: '',
+                        currentWeather: values[0],
+                        history: [...this.state.history, values[0]],
+                        weatherForecast: values[1],
+                    })
+                });
         }
-    }
+    };
 
-    handleAddFavorite(cityName) {
+    handleAddFavorite = (cityName) => {
         Promise.resolve()
             .then(() => {
-                if (this.state.favorite.indexOf(cityName) === -1) {
+                if (this.state.favorite.includes(cityName) === false) {
                     this.setState({
                         favorite: [...this.state.favorite, cityName],
                     });
@@ -85,109 +78,109 @@ class App extends Component {
             });
     }
 
-    handleHistoryItem(item) {
-        WeatherService.getCurrentWeather({
-            city: item.name,
-            units: this.state.units,
-        })
-            .then(result => this.setState({
-                inputValue: '',
-                currentWeather: result,
-                history: [...this.state.history, result]
-            }))
-            .then(() => WeatherService.getWeatherForecast({
+    handleHistoryItem = (item) => {
+        Promise.all([
+            WeatherService.getCurrentWeather({
+                city: item.name,
+                units: this.state.units,
+            }),
+            WeatherService.getWeatherForecast({
                 city: item.name,
                 units: this.state.units,
             })
-                .then(result => this.setState({
-                    weatherForecast: result
-                })));
+        ]).then(values => {
+            this.setState({
+                inputValue: '',
+                currentWeather: values[0],
+                history: [...this.state.history, values[0]],
+                weatherForecast: values[1]
+            });
+        });
     }
 
-    handleUnits(e) {
+    handleUnits = (e) => {
         //get unit now from form
         let unitValue = e.target.textContent === '°C' ? 'metric' : 'imperial';
 
         //set units in localstorage
         localStorage.setItem('units', unitValue);
 
-        //get last city to true change units and save city
+        //get last city to right change units and save city
         let lastCity = this.state.history[this.state.history.length - 1].name || this.defaultCity;
 
-        //get weather now
-        WeatherService.getCurrentWeather({
-            city: lastCity,
-            units: unitValue,
-        })
-        //set weather now to State
-            .then(result => this.setState({
-                currentWeather: result,
+
+        Promise.all([
+            WeatherService.getCurrentWeather({
+                city: lastCity,
                 units: unitValue,
-            }))
-            //get weather forecast
-            .then(() => WeatherService.getWeatherForecast({
+            }),
+            WeatherService.getWeatherForecast({
                 city: lastCity,
                 units: unitValue,
             })
-            //set weather forecast to State
-                .then(result => this.setState({
-                    weatherForecast: result
-                })));
-    }
+        ]).then((values) => {
+            this.setState({
+                currentWeather: values[0],
+                units: unitValue,
+                weatherForecast: values[1]
+            });
+        });
+    };
 
-    handleSearch(e) {
+    handleSearch = (e) => {
         e.preventDefault();
 
         let inputValue = this.state.inputValue.trim();
 
         //Ukraine to translit
-        inputValue = CyrillicToTranslit({preset: 'uk'}).transform(inputValue);
-
-        WeatherService.getCurrentWeather({
-            city: inputValue,
-            units: this.state.units,
-        })
-            .then(result => this.setState({
-                inputValue: result.name ? `${result.name}, ${result.sys.country}` : '',
-                currentWeather: result,
-                history: [...this.state.history, result],
-            })).then(() => WeatherService.getWeatherForecast({
-            city: this.state.inputValue,
-            units: this.state.units,
-        }).then(result => this.setState({
-            weatherForecast: result
-        })));
-    }
+        inputValue = ToTranslit.transform(inputValue);
 
 
-    handleAutocomplete(city) {
-        Promise.resolve()
-            .then(() => {
-                this.setState({
-                    inputValue: city,
-                    needToAutocomplete: false,
-                })
+        Promise.all([
+            WeatherService.getCurrentWeather({
+                city: inputValue,
+                units: this.state.units,
+            }),
+            WeatherService.getWeatherForecast({
+                city: this.state.inputValue,
+                units: this.state.units,
             })
-            .then(() => {
+        ]).then(values => {
+            this.setState({
+                inputValue: values[0].name ? `${values[0].name}, ${values[0].sys.country}` : '',
+                currentWeather: values[0],
+                history: [...this.state.history, values[0]],
+                weatherForecast: values[1]
+            })
+        })
+    };
+
+
+    handleAutocomplete = (city) => {
+        this.setState({
+            inputValue: city,
+            needToAutocomplete: false,
+        }, () =>
+            Promise.all([
                 WeatherService.getCurrentWeather({
                     city: this.state.inputValue,
                     units: this.state.units,
+                }),
+                WeatherService.getWeatherForecast({
+                    city: this.state.inputValue,
+                    units: this.state.units,
                 })
-                    .then(result => this.setState({
-                        currentWeather: result,
-                        history: [...this.state.history, result]
-                    }))
-                    .then(() => WeatherService.getWeatherForecast({
-                        city: this.state.inputValue,
-                        units: this.state.units,
+            ])
+                .then(value => {
+                    this.setState({
+                        currentWeather: value[0],
+                        history: [...this.state.history, value[0]],
+                        weatherForecast: value[1]
                     })
-                        .then(result => this.setState({
-                            weatherForecast: result
-                        })))
-            })
-    }
+                }));
+    };
 
-    handleInput(e) {
+    handleInput = (e) => {
         e.preventDefault();
         if (this.state.history[this.state.history.length - 1].name !== this.state.inputValue) {
             this.setState({
@@ -201,19 +194,25 @@ class App extends Component {
     }
 
     componentDidMount() {
-        WeatherService.getCurrentWeather({
-            city: this.defaultCity,
-            units: this.state.units,
-        }).then(result => this.setState({
-            currentWeather: result,
-            history: [...this.state.history, result]
-        })).then(() => WeatherService.getWeatherForecast({
-            city: this.defaultCity,
-            units: this.state.units,
-        }).then(result => this.setState({
-            weatherForecast: result
-        })));
-    }
+        Promise.all([
+            WeatherService.getCurrentWeather({
+                city: this.defaultCity,
+                units: this.state.units,
+            }),
+            WeatherService.getWeatherForecast({
+                city: this.defaultCity,
+                units: this.state.units,
+            }),
+        ])
+            .then(values => {
+                    this.setState({
+                        currentWeather: values[0],
+                        weatherForecast: values[1],
+                        history: [...this.state.history, values[0]],
+                    })
+                }
+            )
+    };
 
 
     render() {
@@ -227,7 +226,7 @@ class App extends Component {
                     needToAutocomplete={this.state.needToAutocomplete}
 
                 />
-                <div className={"сities"}>
+                <div className="сities">
                     <History
                         history={this.state.history}
                         itemClick={this.handleHistoryItem}

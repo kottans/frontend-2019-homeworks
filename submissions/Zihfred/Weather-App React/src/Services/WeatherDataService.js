@@ -6,15 +6,13 @@ class WeatherDataService {
     }
 
     async getCurrentWeather(props) {
-        console.log('I Get fetch current Weather');
-        this.currentCity = props.city ? props.city : this.currentCity;
-        this.units = props.units ? props.units : this.units;
+        this.currentCity = props.city || this.currentCity
+        this.units = props.units || this.units;
 
 
         return await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.currentCity}&units=${this.units}&appid=${this.keyAPI}`)
-            .then((response) => response.json())
-            .then(data => {
-                return data;
+            .then((response) => {
+                return response.json();
             })
             .catch(error => {
                 console.error(error);
@@ -28,9 +26,8 @@ class WeatherDataService {
 
 
         return await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${this.currentCity}&units=${this.units}&appid=${this.keyAPI}`)
-            .then((response) => response.json())
-            .then(data => {
-                return data;
+            .then((response) => {
+                return response.json();
             })
             .catch(error => {
                 console.error(error);
@@ -39,3 +36,4 @@ class WeatherDataService {
 }
 
 export default new WeatherDataService();
+

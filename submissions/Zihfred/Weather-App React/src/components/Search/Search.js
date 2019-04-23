@@ -11,9 +11,7 @@ const Search = (props) =>{
             onSubmit={props.handleSearch}
         >
             <input
-                onChange={e => {
-                    props.handleInput(e);
-                }}
+                onChange={props.handleInput}
                 className={'search__input wrapperStyle--active'}
                 placeholder={'Enter city or coordinates'}
                 title={'Enter city or coordinates'}

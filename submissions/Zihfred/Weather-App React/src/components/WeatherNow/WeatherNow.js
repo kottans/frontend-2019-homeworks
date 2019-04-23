@@ -3,28 +3,28 @@ import {roundTemp, getIconByStatus} from '../../Services/WeatherService';
 
 
 const WeatherNow = (props) => {
-     const weather = props.currentWeather;
-    if (!weather || weather.cod === '404') return [];
+     const weatherNow = props.currentWeather;
+    if (!weatherNow || weatherNow.cod === '404') return [];
     return (
         <div className={"weatherNow wrapperStyle"}>
             <div
                 className={'weatherNow--left'}
             >
                 <h1 className={'weatherNow__city'}>
-                    {`${weather.name},${weather.sys.country}`}
+                    {`${weatherNow.name},${weatherNow.sys.country}`}
                     <i className="far fa-star addToFav"
-                       onClick={() => props.handleAddFavorite(`${weather.name},${weather.sys.country}`)}
+                       onClick={() => props.handleAddFavorite(`${weatherNow.name},${weatherNow.sys.country}`)}
                     >
                     </i>
                 </h1>
                 <h2 className="weatherNow__skyStatus">
-                    {weather.weather[0].main}
+                    {weatherNow.weather[0].main}
                 </h2>
                 <div className="weatherNow__sunStatus">
-                    <img src={getIconByStatus(weather.weather[0].main)}/>
+                    <img src={getIconByStatus(weatherNow.weather[0].main)}/>
                 </div>
                 <div className="weatherNow__temp">
-                    {roundTemp(weather.main.temp)}
+                    {roundTemp(weatherNow.main.temp)}
                 </div>
                 <div className="units">
                     <a
@@ -45,13 +45,13 @@ const WeatherNow = (props) => {
             </div>
             <div className="weatherNow--right">
                 <h2 className="weatherNow__humidity">
-                    {`Humidity: ${weather.main.humidity}%`}
+                    {`Humidity: ${weatherNow.main.humidity}%`}
                 </h2>
                 <h2 className="weatherNow__wind">
-                    {`Wind: ${weather.wind.speed} ${props.units === 'metric' ? 'km/h' : 'mph'}`}
+                    {`Wind: ${weatherNow.wind.speed} ${props.units === 'metric' ? 'km/h' : 'mph'}`}
                 </h2>
                 <h2 className="weatherNow__pressure">
-                    {`Pressure: ${weather.main.pressure} atm`}
+                    {`Pressure: ${weatherNow.main.pressure} atm`}
 
                 </h2>
             </div>

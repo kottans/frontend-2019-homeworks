@@ -18,7 +18,7 @@ body {
 
     color: white;
 
-    font-family: "Comfortaa", cursive;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 h1,
@@ -235,4 +235,43 @@ li{
 
 .search__autocomplete > li {
     cursor: pointer;
+}
+
+@media  (max-width: 767px) {
+    .weatherNow--right {
+        font-size: 14px;
+        padding-left: 0px;
+    }
+    .futureWeatherItem{
+        font-size: 14px;
+        width: 20%;
+    }
+    .futureWeather{
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    .futureWeatherItem__img{
+        width: 95%;
+    }
+    .сities{
+        justify-content: space-evenly;
+
+    }
+    .history{
+        width: 44%;
+    }
+    .futureWeatherItem__time{
+       display: none;
+    }
+    .weatherNow__city{
+        font-size: 20px;
+    }
+    .units{
+        margin-left: 0px;
+        font-size: 10px;
+    }
+    .weatherNow__temp{
+        font-size: 25px;
+
+    }
 }
