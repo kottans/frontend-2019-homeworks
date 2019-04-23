@@ -1,0 +1,60 @@
+.form__common-info{
+  display: grid;
+  height: 165px;
+  grid-template-columns: 31fr 15fr;
+  grid-template-areas: "quote contacts";
+}
+
+.quote{
+  border-bottom: 1px solid grey;
+  display: grid;
+  grid-template-columns: repeat(22,1fr);
+  grid-template-rows: 75px 25px 25px ;
+  grid-area: quote;
+}
+
+.contacts{
+  border-bottom: 1px solid grey;
+  border-left: 1px solid grey;
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  grid-template-rows: repeat(3,1fr);
+}
+
+.contacts__desc{
+  grid-column: 3/12;
+  grid-row: 2/2;
+  font-size: 12px;
+}
+
+.contacts__details{
+  display: flex;
+  grid-column: 3/9;
+  grid-row: 3/3;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.quote__table {
+  grid-column: 3/17;
+  grid-row: 2/4;
+  & thead {
+    text-transform: uppercase;
+  }
+}
+
+.quote__buttons{
+  grid-column: 17/23 ;
+  grid-row: 1/5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.quote__button-place-order{
+  background-color: rgba(95,202,198,1);
+  color: white;
+}

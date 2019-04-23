@@ -1,0 +1,234 @@
+@import "normalize";
+@import "sprite";
+
+$basic-font-size: .81rem;
+$light-black: rgba(0,0,0,.1);
+$dark-black: rgba(0,0,0,.87);
+
+:focus{
+  outline: none;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.header__menu {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2rem;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu__link {
+  font-size: $basic-font-size;
+  text-decoration: none;
+  color: $dark-black;
+}
+
+.menu__item:nth-child(3) { 
+  position: relative; 
+}
+
+.menu__item:not(:last-child):hover {
+  text-decoration: underline;
+}
+
+.submenu { 
+  display: none;
+}
+.menu__trigger {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.menu__trigger:checked ~ .submenu { 
+  display: block;
+}
+
+.menu__item {
+  list-style: none;
+  margin: 0 7.5px;
+}
+
+.icon-menu {
+  vertical-align: middle;
+  width: 15px;
+  height: 15px;
+  background: url(../images/menu.svg) no-repeat center top;
+  background-size: contain;
+}
+
+.icon-menu:hover{ 
+  filter: brightness(0%);
+}
+
+.icon-circle {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0,0,0,.55);
+  border-radius: 50%;
+}
+
+.icon-circle:hover {
+  background-color: $dark-black;
+}
+
+.icon-circle::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-top: calc(50% - 4px);
+  margin-left: calc(50% - 4px);
+  background: url(../images/bell.svg) no-repeat center center;
+  background-size: contain;
+  filter: invert(100%);
+}
+
+
+.icon-account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(87,19,133);
+  border-radius: 50%;
+}
+.icon-account__text {
+   margin: 0;
+   font-size: 1.1rem;
+   color: #fff;
+}
+
+.menu__link:focus,
+.menu__trigger:focus + label > .icon-menu,
+.menu__link:focus .icon-circle,
+.menu__link:focus .icon-account,
+.submenu__link:focus .submenu__icon {
+  outline: 4px solid rgba(62, 62, 212, 0.38);
+}
+
+.submenu__check-more:focus + .submenu__label .submenu__btn-more {
+  border-color: rgba(62, 62, 212, 0.38);
+}
+
+.submenu {
+  overflow-y: auto;
+  position: absolute;
+  top: 35px;
+  right: -80px;
+  width: 280px;
+  height: 425px;
+  padding: 20px 10px 40px 15px;
+  border: 1px solid #ccc;
+  border-radius: 1px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.2);
+}
+
+.submenu__wrap-before {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.submenu__wrap-after {
+  display: none;
+}
+
+.submenu__link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px ;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 2px;
+}
+
+.submenu__link:hover {
+  border: 1px solid $light-black;
+}
+  
+.submenu__icon {
+  transform: scale(.8);
+}
+  
+.submenu__title {
+  margin: .5rem 0;
+  font-size: $basic-font-size;
+  font-weight: normal;
+  color: $dark-black;
+}
+  
+.submenu__line {
+  width: 100%;
+  height: 1px;
+  margin: 2rem 0; 
+  background-color: $light-black;
+}
+  
+.submenu__btn-more {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  border: 4px solid transparent;
+  background-color: $light-black;
+}
+
+.submenu__btn-text {
+  margin: .6rem 0;
+  font-size: $basic-font-size;
+  text-align: center;
+  cursor: pointer;
+}
+  
+.submenu__link-more {
+  width: 100%;
+  text-decoration: none;
+  font-size: $basic-font-size;
+  color: $dark-black;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.submenu__link-more:focus {
+  outline: 4px solid rgba(62, 62, 212, 0.38);
+}
+
+.submenu__link-more:hover {
+  text-decoration: underline;
+}
+
+.submenu__check-more {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.submenu__check-more:checked ~ .submenu__wrap-after {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.submenu__check-more:checked ~ .submenu__label {
+  display: none;
+}

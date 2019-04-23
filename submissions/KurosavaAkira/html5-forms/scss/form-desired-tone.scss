@@ -1,0 +1,49 @@
+.form-desired-tone {
+  padding-top: 20px;
+  width: 50%;
+}
+
+.desired-tone {
+  display: flex;
+  flex-direction: column;
+  margin: 42px 0;
+}
+
+.desired-tone-button:not(:first-child) {
+  margin-top: 75px;
+}
+
+.desired-tone-button input {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.desired-tone-button-lable {
+  position: absolute;
+  width: 150px;
+  padding: 25px 40px;
+}
+
+.desired-tone input:checked + .desired-tone-button-lable {
+  outline: 5px solid $color-outline;
+}
+
+.desired-tone input:checked + .desired-tone-button-lable:after {
+  font-size: 18px;
+  font-weight: 500;
+  content: "\2714";
+  position: absolute;
+  margin-left: 30px;
+  margin-top: -44px;
+  background: #76a5df;
+  color: #fff;
+  width: 15px;
+  height: 15px;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.desired-tone input:checked + .desired-tone-after-fix:after {
+  margin-left: 100px;
+  margin-top: -60px;
+}
