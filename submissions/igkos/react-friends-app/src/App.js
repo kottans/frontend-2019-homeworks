@@ -9,7 +9,6 @@ import Comics from './components/Comics/Comics';
 import InputWrapper from './components/InputWrapper/InputWrapper';
 import Pagination from './components/Pagination/Pagination';
 
-const Title = ({ title }) => <h2>{title}</h2>;
 const Image = ({ path, extension, alt }) => (
   <img src={`${path}.${extension}`} alt={alt} />
 );
@@ -103,7 +102,6 @@ class App extends Component {
             text="Close Me"
             closePopup={this.togglePopup}
             comics={targetComics}
-            title={<Title title={targetComics.title} />}
             image={
               <Image {...targetComics.thumbnail} alt={targetComics.title} />
             }

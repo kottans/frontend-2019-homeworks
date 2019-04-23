@@ -6,7 +6,7 @@ const Popup = ({ closePopup, comics, title, image }) => (
     <div className="popup_inner">
       <div className="popup_inner-left">{image}</div>
       <div className="popup_inner-right">
-        {title}
+        <h2>{comics.title}</h2>
         <p>{comics.description}</p>
         <div className="popup_inner-links">
           {comics.urls.map((link, index) => (
