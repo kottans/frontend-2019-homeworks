@@ -1,8 +1,9 @@
 import React from 'react';
-import { getPager } from './utils';
+import { getPager } from '../../utils';
+import './style.scss';
 
 const Pagination = ({ limit, offset, total, handleClick }) => {
-  if (total && limit) {
+  if (total && limit && total > limit) {
     const { pagesArr, currentPage } = getPager(limit, offset, total);
 
     const onClick = e => {

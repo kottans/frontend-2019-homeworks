@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.scss';
 
 const Options = ({ optionsValuesArr, description }) =>
   optionsValuesArr.map(val => (
@@ -7,17 +8,10 @@ const Options = ({ optionsValuesArr, description }) =>
     </option>
   ));
 const InputWrapper = ({ updateComics, limit, orderBy }) => {
+  let titleStartsWith = React.createRef();
   const onSubmit = ev => {
     ev.preventDefault();
-
-    const { elements } = ev.target;
-    const value = [...elements].reduce((acc, el) => {
-      if (!el.name.toLowerCase().includes('button')) {
-        return { ...acc, [el.name]: el.value };
-      }
-      return acc;
-    }, {});
-    updateComics(value);
+    updateComics({ titleStartsWith: titleStartsWith.current.value });
   };
   const onChange = ev => {
     const { name, value } = ev.target;
@@ -51,7 +45,7 @@ const InputWrapper = ({ updateComics, limit, orderBy }) => {
       <input
         className="search__item search__input"
         placeholder="title starts with ....."
-        name="titleStartsWith"
+        ref={titleStartsWith}
       />
       <button name="button" className="search__item search__button">
         search

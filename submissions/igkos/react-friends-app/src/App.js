@@ -4,10 +4,10 @@ import loader from './GravityAnimating.svg';
 
 import { getComicsList } from './api';
 
-import Popup from './Popup';
-import Comics from './Comics';
-import InputWrapper from './InputWrapper';
-import Pagination from './Pagination';
+import Popup from './components/Popup/Popup';
+import Comics from './components/Comics/Comics';
+import InputWrapper from './components/InputWrapper/InputWrapper';
+import Pagination from './components/Pagination/Pagination';
 
 const Title = ({ title }) => <h2>{title}</h2>;
 const Image = ({ path, extension, alt }) => (
@@ -17,7 +17,7 @@ class App extends Component {
   state = {
     list: [],
     isLoading: true,
-    searchParams: {
+    comicsListParams: {
       orderBy: 'modified',
       titleStartsWith: '',
       limit: 20,
@@ -30,24 +30,22 @@ class App extends Component {
   async componentDidMount() {
     this.getComicsData();
   }
-  getComicsData = async () => {
-    let { searchParams } = this.state;
-    const { list, offset, total } = await getComicsList(searchParams);
+
+  getComicsData = async (params = {}) => {
+    const { comicsListParams } = this.state;
+    const newComicsListParams = { ...comicsListParams, ...params };
     this.setState({
-      searchParams: { ...searchParams, offset, total },
+      isLoading: true,
+    });
+    const { list, offset, total } = await getComicsList(newComicsListParams);
+    this.setState({
+      comicsListParams: { ...newComicsListParams, offset, total },
       list,
       isLoading: false,
     });
   };
-  updateComics = async params => {
-    let { searchParams } = this.state;
-    await this.setState({
-      isLoading: true,
-      searchParams: { ...searchParams, ...params },
-    });
-    this.getComicsData();
-  };
-  popupTargetComics = e => {
+
+  popupTargetComic = e => {
     const title = e.target.alt;
     if (title) {
       const targetComics = this.state.list.find(
@@ -70,19 +68,22 @@ class App extends Component {
       isLoading,
       targetComics,
       showPopup,
-      searchParams,
+      comicsListParams,
     } = this.state;
     return (
       <div className="App">
         <nav>
-          <InputWrapper updateComics={this.updateComics} {...searchParams} />
+          <InputWrapper
+            updateComics={this.getComicsData}
+            {...comicsListParams}
+          />
         </nav>
 
         {isLoading ? (
           <img src={loader} className="App-logo" alt="logo" />
         ) : (
           <>
-            <main onClick={this.popupTargetComics}>
+            <main onClick={this.popupTargetComic}>
               {list.map(comics => (
                 <Comics
                   key={comics.id}
@@ -91,7 +92,10 @@ class App extends Component {
               ))}
               {!list.length ? <h2>Oops nothing found ":("</h2> : null}
             </main>
-            <Pagination handleClick={this.updateComics} {...searchParams} />
+            <Pagination
+              handleClick={this.getComicsData}
+              {...comicsListParams}
+            />
           </>
         )}
         {showPopup ? (
