@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Header } from "./Header";
+import Header from "./Header";
 import ImageList from "./ImageList";
 import { getPhotos } from "../api";
 
@@ -8,23 +8,25 @@ class App extends Component {
     list: [],
     fullList: []
   };
+  sort= {
+    dec: "decrease",
+    inc: "increase"
+  };
   performSearch = searchName => {
-    const list = this.state.fullList;
     let result = [];
-    if (searchName !== "decrease" && searchName !== "increase") {
-      result = list.filter(item => item.user.name.includes(searchName));
-    } else if (searchName === "decrease") {
-      result = list.sort((a, b) => b.likes - a.likes);
-    } else if (searchName === "increase") {
-      result = list.sort((a, b) => a.likes - b.likes);
+    if (searchName !== this.sort.dec && searchName !== this.sort.inc) {
+      result = this.state.fullList.filter(item => item.user.name.toLowerCase().includes(searchName));
+    } else if (searchName === this.sort.dec) {
+      result = this.state.list.sort((a, b) => b.likes - a.likes);
+    } else if (searchName === this.sort.inc) {
+      result = this.state.list.sort((a, b) => a.likes - b.likes);
     }
     this.setState({
       list: result
     });
   };
   async componentDidMount() {
-    let list = [];
-    list = await getPhotos(list.length);
+    let list = await getPhotos(0);
 
     this.setState({
       list,

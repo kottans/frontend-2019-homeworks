@@ -9,7 +9,4 @@ export const getPhotos = async () => {
   return await unsplash.photos
     .listPhotos(1, 64, "random")
     .then(toJson)
-    .then(json => {
-      return json;
-    });
 };

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./style.css";
 
 export default class ImageList extends Component {
-  state = {};
   render() {
     const imageElements = this.props.images.map(item => {
       const style = { animation: "rt " + Math.random() + "s linear" };
