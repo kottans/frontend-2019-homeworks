@@ -1,4 +1,4 @@
-@keyframes rt {
+@keyframes onLoad {
   from {
     top: -20px;
   }
@@ -13,7 +13,7 @@
 }
 .card {
   margin-bottom: 16px;
-  position: relative !important;
+  position: relative;
 }
 .user-link {
   position: absolute;
@@ -30,8 +30,6 @@
   position: absolute;
   color: #fff;
   background-color: red;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
   border-radius: 50%;
   top: 0;
   right: 16px;
@@ -66,8 +64,6 @@
 }
 .card-img-top {
   width: 100%;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
   border-radius: 20px;
   display: block;
 }

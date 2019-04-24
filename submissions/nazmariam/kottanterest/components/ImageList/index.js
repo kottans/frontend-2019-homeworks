@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import "./style.css";
 
-export default class ImageList extends Component {
-  render() {
-    const imageElements = this.props.images.map(item => {
-      const style = { animation: "rt " + Math.random() + "s linear" };
+export const ImageList = (props) => {
+    const imageElements = props.images.map(item => {
+      const style = { animation: "onLoad " + Math.random() + "s linear" };
       return (
         <div key={item.id} className="card" style={style}>
           <img
@@ -32,6 +31,11 @@ export default class ImageList extends Component {
         </div>
       );
     });
-    return <div className="wrapper">{imageElements}</div>;
-  }
-}
+    return <div className="wrapper">
+        {imageElements}
+        <span className="item break"></span>
+        <span className="item break"></span>
+        <span className="item break"></span>
+    </div>;
+
+};

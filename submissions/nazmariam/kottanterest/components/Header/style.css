@@ -8,8 +8,6 @@ html {
   margin: 16px 0;
 }
 .logo {
-  -webkit-border: 1px solid red;
-  -moz-border: 1px solid red;
   border: 1px solid red;
   border-radius: 50%;
   background-color: red;
@@ -60,8 +58,8 @@ label:before {
   margin: 0 32px;
   display: flex;
 }
-#decrease,
-#increase {
+.decrease,
+.increase {
   color: #fff;
   background-color: #8080807a;
   border: 2px dotted #ffffff;
@@ -74,8 +72,8 @@ label:before {
   cursor: pointer;
 }
 
-#decrease:hover,
-#increase:hover {
+.decrease:hover,
+.increase:hover {
   background-color: rgba(128, 128, 128, 0.72);
 }
 @media screen and (max-width: 500px) {

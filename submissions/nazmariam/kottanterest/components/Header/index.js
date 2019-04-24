@@ -1,25 +1,19 @@
 import React, { Component } from "react";
+import {SORT} from "../../utils/helpers.js"
 import logo from "./images/logo.png";
 import "./style.css";
 
 class Header extends Component {
-  constructor(handleSubmit) {
-    super(handleSubmit);
-    this.state = {
-      value: ""
-    };
-  }
-  onSubmit = ev => {
-    ev.preventDefault();
-    this.props.handleSubmit(this.state.value);
+  state = {
+    value: ""
   };
   onClick = ({ target }) => {
     this.props.handleSubmit(target.getAttribute("data-sort"));
   };
   handleChange = event => {
-    this.setState({ value: event.target.value.toLowerCase().trim() }, () =>
-      console.log("state ", this.state.value)
-    );
+    event.preventDefault();
+    this.setState({ value: event.target.value.toLowerCase().trim() });
+    this.props.handleSubmit(this.state.value);
   };
   handleSubmitForm = event => {
     event.preventDefault();
@@ -36,8 +30,8 @@ class Header extends Component {
         </div>
         <div className="search-form">
           <form
-            onChange={this.onSubmit}
             onSubmit={this.handleSubmitForm}
+            autoComplete='off'
           >
             <label>
               <input
@@ -53,16 +47,14 @@ class Header extends Component {
         <div className="sorting-buttons">
           <button
             className="decrease"
-            id="decrease"
-            data-sort="decrease"
+            data-sort={SORT.dec}
             onClick={this.onClick}
           >
             &darr;
           </button>
           <button
             className="increase"
-            id="increase"
-            data-sort="increase"
+            data-sort={SORT.inc}
             onClick={this.onClick}
           >
             &uarr;
