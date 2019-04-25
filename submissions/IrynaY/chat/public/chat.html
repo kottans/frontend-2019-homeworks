@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Socket.IO chat</title>
+  <link rel="shortcut icon" href="./favicon.png">
+  <link rel="stylesheet" href="./styles.css">
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="403571978052-f4kbina4lha64nh0do2tqkqokevvf2ta.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+
+<body>
+  <main class="main">
+    <aside>
+      <pre class="username" id="username"></pre>
+  
+      <pre class="scrollable list">
+        <span>Online: </span>
+        <ul id="user-list"></ul>
+      </pre>
+  
+      <!-- <form class="form form--small" id="room">
+        <input type="text" placeholder="room name" autocomplete="off">
+        <button type="submit">join</button>
+      </form> -->
+    </aside>
+  
+    <article>
+      <pre class="scrollable" id="messages"></pre>
+  
+      <pre class="typing" id="typingStatus"></pre>
+  
+      <form class="form" id="messageForm">
+        <input type="text" placeholder="your message here" autocomplete="off">
+        <button type="submit">send</button>
+      </form>
+      <span id="typing"></span>
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+  <script type="module" src="./chat.js"></script>
+</body>
+</html>

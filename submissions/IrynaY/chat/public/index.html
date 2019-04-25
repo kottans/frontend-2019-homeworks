@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Socket.IO chat</title>
+  <link rel="shortcut icon" href="./favicon.png">
+  <link rel="stylesheet" href="./styles.css">
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="403571978052-f4kbina4lha64nh0do2tqkqokevvf2ta.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+
+<body>
+
+<script>
+  function onSignIn(googleUser) { 
+    const profile = googleUser.getBasicProfile();
+    document.getElementById('login').value = profile.getName()
+    document.getElementById('img').value = profile.getImageUrl()
+  }
+</script>
+
+<form id="login-form">
+    <p>Please, SignIn with google or type a login</p>
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <input name="img" id="img" hidden/>
+    <input 
+      name="login" 
+      id="login" 
+      placeholder="Type a login..."
+      title="Logim must start from letter or number"
+      required>
+    <button type="submit">Enter</button>
+  </form>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+  <script type="module" src="./index.js"></script>
+</body>
+</html>

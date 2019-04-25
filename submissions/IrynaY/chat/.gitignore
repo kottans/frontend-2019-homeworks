@@ -1,0 +1,11 @@
+
+logs
+*.log
+npm-debug.log*
+build/
+node_modules/
+.npm
+.eslintcache
+.node_repl_history
+package-lock.json
+config.js
