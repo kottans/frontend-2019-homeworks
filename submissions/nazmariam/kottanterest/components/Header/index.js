@@ -4,20 +4,12 @@ import logo from "./images/logo.png";
 import "./style.css";
 
 class Header extends Component {
-  state = {
-    value: ""
-  };
   onClick = ({ target }) => {
     this.props.handleSubmit(target.getAttribute("data-sort"));
   };
   handleChange = event => {
     event.preventDefault();
-    this.setState({ value: event.target.value.toLowerCase().trim() });
-    this.props.handleSubmit(this.state.value);
-  };
-  handleSubmitForm = event => {
-    event.preventDefault();
-    this.setState({ value: event.target.value });
+    this.props.handleSubmit(event.target.value.toLowerCase());
   };
 
   render() {
@@ -30,7 +22,6 @@ class Header extends Component {
         </div>
         <div className="search-form">
           <form
-            onSubmit={this.handleSubmitForm}
             autoComplete='off'
           >
             <label>
@@ -38,7 +29,7 @@ class Header extends Component {
                 name="search"
                 className="search-input"
                 type="text"
-                placeholder="Search"
+                placeholder="Search by author's name"
                 onChange={this.handleChange}
               />
             </label>

@@ -31,11 +31,6 @@ export const ImageList = (props) => {
         </div>
       );
     });
-    return <div className="wrapper">
-        {imageElements}
-        <span className="item break"></span>
-        <span className="item break"></span>
-        <span className="item break"></span>
-    </div>;
+    return <div className="wrapper">{imageElements}</div>;
 
 };
