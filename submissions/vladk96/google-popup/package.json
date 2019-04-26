@@ -1,0 +1,19 @@
+{
+  "name": "google-popup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vlad",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-livereload": "^4.0.1",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.0.2"
+  }
+}

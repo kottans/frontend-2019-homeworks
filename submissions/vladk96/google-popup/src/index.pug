@@ -1,0 +1,102 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible' content='ie=edge')
+    title Google-popup
+    link(rel='stylesheet' href='css/main.css')
+
+  body
+    header(class='header')
+      ul(class='header__menu menu')
+
+        li(class='menu__item')
+          a(class='menu__link' href='https://www.google.com/gmail/' tabindex='1') Gmail
+
+        li(class='menu__item')
+          a(class='menu__link' href='https://www.google.com.ua/imghp?hl=ru' tabindex='2') Images
+
+        li(class='menu__item')
+          input(id='menu__trigger' class='menu__trigger' type="checkbox" tabindex='3')
+          label(for='menu__trigger')
+            div(class='icon-menu')
+          
+          div(class='submenu')
+
+            div(class='submenu__wrap-before')
+
+              a(class='submenu__link' href="#" tabindex='4')
+                span(class='submenu__icon sprite sprite-news')
+                h3(class='submenu__title') News
+
+              a(class='submenu__link' href="#" tabindex='5')
+                span(class='submenu__icon sprite sprite-google')
+                h3(class='submenu__title') Caledar
+
+              a(class='submenu__link' href="#" tabindex='6')
+                span(class='submenu__icon sprite sprite-search')
+                h3(class='submenu__title') Search
+              
+              a(class='submenu__link' href="#" tabindex='7')
+                span(class='submenu__icon sprite sprite-youtube')
+                h3(class='submenu__title') Youtube
+
+              a(class='submenu__link' href="#" tabindex='8')
+                span(class='submenu__icon sprite sprite-drive')
+                h3(class='submenu__title') Drive
+
+              a(class='submenu__link' href="#" tabindex='9')
+                span(class='submenu__icon sprite sprite-gmail')
+                h3(class='submenu__title') Gmail
+
+              a(class='submenu__link' href="#" tabindex='10')
+                span(class='submenu__icon sprite sprite-calendar')
+                h3(class='submenu__title') News
+
+              a(class='submenu__link' href="#" tabindex='11')
+                span(class='submenu__icon sprite sprite-google-plus')
+                h3(class='submenu__title') Google+
+
+              a(class='submenu__link' href="#" tabindex='12')
+                span(class='submenu__icon sprite sprite-business')
+                h3(class='submenu__title') Business
+
+              a(class='submenu__link' href="#" tabindex='13')
+                span(class='submenu__icon sprite sprite-photos')
+                h3(class='submenu__title') Photos
+            
+            input(id='submenu__check-more' class='submenu__check-more' type="checkbox" tabindex='14')
+            label(for="submenu__check-more" class="submenu__label")
+              div(class='submenu__btn-more')
+                p(class='submenu__btn-text') More
+
+            div(class='submenu__wrap-after')
+
+              div(class='submenu__line')
+              a(class='submenu__link' href="#" tabindex='15')
+                span(class='submenu__icon sprite sprite-adwords')
+                h3(class='submenu__title') Adwords
+
+              a(class='submenu__link' href="#" tabindex='16')
+                span(class='submenu__icon sprite sprite-sheets')
+                h3(class='submenu__title') Sheets
+
+              a(class='submenu__link' href="#" tabindex='17')
+                span(class='submenu__icon sprite sprite-slides')
+                h3(class='submenu__title') Slides
+              
+              a(class='submenu__link' href="#" tabindex='18')
+                span(class='submenu__icon sprite sprite-translate')
+                h3(class='submenu__title') Translate
+              
+                a(class='submenu__link-more' href="https://about.google/intl/en/products/?tab=wh" tabindex='19') Even more from Google
+
+        li(class='menu__item')
+          a(class='menu__link' href='#4' tabindex='20')
+            div(class='icon-circle')
+
+        li(class='menu__item')
+          a(class='menu__link' href='#5' tabindex='21')
+            div(class='icon-account')
+              p(class='icon-account__text') A

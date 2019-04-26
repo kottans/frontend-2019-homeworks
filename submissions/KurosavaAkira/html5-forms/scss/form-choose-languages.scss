@@ -1,0 +1,102 @@
+.form-choose-language {
+  margin: 53px 0;
+}
+
+.choose-language-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.choose-language-wrapper fieldset {
+  padding: 30px 60px;
+  padding-bottom: 10px;
+}
+
+.choose-language-wrapper legend {
+  position: absolute;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-left: -60px;
+  opacity: 0.7;
+}
+
+.choose-language-select {
+  padding-right: 20px;
+}
+
+.choose-language-select select {
+  width: 200px;
+  height: 52px;
+  padding-left: 52px;
+  text-align: center;
+  color: $gray;
+  background-color: $button-bg-white;
+  border: 1px solid rgba(111, 118, 146, 0.3);
+  border-radius: 5px;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  transition: border 0.2s, background 0.2s;
+}
+
+.choose-language-select:after {
+  position: absolute;
+  font-size: 14px;
+  content: "\25BC";
+  height: 11px;
+  padding: 21px 18px;
+  padding-top: 18px;
+  margin-left: -48px;
+  background: $button-bg-white;
+  border: 1px solid rgba(111, 118, 146, 0.3);
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  pointer-events: none;
+  cursor: pointer;
+  transition: border 0.2s, background 0.2s;
+}
+
+.choose-language-select select:hover,
+.choose-language-select:hover:after {
+  background-color: $button-bg-white-hover;
+}
+
+.choose-language-legend-to {
+  margin-left: -44px !important;
+}
+
+.choose-language-button-remove {
+  background: transparent;
+  border: none;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.choose-language-button-remove i {
+  margin-left: -30px;
+}
+
+.choose-language-button-remove:hover {
+  background: transparent;
+  border: none;
+  opacity: 1;
+}
+
+.choose-language-button-add {
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 17px 0;
+  padding-left: 35px;
+  padding-right: 35px;
+  color: $gray;
+}
+
+.choose-language-button-add span {
+  font-size: 14px;
+  font-weight: 700;
+  padding-right: 10px;
+}

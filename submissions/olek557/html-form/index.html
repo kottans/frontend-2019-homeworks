@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kottans form</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,700"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <!-- build:css -->
+    <link rel="stylesheet" href="css/general.css" />
+    <!-- endbuild -->
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="h1">Kottans form</h1>
+      <form action="/">
+        <section class="card">
+          <header class="card__header header-card">
+            <div class="header-card__info">
+              <div class="header-card__details">
+                <h5 class="h5">
+                  Your order
+                  <i class="h5__icon far fa-clipboard"></i>
+                </h5>
+                <table class="table table--small">
+                  <tr class="table__row">
+                    <th class="table__header">Items</th>
+                    <th class="table__header">Details</th>
+                    <th class="table__header">Price</th>
+                    <th class="table__header">Delivery</th>
+                  </tr>
+                  <tr class="table__row">
+                    <td class="table__cell">2 documents</td>
+                    <td class="table__cell">2 languages</td>
+                    <td class="table__cell">$ 696.06</td>
+                    <td class="table__cell">48 hours</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="header-card__action">
+                <input
+                  type="submit"
+                  class="btn btn--medium btn--primary"
+                  value="Place order"
+                />
+                <button class="btn btn--medium" type="button">Print a quote</button>
+              </div>
+            </div>
+            <div class="header-card__help">
+              <h5 class="h5">
+                Help center
+                <i class="far fa-life-ring h5__icon"></i>
+              </h5>
+              <p class="text-block">
+                If you need assistance while placing your order, contact one of
+                our bellowed Project manager by phone or email.
+              </p>
+              <div class="d-flex">
+                <a href="tel:+9710555555" class="link">+971 (0) 555 555</a>
+                <a href="mailto:help@qtest.com" class="link">help@test.com</a>
+              </div>
+            </div>
+          </header>
+          <div class="card__content">
+            <div class="t-center">
+              <h2 class="h2">Select what you want to translate</h2>
+            </div>
+            <div class="input-row input-row--3-col">
+              <div class="radio radio--huge">
+                <input
+                  type="radio"
+                  required
+                  id="translate-web"
+                  name="translate-type"
+                  value="web"
+                  class="radio__input visuallyhidden"
+                  checked
+                />
+                <label for="translate-web" class="radio__label">
+                  <img src="images/website-icon.png" alt="Website icon" />
+                  <span class="radio__name">Website</span>
+                </label>
+              </div>
+              <div class="radio radio--huge">
+                <input
+                  type="radio"
+                  required
+                  id="translate-doc"
+                  name="translate-type"
+                  value="doc"
+                  class="radio__input visuallyhidden"
+                />
+                <label for="translate-doc" class="radio__label">
+                  <img src="images/documents-icon.png" alt="Documents icon" />
+                  <span class="radio__name">Document</span>
+                </label>
+              </div>
+              <div class="radio radio--huge">
+                <input
+                  type="radio"
+                  required
+                  id="translate-social"
+                  name="translate-type"
+                  value="social"
+                  class="radio__input visuallyhidden"
+                />
+                <label for="translate-social" class="radio__label">
+                  <img src="images/social-account-icon.png" alt="Social account" />
+                  <span class="radio__name">Social Account</span>
+                </label>
+              </div>
+            </div>
+            <ol class="form-list">
+              <li class="form-list__item">
+                <h3 class="h3">
+                  Upload your documents
+                  <span class="h3__additional">(Doc, Docx, Text, PDF, Markdown)</span>
+                </h3>
+                <div class="upload-file">
+                  <input
+                    type="file"
+                    class="upload-file__input visuallyhidden"
+                    id="fileUploading"
+                  />
+                  <label
+                    for="fileUploading"
+                    class="upload-file__label btn btn--big"
+                  >
+                    <i class="fas fa-cloud-upload-alt btn__icon"></i>
+                    Upload a new file
+                  </label>
+                </div>
+                <div class="files">
+                  <table class="table">
+                    <tr class="table__row">
+                      <th class="table__header">File name</th>
+                      <th class="table__header">File size</th>
+                      <th class="table__header">Number of words</th>
+                      <th class="table__header t-center">Remove</th>
+                    </tr>
+                    <tr class="table__row">
+                      <td class="table__cell">
+                        <span class="file__name">
+                          <i class="fas fa-file-alt file__name-icon"></i>
+                          file-name-loong.docx
+                        </span>
+                      </td>
+                      <td class="table__cell">78kb</td>
+                      <td class="table__cell">842</td>
+                      <th class="table__cell t-center">
+                        <button type="button" class="link">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="table__row">
+                      <td class="table__cell">
+                        <span class="file__name">
+                          <i class="fas fa-file-alt file__name-icon"></i>
+                          file-name-loong.docx
+                        </span>
+                      </td>
+                      <td class="table__cell">78kb</td>
+                      <td class="table__cell">842</td>
+                      <td class="table__cell t-center">
+                        <button class="link">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </li>
+              <li class="form-list__item">
+                <h3 class="h3">Choose your languages pairings</h3>
+                <div class="input-row">
+                  <div class="input-row__label">From</div>
+                  <div class="select-wrapper">
+                    <select class="form-control select">
+                      <option value="">English</option>
+                      <option value="">Arabic</option>
+                      <option value="" selected>French</option>
+                      <option value="">Italian</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="input-row">
+                  <div class="input-row__label">To</div>
+                  <div class="select-wrapper">
+                    <select class="form-control select">
+                      <option value="">English</option>
+                      <option value="" selected>Arabic</option>
+                      <option value="">French</option>
+                      <option value="">Italian</option>
+                    </select>
+                  </div>
+                  <div class="select-wrapper select-wrapper--with-delete">
+                    <select class="form-control select">
+                      <option value="">English</option>
+                      <option value="">Arabic</option>
+                      <option value="">French</option>
+                      <option value="" selected>Italian</option>
+                    </select>
+                    <button class="link"><i class="fas fa-trash"></i></button>
+                  </div>
+                  <button class="btn btn--small">
+                    <i class="fas fa-plus btn__icon"></i>
+                    Add
+                  </button>
+                </div>
+              </li>
+              <li class="form-list__item form-list__item--inline">
+                <h3 class="h3">Select your desired tone</h3>
+                <div class="input-col">
+                  <div class="radio radio--small">
+                    <input
+                      type="radio"
+                      required
+                      id="friendly-tone"
+                      class="radio__input visuallyhidden"
+                      name="desired-tone"
+                      checked
+                    />
+                    <label for="friendly-tone" class="radio__label">
+                      <i class="fas fa-comments radio__icon btn__icon"></i>
+                      <span class="radio__name">Friendly / Casual</span>
+                    </label>
+                  </div>
+                  <div class="radio radio--small">
+                    <input
+                      type="radio"
+                      required
+                      id="corporate-tone"
+                      class="radio__input visuallyhidden"
+                      name="desired-tone"
+                    />
+                    <label for="corporate-tone" class="radio__label">
+                      <i class="fas fa-suitcase radio__icon"></i>
+                      <span class="radio__name">Corporate / Pro</span>
+                    </label>
+                  </div>
+                  <div class="radio radio--small">
+                    <input
+                      type="radio"
+                      required
+                      id="formal-tone"
+                      class="radio__input visuallyhidden"
+                      name="desired-tone"
+                    />
+                    <label for="formal-tone" class="radio__label">
+                      <i class="fas fa-bullhorn radio__icon"></i>
+                      <span class="radio__name">Media / Formal</span>
+                    </label>
+                  </div>
+                </div>
+              </li>
+              <li class="form-list__item form-list__item--inline">
+                <h3 class="h3">Tell us how urgent this job is</h3>
+                <div class="range-wrapper">
+                  <div class="range">
+                    <div class="range__labels">
+                      <div class="range__label">I Got time</div>
+                      <div class="range__label tc-accent-yellow">Average</div>
+                      <div class="range__label">Yesterday</div>
+                    </div>
+                    <input
+                      type="range"
+                      class="range__input"
+                      min="1"
+                      max="3"
+                      value="2"
+                    />
+                  </div>
+                  <div class="additional-info">
+                    <h5 class="h5"><i class="fas fa-info-circle h5__icon"></i>Timeline info</h5>
+                    <p class="text-block">With an <strong class="tc-accent-yellow tt-uppercase">average</strong> timeline set up, our expert translator can take a reasonable amount of time perfecting your translation</p>
+                  </div>
+                </div>
+              </li>
+              <li class="form-list__item">
+                <h3 class="h3">Sign up and choose a payment method</h3>
+                <div class="additional-action">
+                  Already have an account with us? <a href="/sign-in" class="link link--inline">Sign in</a>
+                </div>
+                <div class="input-row">
+                  <div class="form-group">
+                    <label class="form-label" for="full-name">Full name</label>
+                    <input
+                      type="text"
+                      id="full-name"
+                      class="form-control form-control--medium"
+                      placeholder="Type your full name"
+                      required
+                    />
+                    <div class="form-control__status"></div>
+                  </div>
+                </div>
+                <div class="input-row">
+                  <div class="form-group">
+                    <label class="form-label" for="email-address">Email address</label>
+                    <input
+                      type="email"
+                      id="email-address"
+                      class="form-control form-control--medium"
+                      placeholder="Type your email"
+                      required
+                    />
+                    <div class="form-control__status"></div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="password-field">Choose a password</label>
+                    <input
+                      type="password"
+                      id="password-field"
+                      title="Password need contain uppercase, lowercase chars and number"
+                      class="form-control form-control--medium"
+                      placeholder="Type your password"
+                      pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+                      required
+                    />
+                    <div class="form-control__status"></div>
+                  </div>
+                </div>
+                <div class="input-row input-row--extended">
+                  <div class="radio radio--medium">
+                    <input
+                      type="radio"
+                      required
+                      name="payment-type"
+                      id="pay-card"
+                      class="radio__input visuallyhidden"
+                      checked
+                    />
+                    <label for="pay-card" class="radio__label">
+                      <img
+                        src="images/card-payment.png"
+                        alt="Card payment icon"
+                        class="radio__img"
+                      />
+                    </label>
+                  </div>
+                  <div class="radio radio--medium">
+                    <input
+                      type="radio"
+                      required
+                      name="payment-type"
+                      id="pay-paypal"
+                      class="radio__input visuallyhidden"
+                    />
+                    <label for="pay-paypal" class="radio__label">
+                      <img src="images/paypal.png" alt="" class="radio__img" />
+                    </label>
+                  </div>
+                  <div class="radio radio--medium">
+                    <input
+                      type="radio"
+                      required
+                      name="payment-type"
+                      id="pay-amazon"
+                      class="radio__input visuallyhidden"
+                    />
+                    <label for="pay-amazon" class="radio__label">
+                      <img src="images/amazon.png" alt="" class="radio__img" />
+                    </label>
+                  </div>
+                </div>
+                <div class="input-row">
+                  <div class="form-group form-group--credit-card">
+                    <label class="form-label" for="card-number">Card number</label>
+                    <input
+                      type="text"
+                      id="card-number"
+                      class="form-control form-control--huge"
+                      placeholder="0000 0000 0000 0000"
+                      maxlength="16"
+                      minlength="16"
+                      title="Credit card number contains with 13 - 18 digits"
+                      required
+                      pattern="[0-9]{13,18}"
+                    />
+                    <i class="fab fa-cc-visa form-group__icon"></i>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="expiry-date">Expiry date</label>
+                    <input
+                      type="text"
+                      id="expiry-date"
+                      class="form-control form-control--small"
+                      placeholder="MM/YY"
+                      title="Date format need to be MM/YY, e.g. 07/20"
+                      pattern="([0-9]{2}[/]?){2}"
+                      required
+                    />
+                    <div class="form-control__status"></div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="cvv-code">Code</label>
+                    <input
+                      type="text"
+                      id="cvv-code"
+                      class="form-control form-control--tiny"
+                      title="CVV code is 3 or 4 digit lenght"
+                      placeholder="***"
+                      minlength="3"
+                      maxlength="4"
+                      required
+                    />
+                    <div class="form-control__status"></div>
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <footer class="card__footer">
+            <div class="input-row input-row--reverse">
+              <div class="checkbox">
+                <input type="checkbox" class="checkbox__input" id="term-and-condition" required>
+                <label class="checkbox__name" for="term-and-condition">
+                  I agree to the 
+                </label>
+                <a href="/" class="link link--inline" target="_blink">Terms & Conditions</a>
+              </div>
+              <input
+                type="submit"
+                class="btn btn--medium btn--primary"
+                value="Place order"
+              />
+              <button class="btn btn--medium" type="button">Print a quote</button>
+            </div>
+          </footer>
+        </section>
+      </form>
+    </div>
+    <!-- build:js -->
+    <script src="js/main.js"></script>
+    <!-- endbuild  -->
+  </body>
+</html>

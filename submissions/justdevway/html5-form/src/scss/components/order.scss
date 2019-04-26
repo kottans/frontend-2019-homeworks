@@ -1,0 +1,118 @@
+.order {
+  padding: 20px 30px;
+  color: var(--lightgray);
+
+  &:after {
+    content: " ";
+    display: block;
+    visibility: hidden;
+    font-size: 0;
+    clear: both;
+    height: 0;
+  }
+
+  @media only screen and (max-width: $mobile) {
+    padding: 10px 15px;
+  }
+
+  &__left {
+    position: relative;
+    float: left;
+    width: 70%;
+
+    @media only screen and (max-width: $mobile) {
+      float: none;
+      width: 100%;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    left: -22.5px;
+    top: -2px;
+    width: 15px;
+
+    @media only screen and (max-width: $mobile) {
+      display: none;
+    }
+  }
+
+  &__right {
+    float: right;
+
+    @media only screen and (max-width: $mobile) {
+      float: none;
+    }
+  }
+
+  &__head {
+    color: var(--darkgray);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  &__table {
+    width: 100%;
+    margin-top: 25px;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 5px 25px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    @media only screen and (max-width: $mobile) {
+      padding: 5px 1.5px;
+    }
+  }
+
+  th {
+    color: var(--darkgray);
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: left;
+
+    @media only screen and (max-width: $mobile) {
+      font-size: 14px;
+    }
+  }
+
+  td {
+    font-size: 12px;
+
+    @media only screen and (max-width: $mobile) {
+      font-size: 14px;
+    }
+  }
+
+  sup {
+    font-size: 8px;
+  }
+
+  &__button {
+    display: block;
+    width: 100%;
+    margin: 7.5px 0;
+
+    &:first-child {
+      margin-top: 0;
+
+      @media only screen and (max-width: $mobile) {
+        margin: 10px 0;
+      }
+    }
+
+    @media only screen and (max-width: $mobile) {
+      margin: 10px 0 0;
+    }
+  }
+}

@@ -23,7 +23,7 @@ body {
     body h2:hover {
       color: #998ea1; }
 
-.initial-container {
+.cards-wrapper{
   width: 750px;
   height: 555px;
   min-width: 750px;
@@ -31,10 +31,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  overflow: scroll;
-  }
+  overflow: scroll; }
 
-.new-card {
+.card {
   width: 180px;
   height: 180px;
   display: flex;
@@ -45,30 +44,33 @@ body {
   border: 0.5px solid #928f8f;
   border-radius: 4px;
   transition: .8s; }
-  .new-card:hover {
+  
+
+  .card:hover {
     background: rgba(67, 185, 185, 0.301); }
-  .new-card img {
+  .card img {
     visibility: hidden; }
-  .new-card_active {
+  .card--active {
     transform: rotateY(180deg);
-    background-color: rgba(7, 7, 7, 0.425); }
-    .new-card_active img {
-      visibility: visible;}
-    .new-card_active:hover {
+    background-color: rgba(14, 13, 13, 0.425); }
+    .card--active img {
+      visibility: visible; }
+    .card--active:hover {
       background-color: rgba(7, 7, 7, 0.425); }
-  .new-card_remove {
+
+  .card--removed {
     visibility: hidden;
     background: rgba(55, 151, 71, 0.3);
     transition: .8s; }
-    .new-card_remove img {
+    .card--removed img {
       visibility: hidden;
       transform: rotateZ(360deg);
       transition: .8s;
       transform: scale(1.1); }
-    .new-card_remove:hover {
+    .card--removed:hover {
       background: rgba(55, 151, 71, 0.3);
       transition: .8s; }
-  .new-card_img {
+  .card__img {
     width: 70px;
     height: 70px;
     transform: rotateY(180deg); }

@@ -1,0 +1,56 @@
+.tone {
+  margin-top: 50px;
+  margin-left: 93px;
+}
+
+.tone__header {
+  margin-bottom: 50px;
+}
+
+.tone__header::before {
+  content: "3";
+}
+
+.tone__field {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 195px;
+}
+
+.tone__icon{
+  background-size: 10%;
+  background-position-x: 20px;
+  background-position-y: 20px;
+  left: 0px;
+  top: 0px;
+}
+
+.tone__icon-fc {
+  background-image: url(../font/icon-friendly.png);
+}
+
+.tone__icon-cp {
+  background-image: url(../font/icon-corporate.png);
+}
+
+.tone__icon-mf {
+  background-image: url(../font/icon-media.png);
+}
+
+.tone__text {
+  position: relative;
+  border: 1px solid #cad1e0;
+  border-radius: 4px;
+  padding: 20px 50px;
+  background-color: #f7f7fa;
+  cursor: pointer;
+}
+
+.tone__text-cp {
+  padding: 20px 51px;
+}
+
+.tone__text-mf {
+  padding: 20px 56px;
+}

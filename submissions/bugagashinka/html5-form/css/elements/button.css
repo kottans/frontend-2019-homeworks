@@ -1,0 +1,31 @@
+/* Button element */
+.button {
+  display: inline-block;
+  width: 95px;
+  height: 54px;
+  padding: 15px;
+  border-radius: 4px;
+  border: 1px solid #d8dce9;
+  background-color: #eceef4;
+  font-size: 0.8em;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #b7b6ca;
+  font-weight: bold;
+  -webkit-transition: 0.25s all ease;
+  transition: 0.25s all ease;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #dadde7;
+}
+.button:active {
+  background-color: #5fcac6;
+  color: #fff;
+  outline: none;
+}
+.button:focus {
+  outline: 1px solid #93b3f1;
+  outline-offset: -1px;
+}

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link href="./css/font-awesome.css" rel="stylesheet">
+    <title>Form</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <a href="#" class="header__link header__link_back">go back</a>
+            <a href="#" class="header__logo"><img src="./img/logo.png" alt="Logo"></a>
+            <a href="#" class="header__link header__link_sign_in">sign in</a>
+        </header>
+        <main class="main">
+            <form action="#" class="form">
+                <div class="form__header">
+                    <section class="form__order form-order">
+                        <div class="form-order__details order-details">
+                            <div class="order-details__wrapper">
+                                <div class="order-details__caption">
+                                    <h3 class="order-details__caption_text">your order</h3>
+                                </div>
+                                <div class="order-details__items order-items">
+                                    <div class="order-items__item order-item">
+                                        <div class="order-item__caption">items</div>
+                                        <div class="order-item__value">2 documents</div>
+                                    </div>
+                                    <div class="order-items__item order-item">
+                                        <div class="order-item__caption">details</div>
+                                        <div class="order-item__value">2 languages</div>
+                                    </div>
+                                    <div class="order-items__item order-item">
+                                        <div class="order-item__caption">price</div>
+                                        <div class="order-item__value">$ 696.06</div>
+                                    </div>
+                                    <div class="order-items__item order-item">
+                                        <div class="order-item__caption">delivery</div>
+                                        <div class="order-item__value">48 hours*</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-order__buttons form-order-buttons">
+                            <button type="submit" class="form-order-buttons__button form-order-buttons__button_place_order"><span>place
+                                    order</span></button>
+                            <button type="button" class="form-order-buttons__button form-order-buttons__button_print_quote"><span>print
+                                    a quote</span></button>
+                        </div>
+                    </section>
+                    <section class="form__help form-help">
+                        <div class="form-help__wrapper">
+                            <div class="form-help__caption">
+                                <h3 class="form-help__title">help center</h3>
+                            </div>
+                            <div class="form-help__text">
+                                <div class="form-help__about">
+                                    If you need assistance while placing your order, contact one of our beloved Project
+                                    Manager
+                                    by phone or email.
+                                </div>
+                                <address class="form-help__address">
+                                    <p><a href="tel:+9710555555">+971 (0) 555 555</a></p>
+                                    <p><a href="mailto:help@qtest.com">help@qtest.com</a></p>
+                                </address>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="form__sections form__sections-wrapper">
+                    <section class="form__translate translate-section">
+                        <div class="translate-section__caption translate-caption">
+                            <h3 class="translate-caption__text">select what you want to translate</h3>
+                        </div>
+                        <div class="translate-section__radio-wrapper radio-choice">
+                            <label class="radio-choice__label">
+                                <input type="radio" name="translate-section" value="website" class="radio-choice__input_visually-hidden"
+                                    required>
+                                <div class="radio-choice__wrapper">
+                                    <div class="radio-choice__image_website"></div>
+                                    <div class="radio-choice__text">website</div>
+                                </div>
+                            </label>
+                            <label class="radio-choice__label">
+                                <input type="radio" name="translate-section" value="documents" class="radio-choice__input_visually-hidden"
+                                    checked required>
+                                <div class="radio-choice__wrapper">
+                                    <div class="radio-choice__image_documents"></div>
+                                    <div class="radio-choice__text">documents</div>
+                                </div>
+                            </label>
+                            <label class="radio-choice__label">
+                                <input type="radio" name="translate-section" value="social-account" class="radio-choice__input_visually-hidden"
+                                    required>
+                                <div class="radio-choice__wrapper">
+                                    <div class="radio-choice__image_social-account"></div>
+                                    <div class="radio-choice__text">social account</div>
+                                </div>
+                            </label>
+                        </div>
+                    </section>
+                    <section class="form__upload upload-section">
+                        <h3 class="upload-section__title">upload your documents</h3>
+                        <label class="upload-section__label">
+                            <input type="file" name="file" class="upload-section__input">
+                            <div class="upload-section__label-text">upload a new file</div>
+                        </label>
+                        <div class="upload-section__list-wrapper">
+                            <div class="upload-section__column upload-section__column_filename">
+                                <div class="upload-section__row upload-section__row_caption">file name</div>
+                                <div class="upload-section__row upload-section__row_value">business_operations.docx
+                                </div>
+                                <div class="upload-section__row upload-section__row_value">business_operations.docx
+                                </div>
+                            </div>
+                            <div class="upload-section__column upload-section__column_file_size">
+                                <div class="upload-section__row upload-section__row_caption">file size</div>
+                                <div class="upload-section__row upload-section__row_value">78kb</div>
+                                <div class="upload-section__row upload-section__row_value">26kb</div>
+                            </div>
+                            <div class="upload-section__column upload-section__column_number_words">
+                                <div class="upload-section__row upload-section__row_caption">number of words</div>
+                                <div class="upload-section__row upload-section__row_value">842</div>
+                                <div class="upload-section__row upload-section__row_value">2,326</div>
+                            </div>
+                            <div class="upload-section__column upload-section__column_remove">
+                                <div class="upload-section__row upload-section__row_caption">remove</div>
+                                <div class="upload-section__row upload-section__row_value"><button class="upload-section__row_delete"
+                                        type="button"></button></div>
+                                <div class="upload-section__row upload-section__row_value"><button class="upload-section__row_delete"
+                                        type="button"></button></div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="form__languages languages-section">
+                        <h3 class="languages-section__title">choose your languages pairings</h3>
+                        <div class="languages-section__container languages-container">
+                            <div class="languages-container__from container-from">
+                                <div class="container-from__wrapper select-wrapper">
+                                    <label class="select-wrapper__label">
+                                        <div class="select-wrapper__title">from</div>
+                                        <div class="select-wrapper__container">
+                                            <select name="language-from" class="select-wrapper__select" required>
+                                                <option value="english" class="select-wrapper__option">english</option>
+                                                <option value="ukrainian" class="select-wrapper__option">ukrainian</option>
+                                                <option value="poland" class="select-wrapper__option">poland</option>
+                                            </select>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="languages-container__to container-to">
+                                <div class="container-to__wrapper select-wrapper">
+                                    <label class="select-wrapper__label">
+                                        <div class="select-wrapper__title">to</div>
+                                        <div class="select-wrapper__container">
+                                            <select name="language-to" class="select-wrapper__select" required>
+                                                <option value="english">arabic</option>
+                                                <option value="ukrainian">ukrainian</option>
+                                                <option value="poland">poland</option>
+                                            </select>
+                                        </div>
+                                    </label>
+                                    <label class="select-wrapper__label select-wrapper__label_to">
+                                        <div class="select-wrapper__container">
+                                            <select name="language-to" class="select-wrapper__select">
+                                                <option value="english">kurdish</option>
+                                                <option value="ukrainian">ukrainian</option>
+                                                <option value="poland">poland</option>
+                                            </select>
+                                        </div>
+                                        <button class="select-wrapper__btn select-wrapper__btn_delete" type="button"></button>
+                                    </label>
+                                    <button class="select-wrapper__btn select-wrapper__btn_add" type="button">add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="form__wrapper-inline">
+                        <section class="form__desired-tone desired-tone">
+                            <h3 class="desired-tone__title">select your desired tone</h3>
+                            <div class="desired-tone__radio-wrapper desired-radio">
+                                <label class="desired-radio__label">
+                                    <input type="radio" name="desired-tone" value="friendly-casual" class="desired-radio__input desired-radio__input_visually-hidden"
+                                        required>
+                                    <div class="desired-radio__value desired-radio__value_friendly_casual">friendly /
+                                        casual</div>
+                                </label>
+                                <label class="desired-radio__label">
+                                    <input type="radio" name="desired-tone" value="corporate/pro" class="desired-radio__input desired-radio__input_visually-hidden"
+                                        checked required>
+                                    <div class="desired-radio__value desired-radio__value_corporate_pro">corporate /
+                                        pro</div>
+                                </label>
+                                <label class="desired-radio__label">
+                                    <input type="radio" name="desired-tone" value="media/formal" class="desired-radio__input desired-radio__input_visually-hidden"
+                                        required>
+                                    <div class="desired-radio__value desired-radio__value_media_formal">media / formal
+                                    </div>
+                                </label>
+                            </div>
+                        </section>
+                        <section class="form__range range">
+                            <h3 class="range__title">tell us how urgent this job is</h3>
+                            <div class="range__wrapper">
+                                <div class="range__input-wrapper">
+                                    <input type="range" min="0" max="100" step="10" name="timeline" class="range__input">
+                                </div>
+                                <div class="range__input-subtext">
+                                    <span class="range__input-subtext_value">i got time</span>
+                                    <span class="range__input-subtext_value">average</span>
+                                    <span class="range__input-subtext_value">yesterday</span>
+                                </div>
+                                <div class="range__timeline-info timeline-info">
+                                    <div class="timeline-info__wrapper">
+                                        <div class="timeline-info__header">
+                                            <h3>timeline info</h3>
+                                        </div>
+                                        <div class="timeline-info__text">
+                                            with an <span class="timeline-info__text_average">average</span> timeline
+                                            set up, our expert translator can
+                                            take a reasonable amount of time perfecting your translation
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <section class="form__payment payment-section">
+                        <h3 class="payment-section__title">sign up and choose a payment method</h3>
+                        <div class="payment-section__sign-in sign-in">
+                            <div class="sign-in__text">
+                                <div class="sign-in__additional-text">already have an account with us?</div>
+                                <div class="sign-in__link"><a href="#">sign in.</a></div>
+                            </div>
+                        </div>
+                        <div class="payment-section__user-information user-information">
+                            <label class="user-information__label">
+                                <div class="user-information__text">full name</div>
+                                <input type="text" name="full-name" class="user-information__input" placeholder="Mathier Mayer"
+                                    required title="Please, enter a full name. Minimal length: 3 characters." minlength="3">
+                                <span class="user-information__input-validator"></span>
+                            </label>
+                            <div class="user-information__inline-labels-wrapper">
+                                <label class="user-information__label">
+                                    <div class="user-information__text">email address</div>
+                                    <input type="email" name="email" class="user-information__input" placeholder="mathieu.mm@me.com"
+                                        required title="Please, enter email address. Example: email@domain.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                        inputmode="email">
+                                    <span class="user-information__input-validator"></span>
+                                </label>
+                                <label class="user-information__label user-information__label_password">
+                                    <div class="user-information__text">choose a password</div>
+                                    <input type="password" name="password" class="user-information__input" title="Set password more then 5 characters."
+                                        minlength="5" placeholder="&#9899;&#9899;&#9899;&#9899;&#9899;&#9899;&#9899;&#9899;&#9899;"
+                                        required>
+                                    <span class="user-information__input-validator"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="payment-section__payment-method payment-method">
+                            <label class="payment-method__label">
+                                <input type="radio" name="payment-method" value="visa/mastercard" class="payment-method__input payment-method__input_visually-hidden"
+                                    required checked>
+                                <div class="payment-method__value">
+                                    <img src="./img/visa-ms.png" alt="Visa/Mastercard payment method">
+                                </div>
+                            </label>
+                            <label class="payment-method__label">
+                                <input type="radio" name="payment-method" value="paypal" class="payment-method__input payment-method__input_visually-hidden"
+                                    required>
+                                <div class="payment-method__value">
+                                    <img src="./img/paypal.png" alt="Paypal payment method">
+                                </div>
+                            </label>
+                            <label class="payment-method__label">
+                                <input type="radio" name="payment-method" value="amazon" class="payment-method__input payment-method__input_visually-hidden"
+                                    required>
+                                <div class="payment-method__value">
+                                    <img src="./img/amazon.png" alt="Amazon payment method">
+                                </div>
+                            </label>
+                        </div>
+                        <div class="payment-section__card payment-card">
+                            <label class="payment-card__label payment-card__label_card_number">
+                                <div class="payment-card__text">card number</div>
+                                <input type="text" name="card-number" class="payment-card__input payment-card__input_number"
+                                    required title="Enter your card number. Example: 8746 5678 9101 4780" minlength="16"
+                                    maxlength="19" pattern="[0-9 ]{16,19}" inputmode="numeric" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 32">
+                                <span class="payment-card__visa-label"></span>
+                            </label>
+                            <label class="payment-card__label payment-card__label_expiry">
+                                <div class="payment-card__text">expiry date</div>
+                                <input type="text" name="expiry-date" class="payment-card__input payment-card__input_expiry"
+                                    placeholder="DD/MM/YY" required title="Example: 11/03/19" minlength="8" maxlength="8"
+                                    inputmode="numeric" pattern="([0-9]{2}[/]?){3}" onkeypress="return event.charCode >= 47 && event.charCode <= 57">
+                            </label>
+                            <label class="payment-card__label payment-card__label_cvv">
+                                <div class="payment-card__text">code</div>
+                                <input type="text" name="cvv" class="payment-card__input" required title="CVV code (3 digits)"
+                                    minlength="3" maxlength="3" inputmode="numeric" pattern="[0-9]{3}" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                            </label>
+                        </div>
+                        <div class="payment-section__complete-order complete-order">
+                            <label class="complete-order__label">
+                                <input type="checkbox" name="agree" class="complete-order__input" checked>
+                                <span class="complete-order__agree-text">I agree to the</span>
+                            </label>
+                            <div class="complete-order__terms"><a href="#" class="text-link-small">Terms &amp;
+                                    Conditions</a></div>
+                            <div class="complete-order__buttons-wrapper">
+                                <button class="complete-order__button complete-order__button_place_order" type="submit">place
+                                    order</button>
+                                <button class="complete-order__button complete-order__button_print_quoter" type="button">print
+                                    a quote</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </form>
+        </main>
+    </div>
+    <footer class="footer">
+        <div class="footer-wrapper">
+            <div class="footer__block footer__block_info">
+                <div class="footer__content">
+                    <h3 class="footer__title footer__title_info">what we do</h3>
+                    <div class="footer__text footer__text_info">
+                        We provide a full range of language services including content development, document, website
+                        and social media accounts translations.
+                    </div>
+                </div>
+            </div>
+            <div class="footer__block footer__block_address">
+                <div class="footer__content">
+                    <h3 class="footer__title footer__title_address">our main office</h3>
+                    <div class="footer__text">
+                        <address class="footer__address">
+                            <ul class="footer__address-list">
+                                <li>Dubai, UAE</li>
+                                <li>P.O.Box: 502735</li>
+                                <li>Phone: <a href="tel:+971044278128" class="footer__phone">+971 (0) 44278128</a></li>
+                            </ul>
+                        </address>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__block footer__block_social">
+                <div class="footer__content">
+                    <h3 class="footer__title footer__title_social">connect with us</h3>
+                    <div class="footer__text">
+                        <ul class="footer__social-items social-items">
+                            <li class="social-items__item"><a href="#" class="social-items__link social-items__link_facebook">Facebook</a></li>
+                            <li class="social-items__item"><a href="#" class="social-items__link social-items__link_twitter">Twitter</a></li>
+                            <li class="social-items__item"><a href="#" class="social-items__link social-items__link_linkedin">Linkedin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__block footer__block_logo">
+                <div class="footer__content">
+                    <div class="footer__text">
+                        <a href="#" class="footer__logo"><img src="./img/logo-footer.png" alt="Logo" class="footer__logo"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

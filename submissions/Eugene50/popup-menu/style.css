@@ -1,0 +1,164 @@
+body {
+   display: block;
+}
+
+a {
+   text-decoration: none;
+   color: black;
+   width: 85px;
+   height: 85px;
+   margin: 8px;   
+}
+
+img {
+   padding-top: 10px;
+}
+ /* ------------------hidden chackbox------------------------------ */
+.visually-hidden {
+   position: absolute;
+   clip: rect(0 0 0 0);
+   width: 1px;
+   height: 1px;
+   margin: -1px;
+   overflow: hidden;
+}
+/* ---------------------------------------------------------------- */
+.container {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: flex-end;
+   justify-content: space-between;
+   align-items: center;
+   width: 350px;
+   margin-left: 850px;
+}
+
+.item {
+   width: 85px;
+   height: 85px;
+   text-align: center;
+   padding: 2px;
+}
+
+.item:hover {
+   border: 1px solid #ccc;
+   padding:1px;
+}
+
+.item:focus {
+   border: 1px solid rgb(111, 79, 253);
+   padding: 1px;  
+}
+
+.wraper {
+   height: 456px;
+   width: 310px;
+   margin-left: 300px;
+   overflow: auto;
+   overflow-x:hidden;
+   border: solid rgb(192, 189, 189) 0.5px;
+   box-shadow: 0 0 10px rgba(0,0,0,0.5);
+   display: none;
+   margin-left: 0px;
+}
+
+.main-checkbox:checked ~ label {
+   display: block;
+   width: 20px;
+   height: 20px;
+}
+
+.main-checkbox:focus ~ .menu-label {
+   outline: 1px solid blue;
+}
+
+.main-checkbox:checked ~ .wraper {
+   display: block;
+}
+
+.sub-checkbox:focus ~ .more-label p {
+   outline: 1px solid blue;
+}
+
+.sub-checkbox:checked ~ label {
+   display: none;
+}
+
+.sub-checkbox:checked ~ .sub-container  {
+   display: flex;
+}
+
+.more-btn {
+   padding-top: 10px;
+   height: 20px;
+   margin-top: 36px;
+   width: 322px;
+   background-color: rgb(226, 226, 226);
+   text-align: center;
+   padding-bottom: 10px;
+}
+
+.more-label p:hover {
+   cursor: pointer;
+   background-color: grey;
+}
+
+.hidden-container {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+   margin: 0px;
+   width: 303px;
+}
+
+.sub-container {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+   margin: 0px;
+   width: 305px;
+   display: none;
+   border-top: solid 1px #9EC1D4;
+   border-inline-start-width: 2px;
+ }
+ 
+.footer-link {
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-bottom: 10px;
+ }
+
+.footer-link a:hover {
+   text-decoration: underline;
+   color: blue;
+ }
+
+.alf {
+   border-radius: 180px;
+   width: 40px;
+   height: 40px;
+   padding: 0;
+}
+
+.menu-icon {
+   cursor: pointer;
+   margin-top: -10px;
+}
+
+.menu-item a:hover {
+   text-decoration: underline;
+}
+
+.more-label p {
+   height: 30px;
+   width: 309px;
+   background-color: rgb(226, 226, 226);
+   text-align: center;
+   margin: 15px 0 0 0;
+   padding-top: 7px;
+}
+
+.more-label {
+   cursor: pointer;
+}

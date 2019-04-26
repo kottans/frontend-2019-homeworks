@@ -1,0 +1,21 @@
+.filter-section {
+  min-width: 200px;
+}
+
+.filter-section input[type='search']{
+  margin: 10px 0;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.filter-section fieldset{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightblue;
+  border-radius: 15px;
+  margin-top: 15px;
+}
+
+.filter-section label:hover {
+  cursor: pointer;  
+}

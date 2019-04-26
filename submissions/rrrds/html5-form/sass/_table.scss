@@ -1,0 +1,39 @@
+.table {
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  padding: 20px;
+  color: $text-color-second;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.row__header {
+  font-family: inherit;
+  font-weight: 700;
+}
+
+.row--spaced {
+  margin-top: 30px;
+  margin-bottom: 70px;
+}
+
+.col-1 {
+  width: 15%;
+}
+
+.col-2 {
+  width: 20%;
+}
+
+.col-3 {
+  width: 45%;
+}
+
+.col--center {
+  text-align: center;
+}

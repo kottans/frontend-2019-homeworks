@@ -1,0 +1,192 @@
+p, h2, h3 {
+  text-transform: capitalize;
+  color: rgba(25, 181, 254, 1);
+}
+
+.header {
+  z-index: 1;
+  display: block;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+}
+
+.flip-box {
+  width: 200px;
+  height: 200px;
+  perspective: 1000px;
+  margin: 20px;
+}
+
+.flip-box-inner {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: 0.5s;
+  transform-style: preserve-3d;
+}
+
+.clicked {
+  transform: rotateY(180deg);
+  transition: transform 0.8s;
+}
+
+.flip-box-inner:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.flip-box-front, .flip-box-back {
+  border-radius: 10px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-box-front {
+  background-color: white;
+  color: black;
+}
+
+.flip-box-front img {
+  border-radius: 10px;
+  border: 2px solid rgba(25, 181, 254, 1);
+  width: 50%;
+  margin-top: 20px;
+}
+
+.flip-box-back {
+  background-color: white;
+  color: lightblue;
+  transform: rotateY(180deg);
+}
+
+.friends {
+  position: absolute;
+  top: 21%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.remove-card {
+  display: none;
+}
+
+.home-information, .gallery, .requests {
+  display: none;
+}
+
+body {
+  color: rgba(25, 181, 254, 1);
+  font-family: 'Dancing Script', cursive;
+  background: linear-gradient(to right, #00d2ff 0%, #3a7bd5 100%);
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+ul li {
+  display: inline-block;
+  font-size: 1.5em;
+  padding: 10px;
+  text-align: center;
+  margin: 0px;
+}
+
+li:hover {
+  background-color:
+    rgba(25, 181, 254, 1);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0px auto;
+}
+
+.navigation {
+  position: fixed;
+  overflow: hidden;
+  bottom: 0;
+  z-index: 1;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid rgba(25, 181, 254, 1);
+}
+
+.navigation ul {
+  flex-direction: column;
+}
+
+.hide, .open {
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid rgba(25, 181, 254, 1);
+}
+
+.hide:hover, .open:hover, .add-friend:hover {
+  background-color:
+    rgba(25, 181, 254, 1);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.myInput {
+  width: 200px;
+  height: 30px;
+}
+
+.forOpen {
+  position: fixed;
+  overflow: scroll;
+  bottom: 0;
+  z-index: 1;
+}
+
+.add-friend {
+  width: 150px;
+  margin: 0 auto;
+}
+
+.home-information {
+  width: 650px;
+  margin: 20px auto;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.home-information p {
+  margin: 5px;
+}
+
+.home-information h2 {
+  text-align: center;
+}
+
+.show-block {
+  display: block;
+}
+
+.nav-bar {
+  width: 100%;
+}

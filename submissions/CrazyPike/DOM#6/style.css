@@ -1,0 +1,39 @@
+.flex{
+    display:flex;
+}
+.menu{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+.menu > ul{
+    list-style-type: none;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 20px;
+}
+.content{
+    width: 70%;
+    border: 1px solid lightgrey;
+    border-left: none;
+    background-color: rgba(231,231,231,0.6);
+}
+.itemMenu{
+    border: 1px solid lightgrey;
+    border-bottom: none;
+    height: 40px;
+    padding-left: 20px;
+    padding-bottom: auto;
+    padding-top: auto;
+
+}
+.itemMenu:last-child {
+    border-bottom: 1px solid lightgrey;
+}
+.active{
+    border-right: 0px;
+    background-color: rgba(231,231,231,0.6);
+
+}

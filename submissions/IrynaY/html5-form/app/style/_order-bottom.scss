@@ -1,0 +1,16 @@
+.order-bottom{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 50px 90px 50px 130px;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 768px) {
+        padding: 10px;
+        flex-direction: column;
+    }
+}
+
+.order-bottom .link{
+    @extend %defaultLink;
+}

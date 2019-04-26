@@ -1,0 +1,21 @@
+@import "_mixins/font-face";
+
+@include font-face(
+    "HelveticaNeue",
+    "../fonts/HelveticaNeueRegular/HelveticaNeueRegular"
+);
+@include font-face(
+    "HelveticaNeue",
+    "../fonts/HelveticaNeueBold/HelveticaNeueBold",
+    bold
+);
+@include font-face(
+    "HelveticaNeue",
+    "../fonts/HelveticaNeueMedium/HelveticaNeueMedium",
+    medium
+);
+@include font-face(
+    "HelveticaNeue",
+    "../fonts/HelveticaNeueLight/HelveticaNeueLight",
+    light
+);

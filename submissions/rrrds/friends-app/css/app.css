@@ -1,0 +1,211 @@
+body {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+  padding: 1rem;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 4px 5px 0 rgba(0, 0, 0, 0.06),
+    0 1px 10px 0 rgba(0, 0, 0, 0.08);
+}
+
+.header__logo {
+  flex-shrink: 0;
+  margin-right: 3rem;
+  font-size: 3rem;
+  font-family: 'Righteous', cursive;
+  text-transform: uppercase;
+}
+
+.main {
+  padding: 1rem;
+  display: flex;
+  width: 100%;
+}
+
+.filters {
+  width: 30%;
+  padding-right: 2rem;
+  box-sizing: border-box;
+}
+
+.users-container {
+  width: 70%;
+}
+
+.users-container__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0 0.5rem 0;
+}
+
+.users-container__body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+.filters__group {
+  margin-bottom: 1rem;
+}
+
+.filters__label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.group__inline {
+  display: flex;
+  align-items: baseline;
+}
+
+.filters__input {
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  box-sizing: border-box;
+}
+
+.filters__input--shrink {
+  width: auto;
+}
+
+.group__inline .filters__input:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.filters__button {
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  color: #212529;
+  background-color: #f8f9fa;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #f8f9fa;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  line-height: 1;
+  border-radius: 0.3rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  text-transform: uppercase;
+}
+
+.filters__button:hover {
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
+}
+
+.filters__button:active {
+  background-color: #dae0e5;
+  border-color: #d3d9df;
+}
+
+.filters__button--warning {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.filters__button--warning:hover {
+  color: #fff;
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.filters__button--warning:active {
+  color: #fff;
+  background-color: #bd2130;
+  border-color: #b21f2d;
+}
+
+.card {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  margin: 0.5rem;
+  color: rgb(75, 75, 75);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 4px 5px 0 rgba(0, 0, 0, 0.06),
+    0 1px 10px 0 rgba(0, 0, 0, 0.08);
+}
+
+.card__image {
+  width: 100%;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.card__body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+
+.card__name {
+  font-family: Circular, Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.375em;
+  margin-bottom: 0.75rem;
+  margin-top: 0.75rem;
+  text-transform: capitalize;
+}
+
+.card__age {
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 500;
+}
+
+.card__gender {
+}
+
+.card__gender.fa-venus {
+  color: rgba(219, 112, 147, 1);
+}
+
+.card__gender.fa-mars {
+  color: rgba(77, 95, 191, 1);
+}
+
+.card__location,
+.card__phone {
+  font-family: Circular, Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.33333em;
+  color: rgb(76, 86, 41);
+  margin-left: 10px;
+}
+
+.card__location-icon {
+  position: absolute;
+  left: 10px;
+}
+
+.card__phone-icon {
+  position: absolute;
+  left: 7px;
+}

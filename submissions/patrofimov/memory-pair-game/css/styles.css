@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../img/minecraft.jpg");
+  background-size: cover;
+  min-height: 100vh;
+  overflow-y: hidden;
+  padding-bottom: 30px;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.flip-box {
+  opacity: 1;
+  margin-bottom: 10px;
+  width: 25%;
+  max-width: 200px;
+  height: 180px;
+  max-height: 200px;
+  transition: opacity 900ms;
+}
+
+.flip-box.active .flipper {
+  transform: rotateY(180deg);
+}
+
+.flip-box.hidden {
+  opacity: 0;
+}
+
+.flipper {
+  width: 100%;
+  height: 100%;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  border: 6px solid lightbrown;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 6px 41px 2px rgba(243, 113, 50, 0.58);
+  -moz-box-shadow: 0px 6px 41px 2px rgba(243, 113, 50, 0.58);
+  box-shadow: 0px 6px 41px 2px rgba(243, 113, 50, 0.58);
+}
+
+.flip-box__front,
+.flip-box__back {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.flipper,
+.flip-box__front,
+.flip-box__back {
+  pointer-events: none;
+}
+
+.flip-box__front {
+  z-index: 2;
+  background-color: lightgreen;
+  transform: rotateY(0deg);
+}
+
+.flip-box__back {
+  transform: rotateY(180deg);
+}
+
+.flip-box .flipper .flip-box__back img {
+  object-fit: cover;
+  max-width: 218px;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.8, 0.8);
+	-ms-transform: scale(0.8, 0.8);
+	-webkit-transform: scale(0.8, 0.8);
+}
+
+/*************************MEDIA************************/
+@media screen and (min-width: 200px) and (max-width: 767px) {
+  .main {
+    overflow-y: visible;
+    min-height: 185vh;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  .flip-box {
+    width: 45%;
+  }
+}
+
+@media screen and (min-width: 570px) and (max-width: 727px) {
+  .container {
+    max-width: 500px;
+  }
+}
+
+@media screen and (min-width: 727px) and (max-width: 768px) {
+  .flip-box {
+    width: 33%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .flip-box {
+    width: 22.5%;
+  }
+}

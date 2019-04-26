@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <title>Pure CSS popup</title>
+        <meta name="description" content="" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="./img/favicon/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="./img/favicon/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="./img/favicon/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="./img/favicon/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="./img/favicon/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="./img/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="./img/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="./img/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./img/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="./img/favicon/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./img/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="./img/favicon/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./img/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="./img/favicon/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+            name="msapplication-TileImage"
+            content="./img/favicon/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="stylesheet" href="css/main.min.css" />
+    </head>
+    <body>
+        <header class="header">
+            <nav class="navigation">
+                <ul class="navigation-list">
+                    <li class="navigation-list-item">
+                        <a href="#" class="navigation-link navigation-link-text"
+                            >Gmail</a
+                        >
+                    </li>
+                    <li class="navigation-list-item">
+                        <a href="#" class="navigation-link navigation-link-text"
+                            >Зображення</a
+                        >
+                    </li>
+                    <li class="navigation-list-item">
+                        <input
+                            id="navigation-panel-input"
+                            type="checkbox"
+                            name="navigation-panel"
+                            class="navigation-panel-input hidden-checkbox"
+                        />
+                        <label
+                            for="navigation-panel-input"
+                            class="navigation-panel-label"
+                            
+                        >
+                            <span class="navigation-panel-label-icon"></span>
+                        </label>
+                        <div
+                            class="navigation-services-list"
+                            aria-label="services"
+                            aria-hidden="true"
+                        >
+                            <div class="navigation-services-list-parentwrap">
+                                <ul class="navigation-services-list-wrap">
+                                    <li class="navigation-services-list-item">
+                                        <a
+                                            href="#"
+                                            class="navigation-services-list-link"
+                                        >
+                                            <span
+                                                class="navigation-service-icon navigation-service-icon-plus"
+                                            ></span>
+                                            Google+
+                                        </a>
+                                    </li>
+                                    <li class="navigation-services-list-item">
+                                        <a
+                                            href="#"
+                                            class="navigation-services-list-link"
+                                        >
+                                            <span
+                                                class="navigation-service-icon navigation-service-icon-search"
+                                            ></span>
+                                            Пошук
+                                        </a>
+                                    </li>
+                                    <li class="navigation-services-list-item">
+                                        <a
+                                            href="#"
+                                            class="navigation-services-list-link"
+                                        >
+                                            <span
+                                                class="navigation-service-icon navigation-service-icon-youtube"
+                                            ></span>
+                                            YouTube
+                                        </a>
+                                    </li>
+                                    <li class="navigation-services-list-item">
+                                        <a
+                                            href="#"
+                                            class="navigation-services-list-link"
+                                        >
+                                            <span
+                                                class="navigation-service-icon navigation-service-icon-maps"
+                                            ></span>
+                                            Карти
+                                        </a>
+                                    </li>
+                                    <li class="navigation-services-list-item">
+                                        <a
+                                            href="#"
+                                            class="navigation-services-list-link"
+                                        >
+                                            <span
+                                                class="navigation-service-icon navigation-service-icon-news"
+                                            ></span>
+                                            Новини
+                                        </a>
+                                    </li>
+                                    <li class="navigation-services-list-item">
+                                        <a
+                                            href="#"
+                                            class="navigation-services-list-link"
+                                        >
+                                            <span
+                                                class="navigation-service-icon navigation-service-icon-gmail"
+                                            ></span>
+                                            Gmail
+                                        </a>
+                                    </li>
+                                    <li class="navigation-services-list-item">
+                                        <a
+                                            href="#"
+                                            class="navigation-services-list-link"
+                                        >
+                                            <span
+                                                class="navigation-service-icon navigation-service-icon-translator"
+                                            ></span>
+                                            Перекладач
+                                        </a>
+                                    </li>
+                                    <li class="navigation-services-list-item">
+                                        <a
+                                            href="#"
+                                            class="navigation-services-list-link"
+                                        >
+                                            <span
+                                                class="navigation-service-icon navigation-service-icon-disk"
+                                            ></span>
+                                            Диск
+                                        </a>
+                                    </li>
+                                    <li class="navigation-services-list-item">
+                                        <a
+                                            href="#"
+                                            class="navigation-services-list-link"
+                                        >
+                                            <span
+                                                class="navigation-service-icon navigation-service-icon-calendar"
+                                            ></span>
+                                            Календар
+                                        </a>
+                                    </li>
+                                    <li class="navigation-services-list-item">
+                                        <a
+                                            href="#"
+                                            class="navigation-services-list-link"
+                                        >
+                                            <span
+                                                class="navigation-service-icon navigation-service-icon-words"
+                                            ></span>
+                                            Adwords
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div
+                                    class="more-services-control-wrap"
+                                >
+                                    <input
+                                        type="checkbox"
+                                        class="more-services-checkbox hidden-checkbox"
+                                        id="more-services-checkbox"
+                                    />
+                                    <label
+                                        for="more-services-checkbox"
+                                        class="more-services-label"
+                                         tabindex="0"
+                                        ><span role="button" type="button">Більше</span></label
+                                    >
+                                    <hr class="more-services-divider" />
+                                    <ul
+                                        class="navigation-services-list-wrap navigation-services-list-wrap-hidden"
+                                        aria-hidden="true"
+                                    >
+                                        <li
+                                            class="navigation-services-list-item"
+                                        >
+                                            <a
+                                                href=""
+                                                class="navigation-services-list-link"
+                                            >
+                                                <span
+                                                    class="navigation-service-icon navigation-service-icon-business"
+                                                ></span>
+                                                Бізнес
+                                            </a>
+                                        </li>
+                                        <li
+                                            class="navigation-services-list-item"
+                                        >
+                                            <a
+                                                href=""
+                                                class="navigation-services-list-link"
+                                            >
+                                                <span
+                                                    class="navigation-service-icon navigation-service-icon-docs"
+                                                ></span>
+                                                Документи
+                                            </a>
+                                        </li>
+                                        <li
+                                            class="navigation-services-list-item"
+                                        >
+                                            <a
+                                                href=""
+                                                class="navigation-services-list-link"
+                                            >
+                                                <span
+                                                    class="navigation-service-icon navigation-service-icon-news"
+                                                ></span>
+                                                Новини
+                                            </a>
+                                        </li>
+                                        <li
+                                            class="navigation-services-list-item"
+                                        >
+                                            <a
+                                                href=""
+                                                class="navigation-services-list-link"
+                                            >
+                                                <span
+                                                    class="navigation-service-icon navigation-service-icon-photos"
+                                                ></span>
+                                                Фото
+                                            </a>
+                                        </li>
+                                        <li
+                                            class="navigation-services-list-item"
+                                        >
+                                            <a
+                                                href=""
+                                                class="navigation-services-list-link"
+                                            >
+                                                <span
+                                                    class="navigation-service-icon navigation-service-icon-sheets"
+                                                ></span>
+                                                Таблиці
+                                            </a>
+                                        </li>
+                                        <li
+                                            class="navigation-services-list-item"
+                                        >
+                                            <a
+                                                href=""
+                                                class="navigation-services-list-link"
+                                            >
+                                                <span
+                                                    class="navigation-service-icon navigation-service-icon-slides"
+                                                ></span>
+                                                Слайди
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navigation-list-item">
+                        <a href="#" tabindex="0">
+                            <span class="notification-icon"></span>
+                        </a>
+                    </li>
+                    <li class="navigation-list-item">
+                        <a href="#">
+                            <span class="profile-thumb-wrap">
+                                <img
+                                    src="./img/my-profile.png"
+                                    alt="profile-thumb"
+                                    class="profile-thumb-wrap"
+                                />
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main">
+            <div class="container">
+                <img
+                    src="./img/PopTartCat.gif"
+                    alt="kottans-banner"
+                    class="img-responsive"
+                />
+                <h2 class="main-title">This is Kottans!!!</h2>
+            </div>
+        </main>
+    </body>
+</html>

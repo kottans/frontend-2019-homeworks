@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/styles.css"/>
+    <title>Friends App</title>
+</head>
+<body>
+<header>
+    <h1>Friends App</h1>
+</header>
+<main>
+    <aside id="filterPanel">
+
+        <div class="filter">
+            <p>Filter by Gender:</p>
+            <input type="radio" name="sort-by-gender" id="sort-by-male" data-by-gender="male">Male</input>
+            <input type="radio" name="sort-by-gender" id="sort-by-female" data-by-gender="female">Female</input>
+            <input type="radio" name="sort-by-gender" id="all" checked="checked" data-by-gender="all">All</input>
+        </div>
+
+        <div class="filter">
+            <p>Filter by Age:</p>
+            <input type="radio" name="sort-by-age-or-name" id="sort-by-age-asc" data-by-age-or-name="ageAsc">↑</input>
+            <input type="radio" name="sort-by-age-or-name" id="sort-by-age-desc" data-by-age-or-name="ageDesc">↓</input>
+        </div>
+
+        <div class="filter">
+            <p>Filter by Name:</p>
+            <input type="radio" name="sort-by-age-or-name" id="sort-by-name-asc" data-by-age-or-name="nameAsc">↑</input>
+            <input type="radio" name="sort-by-age-or-name" id="sort-by-name-desc" data-by-age-or-name="nameDesc">↓</input>
+        </div>
+
+        <form class="search">
+            <input type="text" placeholder="Search..." name="search" id="search" data-search="">
+        </form>
+
+        <div class="reset">
+            <button id="reset">Reset</button>
+        </div>
+    </aside>
+    <content id="users"></content>
+</main>
+<script src="js/scripts.js"></script>
+</body>
+</html>

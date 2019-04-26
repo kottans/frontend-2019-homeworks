@@ -1,0 +1,14 @@
+%order-button{
+    margin: 8px;
+    padding: 20px 0;
+    min-width: 180px;
+    font-size: 12px;
+}
+
+%title{
+    color: darken($gray2, 20%);
+}
+
+%defaultLink{
+    color: $gray2;
+}

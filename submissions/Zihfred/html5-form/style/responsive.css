@@ -1,0 +1,297 @@
+@media screen and (max-width: 767px) {
+    .wrapper{
+        width: 100%;
+    }
+    .formHeader{
+        flex-direction: column;
+        align-items: center;
+    }
+    .helpCenter{
+        width: unset;
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+    .headerButtonsItem{
+        width: 100%;
+    }
+    .headerButtons:after {
+        content: "";
+        border-bottom: 2px solid #d7d8e0;
+        position: absolute;
+        top: -126px;
+        right: -110px;
+        height: 200%;
+        width: 767px;
+    }
+    .youOrdersItem{
+        width: 25%;
+        margin: 0;
+    }
+    .formHeader__title{
+        margin-bottom: 10px;
+    }
+    .yourOrders{
+        margin-bottom: 10px;
+    }
+    .headerButtons{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .typeBlockItem__label{
+        margin-right: 0px;
+        min-height: 50px;
+    }
+    .typeBlockItem__label:not(:last-child){
+        margin-bottom: 15px;
+    }
+    .typeBlockItem__img{
+        display: none;
+    }
+    .insideWrapper{
+        padding: 25px 34px;
+        flex-direction: column;
+        max-width: unset;
+        margin: 0;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .selectTypeBlock__checkboxes{
+        flex-direction: column;
+
+    }
+    .numberedBlock::before{
+        display: none;
+    }
+    .fileList__table>tbody>tr>td:nth-child(2), .fileList__table>tbody>tr>td:nth-child(3){
+        display: none;
+    }
+    .fileList__table{
+        padding: unset;
+    }
+    .numberedBlock{
+        width: 100%;
+    }
+    .wrapperInner{
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+    .selectDesired{
+        flex-direction: column;
+    }
+    .selectDesired__checkboxes--label{
+        min-height: 30px;
+        padding: 18px 18px;
+    }
+    .typeBlockItem__title{
+        width: unset;
+        margin-left: 10px;
+    }
+    .uploadFileButtonLabel{
+        width: unset;
+    }
+    .selectLanguageBlock__title, .selectDocumentBlock__title{
+        display: block;
+        text-align: center;
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    .selectTypeBlock__title{
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+    .selectLanguageBlock{
+        text-align: center;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .select{
+        margin-right: 0px;
+    }
+    .langLabel{
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+    .selectLang__add{
+        margin-left: 0;
+    }
+    .selectLangToSecond__icon{
+        margin: 0 0 0 10px;
+    }
+    .fileList__tableItemTitleIcon, .fileList__tableItemTitleText{
+        font-size: 14px;
+    }
+    .fileList__table td{
+        padding: 4px;
+    }
+    .fileList__tableItemTitle:last-child{
+        padding-right: unset;
+    }
+    .selectDocumentBlock__title{
+        font-size: 1.5em;
+        width: 100%;
+    }
+    .selectDocumentBlock__subtitle{
+        margin: unset;
+        display: block;
+        text-align: center;
+    }
+    .registerForm{
+        flex-direction: column;
+    }
+    .registerForm__Input{
+        width: 100%;
+    }
+    .selectPayType__item{
+        min-height: 100px;
+        min-width: 100%;
+    }
+    .selectPayType__item:not(:last-child) {
+        margin-right: unset;
+    }
+    .selectPayType{
+        flex-direction: column;
+    }
+    .cardInfo__item--inputNumber{
+        width: 100%;
+    }
+    .cardInfo__item:not(:last-child){
+        margin-right: unset;
+    }
+    .cardInfo{
+        flex-direction: column;
+    }
+    .registerForm__label--valid, .registerForm__label--invalid {
+        top: 44px;
+        right: 10px;
+        left: unset;
+    }
+    .cardInfo__item--inputIcon{
+        top: 48px;
+    }
+    .headerButtons .headerButtonsItem:not(:last-child), .paymentBlock__buttons--label{
+        margin-right: unset;
+        margin-bottom: 10px;
+    }
+    .tellUrgent__range{
+        width: 100%;
+    }
+    .range__text{
+        font-size: 8px;
+    }
+    .tellUrgent__timeline{
+        text-align: center;
+    }
+    .selectLanguageBlock__subtitle{
+        font-size: 15px;
+        text-align: center;
+
+    }
+    .paymentBlock__buttons{
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .selectTypeBlock{
+        margin-bottom: 20px;
+    }
+    .fileList{
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px)  {
+    .selectTypeBlock__checkboxes{
+        flex-direction: column;
+    }
+    .wrapperInner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .selectLanguageBlock__title,
+    .selectDocumentBlock__title,
+    .selectTypeBlock__title {
+        text-align: center;
+        margin-left: 10px;
+        font-size: 1.5em;
+    }
+    .numberedBlock::before{
+        display: none;
+    }
+    .cardInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .selectPayType{
+        flex-direction: column;
+    }
+    .selectPayType__item:not(:last-child) {
+         margin-right: 0;
+    }
+    .formWrapper{
+        padding: 0px 5px;
+    }
+    .youOrdersItem{
+        width: 100%;
+    }
+    .youOrdersItem.first{
+        margin: 0px 15px;
+    }
+    .headerButtons .headerButtonsItem:not(:last-child), .paymentBlock__buttons--label {
+         margin-right: 0px;
+    }
+    .typeBlockItem__label {
+        margin-bottom: 10px;
+    }
+    .selectDesired{
+        width: 100%;
+    }
+    .selectDesired__checkboxes{
+        width: 100%;
+    }
+    .tellUrgent{
+        width: 100%;
+    }
+    .selectLanguageBlock__subtitle{
+        text-align: center;
+    }
+    .paymentBlock__buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .cardInfo__item--inputIcon {
+        right: 107px;
+    }
+    .selectDocumentBlock {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+    }
+    .wrapper{
+        width: 100%;
+    }
+    .selectTypeBlock{
+        width: 100%;
+    }
+    .fileList{
+        width: 100%;
+    }
+}
+
+
+
+@media screen and (min-width: 1242px) {
+    .youOrdersItem {
+        width: 50%;
+        margin: 0;
+    }
+}

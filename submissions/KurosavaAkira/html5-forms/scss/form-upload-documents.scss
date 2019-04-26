@@ -1,0 +1,61 @@
+.form-upload-documents {
+  display: flex;
+  flex-direction: column;
+  padding: 58px 0;
+}
+
+.upload-a-file {
+  font-size: 16px;
+  width: 180px;
+  background-color: $button-bg-white;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  padding: 13px 25px;
+}
+
+.upload-a-file span {
+  opacity: 0.7;
+}
+
+.upload-a-file input {
+  visibility: hidden;
+  width: 0;
+}
+
+.upload-table {
+  color: $gray;
+  padding: 26px 40px;
+  border: 1px solid rgba(111, 118, 146, 0.3);
+  opacity: 0.7;
+}
+
+.upload-table th {
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.upload-table td {
+  padding-top: 20px;
+}
+
+.upload-table th:last-child,
+.upload-table td:last-child {
+  text-align: center;
+}
+
+.upload-table td i {
+  padding-right: 20px;
+}
+
+.button-remove {
+  padding-left: 20px;
+  background-color: transparent;
+  border: none;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.button-remove:hover {
+  opacity: 1;
+}
