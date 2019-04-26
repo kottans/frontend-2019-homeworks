@@ -11,7 +11,6 @@ class App extends Component {
     sortOrder: null,
     isLoaded: false,
     searchInputValue: null,
-    notFound: null,
     currentPageUrl: 'https://rickandmortyapi.com/api/character',
     nextPageUrl: '',
     prevPageUrl: ''
