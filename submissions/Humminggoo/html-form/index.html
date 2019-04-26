@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Order form</title>
+    <link rel="stylesheet" href="dist/css/style.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <button
+        class="main-button upper-case color-light border-light text-bold"
+        type="button"
+      >
+        <span class="fas fa-long-arrow-alt-left icon-padding-right"></span>
+        Go back
+      </button>
+      <span class="far fa-dot-circle"></span>
+      <button
+        class="main-button upper-case color-light border-light text-bold"
+        type="button"
+      >
+        <span class="fas fa-user icon-padding-right"></span>Sign in
+      </button>
+    </header>
+    <main class="form-wrapper">
+      <form action="#" enctype="multipart/form-data" class="form border-light">
+        <section class="form-section" id="order-top">
+          <h3 class="upper-case color-dark section-title text-bold">
+            <span class="fas fa-clipboard icon-padding-right"></span>Your order
+          </h3>
+          <table class="order-table" id="order-table">
+            <thead>
+              <tr class="color-dark upper-case">
+                <th>Items</th>
+                <th>Details</th>
+                <th>Price</th>
+                <th>Delivery</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="color-light">
+                <td>2 documents</td>
+                <td>2 languages</td>
+                <td>$ 696,06</td>
+                <td>48 hours<sup>*</sup></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="button-wrapper button-wrapper-top">
+            <button
+              class="main-button submit-button upper-case border-light text-bold"
+              type="submit"
+            >
+              Place order
+            </button>
+            <button
+              class="main-button upper-case color-light border-light text-bold"
+            >
+              Print a quote
+            </button>
+          </div>
+        </section>
+        <aside class="form-section" id="aside-section">
+          <h3 class="upper-case color-dark section-title" id="help-details">
+            <span class="fas fa-life-ring icon-padding-right"></span>Help center
+          </h3>
+          <p class="color-light help-info">
+            If you need assistance while placing your order, contact one of our
+            beloved Project Manager by phone or email.
+          </p>
+          <div class="info-wrapper">
+            <strong class="color-dark help-phone">+971 (0) 555 555</strong>
+            <strong class="color-dark">help@qtest.com</strong>
+          </div>
+        </aside>
+        <section class="form-section" id="translation-type">
+          <h3
+            class="upper-case color-dark section-title title-center text-bold"
+          >
+            <span class="title-underline"
+              >Select what you want to translate</span
+            >
+          </h3>
+          <div class="radio-wrapper">
+            <label for="type-website">
+              <input
+                type="radio"
+                name="translation-type"
+                id="type-website"
+                class="custom-radio"
+                value="website"
+              />
+              <span class="pseudo-div color-light">
+                <span title="website" class="far fa-file-alt doc-img"></span>
+                <span class="pseudo-div-title">Website</span>
+              </span>
+            </label>
+            <label for="type-documents">
+              <input
+                type="radio"
+                name="translation-type"
+                id="type-documents"
+                class="custom-radio"
+                value="documents"
+              />
+              <span class="pseudo-div color-light">
+                <span title="documents" class="far fa-file-alt doc-img"></span>
+                <span class="pseudo-div-title">Documents</span>
+              </span>
+            </label>
+            <label for="type-social-accounts">
+              <input
+                type="radio"
+                name="translation-type"
+                id="type-social-accounts"
+                class="custom-radio"
+                value="social accounts"
+              />
+              <span class="pseudo-div color-light">
+                <span
+                  title="social account"
+                  class="far fa-file-alt doc-img"
+                ></span>
+                <span class="pseudo-div-title">Social account</span>
+              </span>
+            </label>
+          </div>
+        </section>
+        <section class="form-section">
+          <h3 class="color-dark section-title">
+            <span class="title-number icon-padding-right">&#x2460;</span>
+            <span class="title-top">
+              <span class="text-bold">Upload your documents</span>
+              <small class="color-light">Doc, Docx, Text, PDF, Markdown</small>
+            </span>
+          </h3>
+          <label
+            for="file-upload"
+            class="custom-upload-wrapper fas fa-cloud-download-alt main-button color-light border-light"
+          >
+            <span class="custom-upload">Upload a new file</span>
+            <input id="file-upload" type="file" />
+          </label>
+          <table class="order-table border-light" id="documents-table">
+            <thead>
+              <tr class="color-dark upper-case">
+                <th>File name</th>
+                <th>File size</th>
+                <th>Number of words</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="color-light">
+                <td>Business_operations.docx</td>
+                <td>78 kb</td>
+                <td>842</td>
+                <td>
+                  <button
+                    class="fas fa-trash color-light trash-button"
+                    type="button"
+                  ></button>
+                </td>
+              </tr>
+              <tr class="color-light">
+                <td>business_financial.docx</td>
+                <td>26 kb</td>
+                <td>2,326</td>
+                <td>
+                  <button
+                    class="fas fa-trash color-light trash-button"
+                    type="button"
+                  ></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="form-section">
+          <h3 class="color-dark section-title text-bold">
+            <span class="title-number icon-padding-right">&#x2461;</span>
+            <span class="title-top">Choose your language pairings</span>
+          </h3>
+          <label
+            for="language-from"
+            class="upper-case color-light label-select text-bold"
+          >
+            <span class="select-title">From</span>
+            <select
+              name="language-from"
+              id="language-from"
+              class="color-light custom-select"
+            >
+              <option value="English" selected>English</option>
+              <option value="German">German</option>
+              <option value="Polish">Polish</option>
+            </select>
+          </label>
+          <br />
+          <div class="select-wrapper">
+            <label
+              for="language-to-1"
+              class="upper-case color-light label-select text-bold"
+            >
+              <span class="select-title">To</span>
+              <select
+                name="language-to"
+                id="language-to-1"
+                class="color-light custom-select"
+              >
+                <option value="Arabic" selected>Arabic</option>
+                <option value="Japanese">Japanese</option>
+                <option value="Kurdish">Kurdish</option>
+              </select>
+            </label>
+            <br />
+            <label class="upper-case color-light label-select text-bold">
+              <span class="select-title"></span>
+              <select
+                name="language-to-2"
+                id="language-to-2"
+                class="color-light custom-select"
+              >
+                <option value="Arabic">Arabic</option>
+                <option value="Japanese" selected>Japanese</option>
+                <option value="Kurdish">Kurdish</option>
+              </select>
+            </label>
+            <button
+              class="fas fa-trash color-light trash-button"
+              type="button"
+            ></button>
+            <button
+              class="upper-case color-light main-button add-button border-light text-bold"
+              type="button"
+            >
+              <span class="fas fa-plus icon-padding-right"></span>Add
+            </button>
+          </div>
+        </section>
+        <section class="form-section wrap-middle">
+          <section class="form-section" id="tone-section">
+            <h3 class="color-dark section-title text-bold">
+              <span class="title-number icon-padding-right">&#x2462;</span>
+              <span class="title-top">Select your desired tone</span>
+            </h3>
+            <label for="type-casual">
+              <input
+                type="radio"
+                name="media-type"
+                id="type-casual"
+                class="custom-radio"
+                value="casual"
+              />
+              <span class="pseudo-div color-light">
+                <span
+                  title="casual type"
+                  class="fas fa-comments doc-img"
+                ></span>
+                <span class="pseudo-div-title">Friendly / Casual</span>
+              </span>
+            </label>
+            <label for="type-pro">
+              <input
+                type="radio"
+                name="media-type"
+                id="type-pro"
+                class="custom-radio"
+                value="pro"
+              />
+              <span class="pseudo-div color-light">
+                <span title="pro type" class="fas fa-briefcase doc-img"></span>
+                <span class="pseudo-div-title">Corporate / Pro</span>
+              </span>
+            </label>
+            <label for="type-formal">
+              <input
+                type="radio"
+                name="media-type"
+                id="type-formal"
+                class="custom-radio"
+                value="formal"
+              />
+              <span class="pseudo-div color-light">
+                <span
+                  title="formal type"
+                  class="fas fa-bullhorn doc-img"
+                ></span>
+                <span class="pseudo-div-title">Media / Formal</span>
+              </span>
+            </label>
+          </section>
+          <section class="form-section" id="range-section">
+            <h3 class="color-dark section-title text-bold">
+              <span class="title-number icon-padding-right">&#x2463;</span>
+              <span class="title-top">Tell us how urgent the job is</span>
+            </h3>
+            <label for="urgency-meter" class="range-wrapper">
+              <input
+                type="range"
+                list="urgency-options"
+                name="urgency-meter"
+                id="urgency-meter"
+                class="custom-range"
+                step="50"
+                value="50"
+              />
+            </label>
+            <datalist id="urgency-options" class="urgency-options-wrapper">
+              <option
+                value="0"
+                label="I got time"
+                class="urgency-option first-option upper-case color-light text-bold"
+              >
+              </option>
+              <option
+                value="50"
+                label="Average"
+                class="urgency-option upper-case color-orange text-bold"
+              >
+              </option>
+              <option
+                value="100"
+                label="Yesterday"
+                class="urgency-option last-option upper-case color-light text-bold"
+              >
+              </option>
+            </datalist>
+            <div class="moz-div urgency-options-wrapper">
+              <div
+                class="urgency-option first-option upper-case color-light text-bold"
+              >
+                I got time
+              </div>
+              <div class="urgency-option upper-case color-light text-bold">
+                Average
+              </div>
+              <div
+                class="urgency-option last-option upper-case color-light text-bold"
+              >
+                Yesterday
+              </div>
+            </div>
+          </section>
+          <aside class="border-light" id="range-info">
+            <h4 class="upper-case color-dark info-title">
+              <span class="fas fa-info-circle icon-padding-right"></span
+              >Timeline info
+            </h4>
+            <p class="color-light">
+              With an
+              <strong class="upper-case color-orange">average</strong> timeline,
+              our expert translator can take a reasonable amount of time
+              perfecting your translation.
+            </p>
+          </aside>
+        </section>
+        <section class="form-section">
+          <h3 class="color-dark section-title text-bold">
+            <span class="title-number icon-padding-right">&#x2464;</span>
+            <span class="title-top">Sign up and choose a payment method</span>
+          </h3>
+          <p class="color-light">
+            Have already account with us?
+            <a href="" class="text-link">Sign in.</a>
+          </p>
+          <div class="input-wrapper flex-column">
+            <label for="user-name" class="validation-wrapper">
+              <span class="color-light upper-case text-bold">Full name</span
+              ><br />
+              <input
+                type="text"
+                name="user-name"
+                id="user-name"
+                class="main-input"
+                pattern="[a-zA-Z ]+"
+                oninvalid="this.setCustomValidity('Enter valid name')"
+                title="Enter valid name"
+                required
+              />
+              <span class="validation-icon"></span>
+            </label>
+            <label for="user-email" class="validation-wrapper">
+              <span class="color-light upper-case text-bold">Email address</span
+              ><br />
+              <input
+                type="email"
+                name="user-email"
+                id="user-email"
+                class="main-input"
+                oninvalid="this.setCustomValidity('Enter valid email address')"
+                title="Enter valid email address"
+                required
+              />
+              <span class="validation-icon"></span>
+            </label>
+            <label for="user-password" class="validation-wrapper">
+              <span class="color-light upper-case text-bold"
+                >Choose a password</span
+              ><br />
+              <input
+                type="password"
+                name="user-password"
+                id="user-password"
+                class="main-input"
+                pattern="[\w]{8,}"
+                oninvalid="this.setCustomValidity('Password must be at least 8 characters long')"
+                title="Password must be at least 8 characters long"
+                required
+              />
+              <span class="validation-icon"></span>
+            </label>
+          </div>
+          <div class="radio-wrapper" id="pay-section">
+            <label for="pay-visa">
+              <input
+                type="radio"
+                name="pay-type"
+                id="pay-visa"
+                class="custom-radio"
+              />
+              <span class="pseudo-div color-light">
+                <span
+                  title="Visa payment"
+                  class="fab fa-cc-visa doc-img"
+                ></span>
+                <span
+                  title="Visa payment"
+                  class="fab fa-cc-mastercard doc-img"
+                ></span>
+                <span class="pseudo-div-title">&nbsp</span>
+              </span>
+            </label>
+            <label for="pay-paypal">
+              <input
+                type="radio"
+                name="pay-type"
+                id="pay-paypal"
+                class="custom-radio"
+              />
+              <span class="pseudo-div color-light">
+                <span
+                  title="Pay Pal payment"
+                  class="fab fa-cc-paypal doc-img"
+                ></span>
+                <span class="pseudo-div-title">&nbsp</span>
+              </span>
+            </label>
+            <label for="pay-amazon">
+              <input
+                type="radio"
+                name="pay-type"
+                id="pay-amazon"
+                class="custom-radio"
+              />
+              <span class="pseudo-div color-light">
+                <span
+                  title="Amazon payment"
+                  class="fab fa-cc-amazon-pay doc-img"
+                ></span>
+                <span class="pseudo-div-title">&nbsp</span>
+              </span>
+            </label>
+          </div>
+          <div class="input-wrapper" id="card-info">
+            <label for="card-number" class="validation-wrapper">
+              <span class="color-light upper-case text-bold">Card number</span
+              ><br />
+              <input
+                type="text"
+                name="card-number"
+                id="card-number"
+                class="main-input"
+                pattern="[0-9]{16}"
+                oninvalid="this.setCustomValidity('Enter valid card number')"
+                title="Enter valid card number"
+                required
+              />
+              <span class="validation-icon"></span>
+            </label>
+            <label for="card-date" class="validation-wrapper">
+              <span class="color-light upper-case text-bold">Expiry date</span
+              ><br />
+              <input
+                type="text"
+                name="card-date"
+                id="card-date"
+                class="main-input"
+                placeholder="DD/MM/YY"
+                pattern="(0[1-9]|[12]\d|3[01])/(0[1-9]|1[0-2])/(\d{2})"
+                oninvalid="this.setCustomValidity('Enter valid expiration date')"
+                title="Enter valid expiration date"
+                required
+              />
+              <span class="validation-icon"></span>
+            </label>
+            <label for="card-code" class="validation-wrapper">
+              <span class="color-light upper-case text-bold">Code</span><br />
+              <input
+                type="password"
+                name="card-code"
+                id="card-code"
+                class="main-input"
+                minlength="3"
+                maxlength="3"
+                pattern="[0-9]{3}"
+                oninvalid="this.setCustomValidity('Enter valid card code')"
+                title="Enter valid card code"
+                required
+              />
+              <span class="validation-icon"></span>
+            </label>
+          </div>
+        </section>
+        <section class="form-section" id="confirm-section">
+          <label class="checkbox-wrapper">
+            <input type="checkbox" class="custom-checkbox" />
+            <span class="checkmark"></span>
+            <span
+              >I agree to the <a class="text-link">Terms & Conditions</a></span
+            >
+          </label>
+          <span class="button-wrapper">
+            <button
+              class="main-button submit-button upper-case border-light text-bold"
+            >
+              Place order
+            </button>
+            <button
+              class="main-button upper-case color-light border-light text-bold"
+            >
+              Print a quote
+            </button>
+          </span>
+        </section>
+      </form>
+    </main>
+    <footer class="footer">
+      <div class="footer-section">
+        <h3 class="upper-case text-bold color-light">
+          <span class="far fa-heart icon-padding-right"></span>What we do
+        </h3>
+        <p class="color-light text-italic">
+          We provide a full range of language services including content
+          development, document, website and social media accounts translations.
+        </p>
+      </div>
+      <div class="footer-section">
+        <h4 class="upper-case text-bold color-light">
+          <span class="far fa-compass icon-padding-right"></span>Our main office
+        </h4>
+        <ul class="color-light footer-list">
+          <li>Dubai, UAE</li>
+          <li>P.O. Box: 502735</li>
+          <li>Phone: +971 (0) 44278128</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4 class="upper-case text-bold color-light">
+          <span class="fas fa-share-alt icon-padding-right"></span>Connect with
+          us
+        </h4>
+        <ul class="color-light footer-list">
+          <li>
+            <span class="fab fa-facebook-square icon-padding-right"></span
+            >Facebook
+          </li>
+          <li>
+            <span class="fab fa-twitter-square icon-padding-right"></span
+            >Twitter
+          </li>
+          <li>
+            <span class="fab fa-linkedin icon-padding-right"></span>Linkedin
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <script id="__bs_script__">
+      //<![CDATA[
+      document.write(
+        "<script async src='http://HOST:8080/browser-sync/browser-sync-client.js?v=2.26.3'><\/script>".replace(
+          "HOST",
+          location.hostname
+        )
+      );
+      //]]>
+    </script>
+  </body>
+</html>

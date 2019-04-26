@@ -1,0 +1,107 @@
+@import "global";
+
+@mixin slider-thumb($width, $height, $radius, $color) {
+  position: relative;
+  z-index: 10;
+  width: $width;
+  height: $height;
+  border-radius: $radius;
+  background-color: $color;
+}
+@mixin slider-track($width, $radius, $color) {
+  width: $width;
+  background: $color;
+  border-radius: $radius;
+}
+@mixin background-circle($hoffset, $voffset) {
+  top: $voffset;
+  left: $hoffset;
+}
+.range-wrapper {
+  display: flex;
+  justify-items: center;
+}
+.custom-range {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 64px;
+  background: transparent;
+  margin: auto;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    @include slider-thumb(32px, 32px, 50%, $bright-orange);
+    margin-top: -12px;
+  }
+  &::-moz-range-thumb {
+    @include slider-thumb(32px, 32px, 50%, $bright-orange);
+    z-index: 20;
+  }
+  &::-ms-thumb {
+    @include slider-thumb(32px, 32px, 50%, $bright-orange);
+  }
+  &::-ms-track {
+    width: 100%;
+    height: 8px;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+  }
+  &::-webkit-slider-runnable-track {
+    @include slider-track(100%, 10px, $grayish-navy);
+    height: 8px;
+  }
+  &::-moz-range-track {
+    @include slider-track(100%, 10px, $grayish-navy);
+    height: 8px;
+  }
+  &::-ms-fill-lower {
+    @include slider-track(100%, 10px, $grayish-navy);
+  }
+  &::-ms-fill-upper {
+    @include slider-track(100%, 10px, $grayish-navy);
+  }
+}
+.urgency-options-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.urgency-option {
+  position: relative;
+}
+.urgency-option:before {
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: $storm-gray;
+  @include background-circle(33px, -40px);
+}
+.urgency-option.first-option:before {
+  @include background-circle(0px, -40px);
+}
+.urgency-option.last-option:before {
+  @include background-circle(85px, -40px);
+}
+.moz-div {
+  display: none;
+}
+@-moz-document url-prefix() {
+  .moz-div {
+    display: flex;
+  }
+  .urgency-option:before {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .range-wrapper {
+    width: 100%;
+  }
+  .urgency-options-wrapper {
+    width: 100%;
+  }
+}

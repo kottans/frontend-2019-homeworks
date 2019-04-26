@@ -1,0 +1,56 @@
+@import "global";
+$padding: 10px;
+
+.button-wrapper {
+  display: block;
+  padding-top: $padding;
+}
+.button-wrapper > .main-button {
+  width: 48%;
+}
+.main-button.submit-button {
+  color: white;
+  background-color: $chinese-laquer;
+}
+.custom-upload-wrapper {
+  padding-left: 5px;
+  &:focus-within {
+    @include focus-outline();
+  }
+}
+.custom-upload {
+  line-height: 48px;
+}
+.trash-button {
+  border: none;
+  background: none;
+}
+.trash-button-offset {
+  //padding-left: 20%;
+}
+.main-button.add-button {
+  width: 108px;
+  margin-left: 40px;
+}
+
+@media screen and (min-width: 1025px) {
+  .button-wrapper-top {
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    flex-wrap: wrap;
+  }
+  .button-wrapper-top .main-button {
+    width: 100%;
+    margin-bottom: $padding;
+  }
+  .main-button.add-button {
+    margin-top: 10px;
+  }
+  #confirm-section .button-wrapper {
+    display: flex;
+    width: 40%;
+    padding: 0;
+    justify-content: space-around;
+  }
+}

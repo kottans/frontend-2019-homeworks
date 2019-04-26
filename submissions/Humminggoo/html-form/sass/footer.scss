@@ -1,0 +1,23 @@
+@import "global";
+
+$offset: 20px;
+
+.footer {
+  padding: $offset;
+  background-color: $dark-grayish-navy;
+}
+.footer-section {
+  margin-bottom: $offset;
+}
+.footer-list {
+  list-style-type: none;
+}
+@media screen and (min-width: 1025px) {
+  .footer {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .footer-section {
+    width: 30%;
+  }
+}

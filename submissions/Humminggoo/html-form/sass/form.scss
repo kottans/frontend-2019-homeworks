@@ -1,0 +1,127 @@
+@import "global";
+
+$main-padding: 20px;
+$main-padding-desktop: 40px;
+$form-padding: 10px;
+$form-padding-desktop: 20px;
+
+$title-size: 24px;
+$numbered-title-top: 20%;
+$title-padding: 5px;
+
+$padding-medium: 30px;
+$padding-large: 50px;
+
+@mixin flex($justify-content, $align-items, $direction, $wrap) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+
+.form-wrapper {
+  padding: $main-padding 0 $main-padding 0;
+  background-color: $solitude;
+}
+.form {
+  background-color: white;
+}
+.form-section {
+  padding: $form-padding;
+  border: none;
+}
+.section-title {
+  font-size: $title-size;
+  padding: $title-padding 0 $title-padding 0;
+}
+.title-top {
+  vertical-align: $numbered-title-top;
+}
+
+.info-wrapper {
+  @include flex(space-between, flex-start, row, nowrap);
+}
+.title-center {
+  text-align: center;
+}
+.title-underline {
+  border-bottom: 1px solid $grayish-navy;
+}
+
+.title-number {
+  font-size: 40px;
+}
+#file-upload {
+  @include hidden();
+}
+.info-title {
+  padding: $form-padding 0 $form-padding 0;
+}
+
+@media screen and (min-width: 1025px) {
+  * {
+    box-sizing: border-box;
+  }
+  .form-wrapper {
+    padding: $main-padding $main-padding-desktop;
+  }
+  .form {
+    @include flex(flex-start, flex-start, row, wrap);
+  }
+  .form-section {
+    @include flex(flex-start, flex-start, column, wrap);
+    padding: $padding-medium;
+    width: 100%;
+  }
+  #order-top {
+    width: 65%;
+    height: 180px;
+    padding: $main-padding;
+    border: 1px solid $light-steel-blue;
+  }
+  #order-top .section-title {
+    width: 70%;
+    padding-bottom: $main-padding;
+  }
+  #aside-section {
+    width: 35%;
+    height: 180px;
+    padding: $main-padding;
+    border: 1px solid $light-steel-blue;
+  }
+  .help-info {
+    padding: $form-padding 0 $form-padding 0;
+  }
+  .help-phone {
+    padding-right: $main-padding;
+  }
+  #translation-type {
+    padding: $padding-large;
+  }
+  #translation-type .section-title {
+    margin: 0 auto;
+  }
+  .wrap-middle {
+    padding: 0;
+    height: 405px;
+  }
+  #tone-section {
+    width: 40%;
+    height: 400px;
+  }
+  #range-section {
+    @include flex(flex-start, flex-start, column, wrap);
+    width: 60%;
+    height: 250px;
+  }
+  #range-info {
+    width: 56%;
+    height: 150px;
+    padding: $padding-medium;
+  }
+  #confirm-section {
+    @include flex(flex-end, center, row, nowrap);
+    padding-top: 0;
+  }
+}

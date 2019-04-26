@@ -1,0 +1,34 @@
+@import "global";
+
+$size: 48px;
+
+.custom-select {
+  appearance: none;
+  position: relative;
+  height: $size;
+  min-width: 180px;
+  border-radius: 5px;
+  padding-left: 5%;
+  margin: 10px;
+}
+.label-select:after {
+  display: inline-block;
+  position: relative;
+  left: -$size;
+  content: "\25BC";
+  border-left: 1px solid $light-steel-blue;
+  line-height: $size;
+  padding-left: 8px;
+  pointer-events: none;
+}
+.select-title {
+  display: inline-block;
+  width: 50px;
+}
+
+@media screen and (min-width: 1025px) {
+  .select-wrapper {
+    display: flex;
+    justify-content: flex-start;
+  }
+}

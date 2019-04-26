@@ -1,0 +1,103 @@
+@import "global";
+
+@mixin checkmark($x, $y) {
+  position: relative;
+  top: $y;
+  left: $x;
+  padding: 7px;
+  content: "\2713";
+  border-radius: 50%;
+  background-color: $soft-blue;
+  color: white;
+  font-weight: bold;
+}
+@mixin pseudo-div($width, $height, $padding, $margin) {
+  width: $width;
+  height: $height;
+  padding-top: $padding;
+  margin: $margin;
+}
+@mixin pseudo-div-title($display, $padding, $font-size) {
+  display: $display;
+  padding-top: $padding;
+  font-size: $font-size;
+}
+
+.custom-radio {
+  @include hidden();
+}
+.custom-radio:checked {
+  & + span {
+    border: 5px solid $soft-blue;
+  }
+  & + span:after {
+    @include checkmark(50%, -100px);
+  }
+}
+.custom-radio:focus + .pseudo-div {
+  @include focus-outline();
+}
+.pseudo-div {
+  display: inline-block;
+  @include pseudo-div(95%, 90px, 10px, 5px);
+  border: 1px solid $light-steel-blue;
+  border-radius: 5px;
+  text-align: center;
+}
+.doc-img {
+  display: inline-block;
+  font-size: 50px;
+}
+.pay-img {
+  display: inline-block;
+  font-size: 70px;
+}
+.pseudo-div-title {
+  @include pseudo-div-title(block, 10px, 20px);
+  width: 100%;
+  font-weight: bold;
+}
+@media screen and (min-width: 1025px) {
+  .radio-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+  }
+  .radio-wrapper > label {
+    width: 35%;
+  }
+  .pseudo-div {
+    @include pseudo-div(95%, 184px, 50px, 10px);
+  }
+  .custom-radio:checked {
+    & + span:after {
+      @include checkmark(50%, -140px);
+    }
+  }
+  #tone-section label {
+    width: 100%;
+  }
+  #tone-section .pseudo-div {
+    @include pseudo-div(95%, 60px, 15px, 10px);
+  }
+  #tone-section .pseudo-div-title {
+    @include pseudo-div-title(inline, 0, 20px);
+  }
+  #tone-section .doc-img {
+    font-size: 20px;
+  }
+  #tone-section .custom-radio:checked {
+    & + span:after {
+      @include checkmark(23%, -35px);
+    }
+  }
+  #pay-section .pseudo-div {
+    @include pseudo-div(95%, 130px, 30px, 10px);
+  }
+  #pay-section .custom-radio:checked {
+    & + span:after {
+      @include checkmark(50%, -120px);
+    }
+  }
+}

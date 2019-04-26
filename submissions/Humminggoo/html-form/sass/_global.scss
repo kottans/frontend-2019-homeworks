@@ -1,0 +1,59 @@
+@import "normalize.scss";
+
+$solitude: #eceef4;
+$hawks-blue: #dadde7;
+$grayish-navy: #a5abc5;
+$light-steel-blue: #b2bfda;
+$storm-gray: #6e768f;
+$chinese-laquer: #5fcac6;
+$soft-blue: #76a7e1;
+$bright-orange: #edbe76;
+$light-red: #E17776;
+$dark-grayish-navy: #444a62;
+
+@mixin hidden(){
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+@mixin focus-outline() {
+  outline: 1px dotted #212121;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+*{
+  margin: 0;
+}
+.main-button {
+  width: 150px;
+  height: 48px;
+  background-color: $solitude;
+}
+.border-light{
+  border: 1px solid $light-steel-blue;
+  border-radius: 5px;
+}
+
+.icon-padding-right {
+  padding-right: 10px;
+}
+.color-light {
+  color: $grayish-navy;
+}
+.color-dark{
+  color: $storm-gray;
+}
+.color-orange{
+  color: $bright-orange;
+}
+.upper-case{
+  text-transform: uppercase;
+}
+.text-bold{
+  font-weight: bold;
+}
+.text-italic{
+  font-style: italic;
+}
+.text-link:visited{
+  color: $grayish-navy;
+}

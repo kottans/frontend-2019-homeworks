@@ -1,0 +1,80 @@
+@import "global";
+
+.order-table {
+  width: 70%;
+  text-align: left;
+}
+
+#documents-table {
+  margin-top: 20px;
+  width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+  .order-table {
+    width: 100%;
+    text-align: left;
+    vertical-align: top;
+  }
+  .order-table tbody tr:not(:last-child) {
+    border-bottom: 1px solid $light-steel-blue;
+  }
+  .order-table tr {
+    padding-bottom: 5px;
+  }
+  .order-table th {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .order-table td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  .order-table td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $storm-gray;
+    white-space: nowrap;
+  }
+  #order-table td:nth-of-type(1):before {
+    content: "Items";
+  }
+  #order-table td:nth-of-type(2):before {
+    content: "Details";
+  }
+  #order-table td:nth-of-type(3):before {
+    content: "Price";
+  }
+  #order-table td:nth-of-type(4):before {
+    content: "Delivery";
+  }
+
+  #documents-table td:nth-of-type(1):before {
+    content: "File name";
+  }
+  #documents-table td:nth-of-type(2):before {
+    content: "File size";
+  }
+  #documents-table td:nth-of-type(3):before {
+    content: "Number of words";
+  }
+  #documents-table td:nth-of-type(4):before {
+    content: "Remove";
+  }
+}

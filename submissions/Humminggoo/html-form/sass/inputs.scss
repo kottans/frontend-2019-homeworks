@@ -1,0 +1,70 @@
+@import "global";
+
+@mixin valid-icon($content, $width, $height, $font-size, $padding, $color) {
+  position: absolute;
+  content: $content;
+  width: $width;
+  height: $height;
+  font-size: $font-size;
+  padding-left: $padding;
+  border-radius: 50%;
+  background-color: $color;
+  color: white;
+}
+@mixin valid-icon-offset($x, $y) {
+  top: $y;
+  left: $x;
+}
+
+.validation-wrapper {
+  position: relative;
+  display: block;
+}
+.main-input {
+  width: 95%;
+  height: 35px;
+  padding: 5px;
+  margin: 5px 0 5px 0;
+  border: 1px solid $light-steel-blue;
+  border-radius: 5px;
+  color: $storm-gray;
+
+  &:valid + .validation-icon:after {
+    @include valid-icon("\2713", 20px, 24px, 20px, 4px, $soft-blue);
+    @include valid-icon-offset(90%, 35px);
+  }
+  &:invalid + .validation-icon:after {
+    @include valid-icon("\2717", 20px, 24px, 20px, 4px, $light-red);
+    @include valid-icon-offset(90%, 35px);
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .input-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    width: 100%;
+    height: 200px;
+  }
+  .validation-wrapper {
+    width: 300px;
+  }
+  .main-input {
+    height: 50px;
+    padding: 5px;
+    &:valid + .validation-icon:after {
+      @include valid-icon-offset(85%, 35px);
+    }
+    &:invalid + .validation-icon:after {
+      @include valid-icon-offset(85%, 35px);
+    }
+  }
+  #card-info.input-wrapper {
+    height: 150px;
+  }
+  .flex-column {
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+}

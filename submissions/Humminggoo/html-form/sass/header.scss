@@ -1,0 +1,16 @@
+@import "global";
+
+$header-padding: 60px;
+$logo-size: 90px;
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $solitude;
+  padding: $header-padding 0 $header-padding 0;
+}
+.fa-dot-circle {
+  font-size: $logo-size;
+  color: $hawks-blue;
+}
