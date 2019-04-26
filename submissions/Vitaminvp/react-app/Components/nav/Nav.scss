@@ -1,0 +1,36 @@
+.nav{
+  padding: 5px 10px 10px;
+  position: relative;
+}
+
+li, a {
+  font-family: Arial, 'Lobster', cursive;
+  text-transform: uppercase;
+  color: #9b9999;
+  font-weight: 700;
+  line-height: 1.8;
+  text-decoration: none;
+  list-style: none;
+  outline: 0;
+}
+li {
+  width: 230px;
+  text-indent: 56px;
+}
+a:focus {
+  transition: all .5s;
+}
+a.active {
+  color: olivedrab;
+}
+.nav-menu {
+  position: absolute;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 110px;
+  background-color: #fff;
+  border-bottom-right-radius: 100%;
+  transition: .2s;
+  z-index: 1;
+}

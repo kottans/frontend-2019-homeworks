@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+img {
+  width: 100%;
+  height: auto;
+}
+h2 {
+  margin-bottom: .5em;
+}
+.grid {
+  columns: 200px 5;
+}
+
+
+.grid__item {
+  position: relative;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  animation: 1s linear 0s 1 normal none running anime;
+  &:hover {
+    box-shadow: 3px 3px 2px 1px #0000009c;
+  }
+  background-color: rgba(37, 0, 10, 0.4);
+}
+
+.image {
+  line-height: 0;
+  overflow: hidden;
+}
+
+.image img {
+  filter: blur(0px);
+  transition: filter 0.3s ease-in;
+  transform: scale(1.1);
+  min-width: 250px;
+}
+
+.title {
+  font-family: 'Lobster', cursive;
+  font-weight: normal;
+  text-align: center;
+  text-decoration: none;
+  z-index: 1;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity .5s;
+  background: rgba(90,0,10,0.4);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(0px);
+    transition: filter 0.3s ease-in;
+    transform: scale(1.1);
+  }
+}
+
+.grid__item:hover .title {
+  opacity: 1;
+}
+
+.grid__item:hover .image img {
+  filter: blur(2px);
+}
+
+@keyframes anime {
+  from {
+    top:-30px
+  }
+  to {
+    top: 0
+  }
+}
+
+/* for touch screen devices */
+@media (hover: none) {
+  .title {
+    opacity: 1;
+  }
+  .image img {
+    filter: blur(2px);
+  }
+}
+
