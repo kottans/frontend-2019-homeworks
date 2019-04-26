@@ -33,18 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
     messages.renderSystemMessage(`${name} left.`, timestamp);
   });
 
-  socket.onChatMessage( ({ name, message, timestamp }) => {
-    messages.renderMessage(name, message, timestamp);
+  socket.onChatMessage( ({ message, timestamp }) => {
+    messages.renderMessage(message.name, message, timestamp);
     socket.emitUpdateMessageStatus(message.id);
   });
-  
+
   socket.onSelf( ({ message, timestamp }) => messages.renderMessage('ME', message, timestamp));
 
   socket.onUpdateMessageStatus(({ id, status }) => messages.updateMessageStatus(id, status));
 
   socket.onTyping( ({ name }) => typingMessage.render(name));
   socket.onStopTyping( ({ name }) => typingMessage.clear(name));
-  
+
   messageForm.onSubmit( message => socket.emitChatMessage(message));
   messageForm.onKeyDown( () =>  socket.emitTyping());
   messageForm.onKeyUp( () => socket.emitStopTyping());

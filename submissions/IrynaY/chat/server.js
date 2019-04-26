@@ -9,7 +9,7 @@ const io = socketIO(server);
 
 const port = process.env.PORT || 3000;
 const messages = [];
-const MESSAGE_STATUS = {pending: 'pending', sent: 'sent'}; 
+const MESSAGE_STATUS = {pending: 'pending', sent: 'sent'};
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
@@ -43,20 +43,34 @@ io.on('connection', function (socket) {
       userList: clients
     });
 
+    messages.filter( message => message.status === MESSAGE_STATUS.pending)
+      .forEach( message => {
+        socket.emit('chat message', {
+          message: {
+            id: message.id,
+            text: message.text,
+            name:  message.name
+          },
+          timestamp: time,
+        });
+        message.status = MESSAGE_STATUS.sent;
+      });
+
     socket.broadcast.emit('user joined', {
       name: socket.username,
       timestamp: time,
       userList: clients
     });
   });
-  
+
   socket.on('chat message', message => {
     const time = new Date().getTime();
-    const newMessage = { 
+    const newMessage = {
       id: messages.length === 0 ? 0 : messages.length,
-      text: message, 
-      status: MESSAGE_STATUS.pending
-    }; 
+      text: message,
+      status: MESSAGE_STATUS.pending,
+      name: socket.username
+    };
 
     messages.push(newMessage);
 
@@ -66,17 +80,17 @@ io.on('connection', function (socket) {
       socket.broadcast.emit('chat message', {
         message: {
           id: newMessage.id,
-          text: newMessage.text
+          text: newMessage.text,
+          name:  socket.username
         },
         timestamp: time,
-        name: socket.username
       });
     }, 1500);
   });
 
   socket.on('update message status', messageID => {
     socket.broadcast.emit('update message status', {
-      id: messageID, 
+      id: messageID,
       status: MESSAGE_STATUS.sent
     });
   });
