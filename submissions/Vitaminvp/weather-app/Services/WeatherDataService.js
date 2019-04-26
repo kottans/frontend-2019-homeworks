@@ -1,24 +1,26 @@
-import { URL1, URL5, KEY } from './constants';
+import { URL_CURRENT, URL_FORECAST, KEY } from './constants';
 import AppState from "../scripts/Services/AppState";
 
 class WeatherDataService {
 
     subscribeForWeather(query) {
+
+        const promiseAll = (args) =>  Promise.all([...args])
+            .then(weather => {
+                const [ current, forecast ] = weather;
+                AppState.update('CURRENT', {...current});
+                AppState.update('FORECAST', {list: forecast.list});
+            });
+
         if (query){
-            Promise.all([this.getWeather(URL1, query), this.getWeather(URL5, query)])
-                .then(weather => {
-                        AppState.update('FORECAST', {list: weather[1].list});
-                        AppState.update('CURRENT', {...weather[0]});
-                });
+            const args = [this.getWeather(URL_CURRENT, query), this.getWeather(URL_FORECAST, query)];
+            return promiseAll(args);
         } else {
             if(navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(position => {
                     const {longitude:lon, latitude:lat} = position.coords;
-                    return Promise.all([this.getWeatherInit(URL1, lon, lat), this.getWeatherInit(URL5, lon, lat)])
-                        .then(weather => {
-                            AppState.update('FORECAST', {list: weather[1].list});
-                            AppState.update('CURRENT', {...weather[0]});
-                        });
+                    const args = [this.getWeatherInit(URL_CURRENT, lon, lat), this.getWeatherInit(URL_FORECAST, lon, lat)];
+                    return promiseAll(args);
                 })
             }
         }
@@ -48,3 +50,5 @@ class WeatherDataService {
 }
 
 export default new WeatherDataService();
+
+

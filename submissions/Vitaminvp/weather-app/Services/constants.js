@@ -1,5 +1,5 @@
-export const URL5 = `https://api.openweathermap.org/data/2.5/forecast`;
-export const URL1 = `https://api.openweathermap.org/data/2.5/weather`;
+export const URL_FORECAST = `https://api.openweathermap.org/data/2.5/forecast`;
+export const URL_CURRENT = `https://api.openweathermap.org/data/2.5/weather`;
 
 export const KEY = 'e17681c6b25cbaab506757b3f0966598';
 export const CLASSES = {
