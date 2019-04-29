@@ -15,11 +15,10 @@ class App extends Component {
     isLoading: true,
     comicsListParams: {
       orderBy: 'modified',
-      titleStartsWith: '',
       limit: 20,
       offset: 0,
-      total: 0,
     },
+    totalPagesComics: 0,
     showPopup: false,
   };
 
@@ -29,14 +28,16 @@ class App extends Component {
 
   getComicsData = async (params = {}) => {
     const { comicsListParams } = this.state;
+    !params.titleStartsWith && delete params.titleStartsWith;
     const newComicsListParams = { ...comicsListParams, ...params };
     this.setState({
       isLoading: true,
     });
     const { list, offset, total } = await getComicsList(newComicsListParams);
     this.setState({
-      comicsListParams: { ...newComicsListParams, offset, total },
+      comicsListParams: { ...newComicsListParams, offset },
       list,
+      totalPagesComics: total,
       isLoading: false,
     });
   };
@@ -65,6 +66,7 @@ class App extends Component {
       targetComics,
       showPopup,
       comicsListParams,
+      totalPagesComics,
     } = this.state;
     return (
       <div className="App">
@@ -87,6 +89,7 @@ class App extends Component {
             </main>
             <Pagination
               handleClick={this.getComicsData}
+              total={totalPagesComics}
               {...comicsListParams}
             />
           </>

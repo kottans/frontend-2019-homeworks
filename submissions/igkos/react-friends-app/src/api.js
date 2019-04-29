@@ -1,5 +1,5 @@
-let url = new URL(`https://gateway.marvel.com/v1/public/comics`), //holder path for comics without images
-  params = {
+let url = new URL(`https://gateway.marvel.com/v1/public/comics`),
+  defaultParams = {
     ts: '1',
     apikey: '1136faa63131cec339ae63058b627b70',
     hash: '7abf5f031a9f3f0031ac8c51fcfe8da0',
@@ -8,17 +8,16 @@ let url = new URL(`https://gateway.marvel.com/v1/public/comics`), //holder path 
     noVariants: true,
     hasDigitalIssue: false,
   };
-Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
 export const getComicsList = async params => {
-  const availableParamsArr = ['orderBy', 'titleStartsWith', 'limit', 'offset'];
+  const urlParams = new URLSearchParams({
+    ...defaultParams,
+    ...params,
+  }).toString();
 
-  await availableParamsArr.forEach(paramsKey =>
-    !params[paramsKey]
-      ? url.searchParams.delete(paramsKey)
-      : url.searchParams.set(paramsKey, params[paramsKey]),
-  );
-  const response = await fetch(url);
+  console.log(`${url}?${urlParams}`);
+
+  const response = await fetch(`${url}?${urlParams}`);
   const results = await response.json();
   const { offset, total } = await results.data;
   const list = await results.data.results;

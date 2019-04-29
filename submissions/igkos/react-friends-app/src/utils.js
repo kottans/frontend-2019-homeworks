@@ -12,7 +12,7 @@ export const getPager = (limit, offset, total) => {
     return { pagesArr: [], currentPage };
   }
   if (1 <= lastPage && lastPage <= pagerSize) {
-    return createOrderedArr(lastPage);
+    return { pagesArr: createOrderedArr(lastPage), currentPage };
   }
   if (lastPage > pagerSize) {
     if (currentPage <= middleOfPager) {
