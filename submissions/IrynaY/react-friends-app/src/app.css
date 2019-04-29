@@ -1,0 +1,9 @@
+.App {
+  margin: 50px;
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  max-width: 200px;
+}

@@ -1,0 +1,27 @@
+.sorter-section {
+  display: flex;
+  flex-direction: row;
+  min-width: 200px;
+  justify-content: space-around;
+}
+
+.sort-btn {
+  border: 1px solid lightblue;
+  background-color: white;
+  padding: 7px 15px;
+  border-radius:  15px;
+  text-transform: uppercase;
+}
+
+.active {
+  background-color: lightblue 
+}
+
+.sorter-section button:hover {
+  background-color: lightblue;
+  cursor: pointer;  
+}
+
+.sorter-section button:focus{
+  outline:none;
+}

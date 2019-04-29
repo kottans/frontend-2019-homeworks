@@ -1,0 +1,17 @@
+.content {
+  text-align: center;
+  margin: auto;
+}
+
+.character-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.notFound{
+  font-size: 28px;
+  font-weight: bold;
+  padding: 40px 150px;
+}
