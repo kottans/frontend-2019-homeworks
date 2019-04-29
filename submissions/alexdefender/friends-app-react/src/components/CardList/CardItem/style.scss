@@ -1,0 +1,43 @@
+@import "../../App/style";
+
+.user-card {
+  border: 2px solid $color-red;
+  margin: 0.5em;
+  padding: 0.5em;
+  width: 15em;
+  background-color: $color-yellow;
+  opacity: 0; /*Элемент полностью прозрачный (невидимый)*/
+  transition: 0.5s; /*Скорость перехода состояния элемента*/
+  animation: show 0.5s 1; /* Указываем название анимации, её время и количество повторов*/
+  animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+  animation-delay: 0.5s; /* Задержка перед началом */
+
+  &:hover {
+    box-shadow: $shadow;
+    cursor: pointer;
+  }
+
+  .name, p {
+    text-align: center;
+  }
+
+  img {
+    height: 10em;
+    margin: 1em 0 1em 0;
+
+  }
+
+  .user-card__info {
+    list-style: none;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,63 @@
+* {
+  padding: 0;
+  margin: 0;
+  color: rgba(8, 9, 9, 0.86);
+}
+
+$fontSize: 4em;
+$bgcolor: #6CC3C1;
+$color-yellow: #FBDA6C;
+$color-red: #EF7352;
+$transparent: rgba(255, 255, 255, 0);
+$shadow: 0px 0px 5px 0px $color-red;
+
+BODY {
+  background: linear-gradient(45deg, $color-yellow 25%, $transparent 25%) 0 0,
+  linear-gradient(45deg, $transparent 75%, $color-yellow 75%) 0 0,
+  linear-gradient(45deg, $transparent 75%, $color-yellow 75%) -3em 3em,
+  linear-gradient(45deg, $color-yellow 25%, $transparent 25%) 3em -3em;
+  background-size: 6em 6em;
+  background-color: $bgcolor;
+  font-family: 'Trebuchet MS', Verdana, sans-serif;
+}
+
+.container {
+  display: flex;
+  margin: 1em;
+}
+
+.header {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 6em;
+
+  .header__text {
+    font-size: 4em;
+    text-align: center;
+    line-height: 1;
+    color: $color-yellow;
+    animation: neon .08s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes neon {
+  from {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.92),
+    0 0 30px rgba(202, 228, 225, 0.34),
+    0 0 12px rgba(30, 132, 242, 0.52),
+    0 0 21px rgba(30, 132, 242, 0.92),
+    0 0 34px rgba(30, 132, 242, 0.78),
+    0 0 54px rgba(30, 132, 242, 0.92);
+  }
+  to {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.98),
+    0 0 30px rgba(202, 228, 225, 0.42),
+    0 0 12px rgba(30, 132, 242, 0.58),
+    0 0 22px rgba(30, 132, 242, 0.84),
+    0 0 38px rgba(30, 132, 242, 0.88),
+    0 0 60px rgba(30, 132, 242, 1);
+  }
+}

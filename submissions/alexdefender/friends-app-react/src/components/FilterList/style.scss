@@ -1,0 +1,73 @@
+@import "../App/style";
+
+.filters {
+  margin-right: 1em;
+  width: 11em;
+
+  .search {
+    margin: 0.5em 0 1em 0;
+
+    input {
+      height: 3em;
+      border: 2px solid $color-red;
+      background: $color-yellow;
+
+      &:focus {
+        box-shadow: $shadow;
+      }
+
+      &::-webkit-input-placeholder {
+        color: $color-red;
+      }
+    }
+  }
+
+  .sort-wrapper {
+  }
+
+  .sort-btn {
+    margin-right: 0.1em;
+    cursor: pointer;
+    padding: 1em 1.9em 1em 1.9em;
+    background-color: $color-yellow;
+    font-weight: 700;
+    border: 2px solid $color-red;
+    color: $color-red;
+
+    &:hover {
+      box-shadow: $shadow;
+    }
+  }
+
+  .filter {
+    display: flex;
+    flex-direction: column;
+    margin: 1em 0 1em 0;
+    background-color: $color-yellow;
+    border: 2px solid $color-red;
+    padding: 1em;
+
+    &:hover {
+      box-shadow: $shadow;
+    }
+
+    div {
+      margin-bottom: 0.5em;
+    }
+
+    label,
+    input {
+      cursor: pointer;
+      margin-right: 0.5em;
+    }
+
+    input {
+      display: none;
+
+      &:checked + span {
+        color: $color-red;
+        font-weight: 700;
+      }
+    }
+  }
+}
