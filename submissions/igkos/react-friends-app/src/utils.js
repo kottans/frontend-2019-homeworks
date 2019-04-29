@@ -3,41 +3,46 @@ export const getPager = (limit, offset, total) => {
   let currentPage = getPageNumber(offset) + 1;
   const lastPage = getPageNumber(total);
   let pagerSize = 5;
-  pagerSize = pagerSize % 2 ? pagerSize++ : pagerSize;
   const middleOfPager = Math.ceil(pagerSize / 2);
-  const createOrderedArr = size =>
+  const createOrderedArray = size =>
     Array.from(new Array(size)).map((el, index) => index + 1);
-  const orderedPagerSizeArr = createOrderedArr(pagerSize);
+  const orderedPagerSizeArray = createOrderedArray(pagerSize);
   if (lastPage < 1) {
-    return { pagesArr: [], currentPage };
+    return { pagesArray: [], currentPage };
   }
   if (1 <= lastPage && lastPage <= pagerSize) {
-    return { pagesArr: createOrderedArr(lastPage), currentPage };
+    return { pagesArray: createOrderedArray(lastPage), currentPage };
   }
   if (lastPage > pagerSize) {
     if (currentPage <= middleOfPager) {
       return {
-        pagesArr: [...orderedPagerSizeArr, '...', lastPage],
+        pagesArray: [...orderedPagerSizeArray, '...', lastPage],
         currentPage,
       };
     }
-    let pagerArr = orderedPagerSizeArr.map(
+    let pagerArray = orderedPagerSizeArray.map(
       el => currentPage - middleOfPager + el,
     );
 
     if (currentPage === middleOfPager + 1) {
-      return { pagesArr: [1, ...pagerArr, '...', lastPage], currentPage };
+      return { pagesArray: [1, ...pagerArray, '...', lastPage], currentPage };
     }
 
     if (currentPage === lastPage - middleOfPager) {
-      return { pagesArr: [1, '...', ...pagerArr, lastPage], currentPage };
+      return { pagesArray: [1, '...', ...pagerArray, lastPage], currentPage };
     }
-    let orderedArrBelowLastPage = orderedPagerSizeArr
+    let orderedArrayBelowLastPage = orderedPagerSizeArray
       .map(el => lastPage - el + 1)
       .reverse();
     if (currentPage > lastPage - middleOfPager) {
-      return { pagesArr: [1, '...', ...orderedArrBelowLastPage], currentPage };
+      return {
+        pagesArray: [1, '...', ...orderedArrayBelowLastPage],
+        currentPage,
+      };
     }
-    return { pagesArr: [1, '...', ...pagerArr, '...', lastPage], currentPage };
+    return {
+      pagesArray: [1, '...', ...pagerArray, '...', lastPage],
+      currentPage,
+    };
   }
 };

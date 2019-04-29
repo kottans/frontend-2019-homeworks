@@ -15,8 +15,6 @@ export const getComicsList = async params => {
     ...params,
   }).toString();
 
-  console.log(`${url}?${urlParams}`);
-
   const response = await fetch(`${url}?${urlParams}`);
   const results = await response.json();
   const { offset, total } = await results.data;
