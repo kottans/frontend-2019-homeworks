@@ -2,15 +2,14 @@ import React from 'react';
 import './searchfilter.css';
 
 const SearchFilter = ({ handleSort, handleSearch, handleFilter }) => {
-  const onChange = ({ target }) => {
-    const value = target.name === 'change' ? target.value : '';
+  const onSearchSortFilter = ({ target }) => {
+    const searchInputValue = target.name === 'searchInput' ? target.value : '';
 
-    handleSearch({
-      searchInputValue: value
-    });
-  };
-
-  const onSortOrFileter = ({ target }) => {
+    if (target.name === 'searchInput') {
+      handleSearch({
+        searchInputValue: searchInputValue
+      });
+    }
     if (target.checked && target.name === 'sortOrder') {
       handleSort({
         [target.name]: target.value
@@ -24,7 +23,7 @@ const SearchFilter = ({ handleSort, handleSearch, handleFilter }) => {
   };
 
   return (
-    <form className='form__main' onChange={onSortOrFileter}>
+    <form className='form__main' onChange={onSearchSortFilter}>
       <div className='radio-buttons'>
         <div className='sort-asc-desc'>
           <div className='form-check'>
@@ -84,11 +83,10 @@ const SearchFilter = ({ handleSort, handleSearch, handleFilter }) => {
         <input
           type='text'
           className='form-control'
-          name='change'
+          name='searchInput'
           placeholder='search by name... '
           aria-label="Recipient's username"
           aria-describedby='button-addon2'
-          onChange={onChange}
         />
       </div>
     </form>

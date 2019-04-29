@@ -16,34 +16,27 @@ class App extends Component {
     prevPageUrl: ''
   };
 
-  handleClickNext = () => {
-    getList(this.state.nextPageUrl).then(data => {
+  getCurrentPage = page => {
+    getList(page).then(data => {
       this.setState({
         list: data.results,
         nextPageUrl: data.info.next,
-        prevPageUrl: data.info.prev
+        prevPageUrl: data.info.prev,
+        isLoaded: true
       });
     });
+  };
+
+  handleClickNext = () => {
+    this.getCurrentPage(this.state.nextPageUrl);
   };
 
   handleClickPrev = () => {
-    getList(this.state.prevPageUrl).then(data => {
-      this.setState({
-        list: data.results,
-        nextPageUrl: data.info.next,
-        prevPageUrl: data.info.prev
-      });
-    });
+    this.getCurrentPage(this.state.prevPageUrl);
   };
 
-  async componentDidMount() {
-    const list = await getList(this.state.currentPageUrl);
-    this.setState({
-      list: list.results,
-      data: list,
-      nextPageUrl: list.info.next,
-      isLoaded: true
-    });
+  componentDidMount() {
+    this.getCurrentPage(this.state.currentPageUrl);
   }
 
   performSearch = ({ searchInputValue }) => {
@@ -58,12 +51,13 @@ class App extends Component {
     this.setState({ filterSpecies });
   };
 
+  runSorting = (a, b) => (a.name < b.name ? 1 : -1);
+
   sortPersons = (list, state) => {
     if (state === 'desc') {
-      return list.sort((a, b) => (a.name < b.name ? 1 : -1));
-    } else {
-      return list.sort((a, b) => (a.name < b.name ? -1 : 1));
+      return list.sort(this.runSorting);
     }
+    return list.sort((a, b) => this.runSorting(b, a));
   };
 
   filterByName = (list, name) => list.filter(item => item.name.includes(name));
@@ -75,7 +69,6 @@ class App extends Component {
     const {
       list,
       isLoaded,
-      notFound,
       searchInputValue,
       sortOrder,
       filterSpecies,
@@ -97,13 +90,6 @@ class App extends Component {
     }
 
     if (!isLoaded) {
-      return (
-        <div className='preloader'>
-          <div className='pulse' />
-        </div>
-      );
-    }
-    if (notFound) {
       return (
         <div className='preloader'>
           <div className='pulse' />
