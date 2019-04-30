@@ -16,16 +16,21 @@ class App extends Component {
     prevPageUrl: ''
   };
 
-  getCurrentPage = page => {
-    getList(page).then(data => {
+  getCurrentPage = async page => {
+    const result = await getList(page).then(data => {
       this.setState({
         list: data.results,
         nextPageUrl: data.info.next,
-        prevPageUrl: data.info.prev,
-        isLoaded: true
+        prevPageUrl: data.info.prev
       });
     });
+    return result;
   };
+
+  async componentDidMount() {
+    await this.getCurrentPage(this.state.currentPageUrl);
+    await this.setState({ isLoaded: true });
+  }
 
   handleClickNext = () => {
     this.getCurrentPage(this.state.nextPageUrl);
@@ -35,20 +40,12 @@ class App extends Component {
     this.getCurrentPage(this.state.prevPageUrl);
   };
 
-  componentDidMount() {
-    this.getCurrentPage(this.state.currentPageUrl);
-  }
-
   performSearch = ({ searchInputValue }) => {
     this.setState({ searchInputValue });
   };
 
-  performSort = ({ sortOrder }) => {
-    this.setState({ sortOrder });
-  };
-
-  performFilter = ({ filterSpecies }) => {
-    this.setState({ filterSpecies });
+  performSortFilter = ({ ...args }) => {
+    this.setState({ ...args });
   };
 
   runSorting = (a, b) => (a.name < b.name ? 1 : -1);
@@ -60,7 +57,8 @@ class App extends Component {
     return list.sort((a, b) => this.runSorting(b, a));
   };
 
-  filterByName = (list, name) => list.filter(item => item.name.includes(name));
+  filterByName = (list, name) =>
+    list.filter(item => item.name.toLowerCase().includes(name));
 
   filterBySpecies = (list, species) =>
     list.filter(item => item.species === species);
@@ -120,8 +118,7 @@ class App extends Component {
 
             <SearchFilter
               handleSearch={this.performSearch}
-              handleSort={this.performSort}
-              handleFilter={this.performFilter}
+              handleSortFilter={this.performSortFilter}
             />
           </aside>
           <div className='users-wrap'>

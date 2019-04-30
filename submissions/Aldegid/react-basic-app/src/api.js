@@ -1,5 +1,12 @@
 export const getList = async api => {
-  const response = await fetch(api);
-  const result = await response.json();
-  return result;
+  try {
+    const response = await fetch(api);
+    if (!response.ok) {
+      throw Error(response.statusText);
+    }
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
 };

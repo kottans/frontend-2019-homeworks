@@ -1,52 +1,49 @@
 import React from 'react';
 import './searchfilter.css';
 
-const SearchFilter = ({ handleSort, handleSearch, handleFilter }) => {
+const SearchFilter = ({ handleSearch, handleSortFilter }) => {
+  const searchInputName = 'searchInput';
   const onSearchSortFilter = ({ target }) => {
-    const searchInputValue = target.name === 'searchInput' ? target.value : '';
+    const searchInputValue =
+      target.name === searchInputName ? target.value : '';
 
-    if (target.name === 'searchInput') {
-      handleSearch({
-        searchInputValue: searchInputValue
-      });
+    if (target.name === searchInputName) {
+      handleSearch({ searchInputValue });
     }
-    if (target.checked && target.name === 'sortOrder') {
-      handleSort({
-        [target.name]: target.value
-      });
-    }
-    if (target.checked && target.name === 'filterSpecies') {
-      handleFilter({
+    if (target.checked && target.type === 'radio') {
+      handleSortFilter({
         [target.name]: target.value
       });
     }
   };
 
   return (
-    <form className='form__main' onChange={onSearchSortFilter}>
+    <form className='form__main'>
       <div className='radio-buttons'>
         <div className='sort-asc-desc'>
           <div className='form-check'>
             <input
+              onChange={onSearchSortFilter}
               className='form-check-input'
               type='radio'
               name='sortOrder'
-              id='inlineRadio1'
+              id='sortByAsc'
               value='asc'
             />
-            <label className='form-check-label' htmlFor='inlineRadio1'>
+            <label className='form-check-label' htmlFor='sortByAsc'>
               Sort by Asc
             </label>
           </div>
           <div className='form-check'>
             <input
+              onChange={onSearchSortFilter}
               className='form-check-input'
               type='radio'
               name='sortOrder'
-              id='inlineRadio2'
+              id='sortByDesc'
               value='desc'
             />
-            <label className='form-check-label' htmlFor='inlineRadio2'>
+            <label className='form-check-label' htmlFor='sortByDesc'>
               Sort by Desc
             </label>
           </div>
@@ -54,25 +51,27 @@ const SearchFilter = ({ handleSort, handleSearch, handleFilter }) => {
         <div className='sort-asc-desc'>
           <div className='form-check'>
             <input
+              onChange={onSearchSortFilter}
               className='form-check-input'
               type='radio'
               name='filterSpecies'
-              id='inlineRadio3'
+              id='filterByHuman'
               value='Human'
             />
-            <label className='form-check-label' htmlFor='inlineRadio3'>
+            <label className='form-check-label' htmlFor='filterByHuman'>
               Filter by Human
             </label>
           </div>
           <div className='form-check'>
             <input
+              onChange={onSearchSortFilter}
               className='form-check-input'
               type='radio'
               name='filterSpecies'
-              id='inlineRadio4'
+              id='filterByAlien'
               value='Alien'
             />
-            <label className='form-check-label' htmlFor='inlineRadio4'>
+            <label className='form-check-label' htmlFor='filterByAlien'>
               Filter by Alien
             </label>
           </div>
@@ -83,7 +82,8 @@ const SearchFilter = ({ handleSort, handleSearch, handleFilter }) => {
         <input
           type='text'
           className='form-control'
-          name='searchInput'
+          name={searchInputName}
+          onChange={onSearchSortFilter}
           placeholder='search by name... '
           aria-label="Recipient's username"
           aria-describedby='button-addon2'
