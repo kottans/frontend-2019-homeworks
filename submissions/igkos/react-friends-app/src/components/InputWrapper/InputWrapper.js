@@ -1,17 +1,11 @@
 import React from 'react';
 import './style.scss';
 
-const Options = ({ optionsValuesArr, description }) =>
-  optionsValuesArr.map(val => (
-    <option key={val} value={val}>
-      {description}: {val}
-    </option>
-  ));
 const InputWrapper = ({ updateComics, limit, orderBy }) => {
-  let titleStartsWith = React.createRef();
   const onSubmit = ev => {
     ev.preventDefault();
-    updateComics({ titleStartsWith: titleStartsWith.current.value });
+    console.log();
+    updateComics({ titleStartsWith: ev.target.titleStartsWith.value });
   };
   const onChange = ev => {
     const { name, value } = ev.target;
@@ -26,10 +20,10 @@ const InputWrapper = ({ updateComics, limit, orderBy }) => {
         className="search__item search__select"
         name="orderBy"
       >
-        <Options
-          optionsValuesArr={['modified', '-modified', 'title', '-title']}
-          description="Order by"
-        />
+        <option value="modified">Order by: modified</option>
+        <option value="-modified">Order by: -modified</option>
+        <option value="title">Order by: title</option>
+        <option value="-title">Order by: -title</option>
       </select>
       <select
         onChange={onChange}
@@ -37,15 +31,16 @@ const InputWrapper = ({ updateComics, limit, orderBy }) => {
         className="search__item search__select"
         name="limit"
       >
-        <Options
-          optionsValuesArr={[10, 20, 30, 40, 50]}
-          description="Comics per page"
-        />
+        <option value="10">Comics per page: 10</option>
+        <option value="20">Comics per page: 20</option>
+        <option value="30">Comics per page: 30</option>
+        <option value="40">Comics per page: 40</option>
+        <option value="50">Comics per page: 50</option>
       </select>
       <input
         className="search__item search__input"
         placeholder="title starts with ....."
-        ref={titleStartsWith}
+        name="titleStartsWith"
       />
       <button name="button" className="search__item search__button">
         search

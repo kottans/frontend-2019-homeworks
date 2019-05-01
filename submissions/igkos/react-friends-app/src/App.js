@@ -20,6 +20,7 @@ class App extends Component {
     },
     totalPagesComics: 0,
     showPopup: false,
+    error: null,
   };
 
   async componentDidMount() {
@@ -28,22 +29,31 @@ class App extends Component {
 
   getComicsData = async (params = {}) => {
     const { comicsListParams } = this.state;
-    !params.titleStartsWith && delete params.titleStartsWith;
     const newComicsListParams = { ...comicsListParams, ...params };
+    if (params.titleStartsWith === '') {
+      delete newComicsListParams.titleStartsWith;
+    }
     this.setState({
       isLoading: true,
     });
-    const { list, offset, total } = await getComicsList(newComicsListParams);
-    this.setState({
-      comicsListParams: { ...newComicsListParams, offset },
-      list,
-      totalPagesComics: total,
-      isLoading: false,
-    });
+    try {
+      const { list, offset, total } = await getComicsList(newComicsListParams);
+      this.setState({
+        comicsListParams: { ...newComicsListParams, offset },
+        list,
+        totalPagesComics: total,
+        isLoading: false,
+        error: null,
+      });
+    } catch (error) {
+      this.setState({
+        error,
+        isLoading: false,
+      });
+    }
   };
 
-  popupTargetComic = e => {
-    const title = e.target.alt;
+  popupTargetComics = title => {
     if (title) {
       const targetComics = this.state.list.find(
         comics => comics.title === title,
@@ -61,6 +71,7 @@ class App extends Component {
   };
   render() {
     const {
+      error,
       list,
       isLoading,
       targetComics,
@@ -70,22 +81,27 @@ class App extends Component {
     } = this.state;
     return (
       <div className="App">
-        <nav>
+        <header>
           <InputWrapper
             updateComics={this.getComicsData}
             {...comicsListParams}
           />
-        </nav>
-
+        </header>
+        {error ? <h2>error: {error.message}</h2> : null}
         {isLoading ? (
           <img src={loader} className="App-logo" alt="logo" />
-        ) : (
+        ) : null}
+        {!error && !isLoading ? (
           <>
-            <main onClick={this.popupTargetComic}>
+            <main>
               {list.map(comics => (
-                <Comics key={comics.id} comics={comics} />
+                <Comics
+                  key={comics.id}
+                  comics={comics}
+                  handleClick={this.popupTargetComics}
+                />
               ))}
-              {!list.length ? <h2>Oops nothing found ":("</h2> : null}
+              {!list.length ? <h2>Oops nothing found :(</h2> : null}
             </main>
             <Pagination
               handleClick={this.getComicsData}
@@ -93,7 +109,7 @@ class App extends Component {
               {...comicsListParams}
             />
           </>
-        )}
+        ) : null}
         {showPopup ? (
           <Popup
             text="Close Me"

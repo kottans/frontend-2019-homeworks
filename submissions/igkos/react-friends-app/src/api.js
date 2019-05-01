@@ -14,10 +14,12 @@ export const getComicsList = async params => {
     ...defaultParams,
     ...params,
   }).toString();
-
   const response = await fetch(`${url}?${urlParams}`);
-  const results = await response.json();
-  const { offset, total } = await results.data;
-  const list = await results.data.results;
-  return { list, offset, total };
+  if (response.status === 200) {
+    const results = await response.json();
+    const { offset, total } = results.data;
+    const list = results.data.results;
+    return { list, offset, total };
+  }
+  throw new Error(response.status);
 };
