@@ -1,0 +1,9 @@
+.character-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.character-item {
+  margin: 1em 0;
+}
