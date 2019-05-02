@@ -30,9 +30,6 @@ class App extends Component {
   getComicsData = async (params = {}) => {
     const { comicsListParams } = this.state;
     const newComicsListParams = { ...comicsListParams, ...params };
-    if (params.titleStartsWith === '') {
-      delete newComicsListParams.titleStartsWith;
-    }
     this.setState({
       isLoading: true,
     });

@@ -10,12 +10,15 @@ let url = new URL(`https://gateway.marvel.com/v1/public/comics`),
   };
 
 export const getComicsList = async params => {
+  Object.keys(params).forEach(key =>
+    params[key] === '' ? delete params[key] : '',
+  );
   const urlParams = new URLSearchParams({
     ...defaultParams,
     ...params,
   }).toString();
   const response = await fetch(`${url}?${urlParams}`);
-  if (response.status === 200) {
+  if (response.ok) {
     const results = await response.json();
     const { offset, total } = results.data;
     const list = results.data.results;
