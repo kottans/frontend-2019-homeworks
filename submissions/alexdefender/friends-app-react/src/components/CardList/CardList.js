@@ -6,8 +6,8 @@ class CardList extends Component {
   render() {
     return this.props.cards !== null ? (
       <div className="card-wrapper">
-        {Object.entries(this.props.cards).map((card, i) => (
-          <CardItem key={i} card={card[1]} />
+        {this.props.cards.map((card, i) => (
+          <CardItem key={i} card={card} />
         ))}
       </div>
     ) : (

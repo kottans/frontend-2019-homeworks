@@ -4,8 +4,8 @@ import { FilterList } from "../FilterList";
 import { CardList } from "../CardList";
 import { getDataFromApi } from "../../services/api";
 
-const SORT_DESC = "Desc";
-const SORT_ASC = "Asc";
+const SORT_DESC = "desc";
+const SORT_ASC = "asc";
 const FILTER_STATUS = "status";
 const FILTER_GENDER = "gender";
 const ALL_CARDS = "All";
@@ -15,68 +15,62 @@ class App extends Component {
     super(props);
     this.state = {
       list: [],
-      sort: undefined,
-      searchFromInput: undefined
+      sort: null,
+      searchFromInput: null,
+      status: "",
+      gender: ""
     };
     this.status = "";
     this.gender = "";
   }
 
   async componentDidMount() {
-    const listFromApi = await getDataFromApi();
-    const list = listFromApi.map(item => {
-      return {
-        name: item.name,
-        image: item.image,
-        gender: item.gender,
-        location: item.location.name,
-        species: item.species,
-        status: item.status
-      };
-    });
+    const list = await getDataFromApi();
     this.setState({ list });
   }
 
-  searchFromInput = ({ target }) => {
+  findCardsFromSearch = ({ target }) => {
     const searchFromInput = this.state.list.filter(item =>
       item.name.toLowerCase().includes(target.value)
     );
 
-    this.setState({ sort: searchFromInput });
-    this.setState({ searchFromInput });
+    this.setState({ sort: searchFromInput, searchFromInput });
   };
 
   sortDescAsc = ({ target }) => {
-    const sortDescAsc =
-      this.state.sort === undefined ? this.state.list : this.state.sort;
-
-    sortDescAsc.sort((nameA, nameB) => {
-      if (target.innerHTML === SORT_ASC) {
-        if (nameA.name < nameB.name) return -1;
-      } else if (target.innerHTML === SORT_DESC) {
-        if (nameA.name > nameB.name) return -1;
-      }
-    });
-    this.setState({ sortDescAsc });
+    this.setState(state => ({
+      sort: (state.sort || state.list).sort((nameA, nameB) => {
+        if (target.value === SORT_ASC) {
+          if (nameA.name < nameB.name) return -1;
+        } else if (target.value === SORT_DESC) {
+          if (nameA.name > nameB.name) return -1;
+        }
+      })
+    }));
   };
 
   sortFilter = ({ target }) => {
-    const value = target.value;
+    const { value, name } = target;
 
-    if (target.name === FILTER_STATUS) {
+    if (name === FILTER_STATUS) {
       this.status = value;
+      this.setState(state => ({
+          status: value
+      }));
       if (value === ALL_CARDS) {
         this.status = "";
       }
-    } else if (target.name === FILTER_GENDER) {
+    } else if (name === FILTER_GENDER) {
       this.gender = value;
       if (value === ALL_CARDS) {
         this.gender = "";
       }
     }
 
+    console.log(this.state)
+
     const state =
-      this.state.searchFromInput !== undefined
+      this.state.searchFromInput !== null
         ? this.state.searchFromInput
         : this.state.list;
 
@@ -93,7 +87,6 @@ class App extends Component {
         item => item.status === this.status && item.gender === this.gender
       );
     }
-    console.log(sort);
 
     this.setState({ sort });
   };
@@ -108,11 +101,11 @@ class App extends Component {
         </header>
         <div className="container">
           <FilterList
-            searchFromInput={this.searchFromInput}
+            findCardsFromSearch={this.findCardsFromSearch}
             sortDescAsc={this.sortDescAsc}
             sortFilter={this.sortFilter}
           />
-          <CardList cards={sort === undefined ? list : sort} />
+          <CardList cards={sort === null ? list : sort} />
         </div>
       </div>
     );

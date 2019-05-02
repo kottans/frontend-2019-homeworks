@@ -33,16 +33,16 @@ class FilterList extends Component {
       <section className="filters">
         <section className="search">
           <input
-            type="form"
+            type="search"
             placeholder="Search..."
-            onChange={this.props.searchFromInput}
+            onChange={this.props.findCardsFromSearch}
           />
         </section>
         <section className="sort-wrapper">
-          <button className="sort-btn" onClick={this.props.sortDescAsc}>
+          <button className="sort-btn" value="asc" onClick={this.props.sortDescAsc}>
             Asc
           </button>
-          <button className="sort-btn" onClick={this.props.sortDescAsc}>
+          <button className="sort-btn" value="desc" onClick={this.props.sortDescAsc}>
             Desc
           </button>
         </section>
