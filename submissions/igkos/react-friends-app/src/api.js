@@ -10,9 +10,9 @@ let url = new URL(`https://gateway.marvel.com/v1/public/comics`),
   };
 
 export const getComicsList = async params => {
-  Object.keys(params).forEach(key =>
-    params[key] === '' ? delete params[key] : '',
-  );
+  Object.keys(params).forEach(key => {
+    if (params[key] === '') delete params[key];
+  });
   const urlParams = new URLSearchParams({
     ...defaultParams,
     ...params,
