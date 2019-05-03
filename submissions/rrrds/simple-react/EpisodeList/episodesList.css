@@ -1,0 +1,9 @@
+.episodes-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.episode-item {
+  margin: 0.5em 0;
+}

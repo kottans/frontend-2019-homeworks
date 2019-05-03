@@ -1,0 +1,7 @@
+.hero-image {
+  width: 400px;
+  height: 400px;
+  background-size: cover;
+  background-position: 57% center;
+  border-radius: 50%;
+}
