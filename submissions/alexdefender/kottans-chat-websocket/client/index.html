@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Socket.IO chat</title>
+    <link rel="shortcut icon" href="./favicon.png" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <main class="main">
+      <aside>
+        <pre class="username" id="username"></pre>
+        <pre class="username-online">Online:</pre>
+        <pre class="scrollable" id="usersList"></pre>
+
+        <!--<pre class="scrollable" id="rooms"></pre>
+        <form class="form form--small" id="room">
+          <input type="text" placeholder="room name" autocomplete="off" />
+          <button type="submit">join</button>
+        </form>-->
+      </aside>
+
+      <article>
+        <pre class="scrollable" id="messages"></pre>
+
+        <pre class="typing" id="typingStatus"></pre>
+
+        <form class="form" id="messageForm">
+          <input
+            type="text"
+            placeholder="your message here"
+            autocomplete="off"
+          />
+          <button type="submit">send</button>
+        </form>
+      </article>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
