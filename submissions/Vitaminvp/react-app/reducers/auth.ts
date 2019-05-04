@@ -1,7 +1,7 @@
 import {Action} from "../types/action";
 import {AUTH_ACTION_TYPES} from "../actions/auth";
 
-interface authState {
+export interface authState {
     isAuthenticated: boolean;
     token: string
 

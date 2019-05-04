@@ -21,3 +21,4 @@ export const Radio: React.FunctionComponent<IProps> = ({ name, label, type, id, 
                 <label htmlFor={id}>{label}</label>
         </div>
 };
+

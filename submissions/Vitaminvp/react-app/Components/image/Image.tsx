@@ -9,9 +9,6 @@ interface IProps {
     onLoad: (id: string) => void
 }
 
-interface IState {
-}
-
 class Image extends React.Component<IProps, {}>{
     componentDidMount(){
         this.props.onLoad(this.props.match.params.id);
@@ -51,3 +48,4 @@ const ImageWrapper = connect(
 )(Image);
 
 export {ImageWrapper as Image};
+

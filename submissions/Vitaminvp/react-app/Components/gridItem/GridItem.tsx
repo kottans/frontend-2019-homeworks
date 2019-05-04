@@ -18,13 +18,13 @@ interface IState {
 export class GridItem extends React.Component<IProps, IState>{
 
     render(){
-        const { url, likes, link, description, className: classN, height, id } = this.props;
+        const { url, likes, link, description, className: StyleName, height, id } = this.props;
         const titleStyle = {
             height: `${height}px`,
         };
 
-        return <article className={classN}>
-            <a className="title" href={`#/image/${id}`} style={titleStyle}>{ description }</a>
+        return <article className={StyleName}>
+            <a className="title" href={`/image/${id}`} style={titleStyle}>{ description }</a>
             <div className="image">
                 <img src={url} alt="" />
             </div>

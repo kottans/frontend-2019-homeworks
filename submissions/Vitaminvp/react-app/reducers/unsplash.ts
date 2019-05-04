@@ -41,3 +41,4 @@ export const unsplash = (state: UnsplashState = INITIAL_STATE, action: Action<Ac
             return state;
     }
 };
+

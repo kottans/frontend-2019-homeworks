@@ -1,15 +1,12 @@
 import * as React from "react";
 import {Input, InputTypes} from "../input";
-import {SyntheticEvent} from "react";
+import {DOMElement, ReactNode, SyntheticEvent} from "react";
 import "./SearchForm.scss";
 import classnames from "classnames";
 import {Button} from "../button";
 import {ButtonTypes} from "../../App";
-// @ts-ignore
 import search from "../../img/search-img.png";
-// @ts-ignore
 import asc from "../../img/sort-amount-asc.svg";
-// @ts-ignore
 import desc from "../../img/sort-amount-desc.svg";
 import {Radio} from "../radio";
 import {filterActionCreator} from "../../actions/filter";
@@ -35,7 +32,6 @@ interface State {
     radioInput: string;
 }
 
-
 class SearchForm extends React.Component<Props, State>{
     state = {
         searchInput: '',
@@ -46,39 +42,18 @@ class SearchForm extends React.Component<Props, State>{
         const {searchInput, radioInput} = this.props;
         if(!searchInput)
             this.props.onSubmit('cars', 1);
-        this.setState(state => ({...state, radioInput}), () => console.log(this.state));
+        this.setState(state => ({...state, radioInput}));
     }
 
     private onFormChange = (e: SyntheticEvent<HTMLFormElement>) => {
         const { onChange } = this.props;
-        const { searchInput } = this.state;
-        const nextSearchInput = e.currentTarget['searchInput'].value;
-
-        const inputs = Array.from(e.currentTarget.elements).filter((element:any) => {
-            if(element && element['name']){
-                return element['name'];
-            }
-            return null;
-        });
-
-        const value:any = inputs.reduce((acc:object, cur:any) => {
-            if(cur.name){
-                if(cur.name === 'radioInput'){
-                    if(cur.checked === true){
-                        return {...acc, [cur.name]: cur.id};
-                    }
-                    return acc;
-                }else{
-                    return {...acc, [cur.name]: cur.value};
-                }
-            }
-            return acc;
-        }, {});
-
-        this.setState(state => ({...state, ...value}), () => {
-            if(nextSearchInput === searchInput){
+        const target:any = e.target;
+        const targetValue = target['name'] === 'radioInput' ? target.id : target.value;
+        this.setState(state => ({
+            ...state,
+            [target.name]: targetValue
+            }), () => {
                 onChange(this.state.filterInput, this.state.radioInput);
-            }
         });
     };
 
@@ -150,3 +125,4 @@ const SearchFormWrapper = connect(
 )(SearchForm);
 
 export {SearchFormWrapper as SearchForm};
+

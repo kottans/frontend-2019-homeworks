@@ -11,3 +11,4 @@ export const fetchInitItems = (payload: {searchInput: string, currentPage: numbe
         });
     };
 };
+

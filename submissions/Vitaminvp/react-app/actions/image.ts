@@ -11,3 +11,4 @@ export const fetchImage = (payload: {imageId: string}):any  => {
         });
     };
 };
+

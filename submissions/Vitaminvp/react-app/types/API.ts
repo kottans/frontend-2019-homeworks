@@ -63,3 +63,4 @@ export interface FetchTokenResponse {
     scope: string
     created_at: number
 }
+
