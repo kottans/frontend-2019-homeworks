@@ -1,1 +1,3 @@
-export  * from "./Image";
+import Image from "./Image";
+export {Image};
+

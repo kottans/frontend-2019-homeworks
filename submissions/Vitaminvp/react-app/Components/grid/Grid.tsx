@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import {Button} from "../button";
 import {ButtonTypes} from "../../App";
 import {SearchForm} from "../searchForm";
+import {Dispatch} from "redux";
 
 interface Props {
     items: Array<Image>;
@@ -14,7 +15,7 @@ interface Props {
     filterInput: string;
     currentPage: number;
     searchInput: string;
-    radioInput: string;
+    sortingParam: string;
 
     onItemsAdded(searchInput: string, currentPage: number): void;
 }
@@ -26,22 +27,26 @@ class Grid extends React.PureComponent<Props, {}> {
         this.props.onItemsAdded(this.props.searchInput, currentPage)
     };
 
-    private handleSortAndFilter() {
-        const {items, filterInput, radioInput} = this.props;
-        const filteredItems = [...items as any].filter(item => {
-            const regex = new RegExp(filterInput, 'gi');
-            return item.alt_description.match(regex);
+    private handleFilter() {
+        const {items, filterInput} = this.props;
+        return  [...items as Array<Image>].filter(item => {
+            return item.alt_description.toLowerCase().includes(filterInput.toLowerCase());
         });
-        const sorting = (a:{alt_description:string}, b:{alt_description:string}):number => (a.alt_description > b.alt_description ? 1 : -1);
-        const handleSorting:{ [radioInput:string] : (a:{alt_description:string}, b:{alt_description:string}) => number } = {
+    };
+    private handleSort() {
+        const {items, sortingParam} = this.props;
+        const sorting = (a: { alt_description: string }, b: { alt_description: string }): number => (a.alt_description > b.alt_description ? 1 : -1);
+        const handleSorting: { [sortingParam: string]: (a: { alt_description: string }, b: { alt_description: string }) => number } = {
             asc: (a, b) => sorting(a, b),
             desc: (a, b) => sorting(b, a)
         };
-        return  filteredItems.sort((a, b) => handleSorting[radioInput](a, b));
+        return items.sort((a, b) => handleSorting[sortingParam](a, b));
     };
 
     render() {
         const {items, total} = this.props;
+        const isButtonVisible = items && (items.length > 0) && (total > items.length);
+        this.handleSort();
         return <>
             <Suspense fallback={<div>Loading...</div>}>
                 <div className={'nav__container'}>
@@ -49,10 +54,10 @@ class Grid extends React.PureComponent<Props, {}> {
                 </div>
                 <div className={'grid'}>
                     {
-                        this.handleSortAndFilter()
+                        this.handleFilter()
                             .map((item: { alt_description: string; urls: { small: string }; likes: number; id: string; }) => {
                                 const {alt_description, urls, likes, id} = item;
-                                return <GridItem className={'grid__item'}
+                                return <GridItem classNames='grid__item'
                                                  key={id}
                                                  id={id}
                                                  url={urls.small}
@@ -62,7 +67,7 @@ class Grid extends React.PureComponent<Props, {}> {
                     }
                 </div>
             </Suspense>
-            {items && items.length > 0 && total > items.length ?
+            {isButtonVisible ?
                 <Button className="native-button" type={ButtonTypes.BUTTON} onClick={this.loadImages}>Show
                     more {total ? `(${items.length} of ${total})` : ''}</Button>
                 : null
@@ -71,18 +76,18 @@ class Grid extends React.PureComponent<Props, {}> {
     }
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: { unsplash: Props }) => {
     return {
         items: state.unsplash.items,
         total: state.unsplash.total,
+        currentPage: state.unsplash.currentPage,
         searchInput: state.unsplash.searchInput,
         filterInput: state.unsplash.filterInput,
-        currentPage: state.unsplash.currentPage,
-        radioInput: state.unsplash.radioInput,
+        sortingParam: state.unsplash.sortingParam
     }
 };
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         onItemsAdded: (searchInput: string, currentPage: number) => {
             dispatch(fetchItems({searchInput, currentPage}))
@@ -90,10 +95,10 @@ const mapDispatchToProps = (dispatch: any) => {
     }
 };
 
-const GridWrapper = connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(Grid);
 
-export {GridWrapper as Grid};
+
 

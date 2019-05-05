@@ -11,7 +11,7 @@ import {authState} from "../../reducers/auth";
 
 
 interface IProps extends RouteChildrenProps{
-    set_Token(code:string): void;
+    setToken(code:string): void;
     isAuthenticated: boolean;
     token: string
 }
@@ -21,13 +21,13 @@ interface State {
 }
 
 
-class Auth extends React.Component<IProps, any>{
+class Auth extends React.Component<IProps, State>{
     componentDidMount() {
         const { search } = this.props.location;
         const params = new URLSearchParams(search);
         const code = params.get('code');
         if(code){
-            this.props.set_Token(code);
+            this.props.setToken(code);
         }
     }
 
@@ -55,7 +55,7 @@ const mapStateToProps = (state: State):authState => ({
 
 const mapDispatchToProps = (dispatch: Dispatch<AuthAction>) => {
     return {
-        set_Token: (code: string) => dispatch(setToken(code))
+        setToken: (code: string) => dispatch(setToken(code))
     }
 };
 

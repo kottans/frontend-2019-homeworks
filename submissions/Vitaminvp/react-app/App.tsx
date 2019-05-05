@@ -31,12 +31,12 @@ const routes = [
         title: 'auth',
         exact: false,
         path: '/auth',
-        Component: (props: RouteChildrenProps) => <Auth {...props}/>
+        Component: Auth
     },
     {
         path: '/image/:id',
         exact: false,
-        Component: (props: RouteChildrenProps) => <Image {...props}/>
+        Component: Image
     },
     {
         title: 'Contacts',

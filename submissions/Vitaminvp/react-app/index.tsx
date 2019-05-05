@@ -6,23 +6,23 @@ import {Provider} from "react-redux";
 import {createStore, applyMiddleware, compose} from "redux";
 import reducers from "./reducers";
 import reduxThunk from "redux-thunk";
-import {BrowserRouter} from "react-router-dom";
+import {HashRouter} from "react-router-dom";
 
 //@ts-ignore
-//const composedEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__;
+const composedEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__;
 
 const store = createStore(
     reducers,
     compose(
         applyMiddleware(reduxThunk),
-        //composedEnhancer(),
+        composedEnhancer(),
     )
 );
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter>
+        <HashRouter>
             <App/>
-        </BrowserRouter>
+        </HashRouter>
     </Provider>, document.getElementById('root'));
 

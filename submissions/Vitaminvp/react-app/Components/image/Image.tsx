@@ -1,40 +1,50 @@
-import React, {Suspense} from "react";
+import React, {ReactElement, ReactHTMLElement, ReactNode, Suspense} from "react";
 import "./Image.scss";
 import {connect} from "react-redux";
 import {fetchImage} from "../../actions/image";
+import {Dispatch} from "redux";
+import {UnsplashState} from "../../reducers/unsplash";
+import {Image as Item} from "../../types/API";
+
 
 interface IProps {
-    item: any,
-    match: any,
-    onLoad: (id: string) => void
+    imageItem?: Item
+    match: MatchProps,
+    onLoad(id: string): void
+}
+export interface Params {
+    id: string;
 }
 
-class Image extends React.Component<IProps, {}>{
+export interface MatchProps {
+    params: Params;
+}
+
+class Image extends React.Component<IProps>{
     componentDidMount(){
         this.props.onLoad(this.props.match.params.id);
     }
     render(){
-        const {alt_description, user, urls} = this.props.item;
+        const {alt_description, user, urls} = this.props.imageItem!;
         return <Suspense fallback={<div>Loading...</div>}>
             <article >
                 <div className="info">
-                    <h2>{name}</h2>
                     <h4>{alt_description}</h4>
                     <i>{user?user.name:null}</i>
-                    <img src={urls?urls.regular:null} alt="" />
+                    <img src={urls?urls.regular:''} alt="" />
                 </div>
             </article>
         </Suspense>
     }
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: {unsplash: UnsplashState}) => {
     return {
-        item: state.unsplash.item
+        imageItem: state.unsplash.item
     }
 };
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         onLoad: (imageId: string) => {
             dispatch(fetchImage( {imageId}))
@@ -42,10 +52,9 @@ const mapDispatchToProps = (dispatch: any) => {
     }
 };
 
-const ImageWrapper = connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(Image);
 
-export {ImageWrapper as Image};
 
