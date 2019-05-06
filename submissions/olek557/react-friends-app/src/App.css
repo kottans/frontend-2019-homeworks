@@ -1,0 +1,42 @@
+.card-wrapper {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.card {
+  width: 200px;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  transition: all .2s;
+  box-shadow: 0px 0px 4px 2px #0000001f;
+}
+
+.card:hover {
+  box-shadow: 0px 1px 6px 3px #0000001f;
+}
+
+.card__image {
+  margin-bottom: 10px;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.card__image img {
+  max-width: 100%;
+}
+
+.card__info {
+  padding-bottom: 10px;
+}
+
+.card__info-row {
+  padding: 5px 10px;
+  font-size: 12px;
+}
