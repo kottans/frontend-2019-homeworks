@@ -17,19 +17,17 @@ class App extends Component {
   };
 
   getCurrentPage = async page => {
-    const result = await getList(page).then(data => {
-      this.setState({
-        list: data.results,
-        nextPageUrl: data.info.next,
-        prevPageUrl: data.info.prev
-      });
+    const result = await getList(page);
+    this.setState({
+      list: result.results,
+      nextPageUrl: result.info.next,
+      prevPageUrl: result.info.prev
     });
-    return result;
   };
 
   async componentDidMount() {
     await this.getCurrentPage(this.state.currentPageUrl);
-    await this.setState({ isLoaded: true });
+    this.setState({ isLoaded: true });
   }
 
   handleClickNext = () => {
@@ -44,8 +42,8 @@ class App extends Component {
     this.setState({ searchInputValue });
   };
 
-  performSortFilter = ({ ...args }) => {
-    this.setState({ ...args });
+  performSortFilter = args => {
+    this.setState(args);
   };
 
   runSorting = (a, b) => (a.name < b.name ? 1 : -1);
