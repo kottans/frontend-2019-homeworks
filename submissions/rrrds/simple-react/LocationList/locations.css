@@ -1,0 +1,9 @@
+.locations-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.location-item {
+  margin: 0.5em 0;
+}
