@@ -4,15 +4,15 @@ import { CardItem } from "./CardItem";
 
 class CardList extends Component {
   render() {
-    return this.props.cards !== null ? (
-      <div className="card-wrapper">
-        {this.props.cards.map((card, i) => (
-          <CardItem key={i} card={card} />
-        ))}
-      </div>
-    ) : (
-      ""
-    );
+    if (this.props.cards !== null) {
+      return (
+        <div className="card-wrapper">
+          {this.props.cards.map((card, i) => (
+            <CardItem key={i} card={card} />
+          ))}
+        </div>
+      );
+    }
   }
 }
 

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./style.scss";
 
+const statusFilter = ["All", "Alive", "Dead", "unknown"];
+const genderFilter = ["All", "Male", "Female", "unknown"];
+
 class FilterList extends Component {
   render() {
-    const statusFilter = ["All", "Alive", "Dead", "unknown"];
-    const genderFilter = ["All", "Male", "Female", "unknown"];
-
     const statusFilterRender = statusFilter.map((status, i) => (
       <label key={i} className="checkbox-label-wrapper">
         <input
@@ -39,10 +39,18 @@ class FilterList extends Component {
           />
         </section>
         <section className="sort-wrapper">
-          <button className="sort-btn" value="asc" onClick={this.props.sortDescAsc}>
+          <button
+            className="sort-btn"
+            value="asc"
+            onClick={this.props.sortDescAsc}
+          >
             Asc
           </button>
-          <button className="sort-btn" value="desc" onClick={this.props.sortDescAsc}>
+          <button
+            className="sort-btn"
+            value="desc"
+            onClick={this.props.sortDescAsc}
+          >
             Desc
           </button>
         </section>

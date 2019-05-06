@@ -11,18 +11,13 @@ const FILTER_GENDER = "gender";
 const ALL_CARDS = "All";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      list: [],
-      sort: null,
-      searchFromInput: null,
-      status: "",
-      gender: ""
-    };
-    this.status = "";
-    this.gender = "";
-  }
+  state = {
+    list: [],
+    sortList: null,
+    searchFromInput: null,
+    status: "",
+    gender: ""
+  };
 
   async componentDidMount() {
     const list = await getDataFromApi();
@@ -34,40 +29,40 @@ class App extends Component {
       item.name.toLowerCase().includes(target.value)
     );
 
-    this.setState({ sort: searchFromInput, searchFromInput });
+    this.setState({ sortList: searchFromInput, searchFromInput });
   };
 
   sortDescAsc = ({ target }) => {
-    this.setState(state => ({
-      sort: (state.sort || state.list).sort((nameA, nameB) => {
-        if (target.value === SORT_ASC) {
-          if (nameA.name < nameB.name) return -1;
-        } else if (target.value === SORT_DESC) {
-          if (nameA.name > nameB.name) return -1;
-        }
-      })
-    }));
+    const sortDescAsc = this.state.sortList || this.state.list;
+
+    sortDescAsc.sort((nameA, nameB) => {
+      if (target.value === SORT_ASC) {
+        if (nameA.name < nameB.name) return -1;
+      } else if (target.value === SORT_DESC) {
+        if (nameA.name > nameB.name) return -1;
+      }
+    });
+
+    this.setState({ sortList: sortDescAsc });
   };
 
   sortFilter = ({ target }) => {
     const { value, name } = target;
 
+    let status = this.state.status;
+    let gender = this.state.gender;
+
     if (name === FILTER_STATUS) {
-      this.status = value;
-      this.setState(state => ({
-          status: value
-      }));
+      status = value;
       if (value === ALL_CARDS) {
-        this.status = "";
+        status = "";
       }
     } else if (name === FILTER_GENDER) {
-      this.gender = value;
+      gender = value;
       if (value === ALL_CARDS) {
-        this.gender = "";
+        gender = "";
       }
     }
-
-    console.log(this.state)
 
     const state =
       this.state.searchFromInput !== null
@@ -76,23 +71,23 @@ class App extends Component {
 
     let sort;
 
-    if (this.status === "" && this.gender === "") {
+    if (status === "" && gender === "") {
       sort = this.state.searchFromInput;
-    } else if (this.status === "") {
-      sort = state.filter(item => item.gender === this.gender);
-    } else if (this.gender === "") {
-      sort = state.filter(item => item.status === this.status);
+    } else if (status === "") {
+      sort = state.filter(item => item.gender === gender);
+    } else if (gender === "") {
+      sort = state.filter(item => item.status === status);
     } else {
       sort = state.filter(
-        item => item.status === this.status && item.gender === this.gender
+        item => item.status === status && item.gender === gender
       );
     }
 
-    this.setState({ sort });
+    this.setState({ sortList: sort, status: status, gender: gender });
   };
 
   render() {
-    const { list, sort } = this.state;
+    const { list, sortList } = this.state;
 
     return (
       <div>
@@ -105,7 +100,7 @@ class App extends Component {
             sortDescAsc={this.sortDescAsc}
             sortFilter={this.sortFilter}
           />
-          <CardList cards={sort === null ? list : sort} />
+          <CardList cards={sortList === null ? list : sortList} />
         </div>
       </div>
     );
