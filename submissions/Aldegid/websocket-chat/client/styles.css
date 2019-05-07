@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 14px monospace, Helvetica, Arial;
+  background-color: #848383;
+}
+
+.main {
+  max-width: 920px;
+  height: 50vh;
+  margin: 25vh auto;
+  padding: 10px;
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+  border-radius: 4px;
+  box-shadow: 0 1px 4px #636363;
+  display: flex;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 0 0;
+}
+
+.form input {
+  flex-grow: 1;
+}
+
+.form button {
+  width: 60px;
+  margin-left: 10px;
+}
+
+.form.form--small {
+  padding-right: 10px;
+  max-width: 185px;
+}
+
+.form.form--small input {
+  max-width: 110px;
+}
+
+.scrollable {
+  overflow-y: overlay;
+  flex-grow: 1;
+}
+
+article,
+aside {
+  display: flex;
+  flex-direction: column;
+}
+
+article {
+  width: 60%;
+}
+
+aside {
+  width: 20%;
+}
+
+.username {
+  font-size: 15px;
+  background: white;
+  margin-right: 10px;
+  padding: 5px;
+  margin-bottom: 10px;
+  max-width: 180px;
+  height: 28px;
+  overflow: hidden;
+}
+
+button,
+input {
+  background: white;
+  border: none;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 4px;
+}
+
+.user__wrap {
+  text-align: center;
+}
+
+.userslist {
+  text-align: center;
+  text-align: left;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.user {
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+article {
+  padding: 0 10px;
+  border-left: 2px solid #ebf8e1;
+  border-right: 2px solid #ebf8e1;
+}
+
+.accent-span {
+  color: #fff;
+  padding: 1px 10px;
+  display: inline-block;
+}
+
+.orange {
+  background-color: #efa138;
+}
+
+.timestamp {
+  font-size: 11px;
+}
+
+.username-accent {
+  background-color: blue;
+  color: #fff;
+  padding: 1px 10px;
+  display: inline-block;
+}
+
+.username-regular {
+  background-color: #777;
+  color: #fff;
+  padding: 1px 10px;
+  display: inline-block;
+}
+
+.message-status-sent {
+  font-size: 11px;
+  color: green;
+}
+
+.message-status-pending {
+  font-size: 11px;
+  color: red;
+}

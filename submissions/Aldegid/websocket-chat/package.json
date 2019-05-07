@@ -1,0 +1,17 @@
+{
+  "name": "socket-io-chat-example",
+  "version": "0.0.1",
+  "description": "socket-io chat example",
+  "dependencies": {
+    "express": "^4.16.4",
+    "moniker": "^0.1.2",
+    "npm": "^6.9.0",
+    "socket.io": "2.2.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
