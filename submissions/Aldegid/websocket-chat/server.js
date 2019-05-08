@@ -9,6 +9,16 @@ const port = process.env.PORT || 3000;
 const io = socketIO(server);
 
 const LOCALTIME = new Date().toLocaleTimeString();
+const getCurrentTime = () => {
+  const date = new Date();
+  options = {
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    hour12: false
+  };
+  return new Intl.DateTimeFormat('en-US', options).format(date);
+};
 let msgCounter = 0;
 
 app.get('/', (req, res) => {
@@ -39,21 +49,22 @@ io.on('connection', socket => {
 
   socket.emit('name assigned', {
     name: socket.username,
-    timestamp: LOCALTIME
+    timestamp: getCurrentTime()
   });
   socket.join(socket.room);
 
   socket.to(socket.room).emit('user joined', {
     name: socket.username,
-    timestamp: LOCALTIME
+    timestamp: getCurrentTime()
   });
   io.to(socket.room).emit('users list', getConnectedClients(socket.room));
 
   socket.on('disconnect', () => {
     io.to(socket.room).emit('user left', {
       name: socket.username,
-      timestamp: LOCALTIME
+      timestamp: getCurrentTime()
     });
+    io.to(socket.room).emit('users list', getConnectedClients(socket.room));
   });
 
   socket.on('chat message', message => {
@@ -62,20 +73,20 @@ io.on('connection', socket => {
       socket.to(socket.room).emit('chat message', {
         name: socket.username,
         message,
-        timestamp: LOCALTIME
+        timestamp: getCurrentTime()
       });
       socket.emit('change status', {
         messageStatus: 'sent',
         name: socket.username,
         message,
-        timestamp: LOCALTIME,
+        timestamp: getCurrentTime(),
         id: msgCounter
       });
     };
     socket.emit('chat message', {
       name: socket.username,
       message,
-      timestamp: LOCALTIME,
+      timestamp: getCurrentTime(),
       id: msgCounter,
       messageStatus: 'pending'
     });
