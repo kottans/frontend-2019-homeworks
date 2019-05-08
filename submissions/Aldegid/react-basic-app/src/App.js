@@ -114,10 +114,7 @@ class App extends Component {
               </button>
             </div>
 
-            <SearchFilter
-              handleSearch={this.performSearch}
-              handleSortFilter={this.performSortFilter}
-            />
+            <SearchFilter handleSortFilter={this.performSortFilter} />
           </aside>
           <div className='users-wrap'>
             <div className='users'>

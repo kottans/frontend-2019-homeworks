@@ -1,13 +1,13 @@
 import React from 'react';
 import './searchfilter.css';
 
-const SearchFilter = ({ handleSearch, handleSortFilter }) => {
+const SearchFilter = ({ handleSortFilter }) => {
   const searchInput = 'searchInput';
   const onSearchSortFilter = ({ target }) => {
     const searchInputValue = target.name === searchInput ? target.value : '';
 
     if (target.name === searchInput) {
-      handleSearch({ searchInputValue });
+      handleSortFilter({ searchInputValue });
     }
     if (target.checked && target.type === 'radio') {
       handleSortFilter({
