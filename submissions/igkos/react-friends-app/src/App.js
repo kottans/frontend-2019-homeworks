@@ -23,7 +23,7 @@ class App extends Component {
     error: null,
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     this.getComicsData();
   }
 
@@ -50,11 +50,9 @@ class App extends Component {
     }
   };
 
-  popupTargetComics = title => {
-    if (title) {
-      const targetComics = this.state.list.find(
-        comics => comics.title === title,
-      );
+  popupTargetComics = id => {
+    if (id) {
+      const targetComics = this.state.list.find(comics => comics.id === id);
       this.setState({
         targetComics,
       });

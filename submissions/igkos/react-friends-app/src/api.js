@@ -1,22 +1,24 @@
-let url = new URL(`https://gateway.marvel.com/v1/public/comics`),
+import { removeEmptyStrings } from './utils';
+
+const url = new URL(`https://gateway.marvel.com/v1/public/comics`),
   defaultParams = {
     ts: '1',
     apikey: '1136faa63131cec339ae63058b627b70',
     hash: '7abf5f031a9f3f0031ac8c51fcfe8da0',
     format: 'comic',
     formatType: 'comic',
-    noVariants: true,
+    noVariants: false,
     hasDigitalIssue: false,
   };
 
 export const getComicsList = async params => {
-  Object.keys(params).forEach(key => {
-    if (params[key] === '') delete params[key];
-  });
+  params = removeEmptyStrings(params);
+
   const urlParams = new URLSearchParams({
     ...defaultParams,
     ...params,
   }).toString();
+
   const response = await fetch(`${url}?${urlParams}`);
   if (response.ok) {
     const results = await response.json();
