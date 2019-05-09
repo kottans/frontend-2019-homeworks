@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+img {
+  width: 200px;
+}
+.card.card__main {
+  border: none;
+  box-shadow: 0px 10px 20px -1px rgba(0,0,0,0.33)
+}
+
+.card {
+  transition: all .25s ease
+}
+
+.card:hover {
+  transform: scale(.99)
+}
+
+.card__main .card-body {
+  padding: .5rem;
+  text-align: center;
+}
+
+.card-body .list-group-item {
+  padding: 5px 10px;
+}
