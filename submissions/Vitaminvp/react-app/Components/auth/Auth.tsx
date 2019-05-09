@@ -9,9 +9,9 @@ import {config} from "../../configs";
 import "./Auth.scss";
 import {authState} from "../../reducers/auth";
 
+interface IProps extends RouteChildrenProps {
+    setToken(code: string): void;
 
-interface IProps extends RouteChildrenProps{
-    setToken(code:string): void;
     isAuthenticated: boolean;
     token: string
 }
@@ -20,13 +20,12 @@ interface State {
     auth: authState
 }
 
-
-class Auth extends React.Component<IProps, State>{
+class Auth extends React.Component<IProps> {
     componentDidMount() {
-        const { search } = this.props.location;
+        const {search} = this.props.location;
         const params = new URLSearchParams(search);
         const code = params.get('code');
-        if(code){
+        if (code) {
             this.props.setToken(code);
         }
     }
@@ -35,23 +34,23 @@ class Auth extends React.Component<IProps, State>{
         window.location.href = `${config.oAuthAll}`;
     };
 
-    render(): React.ReactNode {
-        const { isAuthenticated, token } = this.props;
+    render() {
+        const {isAuthenticated, token} = this.props;
         return <>
-            {isAuthenticated?
-                <div><h2 className={'textCenter'}>You are logged</h2><h3>Token: {token}</h3></div>
-                :<Button className="native-button" type={ButtonTypes.BUTTON} onClick={this.handleClick} >LogIn</Button>}
+            {
+                isAuthenticated
+                    ? <div><h2 className={'textCenter'}>You are logged</h2><h3>Token: {token}</h3></div>
+                    : <Button className="native-button" type={ButtonTypes.BUTTON}
+                              onClick={this.handleClick}>LogIn</Button>
+            }
         </>
     }
 };
 
-
-const mapStateToProps = (state: State):authState => ({
-        isAuthenticated: state.auth.isAuthenticated,
-        token: state.auth.token
-    });
-
-
+const mapStateToProps = (state: State): authState => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    token: state.auth.token
+});
 
 const mapDispatchToProps = (dispatch: Dispatch<AuthAction>) => {
     return {
@@ -60,5 +59,4 @@ const mapDispatchToProps = (dispatch: Dispatch<AuthAction>) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Auth);
-
 

@@ -2,9 +2,7 @@ import axios from "axios";
 import {config} from "../configs";
 import {FetchTokenResponse} from "../types/API";
 
-
-
-export const  fetchToken = async (code:string): Promise<FetchTokenResponse> => {
+export const fetchToken = async (code: string): Promise<FetchTokenResponse> => {
     const axiosConfig = {
         params: {
             client_id: config.clientId,
@@ -16,11 +14,11 @@ export const  fetchToken = async (code:string): Promise<FetchTokenResponse> => {
         }
     };
     const request = axios.create(axiosConfig);
-    const response =  await request.post(config.oAuthToken);
-    return  response.data;
-
+    const response = await request.post(config.oAuthToken);
+    return response.data;
 };
-export const  fetchCode = () => {
+
+export const fetchCode = () => {
     const axiosConfig = {
         params: {
             client_id: config.clientId,
@@ -30,8 +28,7 @@ export const  fetchCode = () => {
         }
     };
     const request = axios.create(axiosConfig);
-    const response =  request.get(config.oAuth);
-    return  response;
-
+    const response = request.get(config.oAuth);
+    return response;
 };
 

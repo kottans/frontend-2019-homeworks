@@ -33,80 +33,83 @@ interface State {
     sortingParam: string;
 }
 
-interface Target extends HTMLInputElement{
+interface Target extends HTMLInputElement {
     name: string;
     value: string;
 }
-class SearchForm extends React.Component<Props, State>{
+
+class SearchForm extends React.Component<Props, State> {
     state = {
         searchInput: '',
         filterInput: '',
         sortingParam: ''
     };
+
     componentDidMount(): void {
         const {searchInput, sortingParam} = this.props;
-        if(!searchInput)
+        if (!searchInput)
             this.props.onSubmit('cars', 1);
         this.setState({sortingParam});
     }
 
     private onFormChange = (e: SyntheticEvent<HTMLFormElement>) => {
-        const { onChange } = this.props;
+        const {onChange} = this.props;
         const target = e.target as Target;
         const targetValue = target.name === 'sortingParam' ? target.id : target.value;
         this.setState(state => ({
             ...state,
             [target.name]: targetValue
-            }), () => {
-                onChange(this.state.filterInput, this.state.sortingParam);
+        }), () => {
+            onChange(this.state.filterInput, this.state.sortingParam);
         });
     };
 
     private onSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault();
         const {searchInput} = this.state;
-        if(this.props.searchInput !== searchInput){
+        if (this.props.searchInput !== searchInput) {
             this.props.onSubmit(searchInput, 1);
         }
     };
 
-    render(){
+    render() {
         const classNames = classnames('search-form', 'native-form');
-        return <form onSubmit={this.onSubmit}  className={classNames} onChange={this.onFormChange} >
-                <div className='search'>
-                    <Input
-                        name='searchInput'
-                        type = 'text'
-                        label = 'Search'
-                    />
-                    <Button type={ButtonTypes.SUBMIT} classNames={'btn-search'} > <img src={search} alt="Search" className={'icon-search'} /></Button>
-                </div>
+        return <form onSubmit={this.onSubmit} className={classNames} onChange={this.onFormChange}>
+            <div className='search'>
                 <Input
-                    name='filterInput'
-                    type = 'text'
-                    label = 'Filter'
+                    name='searchInput'
+                    type='text'
+                    label='Search'
                 />
-                <div className='search'>
-                    <Radio
-                        id='asc'
-                        name='sortingParam'
-                        defaultChecked={this.props.sortingParam === Sort.ASC}
-                        type = 'radio'
-                        label = {<img src={asc} />}
-                    />
-                    <Radio
-                        id='desc'
-                        name='sortingParam'
-                        defaultChecked={this.props.sortingParam === Sort.DESC}
-                        type = 'radio'
-                        label = {<img src={desc} />}
-                    />
-                </div>
-            </form>
+                <Button type={ButtonTypes.SUBMIT} classNames={'btn-search'}> <img src={search} alt="Search"
+                                                                                  className={'icon-search'}/></Button>
+            </div>
+            <Input
+                name='filterInput'
+                type='text'
+                label='Filter'
+            />
+            <div className='search'>
+                <Radio
+                    id='asc'
+                    name='sortingParam'
+                    defaultChecked={this.props.sortingParam === Sort.ASC}
+                    type='radio'
+                    label={<img src={asc}/>}
+                />
+                <Radio
+                    id='desc'
+                    name='sortingParam'
+                    defaultChecked={this.props.sortingParam === Sort.DESC}
+                    type='radio'
+                    label={<img src={desc}/>}
+                />
+            </div>
+        </form>
     }
 }
 
-const mapStateToProps = (state: {unsplash: State}) => {
+const mapStateToProps = (state: { unsplash: State }) => {
     return {
         searchInput: state.unsplash.searchInput,
         sortingParam: state.unsplash.sortingParam
@@ -116,7 +119,7 @@ const mapStateToProps = (state: {unsplash: State}) => {
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         onSubmit: (searchInput: string, currentPage: number) => {
-           dispatch(fetchInitItems( {searchInput, currentPage}))
+            dispatch(fetchInitItems({searchInput, currentPage}))
         },
         onChange: (filterInput: string, sortingParam: string) => {
             dispatch(filterActionCreator({filterInput: filterInput, sortingParam: sortingParam}))

@@ -1,11 +1,10 @@
-import React, {ReactElement, ReactHTMLElement, ReactNode, Suspense} from "react";
+import React, {Suspense} from "react";
 import "./Image.scss";
 import {connect} from "react-redux";
 import {fetchImage} from "../../actions/image";
 import {Dispatch} from "redux";
 import {UnsplashState} from "../../reducers/unsplash";
 import {Image as Item} from "../../types/API";
-
 
 interface IProps {
     imageItem?: Item
@@ -25,16 +24,21 @@ class Image extends React.Component<IProps>{
         this.props.onLoad(this.props.match.params.id);
     }
     render(){
-        const {alt_description, user, urls} = this.props.imageItem!;
-        return <Suspense fallback={<div>Loading...</div>}>
-            <article >
-                <div className="info">
-                    <h4>{alt_description}</h4>
-                    <i>{user?user.name:null}</i>
-                    <img src={urls?urls.regular:''} alt="" />
-                </div>
-            </article>
-        </Suspense>
+        if(this.props.imageItem){
+            const {alt_description, user, urls} = this.props.imageItem;
+            return <Suspense fallback={<div>Loading...</div>}>
+                <article >
+                    <div className="info">
+                        <h4>{alt_description}</h4>
+                        <i>{user?user.name:null}</i>
+                        <img src={urls?urls.regular:''} alt="" />
+                    </div>
+                </article>
+            </Suspense>
+        } else {
+            return null;
+        }
+
     }
 }
 
@@ -56,5 +60,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(Image);
-
-

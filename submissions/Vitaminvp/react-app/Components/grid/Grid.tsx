@@ -29,10 +29,11 @@ class Grid extends React.PureComponent<Props, {}> {
 
     private handleFilter() {
         const {items, filterInput} = this.props;
-        return  [...items as Array<Image>].filter(item => {
+        return [...items as Array<Image>].filter(item => {
             return item.alt_description.toLowerCase().includes(filterInput.toLowerCase());
         });
     };
+
     private handleSort() {
         const {items, sortingParam} = this.props;
         const sorting = (a: { alt_description: string }, b: { alt_description: string }): number => (a.alt_description > b.alt_description ? 1 : -1);

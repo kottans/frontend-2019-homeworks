@@ -14,7 +14,7 @@ export interface UnsplashState {
     sortingParam?: string
 }
 
-const INITIAL_STATE={
+const INITIAL_STATE = {
     items: [],
     total: 0,
     totalPages: 0,
@@ -25,19 +25,19 @@ const INITIAL_STATE={
 };
 
 export const unsplash = (state: UnsplashState = INITIAL_STATE, action: Action<ActionTypes, any>) => {
-    switch(action.type) {
+    switch (action.type) {
         case ActionTypes.SUBMIT:
-            return { ...state, ...action.payload };
+            return {...state, ...action.payload};
 
         case ActionTypes.FETCH:
             const items = [...state.items, ...action.payload.items];
-            return { ...state, ...action.payload, items };
+            return {...state, ...action.payload, items};
 
         case ActionTypes.FILTER:
-            return { ...state, ...action.payload };
+            return {...state, ...action.payload};
 
         case ActionTypes.IMAGE:
-            return { ...state, item: action.payload };
+            return {...state, item: action.payload};
 
         default:
             return state;

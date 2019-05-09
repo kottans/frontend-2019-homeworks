@@ -15,18 +15,18 @@ interface IState {
     value: string,
 }
 
-export class GridItem extends React.Component<IProps, IState>{
+export class GridItem extends React.Component<IProps, IState> {
 
-    render(){
-        const { url, likes, link, description, classNames, height, id } = this.props;
+    render() {
+        const {url, likes, link, description, classNames, height, id} = this.props;
         const titleStyle = {
             height: `${height}px`,
         };
 
         return <article className={classNames}>
-            <a className="title" href={`#/image/${id}`} style={titleStyle}>{ description }</a>
+            <a className="title" href={`#/image/${id}`} style={titleStyle}>{description}</a>
             <div className="image">
-                <img src={url} alt="" />
+                <img src={url} alt=""/>
             </div>
         </article>
     }
