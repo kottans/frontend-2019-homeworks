@@ -1,2 +1,1 @@
-export  * from  "./dev.config";
-
+export * from "./dev.config";

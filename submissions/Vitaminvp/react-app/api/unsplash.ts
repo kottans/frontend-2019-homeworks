@@ -20,16 +20,15 @@ const optionsId = axios.create({
 });
 
 export const getImages = async (searchInput: string, currentPage: number) => {
-    const axiosConfig = {
-        params: {
-            query: searchInput,
-            page: currentPage
-        }
-    };
-    const response = await options.get<SearchResponse>(apiUrl, axiosConfig);
-    const {total, total_pages: totalPages, results: items} = response.data;
-    return {total, totalPages, items};
-
+  const axiosConfig = {
+    params: {
+      query: searchInput,
+      page: currentPage
+    }
+  };
+  const response = await options.get<SearchResponse>(apiUrl, axiosConfig);
+  const { total, total_pages: totalPages, results: items } = response.data;
+  return { total, totalPages, items };
 };
 
 const unsplash = new Unsplash({

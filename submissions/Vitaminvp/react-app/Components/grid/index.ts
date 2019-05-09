@@ -1,5 +1,5 @@
 import Grid from "./Grid";
-export {Grid};
+export { Grid };
 
 
 

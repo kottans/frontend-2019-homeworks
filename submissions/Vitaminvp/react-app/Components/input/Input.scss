@@ -7,34 +7,34 @@ $accent-color: olivedrab;
 }
 
 .input__native-input {
-  font-size:18px;
-  padding:10px 10px 10px 5px;
-  display:block;
-  width:300px;
-  border:none;
-  border-bottom:1px solid #757575;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #757575;
   color: transparent;
-  &:focus{
+  &:focus {
     color: #333;
-    outline: none
+    outline: none;
   }
 }
 
 .input__native-label {
-  font-family: 'Lobster', cursive;
-  color:#999;
-  font-size:18px;
-  font-weight:normal;
-  position:absolute;
-  pointer-events:none;
-  left:5px;
-  top:10px;
-  transition:0.2s ease all;
+  font-family: "Lobster", cursive;
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
 }
 
 .input__native-input:focus ~ .input__native-label {
-  top:-20px;
-  font-size:14px;
+  top: -20px;
+  font-size: 14px;
   color: $accent-color;
 }
 
@@ -44,21 +44,21 @@ $accent-color: olivedrab;
   width: 320px;
   height: 1px;
   &:before,
-  &:after{
-    content:'';
-    height:2px;
-    width:0;
-    bottom:1px;
-    position:absolute;
-    background:$accent-color;
-    transition:0.2s ease all;
+  &:after {
+    content: "";
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: $accent-color;
+    transition: 0.2s ease all;
   }
 
-  &:before{
+  &:before {
     left: 50%;
   }
 
-  &:after{
+  &:after {
     right: 50%;
   }
 }
@@ -69,16 +69,15 @@ $accent-color: olivedrab;
 }
 
 .input__native-highlight {
-  position:absolute;
-  height:60%;
-  width:100px;
-  top:25%;
-  left:0;
-  pointer-events:none;
-  opacity:0.5;
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .input__native-input:focus ~ .input__native-highlight {
-
-  animation:inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
 }

@@ -7,14 +7,15 @@
   border-width: 0;
   outline: none;
   border-radius: 2px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
   background-color: olivedrab;
   color: #ecf0f1;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
   cursor: pointer;
 }
 
-.native-button:hover, .native-button:focus {
+.native-button:hover,
+.native-button:focus {
   background-color: olivedrab;
 }
 
@@ -36,16 +37,16 @@
   width: 0;
   padding-top: 0;
   border-radius: 100%;
-  background-color: rgba(236, 240, 241, .3);
+  background-color: rgba(236, 240, 241, 0.3);
   transform: translate(-50%, -50%);
 }
 
 .native-button:active:before {
   width: 120%;
   padding-top: 120%;
-  transition: width .2s ease-out, padding-top .2s ease-out;
+  transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
-.btn-search{
+.btn-search {
   background-color: transparent;
   border: none;
   position: absolute;
@@ -53,7 +54,7 @@
   top: 4px;
   right: 16px;
 }
-.icon-search{
+.icon-search {
   width: 35px;
   outline: none;
 }
