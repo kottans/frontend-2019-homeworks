@@ -10,6 +10,7 @@ const iconList = {
   snow: "13",
   mist: "50"
 };
+const hours = new Date().getHours();
 
 const MORNING_SKY = "#d7e8fd";
 const AFTERNOON_SKY = "#6ba6f9";
@@ -26,15 +27,6 @@ const ERROR_404 = "404";
 function render(ctx, { height, width, weather }) {
   requestAnimationFrame(() => render(ctx, { width, height, weather }));
   let start = performance.now();
-  const hours = new Date().getHours();
-
-  if (6 <= hours && hours <= 11) {
-    ctx.fillStyle = MORNING_SKY;
-  } else if (12 <= hours && hours <= 20) {
-    ctx.fillStyle = AFTERNOON_SKY;
-  } else {
-    ctx.fillStyle = NIGHT_SKY;
-  }
 
   ctx.fillRect(0, 0, width, height);
 
@@ -59,7 +51,6 @@ function render(ctx, { height, width, weather }) {
         break;
       case iconList.brokenClouds[0]:
       case iconList.brokenClouds[1]:
-        console.log(true);
         drawClouds(width / 2, 140, CLOUD);
         break;
       case iconList.rain[0]:
@@ -232,6 +223,13 @@ function render(ctx, { height, width, weather }) {
 export default class Weather extends React.PureComponent {
   componentDidMount() {
     this.ctx = this.canvas.getContext("2d");
+    if (6 <= hours && hours <= 11) {
+      this.ctx.fillStyle = MORNING_SKY;
+    } else if (12 <= hours && hours <= 20) {
+      this.ctx.fillStyle = AFTERNOON_SKY;
+    } else {
+      this.ctx.fillStyle = NIGHT_SKY;
+    }
     render(this.ctx, this.props);
   }
   componentDidUpdate() {
