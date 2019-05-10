@@ -1,0 +1,19 @@
+.comics-wrapper {
+  margin: 20px;
+  width: 200px;
+  box-shadow: 9px 7px 40px -6px rgba(0, 0, 0, 0.25);
+  .image {
+    padding: 10px;
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  transform: scale(1);
+  transition: 0.6s ease;
+  cursor: pointer;
+}
+.comics-wrapper:hover {
+  transform: scale(1.2);
+}

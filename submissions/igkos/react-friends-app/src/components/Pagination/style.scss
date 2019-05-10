@@ -1,0 +1,13 @@
+.pagination_list {
+  align-self: flex-end;
+  display: flex;
+  list-style-type: none;
+  li {
+    margin: 10px;
+    cursor: pointer;
+  }
+  .pagination_selected-list-item {
+    color: tomato;
+    font-weight: bold;
+  }
+}
