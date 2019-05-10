@@ -35,12 +35,13 @@ class Characters extends Component {
 
   handlePaginationClick = async event => {
     const clickedPageNumber = +event.target.textContent;
-    const reqAttributes = this.getObjectForRequest(this.state);
 
     await this.setState({
       isLoaded: false,
       currentPage: clickedPageNumber
     });
+
+    const reqAttributes = this.getObjectForRequest(this.state);
 
     const list = await getCharacters(reqAttributes);
 
@@ -78,7 +79,7 @@ class Characters extends Component {
     name: search,
     gender,
     species,
-    currentPage
+    page: currentPage
   });
 
   render() {
@@ -92,39 +93,41 @@ class Characters extends Component {
       pages
     } = this.state;
 
-    return (
-      <div>
-        {!isLoaded ? (
+    if (!isLoaded) {
+      return (
+        <div>
           <div className="preloader">
             <img src={loaderImage} alt="spinner" />
           </div>
-        ) : (
-          <>
-            <Filters
-              handleSubmit={this.handleFormSubmit}
-              handleChange={this.handleInputChange}
-              searchValue={search}
-              genderValue={gender}
-              speciesValue={species}
+        </div>
+      );
+    }
+
+    return (
+      <div>
+        <Filters
+          handleSubmit={this.handleFormSubmit}
+          handleChange={this.handleInputChange}
+          searchValue={search}
+          genderValue={gender}
+          speciesValue={species}
+        />
+        <div className="characters characters-background">
+          {characters.map(character => (
+            <Character
+              key={character.id}
+              imageSrc={character.image}
+              name={character.name}
+              species={character.species}
+              gender={character.gender}
             />
-            <div className="characters characters-background">
-              {characters.map(character => (
-                <Character
-                  key={character.id}
-                  imageSrc={character.image}
-                  name={character.name}
-                  species={character.species}
-                  gender={character.gender}
-                />
-              ))}
-            </div>
-            <Pagination
-              handleClick={this.handlePaginationClick}
-              currentPage={currentPage}
-              pages={pages}
-            />
-          </>
-        )}
+          ))}
+        </div>
+        <Pagination
+          handleClick={this.handlePaginationClick}
+          currentPage={currentPage}
+          pages={pages}
+        />
       </div>
     );
   }

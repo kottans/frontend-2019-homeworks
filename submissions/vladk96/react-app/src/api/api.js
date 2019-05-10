@@ -1,5 +1,5 @@
 const URLS = {
-  characters: 'https://rickandmortyapi.com/api/character/',
+  characters: 'https://rickandmortyapi.com/api/character/?',
   locations: 'https://rickandmortyapi.com/api/location',
   episodes: 'https://rickandmortyapi.com/api/episode',
 }
@@ -13,27 +13,27 @@ const getData = async url => {
 }
 
 const getCurrentPage = (pagePrevLink) => {
-  return pagePrevLink ? 1 : +pagePrevLink + 1;
+  return pagePrevLink ? 1 : +(pagePrevLink + 1);
 }
 
 const createLinkForRequest = (objAttributes, url) => {
-  if (objAttributes) {
-    url += '?';
+  let searchParams = new URLSearchParams();
 
+  if (objAttributes) {
     Object.keys(objAttributes).forEach(property => {
       if (objAttributes[property]) {
-        url += `&${property}=${objAttributes[property]}`;
+        searchParams.set(property, objAttributes[property]);
       }
     })
   }
 
-  return url;
+  return url + searchParams.toString();
 }
 
 export const getCharacters = async (objAttributes, url = URLS.characters) => {
-  const createdUrl = createLinkForRequest(objAttributes, url);
+  const createdUrl = await createLinkForRequest(objAttributes, url);
   const data = await getData(createdUrl);
-  const currentPage = await getCurrentPage(data.info.prev);
+  const currentPage = getCurrentPage(data.info.prev);
 
   data.info.currentPage = currentPage;
   
