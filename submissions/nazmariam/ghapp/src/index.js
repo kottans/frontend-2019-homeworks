@@ -139,5 +139,3 @@ ReactDOM.render(<App />, rootElement);
 //   renderer.render(scene, camera);
 //   requestAnimationFrame(render);
 // }
-
-

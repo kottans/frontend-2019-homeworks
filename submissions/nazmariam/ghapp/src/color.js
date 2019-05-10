@@ -1,107 +1,106 @@
 const COLOR = {
+  null: "#bbdb93",
 
-    'null':'#bbdb93',
+  mixed: "#bbdb93",
 
-    'mixed':'#bbdb93',
+  HTML: "#4e6779",
 
-    'HTML': '#4e6779',
+  JavaScript: "#39675a",
 
-    'JavaScript': '#39675a',
+  Java: "#b4c3a8",
 
-    'Java': '#b4c3a8',
+  Python: "#4f3717",
 
-    'Python': '#4f3717',
+  CSS: "#84a580",
 
-    'CSS': '#84a580',
+  PHP: "#b4c2a5",
 
-    'PHP': '#b4c2a5',
+  Ruby: "#1e3c49",
 
-    'Ruby': '#1e3c49',
+  "C++": "#392810",
 
-    'C++': '#392810',
+  "C#": "#1e3c49",
 
-    'C#': '#1e3c49',
+  Shell: "#4e84e6",
 
-    'Shell': '#4e84e6',
+  C: "#6b8ea3",
 
-    'C': '#6b8ea3',
+  "Objective - C": "#5b565b",
 
-    'Objective - C': '#5b565b',
+  R: "#5cb8b4",
 
-    'R': '#5cb8b4',
+  VimL: "#fff",
 
-    'VimL': '#fff',
+  Go: "#264b3e",
 
-    'Go': '#264b3e',
+  Perl: "#64a896",
 
-    'Perl': '#64a896',
+  CoffeeScript: "#2f5f75",
 
-    'CoffeeScript':'#2f5f75',
+  TeX: "#2a5466",
 
-    'TeX':'#2a5466',
+  Swift: "#744c25",
 
-    'Swift':'#744c25',
+  Scala: "#1f170b",
 
-    'Scala':'#1f170b',
+  Emacs: "#4e6779",
 
-    'Emacs': '#4e6779',
+  Lisp: "#1a342b",
 
-    'Lisp': '#1a342b',
+  Haskell: "#061412",
 
-    'Haskell':'#061412',
+  Lua: "#376957",
 
-    'Lua':'#376957',
+  Clojure: "#2d2d2d",
 
-    'Clojure':'#2d2d2d',
+  Matlab: "#666666",
 
-    'Matlab':'#666666',
+  Arduino: "#39675a",
 
-    'Arduino':'#39675a',
+  Groovy: "#b4c3a8",
 
-    'Groovy': '#b4c3a8',
+  Puppet: "#4f3717",
 
-    'Puppet': '#4f3717',
+  Rust: "#84a580",
 
-    'Rust':'#84a580',
+  PowerShell: "#1e3c49",
 
-    'PowerShell':'#1e3c49',
+  Erlang: "#4f3717",
 
-    'Erlang': '#4f3717',
+  "Visual Basic": "#39675a",
 
-    'Visual Basic':'#39675a',
+  Processing: "#1e3c49",
 
-    'Processing':'#1e3c49',
+  Assembly: "#b4c3a8",
 
-    'Assembly': '#b4c3a8',
+  TypeScript: "#4e84e6",
 
-    'TypeScript': '#4e84e6',
+  XSLT: "#84a580",
 
-    'XSLT':'#84a580',
+  ActionScript: "#1e3c49",
 
-    'ActionScript':'#1e3c49',
+  ASP: "#b4c3a8",
 
-    'ASP': '#b4c3a8',
+  OCaml: "#4e84e6",
 
-    'OCaml': '#4e84e6',
+  D: "#4f3717",
 
-    'D': '#4f3717',
+  Scheme: "#4e84e6",
 
-    'Scheme': '#4e84e6',
+  Dart: "#1e3c49",
 
-    'Dart':'#1e3c49',
+  Julia: "#4e84e6",
 
-    'Julia': '#4e84e6',
+  F: "#84a580",
 
-    'F':'#84a580',
+  Elixir: "#1e3c49",
 
-    'Elixir':'#1e3c49',
+  FORTRAN: "#b4c3a8",
 
-    'FORTRAN': '#b4c3a8',
+  Haxe: "#4f3717",
 
-    'Haxe': '#4f3717',
+  Racket: "#39675a",
 
-    'Racket':'#39675a',
-
-    'Logos':'#84a580',
+  Logos: "#84a580"
 };
-export default {COLOR}
+export default { COLOR };
