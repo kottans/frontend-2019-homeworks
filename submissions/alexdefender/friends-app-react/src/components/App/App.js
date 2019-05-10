@@ -33,7 +33,12 @@ class App extends Component {
   };
 
   sortDescAsc = ({ target }) => {
-    const sortDescAsc = this.state.sortList || this.state.list;
+    const { sortList, list } = this.state;
+
+    let sortDescAsc;
+    sortList !== null
+      ? (sortDescAsc = sortList.slice())
+      : (sortDescAsc = list.slice());
 
     sortDescAsc.sort((nameA, nameB) => {
       if (target.value === SORT_ASC) {
@@ -49,8 +54,7 @@ class App extends Component {
   sortFilter = ({ target }) => {
     const { value, name } = target;
 
-    let status = this.state.status;
-    let gender = this.state.gender;
+    let { status, gender } = this.state;
 
     if (name === FILTER_STATUS) {
       status = value;
@@ -83,7 +87,7 @@ class App extends Component {
       );
     }
 
-    this.setState({ sortList: sort, status: status, gender: gender });
+    this.setState({ sortList: sort, status, gender });
   };
 
   render() {
