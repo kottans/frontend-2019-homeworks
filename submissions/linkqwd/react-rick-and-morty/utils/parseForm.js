@@ -1,15 +1,22 @@
 export default form => {
-  const additionalInputsToParse = {
+  const ADDITIONALINPUTS = {
     searchInput: "search"
   };
 
-  return Object.entries(form)
-    .filter(item => (item[1].name ? item : null))
-    .map(item => {
-      return item[1].checked ||
-        item[1].type === additionalInputsToParse.searchInput
-        ? { name: item[1].name, value: item[1].value }
-        : null;
-    })
-    .filter(item => (item ? item : null));
+  const formNodeElements = Object.entries(form).map(element => element[1]);
+
+  const checkIfElementHasNameAttr = element => {
+    return element.name ? element : null;
+  };
+
+  const returnCheckedElement = element => {
+    return element.checked || element.type === ADDITIONALINPUTS.searchInput
+      ? { name: element.name, value: element.value }
+      : null;
+  };
+
+  return formNodeElements
+    .filter(checkIfElementHasNameAttr)
+    .map(returnCheckedElement)
+    .filter(item => item);
 };

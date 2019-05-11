@@ -1,5 +1,5 @@
 export default function(arg) {
-  const apiPaths = {
+  const APIPATHS = {
     ApiCharactersCall: "https://rickandmortyapi.com/api/character"
   };
 
@@ -13,5 +13,5 @@ export default function(arg) {
     }
   }
 
-  return query(`${apiPaths.ApiCharactersCall}${arg}`);
+  return query(`${APIPATHS.ApiCharactersCall}${arg}`);
 }
