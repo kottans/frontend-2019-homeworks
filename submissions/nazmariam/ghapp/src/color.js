@@ -1,106 +1,107 @@
 const COLOR = {
-  null: "#bbdb93",
 
-  mixed: "#bbdb93",
+    'null':'#bbdb93',
 
-  HTML: "#4e6779",
+    'mixed':'#bbdb93',
 
-  JavaScript: "#39675a",
+    'HTML': '#4e6779',
 
-  Java: "#b4c3a8",
+    'JavaScript': '#39675a',
 
-  Python: "#4f3717",
+    'Java': '#b4c3a8',
 
-  CSS: "#84a580",
+    'Python': '#4f3717',
 
-  PHP: "#b4c2a5",
+    'CSS': '#84a580',
 
-  Ruby: "#1e3c49",
+    'PHP': '#b4c2a5',
 
-  "C++": "#392810",
+    'Ruby': '#1e3c49',
 
-  "C#": "#1e3c49",
+    'C++': '#392810',
 
-  Shell: "#4e84e6",
+    'C#': '#1e3c49',
 
-  C: "#6b8ea3",
+    'Shell': '#4e84e6',
 
-  "Objective - C": "#5b565b",
+    'C': '#6b8ea3',
 
-  R: "#5cb8b4",
+    'Objective - C': '#5b565b',
 
-  VimL: "#fff",
+    'R': '#5cb8b4',
 
-  Go: "#264b3e",
+    'VimL': '#fff',
 
-  Perl: "#64a896",
+    'Go': '#264b3e',
 
-  CoffeeScript: "#2f5f75",
+    'Perl': '#64a896',
 
-  TeX: "#2a5466",
+    'CoffeeScript':'#2f5f75',
 
-  Swift: "#744c25",
+    'TeX':'#2a5466',
 
-  Scala: "#1f170b",
+    'Swift':'#744c25',
 
-  Emacs: "#4e6779",
+    'Scala':'#1f170b',
 
-  Lisp: "#1a342b",
+    'Emacs': '#4e6779',
 
-  Haskell: "#061412",
+    'Lisp': '#1a342b',
 
-  Lua: "#376957",
+    'Haskell':'#061412',
 
-  Clojure: "#2d2d2d",
+    'Lua':'#376957',
 
-  Matlab: "#666666",
+    'Clojure':'#2d2d2d',
 
-  Arduino: "#39675a",
+    'Matlab':'#666666',
 
-  Groovy: "#b4c3a8",
+    'Arduino':'#39675a',
 
-  Puppet: "#4f3717",
+    'Groovy': '#b4c3a8',
 
-  Rust: "#84a580",
+    'Puppet': '#4f3717',
 
-  PowerShell: "#1e3c49",
+    'Rust':'#84a580',
 
-  Erlang: "#4f3717",
+    'PowerShell':'#1e3c49',
 
-  "Visual Basic": "#39675a",
+    'Erlang': '#4f3717',
 
-  Processing: "#1e3c49",
+    'Visual Basic':'#39675a',
 
-  Assembly: "#b4c3a8",
+    'Processing':'#1e3c49',
 
-  TypeScript: "#4e84e6",
+    'Assembly': '#b4c3a8',
 
-  XSLT: "#84a580",
+    'TypeScript': '#4e84e6',
 
-  ActionScript: "#1e3c49",
+    'XSLT':'#84a580',
 
-  ASP: "#b4c3a8",
+    'ActionScript':'#1e3c49',
 
-  OCaml: "#4e84e6",
+    'ASP': '#b4c3a8',
 
-  D: "#4f3717",
+    'OCaml': '#4e84e6',
 
-  Scheme: "#4e84e6",
+    'D': '#4f3717',
 
-  Dart: "#1e3c49",
+    'Scheme': '#4e84e6',
 
-  Julia: "#4e84e6",
+    'Dart':'#1e3c49',
 
-  F: "#84a580",
+    'Julia': '#4e84e6',
 
-  Elixir: "#1e3c49",
+    'F':'#84a580',
 
-  FORTRAN: "#b4c3a8",
+    'Elixir':'#1e3c49',
 
-  Haxe: "#4f3717",
+    'FORTRAN': '#b4c3a8',
 
-  Racket: "#39675a",
+    'Haxe': '#4f3717',
 
-  Logos: "#84a580"
+    'Racket':'#39675a',
+
+    'Logos':'#84a580',
 };
-export default { COLOR };
+export default {COLOR}
