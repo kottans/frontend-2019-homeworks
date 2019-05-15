@@ -6,7 +6,7 @@ const Filters = props => {
   return (
     <form onSubmit={props.handleSubmit} className="filter-form">
       <input
-        name="search"
+        name="name"
         type="text"
         className="filter-search"
         placeholder="Enter name"

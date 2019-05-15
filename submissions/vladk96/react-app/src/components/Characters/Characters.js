@@ -14,11 +14,11 @@ import "./Characters.css";
 
 class Characters extends Component {
   state = {
-    search: "",
+    name: "",
     gender: "",
     species: "",
     characters: [],
-    currentPage: 1,
+    page: 1,
     isLoaded: false
   };
 
@@ -28,28 +28,28 @@ class Characters extends Component {
     this.setState({
       characters: list.results,
       pages: list.info.pages,
-      currentPage: list.info.currentPage,
       isLoaded: true
     });
   }
 
-  handlePaginationClick = async event => {
+  handlePaginationClick = event => {
     const clickedPageNumber = +event.target.textContent;
 
-    await this.setState({
-      isLoaded: false,
-      currentPage: clickedPageNumber
-    });
+    this.setState(
+      {
+        isLoaded: false,
+        page: clickedPageNumber
+      },
+      async () => {
+        const list = await this.fetchCharacters();
 
-    const reqAttributes = this.getObjectForRequest(this.state);
-
-    const list = await getCharacters(reqAttributes);
-
-    this.setState({
-      characters: list.results,
-      pages: list.info.pages,
-      isLoaded: true
-    });
+        this.setState({
+          characters: list.results,
+          pages: list.info.pages,
+          isLoaded: true
+        });
+      }
+    );
   };
 
   handleInputChange = event => {
@@ -58,38 +58,42 @@ class Characters extends Component {
     this.setState({ [name]: value });
   };
 
-  handleFormSubmit = async event => {
-    const reqAttributes = this.getObjectForRequest(this.state);
-
+  handleFormSubmit = event => {
     event.preventDefault();
 
-    this.setState({ isLoaded: false });
+    this.setState(
+      {
+        isLoaded: false,
+        page: 1
+      },
+      async () => {
+        const list = await this.fetchCharacters();
 
-    const list = await getCharacters(reqAttributes);
-
-    this.setState({
-      characters: list.results,
-      pages: list.info.pages,
-      currentPage: list.info.currentPage,
-      isLoaded: true
-    });
+        this.setState({
+          characters: list.results,
+          pages: list.info.pages,
+          isLoaded: true
+        });
+      }
+    );
   };
 
-  getObjectForRequest = ({ search, gender, species, currentPage }) => ({
-    name: search,
-    gender,
-    species,
-    page: currentPage
-  });
+  fetchCharacters = () =>
+    getCharacters({
+      name: this.state.name,
+      gender: this.state.gender,
+      species: this.state.species,
+      page: this.state.page
+    });
 
   render() {
     const {
       characters,
       isLoaded,
-      search,
+      name,
       gender,
       species,
-      currentPage,
+      page,
       pages
     } = this.state;
 
@@ -108,7 +112,7 @@ class Characters extends Component {
         <Filters
           handleSubmit={this.handleFormSubmit}
           handleChange={this.handleInputChange}
-          searchValue={search}
+          searchValue={name}
           genderValue={gender}
           speciesValue={species}
         />
@@ -125,7 +129,7 @@ class Characters extends Component {
         </div>
         <Pagination
           handleClick={this.handlePaginationClick}
-          currentPage={currentPage}
+          currentPage={page}
           pages={pages}
         />
       </div>
