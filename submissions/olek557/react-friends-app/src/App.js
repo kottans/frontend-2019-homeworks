@@ -1,101 +1,100 @@
 import React, { Component } from "react";
 import getData from "./api";
 import "./App.css";
-import { Filters } from "./Filters";
+import Filters from "./Filters";
 import Character from "./Character";
 
 class App extends Component {
   state = {
     originalList: [],
     listToRender: [],
-    filteringOptions: {},
-  }
+    filteringOptions: {}
+  };
 
   async componentDidMount() {
     let data = await getData();
     this.setState({
       originalList: data.results,
-      listToRender: data.results,
+      listToRender: data.results
     });
   }
 
   searchInList = (list, option, value) => {
-    const result = list.filter((listItem) => {
+    console.log(list, option, value);
+    const result = list.filter(listItem => {
       return listItem[option].toLowerCase().includes(value.toLowerCase());
     });
     return result;
-  }
+  };
 
-  sortingList = (event) => {
+  sortingList = event => {
     event.preventDefault();
     const { listToRender } = this.state;
     const typeOfSorting = event.target.name;
     const sortedList = listToRender.sort((i, j) => {
-      if (typeOfSorting === 'sort-name-acs') {
-        return i.name > j.name ? 1 : -1;
-      } else if (typeOfSorting === 'sort-name-desc') {
-        return i.name > j.name ? -1 : 1;
-      }
+      return typeOfSorting === "sort-name-acs"
+        ? i.name.localeCompare(j.name)
+        : j.name.localeCompare(i.name);
     });
     this.setState({ listToRender: sortedList });
-  }
+  };
 
-  filterlist = (list, option, value) => {
+  filterList = (list, option, value) => {
     let result;
-    if (value === 'all') {
+    if (value === "all") {
       result = list;
-    }
-    else if (option === 'location') {
-      result = list.filter((listItem) => {
-        return listItem.location.name.toLowerCase() == value.toLowerCase();
-      });
-    }
-    else {
-      result = list.filter((listItem) => {
-        return listItem[option].toLowerCase() === value;
+    } else {
+      result = list.filter(listItem => {
+        const filteringOption =
+          option === "location" ? listItem[option].name : listItem[option];
+        return filteringOption.toLowerCase() === value.toLowerCase();
       });
     }
     return result;
-  }
+  };
 
-  generateFilteredList = (newFilteringOptions) => {
-    let listToRender = this.state.originalList;
-    const { nameSearch, genderFilter, speciesFilter, locationFilter } = newFilteringOptions;
-    if (nameSearch) {
-      listToRender = this.searchInList(listToRender, 'name', nameSearch);
-    }
-    if (genderFilter) {
-      listToRender = this.filterlist(listToRender, 'gender', genderFilter);
-    }
-    if (speciesFilter) {
-      listToRender = this.filterlist(listToRender, 'species', speciesFilter);
-    }
-    if (locationFilter) {
-      listToRender = this.filterlist(listToRender, 'location', locationFilter);
-    }
-    return listToRender;
-  }
+  generateFilteredList = filterOptions => {
+    let { originalList } = this.state;
+    Object.keys(filterOptions).forEach(filterOption => {
+      if (filterOption === "name") {
+        originalList = this.searchInList(
+          originalList,
+          filterOption,
+          filterOptions[filterOption]
+        );
+      } else {
+        originalList = this.filterList(
+          originalList,
+          filterOption,
+          filterOptions[filterOption]
+        );
+      }
+    });
+    return originalList;
+  };
 
-
-  performFiltering = (event) => {
-    const input = event.target;
-    const newFilteringOptions = Object.assign({}, this.state.filteringOptions);
-    newFilteringOptions[input.name] = input.value;
-    const newListToRender = this.generateFilteredList(newFilteringOptions);
-    this.setState({ listToRender: newListToRender, filteringOptions: newFilteringOptions });
-  }
+  performFiltering = event => {
+    const { target } = event;
+    const { filteringOptions } = this.state;
+    filteringOptions[target.name] = target.value;
+    this.setState({
+      listToRender: this.generateFilteredList(filteringOptions),
+      filteringOptions
+    });
+  };
 
   render() {
     const { listToRender } = this.state;
     return (
       <>
-        <Filters handleFilter={this.performFiltering} handleSorting={this.sortingList}></Filters>
+        <Filters
+          handleFilter={this.performFiltering}
+          handleSorting={this.sortingList}
+        />
         <div className="card-wrapper">
-          {
-            listToRender.map((character) => {
-              return <Character key={character.id} character={character} />
-            })
-          }
+          {listToRender.map(character => {
+            return <Character key={character.id} character={character} />;
+          })}
         </div>
       </>
     );
