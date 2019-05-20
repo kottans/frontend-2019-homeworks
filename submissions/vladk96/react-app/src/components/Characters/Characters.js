@@ -8,7 +8,7 @@ import { Character } from "../Character/";
 
 import { Pagination } from "../Pagination";
 
-import loaderImage from "../../images/spinner.svg";
+import { Loader } from "../Loader";
 
 import "./Characters.css";
 
@@ -97,41 +97,33 @@ class Characters extends Component {
       pages
     } = this.state;
 
-    if (!isLoaded) {
-      return (
-        <div>
-          <div className="preloader">
-            <img src={loaderImage} alt="spinner" />
-          </div>
-        </div>
-      );
-    }
-
     return (
       <div>
-        <Filters
-          handleSubmit={this.handleFormSubmit}
-          handleChange={this.handleInputChange}
-          searchValue={name}
-          genderValue={gender}
-          speciesValue={species}
-        />
-        <div className="characters characters-background">
-          {characters.map(character => (
-            <Character
-              key={character.id}
-              imageSrc={character.image}
-              name={character.name}
-              species={character.species}
-              gender={character.gender}
-            />
-          ))}
-        </div>
-        <Pagination
-          handleClick={this.handlePaginationClick}
-          currentPage={page}
-          pages={pages}
-        />
+        <Loader isLoaded={isLoaded}>
+          <Filters
+            handleSubmit={this.handleFormSubmit}
+            handleChange={this.handleInputChange}
+            searchValue={name}
+            genderValue={gender}
+            speciesValue={species}
+          />
+          <div className="characters characters-background">
+            {characters.map(character => (
+              <Character
+                key={character.id}
+                imageSrc={character.image}
+                name={character.name}
+                species={character.species}
+                gender={character.gender}
+              />
+            ))}
+          </div>
+          <Pagination
+            handleClick={this.handlePaginationClick}
+            currentPage={page}
+            pages={pages}
+          />
+        </Loader>
       </div>
     );
   }
