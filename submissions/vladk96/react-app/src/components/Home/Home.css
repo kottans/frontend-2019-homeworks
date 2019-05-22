@@ -1,0 +1,16 @@
+.home-container {
+  height: calc(100vh - 83px);
+  background: url(../../images/rickandmorty2.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.home-title {
+  width: 50%;
+  margin-top: 15%;
+  padding-left: 5%;
+}
+
+.home-title h1 {
+  color: #fff;
+}
