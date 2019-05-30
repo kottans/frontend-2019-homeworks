@@ -1,0 +1,11 @@
+.characters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 15px;
+  overflow: auto;
+}
+
+.characters h1 {
+  margin: 0;
+}

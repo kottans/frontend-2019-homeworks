@@ -1,0 +1,27 @@
+.card {
+  margin: 10px;
+  padding-bottom: 15px;
+  width: 250px;
+  color: #232f34;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px rgba(0,0,0,.12);
+}
+
+.card-image {
+  display: inline-block;
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+}
+
+.card-name {
+  margin: 10px 0 0 15px;
+  font-size: 1.3rem;
+}
+
+.card-species,
+.card-gender {
+  margin: 0 0 0 15px;
+  color: rgb(150, 144, 144);
+  font-weight: 300;
+}
