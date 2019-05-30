@@ -1,0 +1,62 @@
+.game-container {
+  background-color: #c38f64;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.cell {
+  width: 100px;
+  height: 87.5px;
+  font-size: 2em;
+  text-align: center;
+  line-height: 87.5px;
+  font-weight: 700;
+  background-color: #e7b083;
+  color: #705e50;
+  border-radius: 7px;
+  margin: 5px;
+}
+
+.cell-2,
+.cell-256 {
+  background-color: #ffe1bf;
+}
+
+.cell-4,
+.cell-512 {
+  background-color: #c36464;
+}
+
+.cell-8,
+.cell-1024 {
+  background-color: #b34f87;
+  color: #f8eacf;
+}
+
+.cell-16,
+.cell-2048 {
+  background-color: #4fb34f;
+  color: #f8eacf;
+}
+
+.cell-32,
+.cell-4096 {
+  background-color: #df6262;
+  color: #f8eacf;
+}
+
+.cell-64,
+.cell-8192 {
+  background-color: #b8753d;
+  color: #f8eacf;
+}
+
+.cell-128,
+.cell-16384 {
+  background-color: #65c665;
+}
