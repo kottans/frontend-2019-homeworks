@@ -1,0 +1,15 @@
+.card-list {
+  width: 70%;
+  flex-wrap: wrap;
+  border: 3px solid yellowgreen;
+  border-radius: 4px;
+  justify-content: center;
+  clear: both;
+}
+
+
+@media only screen and (max-width: 550px) {
+  .card-list {
+    width: 100%;
+  }
+}

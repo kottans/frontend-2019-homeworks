@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+button,
+input {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  font-family: "Roboto", sans-serif;
+}
+
+.App {
+  display: flex;
+  padding: 20px;
+}
+
+@media only screen and (max-width: 550px) {
+  .App {
+    flex-direction: column;
+  }
+}
