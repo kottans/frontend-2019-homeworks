@@ -1,0 +1,61 @@
+.filters {
+  margin-right: 40px;
+  width: 25%;
+}
+
+@media only screen and (max-width: 550px) {
+  .filters {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}
+
+.filters__form {
+  position: sticky;
+  padding-top: 10px;
+  top: 0;
+}
+.filters__item {
+  margin: 5px;
+}
+
+.btn {
+  position: relative;
+  top: 0;
+  line-height: 36px;
+  width: 78px;
+  height: 36px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin: 0 7px 11px 0;
+  background-color: #bc1939;
+  box-shadow: 0px 5px #cf6076;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background: #25bd17;
+  box-shadow: 0px 4px #53a157;
+}
+
+.btn:active {
+  box-shadow: 0px 0px #717a33;
+  top: 4px;
+}
+
+input[type="text"],
+select {
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 300px;
+  padding: 12px 0;
+  padding-left: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
