@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+
+.container {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+    background-color: lightskyblue;
+}
+
+.gameWrap {
+    border: 1px solid slateblue;
+    background-color: slateblue;
+    padding: 0px;
+    border-radius: 6px;
+}
+
+.oneBlock {
+
+
+    transition-delay: 0.05s, 0.2s;
+
+    background-color: burlywood;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 50px;
+    border-radius: 6px;
+
+}
+
+.oneBlock--unused {
+    background-color: blue;
+
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 50px;
+    border-radius: 6px;
+}
