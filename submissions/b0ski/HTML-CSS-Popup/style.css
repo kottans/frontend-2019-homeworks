@@ -1,0 +1,149 @@
+body {
+	
+	font-family: sans-serif;
+	font-weight: 100;
+	color: black;
+}
+
+.navbar {
+	display: flex;
+	justify-content: space-evenly;
+	width:300px;
+	overflow: auto;
+	float: right;
+}
+
+.navbar a {
+	float: left;
+	padding: 15px;
+	color: #737373;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.more{
+	font-size: 14px;
+	height: 30px;
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	background: #F5F5F5;
+	line-height: 30px;
+	width: 100%;
+}
+
+ #btn {
+	display: none;	
+}
+
+ #btn-2 {
+	display: none;	
+}
+
+#btn:checked ~ .overlay{
+	opacity: 1;
+	z-index: 1;	
+}
+
+#btn:checked ~ .overlay label:before{	
+	 content: 'More';		
+}
+
+#btn-2:checked ~ .overlay{
+	height: 600px;
+	width:300px;
+	right: 13px;
+	top: 60px;
+	opacity: 1;
+	z-index: 1;	
+}
+
+#btn-2:checked ~ .overlay label:before{	
+	 content: 'Less';		
+}
+
+.hide {	
+	float: left;
+	display:none;	
+}
+
+#btn-2:checked ~ .overlay .hide {		
+	display:block;
+	overflow: scroll;
+}
+
+a {
+	float: left;
+	padding: 15px;
+	color: #737373; ;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.overlay {	
+	
+	position: fixed;
+	height: 400px;
+	width: 300px;
+	right: 13px;
+	top: 60px;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+	background: white;
+	opacity: 0;
+	z-index: -3;
+}
+
+.container {
+
+	padding:30px;
+	height: 530px;
+	overflow: auto;
+}
+
+.arrow-up {
+	right:110px;
+	top:-10px;
+	position:absolute;
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid white;
+	filter: drop-shadow(0px -1px 2px rgba(0,0,0,0.25));
+}
+
+.arrow-up-2 {
+	right:110px;
+	top:-8px;
+	position:absolute;
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid white;
+	z-index: 10;
+}
+
+a img {
+padding: 5px;
+box-sizing: border-box;
+
+width: 50px;
+height: 50px;
+cursor: pointer;
+
+}
+
+a img:hover {
+
+border: 1px solid rgba(0, 0, 0, 0.1);
+
+}
+
+a img:focus {
+
+border: 1px solid rgba(143, 210, 247,1);
+
+}
+
+
